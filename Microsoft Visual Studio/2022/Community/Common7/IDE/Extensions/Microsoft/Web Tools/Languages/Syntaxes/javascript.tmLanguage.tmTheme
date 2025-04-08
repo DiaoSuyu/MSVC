@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Javascript TextMate Theme</string>
+    <key>includes</key>
+    <string>general.tmLanguage.tmTheme</string>
+    <key>settings</key>
+    <array>
+
+      <dict>
+        <key>scope</key>
+        <string>
+          source.js storage.type,
+          source.js keyword.operator.new,
+          source.js constant.language
+        </string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>keyword</string>
+        </dict>
+      </dict>
+
+      <dict>
+        <key>scope</key>
+        <string>source.js string</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>string</string>
+        </dict>
+      </dict>
+
+      <dict>
+        <key>scope</key>
+        <string>source.js keyword.control</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>keyword - control</string>
+        </dict>
+      </dict>
+
+    </array>
+    <key>uuid</key>
+    <string>B441F5F0-1801-4FCF-ACEF-5C57D606AA5A</string>
+  </dict>
+</plist>

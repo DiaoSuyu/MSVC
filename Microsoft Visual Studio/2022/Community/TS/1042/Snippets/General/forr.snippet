@@ -1,0 +1,29 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>forr</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>forr</Shortcut>
+    <Description>reverse for 루프용 코드 조각</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>index</ID>
+        <ToolTip>인덱스</ToolTip>
+        <Default>i</Default>
+      </Literal>
+      <Literal>
+        <ID>max</ID>
+        <ToolTip>최대 길이</ToolTip>
+        <Default>length</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[for (var $index$ = $max$ - 1; $index$ >= 0; $index$--) {
+    $selected$$end$
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

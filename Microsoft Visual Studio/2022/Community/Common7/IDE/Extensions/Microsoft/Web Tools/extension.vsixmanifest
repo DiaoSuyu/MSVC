@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="1D7A611D-F1E7-4E23-91D6-C64426EBE6B5" Version="17.13.124.35287" Language="en-US" Publisher="Microsoft" />
+    <Icon>WebConfiguration.png</Icon>
+    <PreviewImage>WebConfigurationPreview.png</PreviewImage>
+    <DisplayName>Microsoft ASP.NET and Web Tools</DisplayName>
+    <Description xml:space="preserve">Provides the latest Web Developer Tools for ASP.NET</Description>
+    <Tags>Visual Studio Web Developer Tools</Tags>
+    <AllowClientRole>true</AllowClientRole>
+   </Metadata>
+  <Installation InstalledByMsi="true" AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[15.0,]" />
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Languages\Microsoft.WebTools.Languages.Css.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Languages\Microsoft.WebTools.Languages.Html.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Languages\Microsoft.WebTools.Languages.Json.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Languages\Microsoft.WebTools.Languages.Shared.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="ProjectSystem\Microsoft.WebTools.ProjectSystem.Wizard.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Html.VS.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Html.VS.Colors.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Json.VS.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Shared.VS.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Extensions.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Razor.Core.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Languages\Microsoft.WebTools.Languages.Rest.VS.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Browser Link\Microsoft.WebTools.BrowserLink.Package.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Publish\Microsoft.WebTools.Publish.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Publish\Publish_VSPropertyPage_Reg.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="CodeGenerators\Microsoft.WebTools.CodeGenerators.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Project\Microsoft.VisualStudio.Web.Project.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Scaffolding\Microsoft.WebTools.Scaffolding.VS.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ProjectSystem\Microsoft.WebTools.ProjectSystem.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Aspire\Microsoft.WebTools.Aspire.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="TaskRunnerExplorer\Microsoft.WebTools.TaskRunnerExplorer.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="TaskRunnerExplorer\Microsoft.WebTools.TaskRunnerExplorer.Extensions.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Package Management\Microsoft.WebTools.PackageManagement.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Shared\Shared.Web.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="ASPX\Microsoft.VisualStudio.Web.Html.Implementation.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Browser Link\Microsoft.WebTools.BrowserLink.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Browser Link\Microsoft.WebTools.BrowserLink.Package.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="TaskRunnerExplorer\Microsoft.WebTools.TaskRunnerExplorer.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="TaskRunnerExplorer\Microsoft.WebTools.TaskRunnerExplorer.Extensions.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Publish\Microsoft.WebTools.Publish.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Publish\Microsoft.Publish.Framework.Web.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Css.Editor.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Html.Editor.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Json.Editor.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Html.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Json.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Shared.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.LanguageServer.Delegation.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Extensions.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Rest.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Microsoft.WebTools.Languages.Shared.Editor.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Languages\Razor\v4.0\Microsoft.WebTools.Languages.Razor.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="CodeGenerators\Microsoft.WebTools.CodeGenerators.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Scaffolding\Microsoft.AspNet.Scaffolding.12.0.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Scaffolding\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Scaffolding\Microsoft.WebTools.Scaffolding.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Scaffolding\Microsoft.WebTools.Scaffolding.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Scaffolding\Microsoft.WebTools.Scaffolding.Shared.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Shared\Microsoft.WebTools.Shared.Web.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="ProjectSystem\Microsoft.WebTools.ProjectSystem.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Aspire\Microsoft.WebTools.Aspire.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Aspire\Microsoft.WebTools.Aspire.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Package Management\Microsoft.WebTools.PackageManagement.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Project\Microsoft.VisualStudio.Web.Project.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="ProjectSystem\Microsoft.WebTools.ProjectSystem.Components.dll" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\Microsoft.VisualStudio.DevTunnels.ServiceHub.Service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ServiceHub\Microsoft.WebTools.PortTunneling.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\PowerPlatform\Microsoft.VisualStudio.PowerPlatform.ServiceHub.Service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ServiceHub\PowerPlatform\Microsoft.WebTools.PowerPlatform.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\AspireServer\Microsoft.VisualStudio.AspireServer.ServiceHub.Service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ServiceHub\AspireServer\Microsoft.WebTools.AspireServer.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\HttpService\Microsoft.VisualStudio.HttpService.ServiceHub.Service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ServiceHub\HttpService\Microsoft.WebTools.HttpService.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\AzDevService\Microsoft.VisualStudio.AzDevService.ServiceHub.Service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="ServiceHub\AzDevService\Microsoft.WebTools.AzDevService.pkgdef" />
+  </Assets>
+</PackageManifest>

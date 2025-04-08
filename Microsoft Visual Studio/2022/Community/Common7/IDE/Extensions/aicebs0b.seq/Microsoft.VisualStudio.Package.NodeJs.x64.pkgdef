@@ -1,0 +1,14 @@
+;; Register the locations of Node and Npm
+[$RootKey$\Microsoft.VisualStudio.Package.NodeJs]
+"NpmExecutablePath"="$BaseInstallDir$\MSBuild\Microsoft\VisualStudio\NodeJs\npm.cmd"
+"NpxExecutablePath"="$BaseInstallDir$\MSBuild\Microsoft\VisualStudio\NodeJs\npx.cmd"
+"NodeExecutablePath64"="$BaseInstallDir$\MSBuild\Microsoft\VisualStudio\NodeJs\node.exe"
+
+;
+; Runtime registrations for VS Debug Adapter Host
+;
+
+[$RootKey$\Runtimes\node-lts]
+"Name"="Node.js LTS (x64)"
+"Executable"="$BaseInstallDir$\MSBuild\Microsoft\VisualStudio\NodeJs\node.exe"
+"Arguments"="{0} {1}"

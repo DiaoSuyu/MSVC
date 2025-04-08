@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>检索作为应用程序资源的图像</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将 My Application 设计器中的图像资源分配给 PictureBox1 的 Image 属性。</Description>
+      <Shortcut>appImage</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>pictureBox</ID>
+          <Type>PictureBox</Type>
+          <ToolTip>显示图像资源的 PictureBox 对象。</ToolTip>
+          <Default>PictureBox1</Default>
+        </Object>
+        <Object>
+          <ID>resourceName</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为在 My.Application 设计器中创建的资源名称。</ToolTip>
+          <Default>ImageResource</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$pictureBox$.Image = My.Resources.$resourceName$
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

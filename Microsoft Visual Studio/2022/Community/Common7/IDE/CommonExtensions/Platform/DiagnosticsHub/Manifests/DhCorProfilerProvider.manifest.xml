@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<instrumentationManifest xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd" xmlns="http://schemas.microsoft.com/win/2004/08/events" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:trace="http://schemas.microsoft.com/win/2004/08/events/trace">
+	<instrumentation>
+		<events>
+			<provider name="DhCorProfilerProvider" guid="{8BC9E67B-CA34-4B9A-9442-8F75403F357B}" symbol="DhCorProfilerProvider" resourceFileName="None" messageFileName="None">
+				<tasks>
+					<task name="ObjectAllocation" value="1"></task>
+					<task name="DeadObjects" value="2"></task>
+					<task name="TypeDefinition" value="3"></task>
+				</tasks>
+				<events>
+					<event symbol="ObjectAllocation" value="1" version="4" template="ObjectAllocation_v4" task="ObjectAllocation"></event>
+					<event symbol="DeadObjects" value="2" version="1" template="DeadObjects_v1" task="DeadObjects"></event>
+					<event symbol="TypeDefinition" value="3" version="1" template="TypeDefinition_v1" task="TypeDefinition"></event>
+				</events>
+				<keywords>
+					<keyword name="Allocations" symbol="Allocations" mask="0x1"></keyword>
+					<keyword name="ObjectLifetime" symbol="ObjectLifetime" mask="0x2"></keyword>
+				</keywords>
+				<templates>
+					<template tid="ObjectAllocation_v1">
+						<data name="ObjectId" inType="win:Pointer" outType="win:HexInt64"></data>
+						<data name="ModuleId" inType="win:Pointer" outType="win:HexInt64"></data>
+						<data name="TypeDefToken" inType="win:UInt32" outType="xs:unsignedInt"></data>
+						<data name="Size" inType="win:UInt32" outType="xs:unsignedInt"></data>
+						<data name="IsArray" inType="win:UInt32" outType="xs:unsignedInt"></data>
+					</template>
+					<template tid="ObjectAllocation_v2">
+						<data name="ObjectId" inType="win:Pointer" outType="win:HexInt64"></data>
+						<data name="Size" inType="win:UInt32" outType="win:unsignedInt"></data>
+						<data name="TypesSize" inType="win:UInt32" outType="win:unsignedInt"></data>
+						<data name="Types" inType="win:Binary" length="TypesSize">
+							<!--
+							The code gen didn't work well when putting a variable length array inside
+							another array, so instead I defined this as a binary blob and am documenting
+							the binary blob here.
+
+							Each element in this array consists of these values:
+							<data name="ModuleId" inType="win:Pointer" outType="win:HexInt64"></data>
+							<data name="TypeDefToken" inType="win:UInt32" outType="xs:unsignedInt"></data>
+							<data name="TypeFlags" inType="win:UInt32" outType="xs:unsignedInt"></data>
+
+							Each element will also contain an array of type arg indicies that is null terminated.
+							These indicies index into the Types array and specify what types are arguments
+							for this type.
+							<data name="TypeArgIdxs" inType="win:UInt8" outType="xs:unsignedByte"></data>
+
+							== e.g. Dict<List<string>, int>
+							The first element in this array is the base type of Dict which would be located at
+							position 0 in this array and would have indicies that point to List (position 1) and
+							int (position 2).
+
+							The second element in this array would be List and would have one type arg of string
+							(position 4)
+
+							The third element in this array would be int and would not have any type arguments
+
+							The fourth element in this array would be string and would not have any type args
+							-->
+						</data>
+					</template>
+					<template tid="ObjectAllocation_v3">
+						<data name="ObjectId" inType="win:Pointer" outType="win:HexInt64"></data>
+                        <data name="Size" inType="win:UInt32" outType="win:unsignedInt"></data>
+						<data name="TypesSize" inType="win:UInt32" outType="win:unsignedInt"></data>
+						<data name="Types" inType="win:Binary" length="TypesSize">
+							<!--
+							In additional to above V2 schema, V3 also stores rank and dimension sizes of arrays.
+ 							Rank is a UInt32 written after TypeFlags(isArray), followed by dimension sizes represented as
+ 							a variable length array of UInt32.
+							-->
+						</data>
+					</template>
+                    <template tid="ObjectAllocation_v4">
+                        <data name="ObjectId" inType="win:Pointer" outType="win:HexInt64"></data>
+                        <data name="Size" inType="win:UInt32" outType="win:unsignedInt"></data>
+                        <data name="TypesSize" inType="win:UInt32" outType="win:unsignedInt"></data>
+                        <data name="Types" inType="win:Binary" length="TypesSize"></data>
+                        <data name="Generation" inType="win:UInt32" outType="win:unsignedInt"></data>
+                        <!--
+						In additional to above V3 schema, V4 also stores the generation of the allocation.
+						-->
+                    </template>
+					<template tid="DeadObjects_v1">
+						<data name="Reserve" inType="win:UInt32" outType="xs:unsignedInt"></data>
+						<data name="Count" inType="win:UInt32" outType="xs:unsignedInt"></data>
+						<data name="ObjectIds" inType="win:Pointer" outType="win:HexInt64" count="Count"></data>
+					</template>
+					<template tid="TypeDefinition_v1">
+						<data name="ModuleId" inType="win:Pointer"></data>
+						<data name="TypeId" inType="win:UInt32"></data>
+						<data name="TypeName" inType="win:UnicodeString"></data>
+						<data name="ParentTypeId" inType="win:UInt32"></data>
+						<data name="NumGenericParams" inType="win:UInt32"></data>
+						<data name="IsValueType" inType="win:Int8"></data>
+					</template>
+				</templates>
+			</provider>
+		</events>
+	</instrumentation>
+</instrumentationManifest>

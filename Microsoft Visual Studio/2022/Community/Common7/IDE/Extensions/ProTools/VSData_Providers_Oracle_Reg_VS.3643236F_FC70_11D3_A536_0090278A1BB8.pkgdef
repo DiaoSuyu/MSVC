@@ -1,0 +1,53 @@
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}]
+@=".NET Framework Data Provider for Oracle"
+"Assembly"="Microsoft.VisualStudio.Data.Providers.Oracle,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"AssociatedSource"="{E5E86CD6-6454-4fdd-910F-DC5DFC73EB45}"
+"Description"="DataProvider_Oracle_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"DescriptionEx"="DataProvider_Oracle_Description_Ex, Microsoft.VisualStudio.Data.Providers.Oracle.Properties.Resources, Microsoft.VisualStudio.Data.Providers.Oracle, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"DisplayName"="DataProvider_Oracle, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"InvariantName"="System.Data.OracleClient"
+"PlatformVersion"="2.0"
+"ShortDisplayName"="DataProvider_Oracle_Short, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Technology"="{77AB9A9D-78B9-4ba7-91AC-873F5338F1D2}"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataAsyncCommand]
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataCommand]
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataConnectionEquivalencyComparer]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionEquivalencyComparer"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataConnectionPromptDialog]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionPromptDialog"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataConnectionProperties]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionProperties"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataConnectionSupport]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionSupport"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataConnectionUIProperties]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionProperties"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataMappedObjectConverter]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleMappedObjectConverter"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataObjectIdentifierConverter]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleObjectIdentifierConverter"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataObjectIdentifierResolver]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleObjectIdentifierResolver"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataObjectMemberComparer]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleObjectMemberComparer"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataObjectSupport]
+@="Microsoft.VisualStudio.Data.Framework.DataObjectSupport"
+"Assembly"="Microsoft.VisualStudio.Data.Framework,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.Oracle.OracleObjectSupport.xml"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataSourceInformation]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleSourceInformation"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataTransaction]
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\IVsDataViewSupport]
+@="Microsoft.VisualStudio.Data.Framework.DataViewSupport"
+"AllowAsynchronousEnumerations"="true"
+"Assembly"="Microsoft.VisualStudio.Data.Framework,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"PersistentCommands"=hex(7):35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,31,00,33,00,2C,00,33,00,00,00,35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,32,00,38,00,2C,00,33,00,00,00,00,00
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.Oracle.OracleViewSupport.xml"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionProperties]
+@="Microsoft.Data.ConnectionUI.OracleConnectionProperties"
+"Assembly"="Microsoft.Data.ConnectionUI.Dialog,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+[$RootKey$\DataProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionUIControl]
+@="Microsoft.VisualStudio.Data.Providers.Oracle.OracleConnectionUIControl"
+[$RootKey$\DataSources\{E5E86CD6-6454-4fdd-910F-DC5DFC73EB45}\SupportingProviders\{8F5C5018-AE09-42cf-B2CC-2CCCC7CFC2BB}]
+"DisplayName"="DataSource_Oracle, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescription"="DataProvider_Oracle_DataSource_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescriptionEx"="DataProvider_Oracle_DataSource_Description_Ex, Microsoft.VisualStudio.Data.Providers.Oracle.Properties.Resources, Microsoft.VisualStudio.Data.Providers.Oracle, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"

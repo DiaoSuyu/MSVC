@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>对查询进行排序和筛选</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建经过排序和筛选的查询。</Description>
+      <Shortcut>qSortFilt</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的变量的标识符。</ToolTip>
+          <Default>fruit</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>New String() {"apple", "orange", "pear", "banana", "strawberry", "blueberry"}</Default>
+        </Literal>
+        <Literal>
+          <ID>field1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第一个字段。</ToolTip>
+          <Default>ToUpper()</Default>
+        </Literal>
+        <Literal>
+          <ID>field2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第二个字段。</ToolTip>
+          <Default>ToLower()</Default>
+        </Literal>
+        <Literal>
+          <ID>whereField</ID>
+          <Type>String</Type>
+          <ToolTip>替换为作为筛选依据的字段名称。</ToolTip>
+          <Default>Length</Default>
+        </Literal>
+        <Literal>
+          <ID>condition</ID>
+          <Type>String</Type>
+          <ToolTip>替换为筛选条件。</ToolTip>
+          <Default>&gt;= 5</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $queryResult$ = From $item$ In $dataSource$ _
+                     Where $item$.$whereField$ $condition$ _
+                     Select $item$.$field1$, $item$.$field2$ _
+                     Order By $field1$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

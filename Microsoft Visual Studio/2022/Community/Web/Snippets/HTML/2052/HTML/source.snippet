@@ -1,0 +1,26 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>源</Title>
+    <Author>Microsoft Corporation</Author>
+    <Description>源元素的标记段</Description>
+    <Shortcut>source</Shortcut>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>src</ID>
+        <ToolTip>源文件路径</ToolTip>
+        <Default>file.mp4</Default>
+      </Literal>
+      <Literal>
+        <ID>type</ID>
+        <ToolTip>文件的 MIME 类型</ToolTip>
+        <Default>video/mp4</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="html"><![CDATA[<source src="$src$" type=$type$ />$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

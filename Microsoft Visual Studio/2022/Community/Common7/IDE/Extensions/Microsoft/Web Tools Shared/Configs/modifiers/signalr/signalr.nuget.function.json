@@ -1,0 +1,20 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=1.0": [
+        {
+          "Id": "Microsoft.Azure.WebJobs.Extensions.SignalRService",
+          "Version": "1.15.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

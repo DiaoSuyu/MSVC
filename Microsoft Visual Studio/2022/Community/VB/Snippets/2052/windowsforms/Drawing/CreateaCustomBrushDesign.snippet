@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建自定义画笔</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用图像文件创建 TextureBrush 对象。</Description>
+      <Shortcut>drawCustBrush</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing.Drawing2D</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Filename</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"ImageFile.bmp"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim texture As New TextureBrush(Image.FromFile($Filename$))
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

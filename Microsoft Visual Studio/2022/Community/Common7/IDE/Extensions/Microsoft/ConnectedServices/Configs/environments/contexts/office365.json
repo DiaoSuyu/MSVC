@@ -1,0 +1,60 @@
+{
+  "appliesTo": {
+    "when": {
+      "kind": "and",
+      "operands": [
+        {
+          "kind": "TfmVersionComparison",
+          "tfmType": "netFramework",
+          "version": "4.5",
+          "comparison": "GreaterThan"
+        },
+        {
+          "kind": "or",
+          "operands": [
+            {
+              "kind": "and",
+              "operands": [
+                {
+                  "kind": "ProjectProperty",
+                  "propertyName": "OutputType",
+                  "expectedValue": "WinExe"
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "CSharp|VB"
+                }
+              ]
+            },
+            {
+              "kind": "and",
+              "operands": [
+                {
+                  "kind": "ProjectTypeGuid",
+                  "guid": "A5A43C5B-DE2A-4C0C-9213-0A381AF9435A"
+                },
+                {
+                  "kind": "ProjectProperty",
+                  "propertyName": "OutputType",
+                  "expectedValue": "AppContainerExe"
+                },
+                {
+                  "kind": "not",
+                  "operand": {
+                    "kind": "ProjectProperty",
+                    "propertyName": "TestProject",
+                    "expectedValue": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "ProjectTypeGuid",
+              "guid": "EFBA0AD7-5A72-4C68-AF49-83D382785DCF"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

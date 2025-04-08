@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 GraphicsPath 对象创建三角形</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>通过连接一系列点来绘制三角形。</Description>
+      <Shortcut>drawTri</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing.Drawing2D</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Location1</ID>
+          <ToolTip>替换为第一个线段的起始坐标。</ToolTip>
+          <Default>0, 0</Default>
+        </Literal>
+        <Literal>
+          <ID>Location2</ID>
+          <ToolTip>替换为第二个线段的起始坐标。</ToolTip>
+          <Default>100, 0</Default>
+        </Literal>
+        <Literal>
+          <ID>Location3</ID>
+          <ToolTip>替换为第三个线段的起始坐标。</ToolTip>
+          <Default>100, 100</Default>
+        </Literal>
+        <Literal>
+          <ID>Location4</ID>
+          <ToolTip>替换为第四个线段的起始坐标。</ToolTip>
+          <Default>0, 0</Default>
+        </Literal>
+        <Object>
+          <ID>PictureBox</ID>
+          <Type>System.Windows.Forms.PictureBox</Type>
+          <ToolTip>替换为具有 CreateGraphics 方法的对象。</ToolTip>
+          <Default>PictureBox1</Default>
+        </Object>
+        <Object>
+          <ID>Pen</ID>
+          <Type>System.Drawing.Pen</Type>
+          <ToolTip>替换为钢笔。</ToolTip>
+          <Default>Pens.Black</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim path As New GraphicsPath()
+Dim points() As Point = { _
+    New Point($Location1$), _
+    New Point($Location2$), _
+    New Point($Location3$), _
+    New Point($Location4$)}
+path.AddLines(points)
+
+Dim surface As Graphics = $PictureBox$.CreateGraphics
+surface.DrawPath($Pen$, path)
+            ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

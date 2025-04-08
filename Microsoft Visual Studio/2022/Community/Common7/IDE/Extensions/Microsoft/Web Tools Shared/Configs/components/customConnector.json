@@ -1,0 +1,8 @@
+{
+  "name": "strings:#/customConnectorComponentName",
+  "image": {
+    "guid": "ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B",
+    "id": 4
+  },
+  "description": "strings:#/customConnectorDescription"
+}

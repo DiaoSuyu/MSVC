@@ -1,0 +1,150 @@
+[$RootKey$\AutomationProperties\Projects\VBDefaults]
+@="#3131"
+"Description"="#3160"
+"Name"="VBDefaults"
+"Package"="{164B10B9-B200-11D0-8C61-00A0C91E29D5}"
+"ProfileSave"=dword:00000001
+"VsSettingsMigration"=dword:00000001
+[$RootKey$\CLSID\{2AB7EE26-16C8-11D3-A4BE-00C04F68FC81}]
+@="CVbIdentityPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{3C5F18DA-07F4-11D3-A4B6-00C04F68FC81}]
+@="CVbGeneralPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{6CEEBEB8-5A20-4D64-8AA7-C5F3AEB5B894}]
+@="CVbCommonBuildPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{93637E0D-0A63-11D3-A4B6-00C04F68FC81}]
+@="CVbDesignerDefsPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{93637E0F-0A63-11D3-A4B6-00C04F68FC81}]
+@="CVbBuildPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{93637E10-0A63-11D3-A4B6-00C04F68FC81}]
+@="CVbDebugPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{AFDE5A64-5950-4DCA-8A0B-1181BB99374B}]
+@="CVbImportsPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{B89BF4C3-3E62-41BD-A298-1D884FB33BCA}]
+@="CVbDeployPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{BF2C2CC9-DFB4-4DDD-96F9-F8EBF745C5D1}]
+@="CVbOptimizationsPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{C60CBD95-2887-400D-BF3D-9BB8D365D8AD}]
+@="CVbSharingPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{E34FA0D1-F171-4CBF-9D4E-650819A14E0D}]
+@="CVbReferencePropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\CLSID\{E5C424AC-18AB-11D3-A4BF-00C04F68FC81}]
+@="CVbCompilerPropPg Class"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+"ThreadingModel"="Apartment"
+[$RootKey$\Menus]
+"{164B10B9-B200-11D0-8C61-00A0C91E29D5}"=",4022,1"
+[$RootKey$\NewProjectTemplates\TemplateDirs\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\/1]
+@="#2143"
+"DeveloperActivity"="VB"
+"SortPriority"=dword:0000000A
+"TemplatesDir"="$ShellFolder$\VB\VBProjects"
+[$RootKey$\Packages\{164B10B9-B200-11D0-8C61-00A0C91E29D5}]
+@="Visual Basic Project System"
+"InprocServer32"="$ShellFolder$\VB\Bin\msvbprj.dll"
+[$RootKey$\Packages\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\Automation]
+"VBProjects"=""
+[$RootKey$\Packages\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\AutomationEvents]
+"VBBuildManagerEvents"="Returns the VBBuildManagerEvents Object"
+"VBImportsEvents"="Returns the VBImportsEvents Object"
+"VBProjectItemsEvents"="Returns the VBProjectItemsEvents Object"
+"VBProjectsEvents"="Returns the VBProjectsEvents Object"
+"VBReferencesEvents"="Returns the VBReferencesEvents Object"
+[$RootKey$\Packages\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\SatelliteDll]
+"DllName"="msvbprjui.dll"
+"Path"="$ShellFolder$\VB\Bin\"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}]
+"DefaultProjectExtension"="vbproj"
+"DesignerTemplatesDir"="$ShellFolder$\VB\VBWizards\DesignerTemplates"
+"DisplayProjectType(VsTemplate)"="#2143"
+"ItemTemplatesDir"="$ShellFolder$\VB\VBProjectItems"
+"Language(VsTemplate)"="VisualBasic"
+"NewProjectRequiresNewFolder(VsTemplate)"=dword:00000001
+"Package"="{164B10B9-B200-11D0-8C61-00A0C91E29D5}"
+"ProjectTemplatesDir"="$ShellFolder$\VB\VBProjects"
+"WizardsTemplatesDir"="$ShellFolder$\VB\VBWizards"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\AddItemTemplates\TemplateDirs\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\/1]
+@="#3082"
+"SortPriority"=dword:00000000
+"TemplatesDir"="$ShellFolder$\VB\VBProjectItems"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\FileExtensions\.asax]
+"EditorFactoryNotify"="{4D30FDB3-AB3E-4810-B6F2-64627BCCA384}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\FileExtensions\.ascx]
+"EditorFactoryNotify"="{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\FileExtensions\.asmx]
+"EditorFactoryNotify"="{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\FileExtensions\.aspx]
+"EditorFactoryNotify"="{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\FileExtensions\.vb]
+"EditorFactoryNotify"="{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\Filters\Common Files]
+@="#2710"
+"CommonFindFilesFilter"=dword:00000001
+"NotAddExistingItemFilter"=dword:00000001
+"NotOpenFileFilter"=dword:00000001
+"SortPriority"=dword:00000064
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\Filters\Script Files]
+@="#2732"
+"SortPriority"=dword:00000640
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\Filters\VB Code Files]
+@="#2072"
+"CommonOpenFilesFilter"=dword:00000001
+"SortPriority"=dword:000003E8
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\ImportTemplates]
+"ClassLibProjectFile"="ImportClassLibrary.vbproj"
+"ConsoleAppProjectFile"="ImportConsoleApplication.vbproj"
+"ImportProjectsDir"="$ShellFolder$\Common7\IDE\ImportProjects\VB"
+"ProjectType"="#3132"
+"WindowsAppProjectFile"="ImportWindowsApplication.vbproj"
+"WizardPageObjectAssembly"="Microsoft.VisualStudio.ImportProjectFolderWizard,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"WizardPageObjectClass"="Microsoft.VsWizards.ImportProjectFolderWizard.Managed.PageManager"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\MSBuildHostObjects\DesignTimeMarkupCompilationCT;CompileXaml]
+@="{E2905C7C-4435-4212-9148-BE9614BD377B}"
+"OutOfProcOverride"="{F170D081-8BFE-4804-A0AA-EA1547528D2E}"
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.dsc]
+".dscx"=dword:00000001
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.mdf]
+".ldf"=dword:00000401
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.msd]
+".msdx"=dword:00000001
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.vb]
+".designer.vb"=dword:00000001
+".resx"=dword:00000004
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.xaml]
+".xaml.vb"=dword:00000039
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.xml]
+".msdx"=dword:00000002
+[$RootKey$\Projects\{F184B08F-C81C-45F6-A57F-5ABD9991F28F}\RelatedFiles\.xsd]
+".vb"=dword:00000001
+".xsc"=dword:00000001
+".xss"=dword:00000001
+".xsx"=dword:00000001
+[$RootKey$\ToolsOptionsPages\Projects\VBDefaults]
+@="#3131"
+"Keywords"="#3124"
+"Package"="{164B10B9-B200-11D0-8C61-00A0C91E29D5}"
+"Page"="{B8280AF8-5ED0-4B48-AB18-87DD69E059C9}"
+[$RootKey$\ProjectSelectors]
+[$RootKey$\ProjectSelectors\{50018B05-93AB-437C-A9EB-F4AD12FF83DD}]
+"Package"="{164B10B9-B200-11D0-8C61-00A0C91E29D5}"

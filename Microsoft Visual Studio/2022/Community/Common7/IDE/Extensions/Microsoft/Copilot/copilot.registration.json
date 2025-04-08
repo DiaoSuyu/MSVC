@@ -1,0 +1,3253 @@
+// Convert Setting instance in ConversationsOptions.cs to json
+//
+// This file contains 2 parts, properties and categories. Add the new setting in properties and new page/group in categories.
+// Keep property key same as Settings.Moniker value, e.g. copilot.pageName.groupName.optionName
+// Keep category key same as the page/group name defined in ConversationsOptions.cs, e.g. copilot.pageName/copilot.pageName.groupName
+
+// Add new property:
+// "type" : Map BoolSetting to "boolean", IntSetting to "integer", StringSetting and StingSetSetting to "string"
+// "default" : Make sure this value is same as defined in Policy. For special cases like controlled by IsFeatureFlagEnabled, OnByDefaultForInternal, examples can be found in this file.
+// "title" and "description": Use the DisplayName and Description defined in Strings.resx. If this is a internal setting and does not need to be localized, please make sure the value start with "*".
+// "visibleWhen" : When setting is not visible by default, make sure this value is same as defined in VisibilityPolicy
+// "migration" : This part is no longer needed for settings that added after 17.12 P3.
+
+// Add new category:
+// "title" and "description": Use the DisplayName and Description defined in Strings.resx.
+
+// Test new setting:
+// F5, and make sure the new setting is located in the expected place in both classic and USX settings page.
+// Change setting value on one setting page should apply to the other.
+// To switch between classic and USX settings page, please use Tools > Options Experience (request restart)
+// To test a internal only setting (the setting in feature flags page or prompt/model page), if you cannot see both internal setting pages in Tools > Options > GitHub,
+// ask for join the "internal user group" (see https://devdiv.visualstudio.com/DevDiv/_git/VisualStudio.Conversations?path=/README.md&version=GBmain&_a=preview&anchor=need-more-control),
+// or run "set COPILOT_INTERNALUSER=true" from command line to show up the internal settings.
+
+{
+  "properties": {
+    // general
+    // category chat
+    "copilot.general.chat.enableWorkspaceIndexing": {
+      "type": "boolean",
+      "default": true,
+      "requiresRestart": true,
+      "title": "@EnableWorkspaceIndexingDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableWorkspaceIndexingDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableWorkspaceIndexing"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.chat.autoSelectRefinementMode": {
+      "type": "boolean",
+      "default": false,
+      "title": "@AutoSelectRefinementModeDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.AutoSelectRefinementMode"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.chat.implicitDocumentContext": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ImplicitDocumentContextDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.ImplicitDocumentContext"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.chat.enableCustomInstructions": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableCustomInstructionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCustomInstructionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCustomInstructions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // category completions
+    "copilot.general.completions.areCopilotCompletionsEnabled": {
+      "type": "boolean",
+      "default": true,
+      "title": "@AreCopilotCompletionsEnabledDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@AreCopilotCompletionsEnabledDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.AreCopilotCompletionsEnabled"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.completions.acceptNonTrustedCertificatesAutomatically": {
+      "type": "boolean",
+      "default": false,
+      "requiresRestart": false,
+      "title": "@AcceptNonTrustedCertificatesAutomaticallyDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.AcceptNonTrustedCertificatesAutomatically"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // category editor
+    "copilot.general.editor.enableRenameSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableRenameSuggestionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableRenameSuggestionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Editor.ShowSmartRenameOption} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableRenameSuggestions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.editor.enableOnTheFlyDocs": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableOnTheFlyDocsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableOnTheFlyDocsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableOnTheFlyDocs"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.editor.enableFixWithCopilot": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableFixWithCopilotDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableFixWithCopilot"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // source control
+    "copilot.general.sourceControl.enableCommitMessageSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableCommitMessageSuggestionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCommitMessageSuggestionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Git.UX.ChangesSuggestMessage} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCommitMessageSuggestions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.sourceControl.customizedTemplate": {
+      "type": "string",
+      "default": "",
+      "format": "multiline",
+      "example": "@CustomizedTemplateHintText;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "title": "@CustomizedTemplateDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@CustomizedTemplateDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Git.UX.ChangesSuggestMessageCustomization} == 'true'",
+      "enableWhen": "${config:copilot.general.sourceControl.enableCommitMessageSuggestions} == 'true'",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.CustomizedTemplate"
+          }
+        }
+      }
+    },
+    // debugging
+    "copilot.general.debugger.enableDiagnosticsHubSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableDiagnosticsHubSuggestionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableDiagnosticsHubSuggestionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableDiagnosticsHubSuggestions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.debugger.enableBreakpointSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableBreakpointSuggestionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableBreakpointSuggestionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Debugger.EnableCopilotBreakpointSuggestions} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableBreakpointSuggestions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.debugger.enableDebugErrorCodeService": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableDebugErrorCodeServiceDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableDebugErrorCodeServiceDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Debugger.EnableCopilotErrorCodeAnalysis} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableDebugErrorCodeService"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.debugger.enableParallelStacksSummarizationService": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableParallelStacksSummarizationServiceDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableParallelStacksSummarizationServiceDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Debugger.EnableCopilotParallelStacksSummarization} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableParallelStacksSummarizationService"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // logging
+    "copilot.general.logging.enableExtendedLogging": {
+      "type": "boolean",
+      "default": false,
+      "visibleWhen": "'false'",
+      "title": "",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableExtendedLogging"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.logging.conversationsTraceLevel": {
+      "type": "string",
+      "default": "info",
+      "enum": [
+        "off",
+        "error",
+        "warning",
+        "info",
+        "verbose"
+      ],
+      "title": "@ConversationsTraceLevelDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.ConversationsTraceLevel"
+            }
+          ],
+          "map": [
+            {
+              "result": "off",
+              "matches": [ "Off" ]
+            },
+            {
+              "result": "error",
+              "matches": [ "Error" ]
+            },
+            {
+              "result": "warning",
+              "matches": [ "Warning" ]
+            },
+            {
+              "result": "info",
+              "matches": [ "Info" ]
+            },
+            {
+              "result": "verbose",
+              "matches": [ "Verbose" ]
+            },
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.general.logging.enableOpenTelemetry": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableOpenTelemetryDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableOpenTelemetryDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "requiresRestart": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableOpenTelemetry"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // feature flags
+    // Chat UI
+    "copilot.featureFlags.chatUI.enableChatReferencesLinksNewUI": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableChatReferencesLinksNewUIDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableChatReferencesLinksNewUIDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableChatReferencesLinksNewUI"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enablePromptLibrary": {
+      "type": "boolean",
+      "default": true,
+      "title": "*EnablePromptLibrary",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnablePromptLibrary"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableGrayTextInWindowedChat": {
+      "type": "boolean",
+      "default": false,
+      "title": "*EnableGrayTextInWindowedChat",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableGrayTextInWindowedChat"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableSuggestedPrompts": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "VS.Copilot.InternalUser",
+        "default": true
+      },
+      "title": "@EnableSuggestedPromptsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableSuggestedPromptsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSuggestedPrompts"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableChatReferencesLinks": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableChatReferencesLinksDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableChatReferencesLinksDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableChatReferencesLinks"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableGrayTextInInlineChat": {
+      "type": "boolean",
+      "default": false,
+      "title": "*EnableGrayTextInInlineChat",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableGrayTextInInlineChat"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableEmbeddedDiffMargin": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableEmbeddedDiffMarginDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableEmbeddedDiffMargin"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableImageAttachments": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableImageAttachmentsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableImageAttachmentsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableImageAttachments"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableMentionDetector": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableMentionDetectorDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableMentionDetectorDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableMentionDetector"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableModelPicker": {
+      "type": "boolean",
+      "default": true,
+      "title": "Enable model picker in the chat pane and inline chat",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableModelPicker"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableCopilotEdits": {
+      "type": "boolean",
+      "default": true,
+      "title": "Enable Copilot Edits in the chat pane"
+    },
+    "copilot.featureFlags.chatUI.useSpeculativeEditsEndpoint": {
+      "type": "boolean",
+      "default": true,
+      "title": "Use experimental code mapping",
+      "description": "Enables the use of the speculative decoding endpoint for model-based code mapping."
+    },
+    "copilot.featureFlags.chatUI.maxGptCodeMapperPromptSize": {
+      "type": "integer",
+      "default": 10000,
+      "minimum": 0,
+      "title": "*MaxGptCodeMapperPromptSize"
+    },
+    "copilot.featureFlags.chatUI.maxSpeculativeEditsPromptSize": {
+      "type": "integer",
+      "default": 30000,
+      "minimum": 0,
+      "title": "*MaxSpeculativeEditsPromptSize"
+    },
+    // // Chat UI - Core experience
+    "copilot.featureFlags.chatUI.enableRetryingLastRequest": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableRetryingLastRequestDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.chatUI.enableSKUIsolation": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableSKUIsolationDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableSKUIsolationDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSKUIsolation"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.disabledFunctionsInDefaultChat": {
+      "type": "string",
+      "default": "",
+      "title": "*DisabledFunctionsInDefaultChat"
+    },
+    "copilot.featureFlags.chatUI.enableFunctionsInDefaultChat": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableFunctionsInDefaultChatDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableFunctionsInDefaultChatDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+    },
+    "copilot.featureFlags.chatUI.disabledFunctionsInCopilotEdits": {
+      "type": "string",
+      "default": "lookup_vs",
+      "title": "@DisabledFunctionsInCopilotEditsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@DisabledFunctionsInCopilotEditsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.chatUI.enableFunctionsInCopilotEdits": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableFunctionsInCopilotEditsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableFunctionsInCopilotEditsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.chatUI.experimentalChat": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ExperimentalChatDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.ExperimentalChat"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.solutionInExperimentalChatEnabled": {
+      "type": "boolean",
+      "default": false,
+      "title": "*SolutionInExperimentalChatEnabled",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.SolutionInExperimentalChatEnabled"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.teachReferencesInRespond": {
+      "type": "boolean",
+      "default": true,
+      "title": "*TeachReferencesInRespond",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.TeachReferencesInRespond"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableOffTopicFilter": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableOffTopicFilterDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableOffTopicFilter"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableAskVSAgent": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableAskVSAgentDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableAskVSAgentDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableAskVSAgent"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableSmartInsertCommandProvider": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableSmartInsertCommandProviderDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableSmartInsertCommandProviderDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSmartInsertCommandProvider"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableGenericCodeFileMapper": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableGenericCodeFileMapperDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableGenericCodeFileMapperDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableGenericCodeFileMapper"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableCSharpMapperMixedNodeSupport": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableCSharpMapperMixedNodeSupportDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCSharpMapperMixedNodeSupportDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCSharpMapperMixedNodeSupport"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // Chat UI - UX
+    "copilot.featureFlags.chatUI.defaultScopeAsInt": {
+      "type": "integer",
+      "title": "*DefaultScopeAsInt",
+      "default": 4,
+      "maximum": 4,
+      "minimum": 0,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.DefaultScopeAsInt"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ -2147483648 ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableSlashCommandExpansion": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableSlashCommandExpansionDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableSlashCommandExpansionDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSlashCommandExpansion"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableFeedbackWindow": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableFeedbackWindowDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableFeedbackWindow"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.enableNewWelcomeExperience": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableNewWelcomeExperienceDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableNewWelcomeExperienceDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableNewWelcomeExperience"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.chatUI.includeActiveDocumentToggleState": {
+      "type": "integer",
+      "title": "Include Active Document State",
+      "description": "Shows the option to include the active document in the chat window. 0 => Don't show. 1 => Show; default disabled. 2 => Show, default enabled.",
+      "default": 2,
+      "maximum": 2,
+      "minimum": 0,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeActiveDocumentToggleState"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ -2147483648 ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+
+        }
+      }
+    },
+    //MaxFunctionCallIterations
+    "copilot.featureFlags.chatUI.maxFunctionCallIterations": {
+      "type": "integer",
+      "default": 10,
+      "maximum": 100,
+      "minimum": 0,
+      "title": "*MaxFunctionCallIterations",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.MaxFunctionCallIterations"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ -2147483648 ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    //editor
+    "copilot.featureFlags.editor.enableAutomaticOnTheFlyDocs": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableAutomaticOnTheFlyDocsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableAutomaticOnTheFlyDocsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:VC.QuickInfoAIDocs.Allowed} == 'true' && ${feature:VC.QuickInfoAIDocs.AutomaticAllowed} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableAutomaticOnTheFlyDocs"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.editor.enableRazorErrorFixes": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "VS.Copilot.FixWithCopilot",
+        "default": true
+      },
+      "title": "@EnableRazorErrorFixesDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableRazorErrorFixesDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:VS.Copilot.FixWithCopilot} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableRazorErrorFixes"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.editor.enableTypeScriptGuidedConversation": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableTypeScriptGuidedConversationDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableTypeScriptGuidedConversationDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableTypeScriptGuidedConversation"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.editor.enableCSharpCodeAnalysis": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableCSharpCodeAnalysisDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCSharpCodeAnalysisDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCSharpCodeAnalysis"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.editor.enableCSharpRefineQuickActionSuggestion": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableCSharpRefineQuickActionSuggestionDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCSharpRefineQuickActionSuggestionDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCSharpRefineQuickActionSuggestion"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.editor.enablePasteSuggestions": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "Editor.SmartPaste",
+        "default": false
+      },
+      "title": "@EnablePasteSuggestionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnablePasteSuggestionsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "${feature:Editor.ShowSmartPasteOption} == 'true'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnablePasteSuggestions"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // debugger
+    "copilot.featureFlags.debugger.useDebuggerConversationMode": {
+      "type": "boolean",
+      "default": false,
+      "title": "@UseDebuggerConversationModeDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@UseDebuggerConversationModeDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.UseDebuggerConversationMode"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.debugger.useCombinedDebuggerConversationMode": {
+      "type": "boolean",
+      "default": false,
+      "title": "@UseCombinedDebuggerConversationModeDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@UseCombinedDebuggerConversationModeDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.UseCombinedDebuggerConversationMode"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.debugger.enableDebuggerConversationMode": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "Debugger.EnableExceptionAssistantConversationMode",
+        "default": true
+      },
+      "title": "@EnableDebuggerConversationModeDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableDebuggerConversationMode"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // test window
+    "copilot.featureFlags.testWindow.enableTestFailureAnalysis": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "TestingTools.UnitTesting.Enable.Copilot",
+        "default": true
+      },
+      "title": "@EnableTestFailureAnalysisDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableTestFailureAnalysisDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableTestFailureAnalysis"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // GitHub extensibility
+    "copilot.featureFlags.gitHubExtensibility.enableWorkspaceAgent": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableWorkspaceAgentDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableWorkspaceAgentDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableWorkspaceAgent"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.gitHubExtensibility.enableGithubRemoteAgents": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableGithubRemoteAgentsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableGithubRemoteAgentsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "'false'",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableGithubRemoteAgents"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.gitHubExtensibility.remoteAgentsWithImplicitContextAllowed": {
+      "type": "string",
+      "default": "github",
+      "title": "*RemoteAgentsWithImplicitContextAllowed",
+      "visibleWhen": "'false'",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.RemoteAgentsWithImplicitContextAllowed"
+          }
+        }
+      }
+    },
+    "copilot.featureFlags.gitHubExtensibility.enabledFunctionsForPlatformAgent": {
+      "type": "string",
+      "default": "",
+      "title": "*EnabledFunctionsForPlatformAgent"
+    },
+
+    // context
+    "copilot.featureFlags.context.enableErrorContext": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableErrorContextDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableErrorContextDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableErrorContext"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.context.enableTraitProviders": {
+      "type": "boolean",
+      "default": true,
+      "title": "*EnableTraitProviders",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableTraitProviders"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.context.disabledTraitProviders": {
+      "type": "string",
+      "default": "",
+      "title": "*DisabledTraitProviders",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.DisabledTraitProviders"
+          }
+        }
+      }
+    },
+    "copilot.featureFlags.context.enableSemanticCodeContext": {
+      "type": "boolean",
+      "default": true,
+      "requiresRestart": true,
+      "title": "@EnableSemanticCodeContextDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableSemanticCodeContextDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSemanticCodeContext"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.context.enableSemanticIndexing": {
+      "type": "boolean",
+      "default": true,
+      "title": "*EnableSemanticIndexing",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSemanticIndexing"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.context.enableSmartDocumentReduction": {
+      "type": "boolean",
+      "default": false,
+      "title": "*EnableSmartDocumentReduction",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableSmartDocumentReduction"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.context.requestBuilderStrategy": {
+      "type": "string",
+      "default": "legacy",
+      "title": "*RequestBuilderStrategy",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.RequestBuilderStrategy"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    // fuction agent
+    "copilot.featureFlags.functionAgent.enableFunctionAgent": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "VS.Copilot.InternalUser",
+        "default": true
+      },
+      "title": "*EnableFunctionAgent",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableFunctionAgent"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    // Enable web search function
+    "copilot.featureFlags.functionAgent.enableWebSearchFunction": {
+      "type": "boolean",
+      "default": false,
+      "title": "Enable Bing web search function",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableWebSearchFunction"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // content exclusion
+    "copilot.featureFlags.contentExclusion.enableCopilotExclusion": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableCopilotExclusionDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCopilotExclusion"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.contentExclusion.enableTextBasedContentExclusion": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableTextBasedContentExclusionDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableTextBasedContentExclusionDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableTextBasedContentExclusion"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.contentExclusion.enableNoExcludedIconInIntellisense": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableNoExcludedIconInIntellisenseDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableNoExcludedIconInIntellisense"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // indexting
+    "copilot.featureFlags.indexing.enableUnifiedIndexing": {
+      "type": "boolean",
+      "default": true,
+      "requiresRestart": true,
+      "title": "Unified indexing",
+      "description": "If enabled, #solution uses v2 unified indexing. Otherwise, v1 brokered service indexing will be used instead.",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableUnifiedIndexing"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.indexing.enabledExperimentalChunkSources": {
+      "type": "string",
+      "default": "Microsoft.VisualStudio.Copilot.ChunkIndexing.CSharpChunkSource",
+      "title": "Enabled chunk sources (v1)",
+      "description": "Comma-separated list of chunk sources. Only applicable when unified indexing is off.",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnabledExperimentalChunkSources"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.indexing.enableWorkspaceErrorContext": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableWorkspaceErrorContextDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableWorkspaceErrorContextDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableWorkspaceErrorContext"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+
+    // completions
+    "copilot.featureFlags.completions.enableNextEditSuggestions": {
+      "type": "boolean",
+      "default": false,
+      "title": "*EnableNextEditSuggestions"
+    },
+    "copilot.featureFlags.completions.nextEditSuggestionsUseSingleEditAccept": {
+      "type": "boolean",
+      "default": true,
+      "title": "*NextEditSuggestionsUseSingleEditAccept"
+    },
+    "copilot.featureFlags.completions.nextEditSuggestionsUseSingleEditDisplay": {
+      "type": "boolean",
+      "default": true,
+      "title": "*NextEditSuggestionsUseSingleEditDisplay"
+    },
+    "copilot.featureFlags.completions.nextEditSuggestionsUseHideRemoteEdits": {
+      "type": "boolean",
+      "default": true,
+      "title": "*NextEditSuggestionsUseHideRemoteEdits"
+    },
+    "copilot.featureFlags.completions.useCompletionSignatures": {
+      "type": "boolean",
+      "default": false,
+      "title": "*UseCompletionSignatures",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.UseCompletionSignatures"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeRelatedFilesForCSharp": {
+      "type": "boolean",
+      "default": false,
+      "title": "@IncludeRelatedFilesForCSharpDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@IncludeRelatedFilesForCSharpDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeRelatedFilesForCSharp"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeRelatedFilesWithRoslynForCSharp": {
+      "type": "boolean",
+      "default": true,
+      "title": "*IncludeRelatedFilesWithRoslynForCSharp",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeRelatedFilesWithRoslynForCSharp"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeTraitsInCompletionPromptForCSharp": {
+      "type": "boolean",
+      "default": false,
+      "title": "*IncludeTraitsInCompletionPromptForCSharp",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeTraitsInCompletionPromptForCSharp"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.promptifyTraitsForCSharpCompletion": {
+      "type": "boolean",
+      "default": false,
+      "title": "*PromptifyTraitsForCSharpCompletion",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptifyTraitsForCSharpCompletion"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeLibraryTypeTraits": {
+      "type": "boolean",
+      "default": false,
+      "title": "*IncludeLibraryTypeTraits"
+    },
+    "copilot.featureFlags.completions.includeProjectTypeTraitsInCompletionPromptForCSharp": {
+      "type": "boolean",
+      "default": false,
+      "title": "*IncludeProjectTypeTraitsInCompletionPromptForCSharp"
+    },
+    "copilot.featureFlags.completions.includeAspireTraitDetectionForCompletion": {
+      "type": "boolean",
+      "default": false,
+      "title": "*IncludeAspireTraitDetectionForCompletion"
+    },
+    "copilot.featureFlags.completions.excludeOpenTabFilesCSharp": {
+      "type": "boolean",
+      "default": false,
+      "title": "*ExcludeOpenTabFilesCSharp"
+    },
+    "copilot.featureFlags.completions.excludeOpenTabFilesCpp": {
+      "type": "boolean",
+      "default": false,
+      "title": "*ExcludeOpenTabFilesCpp"
+    },
+    "copilot.featureFlags.completions.fallbackToOpenTabFilesWithNoRelatedFiles": {
+      "type": "boolean",
+      "default": false,
+      "title": "*FallbackToOpenTabFilesWithNoRelatedFiles"
+    },
+    "copilot.featureFlags.completions.includeRelatedContextWithSemanticCodeContextForCpp": {
+      "type": "boolean",
+      "default": false,
+      "title": "@IncludeRelatedContextWithSemanticCodeContextForCppDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@IncludeRelatedContextWithSemanticCodeContextForCppDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeRelatedContextWithSemanticCodeContextForCpp"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeRelatedContextWithSemanticCodeContextForRazor": {
+      "type": "boolean",
+      "default": false,
+      "title": "@IncludeRelatedContextWithSemanticCodeContextForRazorDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@IncludeRelatedContextWithSemanticCodeContextForRazorDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeRelatedContextWithSemanticCodeContextForRazor"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.includeRelatedRazorComponents": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "VS.Copilot.IncludeRelatedRazorComponents",
+        "default": true
+      },
+      "title": "@IncludeRelatedRazorComponentsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@IncludeRelatedRazorComponentsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.IncludeRelatedRazorComponents"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.alwaysUseTriggerKindInvoked": {
+      "type": "boolean",
+      "default": false,
+      "title": "*AlwaysUseTriggerKindInvoked",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.AlwaysUseTriggerKindInvoked"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.alwaysGenerateSinglePrediction": {
+      "type": "boolean",
+      "default": false,
+      "title": "*AlwaysGenerateSinglePrediction",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.AlwaysGenerateSinglePrediction"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.completions.enableCompletionsRequestDebounce": {
+      "type": "boolean",
+      "default": false,
+      "title": "*EnableCompletionsRequestDebounce"
+    },
+    "copilot.featureFlags.completions.completionsRequestDebouncePeriod": {
+      "type": "integer",
+      "default": 45,
+      "minimum": 0,
+      "title": "*CompletionsRequestDebouncePeriod"
+    },
+
+    // search
+    "copilot.featureFlags.search.enableFeatureSearchAskCopilot": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableFeatureSearchAskCopilotDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableFeatureSearchAskCopilotDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableFeatureSearchAskCopilot"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.search.enableCodeSearchAskCopilot": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableCodeSearchAskCopilotDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableCodeSearchAskCopilotDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EnableCodeSearchAskCopilot"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            {
+              "result": "@default",
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.featureFlags.search.enableDidYouMeanCodeSearchSupport": {
+      "type": "boolean",
+      "default": false,
+      "environmentVariableDefault": "COPILOT_INTERNALUSER",
+      "title": "@EnableDidYouMeanCodeSearchSupportDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EnableDidYouMeanCodeSearchSupportDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    // free sku
+    "copilot.featureFlags.freeSku.applyCopilotAPIVersionInRequestHeader": {
+      "type": "string",
+      "default": "2024-12-15",
+      "title": "*Enable CAPI version in request header",
+      "visibleWhen": "'false'"
+    },
+    // PromptsAndModels
+    // endpoints
+    "copilot.promptModelOverrides.endpoints.subscribeToCopilotUri": {
+      "type": "string",
+      "default": "https://aka.ms/subscribeToCopilot",
+      "title": "@SubscribeToCopilotUriDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.SubscribeToCopilotUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.endpoints.completionsUri": {
+      "type": "string",
+      "default": "https://api.githubcopilot.com/chat/completions",
+      "title": "@CompletionsUriDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.CompletionsUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.endpoints.speculativeDecodingUri": {
+      "type": "string",
+      "default": "https://copilot-proxy.githubusercontent.com/v1/engines/copilot-centralus-h100/speculation",
+      "title": "Speculative decoding uri"
+    },
+    "copilot.promptModelOverrides.endpoints.embeddingsUri": {
+      "type": "string",
+      "default": "https://api.githubcopilot.com/embeddings",
+      "title": "@EmbeddingsUriDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EmbeddingsUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.endpoints.chatAgentsUri": {
+      "type": "string",
+      "default": "https://api.githubcopilot.com/agents",
+      "title": "@ChatAgentsUriDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.ChatAgentsUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.endpoints.gitHubApiUri": {
+      "type": "string",
+      "default": "https://api.github.com",
+      "title": "*GitHubApiUri",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.GitHubApiUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.endpoints.modelsUri": {
+      "type": "string",
+      "default": "https://api.githubcopilot.com/models",
+      "title": "@ModelsUriDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.ModelsUri"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    // models
+    "copilot.promptModelOverrides.models.embeddingsModel": {
+      "type": "string",
+      "default": "text-embedding-3-small-inference",
+      "title": "@EmbeddingsModelDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@EmbeddingsModelDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.EmbeddingsModel"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.numberOfParallelEmbeddingRequests": {
+      "type": "integer",
+      "default": 4,
+      "maximum": 16,
+      "minimum": 0,
+      "title": "*NumberOfParallelEmbeddingRequests",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.NumberOfParallelEmbeddingRequests"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ -2147483648 ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.supportedModels": {
+      "type": "string",
+      "default": "gpt-4o-2024-05-13,gpt-4o-mini-2024-07-18,o1-2024-12-17,o3-mini-2025-01-31,claude-3.5-sonnet,claude-3.7-sonnet,claude-3.7-sonnet-thought",
+      "title": "*SupportedModels",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.SupportedModels"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.experimentalModels": {
+      "type": "string",
+      "default": "",
+      "title": "Experimental models",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.ExperimentalModels"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.modelPickerFamilies": {
+      "type": "string",
+      "default": "gpt-4o,o1-ga,o3-mini,claude-3.7-sonnet,claude-3.5-sonnet",
+      "title": "The list of model families that should show up in the model picker (comma separated)",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.ModelPickerFamilies"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.promptOverrides": {
+      "type": "string",
+      "default": "",
+      "visibleWhen": "'false'",
+      "title": "*PromptOverrides",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.PromptOverrides"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.modelFamilyOverrides": {
+      "type": "string",
+      "default": "{\"gpt-3.5-turbo\":\"gpt-4o-mini\", \"gpt-4\":\"gpt-4o\", \"gpt-4-turbo\":\"gpt-4o\"}",
+      "visibleWhen": "'false'",
+      "title": "*ModelFamilyOverrides",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.ModelFamilyOverrides"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.supportedModelsPerClient": {
+      "type": "string",
+      "default": "",
+      "visibleWhen": "'false'",
+      "title": "*SupportedModelsPerClient",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.SupportedModelsPerClient"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.models.promptTokenBufferSize": {
+      "type": "integer",
+      "default": 100,
+      "visibleWhen": "'false'",
+      "title": "Prompt token buffer size",
+      "description": "The size of buffer space, in number of tokens, to reserve on requests to account for small token counting discrepancies between client and server. The client-side prompt token limit will be reduced by this amount to provide an extra buffer / margin of error."
+    },
+    // prompts
+    "copilot.promptModelOverrides.prompts.promptSnippetDocCommand": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetDocCommand",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetDocCommand"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.promptSnippetExplainCommand": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetExplainCommand",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetExplainCommand"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.promptSnippetFixCommandNoErrors": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetFixCommandNoErrors",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetFixCommandNoErrors"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.promptSnippetFixCommandWithErrors": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetFixCommandWithErrors",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetFixCommandWithErrors"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.promptSnippetOptimizeCommand": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetOptimizeCommand",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetOptimizeCommand"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.promptSnippetTestsCommand": {
+      "type": "string",
+      "default": "",
+      "title": "*PromptSnippetTestsCommand",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.Conversations.PromptSnippetTestsCommand"
+            }
+          ],
+          "map": [
+            {
+              "result": "@default",
+              "matches": [ "" ]
+            },
+            {
+              "result": "@=0",
+              "matches": [ "@any" ]
+            }
+          ]
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.chatWindowLibraryPrompts": {
+      "type": "string",
+      "default": "",
+      "title": "*ChatWindowLibraryPrompts",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.ChatWindowLibraryPrompts"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.grayWindowedTextPrompts": {
+      "type": "string",
+      "default": "",
+      "title": "*GrayWindowedTextPrompts",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.GrayWindowedTextPrompts"
+          }
+        }
+      }
+    },
+    "copilot.promptModelOverrides.prompts.grayInlineTextPrompts": {
+      "type": "string",
+      "default": "",
+      "title": "*GrayInlineTextPrompts",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Conversations.GrayInlineTextPrompts"
+          }
+        }
+      }
+    }
+  },
+
+
+  "categories": {
+    "copilot": {
+      "title": "@111;{605164b7-1387-450f-bd4a-d7def479fd7d}"
+    },
+
+    // general
+    "copilot.general": {
+      "title": "@113;{605164b7-1387-450f-bd4a-d7def479fd7d}",
+      "legacyOptionPageId": "4aacdbed-077e-4a09-955b-90fb6425ec97"
+    },
+    "copilot.general.chat": {
+      "title": "@copilot.general.chatDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.general.completions": {
+      "title": "@copilot.general.completionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.general.editor": {
+      "title": "@copilot.general.editorDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.general.debugger": {
+      "title": "@copilot.general.debuggerDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.general.sourceControl": {
+      "title": "@copilot.general.sourceControlDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.general.logging": {
+      "title": "@copilot.general.loggingDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.general.loggingDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "visibleWhen": "(${env:COPILOT_INTERNALUSER} == 'true' || ${feature:VS.Copilot.InternalUser} == 'true') && ${env:COPILOT_INTERNALUSER} != 'false'"
+    },
+
+    // feature flags
+    "copilot.featureFlags": {
+      "title": "@126;{605164b7-1387-450f-bd4a-d7def479fd7d}",
+      "description": "WARNING: Feature flags enable incomplete, experimental features and modify the behavior of existing features.\nChanging these settings is not recommended.\n\nNote: Settings prefixed with '*' are not localized.",
+      "visibleWhen": "(${env:COPILOT_INTERNALUSER} == 'true' || ${feature:VS.Copilot.InternalUser} == 'true') && ${env:COPILOT_INTERNALUSER} != 'false'"
+    },
+    "copilot.featureFlags.chatUI": {
+      "title": "@copilot.featureFlags.chatUIDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.featureFlags.chatUIDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.editor": {
+      "title": "@copilot.featureFlags.editorDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.debugger": {
+      "title": "@copilot.featureFlags.debuggerDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.testWindow": {
+      "title": "@copilot.featureFlags.testWindowDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.gitHubExtensibility": {
+      "title": "@copilot.featureFlags.gitHubExtensibilityDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.context": {
+      "title": "@copilot.featureFlags.contextDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.functionAgent": {
+      "title": "@copilot.featureFlags.functionAgentDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.contentExclusion": {
+      "title": "@copilot.featureFlags.contentExclusionDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.featureFlags.contentExclusionDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.indexing": {
+      "title": "@copilot.featureFlags.indexingDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.completions": {
+      "title": "@copilot.featureFlags.completionsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.search": {
+      "title": "@copilot.featureFlags.searchDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.featureFlags.freeSku": {
+      "title": "*Free SKU"
+    },
+
+    // prompt mode
+    "copilot.promptModelOverrides": {
+      "title": "@128;{605164b7-1387-450f-bd4a-d7def479fd7d}",
+      "visibleWhen": "(${env:COPILOT_INTERNALUSER} == 'true' || ${feature:VS.Copilot.InternalUser} == 'true') && ${env:COPILOT_INTERNALUSER} != 'false'"
+    },
+    "copilot.promptModelOverrides.endpoints": {
+      "title": "@copilot.promptModelOverrides.endpointsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.promptModelOverrides.endpointsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.promptModelOverrides.models": {
+      "title": "@copilot.promptModelOverrides.modelsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.promptModelOverrides.modelsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    },
+    "copilot.promptModelOverrides.prompts": {
+      "title": "@copilot.promptModelOverrides.promptsDisplayName;{b1b98b90-307b-42ec-8931-03d92f5e13cd}",
+      "description": "@copilot.promptModelOverrides.promptsDescription;{b1b98b90-307b-42ec-8931-03d92f5e13cd}"
+    }
+  }
+}

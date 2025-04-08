@@ -1,0 +1,5 @@
+[
+  "dotnet\\arm64\\",
+  "%VSAPPIDDIR%Microsoft.VisualStudio.ImageCatalog.dll",
+  "%VSAPPIDDIR%PublicAssemblies\\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"
+]

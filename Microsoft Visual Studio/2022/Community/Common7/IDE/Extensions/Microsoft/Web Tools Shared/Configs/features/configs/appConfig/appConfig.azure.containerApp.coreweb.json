@@ -1,0 +1,27 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "appConfig.code.generic.appConfigWebCore_Main",
+        "appConfig.code.generic.appConfigWebCoreMinimalAppModelUsing",
+        "appConfig.code.generic.appConfigWebCoreMinimalAppModel",
+        "appConfig.code.generic.startupCode"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appConfig.nuget.coreweb"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "appConfig.serviceConnector.containerApp"
+      ]
+    }
+  }
+}

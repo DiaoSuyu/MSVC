@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>对查询进行查询</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>对其他查询结果进行的查询。</Description>
+      <Shortcut>qQueryQ</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+	      <Literal>
+          <ID>queryResult1</ID>
+          <Type>item</Type>
+          <ToolTip>替换为第一个查询的标识符。</ToolTip>
+          <Default>longFruits</Default>
+        </Literal>
+	      <Literal>
+          <ID>queryResult2</ID>
+          <Type>item</Type>
+          <ToolTip>替换为第二个查询的标识符。</ToolTip>
+          <Default>bFruits</Default>
+        </Literal>
+        <Literal>
+          <ID>item1</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的第一个变量的标识符。</ToolTip>
+          <Default>fruit</Default>
+        </Literal>
+        <Literal>
+          <ID>item2</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的第二个变量的标识符。</ToolTip>
+          <Default>fruitName</Default>
+        </Literal>       
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>New String() {"apple", "orange", "pear", "banana", "strawberry", "blueberry"}</Default>
+        </Literal>
+        <Literal>
+          <ID>filterfield1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为作为第一个源的筛选依据的第一个字段。</ToolTip>
+          <Default>Length</Default>
+        </Literal>
+        <Literal>
+          <ID>filterCondition1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为用作第一个筛选器的条件。</ToolTip>
+          <Default>&gt;= 6</Default>
+        </Literal>
+	      <Literal>
+          <ID>filterfield2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为作为第二个源的筛选依据的字段。</ToolTip>
+          <Default>ToLower.SubString(0,1)</Default>
+        </Literal>
+        <Literal>
+          <ID>filterCondition2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为用作第二个筛选器的条件。</ToolTip>
+          <Default>= "b"</Default>
+        </Literal>
+        <Literal>
+          <ID>field1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为从第一个数据源检索的第一个字段。</ToolTip>
+          <Default>ToLower()</Default>
+        </Literal>
+        <Literal>
+          <ID>field2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为从第一个数据源检索的第二个字段。</ToolTip>
+          <Default>Length</Default>
+        </Literal>
+        <Literal>
+          <ID>field3</ID>
+          <Type>String</Type>
+          <ToolTip>替换为从第二个查询检索的字段。</ToolTip>
+          <Default>ToLower</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $queryResult1$ = From $item1$ In $dataSource$ _
+                             Where $item1$.$filterField1$ $filterCondition1$ _
+                             Select $item1$.$field1$, $item1$.$field2$
+
+        Dim $queryResult2$ = From $item2$ In $queryResult1$ _
+                     Where $item2$.$filterfield2$ $filterCondition2$ _
+                     Select $item2$.$field3$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

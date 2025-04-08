@@ -1,0 +1,26 @@
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{8C0077C5-6C30-4F6D-8346-EBDB5F00880A}]
+"name"="Microsoft.VisualStudio.Debugger.Parallel.Extension"
+"codeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.Parallel.Extension.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+[$RootKey$\Debugger]
+"RunToClick_DisappearanceDelay"=dword:00000064
+"RunToClick_FadeInTime"=dword:0000015E
+[$RootKey$\Packages\{1FB03AB8-FF37-4C4D-A461-70B41C40EC14}]
+"Assembly"="Microsoft.VisualStudio.Debugger.Parallel.Extension, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Class"="Microsoft.VisualStudio.Debugger.Parallel.Extension.ExtensionPackage"
+"CompanyName"="Microsoft"
+"ID"=dword:00000001
+"InprocServer32"="$System$\mscoree.dll"
+@="Microsoft.VisualStudio.Debugger.Parallel.Extension.ExtensionPackage"
+[$RootKey$\Editors\{9C19E355-9513-4B61-A674-7730FDDF0A56}]
+"CommonPhysicalViewAttributes"=dword:00000003
+"DisplayName"="#1011"
+"EditorTrustLevel"=dword:00000000
+"DeferUntilIntellisenseIsReady"=dword:00000000
+"Package"="{1FB03AB8-FF37-4C4D-A461-70B41C40EC14}"
+@="Managed Linux Core Dump File Viewer"
+; Set the priority a bit higher than EDTPRI_OutsideEditor (0x14) so it loads after all text editors and before external editors (see https:
+[$RootKey$\Editors\{9C19E355-9513-4B61-A674-7730FDDF0A56}\Extensions]
+"*"=dword:00000015

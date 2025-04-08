@@ -1,0 +1,21 @@
+[$RootKey$\Licenses\02990959-292B-4b46-BCF1-0E31989AEEB4]
+@="twepoiuadidasjgfksjdfnmncxzbxiuwpaituaqskg"
+
+[$RootKey$\Menus]
+"{13BFCEF0-E926-4bde-A14C-EA09993E816C}"=", 1002, 1"
+
+[$RootKey$\Packages\{13BFCEF0-E926-4bde-A14C-EA09993E816C}\SatelliteDll]
+"DllName"="Microsoft.VisualStudio.QualityTools.TestCaseManagementUI.dll"
+"Path"="$ShellFolder$\Common7\IDE\PrivateAssemblies\"
+
+[$RootKey$\Services\{a08bca69-2b03-4e7b-85b1-c4fe21a3e856}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="CoverageMarkerService"
+
+[$RootKey$\ToolWindows\{905da7d1-18fd-4a46-8d0f-a5ff58ada9de}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Float"="200, 200, 830, 700"
+"Name"="Microsoft.VisualStudio.TestTools.CodeCoverage.CodeCoverageStatsWindowHost"
+"Orientation"="Bottom"
+"Style"="Tabbed"
+"Window"="{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"

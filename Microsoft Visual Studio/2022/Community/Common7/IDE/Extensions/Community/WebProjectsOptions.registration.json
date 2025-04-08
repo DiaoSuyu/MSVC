@@ -1,0 +1,78 @@
+{
+  "properties": {
+    "projectsAndSolutions.webProjects.use64BitIisExpress": {
+      "type": "boolean",
+      "title": "@Use64BitIISExpress;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "webProjects\\Use64BitIISExpress"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.webProjects.warnBeforeRunIfErrors": {
+      "type": "boolean",
+      "title": "@WarnBeforeRunIfErrors;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "webProjects\\WarnBeforeRunIfErrors"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.webProjects.enableDebugTargetsObserver": {
+      "type": "boolean",
+      "title": "@EnableDebugTargetsObserver;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "webProjects\\EnableDebugTargetsObserver"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.webProjects.autoShowDataConnections": {
+      "type": "boolean",
+      "title": "@AutoShowDataConnections;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@AutoShowDataConnectionsDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "webProjects\\AutoShowDataConnections"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.webProjects.showGitHubActionsNode": {
+      "type": "boolean",
+      "title": "@ShowGitHubActionsNode;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "requiresRestart": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "webProjects\\ShowGitHubActions"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "projectsAndSolutions.webProjects": {
+      "title": "@WebProjects;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "order": 1,
+      "legacyOptionPageId": "C78AFEEB-A722-4cf3-AD3F-8694126C2145"
+    }
+  }
+}

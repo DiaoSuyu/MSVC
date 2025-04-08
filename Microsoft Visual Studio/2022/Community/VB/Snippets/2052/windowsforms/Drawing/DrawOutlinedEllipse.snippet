@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>绘制空心椭圆</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在窗体上绘制空心椭圆。</Description>
+      <Shortcut>drawOutEll</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>color1</ID>
+          <Type>System.Drawing.Color</Type>
+          <ToolTip>替换为钢笔颜色。</ToolTip>
+          <Default>Color.Red</Default>
+        </Object>
+        <Object>
+          <ID>form</ID>
+          <Type>System.Windows.Forms.Form</Type>
+          <ToolTip>替换为对窗体或控件的引用，要在该窗体或控件上绘制椭圆。</ToolTip>
+          <Default>Me</Default>
+        </Object>
+        <Literal>
+          <ID>location1</ID>
+          <ToolTip>替换为形状的位置和大小的坐标。</ToolTip>
+          <Default>0, 0, 200, 300</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[    Using redPen As New Pen($color1$), _
+        formGraphics As Graphics = $form$.CreateGraphics()
+        formGraphics.DrawEllipse(redPen, New Rectangle($location1$))
+    End Using
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

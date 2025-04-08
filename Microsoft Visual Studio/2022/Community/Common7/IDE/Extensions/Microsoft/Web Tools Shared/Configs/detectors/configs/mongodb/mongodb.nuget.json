@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "mongodb",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "MongoDB.Driver": ""
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "code.generic",
+  "order": 30,
+  "model": {
+    "kind": "File",
+    "properties": {
+      "FileName": "AzureAppConfigStartup.cs",
+      "TemplatePath": "path:#/modifiers/appConfig/regular/AzureAppConfigStartup.cs"
+    }
+  }
+}

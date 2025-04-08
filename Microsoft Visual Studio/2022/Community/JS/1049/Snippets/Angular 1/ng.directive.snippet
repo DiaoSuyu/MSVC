@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ngdir</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>Шаблон для добавления директивы Angular</Description>
+      <Shortcut>ngdir</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>module</ID>
+          <ToolTip>Замените именем модуля.</ToolTip>
+          <Default>app</Default>
+        </Literal>
+        <Literal>
+          <ID>directive</ID>
+          <ToolTip>Замените именем директивы.</ToolTip>
+          <Default>customDirective</Default>
+        </Literal>
+        <Literal>
+          <ID>dependency</ID>
+          <ToolTip>Замените именем зависимости для директивы.</ToolTip>
+          <Default>$window</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="JavaScript">
+        <![CDATA[ 
+(function () {
+    'use strict';
+    
+    angular
+      .module('$module$')
+      .directive('$directive$', ['$dependency$', $directive$]);
+
+    function $directive$($dependency$) {
+        var directive = {
+            link: link,
+            restrict: 'EA'
+        };
+
+        function link(scope, element, attrs) {
+        }
+        
+        return directive;
+    }
+})();
+
+                ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

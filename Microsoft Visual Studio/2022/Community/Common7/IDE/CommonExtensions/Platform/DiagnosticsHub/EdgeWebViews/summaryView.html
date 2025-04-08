@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Performance Debugger SummaryView</title>
+    <link href="css/summaryView.css" type="text/css" rel="stylesheet" />
+    <script src="scripts/diagnosticsHub.js"></script>
+    <script src="scripts/knockout-3.4.0.js"></script>
+    <script src="scripts/diagnosticsHub-summaryView.js"></script>
+    <script>
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                //plugin.HotKeys.setZoomState(false);
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                const diagnosticsHubSummaryView = require("diagnosticsHub-summaryView");
+                window.__diagnosticsHubSummaryView = new diagnosticsHubSummaryView.SummaryViewModel();
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="mainContainer">
+        <ul class="summaryList" data-bind="foreach: tools">
+            <li>
+                <span tabindex="0" class="toolName" data-bind="text: name"></span>
+                <ul class="summaryItems" data-bind="foreach: items">
+                    <li data-bind="visible: visible">
+                        <!-- ko if: invokable -->
+                        <button class="summaryItem summaryButton" tabindex="0" data-bind="click: invoke, enable: enabled, css: { hasIcon: icon, toggled: toggled  }">
+                            <div class="icon" data-bind="svgImage: icon">&nbsp;</div>
+                            <span class="summaryText" data-bind="text: text"></span>
+                        </button>
+                        <!-- /ko -->
+                        <!-- ko ifnot: invokable -->
+                        <div class="summaryItem" tabindex="0" data-bind="css: { hasIcon: icon }, attr: { 'aria-label': text }">
+                            <div class="icon" data-bind="svgImage: icon">&nbsp;</div>
+                            <span class="summaryText" data-bind="text: text"></span>
+                        </div>
+                        <!-- /ko -->
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

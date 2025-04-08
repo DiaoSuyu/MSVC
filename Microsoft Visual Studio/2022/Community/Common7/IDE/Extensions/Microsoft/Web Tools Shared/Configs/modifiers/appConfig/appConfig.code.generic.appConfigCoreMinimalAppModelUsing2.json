@@ -1,0 +1,46 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespaceMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Azure.IdentityMicrosoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      }
+    ]
+  }
+}

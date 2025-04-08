@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="html-body" lang="en" id="document">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <!--Getting Started Page Content Start--DO NOT TRANSLATE THIS COMMENT-->
+    <div id="simple-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">リアルタイムの共同開発</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4 id="simple-page-welcome-title">Visual Studio Live Share へようこそ</h4>
+        </div>
+        <div id="simple-page-sections">
+            <div id="user-guide" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--BookAnswers"></span>
+                </div>
+                <p>Live Share の使用方法を知りたいですか?</p>
+                <a class="simple-page-button" href="https://docs.microsoft.com/ja-jp/visualstudio/liveshare/use/vs" target="_blank">ユーザー ガイド</a>
+            </div>
+
+            <div id="join-yourself" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--Touch"></span>
+                </div>
+                <p>Live Share の使用方法に関する詳細</p>
+                <button class="simple-page-button" id="simple-page-join-yourself-button">自分も参加</button>
+            </div>
+
+            <div id="copy-link" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--PageLink"></span>
+                </div>
+                <p>メールまたはチャットを使用して他のユーザーを自分のセッションに招待する</p>
+                <button id="simple-page-url-copy-button" class="simple-page-button">リンクのコピー</button>
+            </div>
+        </div>
+    </div>
+    <div id="control-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">リアルタイムの共同開発</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4>Visual Studio Live Share へようこそ</h4>
+        </div>
+        <p> ほんのいくつかの簡単な手順を実行するだけで、編集やデバッグのコラボレーションをチームで開始できます:</p>
+
+        <div id="step-sign-in" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button">サインインを起動</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">サインインする理由</h3>
+                        <p>
+                            共同作業する場合、自分の身元が他のユーザーから特定できるということは、心配せずにコードや開発環境への
+                            アクセスを共有してもらううえで重要です。サインインすると、読み書きの権限が付与されて、ホストと一緒にコードを編集できるようになります。
+                        </p>
+                        <p>
+                            簡単に開始するには、
+                            既存の GitHub アカウントまたは Microsoft アカウントを使用してサインインできます。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-sign-in-before-share" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button-before-share">サインインを起動</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">サインインする理由</h3>
+                        <p>
+                            共同作業する場合、自分の身元が他のユーザーから特定できるということは、心配せずにコードや開発環境への
+                            アクセスを共有してもらううえで重要です。サインインすると、自分のワークスペースを共有し、他のユーザーと共同作業できるようになります。
+                        </p>
+                        <p>
+                            簡単に開始するには、
+                            既存の GitHub アカウントまたは Microsoft アカウントを使用してサインインできます。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-share" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Share"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">共有</h3>
+                    <p>右上隅にある <i></i>[Live Share] ボタンをクリックします。これにより、プロジェクトが共有され、一意のセッション URL がクリップボードにコピーされます。</p>
+                    <!--<img src="https://aka.ms/vsls/quickstart/share" width="136px" alt="Visual Studio Code 共有ステータス バー項目" />-->
+                    <p>(GitHub または Microsoft のアカウントを使用して) 初めて共有する場合にはサインインするよう求められます。それにより、コラボレーション時に他のユーザーからあなたの身元を特定できるようになります。</p>
+                    <img  class="signin-image" src="https://aka.ms/vsls/vs-signin" />
+                    <blockquote>
+                        <p>Windows では、ピア ツー ピア接続を有効にするため、Live Share がファイアウォール ポートを開くことを許可するよう求められる場合があります。</p>
+                    </blockquote>
+                    <p>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Edit" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Edit"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">編集</h3>
+                    <p>現在コラボレーション セッションにいるため、カーソルの移動や、テキストの編集と強調表示を行うことができます。他の参加者が同じ操作を行う様子も確認できます。</p>
+                    <p>すべての Live Share 機能にアクセスするには、[参加済み] ドロップダウン メニューをクリックするか、右上にある参加者のアイコンをクリックします。</p>
+                    <p>ここでは、セッション内の参加者、共有されているサーバーとターミナルを確認できます。</p>
+                    <ul class="list">
+                        <li><p>コード内の他のファイルに移動します。プロジェクト内を移動できます。</p></li>
+                        <li><p>参加者へフォロー依頼をし、表示しているコード部分に注意を向けます。</p></li>
+                        <li><p>右上にある参加者の名前をクリックして、セッションの参加者をフォローします。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Debug" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Bug"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">デバッグ</h3>
+                    <p>多数のコラボレーション デバッグ機能を使用して、リアルタイムでの問題/質問/タスクの処理をチームで行います。</p>
+                    <ul class="list">
+                        <li><p> デバッグ セッションの場合、ブレークポイントを設定し、一緒にステップ実行して、リアルタイムで同時にデバッグします。</p></li>
+                        <li><p>☁️ [参加済み] ドロップダウン メニューをクリックして共有サーバーを表示し、ホストがローカルで実行中の Web アプリ、データベースなどを表示します。</p></li>
+                        <li><p> [参加済み] ドロップダウン メニューをクリックして共有ターミナルを表示し、ホストのターミナルを表示するか、そこでコマンドを実行します。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-invite" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--ChatInviteFriend"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">招待する</h3>
+                    <p>コラボレーションする開発者 (最大 5 人) に、電子メール、Skype、Slack などを使用してセッション URL を送信します。<a id="security-info-link" href="https://aka.ms/vsls-security" target="_blank">セキュリティ情報を表示</a>してセキュリティで保護された共有について理解を深めてください。</p>
+                    <p id="join-uri">コラボレーション セッション URL: <div id="join-uri-box" class="box">${this.joinUri}</div></p><button id="join-uri-copy-button">招待リンクをコピーする</button>
+                    <!--<img src="https://aka.ms/vsls/quickstart/invite" width="450px" />-->
+                    <blockquote>
+                        <p>コラボレーションする相手がいなくても、VS Live Share の評価は可能です。VS の別のインスタンスから自分自身と共有できます。<a id="share-with-yourself-link" href="${this.joinUri}" target="_blank">ここをクリックしてお試しください。</a></p>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-collaborate" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--People"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">共同作業</h3>
+                    <p>招待した「ゲスト」が参加すると通知が届き、現在開いているファイルに他のユーザーのカーソルが表示されます。ゲストすべてがあなたを<a id="following-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">フォロー</a>し始めることになります。つまり、スクロールしたり、ファイルを移動したりすると、ゲストもそれらの操作を追跡できるということです。これにより、あなたがコラボレーションを開始しようとしている問題、質問、タスクを他のユーザーは簡単に識別できます。</p>
+                    <img class="notification-image" src="https://aka.ms/vsls/vs-join-notification" />
+                    <p>また、Live Share を十分に活用するため、次のいくつかの操作をお試しください:</p>
+                    <ul class="list">
+                        <li>カーソルの移動やテキストの編集と強調表示を行い、ゲストが同じことを行う様子を見ます</li>
+                        <li><a id="follow-guest-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">ゲストをフォロー</a>し、スクロールや他のファイルへのナビゲートをゲストに実行してもらいます</li>
+                        <li><a id="share-debug-session-link" href="https://aka.ms/vsls-docs/vs#co-debugging" target="_blank">デバッグ セッションを共有</a>します。そのためには、F5 キーを押して、リアルタイムで同時にステップ実行します</li>
+                        <li><a id="share-server-link" href="https://aka.ms/vsls-docs/vs#share-a-server" target="_blank">サーバーを共有</a>し、ローカルで実行されている Web アプリ、データベースなどをゲストが表示できるようにします</li>
+                        <li><a id="share-terminal-link" href="https://aka.ms/vsls-docs/vs#share-a-terminal" target="_blank">ターミナルを共有</a>して、共同してコマンドを実行します</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <p class=" bottom-text">問題が発生する場合、可能な回避策を<a id="troubleshooting-link" href="http://aka.ms/vsls-troubleshooting" target="_blank">トラブルシューティング ドキュメント</a>で確認します。また、質問やフィードバックがある場合、[<i>ヘルプ</i>] メニューの [<i>フィードバックの送信</i>] オプションを使用して、ご遠慮なくチームにお問い合わせください。</p>
+        <!--Getting Started Page Content End--DO NOT TRANSLATE THIS COMMENT-->
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,18 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>VC\Cross Platform\CMake\AddTarget</RelativePathOnDisk>
+    <TemplateFileName>AddTarget.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="1170" />
+        <Description Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="1171" />
+        <Icon Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="512" />
+        <TemplateID>Microsoft.VisualC.Item.CMake.Target</TemplateID>
+        <ProjectType>VC</ProjectType>
+        <DefaultName>Target</DefaultName>
+        <LocationField>Disabled</LocationField>
+        <Hidden>true</Hidden>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

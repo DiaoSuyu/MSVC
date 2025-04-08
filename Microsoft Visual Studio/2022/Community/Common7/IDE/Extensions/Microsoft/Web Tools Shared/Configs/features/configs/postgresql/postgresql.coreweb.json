@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "postgresql.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId"
+      ]
+    }
+  }
+}

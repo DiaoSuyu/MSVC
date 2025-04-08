@@ -1,0 +1,71 @@
+[$RootKey$\CLSID\{53544C4D-CFBF-404e-9E37-19C8BB80F6E3}]
+@="VAPI Scheme Parser Msss"
+"InprocServer32"="$ShellFolder$\Common7\IDE\VS SCC\VssProvider.dll"
+"ThreadingModel"="Both"
+
+[$RootKey$\Menus]
+"{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"=",1,6"
+
+[$RootKey$\OutputWindow\{CBF36220-3F6F-11d1-8631-006008184050}]
+@="#508"
+"ContentType"="SourceControlOutput"
+"InitiallyInvisible"=dword:00000001
+"Package"="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+
+[$RootKey$\Packages\{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}]
+@="Visual SourceSafe Provider Package"
+"InprocServer32"="$ShellFolder$\Common7\IDE\VS SCC\VssProvider.dll"
+
+[$RootKey$\Packages\{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}\SatelliteDll]
+"DllName"="VssProviderui.dll"
+"Path"="$ShellFolder$\Common7\IDE\VS SCC\"
+
+[$RootKey$\Services\{53544C4D-35D0-4D26-9789-9295A73E7A10}]
+@="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+"Name"="Private SccManager Service"
+
+[$RootKey$\ShellFileAssociations\.vspscc]
+"DefaultIconMoniker"="KnownMonikers.Sync"
+
+[$RootKey$\ShellFileAssociations\.vsscc]
+"DefaultIconMoniker"="KnownMonikers.Sync"
+
+[$RootKey$\ShellFileAssociations\.vssscc]
+"DefaultIconMoniker"="KnownMonikers.Sync"
+
+[$RootKey$\SolutionPersistence\SourceCodeControl]
+@="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+
+[$RootKey$\SourceControlProviders\{53544C4D-FFD5-48A9-B04A-0700CCD31070}\Packages]
+"MainPackage"="$ShellFolder$\Common7\IDE\VS SCC\VssProvider.dll"
+
+[$RootKey$\ToolsOptionsPages\Source Control\Environment]
+@="#510"
+"Keywords"="#512"
+"Package"="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+"Page"="{9C1B8A62-7C24-11d3-8E6E-005004775AC2}"
+"Sort"=dword:00000001
+
+[$RootKey$\ToolsOptionsPages\Source Control\Environment\VisibilityCmdUIContexts]
+"{53544C4D-FFD5-48A9-B04A-0700CCD31070}"="1"
+
+[$RootKey$\ToolsOptionsPages\Source Control\Visual SourceSafe]
+@="#511"
+"Keywords"="#513"
+"Package"="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+"Page"="{9C1B8A63-7C24-11d3-8E6E-005004775AC2}"
+"Sort"=dword:00000002
+
+[$RootKey$\ToolsOptionsPages\Source Control\Visual SourceSafe\VisibilityCmdUIContexts]
+"{53544C4D-FFD5-48A9-B04A-0700CCD31070}"="1"
+
+[$RootKey$\ToolWindows\{53544C4D-5C18-11d3-AB71-0050040AE094}]
+@="{AA8EB8CD-7A51-11D0-92C3-00A0C9138C45}"
+"Float"="100,100,450,300"
+"Name"="LocalChanges"
+"Orientation"="Bottom"
+"Style"="Tabbed"
+"Window"="{34E76E81-EE4A-11D0-AE2E-00A0C90FFFC3}"
+
+[$RootKey$\ToolWindows\{53544C4D-5C18-11d3-AB71-0050040AE094}\Visibility]
+"{53544C4D-FFD5-48A9-B04A-0700CCD31070}"=dword:00000000

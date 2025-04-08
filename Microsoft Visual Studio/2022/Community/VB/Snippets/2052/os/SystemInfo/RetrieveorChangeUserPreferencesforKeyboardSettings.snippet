@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>检索键盘设置的用户首选项</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>检索用户的键盘设置。</Description>
+      <Shortcut>sysKey</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim delay = SystemInformation.KeyboardDelay
+Dim speed = SystemInformation.KeyboardSpeed]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

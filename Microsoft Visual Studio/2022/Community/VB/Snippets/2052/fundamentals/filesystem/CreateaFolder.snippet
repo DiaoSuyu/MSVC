@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建文件夹 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在计算机上创建新文件夹。</Description>
+      <Shortcut>filCreateFold</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>folderName</ID>
+          <ToolTip>替换为要创建的文件夹的名称。</ToolTip>
+          <Default>"C:\NewDirectory"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.CreateDirectory($folderName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

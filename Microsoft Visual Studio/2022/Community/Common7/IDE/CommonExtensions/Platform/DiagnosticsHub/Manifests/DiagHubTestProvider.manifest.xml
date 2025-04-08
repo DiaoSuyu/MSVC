@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<instrumentationManifest xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd" xmlns="http://schemas.microsoft.com/win/2004/08/events" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:trace="http://schemas.microsoft.com/win/2004/08/events/trace">
+	<instrumentation>
+		<events>
+			<provider name="DiagHubTestProvider" guid="{E5D00D9F-ADC3-4D1C-B74C-46264E1C5A21}" symbol="DiagHubTestProvider" resourceFileName="None" messageFileName="None">
+				<tasks>
+					<task name="SampleEvent" value="1"></task>
+				</tasks>
+				<events>
+					<event symbol="SampleEvent" value="1" version="1" template="SampleEvent_v1" task="SampleEvent"></event>
+				</events>
+				<keywords>
+					<keyword name="SampleEvent" symbol="SampleEvent" mask="0x1"></keyword>
+				</keywords>
+				<templates>
+					<template tid="SampleEvent_v1">
+						<data name="Message" inType="win:UnicodeString"></data>
+					</template>
+				</templates>
+			</provider>
+		</events>
+	</instrumentation>
+</instrumentationManifest>

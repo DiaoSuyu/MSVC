@@ -1,0 +1,64 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "appInsights.appService.coreweb"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "Web"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "appInsights.appService.wap"
+    },
+    {
+      "when": {
+        "kind": "not",
+        "operand": {
+          "kind": "and",
+          "operands": [
+            {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            },
+            {
+              "kind": "not",
+              "operand": {
+                "kind": "HasTargetFramework",
+                "tfmPrefixOrFull": ".NetStandard"
+              }
+            }
+          ]
+        }
+      },
+      "config": "appInsights.appService"
+    }
+  ]
+}

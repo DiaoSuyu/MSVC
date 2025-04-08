@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="CSS/main.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/toolWindowView.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/threadDropDown.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/categoryDropDown.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/searchControl.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/overlay.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/progress.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/treeGrid.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/callerCallee.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/callTreeRow.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/module.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/functionRow.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/detailsView.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/flameGraph.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/enableSamplingButton.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/toolbar.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/autoComplete.css" type="text/css" rel="stylesheet" />
+
+    <script src="scripts/diagnosticsHub.js" data-include-ui="true"></script>
+    <script src="scripts/toolWindowViewModel.js"></script>
+    <title>CPU Tool Window</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                //plugin.HotKeys.setZoomState(false);
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+
+                // Allows us to control clipboard keys
+                plugin.HotKeys.setClipboardState(true);
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                require("toolWindowViewModel");
+            }
+        })();
+    </script>
+    <div id="mainToolbar" class="toolbar-container">
+        <span data-bind="localizedText: 'CurrentViewDropDownLabel'" style="white-space: nowrap;"></span>
+        <select required data-bind="options: availableViews, optionsText: 'name', value: currentView, localizedAriaLabel: 'CurrentViewDropDownLabel'"></select>
+        <div class="toolbar-separator"></div>
+        <!-- ko foreach: { data: currentView().toolbarItems, afterRender: CpuSamplingUI_onAfterDomInsert } -->
+        <!-- ko template: $data -->
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+    <div class="mainArea">
+        <!-- ko template: { name: currentView().view, data: currentView().viewModel } -->
+        <!-- /ko -->
+        <!-- ko template: 'OverlayView' -->
+        <!-- /ko -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>uclassexported</Title>
+			<Shortcut>uclassexported</Shortcut>
+			<Description>插件和模块的 Unreal Engine UCLASS 宏</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>apiname</ID>
+					<Default>MYPROJECT</Default>
+					<ToolTip>UCLASS API 名称</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>name</ID>
+					<Default>UMyClass</Default>
+					<ToolTip>UCLASS 名称</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>parent</ID>
+					<Default>UObject</Default>
+					<ToolTip>UCLASS 父类</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[UCLASS()
+				class $apiname$_API $name$ : public $parent$
+				{
+					GENERATED_BODY()
+					$end$
+				public: $name$();
+				protected:
+				private:
+				};]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

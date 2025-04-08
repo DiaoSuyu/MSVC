@@ -1,0 +1,24 @@
+{
+  "feature": {
+    "id": "powerplatform"
+  },
+  "editSteps": [
+    "PowerPlatform",
+    "DependencySummary"
+  ],
+  "persistencePreprocessors": [
+    "buildProject",
+    "activateDevTunnel",
+    "configureDevTunnel"
+  ],
+  "persistenceProperties": {
+    "connectionInfo": {},
+    "connectorName": {},
+    "environmentUrl": {},
+    "environmentId": {},
+    "powerAppSolutionName": {},
+    "type": {
+      "isBase": true
+    }
+  }
+}

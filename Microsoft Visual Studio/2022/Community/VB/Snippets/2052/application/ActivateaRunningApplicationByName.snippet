@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>按名称激活运行的应用程序</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用运行的应用程序的名称激活该应用程序。</Description>
+      <Shortcut>appActNa</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>applicationName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为应用程序的名称。该名称通常是应用程序窗口的标题。</ToolTip>
+          <Default>"Untitled - Notepad"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[AppActivate($applicationName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,29 @@
+{
+  "requirements": [
+    "dotnetMsIdentity"
+  ],
+  "persistenceProperties": {
+    "connectionInfo": {},
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    }
+  },
+  "editSteps": [
+    "IdentityPickInstance",
+    "DependencySummary"
+  ],
+  "feature": {
+    "id": "identityapp"
+  },
+  "persistencePreprocessors": [
+    "RemoteIdentity",
+    "SusiPolicyId"
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "kind": "code.generic",
+  "order": 32,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsHostingMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Hosting;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Hosting;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureMicrosoftFeatureManagementNamespacesMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.FeatureManagement;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.FeatureManagement;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAzureIdentityNamespacesMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Azure.Identity;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Azure.Identity;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureSystemNamespacesMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using System;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using System;",
+            "tokens": {}
+          }
+        ]
+      }
+    ]
+  }
+}

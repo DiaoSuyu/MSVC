@@ -1,0 +1,11 @@
+﻿{
+  "Agents": [
+    {
+      "CLSID": "E11B25ED-EAF1-42F7-9FF7-52465B6E9BFE",
+      "Name": "DiagnosticsHub.InstrumentationAgent.dll",
+      "Config": {
+        "excludeSmallFunctions": true
+      }
+    }
+  ]
+}

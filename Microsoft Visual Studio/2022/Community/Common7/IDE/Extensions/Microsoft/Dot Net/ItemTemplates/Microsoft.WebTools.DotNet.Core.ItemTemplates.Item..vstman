@@ -1,0 +1,55 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item" Locale="1033">
+    <RelativePathOnDisk>Code\1033\Class</RelativePathOnDisk>
+    <TemplateFileName>Class.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{39c9c826-8ef8-4079-8c95-428f5b1c323f}" ID="3020" />
+        <Description Package="{39c9c826-8ef8-4079-8c95-428f5b1c323f}" ID="3021" />
+        <Icon Package="{39c9c826-8ef8-4079-8c95-428f5b1c323f}" ID="4703" />
+        <ProjectType>CSharp</ProjectType>
+        <TemplateGroupID>AspNetCore</TemplateGroupID>
+        <TemplateID>AspNetCore.Class</TemplateID>
+        <DefaultName>Class.cs</DefaultName>
+        <NumberOfParentCategoriesToRollUp>2</NumberOfParentCategoriesToRollUp>
+        <SortOrder>40</SortOrder>
+        <ShowByDefault>false</ShowByDefault>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item" Locale="1033">
+    <RelativePathOnDisk>Code\1033\CodeFile</RelativePathOnDisk>
+    <TemplateFileName>CodeFile.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="2261" />
+        <Description Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="2267" />
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4516" />
+        <TemplateID>AspNetCore.CodeFile</TemplateID>
+        <ProjectType>CSharp</ProjectType>
+        <TemplateGroupID>AspNetCore</TemplateGroupID>
+        <NumberOfParentCategoriesToRollUp>2</NumberOfParentCategoriesToRollUp>
+        <DefaultName>CodeFile.cs</DefaultName>
+        <ShowByDefault>false</ShowByDefault>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item" Locale="1033">
+    <RelativePathOnDisk>Code\1033\Interface</RelativePathOnDisk>
+    <TemplateFileName>Interface.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="2413" />
+        <Description Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="2414" />
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4586" />
+        <ProjectType>CSharp</ProjectType>
+        <TemplateGroupID>AspNetCore</TemplateGroupID>
+        <TemplateID>AspNetCore.Interface</TemplateID>
+        <DefaultName>Interface.cs</DefaultName>
+        <NumberOfParentCategoriesToRollUp>2</NumberOfParentCategoriesToRollUp>
+        <SortOrder>50</SortOrder>
+        <ShowByDefault>false</ShowByDefault>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

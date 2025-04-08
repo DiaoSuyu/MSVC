@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Build a website with ASP.NET Core"
+           Description="Create a C# ASP.NET Core web app in Visual Studio."
+           RequiredPackageNames="Microsoft.VisualStudio.Workload.NetWeb"
+           Id="ASPNET"
+           SortOrder="200"
+           EstimatedMinutesToComplete="7"
+           IconPath="WebApplication.ico"
+           IsAssociatedWithSolution="true">
+    <vst:Step Title="Welcome to the ASP.NET Core guide!"
+              Id="Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn to:
+- Create a Visual Studio project
+- Create a C# ASP.NET Core web app
+- Make changes to the web app
+- Explore IDE features
+- Run the web app
+
+Here is what your finished app will look like:
+
+![Preview](preview.png "Preview")
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Create a project"
+              Id="CreateProject"
+              MenuToHighlight="File">
+        <vst:Step.Description>
+            <![CDATA[
+1. From the menu bar, select **File** > **New** > **Project** {KeyboardShortcut:File.NewProject} to open the new project dialog.
+
+1. In the **Create a new project** window, enter **ASP.NET** in the search box.
+
+1. Select the **ASP.NET Core Web App** template, and then select Next.
+
+    ![New Project](newproject.png "New Project")
+
+1. In the **Configure your new project** window, enter **MyCoreApp** in the **Project name** field. Then, select **Next**.
+
+1. In the **Additional information** window, use the default values and select **Create**.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Start debugging"
+              Id="RunApp"
+              FileToOpen="Pages\\Index.cshtml"
+              CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+1. Click the **MyCoreApp** button in toolbar, to build and run the app in debug mode. Alternatively, use {KeyboardShortcut:Debug.Start}, or go to **Debug** > **Start Debugging** from the menu bar.
+
+    ![Start Debug](startdebug.png "Start Debug")
+
+1. Visual Studio launches a browser window. You should then see **Home** and **Privacy** pages in the menu bar.
+
+1. The **Home** page in the browser renders the text that is set in [Index.cshtml](file://project/pages/index.cshtml). 
+
+1. The **Privacy** page in the browser renders the text that is set in the [Privacy.cshtml](file://project/pages/privacy.cshtml).
+
+1. Don't stop debugging for the next step.
+]]>
+
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Change the homepage"
+              Id="ChangeHomepage"
+              FileToOpen="Pages\\Index.cshtml"
+              CommandToHighlight="c9dd4a59-47fb-11d2-83e7-00c04f9902c1,0xf023">
+        <vst:Step.Description>
+  <![CDATA[
+1. Open [Index.cshtml](file://project/pages/index.cshtml) if it is not opened in the editor yet.
+
+1. In the code editor, you'll see HTML code for the text that appears on the **Home** page.
+
+1. Replace the `Welcome` text with `Hello World!`
+
+1. Click the **Hot Reload** button or press {KeyboardShortcut:Debug.ApplyCodeChanges} to apply your changes.
+
+    ![Hot Reload](vs-hotreload-button.png "Hot Reload")
+
+1. In the web browser, you'll see your new changes on the **Home** page.
+
+    ![Home Changes](csharp-aspnet-index-page-hello-world.png "Home Changes")
+
+1. Don't stop debugging for the next step.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Change the privacy page"
+              Id="ChangePrivacy"
+              FileToOpen="Pages\\privacy.cshtml">
+        <vst:Step.Description>
+  <![CDATA[
+1. Open [Privacy.cshtml](file://project/pages/privacy.cshtml) if it is not opened in the editor yet.
+
+1. Replace
+    ```
+    Use this page to detail your site's privacy policy
+    ```
+    with
+    ```
+    This page is under construction as of @ViewData["TimeStamp"]
+    ```
+
+1. Open [Privacy.cshtml.cs](file://project/pages/privacy.cshtml.cs). 
+
+1. Clean up the using directives at the top of the file by selecting the following shortcut:
+    - Mouseover or select a greyed out `using` directive. 
+    - A Quick Actions light bulb will appear just below the caret or in the left margin. 
+    - Select the light bulb, and then select **Remove unnecessary usings**.
+
+    ![Remove Using](removeusing.png "Remove Using")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Change the date"
+              Id="ChangeDatePrivacy"
+              FileToOpen="Pages\\privacy.cshtml.cs">
+        <vst:Step.Description>
+  <![CDATA[
+1. Next, in [Privacy.cshtml.cs](file://project/pages/privacy.cshtml.cs), change the body of the `OnGet()` method to the following code:
+    ```
+    public void OnGet()
+    {
+        string dateTime = DateTime.Now.ToString("d", new CultureInfo("en-US"));
+        ViewData["TimeStamp"] = dateTime;
+    }
+    ```
+
+1. The first argument of the method specifies how the date should be displayed. This example uses the format specifier (`d`) which indicates the short date format.
+
+1. The second argument is the `CultureInfo` object that specifies the culture or region for the date. The second argument determines the language of any words in the date, and the type of separators used.
+
+1. If you see a redline under `CultureInfo`, add following at the top of the file.
+    ```
+    using System.Globalization;
+    ```
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Review changes"
+              Id="ReviewChanges"
+              FileToOpen="Pages\\privacy.cshtml"
+              CommandToHighlight="c9dd4a59-47fb-11d2-83e7-00c04f9902c1,0xf023">
+        <vst:Step.Description>
+            <![CDATA[
+1. Click the **Hot Reload** button or press {KeyboardShortcut:Debug.ApplyCodeChanges} to apply your changes.
+
+    ![Hot Reload](vs-hotreload-button.png "Hot Reload")
+
+1. At the top of the web site, select **Privacy** to view your changes.
+
+    ![View Changes](csharp-aspnet-browser-page-privacy-changed.png "View Changes")
+
+1. Don't stop debugging for the next step.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Add a breakpoint"
+              Id="Breakpoint">
+        <vst:Step.Description>
+            <![CDATA[
+1. Open [Privacy.cshtml.cs](file://project/pages/privacy.cshtml.cs)
+
+1. Now, place a breakpoint at line `string dateTime = ...` by clicking on the breakpoint margin, or by first placing your cursor on that line and then pressing {KeyboardShortcut:Debug.ToggleBreakpoint}.
+
+    ![Breakpoint](add_breakpoint.png "Breakpoint")
+
+1. Select the **Privacy** tab again to reload this page. You will see the debugger stopped at the breakpoint.
+
+1. Look at the **Locals** window (if it is not opened yet, you can open it by selecting **Debug** > **Windows** > **Locals** or pressing {KeyboardShortcut:Debug.Locals}).
+   It should look similar to the below screenshot. Observe that the `dateTime` variable is `null` at this line, because it's not initialized yet. 
+
+    ![Locals1](locals1.png "Locals1")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Step through the code"
+              Id="StepThrough"
+              CommandToHighlight="Debug.StepOver">
+        <vst:Step.Description>
+            <![CDATA[
+1. Click the **Step Over** button at the top or press {KeyboardShortcut:Debug.StepOver} to execute the current line.
+
+    ![StepOver](stepover.png "StepOver")
+
+1. Notice that the value of `dateTime` should now have changed.
+
+    ![Locals2](locals2.png "Locals2")
+
+1. You can double-click on the value of `dateTime`, change it to some random value (make sure to keep the quotation marks) and then press **Enter**.
+
+    ![Locals3](locals3.png "Locals3") 
+
+1. Visual Studio will pick up the new value that you have entered.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="View debugging changes"
+              Id="ViewDebuggingChanges"
+              CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+1. Click the **Continue** button or press {KeyboardShortcut:Debug.Start} to let the application apply your changes.
+
+    ![Continue Debugging](continue-debug.png "Continue Debugging")
+
+1. You can see the new value is now applied at your **Privacy** page.
+
+    ![View Changes](viewchanges.png "View Changes")
+
+1. Press {KeyboardShortcut:Debug.StopDebugging} to stop debugging, and save all your changes with {KeyboardShortcut:File.SaveAll}.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Next steps"
+              Id="NextSteps"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+Congratulations on completing this Guide! We hope you enjoyed learning about C#, ASP.NET Core, and Visual Studio IDE.
+
+Now, try to create your own application by navigating to **File** > **New** > **Project**!
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=ASPNET)**
+
+![Congratulation](congrats_tutorial.png "Congratulation")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+</vst:Guide>

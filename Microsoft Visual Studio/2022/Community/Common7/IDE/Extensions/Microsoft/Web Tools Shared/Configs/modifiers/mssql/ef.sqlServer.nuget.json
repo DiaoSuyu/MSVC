@@ -1,0 +1,15 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETFramework,Version=4.0": [
+        {
+          "Id": "EntityFramework",
+          "Version": "6.4.4",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

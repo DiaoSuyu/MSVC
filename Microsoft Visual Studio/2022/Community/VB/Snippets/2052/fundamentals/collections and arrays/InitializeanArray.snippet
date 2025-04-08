@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>对一维数组进行初始化 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>对一维数组进行初始化。</Description>
+      <Keywords>
+      </Keywords>
+      <Shortcut>arrInit</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>OneD</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为以逗号分隔的值列表。</ToolTip>
+          <Default>1, 2, 3</Default>
+        </Literal>
+        <Literal>
+          <ID>TwoD</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为以逗号分隔的值列表。</ToolTip>
+          <Default>{{5.8, 6.6}, {7.4, 8.2}}</Default>
+        </Literal>
+        <Literal>
+          <ID>Jagged</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为数组声明。</ToolTip>
+          <Default>{New Integer() {1, 2}, New Integer() {3, 4}}</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim oneDimArray() As Integer = {$OneD$}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

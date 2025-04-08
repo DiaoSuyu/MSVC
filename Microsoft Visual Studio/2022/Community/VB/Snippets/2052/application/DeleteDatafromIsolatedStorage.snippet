@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从独立存储中删除文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从独立存储中删除文件。</Description>
+      <Shortcut>appIsoDel</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO.IsolatedStorage</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>varName</ID>
+          <Type>String</Type>
+          <ToolTip>独立存储的变量名。</ToolTip>
+          <Default>isolatedStorage</Default>
+        </Object>
+        <Literal>
+          <ID>pathToFile</ID>
+          <Type>String</Type>
+          <ToolTip>独立存储中文件的完整路径。</ToolTip>
+          <Default>"FullPath\FileName.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[
+        Dim $varName$ = IsolatedStorageFile.GetStore(IsolatedStorageScope.User Or IsolatedStorageScope.Assembly Or IsolatedStorageScope.Domain, Nothing, Nothing)
+        $varName$.DeleteFile($pathToFile$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

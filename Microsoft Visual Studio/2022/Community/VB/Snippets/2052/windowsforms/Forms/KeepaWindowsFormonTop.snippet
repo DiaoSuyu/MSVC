@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使 Windows 窗体位于顶部</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>显示 TopMost 属性如何控制某个窗体是否为最顶层的窗体。最顶层的窗体即使不处于活动状态，也在其他非最顶层窗体之上。</Description>
+      <Shortcut>formTop</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>formName</ID>
+          <Type>Form</Type>
+          <ToolTip>替换为对需要位于最顶层的窗体的引用。</ToolTip>
+          <Default>theTopForm</Default>
+        </Object>
+        <Literal>
+          <ID>topBoolean</ID>
+          <Type>Boolean</Type>
+          <ToolTip>此值确定窗体是否在最顶层；如果是，则为 true，否则为 false。</ToolTip>
+          <Default>True</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$formName$.TopMost = $topboolean$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

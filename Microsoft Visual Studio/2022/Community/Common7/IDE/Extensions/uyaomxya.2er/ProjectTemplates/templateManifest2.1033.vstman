@@ -1,0 +1,22 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>VC\Test\1033\GoogleTest</RelativePathOnDisk>
+    <TemplateFileName>GoogleTest.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{6fac3232-df1d-400a-95ac-7daeaaee74ac}" ID="115" />
+        <Description Package="{6fac3232-df1d-400a-95ac-7daeaaee74ac}" ID="114" />
+        <ProjectType>VC</ProjectType>
+        <TemplateID>Microsoft.VisualC.Project.GoogleTest</TemplateID>
+        <SortOrder>1000</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <CreateInPlace>true</CreateInPlace>
+        <DefaultName>Sample-Test</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <Icon>Icon.ico</Icon>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

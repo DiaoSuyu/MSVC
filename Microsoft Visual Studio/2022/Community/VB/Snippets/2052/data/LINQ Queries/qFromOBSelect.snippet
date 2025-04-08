@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>From...Order By...Select 查询</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 From、Order By 和 Select 子句创建查询。</Description>
+      <Shortcut>qFromOBSelect</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的范围变量的标识符。</ToolTip>
+          <Default>fruit</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>New String() {"apple", "orange", "pear", "banana"}</Default>
+        </Literal>
+        <Literal>
+          <ID>field1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第一个字段的标识符。</ToolTip>
+          <Default>ToUpper()</Default>
+        </Literal>
+        <Literal>
+          <ID>field2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第二个字段的标识符。</ToolTip>
+          <Default>ToLower()</Default>
+        </Literal>
+        <Literal>
+          <ID>orderField</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要作为排序依据的字段名称。</ToolTip>
+          <Default>Length</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $queryResult$ = From $item$ In $dataSource$ _
+                    Order By $item$.$orderField$ _
+                    Select $item$.$field1$, $item$.$field2$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>循环访问集合。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>循环访问集合中的特定项类型。</Description>
+      <Shortcut>colIter</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>itemVar</ID>
+          <ToolTip>替换为集合中的项的标识符。</ToolTip>
+          <Default>name</Default>
+        </Literal>
+        <Literal>
+          <ID>itemType</ID>
+          <ToolTip>替换为集合中的项的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>colVar</ID>
+          <Type>IEnumerable</Type>
+          <ToolTip>替换为要循环访问的集合。</ToolTip>
+          <Default>names</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[        ' Iterate through a collection
+        For Each $itemVar$ As $itemType$ In $colVar$
+
+        Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

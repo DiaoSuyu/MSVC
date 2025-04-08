@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从文件中读取文本</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将文本文件中的内容读入字符串。</Description>
+      <Shortcut>filReadText</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>FileName</ID>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"C:\Test.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim fileContents As String
+fileContents = My.Computer.FileSystem.ReadAllText($FileName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

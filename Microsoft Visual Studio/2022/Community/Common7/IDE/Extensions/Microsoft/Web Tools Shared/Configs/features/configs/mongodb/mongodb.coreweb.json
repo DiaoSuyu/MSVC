@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "mongodb.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId"
+      ]
+    }
+  }
+}

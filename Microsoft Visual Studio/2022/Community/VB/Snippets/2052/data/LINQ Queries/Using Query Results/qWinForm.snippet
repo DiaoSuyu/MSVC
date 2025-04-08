@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 WinForm 网格中显示查询结果</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在 WinForm DataGridView 控件中显示查询结果。</Description>
+      <Shortcut>qWinForm</Shortcut>
+    </Header>
+    <Snippet>
+       <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的范围变量的标识符。</ToolTip>
+          <Default>process</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>System.Diagnostics.Process.GetProcesses()</Default>
+        </Literal>
+        <Literal>
+          <ID>field1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第一个字段的标识符。</ToolTip>
+          <Default>ProcessName</Default>
+        </Literal>
+        <Literal>
+          <ID>field2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要从数据源检索的第二个字段的标识符。</ToolTip>
+          <Default>MainWindowTitle</Default>
+        </Literal>
+        <Literal>
+          <ID>alias</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要赋予此数据的别名。</ToolTip>
+          <Default>WindowTitle</Default>
+        </Literal>
+        <Literal>
+          <ID>gridview</ID>
+          <Type>String</Type>
+          <ToolTip>替换为用于在窗体上显示数据的 GridView 的标识符。</ToolTip>
+          <Default>dataGridView1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $queryResult$ = From $item$ In $dataSource$ _
+                    Select $item$.$field1$, $alias$ = $item$.$field2$ _
+                    Order By $field1$
+
+        ' This assumes the gridview is already on your form.
+        $gridview$.DataSource = $queryResult$.ToList()]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

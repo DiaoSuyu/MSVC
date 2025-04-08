@@ -1,0 +1,22 @@
+{
+  "id": "apis",
+  "isBase": true,
+  "name": "strings:#/apiAzureDependencyTypeName",
+  "description": "strings:#/apiAzureDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "isSingleton": true,
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3855
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3855
+  },
+  "displayOrder": 1600,
+  "actions": [],
+  "tags": [
+    "API"
+  ]
+}

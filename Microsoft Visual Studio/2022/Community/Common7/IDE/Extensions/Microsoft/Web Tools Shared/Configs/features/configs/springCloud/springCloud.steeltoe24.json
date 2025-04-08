@@ -1,0 +1,14 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "steeltoe.code.generic.buildConfig"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "springCloud.nuget.steeltoe24"
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>更新子元素的内容</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>更新子元素的内容。</Description>
+      <Shortcut>xmlUpdt</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Xelem</ID>
+          <Type>XElement</Type>
+          <ToolTip>将此项替换为 XElement。</ToolTip>
+          <Default>&lt;xml&gt;&lt;child&gt;oldvalue&lt;/child&gt;&lt;child&gt;oldvalue&lt;/child&gt;&lt;/xml&gt;</Default>
+        </Literal>
+        <Literal>
+          <ID>AxisExpr</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为轴表达式。</ToolTip>
+          <Default>elem.&lt;child&gt;</Default>
+        </Literal>              
+        <Literal>
+          <ID>newVal</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为新内容。</ToolTip>
+          <Default>newval</Default>
+        </Literal> 
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim elem = $Xelem$
+        For Each item In $AxisExpr$
+            item.SetValue("$newVal$")
+        Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

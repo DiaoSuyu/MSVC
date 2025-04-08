@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>更改控制台窗口中的前景色和背景色</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>更改控制台窗口的背景色和文本颜色。</Description>
+      <Shortcut>appChanCol</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>background</ID>
+          <Type>ConsoleColor</Type>
+          <ToolTip>替换为新的背景色。</ToolTip>
+          <Default>ConsoleColor.DarkRed</Default>
+        </Literal>
+        <Literal>
+          <ID>foreground</ID>
+          <Type>ConsoleColor</Type>
+          <ToolTip>替换为新的前景色。</ToolTip>
+          <Default>ConsoleColor.Gray</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Console.BackgroundColor = $background$
+Console.ForegroundColor = $foreground$
+Console.Clear()
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

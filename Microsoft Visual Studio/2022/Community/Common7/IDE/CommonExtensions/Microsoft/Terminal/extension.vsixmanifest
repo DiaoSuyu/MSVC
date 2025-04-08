@@ -1,0 +1,22 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.Platform.Terminal.x64" Version="17.13.229.26184" Language="en-US" Publisher="Microsoft Corporation" />
+    <DisplayName>Microsoft Visual Studio Terminal</DisplayName>
+    <Description>Microsoft Visual Studio Terminal</Description>
+    <PackageId>Microsoft.VisualStudio.Platform.Terminal</PackageId>
+  </Metadata>
+  <Installation SystemComponent="true" Experimental="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VSPackage" Path="Microsoft.VisualStudio.Terminal.Implementation.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

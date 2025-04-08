@@ -1,0 +1,12 @@
+[$RootKey$\AD7Metrics\PortSupplier\{971E52EF-BDE3-4DED-A040-EFC534BC8110}]
+@="guidDockerWindowsPortSupplier"
+"Name"="resource=$PackageFolder$\*\vsdebugeng.windockertransport.resources.dll#100"
+"Description"="resource=$PackageFolder$\*\vsdebugeng.windockertransport.resources.dll#101"
+; From: https://github.com/microsoft/MIEngine/blob/7ee545f93b59e80698abf06c453185f798936172/src/SSHDebugPS/Docker/DockerPortPicker.cs#L25
+"PortPickerCLSID"="{AE75778B-70E8-4F53-B3FE-59E048D3D01B}"
+"CustomMsvsmonChannelFactory"="{674A0897-39C3-4448-9F28-D806A38D3CA8}"
+
+[$RootKey$\CLSID\{674A0897-39C3-4448-9F28-D806A38D3CA8}]
+"InprocServer32"="$PackageFolder$\vsdebugeng.windockertransport.dll"
+"ThreadingModel"="Apartment"
+@="CDockerChannelFactory"

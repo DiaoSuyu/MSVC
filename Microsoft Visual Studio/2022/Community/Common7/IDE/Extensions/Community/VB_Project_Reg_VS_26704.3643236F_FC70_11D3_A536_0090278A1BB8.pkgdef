@@ -1,0 +1,5 @@
+[$RootKey$\ShellFileAssociations\.vb]
+"DefaultIconMoniker"="KnownMonikers.VBFileNode"
+
+[$RootKey$\ShellFileAssociations\.vbproj]
+"DefaultIconMoniker"="KnownMonikers.VBProjectNode"

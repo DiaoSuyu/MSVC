@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <link href="GpuProfilingRuntimeViewScripted.css" type="text/css" rel="stylesheet" data-plugin-theme="true" />
+    <script src="diagnosticsHub.js"></script>
+    <script src="VsGraphics.js"></script>
+    <title>Gpu Runtime View</title>
+</head>
+<body>
+    <div class="Gpu-Runtime" id="Gpu-Runtime-Div">
+        <a href="about:blank" id="startLink">Start </a>
+        <span id="startSpan">collecting additional detailed GPU Usage data.</span>
+        <br />
+        <a href="about:blank" id="stopLink">Stop collection </a>
+        <span id="stopSpan">or exit the application to generate a report.</span>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                const controlModule = require("Profiling/GpuProfilingRuntimeViewScripted");
+                var gpuRuntimeControl;
+                // viewId is the GUID of the IDetailsView that is hosting this control
+                gpuRuntimeControl = new controlModule.GpuProfilingRuntimeControl(
+                  {
+                      viewId: "676066E6-F081-471A-9BFD-B600920E4291"
+                  });
+            }
+        })();
+  </script>
+</body>
+</html>

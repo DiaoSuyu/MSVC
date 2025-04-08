@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在独立存储中保存文本</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将字符串写入程序集或用户独立存储中。</Description>
+      <Shortcut>appIsoSave</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.IO.IsolatedStorage</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>varName</ID>
+          <Type>String</Type>
+          <ToolTip>独立存储的变量名。</ToolTip>
+          <Default>isolatedStorage</Default>
+        </Object>
+        <Literal>
+          <ID>fileName</ID>
+          <Type>String</Type>
+          <ToolTip>独立存储中文件的名称。</ToolTip>
+          <Default>"TestStore.txt"</Default>
+        </Literal>
+        <Object>
+          <ID>fileContents</ID>
+          <Type>String</Type>
+          <ToolTip>存储以下值的字符串变量，要将该值写入存储区中的文件。</ToolTip>
+          <Default>"The Data"</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[
+        Dim $varName$ = IsolatedStorageFile.GetStore(IsolatedStorageScope.User Or IsolatedStorageScope.Assembly Or IsolatedStorageScope.Domain, Nothing, Nothing)
+        Dim isoStream As New IsolatedStorageFileStream($fileName$, FileMode.Append, FileAccess.Write, isolatedStore)
+
+        Using writer As New StreamWriter(isoStream)
+		    writer.WriteLine($fileContents$)
+	    End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

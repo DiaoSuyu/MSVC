@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+    <Symbols>
+      <String Name="Resources" Value="/Microsoft.VisualStudio.Copilot.UI;v0.1.0.0;b03f5f7f11d50a3a;Component/Internal/Resources" />
+      <Guid Name="ConversationMonikers" Value="{4515B9BD-70A1-45FA-9545-D4536417C596}" />
+      <ID Name="GithubCopilotAI" Value="1" />
+      <ID Name="Sparkle" Value="2" />
+      <ID Name="SparkleBlue" Value="3" />
+    </Symbols>
+    <Images>
+        <Image Guid="$(ConversationMonikers)" ID="$(GithubCopilotAI)">
+            <Source Uri="$(Resources)/GithubCopilotAI.16.16.png">
+                <Size Value="16" />
+            </Source>
+            <Source Uri="$(Resources)/GithubCopilotAI.xaml" />
+        </Image>
+        <Image Guid="$(ConversationMonikers)" ID="$(Sparkle)">
+          <Source Uri="$(Resources)/Sparkle.16.16.png">
+            <Size Value="16" />
+          </Source>
+          <Source Uri="$(Resources)/Sparkle.xaml" />
+        </Image>
+        <Image Guid="$(ConversationMonikers)" ID="$(SparkleBlue)">
+          <Source Uri="$(Resources)/SparkleBlue.16.16.png">
+            <Size Value="16" />
+          </Source>
+          <Source Uri="$(Resources)/SparkleBlue.xaml" />
+        </Image>
+    </Images>
+    <ImageLists />
+</ImageManifest>

@@ -1,0 +1,1514 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Copilot.Contracts.Internal</name>
+    </assembly>
+    <members>
+        <member name="T:Conversations.Service.Contracts.ConversationModes">
+            <summary>
+            Collection of conversation modes that can be specified on a <see cref="P:Conversations.Service.Contracts.StartConversationOptions.CreationParameters" /> to control what type of
+            conversation orchestrates a conversation.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.Default">
+            <summary>
+            The default chat pane conversation mode.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.Inline">
+            <summary>
+            The inline conversation mode.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.ExceptionHelper">
+            <summary>
+            The debugger conversation mode used for exception handling.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.CombinedExceptionHelper">
+            <summary>
+            The combined debugger conversation mode used for exception handling.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.MigrationHelper">
+            <summary>
+            The conversation mode used for migration handling.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.RemoteAgent">
+            <summary>
+            The conversation mode used for remote agents.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.ExperimentalChat">
+            <summary>
+            The conversation mode used for experimental chat pane.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ConversationModes.TypeScriptGuidedConversation">
+            <summary>
+            The conversation mode used for scripted chats.
+            </summary>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ConversationModes.GetMode(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Tries to get the conversation mode from the creation parameters. <see cref="M:Conversations.Service.Contracts.ConversationModes.AddMode(System.String,System.Collections.Generic.Dictionary{System.String,System.String})" /> should have been called first prior.
+            </summary>
+            <param name="creationParameters">The creation parameters. Typically this is from <see cref="P:Conversations.Service.Contracts.StartConversationOptions.CreationParameters" /></param>
+            <returns>The conversation mode if found, otherwise null.</returns>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ConversationModes.AddMode(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds the conversation mode to the creation parameters. Can be retrieved via <see cref="M:Conversations.Service.Contracts.ConversationModes.GetMode(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})" />.
+            </summary>
+            <param name="mode">The conversation mode to add.</param>
+            <param name="creationParameters">The creation parameters dictionary.</param>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ConversationModes.ContainsMode(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Checks for the presence of a conversation mode in the specified creation parameters.
+            </summary>
+            <param name="creationParameters">The dictionary of creation parameters.</param>
+            <returns>A value indicating if the creation parameters contains a conversation mode.</returns>
+        </member>
+        <member name="T:Conversations.Service.Contracts.ExceptionHelperModes">
+            <summary>
+            Collection of exception helper modes that can be specified on a <see cref="P:Conversations.Service.Contracts.StartConversationOptions.CreationParameters" /> to control how
+            debugger conversations behave.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ExceptionHelperModes.Default">
+            <summary>
+            The default exception helper mode. One-shot response followed by conversation mode.
+            </summary>
+        </member>
+        <member name="F:Conversations.Service.Contracts.ExceptionHelperModes.BeginWithConversation">
+            <summary>
+            The "new debugger conversation mode" exception helper mode.
+            </summary>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ExceptionHelperModes.TryGetMode(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Tries to get the conversation mode from the creation parameters. <see cref="M:Conversations.Service.Contracts.ExceptionHelperModes.AddMode(System.String,System.Collections.Generic.Dictionary{System.String,System.String})" /> should have been called first prior.
+            </summary>
+            <param name="creationParameters">The creation parameters. Typically this is from <see cref="P:Conversations.Service.Contracts.StartConversationOptions.CreationParameters" /></param>
+            <returns>The conversation mode if found, otherwise null.</returns>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ExceptionHelperModes.AddMode(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds the conversation mode to the creation parameters. Can be retrieved via <see cref="M:Conversations.Service.Contracts.ExceptionHelperModes.TryGetMode(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})" />.
+            </summary>
+            <param name="mode">The conversation mode to add.</param>
+            <param name="creationParameters">The creation parameters dictionary.</param>
+        </member>
+        <member name="T:Conversations.Service.Contracts.FeatureInfo">
+            <summary>
+            Represents IDE feature information for settings/commands/etc
+            that can be used as context to answer questions about how to use
+            the IDE.
+            </summary>
+            <param name="Id">The feature ID.</param>
+            <param name="Title">The user-visible name of the feature.</param>
+            <param name="Description">Could be natural language or a set of keywords.</param>
+            <param name="KeyboardShortcut">The configured keyboard shortcut for the feature, if any.</param>
+        </member>
+        <member name="M:Conversations.Service.Contracts.FeatureInfo.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Represents IDE feature information for settings/commands/etc
+            that can be used as context to answer questions about how to use
+            the IDE.
+            </summary>
+            <param name="Id">The feature ID.</param>
+            <param name="Title">The user-visible name of the feature.</param>
+            <param name="Description">Could be natural language or a set of keywords.</param>
+            <param name="KeyboardShortcut">The configured keyboard shortcut for the feature, if any.</param>
+        </member>
+        <member name="P:Conversations.Service.Contracts.FeatureInfo.Id">
+            <summary>The feature ID.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.FeatureInfo.Title">
+            <summary>The user-visible name of the feature.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.FeatureInfo.Description">
+            <summary>Could be natural language or a set of keywords.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.FeatureInfo.KeyboardShortcut">
+            <summary>The configured keyboard shortcut for the feature, if any.</summary>
+        </member>
+        <member name="M:Conversations.Service.Contracts.ICopilotClientModelAvailability.GetModelsAsync(Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Gets the models available for the calling client.
+            </summary>
+            <param name="clientId">The client ID for which to get the models.</param>
+            <param name="cancellation">Cancellation token.</param>
+            <returns>The models that this component supports.</returns>
+        </member>
+        <member name="M:Conversations.Service.Contracts.IIdeContext.GetMatchingFeaturesAsync(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Query All-in-one Search for features matching the given queries.
+            Allows batching multiple queries in a single call.
+            </summary>
+            <param name="queries">A list of keyword-based queries for All-in-one Search.</param>
+            <param name="maxResultCount">Maximum number of results to return for each query.</param>
+            <param name="cancellationToken"></param>
+            <returns>A list of result lists, whose order matches the order of the provided <paramref name="queries" />.</returns>
+        </member>
+        <member name="M:Conversations.Service.Contracts.IIdeContext.GetWorkspacePathAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the path to the directory of the open solution or folder, if one is present.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The path to the directory of the open solution or folder, or null if no
+            solution or folder is open.</returns>
+        </member>
+        <member name="P:Conversations.Service.Contracts.StartConversationOptions.SessionId">
+            <summary>
+            Gets or sets the session id to use for the session that backs this conversation.
+            Used primarily for restoring previously saved conversations where we want to use
+            the same session id as the original conversation.
+            </summary>
+        </member>
+        <member name="T:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem">
+            <summary>
+            Represents an item in the completions list for a symbol context.
+            </summary>
+            <param name="FilePath">The path to the file where the symbol is located.</param>
+            <param name="FullyQualifiedName">The fully qualified name of the symbol.</param>
+            <param name="UnqualifiedName">The unqualified name of the symbol.</param>
+            <param name="ExtentRange">The range of the symbol definition within the file.</param>
+            <param name="Kind">The kind of the symbol.</param>
+            <param name="MethodSignature">The method signature if the symbol is a method, otherwise null.</param>
+        </member>
+        <member name="M:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.#ctor(System.String,System.String,System.String,Microsoft.VisualStudio.Copilot.UnstableInternalApi.TextRange,Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind,System.String)">
+            <summary>
+            Represents an item in the completions list for a symbol context.
+            </summary>
+            <param name="FilePath">The path to the file where the symbol is located.</param>
+            <param name="FullyQualifiedName">The fully qualified name of the symbol.</param>
+            <param name="UnqualifiedName">The unqualified name of the symbol.</param>
+            <param name="ExtentRange">The range of the symbol definition within the file.</param>
+            <param name="Kind">The kind of the symbol.</param>
+            <param name="MethodSignature">The method signature if the symbol is a method, otherwise null.</param>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.FilePath">
+            <summary>The path to the file where the symbol is located.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.FullyQualifiedName">
+            <summary>The fully qualified name of the symbol.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.UnqualifiedName">
+            <summary>The unqualified name of the symbol.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.ExtentRange">
+            <summary>The range of the symbol definition within the file.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.Kind">
+            <summary>The kind of the symbol.</summary>
+        </member>
+        <member name="P:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem.MethodSignature">
+            <summary>The method signature if the symbol is a method, otherwise null.</summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata">
+            <summary>
+            Metadata for a chat command instance.
+            </summary>
+            <param name="Name">Name of the chat command as it should be displayed.</param>
+            <param name="Description">Description of the chat command as it should show up in the UI.</param>
+            <param name="Slug">Short name of the agent as referenced in # mentions.</param>
+            <param name="UniqueId">Unique identifier for the agent extension.</param>
+            <param name="Icon">Icon uri for the agent if one is available.</param>
+            <param name="CanUseEditorContext">Whether implicit editor context can be passed to agent.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.#ctor(System.String,System.String,System.String,System.Int64,System.Uri,System.Boolean)">
+            <summary>
+            Metadata for a chat command instance.
+            </summary>
+            <param name="Name">Name of the chat command as it should be displayed.</param>
+            <param name="Description">Description of the chat command as it should show up in the UI.</param>
+            <param name="Slug">Short name of the agent as referenced in # mentions.</param>
+            <param name="UniqueId">Unique identifier for the agent extension.</param>
+            <param name="Icon">Icon uri for the agent if one is available.</param>
+            <param name="CanUseEditorContext">Whether implicit editor context can be passed to agent.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.Name">
+            <summary>Name of the chat command as it should be displayed.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.Description">
+            <summary>Description of the chat command as it should show up in the UI.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.Slug">
+            <summary>Short name of the agent as referenced in # mentions.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.UniqueId">
+            <summary>Unique identifier for the agent extension.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.Icon">
+            <summary>Icon uri for the agent if one is available.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotAgentMetadata.CanUseEditorContext">
+            <summary>Whether implicit editor context can be passed to agent.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.GitHubKnowledgeBase.Id">
+            <summary>
+            Gets the knowledge base identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.GitHubKnowledgeBase.DisplayName">
+            <summary>
+            Gets the display name of the knowledge base.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.GitHubKnowledgeBase.Description">
+            <summary>
+            Gets the description of the knowledge base.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.Internal.IFormatTextEditProvider.FormatTextEditAsync(Microsoft.VisualStudio.Copilot.Internal.TextEdit,Microsoft.VisualStudio.Text.ITextSnapshot,System.Threading.CancellationToken)">
+            <summary>
+            Format the TextEdit, return a formatted TextEdit
+            </summary>
+            <param name="textEdit">The text edit that we want to format.</param>
+            <param name="snapshot">A text snapshot we want to format.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.Internal.ILanguageCodeFileMapper.GetFileNameFromContentAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Evaluates a content string and returns a file name if it can be determined.
+            </summary>
+            <param name="content">The code content.</param>
+            <param name="cancellation">A cancellation token.</param>
+            <returns>Returns the file name of the given content, or null when no file name could be determined.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.Internal.MappingTarget.#ctor(Microsoft.VisualStudio.Text.SnapshotSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Copilot.Internal.MappingTarget" /> class.
+            </summary>
+            <param name="focusArea"></param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.Internal.MappingTarget.Caret">
+            <summary>
+            Gets a caret position if one was supplied, or <see langword="null" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.Internal.SourceNode.IdentifierName">
+            <summary>
+            Gets the name of the node's identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.Internal.SourceNode.ToFullString">
+            <summary>
+            Returns a string representation of the node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor">
+            <summary>
+            Describes a brokered service that implements <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />.
+            Used to register the brokered service with <see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.RegisterChunkSourceAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor,System.Threading.CancellationToken)" />
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.ServiceMoniker">
+            <summary>
+            The moniker that can be used to request a proxy of the source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.BatchIdentityTypes">
+            <summary>
+            Names of <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity" /> types that this provider may produce.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.ChunkTypes">
+            <summary>
+            Names of chunk types that this provider may produce.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.LazyInitialization">
+            <summary>
+            Gets a flag describing whether the chunk source initializes lazily.
+            File-based chunk sources will not be activated until a file that it targets is requested for indexing.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item>File-based chunk sources <b>must</b> be lazily initialized, and will only be activated if there's a request matching <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.TargetFiles" />.</item>
+            <item>Non-file based chunk sources that lazily initialize will be initialized when <b>any</b> non-file request is seen. This behavior may be subject to change.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.Experimental">
+            <summary>
+            Gets a flag describing whether the chunk source is experimental. Experimental chunk sources must be explicitly enabled by name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.TargetFiles">
+            <summary>
+            Gets information on the files that are targeted by the chunk source, if it does so. This property is optional.
+            </summary>
+            <remarks>
+            This property should be left null if the chunk source does not target files. Chunk sources that target files will activate lazily in response to matching files being requested for indexing.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFiles">
+            <summary>
+            Represents a chunk source target file configuration used for matching a file to a file chunk source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFiles.Patterns">
+            <summary>
+            Gets the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPattern" />s that will be used to determine if a file should be processed by the file chunk source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFiles.Priority">
+            <summary>
+            Gets <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceFileMatchingPriority" /> of the file chunk source used during the file matching process.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPattern">
+            <summary>
+            Holds information on a pattern used to specify what potential target files the file chunk source should process.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPattern.Pattern">
+            <summary>
+            Gets the pattern used for matching a file to a file chunk source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPattern.PatternType">
+            <summary>
+            Gets the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPatternType" /> used for matching a file to a file chunk source.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPatternType">
+            <summary>
+            Specifies the type of pattern used for matching a file to a file chunk source.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceTargetFilesPatternType.Extension">
+            <summary>
+            Represents that the pattern of the file chunk source is an extension and should be compared to the extension of a file (including the leading period) to
+            determine a match, e.g., ".cs", ".cpp", etc.
+            <remarks>
+            An empty pattern associated with this type will match files without an extension, e.g., README, LICENSE, etc. Specifying a multipart extension, e.g., ".tar.gz", will
+            not match any files. Matching for this pattern type is done from the last period to the end of the file name.
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceFileMatchingPriority">
+            <summary>
+            Specifies the priority of the pattern used for resolving the file chunk source when a file matches multiple patterns.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceFileMatchingPriority.None">
+            <summary>
+            Represents that the pattern does not have any priority.
+            </summary>
+            <remarks>
+            When a file matches multiple patterns, the chunk source could only be chosen if the other file sources have the same priority, but without any guarantee.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceFileMatchingPriority.Low">
+            <summary>
+            Represents that the pattern has low priority.
+            </summary>
+            <remarks>
+            When a file matches multiple patterns, the chunk source will be chosen if the other file sources have lower priority. If other file sources have the same priority,
+            the chunk source could be chosen, but without any guarantee.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceFileMatchingPriority.High">
+            <summary>
+            Represents that the pattern has high priority.
+            </summary>
+            <remarks>
+            When a file matches multiple patterns, the chunk source will be chosen if the other file sources have lower priority. If another file source has the same priority,
+            an exception will be thrown.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor">
+            <summary>
+            Describes a brokered service that implements <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />.
+            Used to register the brokered service with <see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.RegisterChunkTranslatorAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor,System.Threading.CancellationToken)" />
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor.ServiceMoniker">
+            <summary>
+            The moniker that can be used to request a proxy of the processor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor.BatchIdentityTypes">
+            <summary>
+            Names of <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity" /> types that this processor can handle.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor.ChunkTypes">
+            <summary>
+            Names of chunk types that this processor can handle.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource">
+            <summary>
+            A brokered service that produces <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch" />es containing chunks,
+            and sends them to the appropriate <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> brokered service that's specified
+            by the <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.TargetIndex" />'s <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexOptions.TranslatorMoniker" />.
+            Called as a result of calling <see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.UpdateIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions,System.Threading.CancellationToken)" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource.SendChunksToTranslatorAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata,System.Threading.CancellationToken)">
+            <summary>
+            Collects chunks from the current state and sends them to the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />.
+            </summary>
+            <param name="options">Configuration reflecting the initiating request.</param>
+            <param name="operationId">Indexing operation this send is associated with.</param>
+            <param name="targetIndexMetadata">Metadata of the index the chunks will be sent to.</param>
+            <param name="cancellationToken">Cancellation of the chunking operation.</param>
+            <returns>Task that completes when all chunks are provided.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator">
+            <summary>
+            Brokered service responsible for storing domain-specific data in the RAG index, and retrieving it.
+            Warning: Chunk translator interface is unstable and subject to change.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator.StoreBatchAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch,System.Threading.CancellationToken)">
+            <summary>
+            Translate domain-specific batches for generic storage, and sends the generic chunks to be stored.
+            If the ChunkBatch already exists, it must be overwritten.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator.TranslateSearchResultsAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult[],System.Threading.CancellationToken)">
+            <summary>
+            Translate text search results into domain-specific results.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService">
+            <summary>
+            Brokered service providing Copilot-backed indexing capabilities.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.UpdateIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions,System.Threading.CancellationToken)">
+            <summary>
+            Updates an index using the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> specified in its <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata" />
+            and all registered <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />s that have matching chunk &amp; metadata types.
+            </summary>
+            <param name="operationId">Logical operation id to correlate this index update task (and any child tasks in other services) with.</param>
+            <param name="options">Options for the update operation.</param>
+            <param name="cancellationToken">Cancellation for the update operation. If cancelled, the index may be partially updated.</param>
+            <returns>Awaitable task for the update operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.GetIndexBackendAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId,System.Threading.CancellationToken)">
+            <summary>
+            Get a index backend's proxy.
+            Usually should be called by <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />s which translate between domain-specific <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch" />es
+            and raw <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" />s.
+            The returned backend proxy MUST be disposed to avoid memory leaks.
+            </summary>
+            <param name="indexerId">ID of the index.</param>
+            <param name="cancellationToken">Cancellation.</param>
+            <returns>A proxy to the backend, if it exists. The proxy must be disposed when no longer needed.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.GetIndexMetadataAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId,System.Threading.CancellationToken)">
+            <summary>
+            Get live metadata about an index by ID. Contains persistent information about the index, as well as its current <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Status" />.
+            </summary>
+            <param name="indexerId">ID of the index to get metadata for.</param>
+            <param name="cancellationToken">Cancellation.</param>
+            <returns>The index's metadata, if the index exists.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.CreateIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexOptions,System.Threading.CancellationToken)">
+            <summary>
+            Create a new index.
+            </summary>
+            <param name="options">Requested configuration for the new index.</param>
+            <param name="cancellationToken">Cancellation for the operation.</param>
+            <returns>Metadata about the created index, including <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Id" /> which can be used to operate on it.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.RegisterChunkSourceAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor,System.Threading.CancellationToken)">
+            <summary>
+            Registers a chunk source for use in indexing operations.
+            </summary>
+            <param name="descriptor">Descriptor of the source to use.</param>
+            <param name="cancellationToken">Cancellation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.RegisterChunkTranslatorAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkTranslatorDescriptor,System.Threading.CancellationToken)">
+            <summary>
+            Registers a chunk translator for use in indexing operations.
+            </summary>
+            <param name="descriptor">Descriptor of the translator to use.</param>
+            <param name="cancellationToken">Cancellation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.SearchAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery,System.Threading.CancellationToken)">
+            <summary>
+            Searches an index for a query. Results are translated into domain-specific chunks by the index's configured <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />.
+            </summary>
+            <param name="operationId">Logical operation id to correlate this search task (and any child tasks in other services) with.</param>
+            <param name="targetIndex">ID of the index to search.</param>
+            <param name="query">Query to search within that index.</param>
+            <param name="cancellationToken">Cancellation for the search operation.</param>
+            <returns>Ordered search results.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.UnloadIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId,System.Threading.CancellationToken)">
+            <summary>
+            Unloads the backend index service and releases any resources it holds.
+            </summary>
+            <param name="indexId">ID of the index.</param>
+            <param name="cancellationToken">Cancellation for unloading index.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IHasServiceMoniker">
+            <summary>
+            Interface for types that contain a brokered service's <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IHasServiceMoniker.ServiceMoniker" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IHasServiceMoniker.ServiceMoniker">
+            <summary>
+            Service moniker.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexingDescriptors">
+            <summary>
+            Descriptors for indexing-related brokered services
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexingDescriptors.CopilotIndexingService">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceHub.Framework.ServiceRpcDescriptor" /> for the Visual Studio copilot service.
+            Use the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService" /> interface for the client proxy for this service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexingDescriptors.CreateRpcDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)">
+            <summary>
+            Construct an RPC descriptor with default options for indexing-related services.
+            </summary>
+            <param name="moniker">Service moniker to create the descriptor for.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions">
+            <summary>
+            Parameters for an index update operation (<see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService.UpdateIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId,Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions,System.Threading.CancellationToken)" />).
+            Will be passed to relevant <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />s, which can change their behavior accordingly.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.TargetIndex">
+            <summary>
+            The ID of the index to update.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.RecreateExistingBatches">
+            <summary>
+            Whether batches that already exist in the index should be re-created by the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />.
+            If off, the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" /> shouldn't query the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />, which
+            may result in overall faster chunking in cases where we know that the chunks won't already exist (e.g. a new index).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.EnumerateWorkspaceFiles">
+            <summary>
+            If set, and <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.RequestStream" /> <b>is null</b>, files in the current workspace will be enumerated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.RequestStream">
+            <summary>
+            Optional stream of batches to produce.
+            Signals to <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />s that they should only produce matching chunk batches.
+            File-based chunk sources must read this and only produce chunks for files that match the requested identities.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.IgnorePatterns">
+            <summary>
+            Optional list of patterns to be ignored by the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />.
+            The specific usage of these patterns to exclude some <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity" />s is
+            defined by the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" /> implementation.
+            </summary>
+            <remarks>The suggested use for batches that map to files is to exclude any files with full paths matching any of these strings.</remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.UpdateIndexOptions.EnabledExperimentalChunkSources">
+            <summary>
+            Optional list of 'experimental' chunk sources to enable. See <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkSourceDescriptor.Experimental" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk">
+            <summary>
+            Chunks derived from code files. Intended to be converted to chunk
+            and contained in <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch" />es, where they will share metadata
+            (<see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.FileBatchIdentity" />) about the file they're derived from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.FullName">
+            <summary>
+            Name of the indexed chunk
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.Description">
+            <summary>
+            Human-readable description of the contents of a chunk.
+            For C# methods, this is likely an xml documentation comment.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.SourceCode">
+            <summary>
+            The content of the chunk that is to be indexed and retrieved.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.LineSpan">
+            <summary>
+            Line-level location of the content within the containing file.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CharSpan">
+            <summary>
+            Character-level location of the content within the containing file.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CodeFileSpan`1">
+            <summary>
+            Span within a code file.
+            </summary>
+            <typeparam name="T">Type of span within the code file.</typeparam>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CodeFileSpan`1.Start">
+            <summary>
+            Beginning of the span. Should not be more than <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CodeFileSpan`1.End" />
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CodeFileSpan`1.End">
+            <summary>
+            End of the span. Should not be less than <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CodeFileSpan`1.Start" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.LineNumber">
+            <summary>
+            Line number in a code file.
+            </summary>
+            <param name="Line">Line number</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.LineNumber.#ctor(System.Int32)">
+            <summary>
+            Line number in a code file.
+            </summary>
+            <param name="Line">Line number</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.LineNumber.Line">
+            <summary>Line number</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CharacterIndex">
+            <summary>
+            Character index in a code file.
+            </summary>
+            <param name="Index">Character index.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CharacterIndex.#ctor(System.Int32)">
+            <summary>
+            Character index in a code file.
+            </summary>
+            <param name="Index">Character index.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk.CharacterIndex.Index">
+            <summary>Character index.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CurrentWorkspaceState">
+            <summary>
+            State related to the currently open workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CurrentWorkspaceState.CurrentIndex">
+            <summary>
+            If set, the index ID that is in use for this workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CurrentWorkspaceState.Path">
+            <summary>
+            Gets path to the current workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CurrentWorkspaceState.ScopeVisible">
+            <summary>
+            Controls whether the workspace scope should be visible in this workspace.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.FileBatchIdentity">
+            <summary>
+            Details specific to file batches, which represent files in the workspace.
+            Intended to be converted to <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity" /> and stored as <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.Identity" />.
+            </summary>
+            <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.CodeChunk" />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.FileBatchIdentity.FilePath">
+            <summary>
+            On-disk filename this code batch is from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.FileBatchIdentity.ModifiedDate">
+            <summary>
+            Time the code was last modified, if applicable.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService">
+            <summary>
+            A service for managing the notion of an index belonging to the current workspace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService.InitializeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Initialize the service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService.GetIndexIdAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the id of the current workspace's index. Returns null if there is no current workspace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService.ResetIndexAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reset the current workspace's index by replacing it with a new index. Throws if there is no current workspace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService.GetBatchedWorkspaceFilePathsAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a batched list of the file paths in the workspace.
+            </summary>
+            <param name="batchSize">The size of each batch.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>An asynchronous enumerable that represents the batches of workspace file paths.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICurrentWorkspaceIndexService">
+            <summary>
+            A service for managing state related to the "current workspace".
+            In VS, this is the currently open solution or folder of code.
+            This service is an implementation detail consumed by a service implementing <seealso cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.Code.ICopilotWorkspaceIndexService" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId">
+            <summary>
+            Unique identifier of an index.
+            </summary>
+            <param name="Guid">The index's id.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId.#ctor(System.Guid)">
+            <summary>
+            Unique identifier of an index.
+            </summary>
+            <param name="Guid">The index's id.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexId.Guid">
+            <summary>The index's id.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata">
+            <summary>
+            'Live' metadata associated with an index that exists in <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ICopilotIndexService" />.
+            This includes persistent information that doesn't change after creation (its <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Id" /> and <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Options" />),"/&gt;
+            as well as its current <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Status" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata.Status">
+            <summary>
+            Optional point-in-time status information about the index.
+            This should be fresh as of when the metadata was queried.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexOptions">
+            <summary>
+            Options specified when creating the index.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexOptions.Method">
+            <summary>
+            Underlying index method to use with this index.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexOptions.TranslatorMoniker">
+            <summary>
+            Moniker of a translator service that will be used to read and write domain-specific data to the index.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexStatus">
+            <summary>
+            Point-in-time status information about an index.
+            </summary>
+            <remarks>
+            This differs from <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexMetadata" />, which contains persistent static information about an index.
+            This class is used to represent any details about the index at the time it's queried.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkIndexStatus.IsReadyForQueries">
+            <summary>
+            Gets a value which indicates whether the index is ready to handle queries.
+            Exposing this to WorkspaceScope allows it to make more informed decisions about when to try to rebuild the index,
+            which is necessary because we don't currently have incremental updating. (AzDO #2021630)
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId">
+            <summary>
+            A guid which links to the origin of an indexing 'operation' and any actions related to it. Each operation initiated by a caller should have a unique id.
+            </summary>
+            <param name="Guid">The guid that correlates to the originating request.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId.#ctor(System.Guid)">
+            <summary>
+            A guid which links to the origin of an indexing 'operation' and any actions related to it. Each operation initiated by a caller should have a unique id.
+            </summary>
+            <param name="Guid">The guid that correlates to the originating request.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexOperationId.Guid">
+            <summary>The guid that correlates to the originating request.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IEmbeddable">
+            <summary>
+            Objects which embeddings can be generated for.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IEmbeddable.EmbeddableText">
+            <summary>
+            Text to be used to generate the embedding.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.RerankedSearchResult">
+            <summary>
+            A search result chunk which has been reranked using embeddings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery">
+            <summary>
+            Search query to execute against an index.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery.UserQuery">
+            <summary>
+            Natural language query entered by the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery.DerivedUserQueries">
+            <summary>
+            Natural language queries used to retrieve <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" />s from the local index.
+            These should be based on <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery.UserQuery" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery.Take">
+            <summary>
+            How many results to take after sorting by relevance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQueryString">
+            <summary>
+            A string that is used to search an index.
+            </summary>
+            <param name="Query">The search string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQueryString.#ctor(System.String)">
+            <summary>
+            A string that is used to search an index.
+            </summary>
+            <param name="Query">The search string.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQueryString.Query">
+            <summary>The search string.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchResult">
+            <summary>
+            Search result which has been translated from <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult" /> &amp; <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" />
+            to a domain-specific chunk by the index's configured <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchResult.BatchIdentity">
+            <summary>
+            The batch this chunk belongs to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchResult.Chunk">
+            <summary>
+            The result chunk which has been created by the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" />.
+            May be any type that the index's configured translator supports.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult">
+            <summary>
+            <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" />-containing search result from textual embedding storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult.Value">
+            <summary>
+            The text chunk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult.GeneratedQuery">
+            <summary>
+            Which of the generated queries this result was from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexSearchResult.Score">
+            <summary>
+            The score of this search result.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText">
+            <summary>
+            Raw unit of textual content that is stored and retrieved from the index.
+            In most cases, you'll want to go through a <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> and work with chunk
+            which encapsulates all the domain-specific details of the data you're indexing.
+            </summary>
+            <remarks>Currently contains metadata specific to code files, we intend to make this generic in the future.</remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.Content">
+            <summary>
+            Textual content stored in the index.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.FullName">
+            <summary>
+            Name of the indexed chunk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.Description">
+            <summary>
+            Human-readable description of the contents of a chunk.
+            For code, this may be an xml documentation comment.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.SourceCode">
+            <summary>
+            The content of the chunk that is to be indexed and retrieved.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.FilePath">
+            <summary>
+            The on-disk path of the content.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.LineStart">
+            <summary>
+            Location of the content within the <see ref="FilePath" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.CharStart">
+            <summary>
+            Location of the content within the <see ref="FilePath" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.LineEnd">
+            <summary>
+            Location of the content within the <see ref="FilePath" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText.CharEnd">
+            <summary>
+            Location of the content within the <see ref="FilePath" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ITextChunkStorage">
+            <summary>
+            Direct access to the index backend to work with raw <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" />s.
+            In most cases, you'll want to go through a <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> which encapsulates
+            all the domain-specific details of the data you're indexing.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.TextChunkBatch">
+            <summary>
+            Collections of <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" /> that can be indexed &amp; updated as a single unit.
+            The raw text indexable analogue of <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch" />.
+            In most cases, you'll want to go through a <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> and work with <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch" />
+            which encapsulates all the domain-specific details of the data you're indexing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.TextChunkBatch.Identity">
+            <summary>
+            The identity of the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IndexText" /> batch. Should be comparable by value.
+            Can be any type serializable by MessagePack.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkBase">
+            <summary>
+            Chunk base interface.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkBase.IndexContent">
+            <summary>
+            Content that will be used to index the chunk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkBase.Id">
+            <summary>
+            Unique ID for chunk.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkBase.MinimizeForStorage">
+            <summary>
+            Reduce the chunk to its minimal form for storage.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity">
+            <summary>
+            MessagePack-serializable wrapper for information identifying a batch of chunks.
+            May be used by <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkTranslator" /> and matching <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.IChunkSource" />s to communicate
+            about whether a batch already exists in the index.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity.Value">
+            <summary>
+            Metadata for the chunk batch. Can be any type that is serializable via MessagePack.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity.Get``1">
+            <summary>
+            Get a specific type of metadata out of this wrapper. Equivalent to casting <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.BatchIdentity.Value" />.
+            </summary>
+            <typeparam name="T">The type of metadata to retrieve.</typeparam>
+            <returns>The metadata.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch">
+            <summary>
+            Collection of chunks to be indexed as a single unit.
+            Chunks and <see cref="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.Identity" /> may be any MessagePack-serializable type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.Identity">
+            <summary>
+            Batch identity applicable to all chunks in the batch. For typed access, use <see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.GetIdentity``1" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.ChunksData">
+            <summary>
+            Untyped array of chunk data. For typed access, use <see cref="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.GetChunks``1" />, or cast to an array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.GetIdentity``1">
+            <summary>
+            Retrieve this batch's identity.
+            </summary>
+            <typeparam name="TIdentity">Identity type.</typeparam>
+            <returns>Identity of the type specified.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.GetChunks``1">
+            <summary>
+            Retrieve this batch's chunks.
+            </summary>
+            <typeparam name="TChunk">The chunk type.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.CreateFrom``2(``0[],``1)">
+            <summary>
+            Create a serializable batch of chunks from an enumerable of chunks and identity object.
+            </summary>
+            <typeparam name="TChunk">The type of chunk being stored in this batch.</typeparam>
+            <typeparam name="TIdentity">The type of identity to store in this batch.</typeparam>
+            <param name="inputChunks">The chunks to store.</param>
+            <param name="inputIdentity">The identity to store.</param>
+            <returns>The resulting wrapper containing chunks and metadata.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.ChunkBatch.CreateFromAsync``2(System.Collections.Generic.IAsyncEnumerable{``0},``1,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously create a serializable batch of chunks from a stream of chunks and identity object.
+            </summary>
+            <typeparam name="TChunk">The type of chunk being stored in this batch.</typeparam>
+            <typeparam name="TIdentity">The type of identity to store in this batch.</typeparam>
+            <param name="inputChunkStream">The stream of chunks to store.</param>
+            <param name="inputIdentity">The identity to store.</param>
+            <param name="cancellationToken">Cancellation.</param>
+            <returns>The resulting wrapper containing chunks and metadata.</returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SemanticContextServiceDescriptor.IndexFilePath">
+            <summary>
+            File path to store index.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SemanticContextServiceDescriptor.CreateActivationArguments(System.String)">
+            <summary>
+            Helper method to create activation arguments for the Semantic Context service.
+            </summary>
+            <param name="indexFilePath">File path to storing index.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SemanticContextServiceDescriptor.SemanticContextService">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceHub.Framework.ServiceRpcDescriptor" /> for the Visual Studio copilot service.
+            Use the <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService" /> interface for the client proxy for this service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SemanticContextServiceDescriptor.CreateRpcDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)">
+            <summary>
+            Construct an RPC descriptor with default options for indexing-related services.
+            </summary>
+            <param name="moniker">Service moniker to create the descriptor for.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService">
+            <summary>
+            Brokered service providing Copilot-backed semantic indexing capabilities.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.IndexFilesAsync(System.Collections.Generic.IReadOnlyList{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Methods to index file to create Semantic Context.
+            </summary>
+            <param name="files"><see cref="T:System.Collections.Generic.IReadOnlyList`1" /> of files to index.</param>
+            <param name="cancellationToken">Cancellation token to propagate.</param>
+            <returns>Task returning completion.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetSemanticContextAsync(System.String,System.String,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.DocumentSelection},System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a list of skeleton code ranges of relevant definitions for a file.
+            </summary>
+            <param name="filePath">file path to get relevant definitions for.</param>
+            <param name="code">contents of the file</param>
+            <param name="selections">Relevant selections in the editor</param>
+            <param name="query">The user's query.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Collection of skeleton code ranges.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.ReduceContextAsync(System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolRange},Microsoft.VisualStudio.Copilot.CopilotReductionOptions,System.Threading.CancellationToken)">
+            <summary>
+            Reduces a collection of skeleton code ranges based off a given token limit.
+            </summary>
+            <param name="ranges">Skeleton code ranges.</param>
+            <param name="copilotReductionOptions">Reduction options to reduce semantic context.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Reduced collection of skeleton code ranges.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.SkeletonizeAsync(System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolRange},System.Threading.CancellationToken)">
+            <summary>
+            Returns the skeleton code range into a string.
+            </summary>
+            <param name="ranges">Skeleton code ranges.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Reduced collection of skeleton code ranges.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetSymbolCompletionItemsAsync(System.String,System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of symbol completion items based on the provided search text.
+            </summary>
+            <param name="symbolSearchText">The text to search for symbols.</param>
+            <param name="filesFilter">An optional collection of file paths to filter the search results.</param>
+            <param name="symbolKindsFilter">An optional collection of symbol kinds to filter the search results.</param>
+            <param name="maxCount">The maximum number of results to return.</param>
+            <param name="cancellationToken">Token to cancel the operation.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a read-only list of <see cref="T:Conversations.Service.Contracts.SymbolContext.SymbolCompletionItem" />s.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetSymbolContextAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the context for the symbol matching the fully qualified name.
+            </summary>
+            <param name="fullyQualifiedName">Fully qualified name of the symbol.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns><see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet" /> of the symbol if it is found in the index, otherwise null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetReducedSymbolContextAsync(System.String,Microsoft.VisualStudio.Copilot.CopilotReductionOptions,System.Threading.CancellationToken)">
+            <summary>
+            Gets a reduced context of the symbol based on the provided reduction options.
+            </summary>
+            <param name="fullyQualifiedName">Fully qualified name of the symbol.</param>
+            <param name="reductionOptions">Reduction options to reduce the symbol context.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Reduced <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet" /> of the symbol if it is found in the index and can be reduced, otherwise null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetContextLocationAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get the location of a symbol.
+            </summary>
+            <param name="fullyQualifiedName">Fully qualified name.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A list of matching locations.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetDefinitionsAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Gets symbol ranges for fully qualified name
+            </summary>
+            <param name="fullyQualifiedName">Fully qualified name.</param>
+            <param name="filterExcludedContent">Determines whether to filter content or not.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Collection of skeleton code ranges.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.GetSymbolDefinitionSnippetsByUnqualifiedNamesAsync(System.Collections.Generic.IReadOnlyList{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Get code snippets of the symbol definitions that match the provided unqualified names.
+            </summary>
+            <remarks>
+            The symbol search is case-insensitive. The full definitions for the symbols are returned, except for classes and interfaces
+            in which case a skeletonized version of the definition is returned.
+            </remarks>
+            <param name="unqualifiedNames">A list of unqualified symbol names to retrieve symbol context for.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A list of <see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet" />s containing the code snippets for the provided unqualified symbol names.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.ISemanticContextService.SearchChunkIndexAsync(Microsoft.VisualStudio.Copilot.UnstableInternalApi.Indexing.SearchQuery,System.Threading.CancellationToken)">
+            <summary>
+            Searches the chunk index for a query.
+            </summary>
+            <param name="query">Query to search within that index.</param>
+            <param name="cancellationToken">Cancellation for the search operation.</param>
+            <returns>Ordered search results.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet">
+            <summary>
+            Context with symbol information.
+            </summary>
+            <param name="FullyQualifiedName">Fully qualified name of the symbol.</param>
+            <param name="UnqualifiedName">Unqualified name of the symbol.</param>
+            <param name="Code">Code snippet of the symbol.</param>
+            <param name="Kind"><see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind" /> of the symbol.</param>
+            <param name="FilePathAndExtentRanges">File paths and symbol extent ranges where the code snippet is sourced from.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.#ctor(System.String,System.String,System.String,Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind,System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,Microsoft.VisualStudio.Copilot.UnstableInternalApi.TextRange}})">
+            <summary>
+            Context with symbol information.
+            </summary>
+            <param name="FullyQualifiedName">Fully qualified name of the symbol.</param>
+            <param name="UnqualifiedName">Unqualified name of the symbol.</param>
+            <param name="Code">Code snippet of the symbol.</param>
+            <param name="Kind"><see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind" /> of the symbol.</param>
+            <param name="FilePathAndExtentRanges">File paths and symbol extent ranges where the code snippet is sourced from.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.FullyQualifiedName">
+            <summary>Fully qualified name of the symbol.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.UnqualifiedName">
+            <summary>Unqualified name of the symbol.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.Code">
+            <summary>Code snippet of the symbol.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.Kind">
+            <summary><see cref="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind" /> of the symbol.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextSnippet.FilePathAndExtentRanges">
+            <summary>File paths and symbol extent ranges where the code snippet is sourced from.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextTextRange">
+            <summary>
+            The code and files it was sourced.
+            </summary>
+            <param name="FileName">The filename.</param>
+            <param name="TextRange">The span.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextTextRange.#ctor(System.String,Microsoft.VisualStudio.Copilot.UnstableInternalApi.TextRange)">
+            <summary>
+            The code and files it was sourced.
+            </summary>
+            <param name="FileName">The filename.</param>
+            <param name="TextRange">The span.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextTextRange.FileName">
+            <summary>The filename.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolContextTextRange.TextRange">
+            <summary>The span.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolQueryResult">
+            <summary>
+            The search result for a search query for symbols.
+            </summary>
+            <param name="FullyQualifiedName">Fully qualified name.</param>
+            <param name="UnqualifiedName">The unqualified name.</param>
+            <param name="Kind">The SymbolKind.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolQueryResult.#ctor(System.String,System.String,Microsoft.VisualStudio.Copilot.UnstableInternalApi.SymbolKind)">
+            <summary>
+            The search result for a search query for symbols.
+            </summary>
+            <param name="FullyQualifiedName">Fully qualified name.</param>
+            <param name="UnqualifiedName">The unqualified name.</param>
+            <param name="Kind">The SymbolKind.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolQueryResult.FullyQualifiedName">
+            <summary>Fully qualified name.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolQueryResult.UnqualifiedName">
+            <summary>The unqualified name.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.UnstableInternalApi.CopilotSymbolQueryResult.Kind">
+            <summary>The SymbolKind.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotDescriptorConstants.CopilotServiceVersion">
+            <summary>
+            The latest version of the Copilot service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotDescriptorConstants.AllResponderVersions">
+            <summary>
+            A list of all historical responder versions in descending order. Used to locate responders that are compatible with a given version.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.TypelessMessagePackDescriptor.TypelessDescriptorMessagePackOptions">
+             <summary>
+             This options class is used to override LoadType to ensure type loads occur on the AssemblyLoadContext
+             that loaded Copilot assemblies.
+            
+             In case of ServiceHub and extensibility scenarios, this will be extensions load context which will be able to resolve
+             assemblies deployed by the extension.
+             </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.TypelessMessagePackDescriptor.CompositeTracingStrategy">
+            <summary>
+            A class that serves as a collection <see cref="T:StreamJsonRpc.IActivityTracingStrategy" /> instances to handle
+            multiple tracing strategies.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.TypelessMessagePackDescriptor.CompositeTracingStrategy.CompositeDisposable">
+            <summary>
+            A class that holds as a collection of <see cref="T:System.IDisposable" /> objects that can be disposed
+            when the <see cref="T:Microsoft.VisualStudio.Copilot.TypelessMessagePackDescriptor.CompositeTracingStrategy.CompositeDisposable" /> object is disposed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.TypelessMessagePackDescriptor.DistributedContextPropagatorTracingStrategy">
+            <summary>
+            A class that represents a tracing strategy that uses the object set in <see cref="P:System.Diagnostics.DistributedContextPropagator.Current" />.
+            If <see cref="P:System.Diagnostics.DistributedContextPropagator.Current" /> is not set or does not implement <see cref="T:StreamJsonRpc.IActivityTracingStrategy" />,
+            then this strategy does nothing.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.Formatters.DictionaryStringObjectFormatter">
+            <summary>
+            A formatter that is hard-coded to use the <see cref="T:MessagePack.Formatters.TypelessFormatter" /> for values in a dictionary.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1">
+            <summary>
+            A collection of embedding vectors, stored compactly as a contiguous block of data.
+            </summary>
+            <typeparam name="T">Which floating-point data type to use for representing the vectors.</typeparam>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1.Dimensionality">
+            <summary>
+            Dimensionality of the embeddings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1.Data">
+            <summary>
+            Contiguous block of embedding data.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1.Count">
+            <summary>
+            Number of embeddings in the collection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1.CopyFrom(System.Collections.Generic.IEnumerable{System.ValueTuple{System.Int32,`0[]}},System.Nullable{System.Int32})">
+            <summary>
+            Creates a <see cref="T:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingCollection`1" /> by copying data from vectors &amp; their indices.
+            </summary>
+            <param name="input">Vectors and indices to copy into the collection.</param>
+            <param name="count">Optional. Number of vectors to store in the collection. If not provided, input will be enumerated once to get the count.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.IndexOutOfRangeException"></exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.EmbeddingVector`1.ToArray">
+            <summary>
+            Copy the contents of the embedding vector to an array.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService">
+            <summary>
+            Interface for interacting with conversations.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetAuthInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks GitHub and Copilot tokens and returns auth status
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.StartConversationAsync(Conversations.Service.Contracts.StartConversationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Create a new conversation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.AskInConversationAsync(Microsoft.VisualStudio.Copilot.CopilotSessionId,Microsoft.VisualStudio.Copilot.CopilotRequest,Microsoft.VisualStudio.Copilot.ActiveInteractions,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.CopilotInteraction},Microsoft.VisualStudio.Copilot.CopilotRequestOptions,System.Threading.CancellationToken)">
+            <summary>
+            Performs a request within the context of a conversation using specified history
+            </summary>
+            <param name="sessionId">The id of the conversation to ask in.</param>
+            <param name="request">The request.</param>
+            <param name="activeResponse">The active interaction to stream updates back to.</param>
+            <param name="history">The interaction history to use.</param>
+            <param name="requestOptions">The request options.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>The response to the request</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.EndConversationAsync(Conversations.Service.Contracts.EndConversationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Ends the conversation
+            </summary>
+            <param name="options">The end conversation options</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.UserInputCompletionAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Prompts completion within the context of a conversation
+            </summary>
+            <param name="userInput">The user input</param>
+            <param name="cancel">The cancellation token</param>
+            <returns>The responses received from the user as an <see cref="T:System.Collections.Generic.IEnumerable`1" /></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.ConfirmServiceRunningAsync(System.Threading.CancellationToken)">
+            <summary>
+            Confirms that the out-of-process service process is running.
+            This should throw if there is a problem reaching the service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetRemoteAgentMetadataAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the list of remote agents discovered from the current Copilot Chat API.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetGitHubKnowledgeBasesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the list of available GitHub knowledge bases available to the current user.
+            </summary>
+            <param name="cancellationToken">The cancellation token</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetGitHubSkillsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the list of available GitHub skills available to the current user.
+            </summary>
+            <param name="cancellationToken">The cancellation token</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.AskRemoteAgentAsync(System.String,Microsoft.VisualStudio.Copilot.CopilotSessionId,Microsoft.VisualStudio.Copilot.CopilotRequest,Microsoft.VisualStudio.Copilot.ActiveInteractions,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.CopilotInteraction},System.Threading.CancellationToken)">
+            <summary>
+            Performs a request to a specific remote agent using the provided history.
+            </summary>
+            <param name="remoteAgentIdentifier">Remote agent identifier as retrieved by <see cref="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetRemoteAgentMetadataAsync(System.Threading.CancellationToken)" /> method.</param>
+            <param name="sessionId">The id of the conversation to ask in.</param>
+            <param name="request">The request.</param>
+            <param name="activeInteractions">The active interaction to stream updates back to.</param>
+            <param name="history">The interaction history to use.</param>
+            <param name="cancellation">A cancellation token.</param>
+            <returns>The response to the request</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.GetModelsAsync(Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Get the list of models that are available for requests.
+            </summary>
+            <param name="clientId">The client id of the client getting the model.</param>
+            <param name="cancellation">The cancellation token.</param>
+            <returns>The list of models that can be used for a request.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IConversationsService.SpeculateAsync(Microsoft.VisualStudio.Copilot.CopilotSpeculationRequest,Microsoft.VisualStudio.Copilot.ICopilotStreamingContentSink,System.Threading.CancellationToken)">
+            <summary>
+            Sends a speculative decoding request and streams the response back using the onToken callback.
+            </summary>
+            <param name="request">The copilot speculation request with prompt, speculation, clientId and correlationId.</param>
+            <param name="streamTarget">The streaming target content sink.</param>
+            <param name="cancellationToken">A cancellation token</param>
+            <returns>The markdown mapped document response.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Service.Contracts.IEmbeddingService">
+            <summary>
+            Service for requesting embeddings from the backend.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Service.Contracts.IEmbeddingService.RequestEmbeddingsAsync(System.Collections.Generic.IReadOnlyList{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Generate embeddings for a set of strings.
+            </summary>
+            <param name="inputs">Request to generate embeddings for.</param>
+            <param name="cancellationToken">Cancellation for the request.</param>
+            <returns>Generated embeddings.</returns>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>KysCinL+Qw9Mk4RqGIiPejE2pAbolLYmgWEMoxGu8Rg=</DigestValue></Reference></SignedInfo><SignatureValue>Gen/wgdaHTTrtBnut9kjAjPWfC6b18D6DM8PuvoPx8ZmqpPhpzTPIoKDHBIeb3mH8BcjFFBsg58p+iouRDpuGG3Ok9oPrrlj7HKG0AXwg01zEBt542gYE8g7QaW+td7MnuPUM+Ajpp7MkTBOt+21HT7xTEw75adU+IsMa1n1xcJbZH0trjWAQG2GcZtaz6wm/rbTxB8ihIdk5uPFlVLRLQqvEgP5kAVhle+bxNtcVIVCyAhTFkdV4D99NX8cFiI1ubP8bQ7wZqpwka4jB/bclmASsMUc69S44xnr+KRooUsyuR0z7NhcDABA8+UHKv4XqT8Nmq1XiDfOogSWY/kY3g==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>MIIHejCCBWKgAwIBAgIKYQ6Q0gAAAAAAAzANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEyMDAGA1UEAxMpTWljcm9zb2Z0IFJvb3QgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IDIwMTEwHhcNMTEwNzA4MjA1OTA5WhcNMjYwNzA4MjEwOTA5WjB+MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSgwJgYDVQQDEx9NaWNyb3NvZnQgQ29kZSBTaWduaW5nIFBDQSAyMDExMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAq/D6chAcLq3YbqqCEE00uvK2WCGfQhsqa+laUKq4BjgaBEm6f8MMHt03a8YS2AvwOMKZBrDIOdUBFDFC04kNeWSHfpRgJGyvnkmc6Whe0t+bU7IKLMOv2akrrnoJr9eWWcpgGgXpZnboMlImEi/nqwhQz7NEt13YxC4Ddato88tt8zpcoRb0RrrgOGSsbmQ1eKagYw8t00CT+OPeBw3VXHmlSSnnDb6gE3e+lD3v++MrWhAfTVYoonpy4BI6t0le2O3tQ5GD2Xuye4Yb2T6xjF3oiU+EGvKhL1nkkDstrjNYxbc+/jLTswM9sbKvkjh+0p2ALPVOVpEhNSXDOW5kf1O6nA+tGSOEy/S6A4aN91/w0FK/jJSHvMAhdCVfGCi2zCcoOCWYOUo2z3yxkq4cI6epZuxhH2rhKEmdX4jiJV3TIUs+UsS1Vz8kA/DRelsv1SPjcF0PUUZ3s/gA4bysAoJf28AVs70b1FVL5zmhD+kjSbwYuER8ReTBw3J64HLnJN+/RpnF78IcV9uDjexNSTCnq47f7Fufr/zdsGbiwZeBe+3W7UvnSSmnEyimp31ngOaKYnhfsi+E11ecXL93KCjx7W3DKI8sj0A3T8HhhUSJxAlMxdSlQy90lfdu+HggWCwTXWCVmj5PM4TasIgX3p5O9JawvEagbJjS4NaIjAsCAwEAAaOCAe0wggHpMBAGCSsGAQQBgjcVAQQDAgEAMB0GA1UdDgQWBBRIbmTlUAXTgqoXNzcitW2oynUClTAZBgkrBgEEAYI3FAIEDB4KAFMAdQBiAEMAQTALBgNVHQ8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAfBgNVHSMEGDAWgBRyLToCMZBDuRQFTuHqp8cx0SOJNDBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpL2NybC9wcm9kdWN0cy9NaWNSb29DZXJBdXQyMDExXzIwMTFfMDNfMjIuY3JsMF4GCCsGAQUFBwEBBFIwUDBOBggrBgEFBQcwAoZCaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraS9jZXJ0cy9NaWNSb29DZXJBdXQyMDExXzIwMTFfMDNfMjIuY3J0MIGfBgNVHSAEgZcwgZQwgZEGCSsGAQQBgjcuAzCBgzA/BggrBgEFBQcCARYzaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraW9wcy9kb2NzL3ByaW1hcnljcHMuaHRtMEAGCCsGAQUFBwICMDQeMiAdAEwAZQBnAGEAbABfAHAAbwBsAGkAYwB5AF8AcwB0AGEAdABlAG0AZQBuAHQALiAdMA0GCSqGSIb3DQEBCwUAA4ICAQBn8oalmOBUeRou09h0ZyKbC5YR4WOSmUKWfdJ5DJDBZV8uLD74w3LRbYP+vj/oCso7v0epo/Np22O/IjWll11lhJB9i0ZQVdgMknzSGksc8zxCi1LQsP1r4z4HLimb5j0bpdS1HXeUOeLpZMlEPXh6I/MTfaaQdION9MsmAkYqwooQu6SpBQyb7Wj6aC6VoCo/KmtYSWMfCWluWpiW5IP0wI/zRive/DvQvTXvbiWu5a8n7dDd8w6vmSiXmE0OPQvyCInWH8MyGOLwxS3OW560STkKxgrCxq2u5bLZ2xWIUUVYODJxJxp/sfQn+N4sOiBpmLJZiWhub6e3dMNABQamASooPoI/E01mC8CzTfXhj38cbxV9Rad25UAqZaPDXVJihsMdYzaXht/a8/jyFqGaJ+HNpZfQ7l1jQeNbB5yHPgZ3BtEGsXUfFL5hYbXw3MYbBL7fQccOKO7eZS/sl/ahXJbYANahRr1Z85elCUtIEJmAH9AAKcWxm6U/RXceNcbSoqKfenoi+kiVH6v7RyOA9Z74v2u3S5fi63V4GuzqN5l5GEv/1rMjaHXmr/r8i+sLgOppO6/8MO0ETI7f33VtY5E90Z1WTk+/gFcioXgRMiF670EKsT/7qMykXcGhiJtXcVZOSEXAQsmbdlsKgEhr/Xmfwb1tbWrJUnMTDXpQzQ==</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

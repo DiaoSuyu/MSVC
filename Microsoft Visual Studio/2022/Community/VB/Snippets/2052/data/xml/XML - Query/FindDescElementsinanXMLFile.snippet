@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用元素名称查找 XML 数据中的所有子代元素</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用元素名称查找 XML 文件中的所有子代元素。</Description>
+      <Shortcut>xmlDesc</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>TagName</ID>
+          <Type>XName</Type>
+          <ToolTip>替换为元素的限定名称。</ToolTip>
+          <Default>ElementName</Default>
+        </Literal>
+        <Object>
+          <ID>XmlVariable</ID>
+          <Type>XElement</Type>
+          <ToolTip>替换为 XElement 变量。</ToolTip>
+          <Default>xmlEle</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim childElements = $XmlVariable$...<$TagName$>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

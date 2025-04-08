@@ -1,0 +1,83 @@
+{
+  "feature": {
+    "id": "redis.local"
+  },
+  "requirements": [
+    "dockerDesktop"
+  ],
+  "editSteps": [
+    "Containers",
+    "Connection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "CacheConnection"
+    },
+    "ConnectionValue": {
+      "value": "localhost:6379"
+    },
+    "SatellitesToGenerate": {
+      "value": "docker-compose"
+    },
+    "containerName": {
+      "value": "redis"
+    },
+    "containerImage": {
+      "value": "redis:alpine"
+    },
+    "containerPorts": {
+      "value": "6379:6379"
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "containerName": {},
+    "containerImage": {},
+    "containerPorts": {},
+    "group": {
+      "isBase": true
+    }
+  },
+  "satellites": [
+    {
+      "id": "docker-compose",
+      "kind": "shadow",
+      "generator": "static",
+      "fileExtension": ".docker-compose.yml",
+      "model": {
+        "templatePath": "path:#/dependencyTypes/configs/redis/docker-compose.yml"
+      }
+    }
+  ]
+}

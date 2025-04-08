@@ -1,0 +1,113 @@
+HKCR
+{
+[!if PROGID_VALID]
+	$progid$ = s '$type_name$'
+	{
+		CLSID = s '{$guid_clsid$}'
+	}
+	$version_independent_progid$ = s '$type_name$'
+	{		
+		CurVer = s '$progid$'
+	}
+[!endif]
+	NoRemove CLSID
+	{
+		ForceRemove {$guid_clsid$} = s '$type_name$'
+		{
+[!if PROGID_VALID]
+			ProgID = s '$progid$'
+			VersionIndependentProgID = s '$version_independent_progid$'
+[!endif]
+[!if INTERFACE_DUAL]
+			ForceRemove Programmable
+[!endif]
+[!if DLL_APP]
+			InprocServer32 = s '%MODULE%'
+			{
+[!if !DEVICE || SUPPORT_DCOM]
+[!if THREADING_FREE]
+				val ThreadingModel = s 'Free'
+[!endif]
+[!if THREADING_BOTH]
+				val ThreadingModel = s 'Both'
+[!endif]
+[!if THREADING_APARTMENT]
+				val ThreadingModel = s 'Apartment'
+[!endif]
+[!if THREADING_NEUTRAL]
+				val ThreadingModel = s 'Neutral'
+[!endif]
+[!else]
+				val ThreadingModel = s 'Free'
+[!endif]
+			}
+[!else]
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+[!endif]
+			TypeLib = s '{$libid_registry_format$}'
+			Version = s '$typelib_version_major$.$typelib_version_minor$'
+[!if ADD_HANDLER_SUPPORT && PREVIEW_HANDLER]			
+			val AppID = s '{6d2b5079-2f0b-48dd-ab7f-97cec514d30b}'
+			val DisplayName = s '@%MODULE%,-101'
+            val Icon = s '%MODULE%,201'
+[!endif]
+		}
+[!if ADD_HANDLER_SUPPORT && SEARCH_HANDLER]
+		ForceRemove {$guid_clsid_persistent_handler$} = s '$type_name$'
+		{
+			ForceRemove PersistentAddinsRegistered = s ''
+			{
+				{89BCB740-6119-101A-BCB7-00DD010655AF} = s '{$guid_clsid$}'
+			}
+		}
+[!endif]		
+	}
+[!if ADD_HANDLER_SUPPORT && PREVIEW_HANDLER]
+	NoRemove .$handler_file_extension$
+	{
+		NoRemove ShellEx
+		{
+			ForceRemove {8895b1c6-b41f-4c1c-a562-0d564250836f} = s '{$guid_clsid$}'
+		}
+	}
+[!endif]
+[!if ADD_HANDLER_SUPPORT && SEARCH_HANDLER]
+	NoRemove .$handler_file_extension$
+	{
+		NoRemove PersistentHandler = s '{$guid_clsid_persistent_handler$}'
+	}
+[!endif]
+[!if ADD_HANDLER_SUPPORT && THUMBNAIL_PROVIDER_HANDLER]
+	NoRemove .$handler_file_extension$
+	{
+		NoRemove ShellEx
+		{
+			ForceRemove {E357FCCD-A995-4576-B01F-234630154E96} = s '{$guid_clsid$}'
+		}
+	}
+[!endif]
+}
+[!if ADD_HANDLER_SUPPORT && PREVIEW_HANDLER]
+HKLM
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Windows
+			{
+				NoRemove CurrentVersion
+				{
+					NoRemove PreviewHandlers
+					{
+						val {$guid_clsid$} = s '$type_name$'
+					}				
+				}
+			}
+		}
+	}
+}
+[!endif]

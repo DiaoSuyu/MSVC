@@ -1,0 +1,10 @@
+.toolbar-container>.search-container {
+    /* This will align the search control to the right side */
+    margin-left: auto;
+}
+
+.callTree, .flatFunctions {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}

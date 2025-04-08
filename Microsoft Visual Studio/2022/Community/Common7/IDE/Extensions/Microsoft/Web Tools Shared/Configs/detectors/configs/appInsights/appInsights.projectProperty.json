@@ -1,0 +1,11 @@
+{
+  "kind": "projectProperty.generic",
+  "confidence": "Medium",
+  "featureId": "appInsights",
+  "componentId": "projectProperty",
+  "model": {
+    "properties": {
+      "ApplicationInsightsResourceId": {}
+    }
+  }
+}

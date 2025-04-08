@@ -1,0 +1,83 @@
+{
+  "feature": {
+    "id": "ef.sqlServer.local"
+  },
+  "requirements": [
+    "dockerDesktop"
+  ],
+  "editSteps": [
+    "Containers",
+    "Connection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:DatabaseConnection"
+    },
+    "ConnectionValue": {
+      "value": "Server=localhost,1433;Database=tempdb;User ID=sa;Password=<PlaceholderPassword>;Persist Security Info=False;TrustServerCertificate=true;"
+    },
+    "SatellitesToGenerate": {
+      "value": "docker-compose"
+    },
+    "containerName": {
+      "value": "mssql"
+    },
+    "containerImage": {
+      "value": "mcr.microsoft.com/mssql/server:2019-latest"
+    },
+    "containerPorts": {
+      "value": "1433:1433"
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "containerName": {},
+    "containerImage": {},
+    "containerPorts": {},
+    "group": {
+      "isBase": true
+    }
+  },
+  "satellites": [
+    {
+      "id": "docker-compose",
+      "kind": "shadow",
+      "generator": "static",
+      "fileExtension": ".docker-compose.yml",
+      "model": {
+        "templatePath": "path:#/dependencyTypes/configs/mssql/docker-compose.yml"
+      }
+    }
+  ]
+}

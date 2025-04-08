@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "appConfig.nuget.core"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "appConfig.serviceConnector.appService"
+      ]
+    }
+  }
+}

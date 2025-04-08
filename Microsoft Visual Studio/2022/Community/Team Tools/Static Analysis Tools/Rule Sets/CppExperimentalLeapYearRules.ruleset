@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="C++ Leap Year Rules" Description="These rules enforce leap year handling rules for C++." ToolsVersion="10.0">
+  <Localization ResourceAssembly="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.dll" ResourceBaseName="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.Localized">
+    <Name Resource="NativeLeapYearRules_Name" />
+    <Description Resource="NativeLeapYearRules_Description" />
+  </Localization>
+  <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
+    <Rule Id="C6393" Action="Warning" />
+    <Rule Id="C6394" Action="Warning" />
+    <Rule Id="C26861" Action="Warning" />
+    <Rule Id="C26862" Action="Warning" />
+    <Rule Id="C26863" Action="Warning" />
+    <Rule Id="C26864" Action="Warning" />
+  </Rules>
+</RuleSet>

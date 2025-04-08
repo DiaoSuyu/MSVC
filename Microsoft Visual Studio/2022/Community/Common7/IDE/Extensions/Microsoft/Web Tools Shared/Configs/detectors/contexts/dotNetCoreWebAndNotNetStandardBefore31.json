@@ -1,0 +1,33 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "HasProjectCapability",
+                "capability": "DotNetCoreWeb"
+              },
+              {
+                "kind": "not",
+                "operand": {
+                  "kind": "HasTargetFramework",
+                  "tfmPrefixOrFull": ".NetStandard"
+                }
+              }
+            ]
+          },
+          {
+            "kind": "TfmVersionComparison",
+            "tfmType": "netcore",
+            "version": "3.1",
+            "comparison": "LessThan"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "storage.emulator",
+  "name": "strings:#/storageEmulatorDependencyTypeName",
+  "description": "strings:#/storageEmulatorDependencyTypeDescription",
+  "isSingleton": false,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3816
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3816
+  },
+  "displayOrder": 2100,
+  "actions": [
+    "openStorageExplorer"
+  ],
+  "runnerKinds": "azuriteNpm",
+  "tags": [
+    "strings:#/storage",
+    "strings:#/emulator",
+    "strings:#/local"
+  ]
+}

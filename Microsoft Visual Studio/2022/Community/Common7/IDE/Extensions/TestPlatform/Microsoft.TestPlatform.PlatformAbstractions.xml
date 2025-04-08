@@ -1,0 +1,1020 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.TestPlatform.PlatformAbstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformStream.CreateBufferedStream(System.IO.Stream,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper">
+            <summary>
+            Helper class to deal with process related functionality.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.ExternalEnvironmentVariables">
+            <summary>
+            Gets or sets the set of environment variables to be used when spawning a new process.
+            Should this set of environment variables be null, the environment variables inherited from
+            the parent process will be used.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.LaunchProcess(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Action{System.Object,System.String},System.Action{System.Object},System.Action{System.Object,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetCurrentProcessFileName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetTestEngineDirectory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetCurrentProcessId">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetProcessName(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.TryGetExitCode(System.Object,System.Int32@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.SetExitCallback(System.Int32,System.Action{System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.TerminateProcess(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetProcessId(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetNativeDllDirectory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.WaitForProcessExit(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetCurrentProcessLocation">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetProcessHandle(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessHelper.GetCurrentProcessArchitecture">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IStream">
+            <summary>
+            Helper class to return platform specific stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IStream.CreateBufferedStream(System.IO.Stream,System.Int32)">
+            <summary>
+            Returns platform specific Buffered Stream with desired buffer size.
+            </summary>
+            <param name="stream">Input Stream</param>
+            <param name="bufferSize">Buffer Size</param>
+            <returns>Buffered Stream</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IAssemblyLoadContext">
+            <summary>
+            Abstraction for Assembly Methods
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IAssemblyLoadContext.LoadAssemblyFromPath(System.String)">
+            <summary>
+            Loads assembly from given path
+            </summary>
+            <param name="assemblyPath">Assembly path</param>
+            <returns>Assembly from given path</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IAssemblyLoadContext.GetAssemblyNameFromPath(System.String)">
+            <summary>
+            Gets Assembly Name from given path
+            </summary>
+            <param name="assemblyPath">Assembly path</param>
+            <returns>AssemblyName from given path</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventHandler">
+            <summary>
+            Represents a method that handles the AssemblyResolve event of an Platform.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="args">The event data.</param>
+            <returns>The assembly that resolves the type, assembly, or resource; or null if the assembly
+            cannot be resolved.
+            </returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IAssemblyResolver">
+            <summary>
+            The AssemblyResolver interface.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IAssemblyResolver.AssemblyResolve">
+            <summary>
+            Occurs when the resolution of an assembly fails
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventArgs">
+            <summary>
+            Provides data for loader resolution events, such as the AppDomain.AssemblyResolve events.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventArgs"/> class.
+            name of the item to resolve.
+            </summary>
+            <param name="name">The Full name of an assembly to resolve.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.AssemblyResolveEventArgs.Name">
+            <summary>
+            Gets or sets the name of the item to resolve.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment">
+            <summary>
+            Operating system environment abstractions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.Architecture">
+            <summary>
+            Gets the Operating System architecture.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.OperatingSystem">
+            <summary>
+            Gets the Operating System name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.OperatingSystemVersion">
+            <summary>
+            Gets the Operating System Version
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.Exit(System.Int32)">
+            <summary>
+            Exits the current process as per Operating System
+            </summary>
+            <param name="exitcode">Exit code set by user</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.GetCurrentManagedThreadId">
+            <summary>
+            Returns Operating System managed thread Id
+            </summary>
+            <returns>Returns the thread Id</returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment.ProcessorCount">
+            <inheritdoc cref="P:System.Environment.ProcessorCount"/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper">
+            <summary>
+            Interface for any process related functionality. This is needed for clean unit-testing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.LaunchProcess(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Action{System.Object,System.String},System.Action{System.Object},System.Action{System.Object,System.String})">
+            <summary>
+            Launches the process with the given arguments.
+            </summary>
+            <param name="processPath">The full file name of the process.</param>
+            <param name="arguments">The command-line arguments.</param>
+            <param name="workingDirectory">The working directory for this process.</param>
+            <param name="envVariables">Environment variables to set while bootstrapping the process.</param>
+            <param name="errorCallback">Call back for to read error stream data</param>
+            <param name="exitCallBack">Call back for on process exit</param>
+            <param name="outputCallBack">Call back for on process output</param>
+            <returns>The process created.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetCurrentProcessFileName">
+            <summary>
+            Gets the current process file path.
+            </summary>
+            <returns>The current process file path.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetCurrentProcessLocation">
+            <summary>
+            Gets the current process location.
+            </summary>
+            <returns>The current process location.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetTestEngineDirectory">
+            <summary>
+            Gets the location of test engine.
+            </summary>
+            <returns>Location of test engine.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetNativeDllDirectory">
+            <summary>
+            Gets the location of native dll's, depending on current process architecture..
+            </summary>
+            <returns>Location of native dll's</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetCurrentProcessArchitecture">
+            <summary>
+            Gets current process architecture
+            </summary>
+            <returns>Process Architecture</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetProcessArchitecture(System.Int32)">
+            <summary>
+            Gets process architecture
+            </summary>
+            <returns>Process Architecture</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetCurrentProcessId">
+            <summary>
+            Gets the process id of test engine.
+            </summary>
+            <returns>process id of test engine.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetProcessId(System.Object)">
+            <summary>
+            Gets the process id of input process.
+            </summary>
+            <param name="process">process parameter</param>
+            <returns>process id.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetProcessName(System.Int32)">
+            <summary>
+            Gets the process name for given process id.
+            </summary>
+            <param name="processId">process id</param>
+            <returns>Name of process</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.TryGetExitCode(System.Object,System.Int32@)">
+            <summary>
+            False if process has not exited, True otherwise. Set exitCode only if process has exited.
+            </summary>
+            <param name="process">process parameter</param>
+            <param name="exitCode">return value of exitCode</param>
+            <returns>False if process has not exited, True otherwise</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.SetExitCallback(System.Int32,System.Action{System.Object})">
+            <summary>
+            Sets the process exit callback.
+            </summary>
+            <param name="processId">
+            The process id.
+            </param>
+            <param name="callbackAction">
+            Callback on process exit.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.TerminateProcess(System.Object)">
+            <summary>
+            Terminates a process.
+            </summary>
+            <param name="process">Reference of process to terminate.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.WaitForProcessExit(System.Object)">
+            <summary>
+            Wait for process to exit
+            </summary>
+            <param name="process">Reference to process</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper.GetProcessHandle(System.Int32)">
+            <summary>
+            Gets the process handle for given process Id.
+            </summary>
+            <param name="processId">process id</param>
+            <returns>Process Handle</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IThread.Run(System.Action,Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformApartmentState,System.Boolean)">
+            <summary>
+            Runs the action in a thread with given apartment state.
+            </summary>
+            <param name="action">The Action to be called. No-Op if action is null.</param>
+            <param name="apartmentState">The apartment state.</param>
+            <param name="waitForCompletion"> True for running in Sync, False for running in Async</param>
+            <exception cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException"> When thread apartment state not supported for platform. </exception>>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformApartmentState">
+            <summary>
+            Available apartment states for test platform.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformArchitecture">
+            <summary>
+            Available architectures for test platform.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformOperatingSystem">
+            <summary>
+            Available operating systems.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException">
+            <summary>
+            Thread apartment state not supported exception.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException"/> class.
+            Initializes with the message.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException"/> class.
+            Initializes with the message.
+            </summary>
+            <param name="message">Message for the exception.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ThreadApartmentStateNotSupportedException"/> class.
+            Initializes with message and inner exception.
+            </summary>
+            <param name="message">Message for the exception.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyExtensions">
+            <summary>
+            Assembly Extensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyExtensions.GetAssemblyLocation(System.Reflection.Assembly)">
+            <summary>
+            Get current assembly location as per current platform
+            </summary>
+            <param name="assembly">Assembly</param>
+            <returns>Returns Assembly location as per platform</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyLoadContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyLoadContext.GetAssemblyNameFromPath(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver._isDisposed">
+            <summary>
+            Specifies whether the resolver is disposed or not
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver"/> class.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver.AssemblyResolve">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformAssemblyResolver.AssemblyResolverEvent(System.Object,System.Object)">
+            <summary>
+            Assembly Resolve event handler for App Domain - called when CLR loader cannot resolve assembly.
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+            <param name="eventArgs">
+            The event Args.
+            </param>
+            <returns>
+            The <see cref="T:System.Reflection.Assembly"/>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.Architecture">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.OperatingSystem">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.OperatingSystemVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.ProcessorCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.Exit(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformEnvironment.GetCurrentManagedThreadId">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(System.Action,Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformApartmentState,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.ProcessStartInfoExtensions.AddEnvironmentVariable(System.Diagnostics.ProcessStartInfo,System.String,System.String)">
+            <summary>
+            Add environment variable that apply to this process and child processes.
+            </summary>
+            <param name="startInfo">The process start info</param>
+            <param name="name">Environment Variable name. </param>
+            <param name="value">Environment Variable value.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace">
+            <summary>
+            Wrapper class for tracing.
+                - Shortcut-methods for Error, Warning, Info, Verbose.
+                - Adds additional information to the trace: calling process name, PID, ThreadID, Time.
+                - Uses custom switch <c>EqtTraceLevel</c> from .config file.
+                - By default tracing if OFF.
+                - Our build environment always sets the /d:TRACE so this class is always enabled,
+                  the Debug class is enabled only in debug builds (/d:DEBUG).
+                - We ignore exceptions thrown by underlying TraceSwitch (e.g. due to config file error).
+                  We log ignored exceptions to system Application log.
+                  We pass through exceptions thrown due to incorrect arguments to <c>EqtTrace</c> methods.
+            Usage: <c>EqtTrace.Info("Here's how to trace info");</c>
+            </summary>
+            <summary>
+            Wrapper class for tracing.
+                - Shortcut-methods for Error, Warning, Info, Verbose.
+                - Adds additional information to the trace: calling process name, PID, ThreadID, Time.
+                - Uses custom switch <c>EqtTraceLevel</c> from .config file.
+                - By default tracing if OFF.
+                - Our build environment always sets the /d:TRACE so this class is always enabled,
+                  the Debug class is enabled only in debug builds (/d:DEBUG).
+                - We ignore exceptions thrown by underlying TraceSwitch (e.g. due to config file error).
+                  We log ignored exceptions to system Application log.
+                  We pass through exceptions thrown due to incorrect arguments to <c>EqtTrace</c> methods.
+            Usage: <c>EqtTrace.Info("Here's how to trace info");</c>
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.ListenerName">
+            <summary>
+            Name of the trace listener.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.TraceSourceLevelsMap">
+            <summary>
+            Create static maps for TraceLevel to SourceLevels. The APIs need to provide TraceLevel
+            for backward compatibility with older versions of Object Model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.SourceTraceLevelsMap">
+            <summary>
+            Create static maps for SourceLevels to TraceLevel. The APIs need to provide TraceLevel
+            for backward compatibility with older versions of Object Model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.TraceLevelEventTypeMap">
+            <summary>
+            Create static maps for SourceLevels to TraceLevel. The APIs need to provide TraceLevel
+            for backward compatibility with older versions of Object Model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.s_isInitialized">
+            <summary>
+            Specifies whether the trace is initialized or not
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.IsInitializationLock">
+            <summary>
+            Lock over initialization
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.TraceLevel">
+            <summary>
+            Gets or sets the trace level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.Source">
+            <summary>
+            Gets a custom trace source. This doesn't pollute the default tracing for user applications.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.InitializeVerboseTrace(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.InitializeTrace(System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.ShouldTrace(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.GetLogFile">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.WriteLine(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.SetTraceLevel(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.SetupRemoteListeners(System.Diagnostics.TraceListener)">
+            <summary>
+            Setup trace listeners. It should be called when setting trace listener for child domain.
+            </summary>
+            <param name="listener">New listener.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.LogIgnoredException(System.Exception)">
+            <summary>
+            Auxiliary method: logs the exception that is being ignored.
+            </summary>
+            <param name="e">The exception to log.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.EnsureTraceIsInitialized">
+            <summary>
+            Ensure the trace is initialized
+            </summary>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.GetProcessName">
+            <summary>
+            Get the process name. Note: we cache it, use m_processName.
+            </summary>
+            <returns>Name of the process.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.SetupRemoteEqtTraceListeners(System.AppDomain)">
+            <summary>
+            Setup remote trace listener in the child domain.
+            If calling domain, doesn't have tracing enabled nothing is done.
+            </summary>
+            <param name="childDomain">Child <c>AppDomain</c>.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformEqtTrace.SetupListener(System.Diagnostics.TraceListener)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener">
+            <summary>
+            Performs logging to a file and rolls the output file when either time or size thresholds are
+            exceeded.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener"/> class.
+            </summary>
+            <param name="fileName">The filename where the entries will be logged.</param>
+            <param name="name">Name of the trace listener.</param>
+            <param name="rollSizeKB">The maximum file size (KB) before rolling.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TraceFileName">
+            <summary>
+            Gets name of the Trace file.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.RollingHelper">
+            <summary>
+            Gets the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper"/> for the flat file.
+            </summary>
+            <value>
+            The <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper"/> for the flat file.
+            </value>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.WriteLine(System.String)">
+            <summary>
+            Writes the trace messages to the file.
+            </summary>
+            <param name="message">Trace message string</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.OpenTextWriter(System.String)">
+            <summary>
+            Opens specified file and returns text writer.
+            </summary>
+            <param name="fileName">The file to open.</param>
+            <returns>A <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter"/> instance.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper">
+            <summary>
+            Encapsulates the logic to perform rolls.
+            </summary>
+            <remarks>
+            If no rolling behavior has been configured no further processing will be performed.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper._synclock">
+            <summary>
+            Synchronization lock.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper._disposed">
+            <summary>
+            Whether the object is disposed or not.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper._managedWriter">
+            <summary>
+            A tally keeping writer used when file size rolling is configured.<para/>
+            The original stream writer from the base trace listener will be replaced with
+            this listener.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper._owner">
+            <summary>
+            The trace listener for which rolling is being managed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.#ctor(Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper"/> class.
+            </summary>
+            <param name="owner">
+            The <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener"/> to use.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.CheckIsRollNecessary">
+            <summary>
+            Checks whether rolling should be performed, and returns the date to use when performing the roll.
+            </summary>
+            <returns>The date roll to use if performing a roll, or <see langword="null"/> if no rolling should occur.</returns>
+            <remarks>
+            Defer request for the roll date until it is necessary to avoid overhead.<para/>
+            Information used for rolling checks should be set by now.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.PerformRoll(System.DateTime)">
+            <summary>
+            Perform the roll for the next date.
+            </summary>
+            <param name="rollDateTime">The roll date.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.RollIfNecessary">
+            <summary>
+            Rolls the file if necessary.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.UpdateRollingInformationIfNecessary">
+            <summary>
+            Updates book keeping information necessary for rolling, as required by the specified
+            rolling configuration.
+            </summary>
+            <returns>true if update was successful, false if an error occurred.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.StreamWriterRollingHelper.Dispose">
+            <summary>
+            Disposes this instance
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter">
+            <summary>
+            Represents a file stream writer that keeps a tally of the length of the file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.#ctor(System.IO.FileStream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter"/> class.
+            </summary>
+            <param name="stream">
+            The <see cref="T:System.IO.FileStream"/> to write to.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.#ctor(System.IO.FileStream,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter"/> class.
+            </summary>
+            <param name="stream">
+            The <see cref="T:System.IO.FileStream"/> to write to.
+            </param>
+            <param name="encoding">
+            The <see cref="T:System.Text.Encoding"/> to use.
+            </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.Tally">
+            <summary>
+            Gets the tally of the length of the string.
+            </summary>
+            <value>
+            The tally of the length of the string.
+            </value>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.Write(System.Char)">
+            <summary>
+            Writes a character to the stream.
+            </summary>
+            <param name="value">
+            The character to write to the text stream.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and current writer is closed.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and the contents of the buffer cannot be written to the underlying fixed size stream because the<see cref="T:System.IO.StreamWriter"></see>is at the end the stream.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurs.
+            </exception>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.Write(System.Char[])">
+            <summary>
+            Writes a character array to the stream.
+            </summary>
+            <param name="buffer">
+            A character array containing the data to write. If buffer is null, nothing is written.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and current writer is closed.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and the contents of the buffer cannot be written to the underlying fixed size stream because the<see cref="T:System.IO.StreamWriter"></see>is at the end the stream.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurs.
+            </exception>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Writes an array of characters to the stream.
+            </summary>
+            <param name="buffer">
+            A character array containing the data to write.
+            </param>
+            <param name="index">
+            The index into buffer at which to begin writing.
+            </param>
+            <param name="count">
+            The number of characters to read from buffer.
+            </param>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurs.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and current writer is closed.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and the contents of the buffer cannot be written to the underlying fixed size stream because the<see cref="T:System.IO.StreamWriter"></see>is at the end the stream.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            index or count is negative.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            The buffer length minus index is less than count.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            buffer is null.
+            </exception>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RollingFileTraceListener.TallyKeepingFileStreamWriter.Write(System.String)">
+            <summary>
+            Writes a string to the stream.
+            </summary>
+            <param name="value">
+            The string to write to the stream. If value is null, nothing is written.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and current writer is closed.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            <see cref="P:System.IO.StreamWriter.AutoFlush"></see>is true or the<see cref="T:System.IO.StreamWriter"></see>buffer is full, and the contents of the buffer cannot be written to the underlying fixed size stream because the<see cref="T:System.IO.StreamWriter"></see>is at the end the stream.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurs.
+            </exception>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace">
+            <summary>
+            Specifies what messages to output for the System.Diagnostics.Debug, System.Diagnostics.Trace
+            and System.Diagnostics.TraceSwitch classes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.WriteLine(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <summary>
+            Adds the message to the trace log.
+            The line becomes:
+                [I, PID, ThreadID, 2003/06/11 11:56:07.445] CallingAssemblyName: message.
+            </summary>
+            <param name="level">Trace level.</param>
+            <param name="message">The message to add to trace.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.InitializeVerboseTrace(System.String)">
+            <summary>
+            Initializes the verbose tracing with custom log file
+            And overrides if any trace is set before
+            </summary>
+            <param name="customLogFile">
+            A custom log file for trace messages.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.InitializeTrace(System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <summary>
+            Initializes the tracing with custom log file and trace level.
+            Overrides if any trace is set before.
+            </summary>
+            <param name="customLogFile">Custom log file for trace messages.</param>
+            <param name="traceLevel">Trace level.</param>
+            <returns>Trace initialized flag.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.ShouldTrace(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <summary>
+            Gets a value indicating if tracing is enabled for a trace level.
+            </summary>
+            <param name="traceLevel">Trace level.</param>
+            <returns>True if tracing is enabled.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.GetLogFile">
+            <summary>
+            Gets file path for trace log file.
+            </summary>
+            <returns>True if tracing is enabled.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.SetTraceLevel(Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <summary>
+            Sets platform specific trace value for tracing verbosity.
+            </summary>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.GetTraceLevel">
+            <summary>
+            Gets platform specific trace value for tracing verbosity.
+            </summary>
+            <returns>
+            The <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.SetupRemoteEqtTraceListeners(System.AppDomain)">
+            <summary>
+            Setup remote trace listener in the child domain.
+            If calling domain, doesn't have tracing enabled nothing is done.
+            </summary>
+            <param name="childDomain">Child <c>AppDomain</c>.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.IPlatformEqtTrace.SetupListener(System.Diagnostics.TraceListener)">
+            <summary>
+            Setup a custom trace listener instead of default trace listener created by test platform.
+            This is needed by DTA Agent where it needs to listen test platform traces but doesn't use test platform listener.
+            </summary>
+            <param name="listener">
+            The listener.
+            </param>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel.Off">
+            <summary>
+            Output no tracing and debugging messages..
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel.Error">
+            <summary>
+            Output error-handling messages.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel.Warning">
+            <summary>
+            Output warnings and error-handling messages.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel.Info">
+            <summary>
+            Output informational messages, warnings, and error-handling messages..
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel.Verbose">
+            <summary>
+            Output all debugging and tracing messages..
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.RemoteEqtTrace">
+            <summary>
+            A class used to expose EqtTrace functionality across AppDomains.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.RemoteEqtTrace.TraceLevel">
+            <summary>
+            Gets or sets the trace level.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.RemoteEqtTrace.SetupRemoteListeners(System.Diagnostics.TraceListener)">
+            <summary>
+            Register listeners from parent domain in current domain.
+            </summary>
+            <param name="listener">Trace listener instance.</param>
+        </member>
+        <member name="M:Microsoft.TestPlatform.PlatformAbstractions.StringUtils.IsNullOrEmpty(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrEmpty(System.String)"/>
+        </member>
+        <member name="M:Microsoft.TestPlatform.PlatformAbstractions.StringUtils.IsNullOrWhiteSpace(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+        </member>
+        <member name="M:Microsoft.TestPlatform.PlatformAbstractions.TPDebug.Assert(System.Boolean)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/>
+        </member>
+        <member name="M:Microsoft.TestPlatform.PlatformAbstractions.TPDebug.Assert(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

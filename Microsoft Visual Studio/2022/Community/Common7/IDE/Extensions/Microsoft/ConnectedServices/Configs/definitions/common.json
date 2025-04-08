@@ -1,0 +1,179 @@
+{
+  "remoteInstanceEditSteps": [
+    "PickInstance",
+    "RemoteConnection",
+    "DependencySummary"
+  ],
+  "remoteInstanceComputeEditSteps": [
+    "PickInstanceCompute"
+  ],
+  "localConnectionEditSteps": [
+    "Connection",
+    "DependencySummary"
+  ],
+  "localContainersEditSteps": [
+    "Containers",
+    "Connection",
+    "DependencySummary"
+  ],
+  "localSecretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "appServiceSecretStores": [
+    "AzureAppSettings",
+    "secrets.keyVault",
+    "none"
+  ],
+  "containerAppSecretStores": [
+    "ContainerAppSettings",
+    "secrets.keyVault",
+    "none"
+  ],
+  "localUserSecretStores": [
+    "secrets.user",
+    "none"
+  ],
+  "appServiceAppSettingsSecretStores": [
+    "AzureAppSettings",
+    "none"
+  ],
+  "containerAppSettingsSecretStores": [
+    "ContainerAppSettings",
+    "none"
+  ],
+  "appServiceOrLocalRemoteInstancePersistensePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "containerAppRemoteInstancePersistensePreprocessors": [
+    "ContainerName",
+    "SecretStoreResourceId"
+  ],
+  "remoteInstanceComputePreprocessors": [
+    "RemoteEntityCompute"
+  ],
+  "remoteConnectionPersistensePreprocessors": [
+    "ContainerName",
+    "SecretStoreResourceId"
+  ],
+  "localConnectionPersistensePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "group": {
+      "isBase": true
+    }
+  },
+  "containerPersistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "containerName": {},
+    "containerImage": {},
+    "containerPorts": {},
+    "group": {
+      "isBase": true
+    }
+  },
+  "powerPlatformPersistenceProperties": {
+    "connectionInfo": {},
+    "connectorName": {},
+    "environmentUrl": {},
+    "environmentId": {},
+    "powerAppSolutionName": {},
+    "type": {
+      "isBase": true
+    }
+  },
+  "identityPersistenceProperties": {
+    "connectionInfo": {},
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    }
+  },
+  "defaultActions": [
+  ],
+  "appServiceActions": [
+    "appServiceSettings",
+    "openInPortal",
+    "viewStreamingLogs",
+    "startApplication",
+    "stopApplication",
+    "downloadPublishProfile"
+  ],
+  "appServiceWindowsActions": [
+    "appServiceSettings",
+    "openInPortal",
+    "attachDebugger",
+    "viewStreamingLogs",
+    "startApplication",
+    "stopApplication",
+    "downloadPublishProfile"
+  ],
+  "functionActions": [
+    "openInPortal",
+    "viewStreamingLogs",
+    "startApplication",
+    "stopApplication",
+    "downloadPublishProfile"
+  ],
+  "functionWindowsActions": [
+    "openInPortal",
+    "attachDebugger",
+    "viewStreamingLogs",
+    "startApplication",
+    "stopApplication",
+    "downloadPublishProfile"
+  ]
+}

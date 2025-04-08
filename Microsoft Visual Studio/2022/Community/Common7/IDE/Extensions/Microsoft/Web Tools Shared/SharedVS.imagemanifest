@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.WebTools.Shared.VS;v17.0.0.0;b03f5f7f11d50a3a;Component/Resources" />
+    <Guid Name="SharedImagesGuid" Value="{ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B}" />
+    <ID Name="EncryptionKeyId" Value="1" />
+    <ID Name="HttpSendId" Value="2" />
+    <ID Name="PPDevTools16Id" Value="3" />
+    <ID Name="PPDevTools32Id" Value="4" />
+    <ID Name="PowerPlatformId" Value="5" />
+    <ID Name="PowerAppsId" Value="6" />
+    <ID Name="AspireApplicationId" Value="7" />
+  </Symbols>
+  
+  <Images>
+    <Image Guid="$(SharedImagesGuid)" ID="$(EncryptionKeyId)">
+      <Source Uri="$(Resources)/EncryptionKey_16x.xaml" />
+      <Source Uri="$(Resources)/EncryptionKey_16x.png" >
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(HttpSendId)">
+        <Source Uri="$(Resources)/HttpSend_16x.png" >
+        <Size Value="16" />
+        </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(PPDevTools32Id)" AllowColorInversion="false">
+      <Source Uri="$(Resources)/PPDevTools_32x.png">
+        <Size Value="32" />
+      </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(PPDevTools16Id)" AllowColorInversion="false">
+      <Source Uri="$(Resources)/PPDevTools_16x.png">
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(PowerPlatformId)" AllowColorInversion="false">
+      <Source Uri="$(Resources)/PowerPlatform_16x.png">
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(PowerAppsId)" AllowColorInversion="false">
+      <Source Uri="$(Resources)/PowerApps_16x.png">
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(SharedImagesGuid)" ID="$(AspireApplicationId)">
+      <Source Uri="$(Resources)/AspireApplication.xaml" />
+      <Source Uri="$(Resources)/BrandAspireApplication.png" >
+        <Size Value="16" />
+      </Source>
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

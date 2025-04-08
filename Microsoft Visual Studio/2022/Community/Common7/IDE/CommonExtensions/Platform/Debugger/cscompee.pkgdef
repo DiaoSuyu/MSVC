@@ -1,0 +1,23 @@
+[$RootKey$]
+[$RootKey$\AD7Metrics]
+[$RootKey$\AD7Metrics\ExpressionEvaluator]
+[$RootKey$\AD7Metrics\ExpressionEvaluator\{00000000-0000-0000-0000-000000000000}]
+[$RootKey$\AD7Metrics\ExpressionEvaluator\{00000000-0000-0000-0000-000000000000}\{00000000-0000-0000-0000-000000000000}]
+"CLSID"="{60F5556F-7EBC-4992-8E83-E9B49187FDE3}"
+[$RootKey$\CLSID]
+[$RootKey$\CLSID\{0A9F2A56-3827-42dc-8A8F-B594879873AF}]
+"InprocServer32"="$BaseInstallDir$\Common7\Packages\Debugger\cscompee.dll"
+"ThreadingModel"="Both"
+@="CSEEUIHost Class"
+[$RootKey$\CLSID\{5749A995-CBC2-4de4-86AF-C934D5E57BB9}]
+"InprocServer32"="$BaseInstallDir$\Common7\Packages\Debugger\cscompee.dll"
+"ThreadingModel"="Both"
+@="CSEELocalObject Class"
+[$RootKey$\CLSID\{60F5556F-7EBC-4992-8E83-E9B49187FDE3}]
+"InprocServer32"="$BaseInstallDir$\Common7\Packages\Debugger\cscompee.dll"
+"ThreadingModel"="Both"
+@="CSEEFactory Class"
+[$RootKey$\CLSID\{E7018011-AB0E-473a-8A77-5E8E428731B9}]
+"InprocServer32"="$BaseInstallDir$\Common7\Packages\Debugger\cscompee.dll"
+"ThreadingModel"="Both"
+@="CSEECasFactory Class"

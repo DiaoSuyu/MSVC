@@ -1,0 +1,123 @@
+﻿#categoryHeader {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 1px 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--Environment-CommandBarTextInactive-Background, fuchsia);
+}
+
+    #categoryHeader:enabled {
+        color: var(--Environment-CommandBarTextActive-Background, lawngreen);
+    }
+
+        #categoryHeader:enabled:hover {
+            border-color: var(--Environment-CommandBarBorder-Background, lawngreen);
+            background-color: var(--DetailsView-CommandBarMouseOverBackground-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        }
+
+        #categoryHeader:enabled:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+            border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+        }
+
+        #categoryHeader:enabled.notDefault {
+            border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+            background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        }
+
+            #categoryHeader:enabled.notDefault:hover {
+                border-color: var(--Environment-CommandBarHoverOverSelectedIconBorder-Background, lawngreen);
+                background-color: var(--DetailsView-CommandBarHoverOverSelected-Background, fuchsia);
+                color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+            }
+
+        /* reset the default IE button:active animation */
+        #categoryHeader:enabled:active * {
+            position: relative;
+        }
+
+    #categoryHeader:disabled > .icon svg .icon-vs-bg {
+        fill: var(--Environment-CommandBarTextInactive-Background, fuchsia);
+    }
+
+    #categoryHeader:disabled > .icon svg .icon-vs-out {
+        fill: transparent;
+    }
+
+#categoryFlyout {
+    position: absolute;
+    right: 195px; /** Offset */
+    overflow: auto;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    visibility: hidden;
+    z-index: 99999;
+    border: 1px solid var(--Environment-CommandBarMenuBorder-Background, black);
+    background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+    color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+    grid-row: 2;
+    margin-top: -1px;
+    /* 34px is the height of the grid header - see datagrid.css .filterFlyout */
+    max-height: min(400px, 100% - 34px);
+}
+
+    #categoryFlyout > * {
+        display: inline-block;
+    }
+
+    #categoryFlyout.flyoutActive {
+        visibility: visible;
+    }
+
+.toolbar-container.limitedSpace #categoryFlyout {
+    right: 68px;
+}
+
+#categoryFilterHeader {
+    grid-row: 4;
+    margin: 3px 0px;
+    padding: 0px 8px;
+}
+
+#categoryFilterList {
+    grid-row: 1;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    min-width: 180px;
+}
+
+    #categoryFilterList > li {
+        white-space: nowrap;
+        margin: 3px 0px;
+        padding: 0px 20px 0px 6px;
+    }
+
+        #categoryFilterList > li.hasFocus {
+            background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, lightgreen);
+            color: var(--SearchControl-PopupCheckboxMouseDownText-Background, black);
+        }
+
+#categoryFilterFooter {
+    grid-row: 2;
+    justify-self: end;
+    padding: 9px 9px;
+}
+
+    #categoryFilterFooter > button {
+        margin-left: 3px;
+    }
+
+        #categoryFilterFooter > button:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        }
+
+    /* reset the default IE button:active animation */
+    #categoryFilterFooter button:active * {
+        position: relative;
+    }

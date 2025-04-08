@@ -1,0 +1,6 @@
+{
+  "suggestionsDataSources": [
+    "FeatureDetection",
+    "AppModelDependencies"
+  ]
+}

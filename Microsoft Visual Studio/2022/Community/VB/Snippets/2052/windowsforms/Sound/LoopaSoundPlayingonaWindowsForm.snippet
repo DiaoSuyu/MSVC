@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 Windows 窗体上循环播放声音</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在后台循环播放声音。</Description>
+      <Shortcut>sndLoop</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>FileName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为声音文件的名称。</ToolTip>
+          <Default>"SoundFile.wav"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.Audio.Play($FileName$, AudioPlayMode.BackgroundLoop)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

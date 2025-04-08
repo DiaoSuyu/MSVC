@@ -1,0 +1,16 @@
+[$RootKey$\FeatureFlags\Debugger\EnableCopilotBreakpointSuggestions]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\EnableCopilotExceptionAssistant]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\EnableExceptionAssistantConversationMode]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\EnableExceptionAssistantConversationAnalysis]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\EnableCopilotBreakpointExplain]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\Copilot\FixWithCopilot]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Editor\ShowSmartPasteOption]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Editor\SmartPaste]
+"Value"=dword:00000000

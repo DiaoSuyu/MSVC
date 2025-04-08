@@ -1,0 +1,25 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "SystemIdentity",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_SIGNALR_CONNECTIONSTRING",
+          "customizedName": "@@connectionId@@"
+        }
+      ],
+      "additionalConfigs": [
+        {
+          "configName": "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES",
+          "configValue": "Microsoft.Azure.SignalR"
+        },
+        {
+          "configName": "Azure__SignalR__StickyServerMode",
+          "configValue": "Required"
+        }
+      ]
+    }
+  ]
+}

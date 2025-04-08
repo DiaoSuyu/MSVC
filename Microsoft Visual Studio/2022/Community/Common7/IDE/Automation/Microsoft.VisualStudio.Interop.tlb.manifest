@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- NOTE: This file is generated from a template. Update the template instead and generate a new version of this file. -->
+<!-- Copyright (C) 1981-2021 Microsoft Corporation -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <noInheritable/>
+  <assemblyIdentity type="win32" processorArchitecture="amd64" name="Automation\Microsoft.VisualStudio.Interop.tlb" version="1.0.0.0" />
+  <file name="Microsoft.VisualStudio.Interop.tlb">
+    <typelib tlbid="{1C6354BC-9C44-3698-8CAF-190B9037E9C6}" version="17.0" helpdir=""/>
+  </file>
+</assembly>

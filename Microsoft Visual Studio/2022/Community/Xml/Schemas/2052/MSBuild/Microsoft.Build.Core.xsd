@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- ======================================================================================= -->
+    <xs:element name="Project">
+         <xs:annotation>
+            <xs:documentation><!-- _locID_text="Project" _locComment="" -->一个 MSBuild 项目</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="msb:ProjectLevelTagExceptTargetOrImportType" minOccurs="0" maxOccurs="unbounded"/>
+                <!-- must be at least one Target or Import tag-->
+                <xs:group ref="msb:TargetOrImportType"/>
+                <xs:group ref="msb:ProjectLevelTagType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="DefaultTargets" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation><!-- _locID_text="Project_DefaultTargets" _locComment="" -->以分号分隔的一个或多个目标的列表(可选)，如果没有另行指定目标，则将生成该列表中列出的目标</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="InitialTargets" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation><!-- _locID_text="Project_InitialTargets" _locComment="" -->以分号分隔的目标的列表(可选)，该列表中列出的目标应始终在任何其他目标之前生成</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="Sdk" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation><!-- _locID_text="Project_Sdk" _locComment="" -->描述生成此项目应使用的 MSBuild SDK 的可选字符串</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="ToolsVersion" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation><!-- _locID_text="Project_ToolsVersion" _locComment="" -->描述在生成此项目时通常应该使用的工具集版本的可选字符串</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <!-- ======================================================================================= -->
+    <xs:group name="ProjectLevelTagExceptTargetOrImportType">
+        <xs:choice>
+            <xs:element name="PropertyGroup" type="msb:PropertyGroupType"/>
+            <xs:element name="ItemGroup" type="msb:ItemGroupType"/>
+            <xs:element name="ItemDefinitionGroup" type="msb:ItemDefinitionGroupType"/>
+            <xs:element name="Choose" type="msb:ChooseType"/>
+            <xs:element name="UsingTask" type="msb:UsingTaskType"/>
+            <xs:element name="ProjectExtensions" type="msb:ProjectExtensionsType"/>
+        </xs:choice>
+    </xs:group>
+    <!-- ======================================================================================= -->    
+    <xs:group name="ProjectLevelTagType">
+        <xs:choice>
+            <xs:element name="PropertyGroup" type="msb:PropertyGroupType"/>
+            <xs:element name="ItemGroup" type="msb:ItemGroupType"/>
+            <xs:element name="ItemDefinitionGroup" type="msb:ItemDefinitionGroupType"/>
+            <xs:element name="Choose" type="msb:ChooseType"/>
+            <xs:element name="UsingTask" type="msb:UsingTaskType"/>
+            <xs:element name="Target" type="msb:TargetType"/>
+            <xs:element name="Import" type="msb:ImportType"/>
+            <xs:element name="ImportGroup" type="msb:ImportGroupType"/>
+            <xs:element name="ProjectExtensions" type="msb:ProjectExtensionsType"/>
+        </xs:choice>
+    </xs:group>
+    <!-- ======================================================================================= -->
+    <xs:group name="TargetOrImportType">
+        <xs:choice>
+            <xs:element name="Target" type="msb:TargetType"/>
+            <xs:element name="Import" type="msb:ImportType"/>
+            <xs:element name="ImportGroup" type="msb:ImportGroupType"/>
+        </xs:choice>
+    </xs:group>    
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="TargetType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="TargetType" _locComment="" -->将任务组合为生成过程的一个部分</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="msb:Task"/>
+                    <xs:element name="PropertyGroup" type="msb:PropertyGroupType"/>
+                    <xs:element name="ItemGroup" type="msb:ItemGroupType"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:element name="OnError" type="msb:OnErrorType" minOccurs="0" maxOccurs="unbounded"/>
+            <!-- no elements are allowed under Target after an OnError element-->
+        </xs:sequence>
+        <xs:attribute name="Name" type="msb:non_empty_string" use="required">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_Name" _locComment="" -->目标的名称</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="DependsOnTargets" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_DependsOnTargets" _locComment="" -->以分号分隔的目标的列表(可选)，该列表中列出的目标应在此目标之前运行</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>            
+        <xs:attribute name="Inputs" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_Inputs" _locComment="" -->以分号分隔的文件的列表(可选)，这些文件由窗体输入此目标。将这些文件的时间戳与输出中的文件的时间戳进行比较，以确定目标是否为最新的</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>                
+        <xs:attribute name="Outputs" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_Outputs" _locComment="" -->以分号分隔的文件的列表(可选)，这些文件由窗体输入此目标。将这些文件的时间戳与输出中的文件的时间戳进行比较，以确定目标是否为最新的</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应运行目标及其相关目标</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>            
+        <xs:attribute name="KeepDuplicateOutputs" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_KeepDuplicateOutputs" _locComment="" -->可选表达式，其计算结果确定是否应在返回目标的返回值之前移除其中的重复项。默认为不移除重复项。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Returns" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_Returns" _locComment="" -->可选表达式，其计算结果确定目标应返回其生成的哪些项。如果文件中的 Targets 上没有 Returns 特性，则将改用 Outputs 特性实现此目的。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="BeforeTargets" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_BeforeTargets" _locComment="" -->可选的以分号分隔的目标列表，该列表中的目标应在此目标之后运行。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>   
+        <xs:attribute name="AfterTargets" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TargetType_AfterTargets" _locComment="" -->可选的以分号分隔的目标列表，该列表中的目标应在此目标之前运行。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>     
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="PropertyGroupType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="PropertyGroupType" _locComment="" -->对属性定义进行分组</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="msb:Property"/>
+        </xs:sequence>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="PropertyGroupType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应使用 PropertyGroup</xs:documentation>
+            </xs:annotation> 
+        </xs:attribute>     
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="PropertyGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="ImportGroupType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ImportGroupType" _locComment="" -->组导入定义</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Import" type="msb:ImportType"/>
+        </xs:sequence>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportGroupType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应使用 ImportGroup</xs:documentation>
+            </xs:annotation> 
+        </xs:attribute>     
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="ItemGroupType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ItemGroupType" _locComment="" -->对项列表定义进行分组</xs:documentation>
+        </xs:annotation>        
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="msb:Item"/>
+            <xs:element name="Link" type="msb:LinkItem"/>
+            <xs:element name="ResourceCompile" type="msb:ResourceCompile"/>
+            <xs:element name="PreBuildEvent" type="msb:PreBuildEventItem"/>
+            <xs:element name="PostBuildEvent" type="msb:PostBuildEventItem"/>
+        </xs:choice>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ItemGroupType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应使用 ItemGroup</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>     
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ItemGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="ItemDefinitionGroupType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ItemDefinitionGroupType" _locComment="" -->对项元数据定义进行分组</xs:documentation>
+        </xs:annotation>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="msb:Item"/>
+            <xs:element name="Link" type="msb:LinkItem"/>
+            <xs:element name="ResourceCompile" type="msb:ResourceCompile"/>
+            <xs:element name="PreBuildEvent" type="msb:PreBuildEventItem"/>
+            <xs:element name="PostBuildEvent" type="msb:PostBuildEventItem"/>
+        </xs:choice>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+          <xs:annotation>
+             <xs:documentation><!-- _locID_text="ItemDefinitionGroupType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应使用 ItemDefinitionGroup</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ItemDefinitionGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->
+    <xs:complexType name="ChooseType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ChooseType" _locComment="" -->对 When 和 Otherwise 元素进行分组</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="When" type="msb:WhenType" maxOccurs="unbounded"/>
+            <xs:element name="Otherwise" type="msb:OtherwiseType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ChooseType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->
+    <xs:complexType name="WhenType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="WhenType" _locComment="" -->对 PropertyGroup 和/或 ItemGroup 元素进行分组</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="PropertyGroup" type="msb:PropertyGroupType"/>
+                <xs:element name="ItemGroup" type="msb:ItemGroupType"/>
+                <xs:element name="Choose" type="msb:ChooseType"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Condition" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="WhenType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应使用子 PropertyGroups 和/或 ItemGroups</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->
+    <xs:complexType name="OtherwiseType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="OtherwiseType" _locComment="" -->对 PropertyGroup 和/或 ItemGroup 元素进行分组，如果同级 When 元素没有任何条件时的计算结果为 true，则使用以上两个元素</xs:documentation>
+        </xs:annotation>        
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="PropertyGroup" type="msb:PropertyGroupType"/>
+                <xs:element name="ItemGroup" type="msb:ItemGroupType"/>
+                <xs:element name="Choose" type="msb:ChooseType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- ======================================================================================= -->        
+    <xs:complexType name="OnErrorType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="OnErrorType" _locComment="" -->指定在发生可恢复错误的情况下要执行的目标</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="OnErrorType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应执行目标</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ExecuteTargets" type="msb:non_empty_string" use="required">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="OnErrorType_ExecuteTargets" _locComment="" -->以分号分隔的待执行目标的列表</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>    
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>        
+    </xs:complexType>
+    <!-- ======================================================================================= -->    
+    <xs:complexType name="UsingTaskType">
+      <xs:annotation>
+        <xs:documentation><!-- _locID_text="UsingTaskType" _locComment="" -->定义包含任务实现的程序集或包含实现本身。</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="ParameterGroup" type="msb:ParameterGroupType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Task" type="msb:UsingTaskBodyType" minOccurs="0" maxOccurs="1"/>    
+      </xs:sequence> 
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="UsingTaskType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应计算声明</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>          
+        <xs:attribute name="AssemblyName" type="msb:non_empty_string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="UsingTaskType_AssemblyName" _locComment="" -->包含任务的程序集的可选名称。必须使用 AssemblyName 或 AssemblyFile</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="AssemblyFile" type="msb:non_empty_string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="UsingTaskType_AssemblyFile" _locComment="" -->包含任务的程序集的可选路径。必须使用 AssemblyName 或 AssemblyFile</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>            
+        <xs:attribute name="TaskName" type="msb:non_empty_string" use="required">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="UsingTaskType_TaskName" _locComment="" -->程序集中的任务类的名称</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TaskFactory" type="msb:non_empty_string" use="optional">
+          <xs:annotation>
+            <xs:documentation><!-- _locID_text="UsingTaskType_TaskFactory" _locComment="" -->程序集中的任务工厂类的名称</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Architecture" type="msb:architecture" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="UsingTaskType_Architecture" _locComment="" -->定义应在其中运行此任务的任务宿主的体系结构。当前支持的值: x86、x64、CurrentArchitecture 和 * (任意值)。如果未指定体系结构，则将在 MSBuild 进程中运行此任务，或者将使用父 MSBuild 进程的体系结构启动任务宿主
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Runtime" type="msb:runtime" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="UsingTaskType_Runtime" _locComment="" -->定义应在其中运行此任务的任务宿主的 .NET 运行时版本。当前支持的值: CLR2、CLR4、CurrentRuntime 和 * (任意值)。如果未指定运行时，则将在 MSBuild 进程中运行此任务，或者将使用父 MSBuild 进程的运行时启动任务宿主
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+    </xs:complexType> 
+    <!-- ======================================================================================= -->
+    <xs:complexType name="ParameterGroupType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ParameterGroupType" _locComment="" -->属于内联任务定义的一部分的组参数。</xs:documentation>
+        </xs:annotation> 
+        <!-- ParameterGroup contains parameter elements whose element names are the parameter names.
+             Attributes are:
+                  * ParameterType. Optional string. Type of the task parameter. Defaults to string type.
+                  * Output. Optional bool. Whether this task parameter can be retrieved as an output. Defaults to false.
+                  * Required. Optional bool. Whether this task parameter is required to be passed a value. Defaults to false.
+             It is not possible to validate attributes on elements with undefined names using XSD.
+          -->
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+           <xs:any processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>     
+    <!-- ======================================================================================= -->
+    <xs:complexType name="UsingTaskBodyType" mixed="true">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="UsingTaskBodyType" _locComment="" -->包含内联任务实现。内容对 MSBuild 是不透明的。</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:any namespace="##any" processContents="skip"/>
+        </xs:sequence>        
+        <xs:attribute name="Evaluate" type="msb:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="UsingTaskBodyType_Evaluate" _locComment="" -->正文是否应在使用属性之前先将其展开。默认值为 False。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>        
+    </xs:complexType>     
+    <!-- ======================================================================================= -->  
+    <xs:complexType name="ImportType">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ImportType" _locComment="" -->声明应在此位置插入另一个项目文件的内容</xs:documentation>
+        </xs:annotation>        
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应进行导入</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>              
+        <xs:attribute name="Project" type="msb:non_empty_string" use="required">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportType_Project" _locComment="" -->要导入的项目文件</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>     
+        <xs:attribute name="Label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="ImportType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Sdk" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    <!-- _locID_text="ImportType_Sdk" _locComment="" -->SDK 的名称，其中包含要导入的项目文件</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Version" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    <!-- _locID_text="ImportType_Version" _locComment="" -->可选表达式，用于指定此导入引用的 SDK 版本</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MinimumVersion" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    <!-- _locID_text="ImportType_MinimumVersion" _locComment="" -->可选表达式，用于指定引用导入所需的最低 SDK 版本</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->  
+    <xs:complexType name="ProjectExtensionsType" mixed="true">
+        <xs:annotation>
+            <xs:documentation><!-- _locID_text="ProjectExtensionsType" _locComment="" -->MSBuild 主机使用的可选部分，其中可能包含被 MSBuild 本身忽略的任意 XML 内容</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:any processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>    
+    <!-- ======================================================================================= -->
+    <xs:element name="Item" type="msb:SimpleItemType" abstract="true"/>
+    <!-- ======================================================================================= -->   
+    <!-- convenience type for items that have no meta-data-->
+    <!-- note this allows Remove or no attribute instead of Include, which is too lax outside of Targets at present, but 
+         it's the best we can reasonably do with an XSD -->
+    <xs:complexType name="SimpleItemType">
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="SimpleItemType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应计算项</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Include" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="SimpleItemType_Include" _locComment="" -->以分号分隔的文件名(允许使用通配符)或其他项名称的列表，这些文件名或项名称要包括在此项列表中</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>             
+        <xs:attribute name="Exclude" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="SimpleItemType_Exclude" _locComment="" -->以分号分隔的文件名(允许使用通配符)或其他项名称的列表，这些文件名或项名称要从包括项列表中排除</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Remove" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="SimpleItemType_Remove" _locComment="" -->要从现有列表内容中移除的文件(允许使用通配符)或其他项名称的分号分隔列表</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Update" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="SimpleItemType_Remove" _locComment="" -->以半角分号分隔的文件列表(允许使用通配符)，或使用此 XML 元素中所含元数据更新的其他项目名称的列表</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Label" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="ImportGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->      
+    <!-- general utility type allowing an item type to be defined but not its child meta-data-->
+    <xs:complexType name="GenericItemType">
+        <xs:complexContent>
+            <xs:extension base="msb:SimpleItemType">
+                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                    <xs:any namespace="##any" processContents="skip"/>  
+                </xs:sequence>      
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- ======================================================================================= -->  
+    <!-- no type declared on this abstract element, so either a simple or complex type can be substituted for it.-->
+    <xs:element name="Property" abstract="true"/>
+    <!-- ======================================================================================= -->      
+    <!-- convenience type for properties that just want to allow text and no elements in them-->
+    <xs:complexType name="StringPropertyType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="Condition" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation><!-- _locID_text="StringPropertyType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应计算属性</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Label" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      <!-- _locID_text="ImportGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <!-- ======================================================================================= -->      
+    <!-- general utility type allowing text and/or elements inside-->
+    <xs:complexType name="GenericPropertyType" mixed="true">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:any namespace="##any" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="GenericPropertyType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应计算属性</xs:documentation>
+            </xs:annotation>         
+        </xs:attribute>
+        <xs:attribute name="Label" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="ImportGroupType_Label" _locComment="" -->可选表达式。用于标识系统和用户元素或对其进行排序
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- ======================================================================================= -->
+    <xs:element name="Task" type="msb:TaskType" abstract="true"/>
+    <!-- ======================================================================================= -->
+    <xs:complexType name="TaskType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Output">
+                <xs:annotation>
+                    <xs:documentation><!-- _locID_text="TaskType_Output" _locComment="" -->可选元素，用于指定要收集的特定任务输出</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="TaskParameter" type="msb:non_empty_string" use="required">
+                        <xs:annotation>
+                            <xs:documentation><!-- _locID_text="TaskType_Output_TaskParameter" _locComment="" -->要收集的任务参数。与任务类的 .NET 属性的名称匹配，该任务类具有 [Output] 特性</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="ItemName" type="msb:non_empty_string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation><!-- _locID_text="TaskType_Output_ItemName" _locComment="" -->某个项列表的可选名称，要将收集的输出放入该项列表。必须指定 ItemName 或 PropertyName</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="PropertyName" type="msb:non_empty_string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation><!-- _locID_text="TaskType_Output_PropertyName" _locComment="" -->某个属性的可选名称，要将收集的输出放入该属性。必须指定 PropertyName 或 ItemName</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="Condition" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation><!-- _locID_text="TaskType_Output_Condition" _locComment="" -->可选表达式，其计算结果确定是否应收集输出</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="Condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TaskType_Condition" _locComment="" -->可选表达式，其计算结果确定是否应执行任务</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ContinueOnError" type="msb:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation><!-- _locID_text="TaskType_ContinueOnError" _locComment="" -->可选的布尔值，指示是否应忽略可恢复的任务错误。默认值为 false</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Architecture" type="msb:architecture" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="TaskType_Architecture" _locComment="" -->如果任务必须专门在 32 位或 64 位进程中运行，则定义任务的位元。如果未指定，则将使用生成进程的位元运行任务。如果 UsingTask 中定义了多个名称相同但 Architecture 特性值不同的任务，则此处指定的 Architecture 特性的值将用于匹配和选择正确的任务
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Runtime" type="msb:runtime" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="TaskType_Runtime" _locComment="" -->定义任务的 .NET 运行时。如果任务必须在特定版本的 .NET 运行时上运行，则必须指定此项。如果未指定，则任务将在由生成进程使用的运行时上运行。如果 UsingTask 中定义了多个名称相同但 Runtime 特性值不同的任务，则此处指定的 Runtime 特性的值将用于匹配和选择正确的任务
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <!-- We don't need the anyAttribute here because other types deriving from this type will add the right attributes.-->
+    </xs:complexType>
+    <!-- ======================================================================================= -->  
+    <!-- XSD considers an empty-valued attribute to satisfy use="required", but we want it to have a non-empty value in most cases, hence this utility type. -->
+    <xs:simpleType name="non_empty_string">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- This type causes intellisense to suggest "true" or "false", but doesn't actually constrain the value beyond msb:non_empty_string.
+    We can't constrain the value, because the project author might want to pass a property or item instead of a literal value.
+    Besides, MSBuild will accept other literal values, like "on" and "off", just as well. -->
+    <xs:simpleType name="boolean">
+        <xs:union memberTypes="msb:non_empty_string">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="true"/>
+                    <xs:enumeration value="false"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- Similar trick for Importance -->
+    <xs:simpleType name="importance">
+        <xs:union memberTypes="msb:non_empty_string">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="high"/>
+                    <xs:enumeration value="normal"/>
+                    <xs:enumeration value="low"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- Similar trick for Architecture -->
+    <xs:simpleType name="architecture">
+      <xs:union memberTypes="msb:non_empty_string">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="*"/>
+            <xs:enumeration value="CurrentArchitecture"/>
+            <xs:enumeration value="x86"/>
+            <xs:enumeration value="x64"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+    <!-- Similar trick for Runtime -->
+    <xs:simpleType name="runtime">
+      <xs:union memberTypes="msb:non_empty_string">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="*"/>
+            <xs:enumeration value="CurrentRuntime"/>
+            <xs:enumeration value="CLR2"/>
+            <xs:enumeration value="CLR4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+    <!-- ======================================================================================= -->  
+    <!-- These types are used to enable Tasks and TaskItems global elements to exist in the schema. 
+         They cannot both be declared as "Link" Elements of differing types in global scope. -->
+    <xs:complexType name="LinkItem">
+      <xs:complexContent>
+        <xs:extension base="msb:SimpleItemType">
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="AdditionalDependencies"/>
+            <xs:element name="OutputFile"/>
+            <xs:element name="AssemblyDebug"/>
+            <xs:element name="SubSystem"/>
+            <xs:element name="ShowProgress"/>
+            <xs:element name="GenerateDebugInformation"/>
+            <xs:element name="EnableCOMDATFolding"/>
+            <xs:element name="OptimizeReferences"/>
+            <xs:element name="Version"/>
+            <xs:element name="Driver"/>
+            <xs:element name="RandomizedBaseAddress"/>
+            <xs:element name="SuppressStartupBanner"/>
+            <xs:element name="AdditionalLibraryDirectories"/>
+            <xs:element name="Profile"/>
+            <xs:element name="LinkStatus"/>
+            <xs:element name="FixedBaseAddress"/>
+            <xs:element name="DataExecutionPrevention"/>
+            <xs:element name="SwapRunFromCD"/>
+            <xs:element name="SwapRunFromNET"/>
+            <xs:element name="RegisterOutput"/>
+            <xs:element name="AllowIsolation"/>
+            <xs:element name="EnableUAC"/>
+            <xs:element name="UACExecutionLevel"/>
+            <xs:element name="UACUIAccess"/>
+            <xs:element name="PreventDllBinding"/>
+            <xs:element name="IgnoreStandardIncludePath"/>
+            <xs:element name="GenerateMapFile"/>
+            <xs:element name="IgnoreEmbeddedIDL"/>
+            <xs:element name="TypeLibraryResourceID"/>
+            <xs:element name="LinkErrorReporting"/>
+            <xs:element name="MapExports"/>
+            <xs:element name="TargetMachine"/>
+            <xs:element name="TreatLinkerWarningAsErrors"/>
+            <xs:element name="ForceFileOutput"/>
+            <xs:element name="CreateHotPatchableImage"/>
+            <xs:element name="SpecifySectionAttributes"/>
+            <xs:element name="MSDOSStubFileName"/>
+            <xs:element name="IgnoreAllDefaultLibraries"/>
+            <xs:element name="IgnoreSpecificDefaultLibraries"/>
+            <xs:element name="ModuleDefinitionFile"/>
+            <xs:element name="AddModuleNamesToAssembly"/>
+            <xs:element name="EmbedManagedResourceFile"/>
+            <xs:element name="ForceSymbolReferences"/>
+            <xs:element name="DelayLoadDLLs"/>
+            <xs:element name="AssemblyLinkResource"/>
+            <xs:element name="AdditionalManifestDependencies"/>
+            <xs:element name="StripPrivateSymbols"/>
+            <xs:element name="MapFileName"/>
+            <xs:element name="MinimumRequiredVersion"/>
+            <xs:element name="HeapReserveSize"/>
+            <xs:element name="HeapCommitSize"/>
+            <xs:element name="StackReserveSize"/>
+            <xs:element name="StackCommitSize"/>
+            <xs:element name="LargeAddressAware"/>
+            <xs:element name="TerminalServerAware"/>
+            <xs:element name="FunctionOrder"/>
+            <xs:element name="ProfileGuidedDatabase"/>
+            <xs:element name="LinkTimeCodeGeneration"/>
+            <xs:element name="MidlCommandFile"/>
+            <xs:element name="MergedIDLBaseFileName"/>
+            <xs:element name="TypeLibraryFile"/>
+            <xs:element name="EntryPointSymbol"/>
+            <xs:element name="BaseAddress"/>
+            <xs:element name="ProgramDatabaseFile"/>
+            <xs:element name="SupportUnloadOfDelayLoadedDLL"/>
+            <xs:element name="SupportNobindOfDelayLoadedDLL"/>
+            <xs:element name="ImportLibrary"/>
+            <xs:element name="MergeSections"/>
+            <xs:element name="CLRThreadAttribute"/>
+            <xs:element name="CLRImageType"/>
+            <xs:element name="KeyFile"/>
+            <xs:element name="KeyContainer"/>
+            <xs:element name="DelaySign"/>
+            <xs:element name="CLRUnmanagedCodeCheck"/>
+            <xs:element name="SectionAlignment"/>
+            <xs:element name="CLRSupportLastError"/>
+            <xs:element name="ImageHasSafeExceptionHandlers"/>
+          </xs:choice>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="ResourceCompile">
+      <xs:complexContent>
+        <xs:extension base="msb:SimpleItemType">
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Culture"/>
+            <xs:element name="PreprocessorDefinitions"/>
+            <xs:element name="UndefinePreprocessorDefinitions"/>
+            <xs:element name="AdditionalIncludeDirectories"/>
+            <xs:element name="IgnoreStandardIncludePath"/>
+            <xs:element name="ShowProgress"/>
+            <xs:element name="NullTerminateStrings"/>
+            <xs:element name="SuppressStartupBanner"/>
+            <xs:element name="ResourceOutputFileName"/>
+          </xs:choice>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="PreBuildEventItem">
+      <xs:complexContent>
+        <xs:extension base="msb:SimpleItemType">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Message"/>
+              <xs:element name="Command"/>
+            </xs:choice>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="PostBuildEventItem">
+      <xs:complexContent>
+        <xs:extension base="msb:SimpleItemType">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Message"/>
+              <xs:element name="Command"/>
+            </xs:choice>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>写入二进制文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将字节数写入二进制文件。</Description>
+      <Shortcut>filWriteBin</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>byteArray</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为 Byte()。</ToolTip>
+          <Default>{244, 123, 56, 34}</Default>
+        </Literal>
+        <Literal>
+          <ID>FileName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文件名和路径。</ToolTip>
+          <Default>"C:\Output.bin"</Default>
+        </Literal>
+        <Literal>
+          <ID>IsAppend</ID>
+          <Type>Boolean</Type>
+          <ToolTip>选择“True”将附加到文件，选择“False”将覆盖文件。</ToolTip>
+          <Default>True</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim fileContents() As Byte = $byteArray$
+My.Computer.FileSystem.WriteAllBytes($FileName$, fileContents, $IsAppend$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

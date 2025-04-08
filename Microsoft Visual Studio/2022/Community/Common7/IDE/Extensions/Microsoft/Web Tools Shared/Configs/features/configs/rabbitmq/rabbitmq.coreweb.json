@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "rabbitmq.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId"
+      ]
+    }
+  }
+}

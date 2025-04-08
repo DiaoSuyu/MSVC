@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将 Access 数据读入数据集中</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将数据从 Access 数据库中的一个表加载到 DataSet 对象。</Description>
+      <Shortcut>adoAccess</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.OleDb</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>SQLString</ID>
+          <Type>String</Type>
+          <ToolTip>替换为检索表的 SQL 语句。</ToolTip>
+          <Default>"Select * from Topics"</Default>
+        </Literal>
+        <Literal>
+          <ID>AccessFileName</ID>
+          <Type>String</Type>
+          <ToolTip>要加载的 Access 文件的路径</ToolTip>
+          <Default>AccessFile.mdb</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim conn As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=$AccessFileName$;Persist Security Info=False"
+Dim cmd As String = $SQLString$
+Dim adapter As New OleDbDataAdapter(cmd, conn)
+Dim topics As New DataSet
+adapter.Fill(topics)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

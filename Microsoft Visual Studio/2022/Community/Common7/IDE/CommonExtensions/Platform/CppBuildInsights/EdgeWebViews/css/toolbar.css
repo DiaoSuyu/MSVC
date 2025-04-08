@@ -1,0 +1,137 @@
+﻿.toolbar-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    padding: 3px;
+    background-color: var(--CommonControls-InnerTabActiveBackground-Background, fuchsia);
+}
+
+    .toolbar-container > * {
+        margin: auto 3px;
+    }
+
+    /* We only collapse text if there is an icon */
+    .toolbar-container.limitedSpace button > .icon ~ * {
+        display: none;
+    }
+
+/* If we have an icon and text then give some margin between the two */
+button.toolbar-button > .icon + *, button.toggleButton > .icon + * {
+    margin-left: 3px;
+}
+
+.toolbar-separator {
+    align-self: stretch;
+    width: 1px;
+    background-color: var(--Environment-CommandBarToolBarSeparator-Background, chartreuse);
+}
+
+/* The button.* rules are so each selector is specific enough to override default styles injected by daytona */
+/* Hyperlink buttons */
+button.hyperlink-button, button.toolbar-button.hyperlink-button {
+    padding: 0px;
+    cursor: pointer;
+    background-image: none; /*This overrides a background image injected by Plugin.css*/
+    background-color: transparent;
+    color: var(--DiagnosticsHub-Hyperlink, fuchsia);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+    button.hyperlink-button:disabled, button.toolbar-button.hyperlink-button:disabled {
+        color: var(-diagnostics-host-toolbar-text-disabled, deeppink);
+        background-color: transparent;
+        border: none;
+        cursor: not-allowed;
+    }
+
+    button.hyperlink-button:enabled:hover, button.toolbar-button.hyperlink-button:enabled:hover {
+        color: var(--DiagnosticsHub-HyperlinkHover, fuchsia);
+        text-decoration: underline;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    button.hyperlink-button:enabled:focus, button.toolbar-button.hyperlink-button:enabled:focus {
+        color: var(--DiagnosticsHub-HyperlinkHover, fuchsia);
+        text-decoration: underline;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+/* Toolbar buttons (Command Shelf buttons) */
+button.toolbar-button, button.toggleButton {
+    padding: 2px;
+    background-color: transparent;
+    color: var(--Environment-CommandBarTextActive-Background, chartreuse);
+    height: 100%;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    display: inline-grid;
+    border: 1px solid transparent;
+    background-image: none; /*This overrides a background image injected by Plugin.css*/
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: auto;
+    /* Reset the injected min-width from daytona. Despite the CSS spec saying the value should be 'initial', only 'auto' works for our purposes. */
+    min-width: auto;
+}
+
+    button.toolbar-button.enabled:hover, button.toggleButton.enabled:hover {
+        background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        border: 1px solid var(--Environment-CommandBarBorder-Background, lawngreen);
+    }
+
+    button.toolbar-button.enabled:active, button.toggleButton.enabled:active {
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+    }
+
+.button-text {
+    grid-row: 1;
+    grid-column: 2;
+    background-color: transparent;
+    color: inherit;
+    height: 100%;
+    padding-left: 3px;
+    display: block;
+    width: 100%;
+    transition: width .5s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+    .button-text.disabled-text {
+        color: #c0c0c0; /*[{diagnostics-host-toolbar-text-disabled}]*/
+    }
+
+button.toggleButton.checked {
+    background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+    color: var(--Environment-CommandBarTextSelected-Background, lawngreen);
+    border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+}
+
+    button.toggleButton.checked:not(.enabled) {
+        color: var(--Environment-CommandBarTextInactive-Background, lawngreen);
+    }
+
+    button.toggleButton.checked.enabled:hover {
+        background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+        border: 1px solid var(--Environment-CommandBarHoverOverSelectedIconBorder-Background,lawngreen);
+    }
+
+    button.toggleButton.checked.enabled:active {
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+    }

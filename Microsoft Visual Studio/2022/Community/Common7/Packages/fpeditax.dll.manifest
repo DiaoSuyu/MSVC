@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- NOTE: This file is generated from a template. Update the template instead and generate a new version of this file. -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" name="..\Packages\fpeditax.dll" processorArchitecture="amd64" version="1.0.0.0"/>
+  <file name="fpeditax.dll" hashalg="SHA1">
+    <typelib tlbid="{DFB7BFC3-0A64-4E33-A1C0-4CAE9CD09F82}" resourceid="1" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+  </file>
+  <comInterfaceExternalProxyStub name="IDesignerDocument" iid="{AA9D3368-4CB1-419B-A68D-212F318B5BF8}" tlbid="{6978210A-2240-4706-B0E7-7207DBBBD1DE}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IInternalService" iid="{C32FC01B-F4A7-4463-B153-D19F1BDF5F2D}" tlbid="{6978210A-2240-4706-B0E7-7207DBBBD1DE}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+</assembly>

@@ -1,0 +1,208 @@
+﻿body {
+    overflow: auto;
+    display: block;
+    forced-color-adjust: none;
+}
+
+#resultsNamesDiv {
+    height: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: chartreuse; /*[{plugin-scrollbar-background-color}]*/
+}
+
+#resultNameCell {
+    border-bottom: 1px solid black; /*[1 px solid {plugin-select-option-hover-border-color}]*/
+    padding-left: 5px;
+}
+
+.nonActiveTile{
+
+}
+
+.nonActiveTile:hover {
+    background-color: lightgrey; /*[{list-item-hover}]*/
+}
+
+.activeTile {
+    background-color: black; /*[{plugin-highlight-background-color}]*/
+    color: black; /*[{plugin-highlight-color}]*/
+}
+
+.highlightedText {
+    background-color: black; /*[{plugin-highlight-background-color}]*/
+    color: black; /*[{plugin-highlight-color}]*/
+}
+
+.highlightedText .treeGridRow .mdLink:link{
+    color: chartreuse;  /*[{Environment-PanelHyperlinkInsideSelectionActive}]*/
+}
+
+.highlightedText .treeGridRow:hover .mdLink:link{
+    color: chartreuse; /*[{plugin-treeview-content-inactive-selected-color}]*/
+}
+
+.highlightedText .treeGridRow.selected .mdLink:link{
+    color: chartreuse; /*[{plugin-treeview-content-selected-color}]*/
+}
+
+.dataGrid {
+    background-color: chartreuse; /*[{plugin-scrollbar-background-color}]*/
+    max-height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.textbox {
+    padding: 0px;
+    min-height: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.boldtext {
+    font-weight: bold;
+}
+
+.copytext {
+    white-space: pre-wrap
+}
+
+.floatinglink {
+    vertical-align: bottom;
+}
+
+#processHeader
+{
+    display: block;
+    font-size: 133%;
+    padding-bottom: 12px;
+}
+
+#analysisListElement {
+    padding: 5px;
+}
+
+#analysisListSection {
+    padding: 1px
+}
+
+#analysisResultSection {
+    padding: 1px
+}
+
+#analyzerList .treeGridHeader,
+#analyzerList table {
+    width: 100% !important;
+}
+
+#analyzeButton {
+    margin: 5px;
+    forced-color-adjust: auto;
+}
+
+#resultsArea {
+    width: 100%;
+}
+
+#resultList {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.treeGridContainer .treeGridBody {
+    overflow: visible;
+    height: 100%;
+}
+
+.dataGridContainer {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.treeGridContainer thead th,
+.treeGridContainer tbody td,
+.dataGridContainer thead th,
+.dataGridContainer tbody td,
+.dataGridContainer .resultCode,
+.dataGridContainer .resultName {
+    text-align: left;
+    min-width: 10px;
+}
+
+td.resultSeverity,
+.datagridContainer .resultSeverity,
+.datagridContainer th[data-columnid="resultSeverity"]
+{
+    width: 10px;
+    min-width: 10px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+/* Fix a bug in IE where divs of height 0 add to the
+   layout size, causing overflow scrollbars to show */
+.dataGridBody > div[style*='height: 0px'] {
+    display: none;
+ }
+
+.icon {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.icon-error {
+    background: url('./BptDiagnosticCommon/icons/common-icons.png') no-repeat -688px -16px !important;
+}
+.icon-warning {
+    background: url('./BptDiagnosticCommon/icons/common-icons.png') no-repeat -2368px -16px !important;
+}
+
+.icon-info {
+    background: url('./BptDiagnosticCommon/icons/common-icons.png') no-repeat -1120px -16px !important;
+}
+
+.icon-unknown {
+    background: url("./BptDiagnosticCommon/icons/common-icons.png") no-repeat -640px -16px !important;
+}
+
+body {
+   max-height: 700px;
+}
+
+hr {
+    border: 1px solid lightgrey; /*[1px solid {Environment-ToolWindowContentGrid-Background}]*/
+}
+
+.resultTreeGrid {
+    white-space: normal;
+}
+
+.resultTreeGrid .treeGridContainer .treeGridBody {
+    overflow: auto;
+    min-height: 100px;
+    max-height: 800px;
+}
+
+.resultTreeGrid .treeGridContainer .treeGridHeader table,
+.resultTreeGrid .treeGridContainer .treeGridBody table {
+    min-width: 96vw !important;
+    overflow: hidden;
+}
+
+.treeGridRow .mdLink:link{
+    color: blue; /*[{Environment-PanelHyperlink}]*/
+    text-decoration: underline;
+}
+.treeGridRow .mdLink:link:hover{
+    color: black; /*[{Environment-PanelHyperlinkHover}]*/
+}
+
+.treeGridRow.selected .mdLink:link{
+    color: blue;  /*[{Environment-PanelHyperlinkInsideSelection}]*/
+}

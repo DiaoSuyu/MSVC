@@ -1,0 +1,5 @@
+{
+  "CSharpLanguageServiceExtension.OpenInteractiveWindow.DisplayName": "C# \u4E92\u52D5",
+  "CSharpLanguageServiceExtension.ResetInteractiveWindowFromProject.DisplayName": "\u4F7F\u7528\u5C08\u6848\u5C07 Interactive \u521D\u59CB\u5316",
+  "CSharpLanguageServiceExtension.OpenSemanticSearchWindow.DisplayName": "C# \u8A9E\u610F\u641C\u5C0B"
+}

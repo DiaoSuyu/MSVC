@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义默认属性</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义默认属性或索引属性。</Description>
+      <Keywords>
+		  <Keyword>属性</Keyword>
+		  <Keyword>索引</Keyword>
+		  <Keyword>默认值</Keyword>
+      </Keywords>
+      <Shortcut>PropDef</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>propertyName</ID>
+          <Type>
+          </Type>
+          <ToolTip>重命名为属性的描述性名称。</ToolTip>
+          <Default>PropertyName</Default>
+        </Literal>
+        <Literal>
+          <ID>indexType</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为索引的类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>propertyType</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为属性返回的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Literal>
+          <ID>IndexIsValid</ID>
+          <Type>Boolean</Type>
+          <ToolTip>替换为测试索引是否有效的表达式。</ToolTip>
+          <Default>True</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Default Property $propertyName$(ByVal index As $indexType$) As $propertyType$
+        Get
+            If $IndexIsValid$ Then
+                
+            Else
+                Throw New ArgumentOutOfRangeException
+            End If
+        End Get
+        Set(ByVal Value As $propertyType$)
+            If $IndexIsValid$ Then
+                
+            Else
+                Throw New ArgumentOutOfRangeException
+            End If
+        End Set
+    End Property]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

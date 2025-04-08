@@ -1,0 +1,6 @@
+Microsoft.VisualStudio.LiveShare.Core.pkgdef
+Microsoft.VisualStudio.LiveShare.UI.pkgdef
+Microsoft.VisualStudio.LiveShare.ToolWindow.UI.pkgdef
+Microsoft.VisualStudio.LiveShare.Daytona.pkgdef
+Microsoft.VisualStudio.LiveShare.VSIX.pkgdef
+Microsoft.VisualStudio.LiveShare.FileSystemProvider.pkgdef

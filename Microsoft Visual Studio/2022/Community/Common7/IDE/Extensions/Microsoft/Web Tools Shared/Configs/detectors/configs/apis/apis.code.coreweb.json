@@ -1,0 +1,246 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "apis.azure",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddSwaggerGen"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "SwaggerDoc",
+              "TypeName": "Swashbuckle.AspnetCore.SwaggerGen.SwaggerGenOptions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "ConfigureSwaggerGen"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "SwaggerDoc",
+              "TypeName": "Swashbuckle.AspnetCore.SwaggerGen.SwaggerGenOptions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddSwaggerGen"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "SwaggerDoc",
+              "TypeName": "Swashbuckle.AspnetCore.SwaggerGen.SwaggerGenOptions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "ConfigureSwaggerGen"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "SwaggerDoc",
+              "TypeName": "Swashbuckle.AspnetCore.SwaggerGen.SwaggerGenOptions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddSwaggerGen"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "EntryPoint",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddSwaggerGen"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "ConfigureSwaggerGen"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddSwaggerGen"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "ConfigureSwaggerGen"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddOpenApi"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddOpenApi"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "EntryPoint",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddOpenApi"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

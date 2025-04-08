@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.IntelliCode.CSharp" Version="1.1.0.2437901" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Microsoft Visual Studio IntelliCode - C#</DisplayName>
+    <Description xml:space="preserve">AI-assisted IntelliSense for C#</Description>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.1,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.IntelliCode.CSharp.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.IntelliCode.CSharp.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="CodeAnalysisServicePlugin\Microsoft.VisualStudio.IntelliCode.ModelExtractor64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="CodeAnalysisServicePlugin\Microsoft.VisualStudio.IntelliCode.ModelExtractor64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="CodeAnalysisCoreServicePlugin\Microsoft.VisualStudio.IntelliCode.ModelExtractorCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="CodeAnalysisCoreServicePlugin\Microsoft.VisualStudio.IntelliCode.ModelExtractorCore64S.servicehub.service.json" />
+  </Assets>
+</PackageManifest>

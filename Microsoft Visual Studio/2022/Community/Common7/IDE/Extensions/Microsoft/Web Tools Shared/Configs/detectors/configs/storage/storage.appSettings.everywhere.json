@@ -1,0 +1,15 @@
+{
+  "kind": "appSettings.connectionStrings",
+  "confidence": "Low",
+  "featureId": "storage.azure",
+  "componentId": "appSettings",
+  "model": {
+    "sections": [
+      "-ConnectionStrings",
+      "*"
+    ],
+    "visitors": [
+      "settings.storage.connectionString"
+    ]
+  }
+}

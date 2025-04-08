@@ -1,0 +1,10 @@
+﻿{
+  "host": "dotnet.arm64",
+  "hostId": "TestWindowStoreHost",
+  "hostGroupAllowed": true,
+  "singleDomainLoaderOptimization": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.TestWindow.Host.dll",
+    "fullClassName": "Microsoft.VisualStudio.TestWindow.CodeLens.CodeLensTestInformationService"
+  }
+}

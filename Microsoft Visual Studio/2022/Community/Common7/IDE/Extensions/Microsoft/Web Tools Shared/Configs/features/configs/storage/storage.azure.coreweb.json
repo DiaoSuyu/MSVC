@@ -1,0 +1,30 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "storage.code.generic.extensions",
+        "code.generic.startupSystemNamespace",
+        "storage.code.generic.startupMoreUsings",
+        "storage.code.generic.startupCode",
+        "storage.code.generic.startupMicrosoftExtensionsAzureNamespace"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "storage.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "storage.secretStore.localOrKeyVault.connectionId.blob",
+        "storage.secretStore.localOrKeyVault.connectionId.queue",
+        "storage.secretStore.localOrKeyVault.connectionId.table"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "storage.serviceConnector.local"
+      ]
+    }
+  }
+}

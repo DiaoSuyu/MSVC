@@ -1,0 +1,31 @@
+{
+  "id": "redis.azure",
+  "provisioningId": "Microsoft.Cache/Redis",
+  "name": "strings:#/redisAzureDependencyTypeName",
+  "description": "strings:#/redisAzureDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "localConnectionMessage": "strings:#/redisAzureConnectionWarning",
+  "localConnectionMessageUrl": "https://go.microsoft.com/fwlink/?linkid=2290037",
+  "remoteConnectionMessage": "strings:#/redisAzureConnectionWarning",
+  "remoteConnectionMessageUrl": "https://go.microsoft.com/fwlink/?linkid=2290037",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3813
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3813
+  },
+  "displayOrder": 6200,
+  "learnMoreUrl": "2147100",
+  "actions": [
+    "openInPortal",
+    "restore",
+    "learnMore"
+  ],
+  "tags": [
+    "Azure"
+  ]
+}

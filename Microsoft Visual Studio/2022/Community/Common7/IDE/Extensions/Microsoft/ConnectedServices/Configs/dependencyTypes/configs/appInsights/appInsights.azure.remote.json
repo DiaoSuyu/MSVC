@@ -1,0 +1,24 @@
+{
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    {
+      "$refmerge": "/definitions/common.json#/remoteInstanceEditSteps"
+    }
+  ],
+  "properties": {
+    "IsConfiguringSpecificConnectionName": {
+      "value": true
+    },
+    "connectionId": {
+      "value": "APPLICATIONINSIGHTS_CONNECTION_STRING"
+    }
+  },
+  "persistenceProperties": {
+    "$ref": "/definitions/common.json#/persistenceProperties"
+  },
+  "arm": {
+    "$ref": "/dependencyTypes/configs/appinsights/arm.json"
+  }
+}

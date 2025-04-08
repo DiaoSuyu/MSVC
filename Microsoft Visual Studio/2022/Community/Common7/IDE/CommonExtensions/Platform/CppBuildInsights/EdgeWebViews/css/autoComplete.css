@@ -1,0 +1,38 @@
+﻿.autocomplete-list {
+    visibility: hidden;
+    position: absolute;
+    z-index: 99;
+    top: 10px;
+    right: 10px;
+    white-space: nowrap;
+    min-width: 250px;
+    max-width: 500px;
+    padding: 4px;
+    background-color: var(--SearchControl-Unfocused-Background, lawngreen);
+    border: 1px solid var(--SearchControl-FocusedBorder-Background, lawngreen);
+    overflow-y: scroll;
+}
+
+    .autocomplete-list.autoCompleteVisible {
+        visibility: visible;
+    }
+
+    .autocomplete-list > .hasFocus {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, aquamarine);
+        color: var(--plugin-treeview-content-selected-color, chartreuse);
+    }
+
+    .autocomplete-list > #autocomplete-item {
+        display: block;
+        padding: 2px 8px 2px 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--plugin-treeview-content-inactive-selected-color, chartreuse);
+    }
+
+.autocomplete-container {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "appInsights",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.ApplicationInsights.Web": "",
+      "Microsoft.ApplicationInsights": "",
+      "Microsoft.ApplicationInsights.AspNetCore": "",
+      "Microsoft.ApplicationInsights.WindowsServer": ""
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "sqlite.coreweb"
+    },
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "DotNetCoreWorker"
+      },
+      "config": "sqlite.coreweb"
+    },
+    {
+      "when": {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "AzureFunctions"
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "HasProjectItem",
+                "projectItem": "local.settings.json"
+              },
+              {
+                "kind": "HasProjectItem",
+                "projectItem": "host.json"
+              }
+            ]
+          }
+        ]
+      },
+      "config": "sqlite.coreweb"
+    }
+  ]
+}

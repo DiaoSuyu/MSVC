@@ -1,0 +1,28 @@
+{
+  "id": "mongodb.container",
+  "name": "strings:#/mongodbContainerDependencyTypeName",
+  "description": "strings:#/mongodbContainerDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 826
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 826
+  },
+  "displayOrder": 6310,
+  "ManagementPortalUrl": "http://localhost:8080",
+  "actions": [
+    "openInContainerTools",
+    "openInManagementPortal"
+  ],
+  "runnerKinds": "container",
+  "tags": [
+    "strings:#/database",
+    "strings:#/container",
+    "strings:#/local"
+  ]
+}

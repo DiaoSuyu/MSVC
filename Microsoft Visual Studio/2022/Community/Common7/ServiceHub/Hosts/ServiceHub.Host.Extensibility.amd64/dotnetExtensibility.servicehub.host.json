@@ -1,0 +1,5 @@
+{
+  "$schema": "../../../schemas/servicehub.host.schema.json",
+  "hostExecutable": "./ServiceHub.Host.Extensibility.x64.exe",
+  "hostArgs": [ "$HOSTID", "$PIPE", "$TELEMETRYSESSION", "$HostRemoteBrokerPipeName" ]
+}

@@ -1,0 +1,169 @@
+﻿#filterContainer {
+    position: relative;
+}
+
+#threadHeader {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 1px 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--Environment-CommandBarTextInactive-Background, fuchsia);
+}
+
+    #threadHeader:enabled {
+        color: var(--Environment-CommandBarTextActive-Background, lawngreen);
+    }
+
+        #threadHeader:enabled:hover {
+            border-color: var(--Environment-CommandBarBorder-Background, lawngreen);
+            background-color: var(--DetailsView-CommandBarMouseOverBackground-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHover-Background, lawngreen)
+        }
+
+        #threadHeader:enabled:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+            border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+        }
+
+        #threadHeader:enabled.notDefault {
+            border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+            background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        }
+
+            #threadHeader:enabled.notDefault:hover {
+                border-color: var(--Environment-CommandBarHoverOverSelectedIconBorder-Background, lawngreen);
+                background-color: var(--DetailsView-CommandBarHoverOverSelected-Background, fuchsia);
+                color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+            }
+
+        /* reset the default IE button:active animation */
+        #threadHeader:enabled:active * {
+            position: relative;
+        }
+
+    #threadHeader:disabled > .icon svg .icon-vs-bg {
+        fill: var(--Environment-CommandBarTextInactive-Background, fuchsia);
+    }
+
+    #threadHeader:disabled > .icon svg .icon-vs-out {
+        fill: transparent;
+    }
+
+#threadFlyout {
+    position: absolute;
+    right: 0px;
+    overflow: auto;
+    display: grid;
+    visibility: hidden;
+    z-index: 99999;
+    border: 1px solid var(--Environment-CommandBarMenuBorder-Background, black);
+    background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+    color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+    grid-row: 2;
+    margin-top: -1px;
+}
+
+    #threadFlyout > * {
+        display: inline-block;
+    }
+
+    #threadFlyout.flyoutActive {
+        visibility: visible;
+    }
+
+#jmcView {
+    grid-row: 1;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+#nativeFoldingView {
+    grid-row: 2;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+#showThreadsView {
+    grid-row: 3;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+#stitchAsyncStacksView {
+    grid-row: 4;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+#asyncView {
+    grid-row: 3;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+    #jmcView.hasFocus, #asyncView.hasFocus, #nativeFoldingView.hasFocus, #showThreadsView.hasFocus {
+        background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, lightgreen);
+        color: var(--SearchControl-PopupCheckboxMouseDownText-Background, black);
+    }
+
+#jmcIcon, #asyncIcon, #nativeFoldingIcon {
+    background-repeat: no-repeat;
+}
+
+    #jmcIcon svg, #asyncIcon svg, #nativeFoldingIcon svg {
+        vertical-align: middle;
+    }
+
+#threadFilterHeader {
+    grid-row: 5;
+    margin: 3px 0px;
+    padding: 0px 8px;
+}
+
+#threadFilterList {
+    grid-row: 6;
+    list-style-type: none;
+    /* This value will be changed in javascript so that it always fits in the window */
+    max-height: 0px;
+    /* We supply a min height in case the user makes the window super small, in that case they will see it clip */
+    min-height: 2em;
+    overflow-y: scroll;
+    margin: 0px;
+    padding: 0px;
+    min-width: fit-content;
+}
+
+    #threadFilterList > li {
+        white-space: nowrap;
+        margin: 3px 0px;
+        padding: 0px 20px 0px 6px;
+    }
+
+        #threadFilterList > li.hasFocus {
+            background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, lightgreen);
+            color: var(--SearchControl-PopupCheckboxMouseDownText-Background, black);
+        }
+
+#threadFilterFooter {
+    grid-row: 7;
+    justify-self: end;
+    padding: 9px 9px;
+    min-width: max-content;
+}
+
+    #threadFilterFooter > button {
+        margin-left: 3px;
+    }
+
+        #threadFilterFooter > button:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        }
+
+    /* reset the default IE button:active animation */
+    #threadFilterFooter button:active * {
+        position: relative;
+    }

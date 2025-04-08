@@ -1,0 +1,24 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>do</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>do</Shortcut>
+    <Description>Codeschnipsel für eine do...while-Schleife</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>expression</ID>
+        <ToolTip>Auszuwertender Ausdruck</ToolTip>
+        <Default>true</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[do {
+    $selected$$end$
+} while ($expression$);]]></Code>
+  </Snippet>
+</CodeSnippet>

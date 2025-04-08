@@ -1,0 +1,28 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateDir>
+    <RelativePath>VC\Cross Platform</RelativePath>
+    <LocalizedName Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2207" />
+    <SortOrder>20</SortOrder>
+  </VSTemplateDir>
+  <VSTemplateDir>
+    <RelativePath>VC\Cross Platform\CMake</RelativePath>
+    <LocalizedName Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2205" />
+    <SortOrder>20</SortOrder>
+  </VSTemplateDir>
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>VC\Cross Platform\CMake\CMakeProject</RelativePathOnDisk>
+    <TemplateFileName>CMakeProject.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2050" />
+        <Description Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2051" />
+        <Icon Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="512" />
+        <ProjectType>VC</ProjectType>
+        <TemplateID>Microsoft.VisualC.Project.CMake.CMakeProject</TemplateID>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>CMakeProject</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

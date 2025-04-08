@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将数据库表中的列加载到 ListBox 控件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 DataTable 对象中的数据填充 ListBox。</Description>
+      <Shortcut>lbData</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.xml</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>listBoxName</ID>
+          <Type>ListBox</Type>
+          <ToolTip>替换为窗体上的 ListBox 控件。</ToolTip>
+          <Default>ListBox1</Default>
+        </Object>
+        <Object>
+          <ID>table</ID>
+          <Type>DataTable</Type>
+          <ToolTip>替换为要在 ListBox 中加载其中的列的 DataTable。</ToolTip>
+          <Default>DataTable1</Default>
+        </Object>
+        <Literal>
+          <ID>columnName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要使用的 DataTable 中的列的名称。</ToolTip>
+          <Default>"ColumnName"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$listBoxName$.DataSource = $table$
+$listBoxName$.DisplayMember = $columnName$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

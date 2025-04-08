@@ -1,0 +1,28 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="ConnectedServices.897486C9-63BD-48D3-8A33-CB770FBD0723" Version="17.13.124.35287" Language="en-US" Publisher="Microsoft" />
+    <PackageId>Microsoft.VisualStudio.ConnectedServices.Core</PackageId>
+    <DisplayName>Microsoft Connected Services</DisplayName>
+    <Description xml:space="preserve">Provides the base tools and extensibility framework for the Add Connected Service dialog.</Description>
+    <Icon>CloudConnectedServices_32x.png</Icon>
+    <Tags>ConnectedServices; cloud; Azure; services; tools</Tags>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Version="[15.0]" Id="Microsoft.VisualStudio.Community" />
+    <InstallationTarget Version="[15.0]" Id="Microsoft.VisualStudio.VSWinExpress" />
+    <InstallationTarget Version="[15.0]" Id="Microsoft.VisualStudio.VWDExpress" />
+    <InstallationTarget Version="[15.0]" Id="Microsoft.VisualStudio.VSWinDesktopExpress" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.6,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.ConnectedServices.Package2.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.ConnectedServices.Package2.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0.25819.3,17.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.AppCapDesigner" Version="[15.0,17.0)" DisplayName="App Capabilities Designer" />
+    <Prerequisite Id="Microsoft.WebTools.Shared" Version="[15.0,17.0)" DisplayName="Microsoft WebTools Shared" />
+  </Prerequisites>
+</PackageManifest>

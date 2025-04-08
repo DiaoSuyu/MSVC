@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 RichTextBox 控件中，将字符设置为粗体</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向现有的 RichTextBox 控件添加文本“此文本为粗体。”。</Description>
+      <Shortcut>richFormat</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>RTFControl</ID>
+          <Type>System.Windows.Forms.RichTextBox</Type>
+          <ToolTip>替换为对象值。</ToolTip>
+          <Default>RichTextBox1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[' For more information on the rich text format characters, see: http://www.microsoft.com/downloads/details.aspx?FamilyID=e5b8ebc2-6ad6-49f0-8c90-e4f763e3f04f&DisplayLang=en
+$RTFControl$.Rtf = "{\rtf1\ansi This is in \b bold\b0.}"]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

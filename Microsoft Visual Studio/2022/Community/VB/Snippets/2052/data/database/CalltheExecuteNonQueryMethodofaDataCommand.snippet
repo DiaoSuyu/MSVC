@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>调用 SqlCommand 的 ExecuteNonQuery 方法</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>对现有命令调用 ExecuteNonQuery。  将执行包装在 try/finally 块中，以便将连接对象恢复为该对象以前的状态</Description>
+      <Shortcut>adoExecNonQuery</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.XML.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>conn</ID>
+          <Type>SqlConnection</Type>
+          <ToolTip>替换为连接对象。</ToolTip>
+          <Default>conn</Default>
+        </Object>
+        <Object>
+          <ID>cmd</ID>
+          <Type>SqlCommand</Type>
+          <ToolTip>替换为要执行的命令对象。</ToolTip>
+          <Default>cmd</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[        Dim rowCount As Integer
+        Dim previousConnectionState As ConnectionState
+        previousConnectionState = $conn$.State
+        Try
+            If $conn$.State = ConnectionState.Closed Then
+                $conn$.Open()
+            End If
+            rowCount = $cmd$.ExecuteNonQuery()
+
+        Finally
+            If previousConnectionState = ConnectionState.Closed Then
+                $conn$.Close()
+            End If
+        End Try]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

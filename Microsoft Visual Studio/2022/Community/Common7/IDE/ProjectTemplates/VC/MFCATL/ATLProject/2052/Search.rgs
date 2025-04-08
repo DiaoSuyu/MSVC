@@ -1,0 +1,28 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {$guid_clsidsearch$} = s 'Filter Handler Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{$guid_libid$}'
+			Version = s '1.0'
+		}
+
+		ForceRemove {$guid_clsidpersistenthandler$} = s 'Filter Handler Class'
+		{
+			ForceRemove PersistentAddinsRegistered = s ''
+			{
+				{89BCB740-6119-101A-BCB7-00DD010655AF} = s '{$guid_clsidsearch$}'
+			}
+		}
+	}
+
+	NoRemove .$fileextension$
+	{
+		NoRemove PersistentHandler = s '{$guid_clsidpersistenthandler$}'
+	}
+}

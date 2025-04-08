@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 Random 类获取随机数</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>生成一个介于上下限之间的随机整数。</Description>
+      <Shortcut>mathRand</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>LowerBound</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为在结果集中所需的最小整数。</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>UpperBound</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为比结果集中所需的最大数更大的一个数。</ToolTip>
+          <Default>100</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim generator As New Random
+Dim randomValue As Integer
+randomValue = generator.Next($LowerBound$, $UpperBound$)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

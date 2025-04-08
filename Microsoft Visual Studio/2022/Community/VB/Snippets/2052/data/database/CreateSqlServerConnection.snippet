@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建 SQL Server 的基于服务器的 SQLConnection</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建 SQL 连接，该连接为典型的连接名称/值对提供替换内容</Description>
+      <Shortcut>adoCreateSqlConn</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>conn</ID>
+          <Type>SqlConnection</Type>
+          <ToolTip>将此项替换为连接对象的名称。</ToolTip>
+          <Default>conn</Default>
+        </Literal>
+        <Literal>
+          <ID>serverName</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为服务器的名称。</ToolTip>
+          <Default>ServerName</Default>
+        </Literal>
+        <Literal>
+          <ID>dataBaseName</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为数据库的名称。</ToolTip>
+          <Default>Northwind</Default>
+        </Literal>
+        <Literal>
+          <ID>userId</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为连接到数据库的用户名。</ToolTip>
+          <Default>&lt;user name&gt;</Default>
+        </Literal>
+        <Literal>
+          <ID>password</ID>
+          <Type>String</Type>
+          <ToolTip>替换为与用户名对应的密码</ToolTip>
+          <Default>&lt;your password&gt;</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB"><![CDATA[Dim $conn$ As New SqlConnection()
+$conn$.ConnectionString = "Data Source=$serverName$;Initial Catalog=$dataBaseName$;Persist Security Info=True;User ID=$userId$;Password=$password$"]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

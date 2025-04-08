@@ -1,0 +1,52 @@
+﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Register Tools -> Options -> TextEditor -> JavaScript/TypeScript -> Linting -> General
+;;
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Linting]
+@="#1046"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Linting\General]
+@="#1047"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{d5d56c12-87c4-46f2-894f-3a75ee781f48}"
+"Keywords"="eslint;linting"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Migrated settings and registry key from Web Tools linting support
+;;
+[$RootKey$\AutomationProperties\TextEditor\EsLint]
+@="#1050"
+"Description"="#1051"
+"Name"="EsLint"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"ResourcePackage"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\UserSettings\TypeScript_EsLint]
+@="1050"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Category"="{d5d56c12-87c4-46f2-894f-3a75ee781f48}"
+"ToolsOptionsPath"="TypeScript"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.TypeScript.EsLint.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Feature Flag to enable or disable linting support
+;;
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\ESLint]
+"Value"=dword:00000001
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Feature Flag to enable or disable the LSP ESLint extension
+;;
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\ESLint]
+"Value"=dword:00000001

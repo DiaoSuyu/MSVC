@@ -1,0 +1,805 @@
+<?xml version="1.0"?>
+<Rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/vs/profiler/guidance_rules/1.0">
+  <Rule>
+    <ID>1</ID>
+    <Title>使用 StringBuilder 进行串联。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>考虑使用 StringBuilder 进行字符串串联。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>Or</CondType>
+      <Condition1 xsi:type="FunctionThresholdPercentCondition">
+        <Threshold>5</Threshold>
+        <ModuleName>mscorlib.ni.dll</ModuleName>
+        <FunctionName>System.String.Concat(.*)</FunctionName>
+        <ColumnName>InclSamplesPercent</ColumnName>
+        <ComplexRegex>false</ComplexRegex>
+      </Condition1>
+      <Condition2 xsi:type="FunctionThresholdPercentCondition">
+        <Threshold>5</Threshold>
+        <ModuleName>mscorlib.dll</ModuleName>
+        <FunctionName>System.String.Concat(.*)</FunctionName>
+        <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+        <ComplexRegex>false</ComplexRegex>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0001</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>2</ID>
+    <Title>VSPerfCorProf.dll 缺失。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>收集文件时似乎未使用 VSPerfCLREnv.cmd 正确设置环境变量。可能无法解析托管二进制文件的符号。</GuidanceMessage>
+    <Condition xsi:type="ProfilerSpecificPropertyCondition">
+      <PropertyName>IsVsPerfCorProfMissing</PropertyName>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0002</HelpKeyword>
+    <Action>Error</Action>
+  </Rule>
+  <Rule>
+    <ID>3</ID>
+    <Title>许多样本处于核心模式。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>内核模式的样本占了很大的比例。这可能表明 I/O 活动量很大或上下文切换的速率很高。请考虑使用检测模式再次分析应用程序。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsSampling</PropertyName>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>And</CondType>
+        <Condition1 xsi:type="VspPropertyRatioCondition">
+          <PropertyName>NumKernelSamples</PropertyName>
+          <TotalPropertyName>TotalSamples</TotalPropertyName>
+          <Threshold>75</Threshold>
+        </Condition1>
+        <Condition2 xsi:type="VspPropertyThresholdCondition">
+          <PropertyName>TotalSamples</PropertyName>
+          <Threshold>750</Threshold>
+          <ThresholdTest>GreaterThan</ThresholdTest>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0003</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>4</ID>
+    <Title>CPU 忙，利用率始终大于 75%。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>您的处理器使用率始终在 75% 以上。请考虑为与 CPU 绑定的应用程序使用采样模式。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsInstrumentation</PropertyName>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\Processor(_Total)\% Processor Time</WinCounterName>
+        <Threshold>75</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>false</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0004</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>5</ID>
+    <Title>频繁进行 GC2 收集。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>您的很多对象都是通过第 2 代垃圾回收来收集的。</GuidanceMessage>
+    <Condition xsi:type="ProfilerSpecificPropertyCondition">
+      <PropertyName>ManyGC2Collections</PropertyName>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0005</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>6</ID>
+    <Title>为值类型重写 Equals()。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>重写值类型的 Equals 和相等运算符。</GuidanceMessage>
+    <Condition xsi:type="FunctionThresholdPercentCondition">
+      <Threshold>3</Threshold>
+      <ModuleName>mscorlib.ni.dll</ModuleName>
+      <FunctionName>System.ValueType.Equals(object)</FunctionName>
+      <ColumnName>InclSamplesPercent</ColumnName>
+      <ComplexRegex>false</ComplexRegex>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0006</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>7</ID>
+    <Title>避免在例程控制流中使用异常。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>正在持续引发大量的异常。请考虑在程序逻辑中减少对异常的使用。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\.NET CLR Exceptions(@Instance)\# of Exceps Thrown / sec</WinCounterName>
+      <Threshold>10</Threshold>
+      <AggregationType>Average</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>25</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0007</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>8</ID>
+    <Title>已收集少量样本。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>仅收集了少量样本。请考虑运行更长的时间或使用更快的采样率，以获取更有意义的结果。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsSampling</PropertyName>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>And</CondType>
+        <Condition1 xsi:type="VspPropertyBoolCondition">
+          <PropertyName>IsAllocation</PropertyName>
+          <Invert>true</Invert>
+        </Condition1>
+        <Condition2 xsi:type="VspPropertyThresholdCondition">
+          <PropertyName>TotalSamples</PropertyName>
+          <Threshold>300</Threshold>
+          <ThresholdTest>LessThan</ThresholdTest>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0008</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>10</ID>
+    <Title>GetHashCode 函数开销巨大。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>GetHashCode 函数应为低开销且不分配任何内存。如果可能，请降低哈希代码函数的复杂性。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>Or</CondType>
+      <Condition1 xsi:type="FunctionThresholdPercentCondition">
+        <Threshold>5</Threshold>
+        <ModuleName>.*</ModuleName>
+        <FunctionName>.*.GetHashCode()</FunctionName>
+        <ColumnName>InclSamplesPercent</ColumnName>
+        <ComplexRegex>false</ComplexRegex>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>.*</ModuleName>
+          <FunctionName>.*.GetHashCode()</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>0</Threshold>
+          <ModuleName>.*</ModuleName>
+          <FunctionName>(?!System).*\.GetHashCode\(\)</FunctionName>
+          <ColumnName>InclAllocsPercent</ColumnName>
+          <ComplexRegex>true</ComplexRegex>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0010</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>11</ID>
+    <Title>CompareTo 函数开销巨大。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>CompareTo 函数应为低开销且不分配任何内存。如果可能，请降低 CompareTo 函数的复杂性。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>Or</CondType>
+      <Condition1 xsi:type="FunctionThresholdPercentCondition">
+        <Threshold>5</Threshold>
+        <ModuleName>.*</ModuleName>
+        <FunctionName>.*CompareTo(object)</FunctionName>
+        <ColumnName>InclSamplesPercent</ColumnName>
+        <ComplexRegex>false</ComplexRegex>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>.*</ModuleName>
+          <FunctionName>.*CompareTo(object)</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>0</Threshold>
+          <ModuleName>.*</ModuleName>
+          <FunctionName>.*CompareTo(object)</FunctionName>
+          <ColumnName>InclAllocsPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0011</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>12</ID>
+    <Title>请小心，不要过度使用反射。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>可能过量使用了反射。此操作开销巨大。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>Or</CondType>
+      <Condition1 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>mscorlib.ni.dll</ModuleName>
+          <FunctionName>System.Type.InvokeMember(.*)</FunctionName>
+          <ColumnName>InclSamplesPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>mscorlib.ni.dll</ModuleName>
+          <FunctionName>System.Reflection.*.Get.*(.*)</FunctionName>
+          <ColumnName>InclSamplesPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>mscorlib.dll</ModuleName>
+          <FunctionName>System.Type.InvokeMember(.*)</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>5</Threshold>
+          <ModuleName>mscorlib.dll</ModuleName>
+          <FunctionName>System.Reflection.*.Get.*(.*)</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0012</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>13</ID>
+    <Title>String.Split/String.Substring 的高使用率。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>请考虑降低 String.Split 和 String.Substring 函数的使用率。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>Or</CondType>
+      <Condition1 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>3</Threshold>
+          <ModuleName>mscorlib.ni.dll</ModuleName>
+          <FunctionName>System.String.Substring(.*)</FunctionName>
+          <ColumnName>InclSamplesPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>3</Threshold>
+          <ModuleName>mscorlib.ni.dll</ModuleName>
+          <FunctionName>System.String.Split(.*)</FunctionName>
+          <ColumnName>InclSamplesPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>3</Threshold>
+          <ModuleName>mscorlib.dll</ModuleName>
+          <FunctionName>System.String.Substring(.*)</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>3</Threshold>
+          <ModuleName>mscorlib.dll</ModuleName>
+          <FunctionName>System.String.Split(.*)</FunctionName>
+          <ColumnName>InclusiveApplicationTimePercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0013</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>14</ID>
+    <Title>活动内存到磁盘的分页速率非常高。</Title>
+    <Category>MemoryAndPaging</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>活动内存到磁盘的分页速率现在非常高。您的应用程序可能会受到内存限制。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+        <WinCounterName>\Memory\Pages/sec</WinCounterName>
+        <Threshold>500</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>false</IsProcessSpecific>
+        <MinimumNumberOfValues>25</MinimumNumberOfValues>
+      </Condition>
+    <SupersedesRule>17</SupersedesRule>
+    <HelpKeyword>vs.performance.rules.DA0014</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>17</ID>
+    <Title>活动内存到磁盘的分页速率很高。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>活动内存到磁盘的分页速率现在很高。您的应用程序可能会受到内存限制。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Memory\Pages/sec</WinCounterName>
+      <Threshold>300</Threshold>
+      <AggregationType>Average</AggregationType>
+      <IsProcessSpecific>false</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0017</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>18</ID>
+    <Title>运行的 32 位应用程序达到了进程托管内存的限制。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>托管内存分配接近 32 位进程的默认限制。您的应用程序可能会受到内存限制。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>Is64Bit</PropertyName>
+        <Invert>true</Invert>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="WinCounterCondition">
+          <WinCounterName>\.NET CLR Memory(@Instance)\# Bytes in all Heaps</WinCounterName>
+          <Threshold>750000000</Threshold>
+          <AggregationType>Maximum</AggregationType>
+          <IsProcessSpecific>true</IsProcessSpecific>
+          <MinimumNumberOfValues>10</MinimumNumberOfValues>
+        </Condition1>
+        <Condition2 xsi:type="WinCounterCondition">
+          <WinCounterName>\.NET CLR Memory(@Instance)\# Total committed bytes</WinCounterName>
+          <Threshold>750000000</Threshold>
+          <AggregationType>Maximum</AggregationType>
+          <IsProcessSpecific>true</IsProcessSpecific>
+          <MinimumNumberOfValues>10</MinimumNumberOfValues>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0018</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>21</ID>
+    <Title>第 1 代垃圾回收的速率很高。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>第 1 代垃圾回收的速率现在相对很高。如果通过设计使程序的大部分数据结构都能够长时间分配和保留，那么这通常不是一个问题。但是，如果此行为不是有意为之，则表示你的应用程序可能正在固定对象。如果你不确定，则可以收集 .NET 内存分配数据和对象生存期信息，以了解应用程序所使用的内存分配模式。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 0 Collections</WinCounterName>
+        <Threshold>30</Threshold>
+        <AggregationType>Maximum</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterRatioCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 0 Collections</WinCounterName>
+        <TotalWinCounterName>\.NET CLR Memory(@Instance)\# Gen 1 Collections</TotalWinCounterName>
+        <Threshold>5</Threshold>
+        <ThresholdTest>LessThan</ThresholdTest>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0021</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>22</ID>
+    <Title>第 2 代垃圾回收的速率很高。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>第 2 代垃圾回收的速率现在相对很高。如果通过设计使程序的大部分数据结构都能够长时间分配和保留，那么这通常不是一个问题。但是，如果此行为不是有意为之，则表示你的应用程序可能正在固定对象。如果你不确定，则可以收集 .NET 内存分配数据和对象生存期信息，以了解应用程序所使用的内存分配模式。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 0 Collections</WinCounterName>
+        <Threshold>50</Threshold>
+        <AggregationType>Maximum</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterRatioCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 1 Collections</WinCounterName>
+        <TotalWinCounterName>\.NET CLR Memory(@Instance)\# Gen 2 Collections</TotalWinCounterName>
+        <Threshold>5</Threshold>
+        <ThresholdTest>LessThan</ThresholdTest>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <SupersedesRule>21</SupersedesRule>
+    <HelpKeyword>vs.performance.rules.DA0022</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>23</ID>
+    <Title>垃圾回收占用的 CPU 时间很多。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>
+      垃圾回收占用的时间百分比相对很高。这表明过多的垃圾回收开销量会影响应用程序的响应。可以收集 .NET 内存分配数据和对象生存期信息，以更好地了解应用程序所使用的内存分配模式。
+    </GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 0 Collections</WinCounterName>
+        <Threshold>30</Threshold>
+        <AggregationType>Maximum</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\% Time in GC</WinCounterName>
+        <Threshold>10</Threshold>
+        <ThresholdTest>GreaterThan</ThresholdTest>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0023</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>24</ID>
+    <Title>垃圾回收占用的 CPU 时间过多。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>垃圾回收占用的时间百分比非常高。垃圾回收的开销量过多。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\# Gen 0 Collections</WinCounterName>
+        <Threshold>30</Threshold>
+        <AggregationType>Maximum</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR Memory(@Instance)\% Time in GC</WinCounterName>
+        <Threshold>40</Threshold>
+        <ThresholdTest>GreaterThan</ThresholdTest>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <SupersedesRule>23</SupersedesRule>
+    <HelpKeyword>vs.performance.rules.DA0024</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>25</ID>
+    <Title>内核 CPU 时间处理的比例很高。</Title>
+    <Category>ProcessorUsage</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>测量出的内核模式 CPU 时间量相对较高。您应在启用 SysCall 采样的情况下检查源。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\Processor(_Total)\% Processor Time</WinCounterName>
+        <Threshold>30</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>false</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterRatioCondition">
+        <WinCounterName>\Processor(_Total)\% Privileged Time</WinCounterName>
+        <TotalWinCounterName>\Processor(_Total)\% User Time</TotalWinCounterName>
+        <Threshold>1</Threshold>
+        <ThresholdTest>GreaterThan</ThresholdTest>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>false</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0025</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>26</ID>
+    <Title>内核 CPU 时间处理过多。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>测量出的内核模式 CPU 时间量相对很高。考虑在启用 SysCall 采样的情况下检查源。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="WinCounterCondition">
+        <WinCounterName>\Process(@Instance)\% Processor Time</WinCounterName>
+        <Threshold>50</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>And</CondType>
+        <Condition1 xsi:type="VspPropertyBoolCondition">
+          <PropertyName>IsSysCallSampling</PropertyName>
+          <Invert>true</Invert>
+        </Condition1>
+        <Condition2 xsi:type="WinCounterRatioCondition">
+          <WinCounterName>\Process(@Instance)\% Privileged Time</WinCounterName>
+	  <TotalWinCounterName>\Process(@Instance)\% User Time</TotalWinCounterName>
+          <Threshold>1</Threshold>
+          <ThresholdTest>GreaterThan</ThresholdTest>
+          <AggregationType>Average</AggregationType>
+          <IsProcessSpecific>true</IsProcessSpecific>
+          <MinimumNumberOfValues>10</MinimumNumberOfValues>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0026</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>29</ID>
+    <Title>CLR 版本不受支持</Title>
+    <Category>工具指南</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>收集过程中检测到了不支持的 CLR 版本。无法正确解析托管符号。</GuidanceMessage>
+    <Condition xsi:type="VspPropertyBoolCondition">
+      <PropertyName>IsUnsupportedCLR</PropertyName>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0029</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>30</ID>
+    <Title>收集数据库项目的“层交互”度量值。</Title>
+    <Category>工具指南</Category>
+    <ContextView>FunctionDetails</ContextView>
+    <GuidanceMessage>收集多层应用程序的交互度量值可帮助您了解数据库使用模式和关键数据访问延迟。尝试在启用“交互分析”选项的情况下再次分析应用程序。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsTip</PropertyName>
+        <Invert>true</Invert>
+      </Condition1>
+      <Condition2 xsi:type="CompositeCondition">
+        <CondType>Or</CondType>
+        <Condition1 xsi:type="CompositeCondition">
+          <CondType>Or</CondType>
+          <Condition1 xsi:type="FunctionThresholdPercentCondition">
+            <Threshold>2</Threshold>
+            <ModuleName>System.Data.dll</ModuleName>
+            <FunctionName>System.Data.*</FunctionName>
+            <ColumnName>InclSamplesPercent</ColumnName>
+            <ComplexRegex>false</ComplexRegex>
+          </Condition1>
+          <Condition2 xsi:type="FunctionThresholdPercentCondition">
+            <Threshold>2</Threshold>
+            <ModuleName>System.Data.ni.dll</ModuleName>
+            <FunctionName>System.Data.*</FunctionName>
+            <ColumnName>InclSamplesPercent</ColumnName>
+            <ComplexRegex>false</ComplexRegex>
+          </Condition2>
+        </Condition1>
+        <Condition2 xsi:type="FunctionThresholdPercentCondition">
+          <Threshold>2</Threshold>
+          <ModuleName>System.Data.Linq.ni.dll</ModuleName>
+          <FunctionName>System.Data.*</FunctionName>
+          <ColumnName>InclSamplesPercent</ColumnName>
+          <ComplexRegex>false</ComplexRegex>
+        </Condition2>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0030</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>37</ID>
+    <Title>专用字节即将达到 32 位进程的结构限制。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>Process Private Bytes 计数器，用于测量所分析的进程分配的虚拟内存是否达到 32 位进程的结构限制。报告的值是在所有测量周期观察到的最大值。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>Is64Bit</PropertyName>
+        <Invert>true</Invert>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\Process(@Instance)\Private Bytes</WinCounterName>
+        <Threshold>1750000000</Threshold>
+        <ThresholdTest>GreaterThan</ThresholdTest>
+        <AggregationType>Maximum</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>10</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0037</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>38</ID>
+    <Title>锁争用率很高。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>.NET 锁争用率很高。请运行“并发”分析，调查出现这种锁争用情况的原因。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsResourceContention</PropertyName>
+        <Invert>true</Invert>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR LocksAndThreads(@Instance)\Contention Rate / sec</WinCounterName>
+        <Threshold>1</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>25</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0038</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>39</ID>
+    <Title>锁争用率非常高。</Title>
+    <Category>.NET Framework</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>.NET 锁争用率非常高。请运行“并发”分析，调查出现这种锁争用情况的原因。</GuidanceMessage>
+    <Condition xsi:type="CompositeCondition">
+      <CondType>And</CondType>
+      <Condition1 xsi:type="VspPropertyBoolCondition">
+        <PropertyName>IsResourceContention</PropertyName>
+        <Invert>true</Invert>
+      </Condition1>
+      <Condition2 xsi:type="WinCounterCondition">
+        <WinCounterName>\.NET CLR LocksAndThreads(@Instance)\Contention Rate / sec</WinCounterName>
+        <Threshold>3</Threshold>
+        <AggregationType>Average</AggregationType>
+        <IsProcessSpecific>true</IsProcessSpecific>
+        <MinimumNumberOfValues>25</MinimumNumberOfValues>
+      </Condition2>
+    </Condition>
+    <SupersedesRule>38</SupersedesRule>
+    <HelpKeyword>vs.performance.rules.DA0039</HelpKeyword>
+    <Action>Warning</Action>
+  </Rule>
+  <Rule>
+    <ID>40</ID>
+    <Title>UMS 应用程序已终止。</Title>
+    <Category>工具指南</Category>
+    <ContextView>Summary</ContextView>
+    <GuidanceMessage>不支持用户模式计划(UMS)采样分析。应用程序已终止。</GuidanceMessage>
+    <Condition xsi:type="ProfilerSpecificPropertyCondition">
+      <PropertyName>IsUmsAppTerminated</PropertyName>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0040</HelpKeyword>
+    <Action>Error</Action>
+  </Rule>
+  <Rule>
+    <ID>501</ID>
+    <Title>所分析的进程的 CPU 平均消耗量。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>所分析的进程的 CPU 平均消耗量。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\% Processor Time</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Average</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0501</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>502</ID>
+    <Title>所分析的进程的 CPU 最大消耗量。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>此规则仅供参考。Process()\% Processor Time 计数器测量所分析的进程的 CPU 消耗量。报告的值是在所有测量周期观察到的最大值。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\% Processor Time</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Maximum</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0502</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>503</ID>
+    <Title>所分析的进程的平均工作集(以字节为单位)。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>收集此信息的目的只是为了参考。Process Working Set 计数器测量所分析的进程的物理内存使用率。报告的值是在所有测量周期计算出的平均值。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\Working Set</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Average</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0503</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>504</ID>
+    <Title>所分析的进程的最大工作集(以字节为单位)。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>此规则仅供参考。Process Working Set 计数器测量所分析的进程的物理内存使用率。报告的值是在所有测量周期观察到的最大值。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\Working Set</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Maximum</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0504</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>505</ID>
+    <Title>为所分析的进程分配的平均专用字节数。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>收集此信息的目的只是为了参考。Process Private Bytes 计数器测量所分析的进程分配的不能与其他进程共享的虚拟内存。报告的值是在所有测量周期计算出的平均值。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\Private Bytes</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Average</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0505</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+  <Rule>
+    <ID>506</ID>
+    <Title>为所分析的进程分配的最大专用字节数。</Title>
+    <Category>资源监控</Category>
+    <ContextView>Marks</ContextView>
+    <GuidanceMessage>此规则仅供参考。Process Private Bytes 计数器测量所分析的进程分配的不能与其他进程共享的虚拟内存。报告的值是在所有测量周期观察到的最大值。</GuidanceMessage>
+    <Condition xsi:type="WinCounterCondition">
+      <WinCounterName>\Process(@Instance)\Private Bytes</WinCounterName>
+      <Threshold>0</Threshold>
+      <ThresholdTest>GreaterThan</ThresholdTest>
+      <AggregationType>Maximum</AggregationType>
+      <IsProcessSpecific>true</IsProcessSpecific>
+      <MinimumNumberOfValues>10</MinimumNumberOfValues>
+    </Condition>
+    <HelpKeyword>vs.performance.rules.DA0506</HelpKeyword>
+    <Action>Information</Action>
+  </Rule>
+</Rules>

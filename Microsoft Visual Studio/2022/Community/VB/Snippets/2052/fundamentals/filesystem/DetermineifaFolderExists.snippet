@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定文件夹是否存在 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>设置一个布尔变量，用于指示指定文件是否存在。</Description>
+      <Shortcut>filExistFold</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>folderName</ID>
+          <ToolTip>替换为要搜索的目录的名称。</ToolTip>
+          <Default>"C:\TestDirectory"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim folderExists As Boolean
+folderExists = My.Computer.FileSystem.DirectoryExists($folderName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

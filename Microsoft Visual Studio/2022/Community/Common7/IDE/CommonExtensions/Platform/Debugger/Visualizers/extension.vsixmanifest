@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="Microsoft.VisualStudio.DebuggerVisualizers.Package" Version="1.0" Language="en-US" Publisher="Microsoft" />
+        <DisplayName>Debugger Visualizers Package</DisplayName>
+        <!-- Since this vsix is not user installable, no user visible strings need to be in this manifest. -->
+        <Description xml:space="preserve"></Description>
+    </Metadata>
+    <!-- The extension type is not related to this extension, but required in this case because it shares the same folder with a Gladstone in-proc extension -->
+    <Installation SystemComponent="true" AllUsers="true" ExtensionType="VSSDK+VisualStudio.Extensibility">
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+        <Dependency Id="Microsoft.VisualStudio.MPF.16.0" DisplayName="Visual Studio MPF 16.0" d:Source="Installed" Version="[16.0,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.DotnetCustomVisualizer" Path="IEnumerableVisualizer.UI.dll" />
+        <Asset Type="Microsoft.VisualStudio.DotnetCustomVisualizer" Path="DataSetVisualizer.UI.dll" />
+        <Asset Type="Microsoft.VisualStudio.MefComponent" Path="IEnumerableVisualizer.UI.dll" />
+    </Assets>
+</PackageManifest>

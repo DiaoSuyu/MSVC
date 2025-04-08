@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Interactively debug C# code"
+           Description="Learn how to debug efficiently using Visual Studio."
+           RequiredPackageNames="Microsoft.VisualStudio.Workload.NetWeb|Microsoft.VisualStudio.Workload.ManagedDesktop,Microsoft.NetCore.Component.DevelopmentTools"
+           Id="DebuggingCSharp"
+           SortOrder="300"
+           EstimatedMinutesToComplete="9"
+           IconPath="Debug_Guide.png">
+    <vst:Step Title="Welcome to the C# debugging guide!"
+              Id="Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn to:
+- Use the Visual Studio debugger with C# programs.
+- Create breakpoints and run your code step by step to find issues.
+- Inspect your program state at any execution step.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Create a project"
+              Id="CreateProject"
+              MenuToHighlight="File">
+        <vst:Step.Description>
+            <![CDATA[
+1. From the menu bar, select **File** > **New** > **Project** {KeyboardShortcut:File.NewProject} to open the new project dialog.
+1. In the **Create a new project** window, enter **Console** in the search box.
+1. Select the **Console App** template, and then select Next.
+![New Project](newproject.png "New Project")
+1. In the **Configure your new project** window, enter **MyApp** in the **Project name** field. Then, select **Next**.
+1. In the **Additional information** window, use the default values and select **Create**.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Update code"
+              Id="UpdateCode"
+              FileToOpen="Program.cs">
+        <vst:Step.Description>
+            <![CDATA[
+Our current project writes a "Hello World" message to the console, which doesn't give us much to debug. Instead, you'll use a short .NET program to compute the Nth number of the Fibonacci sequence.
+
+The Fibonacci sequence is a suite of numbers that starts with the numbers 0 and 1, with every other following number being the sum of the two previous ones. The sequence continues as shown here:
+
+```
+0, 1, 1, 2, 3, 5, 8, 13, 21...
+```
+
+1. Replace the code in `Program.cs` with the following
+
+    ```
+    int result = Fibonacci(5);
+    Console.WriteLine(result);
+
+    static int Fibonacci(int n)
+    {
+        int n1 = 0;
+        int n2 = 1;
+        int sum;
+
+        for (int i = 2; i < n; i++)
+        {
+            sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+
+        return n == 0 ? n1 : n2;
+    }
+    ```
+
+Select **Continue** to proceed.
+]]>
+
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Run code"
+              Id="RunCode"
+              CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+1. Click the **MyApp** button in toolbar, to build and run the app in debug mode. Alternatively, use {KeyboardShortcut:Debug.Start}, or go to **Debug** > **Start** Debugging from the menu bar.
+
+    ![Start Debug](startdebug.png "Start Debug")
+
+1. The result, 3, is shown in the terminal output. When you consult this Fibonacci sequence chart that shows the zero-based sequence position for each value in parenthesis, you'll see that the result should have been 5. It's time to get familiar with the debugger and fix this program.
+
+    ```
+    0 (0), 1 (1), 1 (2), 2 (3), 3 (4), 5 (5), 8 (6), 13 (7), 21 (8)...
+    ```
+
+Select **Continue** to proceed.
+]]>
+
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Use breakpoints"
+              Id="UseBreakpoints">
+        <vst:Step.Description>
+  <![CDATA[
+1. Add a breakpoint by clicking in the left margin at line 1 on int result = Fibonacci(5);
+
+    ![Add Breakpoint](breakpoint.png "Add Breakpoint")
+
+1. Start debugging again. The program begins to execute. It breaks (pauses execution) on line 1 because of the breakpoint you set. Use the debugger controls to step into the Fibonacci() function.
+
+    ![Step Into](stepinto.png "Step Into")
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Check the variables state"
+              Id="CheckVariables">
+        <vst:Step.Description>
+  <![CDATA[
+Now, take some time to inspect the different variables' values by using the **Locals** panel.
+
+![Local Variables](locals.png "Local Variables")
+
+* What is the value shown for the `n` parameter?
+* At the beginning of the function's execution, what are the values for the local variables `n1`, `n2`, and `sum`?
+
+1. Next, we'll advance into the for loop by using the Step Over debugger control.
+
+    ![Step Over](stepover.png "Step Pver")
+
+1. Continue advancing until you hit the first line inside of the for loop, on the line that reads:
+
+    ```
+    sum = n1 + n2;
+    ```
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Think about the code"
+              Id="ThinkAboutCode">
+        <vst:Step.Description>
+  <![CDATA[
+An important part of debugging is to stop and take some informed guesses about what you think portions of the code (both functions and blocks, such as loops) are trying to do. It's okay if you're not sure, that's part of the debugging process. But being actively engaged in the debugging process will help you locate bugs a lot more quickly.
+
+Before we dig in further, let's remember that the Fibonacci sequence is a series of numbers that starts with the numbers 0 and 1, with every other following number being the sum of the two previous ones.
+
+That means that:
+
+```
+Fibonacci(0) = 0
+Fibonacci(1) = 1
+Fibonacci(2) = 1 (0 + 1)
+Fibonacci(3) = 2 (1 + 1)
+Fibonacci(4) = 3 (1 + 2)
+Fibonacci(5) = 5 (2 + 3)
+```
+
+Understanding that definition and looking at this `for` loop, we can deduce that:
+
+1. The loop counts from 2 to `n` (the Fibonacci sequence number we're looking for).
+
+1. If `n` is less than 2, the loop will never run. The return statement at the end of the function will return 0 if `n` is 0, and 1 if `n` is 1 or 2. These are the zero, first, and second values in the Fibonacci series, by definition.
+
+1. The more interesting case is when n is greater than 2. In those cases, the current value is defined as the sum of the previous two values. So for this loop, `n1` and `n2` are the previous two values, and `sum` is the value for the current iteration. Because of that, each time we figure out the `sum` of the previous two values and set it to `sum`, we update our `n1` and `n2` values.
+
+Okay, we don't need to overthink it past that. We can lean on our debugger a bit. But it's worth thinking about the code to see if it does what we expect and be more informed when it doesn't.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Locate the bug with breakpoints"
+              Id="LocateTheBug">
+        <vst:Step.Description>
+  <![CDATA[
+
+Stepping through your code can be helpful but tedious. Especially when you're working with loops or other code that's called repeatedly. Rather than stepping through the loop over and over, we can set a new breakpoint on the first line of the loop.
+
+When we're doing this, it's important to be strategic about where we put our breakpoints. We're especially interested in the value of sum, since it represents the current maximum Fibonacci value. 
+
+1. Add a second breakpoint on line 13, after sum is set.
+
+1. Select Continue in the Debugger control to advance until the breakpoint is hit. Looking at our local variables, we see the following lines:
+   
+    ```
+    n: 5
+    n1: 0
+    n2: 1
+    sum: 1
+    i: 2
+    ```
+
+    These lines all seem correct. The first time through the loop, the sum of the previous two values is 1. Rather than stepping through line by line, we can take advantage of our breakpoints to jump to the next time through the loop.
+
+1. Select Continue to continue program flow until the next breakpoint is hit, which will be on the next pass through the loop.
+    
+    This time, we see the following values:
+    
+    ```
+    n: 5
+    n1: 1
+    n2: 1
+    sum: 2
+    i: 3
+    ```
+    
+    Let's think about it. Do these values still make sense? It seems like they do. For the third Fibonacci number, we're expecting to see our sum equal to 2, and it is.
+
+1. Okay, let's select Continue to loop it again.
+    
+    ```
+    n: 5
+    n1: 1
+    n2: 2
+    sum: 3
+    i: 4
+    ```
+    
+    Again, things are looking good. The fourth value in the series is expected to be 3.
+
+1. At this point, you might start wondering if the code was correct all along and you imagined the bug! Let's keep with it for the last time through the loop. Select Continue one more time.
+
+    
+    The program finished running and printed out 3! That's not right.
+
+    
+    Okay, not to worry. We haven't failed, we've learned. We now know that the code runs through the loop correctly until i equals 4, but then it exits out before computing the final value. I'm starting to get some ideas about where the bug is... are you?
+
+
+
+1. Remove our previous breakpoints on lines 1 and 13. You can do that by clicking on them in the margin next to the line numbers. Let's set one more breakpoint on line 17, which reads:
+
+    ```
+    return n == 0 ? n1 : n2;
+    ```
+
+    This breakpoint will let us inspect the program state before the function exits. 
+    
+    We've already learned all we can expect to from our previous breakpoints on lines 1 and 13, so we can clear them.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Explore conditional breakpoints"
+              Id="ConditionalBreakpoints">
+        <vst:Step.Description>
+  <![CDATA[
+
+Previously, we continued to step over the breakpoints until we found out that `i` was never reaching 5. We can verify this by taking advantage of a powerful feature of Visual Studio break points called conditional breakpoints. This enables us to add different rules that must be valid for the breakpoint to be hit. 
+
+1. Right click on the breakpoint on line 13 and click on `Conditions...`
+
+    ![Add Conditions](addcondition.png "Add Conditions")
+
+1. Add a condition that is of type `Conditional Expression` that `Is true` of `i == 5` 
+
+    ![Condition](condition.png "Conditional Expression")
+
+    > Note that there are several type of conditions and additional actions that can be enabled when this breakpoint is hit.
+
+1. Remove our previous breakpoints on lines 1. You can do that by clicking on the breakpoint in the margin next to the line numbers. 
+
+
+1. Run the application again and note that no breakpoints are hit, which means that `i` never reached the value of `5`.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Fix the bug"
+              Id="FixBug">
+        <vst:Step.Description>
+  <![CDATA[
+1. Let's set one more breakpoint on line 17, which reads:
+
+
+    ```
+    return n == 0 ? n1 : n2;
+    ```
+    
+
+    This breakpoint will let us inspect the program state before the function exits. We've learned all we can expect to from our previous breakpoints on lines 1 and 13, so we can clear them.
+
+
+1. Start the debugger one last time.
+
+    ```
+    n: 5
+    n1: 2
+    n2: 3
+    sum: 3
+    ```
+
+    
+    That's not right... We asked for Fibonacci(5), and we got Fibonacci(4). This function returns `n2`, and each loop iteration calculates the `sum` value and sets `n2` equal to `sum`.
+
+    
+    Based on this information, and our previous debug run, we can see that the loop exited when i was 4, not 5.
+
+    
+    Let's look at the first line of the for loop a little closer.
+
+    ```
+    for (int i = 2; i < n; i++)
+    ```
+
+    That means that it will exit when for loop sees that `i` is no longer less than `n`. That means that the loop code won't run for the case where `i` equals `n`. It seems like what we wanted was to run until `i <= n`, instead:
+
+    ```
+    for (int i = 2; i <= n; i++)
+    ```
+
+1. Stop the debugging session if you haven't already.
+
+1. Next, make the preceding change to line 10, and leave our breakpoint on line 17.
+
+1. Restart the debugger. This time, when we hit the breakpoint on line 13 because `i == 5`, press **Continue**, and the breakpoint on line 17 will now be hit, we'll see the following values:
+
+    ```
+    n: 5
+    n1: 3
+    n2: 5
+    sum: 5
+    ```
+
+    It looks like we got it! Great job, you've saved the day for Fibonacci, Inc.!
+
+1. Select **Continue** just to make sure the program returns the correct value of `5`.
+
+
+]]>
+        </vst:Step.Description>
+    </vst:Step> 
+    <vst:Step Title="Next steps"
+              Id="NextSteps"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+You did it! You've debugged some C# code you didn't write by using the .NET debugger in Visual Studio.
+
+Now, try to create your own application by navigating to **File** > **New** > **Project**!
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=DebuggingCSharp)**
+
+![Congratulation](congrats_tutorial.png "Congratulation")
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+</vst:Guide>

@@ -1,0 +1,36 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2pipe</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2pipe</Shortcut>
+    <Description>Frammento di codice per l'aggiunta di una pipe Angular 2</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <ToolTip>Nome</ToolTip>
+        <Default>'mypipe'</Default>
+      </Literal>
+      <Literal>
+        <ID>classname</ID>
+        <ToolTip>Nome della classe</ToolTip>
+        <Default>MyPipe</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+     import { Pipe, PipeTransform } from 'angular/core'; 
+     
+     @Pipe({
+         name: $name$  
+     })
+     export class $classname$Pipe implements PipeTransform {
+         transform(value: any, args: any[]): any {
+         }
+     }
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

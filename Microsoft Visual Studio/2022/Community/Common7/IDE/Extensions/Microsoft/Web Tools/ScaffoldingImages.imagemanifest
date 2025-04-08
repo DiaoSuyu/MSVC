@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.WebTools.Scaffolding.VS;v17.0.0.0;b03f5f7f11d50a3a;Component/Resources" />
+    <Guid Name="ScaffoldingImagesGuid" Value="{BE7B5A19-921F-4EB4-958E-442A6F2BC97D}" />
+    <ID Name="BlazorComponent" Value="1" />
+    <ID Name="AreaIcon" Value="2" />
+    <ID Name="ControllerIcon" Value="3" />
+    <ID Name="ControllerWithViewsIcon" Value="4" />
+    <ID Name="ViewsIcon" Value="5" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(ScaffoldingImagesGuid)" ID="$(BlazorComponent)">
+      <Source Uri="$(Resources)/BrandBlazor_16x.xaml" />
+      <Source Uri="$(Resources)/BrandBlazor_16x.png" >
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(ScaffoldingImagesGuid)" ID="$(AreaIcon)">
+      <Source Uri="$(Resources)/AreaIcon.png" />
+    </Image>
+    <Image Guid="$(ScaffoldingImagesGuid)" ID="$(ControllerIcon)">
+      <Source Uri="$(Resources)/ControllerIcon.png" />
+    </Image>
+    <Image Guid="$(ScaffoldingImagesGuid)" ID="$(ControllerWithViewsIcon)">
+      <Source Uri="$(Resources)/ControllerWithViewsIcon.png" />
+    </Image>
+    <Image Guid="$(ScaffoldingImagesGuid)" ID="$(ViewsIcon)">
+      <Source Uri="$(Resources)/ViewsIcon.png" />
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

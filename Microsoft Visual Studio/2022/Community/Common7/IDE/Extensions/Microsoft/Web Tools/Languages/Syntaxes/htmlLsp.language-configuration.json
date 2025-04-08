@@ -1,0 +1,47 @@
+{
+  "autoCloseBefore": ";:.,=}])>`\"' \r\n\t",
+  "autoClosingPairs": [
+    { "open": "{", "close": "}"},
+    { "open": "[", "close": "]"},
+    { "open": "(", "close": ")" },
+    { "open": "'", "close": "'" },
+    { "open": "\"", "close": "\"" },
+    { "open": "<!--", "close":  "-->", "notIn": [ "comment", "string" ] }
+  ],
+  "brackets": [
+    ["<!--", "-->"],
+    ["<", ">"],
+    ["{", "}"],
+    ["(", ")"]
+  ],
+  "comments": {
+    "blockComment": [ "<!--", "-->" ]
+  },
+  "indentationRules": {
+    "increaseIndentPattern": "<(?!(?:area|base|br|col|command|embed|hr|html|img|input|keygen|link|meta|param|source|track|wbr)\\b|[^>]*\\/>)([_:\\w][_:\\w-.\\d]*)(?=\\s|>)\\b[^>]*>(?!.*<\\/\\1>)|<!--(?!.*-->)",
+    "decreaseIndentPattern": "^\\s*(<\\/(?!html)[_:\\w][_:\\w-.\\d]*\\b[^>]*>|-->)"
+  },
+  "onEnterRules": [
+    {
+      "beforeText": "<(?!(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)\\b|[^>]*\\/>)(?:[_:\\w][_:\\w-.\\d]*)(?=\\s|>)\\b[^>]*>[^<]*$",
+      "afterText": "^<\\/(?!html)[_:\\w][_:\\w-.\\d]*\\b[^>]*>",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    },
+    {
+      "beforeText": "<(?!(?:area|base|br|col|command|embed|hr|html|img|input|keygen|link|meta|param|source|track|wbr)\\b|[^>]*\\/>)(?:[_:\\w][_:\\w-.\\d]*)(?=\\s|>)\\b[^>]*>[^<]*$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+    {
+      "beforeText": "<!--",
+      "afterText": "-->",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    }
+  ],
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|(\\/?[^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
+}

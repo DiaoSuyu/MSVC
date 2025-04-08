@@ -1,0 +1,25 @@
+{
+  "apiVersion": "2017-02-01",
+  "templateGenerator": {
+    "id": "export",
+    "model": {
+      "templatePreprocessors": [
+        {
+          "id": "removeUnnecessaryProperties",
+          "model": {
+            "properties": [
+              "etag",
+              "id",
+              "identity",
+              "properties/*",
+              "tags"
+            ],
+            "except": [
+              "properties/sku"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

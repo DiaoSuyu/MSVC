@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从 MenuStrip 中删除 ToolStripMenuItem</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从现有的 MenuStrip 中删除 ToolStripMenuItem。</Description>
+      <Shortcut>menuDelete</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>menuStripName</ID>
+          <Type>MenuStrip</Type>
+          <ToolTip>替换为窗体上的 MenuStrip。</ToolTip>
+          <Default>MenuStrip1</Default>
+        </Object>
+        <Object>
+          <ID>menuItemName</ID>
+          <Type>ToolStripMenuItem</Type>
+          <ToolTip>替换为窗体上的 ToolStripMenuItem。</ToolTip>
+          <Default>ToolStripMenuItem1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[$menuStripName$.Items.Remove($menuItemName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

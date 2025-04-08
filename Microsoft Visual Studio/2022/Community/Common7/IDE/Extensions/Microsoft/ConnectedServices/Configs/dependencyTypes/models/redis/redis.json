@@ -1,0 +1,20 @@
+{
+  "id": "redis",
+  "isBase": true,
+  "name": "strings:#/redisDependencyTypeName",
+  "description": "strings:#/redisDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3813
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3813
+  },
+  "displayOrder": 6000,
+  "actions": [],
+  "tags": []
+}

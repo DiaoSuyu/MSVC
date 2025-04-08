@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  @@containerName@@:
+    image: "@@containerImage@@"
+    hostname: "@@containerName@@"
+    restart: always
+    ports: 
+@@        - :[containerPorts]@@
+    environment:
+      - ACCEPT_EULA="Y"
+      - SA_PASSWORD=@@containerDatabaseConnectionId@@

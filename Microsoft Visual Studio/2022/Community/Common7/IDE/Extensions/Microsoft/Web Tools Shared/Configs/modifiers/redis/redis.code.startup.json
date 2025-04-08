@@ -1,0 +1,332 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureMicrosoftExtensionsDependencyInjectionNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.DependencyInjection;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.DependencyInjection;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConfigurationProperty",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ClassProperty",
+                  "properties": {
+                    "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassProperty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "public IConfiguration Configuration { get; }",
+            "tokens": {},
+            "resultTokenName": "configurationClassProperty"
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConstructorWithConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ClassConstructor",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassConstructor",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "public @@containingClassName@@(IConfiguration configuration)\r\n    {\r\n    @@configurationClassProperty@@ = configuration;\r\n    }",
+            "tokens": {
+              "containingClassName": {
+                "name": "containingClassName",
+                "kind": "ClassName",
+                "properties": {}
+              },
+              "configurationClassProperty": {
+                "name": "configurationClassProperty",
+                "kind": "ClassProperty",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddStackExchangeRedisCacheCall",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddStackExchangeRedisCache",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Caching.StackExchangeRedis.RedisCacheOptions>"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.AddStackExchangeRedisCache(option =>\r\n    {\r\n    option.Configuration = @@configurationClassProperty@@[`@@connectionId@@`];\r\n    });",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                }
+              },
+              "configurationClassProperty": {
+                "name": "configurationClassProperty",
+                "kind": "ClassProperty",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            },
+            "resultTokenName": "configurationClassProperty"
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddStackExchangeRedisCacheCallForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddStackExchangeRedisCache"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "LocalVariable",
+                  "properties": {
+                    "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+                    "CodeOperation": "InsertBefore"
+                  },
+                  "locationTokenName": "localWebAppVar"
+                }
+              ]
+            },
+            "body": "var redisOptions = await ConfigurationOptions.Parse(@@localVar@@.Configuration[`@@connectionId@@`]!).ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());\r\n@@localVar@@.Services.AddStackExchangeRedisCache(option =>\r\n{\r\n    option.ConfigurationOptions = redisOptions;\r\n});",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "LocalVariable",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+                  "Closure": true
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

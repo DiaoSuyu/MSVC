@@ -1,0 +1,24 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateDir>
+    <RelativePath>VC\MFCATL</RelativePath>
+    <LocalizedName Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2201" />
+    <SortOrder>40</SortOrder>
+  </VSTemplateDir>
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>VC\MFCATL\ATLProject</RelativePathOnDisk>
+    <TemplateFileName>ATLProject.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2010" />
+        <Description Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="2011" />
+        <Icon Package="{976cf7d5-2a72-47a3-9e46-5b7c3db95f17}" ID="504" />
+        <ProjectType>VC</ProjectType>
+        <TemplateID>Microsoft.VisualC.Project.ATL.ATLProject</TemplateID>
+        <CreateNewFolder>false</CreateNewFolder>
+        <DefaultName>ATLProject</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <CreateInPlace>true</CreateInPlace>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

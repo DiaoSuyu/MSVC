@@ -1,0 +1,68 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=5.0": [
+        {
+          "Id": "Microsoft.Authentication.WebAssembly.Msal",
+          "Version": "5.0.1.5",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Graph",
+          "Version": "4.25.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=6.0": [
+        {
+          "Id": "Microsoft.Authentication.WebAssembly.Msal",
+          "Version": "6.0.31",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Graph",
+          "Version": "5.56.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=7.0": [
+        {
+          "Id": "Microsoft.Authentication.WebAssembly.Msal",
+          "Version": "7.0.20",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Graph",
+          "Version": "5.56.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=8.0": [
+        {
+          "Id": "Microsoft.Authentication.WebAssembly.Msal",
+          "Version": "8.0.10",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Graph",
+          "Version": "5.56.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=9.0": [
+        {
+          "Id": "Microsoft.Authentication.WebAssembly.Msal",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Graph",
+          "Version": "5.60.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

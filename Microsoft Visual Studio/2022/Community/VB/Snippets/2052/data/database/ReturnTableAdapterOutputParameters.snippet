@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>返回 TableAdapter 查询的输出参数</Title>
+      <Author>Microsoft</Author>
+      <Description>“不返回值”的 TableAdapter 方法使用的 ExecuteNonQuery 返回受影响的行。  此片段从 TableAdapter 的命令参数之一返回该值。</Description>
+      <Shortcut>dtNonQueryOutParam</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>methodName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要在 TableAdapter 上公开的新方法的名称。</ToolTip>
+          <Default>GetNonQueryOutputParameter</Default>
+        </Literal>
+        <Literal>
+          <ID>existingMethod</ID>
+          <Type>String</Type>
+          <ToolTip>替换为 TableAdapter 上现有的 ExecuteNonQuery 方法。</ToolTip>
+          <Default>GetCustomerCount</Default>
+        </Literal>
+        <Literal>
+          <ID>commandIndex</ID>
+          <Type>Int</Type>
+          <ToolTip>替换为该命令在 TableAdapter _commandCollection 中的索引。  
+提示:  对于现有方法选择“转到定义”可以确定该索引。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>parameterIndex</ID>
+          <Type>Int</Type>
+          <ToolTip>替换为要返回的参数的索引。  
+提示:  使用 DataSet 设计器可以确定参数在 TableAdapter 的查询中的索引。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Object>
+          <ID>dataType</ID>
+          <Type>System.Object</Type>
+          <ToolTip>替换为方法将返回的 DataType。  </ToolTip>
+          <Default>Integer</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Public Function $methodName$() As $dataType$
+	Me.$existingMethod$()
+	Return Me._commandCollection($commandIndex$).Parameters($parameterIndex$).Value
+End Function
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

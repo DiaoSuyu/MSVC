@@ -1,0 +1,1573 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.CodeAnalysis.InteractiveHost</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.CodeAnalysis.Interactive.InteractiveHost">
+            <summary>
+            Represents a process that hosts an interactive session.
+            </summary>
+            <remarks>
+            Handles spawning of the host process and communication between the local callers and the remote session.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.InteractiveHost.OutputEncoding">
+            <summary>
+            Use Unicode encoding for STDOUT and STDERR of the InteractiveHost process.
+            Ideally, we would use UTF8 but SetConsoleOutputCP Windows API fails with "Invalid Handle" when Console.OutputEncoding is set to UTF8.
+            (issue tracked by https://github.com/dotnet/roslyn/issues/47571, https://devdiv.visualstudio.com/DevDiv/_workitems/edit/1253106)
+            Unicode is not ideal since the message printed directly to STDOUT/STDERR from native code that do not encode the output are going to be garbled
+            (e.g. messages reported by CLR stack overflow and OOM exception handlers: https://github.com/dotnet/runtime/issues/45503).
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.InteractiveHost._joinOutputWritingThreadsOnDisposal">
+            <remarks>
+            Test only setting.
+            True to join output writing threads when the host is being disposed.
+            We have to join the threads before each test is finished, otherwise xunit won't be able to unload the AppDomain.
+            WARNING: Joining the threads might deadlock if <see cref="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Dispose"/> is executing on the UI thread, 
+            since the threads are dispatching to UI thread to write the output to the editor buffer.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.ResetAsync(Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions)">
+            <summary>
+            Restarts and reinitializes the host process (or starts a new one if it is not running yet).
+            </summary>
+            <param name="options">The options to initialize the new process with.</param>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.ExecuteAsync(System.String)">
+            <summary>
+            Asynchronously executes given code in the remote interactive session.
+            </summary>
+            <param name="code">The code to execute.</param>
+            <remarks>
+            This method is thread safe but operations are sent to the remote process
+            asynchronously so tasks should be executed serially if order is important.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.ExecuteFileAsync(System.String)">
+            <summary>
+            Asynchronously executes given code in the remote interactive session.
+            </summary>
+            <param name="path">The file to execute.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="path"/> is null.</exception>
+            <remarks>
+            This method is thread safe but operations are sent to the remote process
+            asynchronously so tasks should be executed serially if order is important.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.AddReferenceAsync(System.String)">
+            <summary>
+            Asynchronously adds a reference to the set of available references for next submission.
+            </summary>
+            <param name="reference">The reference to add.</param>
+            <remarks>
+            This method is thread safe but operations are sent to the remote process
+            asynchronously so tasks should be executed serially if order is important.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.SetPathsAsync(System.Collections.Immutable.ImmutableArray{System.String},System.Collections.Immutable.ImmutableArray{System.String},System.String)">
+            <summary>
+            Sets the current session's search paths and base directory.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service">
+            <summary>
+            A remote singleton server-activated object that lives in the interactive host process and controls it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.RunServerAsync(System.String,System.Int32,System.Func{System.Func{System.Object},System.Object})">
+            <summary>
+            Implements remote server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.InitializeContextAsync(System.String,System.Boolean)">
+            <summary>
+            Reads given initialization file (.rsp) and loads and executes all assembly references and files, respectively specified in it.
+            Execution is performed on the UI thread.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.AddReferenceAsync(System.String)">
+            <summary>
+            Adds an assembly reference to the current session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.ExecuteAsync(System.String)">
+            <summary>
+            Executes given script snippet on the UI thread in the context of the current session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.ExecuteFileAsync(System.String)">
+            <summary>
+            Remote API. Executes given script file on the UI thread in the context of the current session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.InitializeContextAsync(System.Threading.Tasks.Task{Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.EvaluationState},System.Threading.Tasks.TaskCompletionSource{Microsoft.CodeAnalysis.Interactive.RemoteExecutionResult},System.String,System.Boolean)">
+            <summary>
+            Loads references, set options and execute files specified in the initialization file.
+            Also prints logo unless <paramref name="isRestarting"/> is true.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.TryExecuteFileAsync(Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.EvaluationState,System.String)">
+            <summary>
+            Executes specified script file as a submission.
+            </summary>
+            <remarks>
+            All errors are written to the error output stream.
+            Uses source search paths to resolve unrooted paths.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.RemoteConsoleWriteAsync(System.Byte[],System.Boolean)">
+            <summary>
+            Remote API for testing purposes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Interactive.InteractiveHost.Service.GetRuntimeDirectoryAsync">
+            <summary>
+            Remote API for testing purposes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.Interactive.InteractiveHost.ShadowCopyReference">
+            <summary>
+            Specialize <see cref="T:Microsoft.CodeAnalysis.PortableExecutableReference"/> with path being the original path of the copy.
+            Logically this reference represents that file, the fact that we load the image from a copy is an implementation detail.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions">
+            <summary>
+            Settings that affect InteractiveHost process and initialization.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions.HostPath">
+            <summary>
+            Path to interactive host executable.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions.InitializationFilePath">
+            <summary>
+            Optional file name of the .rsp file to use to initialize the REPL.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions.Culture">
+            <summary>
+            Host culture used for data formatting.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions.UICulture">
+            <summary>
+            Host culture used for localization of doc comments, errors.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostOptions.Platform">
+            <summary>
+            Host process platform.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.RemoteExecutionResult.SourcePaths">
+            <summary>
+            New value of source search paths after execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.RemoteExecutionResult.ReferencePaths">
+            <summary>
+            New value of reference search paths after execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.RemoteExecutionResult.WorkingDirectory">
+            <summary>
+            New value of working directory in the remote process after execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.Interactive.RemoteInitializationResult.ScriptPath">
+            <summary>
+            Full path to the initialization script that has been executed as part of initialization process.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Cannot_resolve_reference_0">
+            <summary>Cannot resolve reference '{0}'.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Loading_context_from_0">
+            <summary>Loading context from '{0}'.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Type_Sharphelp_for_more_information">
+            <summary>Type "#help" for more information.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Specified_file_not_found_colon_0">
+            <summary>Specified file not found: {0}</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Specified_file_not_found">
+            <summary>Specified file not found.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Searched_in_directory_colon">
+            <summary>Searched in directory:</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Searched_in_directories_colon">
+            <summary>Searched in directories:</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.plus_additional_0_1">
+            <summary>+ additional {0} {1}</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Unable_to_create_hosting_process">
+            <summary>Unable to create hosting process.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Hosting_process_exited_with_exit_code_0">
+            <summary>Hosting process exited with exit code {0}.</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Failed_to_launch_0_process_exit_code_colon_1_with_output_colon">
+            <summary>Failed to launch '{0}' process (exit code: {1}) with output:</summary>
+        </member>
+        <member name="P:Microsoft.CodeAnalysis.Interactive.InteractiveHostResources.Failed_to_create_a_remote_process_for_interactive_code_execution">
+            <summary>Failed to create a remote process for interactive code execution: '{0}'</summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.Shared.TestHooks.IExpeditableDelaySource.Delay(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Creates a task that will complete after a time delay, but can be expedited if an operation is waiting for
+            the task to complete.
+            </summary>
+            <param name="delay">The time to wait before completing the returned task, or <c>TimeSpan.FromMilliseconds(-1)</c> to wait indefinitely.</param>
+            <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
+            <returns><see langword="true"/> if the delay compeleted normally; otherwise, <see langword="false"/> if the delay completed due to a request to expedite the delay.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="delay"/> represents a negative time interval other than <c>TimeSpan.FromMilliseconds(-1)</c>.</para>
+            <para>-or-</para>
+            <para>The <paramref name="delay"/> argument's <see cref="P:System.TimeSpan.TotalMilliseconds"/> property is greater than <see cref="F:System.Int32.MaxValue"/>.</para>
+            </exception>
+            <exception cref="T:System.OperationCanceledException">The delay has been canceled.</exception>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.FailFast.Handler">
+            <summary>
+            A pre-created delegate to assign to <see cref="T:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler" /> if needed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.FailFast.DumpStackTrace(System.Exception,System.String)">
+            <summary>
+            Dumps the stack trace of the exception and the handler to the console. This is useful
+            for debugging unit tests that hit a fatal exception
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.FailFast.Assert(System.Boolean,System.String)">
+            <summary>
+            Checks for the given <paramref name="condition"/>; if the <paramref name="condition"/> is <c>true</c>, 
+            immediately terminates the process without running any pending <c>finally</c> blocks or finalizers
+            and causes a crash dump to be collected (if the system is configured to do so). 
+            Otherwise, the process continues normally.
+            </summary>
+            <param name="condition">The conditional expression to evaluate.</param>
+            <param name="message">An optional message to be recorded in the dump in case of failure. Can be <c>null</c>.</param>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.ErrorReporting.OperationCanceledIgnoringCallerTokenException">
+            <summary>
+            Thrown when async code must cancel the current execution but does not have access to the <see cref="T:System.Threading.CancellationTokenSource"/> of the <see cref="T:System.Threading.CancellationToken"/> passed to the code.
+            Should be used in very rare cases where the <see cref="T:System.Threading.CancellationTokenSource"/> is out of our control (e.g. owned but not exposed by JSON RPC in certain call-back scenarios).
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.SetHandlers(Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler,Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler)">
+            <summary>
+            Set by the host to handle an error report; this may crash the process or report telemetry.
+            </summary>
+            <param name="nonFatalHandler">A handler that will not crash the process when called.  Used when calling <see
+            cref="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportNonFatalError(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity,System.Boolean)"/></param>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.OverwriteHandler(Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler)">
+            <summary>
+            Same as setting the Handler property except that it avoids the assert.  This is useful in
+            test code which needs to verify the handler is called in specific cases and will continually
+            overwrite this value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.CopyHandlersTo(System.Reflection.Assembly)">
+            <summary>
+            Copies the handler in this instance to the linked copy of this type in this other assembly.
+            </summary>
+            <remarks>
+            This file is in linked into multiple layers, but we want to ensure that all layers have the same copy.
+            This lets us copy the handler in this instance into the same in another instance.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndPropagate(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+            <summary>
+            Use in an exception filter to report an error without catching the exception.
+            The error is reported by calling <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/>.
+            </summary>
+            <returns><see langword="false"/> to avoid catching the exception.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndPropagateUnlessCanceled(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+            <summary>
+            Use in an exception filter to report an error (by calling <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/>), unless the
+            operation has been cancelled. The exception is never caught.
+            </summary>
+            <returns><see langword="false"/> to avoid catching the exception.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndPropagateUnlessCanceled(System.Exception,System.Threading.CancellationToken,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+             <summary>
+             <para>Use in an exception filter to report an error (by calling <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/>), unless the
+             operation has been cancelled at the request of <paramref name="contextCancellationToken"/>. The exception is
+             never caught.</para>
+            
+             <para>Cancellable operations are only expected to throw <see cref="T:System.OperationCanceledException"/> if the
+             applicable <paramref name="contextCancellationToken"/> indicates cancellation is requested by setting
+             <see cref="P:System.Threading.CancellationToken.IsCancellationRequested"/>. Unexpected cancellation, i.e. an
+             <see cref="T:System.OperationCanceledException"/> which occurs without <paramref name="contextCancellationToken"/>
+             requesting cancellation, is treated as an error by this method.</para>
+            
+             <para>This method does not require <see cref="P:System.OperationCanceledException.CancellationToken"/> to match
+             <paramref name="contextCancellationToken"/>, provided cancellation is expected per the previous
+             paragraph.</para>
+             </summary>
+             <param name="contextCancellationToken">A <see cref="T:System.Threading.CancellationToken"/> which will have
+             <see cref="P:System.Threading.CancellationToken.IsCancellationRequested"/> set if cancellation is expected.</param>
+             <returns><see langword="false"/> to avoid catching the exception.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndCatch(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+            <summary>
+            Report an error.
+            Calls <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/> and doesn't pass the exception through (the method returns true).
+            This is generally expected to be used within an exception filter as that allows us to
+            capture data at the point the exception is thrown rather than when it is handled.
+            However, it can also be used outside of an exception filter. If the exception has not
+            already been thrown the method will throw and catch it itself to ensure we get a useful
+            stack trace.
+            </summary>
+            <returns>True to catch the exception.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndCatchUnlessCanceled(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+            <summary>
+            Use in an exception filter to report an error (by calling <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/>) and catch
+            the exception, unless the operation was cancelled.
+            </summary>
+            <returns><see langword="true"/> to catch the exception if the error was reported; otherwise,
+            <see langword="false"/> to propagate the exception if the operation was cancelled.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportAndCatchUnlessCanceled(System.Exception,System.Threading.CancellationToken,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity)">
+             <summary>
+             <para>Use in an exception filter to report an error (by calling <see cref="F:Microsoft.CodeAnalysis.ErrorReporting.FatalError.s_handler"/>) and
+             catch the exception, unless the operation was cancelled at the request of
+             <paramref name="contextCancellationToken"/>.</para>
+            
+             <para>Cancellable operations are only expected to throw <see cref="T:System.OperationCanceledException"/> if the
+             applicable <paramref name="contextCancellationToken"/> indicates cancellation is requested by setting
+             <see cref="P:System.Threading.CancellationToken.IsCancellationRequested"/>. Unexpected cancellation, i.e. an
+             <see cref="T:System.OperationCanceledException"/> which occurs without <paramref name="contextCancellationToken"/>
+             requesting cancellation, is treated as an error by this method.</para>
+            
+             <para>This method does not require <see cref="P:System.OperationCanceledException.CancellationToken"/> to match
+             <paramref name="contextCancellationToken"/>, provided cancellation is expected per the previous
+             paragraph.</para>
+             </summary>
+             <param name="contextCancellationToken">A <see cref="T:System.Threading.CancellationToken"/> which will have
+             <see cref="P:System.Threading.CancellationToken.IsCancellationRequested"/> set if cancellation is expected.</param>
+             <returns><see langword="true"/> to catch the exception if the error was reported; otherwise,
+             <see langword="false"/> to propagate the exception if the operation was cancelled.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.ReportNonFatalError(System.Exception,Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity,System.Boolean)">
+            <summary>
+            Used to report a non-fatal-watson (when possible) to report an exception.  The exception is not caught. Does
+            nothing if no non-fatal error handler is registered.  See the second argument to <see
+            cref="M:Microsoft.CodeAnalysis.ErrorReporting.FatalError.SetHandlers(Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler,Microsoft.CodeAnalysis.ErrorReporting.FatalError.ErrorReporterHandler)"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity">
+            <summary>
+            The severity of the error, see the enum members for a description of when to use each. This is metadata that's included
+            in a non-fatal fault report, which we can take advantage of on the backend to automatically triage bugs. For example,
+            a critical severity issue we can open with a lower bug count compared to a low priority one.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity.Uncategorized">
+            <summary>
+            The severity hasn't been categorized. Don't use this in new code.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity.Diagnostic">
+            <summary>
+            Something failed, but the user is unlikely to notice. Especially useful for background things that we can silently recover
+            from, like bugs in caching systems.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity.General">
+            <summary>
+            Something failed, and the user might notice, but they're still likely able to carry on. For example, if the user
+            asked for some information from the IDE (find references, completion, etc.) and we were able to give partial results.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.ErrorReporting.ErrorSeverity.Critical">
+            <summary>
+            Something failed, and the user likely noticed. For example, the user pressed a button to do an action, and
+            we threw an exception so we completely failed to do that in an unrecoverable way. This may also be used
+            for back-end systems where a failure is going to result in a highly broken experience, for example if parsing a file
+            catastrophically failed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ArrayBuilderExtensions.SelectAsArray``2(Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder{``0},System.Func{``0,``1})">
+            <summary>
+            Maps an array builder to immutable array.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="items">The array to map</param>
+            <param name="map">The mapping delegate</param>
+            <returns>If the items's length is 0, this will return an empty immutable array</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ArrayBuilderExtensions.SelectAsArray``3(Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder{``0},System.Func{``0,``1,``2},``1)">
+            <summary>
+            Maps an array builder to immutable array.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TArg"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="items">The sequence to map</param>
+            <param name="map">The mapping delegate</param>
+            <param name="arg">The extra input used by mapping delegate</param>
+            <returns>If the items's length is 0, this will return an empty immutable array.</returns>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ArrayBuilderExtensions.SelectAsArrayWithIndex``3(Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder{``0},System.Func{``0,System.Int32,``1,``2},``1)">
+            <summary>
+            Maps an array builder to immutable array.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <typeparam name="TArg"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="items">The sequence to map</param>
+            <param name="map">The mapping delegate</param>
+            <param name="arg">The extra input used by mapping delegate</param>
+            <returns>If the items's length is 0, this will return an empty immutable array.</returns>
+        </member>
+        <member name="F:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.PooledArrayLengthLimitExclusive">
+            <summary>
+            See <see cref="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.Free"/> for an explanation of this constant value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.ToImmutable">
+            <summary>
+            Realizes the array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.ToImmutableAndClear">
+            <summary>
+            Realizes the array and clears the collection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.SetItem(System.Int32,`0)">
+            <summary>
+            Write <paramref name="value"/> to slot <paramref name="index"/>. 
+            Fills in unallocated slots preceding the <paramref name="index"/>, if any.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.ToImmutableOrNull">
+            <summary>
+            Realizes the array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.ToDowncastedImmutable``1">
+            <summary>
+            Realizes the array, downcasting each element to a derived type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.ToImmutableAndFree">
+            <summary>
+            Realizes the array and disposes the builder in one operation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.PooledObjects.ArrayBuilder`1.Enumerator">
+            <summary>
+            struct enumerator used in foreach.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.PooledObjects.ObjectPool`1">
+            <summary>
+            Generic implementation of object pooling pattern with predefined pool size limit. The main
+            purpose is that limited number of frequently used objects can be kept in the pool for
+            further recycling.
+            
+            Notes: 
+            1) it is not the goal to keep all returned objects. Pool is not meant for storage. If there
+               is no space in the pool, extra returned objects will be dropped.
+            
+            2) it is implied that if object was obtained from a pool, the caller will return it back in
+               a relatively short time. Keeping checked out objects for long durations is ok, but 
+               reduces usefulness of pooling. Just new up your own.
+            
+            Not returning objects to the pool in not detrimental to the pool's work, but is a bad practice. 
+            Rationale: 
+               If there is no intent for reusing the object, do not use pool - just use "new". 
+            </summary>
+        </member>
+        <member name="T:Microsoft.CodeAnalysis.PooledObjects.ObjectPool`1.Factory">
+            <remarks>
+            Not using System.Func{T} because this file is linked into the (debugger) Formatter,
+            which does not have that type (since it compiles against .NET 2.0).
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ObjectPool`1.Allocate">
+            <summary>
+            Produces an instance.
+            </summary>
+            <remarks>
+            Search strategy is a simple linear probing which is chosen for it cache-friendliness.
+            Note that Free will try to store recycled objects close to the start thus statistically 
+            reducing how far we will typically search.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ObjectPool`1.Free(`0)">
+            <summary>
+            Returns objects to the pool.
+            </summary>
+            <remarks>
+            Search strategy is a simple linear probing which is chosen for it cache-friendliness.
+            Note that Free will try to store recycled objects close to the start thus statistically 
+            reducing how far we will typically search in Allocate.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.PooledObjects.ObjectPool`1.ForgetTrackedObject(`0,`0)">
+            <summary>
+            Removes an object from leak tracking.  
+            
+            This is called when an object is returned to the pool.  It may also be explicitly 
+            called if an object allocated from the pool is intentionally not being returned
+            to the pool.  This can be of use with pooled arrays if the consumer wants to 
+            return a larger array to the pool than was originally allocated.
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.VoidResult">
+            <summary>
+            Explicitly indicates result is void
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfNull``1(``0,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is null.  This method executes in
+            all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfNull``1(System.Nullable{``0},System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is null.  This method executes in
+            all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfNull``1(``0,System.String,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is null.  This method executes in
+            all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfNull``1(``0,Roslyn.Utilities.Contract.ThrowIfNullInterpolatedStringHandler{``0},System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is null.  This method executes in
+            all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfFalse(System.Boolean,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is false.  This method executes
+            in all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfFalse(System.Boolean,System.String,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is false.  This method executes
+            in all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfFalse(System.Boolean,Roslyn.Utilities.Contract.ThrowIfFalseInterpolatedStringHandler,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is false.  This method executes
+            in all builds
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfTrue(System.Boolean,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is true. This method executes in
+            all builds.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfTrue(System.Boolean,System.String,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is true. This method executes in
+            all builds.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Contract.ThrowIfTrue(System.Boolean,Roslyn.Utilities.Contract.ThrowIfTrueInterpolatedStringHandler,System.Int32,System.String)">
+            <summary>
+            Throws a non-accessible exception if the provided value is true. This method executes in
+            all builds.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.TaskExtensions.VerifyCompleted(System.Threading.Tasks.Task)">
+            <summary>
+            Asserts the <see cref="T:System.Threading.Tasks.Task"/> passed has already been completed.
+            </summary>
+            <remarks>
+            This is useful for a specific case: sometimes you might be calling an API that is "sometimes" async, and you're
+            calling it from a synchronous method where you know it should have completed synchronously. This is an easy
+            way to assert that while silencing any compiler complaints.
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.TaskExtensions.VerifyCompleted``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Asserts the <see cref="T:System.Threading.Tasks.Task"/> passed has already been completed.
+            </summary>
+            <remarks>
+            This is useful for a specific case: sometimes you might be calling an API that is "sometimes" async, and you're
+            calling it from a synchronous method where you know it should have completed synchronously. This is an easy
+            way to assert that while silencing any compiler complaints.
+            </remarks>
+        </member>
+        <member name="T:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1">
+            <summary>
+            Represents a value that can be retrieved synchronously or asynchronously by many clients.
+            The value will be computed on-demand the moment the first client asks for it. While being
+            computed, more clients can request the value. As long as there are outstanding clients the
+            underlying computation will proceed.  If all outstanding clients cancel their request then
+            the underlying value computation will be cancelled as well.
+            
+            Creators of an <see cref="T:Roslyn.Utilities.AsyncLazy`1" /> can specify whether the result of the computation is
+            cached for future requests or not. Choosing to not cache means the computation functions are kept
+            alive, whereas caching means the value (but not functions) are kept alive once complete.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._asynchronousComputeFunction">
+            <summary>
+            The underlying function that starts an asynchronous computation of the resulting value.
+            Null'ed out once we've computed the result and we've been asked to cache it.  Otherwise,
+            it is kept around in case the value needs to be computed again.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._synchronousComputeFunction">
+            <summary>
+            The underlying function that starts a synchronous computation of the resulting value.
+            Null'ed out once we've computed the result and we've been asked to cache it, or if we
+            didn't get any synchronous function given to us in the first place.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._cachedResult">
+            <summary>
+            The Task that holds the cached result.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.SyncObject">
+            <summary>
+            Mutex used to protect reading and writing to all mutable objects and fields.  Traces indicate that there's
+            negligible contention on this lock (and on any particular async-lazy in general), hence we can save some
+            memory by using ourselves as the lock, even though this may inhibit cancellation.  Work done while holding
+            the lock should be kept to a minimum.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._requests">
+            <summary>
+            The hash set of all currently outstanding asynchronous requests. Null if there are no requests,
+            and will never be empty.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._asynchronousComputationCancellationSource">
+            <summary>
+            If an asynchronous request is active, the CancellationTokenSource that allows for
+            cancelling the underlying computation.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1._computationActive">
+            <summary>
+            Whether a computation is active or queued on any thread, whether synchronous or
+            asynchronous.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.#ctor(`0)">
+            <summary>
+            Creates an AsyncLazy that always returns the value, analogous to <see cref="M:System.Threading.Tasks.Task.FromResult``1(``0)" />.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.#ctor(System.Func{`1,System.Threading.CancellationToken,System.Threading.Tasks.Task{`0}},System.Func{`1,System.Threading.CancellationToken,`0},`1)">
+            <summary>
+            Creates an AsyncLazy that supports both asynchronous computation and inline synchronous
+            computation.
+            </summary>
+            <param name="asynchronousComputeFunction">A function called to start the asynchronous
+            computation. This function should be cheap and non-blocking.</param>
+            <param name="synchronousComputeFunction">A function to do the work synchronously, which
+            is allowed to block. This function should not be implemented by a simple Wait on the
+            asynchronous value. If that's all you are doing, just don't pass a synchronous function
+            in the first place.</param>
+        </member>
+        <member name="M:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.TakeLock(System.Threading.CancellationToken)">
+            <summary>
+            Takes the lock for this object and if acquired validates the invariants of this class.
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.Request">
+            <remarks>
+            This inherits from <see cref="T:System.Threading.Tasks.TaskCompletionSource`1"/> to avoid allocating two objects when we can just use one.
+            The public surface area of <see cref="T:System.Threading.Tasks.TaskCompletionSource`1"/> should probably be avoided in favor of the public
+            methods on this class for correct behavior.
+            </remarks>
+        </member>
+        <member name="F:Roslyn.Utilities.AsyncLazy`1.AsyncLazyImpl`1.Request._cancellationToken">
+            <summary>
+            The <see cref="T:System.Threading.CancellationToken"/> associated with this request. This field will be initialized before
+            any cancellation is observed from the token.
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.NonReentrantLock">
+            <summary>
+            A lightweight mutual exclusion object which supports waiting with cancellation and prevents
+            recursion (i.e. you may not call Wait if you already hold the lock)
+            </summary>
+            <remarks>
+            <para>
+            The <see cref="T:Roslyn.Utilities.NonReentrantLock"/> provides a lightweight mutual exclusion class that doesn't
+            use Windows kernel synchronization primitives.
+            </para>
+            <para>
+            The implementation is distilled from the workings of <see cref="T:System.Threading.SemaphoreSlim"/>
+            The basic idea is that we use a regular sync object (Monitor.Enter/Exit) to guard the setting
+            of an 'owning thread' field. If, during the Wait, we find the lock is held by someone else
+            then we register a cancellation callback and enter a "Monitor.Wait" loop. If the cancellation
+            callback fires, then it "pulses" all the waiters to wake them up and check for cancellation.
+            Waiters are also "pulsed" when leaving the lock.
+            </para>
+            <para>
+            All public members of <see cref="T:Roslyn.Utilities.NonReentrantLock"/> are thread-safe and may be used concurrently
+            from multiple threads.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Roslyn.Utilities.NonReentrantLock._syncLock">
+            <summary>
+            A synchronization object to protect access to the <see cref="F:Roslyn.Utilities.NonReentrantLock._owningThreadId"/> field and to be pulsed
+            when <see cref="M:Roslyn.Utilities.NonReentrantLock.Release"/> is called and during cancellation.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.NonReentrantLock._owningThreadId">
+            <summary>
+            The <see cref="P:System.Environment.CurrentManagedThreadId" /> of the thread that holds the lock. Zero if no thread is holding
+            the lock.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.#ctor(System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="useThisInstanceForSynchronization">If false (the default), then the class
+            allocates an internal object to be used as a sync lock.
+            If true, then the sync lock object will be the NonReentrantLock instance itself. This
+            saves an allocation but a client may not safely further use this instance in a call to
+            Monitor.Enter/Exit or in a "lock" statement.
+            </param>
+        </member>
+        <member name="F:Roslyn.Utilities.NonReentrantLock.Factory">
+            <summary>
+            Shared factory for use in lazy initialization.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Blocks the current thread until it can enter the <see cref="T:Roslyn.Utilities.NonReentrantLock"/>, while observing a
+            <see cref="T:System.Threading.CancellationToken"/>.
+            </summary>
+            <remarks>
+            Recursive locking is not supported. i.e. A thread may not call Wait successfully twice without an
+            intervening <see cref="M:Roslyn.Utilities.NonReentrantLock.Release"/>.
+            </remarks>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to
+            observe.</param>
+            <exception cref="T:System.OperationCanceledException"><paramref name="cancellationToken"/> was
+            canceled.</exception>
+            <exception cref="T:System.Threading.LockRecursionException">The caller already holds the lock</exception>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.Release">
+            <summary>
+            Exit the mutual exclusion.
+            </summary>
+            <remarks>
+            The calling thread must currently hold the lock.
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">The lock is not currently held by the calling thread.</exception>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.LockHeldByMe">
+            <summary>
+            Determine if the lock is currently held by the calling thread.
+            </summary>
+            <returns>True if the lock is currently held by the calling thread.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.AssertHasLock">
+            <summary>
+            Throw an exception if the lock is not held by the calling thread.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The lock is not currently held by the calling thread.</exception>
+        </member>
+        <member name="P:Roslyn.Utilities.NonReentrantLock.IsLocked">
+            <summary>
+            Checks if the lock is currently held.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.NonReentrantLock.IsOwnedByMe">
+            <summary>
+            Checks if the lock is currently held by the calling thread.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.TakeOwnership">
+            <summary>
+            Take ownership of the lock (by the calling thread). The lock may not already
+            be held by any other code.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.ReleaseOwnership">
+            <summary>
+            Release ownership of the lock. The lock must already be held by the calling thread.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.NonReentrantLock.s_cancellationTokenCanceledEventHandler">
+            <summary>
+            Action object passed to a cancellation token registration.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.CancellationTokenCanceledEventHandler(System.Object)">
+            <summary>
+            Callback executed when a cancellation token is canceled during a Wait.
+            </summary>
+            <param name="obj">The syncLock that protects a <see cref="T:Roslyn.Utilities.NonReentrantLock"/> instance.</param>
+        </member>
+        <member name="T:Roslyn.Utilities.NonReentrantLock.SemaphoreDisposer">
+            <summary>
+            Since we want to avoid boxing the return from <see cref="M:Roslyn.Utilities.NonReentrantLock.DisposableWait(System.Threading.CancellationToken)"/>, this type must be public.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.NonReentrantLock.SemaphoreDisposer.#ctor(Roslyn.Utilities.NonReentrantLock)">
+            <summary>
+            Since we want to avoid boxing the return from <see cref="M:Roslyn.Utilities.NonReentrantLock.DisposableWait(System.Threading.CancellationToken)"/>, this type must be public.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.ExceptionUtilities.UnexpectedValue(System.Object)">
+            <summary>
+            Creates an <see cref="T:System.InvalidOperationException"/> with information about an unexpected value.
+            </summary>
+            <param name="o">The unexpected value.</param>
+            <returns>The <see cref="T:System.InvalidOperationException"/>, which should be thrown by the caller.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.ExceptionUtilities.IsCurrentOperationBeingCancelled(System.Exception,System.Threading.CancellationToken)">
+            <summary>
+            Determine if an exception was an <see cref="T:System.OperationCanceledException"/>, and that the provided token caused the cancellation.
+            </summary>
+            <param name="exception">The exception to test.</param>
+            <param name="cancellationToken">Checked to see if the provided token was cancelled.</param>
+            <returns><see langword="true"/> if the exception was an <see cref="T:System.OperationCanceledException" /> and the token was canceled.</returns>
+        </member>
+        <member name="T:Roslyn.Utilities.FileNameUtilities">
+            <summary>
+            Implements a few file name utilities that are needed by the compiler.
+            In general the compiler is not supposed to understand the format of the paths.
+            In rare cases it needs to check if a string is a valid file name or change the extension 
+            (embedded resources, netmodules, output name).
+            The APIs are intentionally limited to cover just these rare cases. Do not add more APIs.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.IsFileName(System.String)">
+            <summary>
+            Returns true if the string represents an unqualified file name. 
+            The name may contain any characters but directory and volume separators.
+            </summary>
+            <param name="path">Path.</param>
+            <returns>
+            True if <paramref name="path"/> is a simple file name, false if it is null or includes a directory specification.
+            </returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.IndexOfExtension(System.String)">
+            <summary>
+            Returns the offset in <paramref name="path"/> where the dot that starts an extension is, or -1 if the path doesn't have an extension.
+            </summary>
+            <remarks>
+            Returns 0 for path ".goo".
+            Returns -1 for path "goo.".
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.GetExtension(System.String)">
+            <summary>
+            Returns an extension of the specified path string.
+            </summary>
+            <remarks>
+            The same functionality as <see cref="M:System.IO.Path.GetExtension(System.String)"/> but doesn't throw an exception
+            if there are invalid characters in the path.
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.RemoveExtension(System.String)">
+            <summary>
+            Removes extension from path.
+            </summary>
+            <remarks>
+            Returns "goo" for path "goo.".
+            Returns "goo.." for path "goo...".
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.ChangeExtension(System.String,System.String)">
+            <summary>
+            Returns path with the extension changed to <paramref name="extension"/>.
+            </summary>
+            <returns>
+            Equivalent of <see cref="M:System.IO.Path.ChangeExtension(System.String,System.String)"/>
+            
+            If <paramref name="path"/> is null, returns null. 
+            If path does not end with an extension, the new extension is appended to the path.
+            If extension is null, equivalent to <see cref="M:Roslyn.Utilities.FileNameUtilities.RemoveExtension(System.String)"/>.
+            </returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.IndexOfFileName(System.String)">
+            <summary>
+            Returns the position in given path where the file name starts.
+            </summary>
+            <returns>-1 if path is null.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileNameUtilities.GetFileName(System.String,System.Boolean)">
+            <summary>
+            Get file name from path.
+            </summary>
+            <remarks>Unlike <see cref="M:System.IO.Path.GetFileName(System.String)"/> doesn't check for invalid path characters.</remarks>
+        </member>
+        <member name="T:Roslyn.Utilities.PlatformInformation">
+            <summary>
+            This class provides simple properties for determining whether the current platform is Windows or Unix-based.
+            We intentionally do not use System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(...) because
+            it incorrectly reports 'true' for 'Windows' in desktop builds running on Unix-based platforms via Mono.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PlatformInformation.IsUsingMonoRuntime">
+            <summary>
+            Are we running on .NET 5 or later using the Mono runtime?
+            Will also return true when running on Mono itself; if necessary
+            we can use IsRunningOnMono to distinguish.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynDebug.Assert(System.Boolean)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynDebug.Assert(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynDebug.Assert(System.Boolean,Roslyn.Utilities.RoslynDebug.AssertInterpolatedStringHandler@)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynDebug.AssertOrFailFast(System.Boolean,System.String)">
+            <summary>
+            Generally <see cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/> is a sufficient method for enforcing DEBUG 
+            only invariants in our code. When it triggers that provides a nice stack trace for 
+            investigation. Generally that is enough.
+            
+            <para>There are cases for which a stack is not enough and we need a full heap dump to 
+            investigate the failure. This method takes care of that. The behavior is that when running
+            in our CI environment if the assert triggers we will rudely crash the process and 
+            produce a heap dump for investigation.</para>
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynString.IsNullOrEmpty(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrEmpty(System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.RoslynString.IsNullOrWhiteSpace(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.Combine(System.Int32,System.Int32)">
+            <summary>
+            This is how VB Anonymous Types combine hash values for fields.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.Combine``1(``0,System.Int32)">
+            <summary>
+            This is how VB Anonymous Types combine hash values for fields.
+            PERF: Do not use with enum types because that involves multiple
+            unnecessary boxing operations.  Unfortunately, we can't constrain
+            T to "non-enum", so we'll use a more restrictive constraint.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.Hash.FnvOffsetBias">
+            <summary>
+            The offset bias value used in the FNV-1a algorithm
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.Hash.FnvPrime">
+            <summary>
+            The generative factor used in the FNV-1a algorithm
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.Byte[])">
+            <summary>
+            Compute the FNV-1a hash of a sequence of bytes
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="data">The sequence of bytes</param>
+            <returns>The FNV-1a hash of <paramref name="data"/></returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.ReadOnlySpan{System.Byte},System.Boolean@)">
+            <summary>
+            Compute the FNV-1a hash of a sequence of bytes and determines if the byte
+            sequence is valid ASCII and hence the hash code matches a char sequence
+            encoding the same text.
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="data">The sequence of bytes that are likely to be ASCII text.</param>
+            <param name="isAscii">True if the sequence contains only characters in the ASCII range.</param>
+            <returns>The FNV-1a hash of <paramref name="data"/></returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.Collections.Immutable.ImmutableArray{System.Byte})">
+            <summary>
+            Compute the FNV-1a hash of a sequence of bytes
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="data">The sequence of bytes</param>
+            <returns>The FNV-1a hash of <paramref name="data"/></returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Compute the hashcode of a sub-string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            Note: FNV-1a was developed and tuned for 8-bit sequences. We're using it here
+            for 16-bit Unicode chars on the understanding that the majority of chars will
+            fit into 8-bits and, therefore, the algorithm will retain its desirable traits
+            for generating hash codes.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.String,System.Int32,System.Int32)">
+            <summary>
+            Compute the hashcode of a sub-string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            Note: FNV-1a was developed and tuned for 8-bit sequences. We're using it here
+            for 16-bit Unicode chars on the understanding that the majority of chars will
+            fit into 8-bits and, therefore, the algorithm will retain its desirable traits
+            for generating hash codes.
+            </summary>
+            <param name="text">The input string</param>
+            <param name="start">The start index of the first character to hash</param>
+            <param name="length">The number of characters, beginning with <paramref name="start"/> to hash</param>
+            <returns>The FNV-1a hash code of the substring beginning at <paramref name="start"/> and ending after <paramref name="length"/> characters.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.String,System.Int32)">
+            <summary>
+            Compute the hashcode of a sub-string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="text">The input string</param>
+            <param name="start">The start index of the first character to hash</param>
+            <returns>The FNV-1a hash code of the substring beginning at <paramref name="start"/> and ending at the end of the string.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.String)">
+            <summary>
+            Compute the hashcode of a string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="text">The input string</param>
+            <returns>The FNV-1a hash code of <paramref name="text"/></returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.Text.StringBuilder)">
+            <summary>
+            Compute the hashcode of a string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="text">The input string</param>
+            <returns>The FNV-1a hash code of <paramref name="text"/></returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Compute the hashcode of a sub string using FNV-1a
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="text">The input string as a char array</param>
+            <param name="start">The start index of the first character to hash</param>
+            <param name="length">The number of characters, beginning with <paramref name="start"/> to hash</param>
+            <returns>The FNV-1a hash code of the substring beginning at <paramref name="start"/> and ending after <paramref name="length"/> characters.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.GetFNVHashCode(System.Char)">
+            <summary>
+            Compute the hashcode of a single character using the FNV-1a algorithm
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            Note: In general, this isn't any more useful than "char.GetHashCode". However,
+            it may be needed if you need to generate the same hash code as a string or
+            substring with just a single character.
+            </summary>
+            <param name="ch">The character to hash</param>
+            <returns>The FNV-1a hash code of the character.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.CombineFNVHash(System.Int32,System.String)">
+            <summary>
+            Combine a string with an existing FNV-1a hash code
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="hashCode">The accumulated hash code</param>
+            <param name="text">The string to combine</param>
+            <returns>The result of combining <paramref name="hashCode"/> with <paramref name="text"/> using the FNV-1a algorithm</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.CombineFNVHash(System.Int32,System.Char)">
+            <summary>
+            Combine a char with an existing FNV-1a hash code
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="hashCode">The accumulated hash code</param>
+            <param name="ch">The new character to combine</param>
+            <returns>The result of combining <paramref name="hashCode"/> with <paramref name="ch"/> using the FNV-1a algorithm</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.Hash.CombineFNVHash(System.Int32,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Combine a string with an existing FNV-1a hash code
+            See http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+            </summary>
+            <param name="hashCode">The accumulated hash code</param>
+            <param name="data">The string to combine</param>
+            <returns>The result of combining <paramref name="hashCode"/> with <paramref name="data"/> using the FNV-1a algorithm</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.ResolveRelativePath(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.Boolean})">
+            <summary>
+            Resolves relative path and returns absolute path.
+            The method depends only on values of its parameters and their implementation (for fileExists).
+            It doesn't itself depend on the state of the current process (namely on the current drive directories) or 
+            the state of file system.
+            </summary>
+            <param name="path">
+            Path to resolve.
+            </param>
+            <param name="basePath">
+            Base file path to resolve CWD-relative paths against. Null if not available.
+            </param>
+            <param name="baseDirectory">
+            Base directory to resolve CWD-relative paths against if <paramref name="basePath"/> isn't specified. 
+            Must be absolute path.
+            Null if not available.
+            </param>
+            <param name="searchPaths">
+            Sequence of paths used to search for unqualified relative paths.
+            </param>
+            <param name="fileExists">
+            Method that tests existence of a file.
+            </param>
+            <returns>
+            The resolved path or null if the path can't be resolved or does not exist.
+            </returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.NormalizeAbsolutePath(System.String)">
+            <summary>
+            Normalizes an absolute path.
+            </summary>
+            <param name="path">Path to normalize.</param>
+            <exception cref="T:System.IO.IOException"/>
+            <returns>Normalized path.</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.CreateFileStreamChecked(System.Func{System.String,System.IO.Stream},System.String,System.String)">
+            <summary>
+            Used to create a file given a path specified by the user.
+            paramName - Provided by the Public surface APIs to have a clearer message. Internal API just rethrow the exception
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.GetFileTimeStamp(System.String)">
+            <exception cref="T:System.IO.IOException"/>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.GetFileLength(System.String)">
+            <exception cref="T:System.IO.IOException"/>
+        </member>
+        <member name="M:Roslyn.Utilities.FileUtilities.GetFileLengthAndTimeStamp(System.String,System.Int64@,System.DateTime@)">
+            <exception cref="T:System.IO.IOException"/>
+            <summary>
+            Preferred mechanism to obtain both length and last write time of a file. Querying independently
+            requires multiple i/o hits which are expensive, even if cached.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsDirectorySeparator(System.Char)">
+            <summary>
+            True if the character is the platform directory separator character or the alternate directory separator.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsAnyDirectorySeparator(System.Char)">
+            <summary>
+            True if the character is any recognized directory separator character.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.TrimTrailingSeparators(System.String)">
+            <summary>
+            Removes trailing directory separator characters
+            </summary>
+            <remarks>
+            This will trim the root directory separator:
+            "C:\" maps to "C:", and "/" maps to ""
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.EnsureTrailingSeparator(System.String)">
+            <summary>
+            Ensures a trailing directory separator character
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.GetDirectoryName(System.String)">
+            <summary>
+            Get directory name from path.
+            </summary>
+            <remarks>
+            Unlike <see cref="M:System.IO.Path.GetDirectoryName(System.String)"/> it doesn't check for invalid path characters
+            </remarks>
+            <returns>Prefix of path that represents a directory</returns>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.GetPathRoot(System.String)">
+            <summary>
+            Gets the root part of the path.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.GetPathKind(System.String)">
+            <summary>
+            Gets the specific kind of relative or absolute path.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsAbsolute(System.String)">
+            <summary>
+            True if the path is an absolute path (rooted to drive or network share)
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsDriveRootedAbsolutePath(System.String)">
+            <summary>
+            Returns true if given path is absolute and starts with a drive specification ("C:\").
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.CombineAbsoluteAndRelativePaths(System.String,System.String)">
+            <summary>
+            Combines an absolute path with a relative.
+            </summary>
+            <param name="root">Absolute root path.</param>
+            <param name="relativePath">Relative path.</param>
+            <returns>
+            An absolute combined path, or null if <paramref name="relativePath"/> is 
+            absolute (e.g. "C:\abc", "\\machine\share\abc"), 
+            relative to the current root (e.g. "\abc"), 
+            or relative to a drive directory (e.g. "C:abc\def").
+            </returns>
+            <seealso cref="M:Roslyn.Utilities.PathUtilities.CombinePossiblyRelativeAndRelativePaths(System.String,System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.CombinePossiblyRelativeAndRelativePaths(System.String,System.String)">
+            <summary>
+            Combine two paths, the first of which may be absolute.
+            </summary>
+            <param name="root">First path: absolute, relative, or null.</param>
+            <param name="relativePath">Second path: relative and non-null.</param>
+            <returns>null, if <paramref name="root"/> is null; a combined path, otherwise.</returns>
+            <seealso cref="M:Roslyn.Utilities.PathUtilities.CombineAbsoluteAndRelativePaths(System.String,System.String)"/>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.CombinePaths(System.String,System.String)">
+            <summary>
+            Combines paths with the same semantics as <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>
+            but does not throw on null paths or paths with invalid characters.
+            </summary>
+            <param name="root">First path: absolute, relative, or null.</param>
+            <param name="path">Second path: absolute, relative, or null.</param>
+            <returns>
+            The combined paths. If <paramref name="path"/> contains an absolute path, returns <paramref name="path"/>.
+            </returns>
+            <remarks>
+            Relative and absolute paths treated the same as <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsFilePath(System.String)">
+            <summary>
+            Determines whether an assembly reference is considered an assembly file path or an assembly name.
+            used, for example, on values of /r and #r.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.ContainsPathComponent(System.String,System.String,System.Boolean)">
+            <summary>
+            Determines if "path" contains 'component' within itself.
+            i.e. asking if the path "c:\goo\bar\baz" has component "bar" would return 'true'.
+            On the other hand, if you had "c:\goo\bar1\baz" then it would not have "bar" as a
+            component.
+            
+            A path contains a component if any file name or directory name in the path
+            matches 'component'.  As such, if you had something like "\\goo" then that would
+            not have "goo" as a component. That's because here "goo" is the server name portion
+            of the UNC path, and not an actual directory or file name.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.GetRelativePath(System.String,System.String)">
+            <summary>
+            Gets a path relative to a directory.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsChildPath(System.String,System.String)">
+            <summary>
+            True if the child path is a child of the parent path.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.PathsEqual(System.String,System.String)">
+            <summary>
+            True if the two paths are the same.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.PathsEqual(System.String,System.String,System.Int32)">
+            <summary>
+            True if the two paths are the same.  (but only up to the specified length)
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.IsValidFilePath(System.String)">
+            <summary>
+            Unfortunately, we cannot depend on Path.GetInvalidPathChars() or Path.GetInvalidFileNameChars()
+            From MSDN: The array returned from this method is not guaranteed to contain the complete set of characters
+            that are invalid in file and directory names. The full set of invalid characters can vary by file system.
+            https://msdn.microsoft.com/en-us/library/system.io.path.getinvalidfilenamechars.aspx
+            
+            Additionally, Path.GetInvalidPathChars() doesn't include "?" or "*" which are invalid characters,
+            and Path.GetInvalidFileNameChars() includes ":" and "\" which are valid characters.
+            
+            The more accurate way is to let the framework parse the path and throw on any errors.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.NormalizeWithForwardSlash(System.String)">
+            <summary>
+            If the current environment uses the '\' directory separator, replaces all uses of '\'
+            in the given string with '/'. Otherwise, returns the string.
+            </summary>
+            <remarks>
+            This method is equivalent to Microsoft.CodeAnalysis.BuildTasks.GenerateMSBuildEditorConfig.NormalizeWithForwardSlash
+            Both methods should be kept in sync.
+            </remarks>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.CollapseWithForwardSlash(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Replaces all sequences of '\' or '/' with a single '/' but preserves UNC prefix '//'.
+            </summary>
+        </member>
+        <member name="M:Roslyn.Utilities.PathUtilities.ExpandAbsolutePathWithRelativeParts(System.String)">
+            <summary>
+            Takes an absolute path and attempts to expand any '..' or '.' into their equivalent representation.
+            </summary>
+            <returns>An equivalent path that does not contain any '..' or '.' path parts, or the original path.</returns>
+            <remarks>
+            This method handles unix and windows drive rooted absolute paths only (i.e /a/b or x:\a\b). Passing any other kind of path
+            including relative, drive relative, unc, or windows device paths will simply return the original input. 
+            </remarks>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.Empty">
+            <summary>
+            Null or empty.
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.Relative">
+            <summary>
+            "file"
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.RelativeToCurrentDirectory">
+            <summary>
+            ".\file"
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.RelativeToCurrentParent">
+            <summary>
+            "..\file"
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.RelativeToCurrentRoot">
+            <summary>
+            "\dir\file"
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.RelativeToDriveDirectory">
+            <summary>
+            "C:dir\file"
+            </summary>
+        </member>
+        <member name="F:Roslyn.Utilities.PathKind.Absolute">
+            <summary>
+            "C:\file" or "\\machine" (UNC).
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.PerformanceSensitiveAttribute">
+            <summary>
+            Indicates that a code element is performance sensitive under a known scenario.
+            </summary>
+            <remarks>
+            <para>When applying this attribute, only explicitly set the values for properties specifically indicated by the
+            test/measurement technique described in the associated <see cref="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri"/>.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri">
+            <summary>
+            Gets the location where the original problem is documented, likely with steps to reproduce the issue and/or
+            validate performance related to a change in the method.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Constraint">
+            <summary>
+            Gets or sets a description of the constraint imposed by the original performance issue.
+            </summary>
+            <remarks>
+            <para>Constraints are normally specified by other specific properties that allow automated validation of the
+            constraint. This property supports documenting constraints which cannot be described in terms of other
+            constraint properties.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowCaptures">
+            <summary>
+            Gets or sets a value indicating whether captures are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowImplicitBoxing">
+            <summary>
+            Gets or sets a value indicating whether implicit boxing of value types is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowGenericEnumeration">
+            <summary>
+            Gets or sets a value indicating whether enumeration of a generic
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/> is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowLocks">
+            <summary>
+            Gets or sets a value indicating whether locks are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.OftenCompletesSynchronously">
+            <summary>
+            Gets or sets a value indicating whether the asynchronous state machine typically completes synchronously.
+            </summary>
+            <remarks>
+            <para>When <see langword="true"/>, validation of this performance constraint typically involves analyzing
+            the method to ensure synchronous completion of the state machine does not require the allocation of a
+            <see cref="T:System.Threading.Tasks.Task"/>, either through caching the result or by using
+            <see cref="T:System.Threading.Tasks.ValueTask`1"/>.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.IsParallelEntry">
+            <summary>
+            Gets or sets a value indicating whether this is an entry point to a parallel algorithm.
+            </summary>
+            <remarks>
+            <para>Parallelization APIs and algorithms, e.g. <c>Parallel.ForEach</c>, may be efficient for parallel entry
+            points (few direct calls but large amounts of iterative work), but are problematic when called inside the
+            iterations themselves. Performance-sensitive code should avoid the use of heavy parallelization APIs except
+            for known entry points to the parallel portion of code.</para>
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute">
+            <summary>Indicates which arguments to a method involving an interpolated string handler should be passed to that handler.</summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.</summary>
+            <param name="argument">The name of the argument that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String[])">
+            <summary>Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.</summary>
+            <param name="arguments">The names of the arguments that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.Arguments">
+            <summary>Gets the names of the arguments that should be passed to the handler.</summary>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute">
+            <summary>Indicates the attributed type is to be used as an interpolated string handler.</summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute.#ctor">
+            <summary>Initializes the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute"/>.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

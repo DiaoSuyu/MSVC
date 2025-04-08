@@ -1,0 +1,149 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "storage.azure",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureClients",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddBlobServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureClients",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddFileServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureClients",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddQueueServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddBlobServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddFileServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddQueueServiceClient",
+              "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

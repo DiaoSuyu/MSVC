@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html style="overflow-y:auto;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Performance Debugger Swimlanes</title>
+    <link href="css/view.css" type="text/css" rel="stylesheet" />
+    <link href="css/renderer.css" type="text/css" rel="stylesheet" />
+    <link href="css/ruler.css" type="text/css" rel="stylesheet" />
+    <link href="css/swimlane.css" type="text/css" rel="stylesheet" />
+    <link href="css/toolbar.css" type="text/css" rel="stylesheet" />
+    <link href="css/scrollbar.css" type="text/css" rel="stylesheet" />
+    <link href="css/multiLineGraph.css" type="text/css" rel="stylesheet" />
+    <link href="css/toolSelectionDropDownControl.css" type="text/css" rel="stylesheet" />
+    <script src="scripts/diagnosticsHub.js"></script>
+    <script src="scripts/knockout-3.4.0.js"></script>
+    <script type="text/html" id="toolSelectionView">
+        <button id="toolSelectionDropdown" class="toolbar-button" tabindex="0" data-bind="attr: {
+                'aria-label': (function() { const plugin = require('plugin-vs-v2'); return plugin.Resources.getString('/DiagnosticsHubSwimlaneResources/ToolSelectionDropDownHeaderText'); })()
+            },
+            css: {
+                flyoutActive: flyoutVisible()
+            },
+            ariaExpanded: flyoutVisible">
+            <div id="toolSelectionDropdownImage" class="button-image"></div>
+            <span class="button-text dropdown-button" data-bind="text: (function() { const plugin = require('plugin-vs-v2');  return plugin.Resources.getString('/DiagnosticsHubSwimlaneResources/ToolSelectionDropDownHeaderText'); })()" />
+        </button>
+        <ul id="toolSelectionFlyout" role="menu" data-bind="css: { flyoutActive: flyoutVisible() }, event: { keydown: onKeyDown }">
+            <!-- ko template: {foreach: tools} -->
+            <li data-bind="event: {
+                mouseenter: function(viewModel) { viewModel.hasFocus(viewModel.isSupported()); }
+                }">
+                <label class="flyoutItem" role="menuitem" data-bind="css: { hasFocus: hasFocus(), disabled: !isSupported() }">
+                    <input type="checkbox" tabindex="-1"
+                           data-bind="checked: isSupported() ? isActive : false, focus: hasFocus, enable: isSupported, attr: {
+                                'aria-label': toolName,
+                                'aria-checked': isActive(),
+                                'aria-disabled': !isSupported()
+                    }" />
+                    <span class="checkboxLabel" data-bind="text: toolName"></span>
+                </label>
+            </li>
+            <!-- /ko -->
+            <li id="toolSettingsItem" data-bind="with: toolSettingsItem">
+                <div class="flyoutItem" role="menuitem" tabindex="-1" data-bind="attr: { 'aria-label': ariaLabel },
+                     click: clickCommand,
+                     css: { hasFocus: hasFocus() },
+                     event: {
+                        mouseenter: function(viewModel) { viewModel.hasFocus(true); },
+                        keydown: onKeyDown
+                     },
+                     focus: hasFocus">
+                    <div id="settingsItemImage" class="button-image"></div>
+                    <span id="settingsText" class="checkboxLabel" data-bind="text: label"></span>
+                </div>
+            </li>
+        </ul>
+    </script>
+</head>
+<body>
+    <div id="mainContainer" class="base-container">
+    </div>
+    <script>
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                const diagnosticsHubSwimlanes = require("diagnosticsHub-swimlanes");
+                window.diagnosticsHubPerformanceDebuggerSwimlane = diagnosticsHubSwimlanes.getPerformanceDebuggerSwimlanesView();
+            }
+        })();
+    </script>
+</body>
+</html>

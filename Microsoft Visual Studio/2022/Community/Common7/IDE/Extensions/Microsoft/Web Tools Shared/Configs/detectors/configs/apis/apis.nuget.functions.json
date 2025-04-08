@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "apis.azure",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Azure.Functions.Worker.Extensions.OpenApi": "",
+      "Microsoft.Azure.WebJobs.Extensions.OpenApi": ""
+    }
+  }
+}

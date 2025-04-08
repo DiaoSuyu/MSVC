@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <Import Manifest="$(ManifestFolder)\..\..\Platform\Shell\Microsoft.VisualStudio.ImageCatalog.imagemanifest" />
+    <Guid Name="ImageAssets" Value="a848e2c2-6aab-4617-8538-d609e4271880" />
+    <ID Name="AssemblyImages" Value="1" />
+    <ID Name="OperationsImages" Value="2" />
+    <ID Name="ServicesImages" Value="3" />
+  </Symbols>
+  
+  <ImageLists>
+    
+    <ImageList Guid="$(ImageAssets)" ID="$(AssemblyImages)">
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(Assembly)" External="true" />
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(AssemblyWarning)" External="true" />
+    </ImageList>
+    
+    <ImageList Guid="$(ImageAssets)" ID="$(OperationsImages)">
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(MethodPublic)" External="true" />
+    </ImageList>
+
+    <!-- WARNING: The order of these images must match the IMAGEINDEX_* constants in ServiceInfoBaseNode. -->
+    <ImageList Guid="$(ImageAssets)" ID="$(ServicesImages)">
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(InterfaceInternal)" External="true" />
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(WebReferenceFolder)" External="true" />
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(WebService)" External="true" />
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(WebReferenceFolder)" External="true" />
+      <ContainedImage Guid="$(ImageCatalogGuid)" ID="$(InterfaceInternal)" External="true" />
+    </ImageList>
+    
+  </ImageLists>
+</ImageManifest>

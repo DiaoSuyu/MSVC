@@ -1,0 +1,24 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>switch</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>switch</Shortcut>
+    <Description>Fragment kódu pro příkaz switch</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>expression</ID>
+        <ToolTip>Výraz, u kterého se má použít příkaz switch</ToolTip>
+        <Default>switch_on</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[switch ($expression$) {
+    $end$
+    default:
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

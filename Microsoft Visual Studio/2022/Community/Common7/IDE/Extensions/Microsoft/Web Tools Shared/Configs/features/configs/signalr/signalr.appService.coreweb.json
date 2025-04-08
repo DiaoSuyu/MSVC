@@ -1,0 +1,35 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "signalr.code.startup",
+        "signalr.code.usings"
+      ]
+    },
+    "appServiceSettings": {
+      "modifiers": [
+        "signalr.appServiceSettings.webAppSettings"
+      ]
+    },
+    "appSettings": {
+      "modifiers": [
+        "signalr.appSettings"
+      ]
+    },
+    "msbuildProperty": {
+      "modifiers": [
+        "signalr.msbuildProperty"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "signalr.nuget.coreweb"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "signalr.serviceConnector.appService"
+      ]
+    }
+  }
+}

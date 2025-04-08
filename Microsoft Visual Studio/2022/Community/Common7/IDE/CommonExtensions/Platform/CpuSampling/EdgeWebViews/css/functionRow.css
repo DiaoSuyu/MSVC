@@ -1,0 +1,83 @@
+.treeGridContainer .name {
+    text-align: left;
+}
+
+    .treeGridContainer .name > span {
+        text-overflow: ellipsis;
+    }
+
+    .flatfunctions-functionRow > .name > .indent {
+        /* 
+            This is the same width and height of the grid expander so 
+            that function rows line up with their associated process rows 
+        */
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+    }
+
+.treeGridContainer .moduleName {
+    text-align: left;
+}
+
+.treeGridRow.emptyRow > td {
+    font-style: italic;
+    text-align: center;
+    color: var(--plugin-inactive-color, chartreuse);
+}
+
+.treeGridContainer .treeGridRow.emptyRow.selected > td {
+    color: inherit;
+}
+
+.flatFunctions-usageBar {
+    border: 1px solid var(--CpuUsageTool-FlatFunctionsUsageBarBackground-Background);
+    background-color: var(--CpuUsageTool-FlatFunctionsUsageBarBackground-Background, hotpink);
+    margin-left: auto;
+    border-radius: .25em;
+    right: 0px;
+    top: 0px;
+    height: 16px;
+}
+
+    .treeGridRow.selected .flatFunctions-usageBar {
+        background-color: transparent;
+    }
+
+.usage-container {
+    position: relative;
+}
+
+.flatFunctions-usage {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+}
+
+.flatFunctions-loadSource {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    bottom: 0px;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    background: var(--diagnosticsHub-goToToolWindow, url("../images/goToToolWindow.png")) no-repeat 0px 0px;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100%;
+}
+
+    .treeGridRow:hover > .name {
+        padding-right: calc(1em + 4px);
+    }
+
+   .treeGridRow:hover .flatFunctions-loadSource {
+        display: inline-block;
+    }

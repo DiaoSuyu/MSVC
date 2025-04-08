@@ -1,0 +1,15 @@
+{
+  "kind": "appSettings.connectionStrings",
+  "confidence": "Medium",
+  "featureId": "ef.sqlServer",
+  "componentId": "appSettings",
+  "model": {
+    "sections": [
+      "-ConnectionStrings",
+      "*"
+    ],
+    "visitors": [
+      "settings.sql.connectionString"
+    ]
+  }
+}

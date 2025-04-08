@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- NOTE: This file is generated from a template. Update the template instead and generate a new version of this file. -->
+<!-- Copyright (C) 1981-2007 Microsoft Corporation -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+    <noInheritable/>
+<assemblyIdentity type="win32" processorArchitecture="amd64" name="Automation\vsext.olb" version="1.0.0.0" />
+<file name="vsext.olb">
+    <typelib tlbid="{18beb7f2-ca98-11d1-b6e7-00a0c90f2744}" version="5.0" helpdir=""/>
+</file>
+</assembly>

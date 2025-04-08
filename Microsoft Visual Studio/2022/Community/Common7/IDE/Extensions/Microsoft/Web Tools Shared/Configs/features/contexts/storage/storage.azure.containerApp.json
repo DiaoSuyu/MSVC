@@ -1,0 +1,32 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "HasProjectCapability",
+                "capability": "CPS"
+              },
+              {
+                "kind": "HasProjectCapability",
+                "capability": ".NET"
+              }
+            ]
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "storage.azure.containerApp.coreweb"
+    }
+  ]
+}

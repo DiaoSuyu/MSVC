@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+    xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+    Title="GitHub Copilot Walkthrough"
+    Description="Get started with using GitHub Copilot as your personal AI pair programmer."
+    RequiredPackageNames="Microsoft.VisualStudio.Component.CoreEditor"
+    Id="CopilotWalkthrough"
+    SortOrder="001"
+    EstimatedMinutesToComplete="5"
+    IconPath="Copilot.png">
+  <vst:Step
+  Title="Add your GitHub account to Visual Studio"
+  Id="CopilotWalkthrough.SignIn">
+    <vst:Step.Description>
+      <![CDATA[
+Welcome to the GitHub Copilot Walkthrough! In this walkthrough, you'll get a brief introduction on how to set up and use GitHub Copilot in your development workflow.
+
+To get started with Copilot, [click here](vscmd://File.AccountSettings) to open the Visual Studio account settings page and add your GitHub account.
+
+Alternatively, add your GitHub account by clicking on the GitHub Copilot button in the top right corner of the Visual Studio window and adding your GitHub account.
+
+![Sign In](Sign_In.png)
+
+Not sure if you have a GitHub Copilot subscription? [Click here](https://github.com/settings/copilot) to get redirected to the GitHub settings page on your browser.
+
+]]>
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Chat with Copilot"
+    Id="CopilotWalkthrough.Chat"
+    ToolWindowToOpen="40ea2e6b-2121-4bb8-a43e-c83c04b51041">
+    <vst:Step.Description>
+      <![CDATA[
+Now, notice that the chat is on the right-hand side of Visual Studio. Try asking Copilot a general programming question, such as "What is .NET Core?". Copilot can also generate code snippets, fix problems, and scaffold tests.
+
+If the chat window is not open on the right, go to the top right corner and click **GitHub Copilot** > **Open Chat Window** {KeyboardShortcut:View.GitHub.Copilot.Chat}.
+
+![Chat with Copilot](2Walkthrough_2_1_AskGeneralQuestion-ezgif.com-gif-to-mp4-converter.mp4)
+
+Once you are familiar with the chat window, select **Continue** to proceed.
+
+]]>
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Get better results with slash commands and context"
+    Id="CopilotWalkthrough.Slash"
+    ToolWindowToOpen="40ea2e6b-2121-4bb8-a43e-c83c04b51041">
+    <vst:Step.Description>
+      <![CDATA[
+You can use slash commands in chat to specify your intentions with Copilot.
+
+Type `/` in the chat to view all available commands.
+
+Also, Copilot gives better suggestions with more information about what you want to do. You can include context from your IDE by typing `#` to include files, symbols, exceptions and more.
+
+Try using `#` to reference different forms of context in your chat window.
+
+![Reference file list](2Walkthrough_2_2_SlashReferences-ezgif.com-gif-to-mp4-converter.mp4)
+
+To learn more, check out this article on [tips and tricks for GitHub Copilot](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022).
+]]>
+
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Chat within your file"
+    Id="CopilotWalkthrough.InlineChat">
+    <vst:Step.Description>
+      <![CDATA[
+You can ask Copilot questions from your editor while working on your file. If you have a file open, place the cursor to the line you would like to change, and **Right Click** > **Ask Copilot** to open inline chat {KeyboardShortcut:Ask.Copilot, TextEditor}.
+
+![Inline chat](Walkthrough_3_1_InlineExample-ezgif.com-gif-to-mp4-converter.mp4)
+]]>
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Use comments to get better suggestions"
+    Id="CopilotWalkthrough.Completions">
+    <vst:Step.Description>
+      <![CDATA[
+Copilot seamlessly integrates into your editor! Collaborate with Copilot by outlining your idea in a comment, generating the implementation, and creating test suites.
+
+![Completions](Walkthrough_Completions.mp4)
+]]>
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Do even more with Copilot"
+    Id="CopilotWalkthrough.Do More">
+    <vst:Step.Description>
+      <![CDATA[
+You can also leverage the power of Copilot in other parts of Visual Studio such as:
+
+### Generating exception analysis
+![Exceptions](2Walkthrough_Exception_Analysis-ezgif.com-gif-to-mp4-converter.mp4)
+
+### Getting rename suggestions
+![Rename](Walkthrough_AutoRename-ezgif.com-gif-to-mp4-converter.mp4)
+
+### Generating commit messages
+![Commits](Walkthrough_GenerateGitCommitMessages-ezgif.com-gif-to-mp4-converter.mp4)]]>
+    </vst:Step.Description>
+  </vst:Step>
+  <vst:Step
+    Title="Learn more"
+    Id="CopilotWalkthrough.End">
+    <vst:Step.Description>
+      <![CDATA[
+Congratulations on completing the GitHub Copilot walkthrough! You are now ready to harness the power of AI in your development workflow.
+
+To learn more about GitHub Copilot in Visual Studio, check out these resources:
+
+[Video Resources](https://aka.ms/vsghcopilotyoutubeseries)
+
+[Documentation](https://aka.ms/guideslearnlink)]]>
+    </vst:Step.Description>
+  </vst:Step>
+</vst:Guide>

@@ -1,0 +1,19 @@
+{
+  "kind": "access.local",
+  "order": 10,
+  "model": {
+    "targetResourceId": "@@resourceId@@",
+    "roleDefinitionId": "17d1049b-9a84-46fb-8f53-869881c3d3ab",
+    "permissionsToCheck": [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+      "Microsoft.Storage/storageAccounts/queueServices/queues/delete",
+      "Microsoft.Storage/storageAccounts/queueServices/queues/read",
+      "Microsoft.Storage/storageAccounts/queueServices/queues/write",
+      "Microsoft.Storage/storageAccounts/tableServices/tables/delete",
+      "Microsoft.Storage/storageAccounts/tableServices/tables/read",
+      "Microsoft.Storage/storageAccounts/tableServices/tables/write"
+    ]
+  }
+}

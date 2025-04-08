@@ -1,0 +1,168 @@
+{
+  "properties": {
+    "test.loggingLevel": {
+      "title": "@LoggingLabelText;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "string",
+      "default": "informational",
+      "enum": [
+        "none",
+        "error",
+        "warning",
+        "informational",
+        "diagnostic",
+        "trace"
+      ],
+      "enumItemLabels": [
+        "@LogLevel_None;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+        "@LogLevel_Error;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+        "@LogLevel_Warning;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+        "@LogLevel_Informational;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+        "@LogLevel_Diagnostic;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+        "@LogLevel_Trace;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}"
+      ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.SelectedLogLevelIndex"
+          },
+          "map": [
+            {
+              "result": "none",
+              "match": 0
+            },
+            {
+              "result": "error",
+              "match": 1
+            },
+            {
+              "result": "warning",
+              "match": 2
+            },
+            {
+              "result": "informational",
+              "match": 3
+            },
+            {
+              "result": "diagnostic",
+              "match": 4
+            },
+            {
+              "result": "trace",
+              "match": 5
+            }
+          ]
+        }
+      }
+    },
+    "test.realTimeDiscovery": {
+      "title": "@RealTimeDiscoveryCheckBoxText;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.RealTimeDiscovery"
+          }
+        }
+      }
+    },
+    "test.autoDetectRunsettings": {
+      "title": "@RunSettingsDetectionOption;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": true,
+      "helpUri": "https://aka.ms/vs-runsettings",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.AutomaticallyDetectRunSettings"
+          }
+        }
+      }
+    },
+    "test.completionAudioCue": {
+      "title": "@PlayTestRunAudioCueOption;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": false,
+      "helpUri": "https://aka.ms/testaudiocue",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.PlayTestRunAudioCue"
+          }
+        }
+      },
+      "commands": [
+        {
+          "vsct": {
+            "text": "@ConfigureSoundLabel;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+            "set": "1E198C22-5980-4E7E-92F3-F73168D1FB63",
+            "id": 855
+          }
+        }
+      ]
+    },
+    "test.showTestAfterRunStart": {
+      "title": "@ShowTestAfterTestRunCheckBoxText;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.ShowTestAfterTestRun"
+          }
+        }
+      }
+    },
+    "test.runUntilFailureIterations": {
+      "title": "@IterationsToStopRunUntilFailure;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "integer",
+      "default": 1000,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.RunUntilFailureTestRunIterations"
+          }
+        }
+      }
+    },
+    "test.autoInstallRuntimePrereqs": {
+      "title": "@AutoInstallRuntimePrereqsOption;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": false,
+      "helpUri": "http://aka.ms/remotetesting",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.AutomaticallyInstallRuntimePrereqs"
+          }
+        }
+      }
+    },
+    "test.hotReload": {
+      "title": "@HotReloadTestRunCheckBoxText;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "type": "boolean",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.TestWindow.VsHost.ToolsOptions.HotReloadTestRun"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "test": {
+      "title": "@111;{BFC24BF4-B994-4757-BCDC-1D5D2768BF29}",
+      "legacyOptionPageId": "7E6DB52F-3A9D-476B-BBD0-C928D38A0893"
+    }
+  }
+}

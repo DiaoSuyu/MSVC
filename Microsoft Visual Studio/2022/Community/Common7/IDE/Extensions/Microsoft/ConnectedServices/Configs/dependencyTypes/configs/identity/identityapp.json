@@ -1,0 +1,8 @@
+{
+  "requirements": [
+    "dotnetMsIdentity"
+  ],
+  "persistenceProperties": {
+    "$ref": "/definitions/common.json#/identityPersistenceProperties"
+  }
+}

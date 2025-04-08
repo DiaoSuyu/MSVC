@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>复制文件 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将文件 Source.txt 复制到第二个文件 Copy.txt。</Description>
+      <Shortcut>filCopyFile</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Source</ID>
+          <Type>String</Type>
+          <ToolTip>替换为源文件名。</ToolTip>
+          <Default>"C:\Source.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>Destination</ID>
+          <Type>String</Type>
+          <ToolTip>替换为目标文件夹名称。</ToolTip>
+          <Default>"C:\NewFolder\Dest.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.CopyFile($Source$, $Destination$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

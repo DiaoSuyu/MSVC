@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Diagnostic Analysis Window</title>
+    <link rel="stylesheet" href="Controls/WebView2/DataGrid.css" type="text/css" data-plugin-theme="true" />
+    <link rel="stylesheet" href="Controls/WebView2/TreeGrid.css" type="text/css" data-plugin-theme="true" />
+    <link rel="stylesheet" href="DiagnosticAnalysisWindow.css" type="text/css" data-plugin-theme="true" />
+    <script src="Controls/WebView2/diagnosticsHub.js" data-include-ui="true" type="text/javascript"></script>
+    <script src="ResultsParser.min.js" type="text/javascript"></script>
+    <script src="DiagnosticAnalysisWindow.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            /*
+             * Use this initialization instead of above if you need to debug using F12 on startup.
+             * This delays plugin and daytona setup until a created "start" button is hit.
+             * To debug, simply run the window, attach F12 and press the "start" button.
+             *
+            var b = document.createElement("button");
+            b.innerText = "Start";
+            b.addEventListener("click", function () {
+                plugin.Messaging.addEventListener("pluginready", pluginLoaded());
+            });
+            document.body.appendChild(b);
+            */
+
+            function showSimpleError(msg, url, line) {
+                alert("Error : " + msg);
+            }
+
+            async function pluginLoaded() {
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+                // By default VS handles clipboard keys (eg. "Ctrl + C") and prevents our keydown events.
+                // This enables WebView2 to handle the events first.
+                plugin.HotKeys.setClipboardState(true);
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                // For debugging purposes, override the error handler so that we can reload the page
+                // after an exception.
+                //window.onerror = showSimpleError;
+
+                // this must be done after the above shim, so the controls can
+                // find knockout.js
+                var daw = require("DiagnosticAnalysisWindow");
+                let adaptor = plugin.JSONMarshaler.attachToMarshaledObject("DiagnosticAnalysisObject", {}, true);
+                window.DiagnosticAnalysisViewer = new daw.DiagnosticAnalysisViewer(adaptor);
+                // The diagnostics hub views will override this error binding. Set it back.
+                //window.onerror = showSimpleError;
+
+                // The following code is based on DiagnosticsHub's Logger.ts initialization
+                // and is required to hook up the Apex test infra to our window.
+                // The DiagnosticsHub repo uses the "ApexJSExtension" marshaler, but VS
+                // uses "ApexExtensionMarshaler" instead - see src/edev/diagShared/QA/ApexJS/ApexExtensionMarshaler.cs.
+                try {
+                    const apex = plugin.JSONMarshaler.attachToMarshaledObject("Microsoft.Test.Apex.VisualStudio.JavaScriptInjection.ApexExtensionMarshaler", {}, true);
+                    if (apex !== null) {
+                        const result = await (apex._call("getApexJavaScript"));
+                        if (result) {
+                            console.log("got apex javascript files");
+                            const scriptObj = document.createElement("script");
+                            scriptObj.setAttribute("type", "text/javascript");
+                            scriptObj.setAttribute("src", result);
+                            scriptObj.onload = () => {
+                                const apex = require("TestExtension");
+                                apex.getApexTestHookService();
+                            };
+                            const head = document.getElementsByTagName("head");
+                            if (head) {
+                                head[0].appendChild(scriptObj);
+                                console.log(`Added ApexJSExtension '${result}' to document`);
+                            } else {
+                                console.log("Unable to add apex script to document");
+                            }
+                        } else {
+                            console.log("no file was returned by getApexJavaScript, cannot inject TestExtension.ts for ApexJS framework");
+                        }
+                    } else {
+                        console.log("Unable to connect to port marshaler 'Microsoft.Test.Apex.DiagnosticsHub.ApexJSExtension'");
+                    }
+                } catch (e) {
+                    console.error(e ? e.toString() : "Unknown exception");
+                }
+
+                // refresh after construction is complete.
+                window.DiagnosticAnalysisViewer.refreshAnalysisModel();
+            }
+        })();
+    </script>
+
+    <!-- Template for the rows of the results list. Note: DO NOT PUT WHITESPACE before the table row definition. There is a bug in
+         the DataGridView that will cause a crash with whitespace in the template. -->
+    <script type="text/html" id="ResultListRowTemplate"><tr class="dataGridRow" role="row" tabindex="-1" data-bind="dataGridRowFocus: $parent.focusedRow()===$data, css: {selected: selected()}">
+            <td role="gridcell" class="resultSeverity" data-bind="attr: {'aria-label': severityLabel }" data-columnid="resultSeverity">
+                <div role="img" width="16px" height="16px" class="icon" data-bind="css: iconStatusClassName, attr: {'aria-label': severityLabel, 'alt': severityLabel, 'data-plugin-vs-tooltip': severityLabel">
+                    <!-- We need to have an inner div here with the label text because the narrator does not read the aria-label of images in the row for some reason-->
+                    <div style="display: none;" data-bind="text: severityLabel"></div>
+                </div>
+            </td>
+            <td role="gridCell" class="resultCode" data-bind="text: resultCode" data-columnid="resultCode"></td>
+            <td role="gridCell" class="resultName" data-columnid="resultName">
+                <span data-bind="text: resultName"></span>
+            </td>
+        </tr>
+    </script>
+
+    <!-- Note: the role for each row has to be "treeitem", not "row", otherwise the checked state will not be read by screen readers. -->
+    <script type="text/html" id="AnalyzerListRowTemplate"><tr class="treeGridRow" role="treeitem" tabindex="-1" data-bind="
+            treeGridRowFocus: $parent.focusedRow()===$data,
+            ariaExpanded: { expandable: expandable, expanded: expanded },
+            ariaCheckedState: checkedState,
+            attr: { 'aria-level': depth + 1 },
+            css: {selected: selected()}">
+            <td role="gridcell" class="name" data-columnid="name" tabindex="-1">
+                <span data-bind="rowIndent: depth">&nbsp;</span>
+                <div data-bind="treeGridExpander: expanded, style: {visibility: arrowVisibility}"></div>
+                <input type="checkbox" tabindex="-1" data-bind="checkedState: checkedState, click: onCheckboxClick, attr: { 'title': name }" />
+                <span aria-hidden="true" data-bind="text: name"></span>
+            </td>
+        </tr>
+    </script>
+
+    <div id="errorArea" data-bind="if: error">
+        <span data-bind="text: error"></span>
+    </div>
+    <div data-bind="if: currentProcess">
+        <div id="processArea" data-bind="with: currentProcess">
+            <span id="processHeader" data-bind="text: processHeader"></span>
+            <div id="analysesListSection" data-bind="with: AnalyzerListViewModel">
+                <div data-bind="visible: areAnalysesVisible" tabindex="0">
+                    <div id="analyzerList" data-bind="
+                        template: {
+                        name: 'TreeGridView',
+                        data: analyzerList,
+                        afterRender: onAfterRender }">
+                    </div>
+                    <button id="analyzeButton" data-bind="
+                        text: analyzeButtonLabel,
+                        enable: canRunAnalysis,
+                        click: window.DiagnosticAnalysisViewer.analyzeButtonClicked.bind(window.DiagnosticAnalysisViewer)">
+                    </button>
+                </div>
+            </div>
+
+            <hr />
+
+            <div id="analysisResultSection" data-bind="with: ResultsAreaViewModel">
+                <div id="errorMessage" data-bind="visible: isErrorVisible, text: errorString" tabindex="0" aria-live="polite"></div>
+                <div id="resultsArea" data-bind="visible: isResultsVisible" aria-live="polite">
+                    <span class="boldtext" id="resultLabel" data-bind="text: resultHeader" tabindex="0" role="heading"></span>
+                    <div id="resultList"
+                         data-bind="template: {
+                                        name: 'DataGridView',
+                                        data: resultListViewModel.dataGrid,
+                                        afterRender: onAfterRender },
+                                        localizedAriaLabel: 'ResultsListAriaLabel'">
+                    </div>
+                    <div id="resultDetails" data-bind="visible: isDetailsVisible" style="margin-top: 1em;">
+                        <div style="display: inline;" data-bind="template: {name: 'DetailItemView', foreach: detailedResults}, localizedAriaLabel: 'ResultDetailItemAriaLabel'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

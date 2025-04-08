@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Using 语句</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>插入 Using 语句。</Description>
+      <Shortcut>Using</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>DisposeObject</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为对象的变量名。</ToolTip>
+          <Default>resource</Default>
+        </Object>
+        <Literal>
+          <ID>ObjectType</ID>
+          <Type></Type>
+          <ToolTip>替换为 Type 或 New 语句。</ToolTip>
+          <Default>New Object</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Using $DisposeObject$ As $ObjectType$
+
+End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

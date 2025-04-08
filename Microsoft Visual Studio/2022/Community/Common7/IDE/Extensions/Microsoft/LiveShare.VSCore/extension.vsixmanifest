@@ -1,0 +1,41 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.LiveShare.VSCore" Version="2.0.2373.1" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Live Share VS Core</DisplayName>
+    <Description xml:space="preserve">VS core components for Live Share, real-time collaborative development from the comfort of your favorite tools.</Description>
+    <PackageId>Microsoft.VisualStudio.LiveShare.VSCore</PackageId>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation SystemComponent="true" AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <!-- Include the pkgdef files in the auto-generated clientenabledpkg file -->
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="DebuggerService.VSCore.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.VSIX.VSCore.pkgdef" />
+    <!-- Vsls file system provider -->
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.VslsFileSystemProvider.VSCore.pkgdef" />
+    <!-- Service Broker Integration -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.ServiceBrokerIntegration.VSCore.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.ServiceBrokerIntegration.VSCore.pkgdef" />
+    <!-- Workspace -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Workspace.VSCore.dll" />
+    <!-- CPS -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.CPS.VSCore.dll" />
+    <!-- Language Services -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LanguageServices.LanguageExtension.VSCore.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LanguageServices.Remote.VSCore.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LanguageServices.Remote.CSharpLanguageServiceFactories.VSCore.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LanguageServices.Remote.TypeScriptCollabService.VSCore.dll" />
+    <!-- Debugger Services -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.DebuggerService.VSCore.dll" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

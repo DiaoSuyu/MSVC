@@ -1,0 +1,10 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "Web"
+      }
+    }
+  ]
+}

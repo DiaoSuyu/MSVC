@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    cursor: default;
+}
+
+#plugin-contextmenu-container {
+    /**
+     * This puts the plugin context menu element behind all of our view
+     * so that it does not intercept any events. This element is only used
+     * to generate HTML passed to the context menu ScriptedSandbox instance
+     * and is never shown on this DOM.
+     */
+    z-index: -1;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--plugin-font-family, "Segoe Script"), Arial, sans-serif;
+    font-size: var(--plugin-font-size, 12px);
+    color: var(--plugin-color, rgb(0, 0, 0));
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+}
+
+.mainArea {
+    grid-row: 2;
+    grid-column: 1;
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Toolbar style overrides */
+.toolbar-container {
+    grid-row: 1;
+}
+
+    .toolbar-container > * {
+        margin: auto 3px;
+    }
+
+    .toolbar-container > *:first-child {
+        /** This anchors our content to the right side of the toolbar */
+        margin-left: auto;
+    }
+
+    .toolbar-container .filter[placeholder] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.dataGridContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.dataGridContainer .left-align {
+    text-align: left;
+}
+
+#message-overlay {
+    grid-row: 3;
+    grid-column: 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 10000;
+    transition: opacity .25s, height 0s;
+    background-color: var(--plugin-background-color, rgba(200, 200, 200, 0.50));
+}
+
+    #message-overlay.hide {
+        height: 0px;
+        opacity: 0;
+        transition: opacity .25s, height 0 .25s;
+    }
+
+    #message-overlay > div {
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 30%;
+        text-align: center;
+    }
+
+    #message-overlay span {
+        display: block;
+        background-color: var(--plugin-background-color, rgba(200, 200, 200, 0.50));
+    }
+
+    #message-overlay progress {
+        display: block;
+        margin: 5px auto;
+        color: var(--ProgressBar-IndicatorFill-Background, fuchsia);
+        background-color: var(--ProgressBar-Background-Background, red);
+    }

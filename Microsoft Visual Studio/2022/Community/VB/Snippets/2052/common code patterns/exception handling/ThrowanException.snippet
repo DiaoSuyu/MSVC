@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>引发异常 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>引发异常。</Description>
+      <Keywords>
+      </Keywords>
+      <Shortcut>Throw</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>exceptionType</ID>
+          <Type>Exception</Type>
+          <ToolTip>替换为要引发的异常的类型。</ToolTip>
+          <Default>ArgumentException</Default>
+        </Literal>
+        <Literal>
+          <ID>exceptionMsg</ID>
+          <Type>String</Type>
+          <ToolTip>替换为异常消息。</ToolTip>
+          <Default>"Exception Occured"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Throw New $exceptionType$($exceptionMsg$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

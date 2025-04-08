@@ -1,0 +1,18 @@
+; NOTE: This string needs to stay in sync with Protocol\RpcDescriptors.cs
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.DiagnosticsHub.Internal.DataWarehouseInitializer\0.1]
+; NOTE: This is the global service hub client package
+@="11AD60FC-6D87-4674-8F88-9ABE79176CBE"
+"IsServiceHub"=dword:00000001
+"ServiceLocation"="$BaseInstallDir$\Common7\ServiceHub\Services\DataWarehouseServiceModule"
+; NOTE: 0x1 = ServiceAudience.Process /* 0x1 */
+"audience"=dword:00000001
+
+; Version 0.2 is the version that runs under the CoreClr
+; NOTE: This string needs to stay in sync with Protocol\RpcDescriptors.cs
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.DiagnosticsHub.Internal.DataWarehouseInitializerCore\0.2]
+; NOTE: This is the global service hub client package
+@="11AD60FC-6D87-4674-8F88-9ABE79176CBE"
+"IsServiceHub"=dword:00000001
+"ServiceLocation"="$BaseInstallDir$\Common7\ServiceHub\Services\DataWarehouseServiceModuleCore"
+; NOTE: 0x1 = ServiceAudience.Process /* 0x1 */
+"audience"=dword:00000001

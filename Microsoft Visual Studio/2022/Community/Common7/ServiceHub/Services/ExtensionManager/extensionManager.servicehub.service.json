@@ -1,0 +1,10 @@
+{
+  "host": "dotnet",
+  "hostId": "VSDetouredHost",
+  "entryPoint":
+  {
+    "assemblyPath": "Microsoft.VisualStudio.ExtensionManager.ServiceModule.dll",
+    "fullClassName": "Microsoft.VisualStudio.ExtensionManager.ServiceModule.ExtensionManagerServiceModule",
+    "assemblySearchPathsConfig": "AssemblySearchPathsConfig.json"
+  }
+}

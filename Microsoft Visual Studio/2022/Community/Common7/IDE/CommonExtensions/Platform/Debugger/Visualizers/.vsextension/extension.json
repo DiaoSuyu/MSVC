@@ -1,0 +1,113 @@
+{
+  "parts": [
+    {
+      "contract": "Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IDebuggerVisualizerProvider",
+      "serviceMoniker": {
+        "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.DataSetVisualizerProvider",
+        "version": "17.0"
+      },
+      "metadata": [
+        {
+          "name": "DebuggerVisualizerProviderConfiguration",
+          "values": {
+            "targets": [
+              {
+                "visualizerDisplayName": "%DataSetVisualizer.DisplayName%",
+                "targetType": "System.Data.DataSet, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+              },
+              {
+                "visualizerDisplayName": "%DataTableVisualizer.DisplayName%",
+                "targetType": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+              },
+              {
+                "visualizerDisplayName": "%DataViewVisualizer.DisplayName%",
+                "targetType": "System.Data.DataView, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+              },
+              {
+                "visualizerDisplayName": "%DataViewManagerVisualizer.DisplayName%",
+                "targetType": "System.Data.DataViewManager, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+              }
+            ],
+            "style": "ToolWindow",
+            "visualizerObjectSourceType": {
+              "type": "Microsoft.VisualStudio.Debugger.DataSetVisualizer.DataSetVisualizerSource, DataSetVisualizer.DebuggeeSide, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "contract": "Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IDebuggerVisualizerProvider",
+      "serviceMoniker": {
+        "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.IEnumerableVisualizerProvider",
+        "version": "17.0"
+      },
+      "metadata": [
+        {
+          "name": "DebuggerVisualizerProviderConfiguration",
+          "values": {
+            "targets": [
+              {
+                "visualizerDisplayName": "%IEnumerableVisualizer.DisplayName%",
+                "targetType": "System.Collections.Generic.IEnumerable`1, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+              }
+            ],
+            "style": "ToolWindow",
+            "visualizerObjectSourceType": {
+              "type": "Microsoft.VisualStudio.Debugger.IEnumerableVisualizer.IEnumerableVisualizerSource, IEnumerableVisualizer.DebuggeeSide, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "commandSets": [
+    {
+      "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPoint",
+      "serviceMoniker": {
+        "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPointCommandSet",
+        "version": "17.0"
+      },
+      "commands": [],
+      "dynamicCommandAnchors": []
+    }
+  ],
+  "services": [
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.DataSetVisualizerProvider",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "17.0",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.dll",
+        "fullClassName": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPoint"
+      },
+      "allowHostingInProcess": true
+    },
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.IEnumerableVisualizerProvider",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "17.0",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.dll",
+        "fullClassName": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPoint"
+      },
+      "allowHostingInProcess": true
+    },
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPointCommandSet",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "17.0",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.dll",
+        "fullClassName": "Microsoft.VisualStudio.DebuggerVisualizers.ExtensionProviders.ExtensionEntryPoint"
+      },
+      "allowHostingInProcess": true
+    }
+  ]
+}

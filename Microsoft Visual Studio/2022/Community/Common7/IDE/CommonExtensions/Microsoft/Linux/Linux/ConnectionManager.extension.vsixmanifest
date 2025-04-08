@@ -1,0 +1,17 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.Linux.ConnectionManager.AA6CEE42-8D61-4A10-9CCE-DA20CAE71715" Version="1.0" Language="en-US" Publisher="Microsoft" />
+    <Locale>1033</Locale>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation InstalledByMsi="true" SystemComponent="true">
+    <InstallationTarget Version="14.0" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" Version="[14.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Linux.ConnectionManager.pkgdef" />
+  </Assets>
+</PackageManifest>

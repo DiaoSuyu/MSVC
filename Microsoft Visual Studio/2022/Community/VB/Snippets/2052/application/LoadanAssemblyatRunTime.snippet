@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>运行时加载程序集</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>运行时加载程序集。</Description>
+      <Shortcut>appLoad</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Reflection</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>fileName</ID>
+          <Type>String</Type>
+          <ToolTip>程序集文件的完整路径。</ToolTip>
+          <Default>"C:\Folder\AssemblyName.dll"</Default>
+        </Literal>
+        <Object>
+          <ID>loadedAssembly</ID>
+          <Type>Assembly</Type>
+          <ToolTip>存储正在加载的程序集的 Assembly 对象。</ToolTip>
+          <Default>loadedAssembly</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$loadedAssembly$ = Assembly.LoadFile($fileName$)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

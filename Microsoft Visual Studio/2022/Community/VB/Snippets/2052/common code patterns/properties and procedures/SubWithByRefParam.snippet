@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义使用 ByRef 参数的 Sub</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义参数值可以由方法中的代码更改的 Sub。</Description>
+      <Shortcut>SubByRef</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>MethodName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为方法名称。</ToolTip>
+          <Default>MyMethod</Default>
+        </Literal>
+        <Literal>
+          <ID>ParameterName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为参数名称。</ToolTip>
+          <Default>paramName</Default>
+        </Literal>
+        <Object>
+          <ID>ParameterType</ID>
+          <Type>Type</Type>
+          <ToolTip>替换为参数类型</ToolTip>
+          <Default>String</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Sub $MethodName$(ByRef $ParameterName$ As $ParameterType$)
+
+End Sub]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

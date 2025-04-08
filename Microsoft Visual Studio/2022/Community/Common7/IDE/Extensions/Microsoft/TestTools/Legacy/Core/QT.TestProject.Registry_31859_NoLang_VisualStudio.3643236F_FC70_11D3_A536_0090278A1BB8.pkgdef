@@ -1,0 +1,12 @@
+[$RootKey$\EnterpriseTools\QualityTools\RunConfig]
+"TemplateFolder"="$ShellFolder$\Team Tools\Testing Tools\TestProjectCommon\Templates\TestSettings"
+
+[$RootKey$\Projects\{2150E333-8FDC-42a3-9474-1A3956D46DE8}\AddItemTemplates\TemplateDirs\{52CBD135-1F97-2580-011F-C7CD052E44DE}\/1]
+@="#600"
+"SortPriority"=dword:00000064
+"TemplatesDir"="$ShellFolder$\Team Tools\Testing Tools\TestProjectCommon\WizardFiles\TestSettings"
+
+[$RootKey$\Projects\{3AC096D0-A1C2-E12C-1390-A8335801FDAB}]
+@="Test Project"
+"Package"="{52CBD135-1F97-2580-011F-C7CD052E44DE}"
+"DeferredImageMoniker"="KnownMonikers.TestApplication"

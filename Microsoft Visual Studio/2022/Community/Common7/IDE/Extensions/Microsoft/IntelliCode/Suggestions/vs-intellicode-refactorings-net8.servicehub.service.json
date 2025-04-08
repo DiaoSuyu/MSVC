@@ -1,0 +1,8 @@
+﻿{
+  "host": "dotnet",
+  "hostGroupAllowed": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.IntelliCode.Refactorings.dll",
+    "fullClassName": "Microsoft.VisualStudio.IntelliCode.Refactorings.RefactoringsService"
+  }
+}

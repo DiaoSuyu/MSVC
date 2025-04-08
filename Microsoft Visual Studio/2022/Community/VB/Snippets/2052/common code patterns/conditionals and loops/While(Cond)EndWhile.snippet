@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>While...End While 语句</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>插入 While...End While 语句。</Description>
+      <Shortcut>While</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>Condition</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为计算结果是 True 或 False 的表达式。</ToolTip>
+          <Default>True</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[While $Condition$
+
+End While]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

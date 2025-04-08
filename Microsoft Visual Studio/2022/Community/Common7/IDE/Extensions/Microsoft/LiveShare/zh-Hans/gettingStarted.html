@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="html-body" lang="en" id="document">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <!--Getting Started Page Content Start--DO NOT TRANSLATE THIS COMMENT-->
+    <div id="simple-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">实时协作开发</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4 id="simple-page-welcome-title">欢迎使用 Visual Studio Live Share!</h4>
+        </div>
+        <div id="simple-page-sections">
+            <div id="user-guide" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--BookAnswers"></span>
+                </div>
+                <p>想知道如何使用 Live Share?</p>
+                <a class="simple-page-button" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vs" target="_blank">用户指南</a>
+            </div>
+
+            <div id="join-yourself" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--Touch"></span>
+                </div>
+                <p>了解如何使用 Live Share</p>
+                <button class="simple-page-button" id="simple-page-join-yourself-button">自行加入</button>
+            </div>
+
+            <div id="copy-link" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--PageLink"></span>
+                </div>
+                <p>通过电子邮件或聊天邀请其他人加入你的会话</p>
+                <button id="simple-page-url-copy-button" class="simple-page-button">复制链接</button>
+            </div>
+        </div>
+    </div>
+    <div id="control-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">实时协作开发</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4>欢迎使用 Visual Studio Live Share!</h4>
+        </div>
+        <p> 只需简单几步即可让团队开始进行协作编辑和调试:</p>
+
+        <div id="step-sign-in" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button">启动登录</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">为什么要登录？</h3>
+                        <p>
+                            协作时，有必要让其他人能确定你是谁，这样他们才能放心地
+                           共享对其代码和开发环境的访问权限。登录后，你将获得读写权限，从而能够与主持人共同编辑代码。
+                        </p>
+                        <p>
+                            为便于入门，
+                            你可使用现有 GitHub 或 Microsoft 帐户进行登录。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-sign-in-before-share" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button-before-share">启动登录</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">为什么要登录？</h3>
+                        <p>
+                            协作时，有必要让其他人能确定你是谁，这样他们才能放心地
+                            共享对其代码和开发环境的访问权限。登录后即可共享工作区并与其他人协作。
+                        </p>
+                        <p>
+                            为便于入门，
+                            你可使用现有 GitHub 或 Microsoft 帐户进行登录。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-share" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Share"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">共享</h3>
+                    <p>单击右上角的 "Live Share" 按钮进行项目共享，再将唯一会话 URL 复制到剪贴板<i></i>。</p>
+                    <!--<img src="https://aka.ms/vsls/quickstart/share" width="136px" alt="Visual Studio Code 共享状态栏项目" />-->
+                    <p>(使用 GitHub 或 Microsoft 帐户)首次共享时，你将需要登录，这样其他人才能在协作时确定你的身份。</p>
+                    <img  class="signin-image" src="https://aka.ms/vsls/vs-signin" />
+                    <blockquote>
+                        <p>在 Windows 上，系统可能会要求你允许 Live Share 打开防火墙端口，以实现对等连接。</p>
+                    </blockquote>
+                    <p>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Edit" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Edit"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">编辑</h3>
+                    <p>你现在进行协作会话，你可移动光标、编辑和突出显示文本。你还能看到其他参与者在执行相同操作。</p>
+                    <p>通过单击“已加入”下拉菜单或右上角的参与者图标，可以访问所有 Live Share 功能。</p>
+                    <p>你可在此处查看会话参与者以及已共享的服务器和终端。</p>
+                    <ul class="list">
+                        <li><p>移动到代码中的其他文件。可在项目中导航。</p></li>
+                        <li><p>关注参与者并提醒其关注你正在查看的代码片段。</p></li>
+                        <li><p>通过单击右上角的姓名跟随会话中的任何参与者。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Debug" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Bug"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">调试</h3>
+                    <p>使用许多协作调试功能与你的团队实时完成问题/疑问/任务。</p>
+                    <ul class="list">
+                        <li><p> 在位于调试会话中时共同调试、设置断点，还可实时协作。</p></li>
+                        <li><p>☁️ 可查看共享服务器，方式是单击“已加入”下拉菜单来查看主持人在本地运行的 Web 应用和数据库等</p></li>
+                        <li><p> 可显示共享终端，方式是单击“已加入”下拉菜单来查看或在主机的终端运行命令。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-invite" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--ChatInviteFriend"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">邀请</h3>
+                    <p>使用电子邮件、Skype 和 Slack 等将会话 URL 发送到你与之协作的开发人员(最多 5 名!)。要详细了解安全共享，请<a id="security-info-link" href="https://aka.ms/vsls-security" target="_blank">查看安全信息</a>。</p>
+                    <p id="join-uri">协作会话 URL: <div id="join-uri-box" class="box">${this.joinUri}</div></p><button id="join-uri-copy-button">复制邀请链接</button>
+                    <!--<img src="https://aka.ms/vsls/quickstart/invite" width="450px" />-->
+                    <blockquote>
+                        <p>想要评估 VS Live Share 但未与任何人协作? 没问题! 实际上，你可与其他 VS 实例中的自己进行共享。<a id="share-with-yourself-link" href="${this.joinUri}" target="_blank">请单击此处进行尝试。</a></p>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-collaborate" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--People"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">协作</h3>
+                    <p>搞定! 受邀“来宾”加入后，你将立即收到通知，并将在当前打开的文件中看到其光标。所有来宾都将开始<a id="following-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">跟随</a>你，这意味着在你滚动查看或在文件间导航时，这些来宾也将跟踪这些操作。这样，你可以轻松地向他们介绍你要开始协作处理的问题/难点/任务。</p>
+                    <img class="notification-image" src="https://aka.ms/vsls/vs-join-notification" />
+                    <p>此外，为充分利用 Live Share，请尝试以下几项内容:</p>
+                    <ul class="list">
+                        <li>移动光标、编辑和突出显示文本，还可观看来宾执行同样的操作</li>
+                        <li><a id="follow-guest-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">跟踪来宾</a>，让其滚动和/或导航到其他文件</li>
+                        <li><a id="share-debug-session-link" href="https://aka.ms/vsls-docs/vs#co-debugging" target="_blank">共享调试会话</a>，方式是按 F5，再实时同步协作</li>
+                        <li><a id="share-server-link" href="https://aka.ms/vsls-docs/vs#share-a-server" target="_blank">共享服务器</a>，让来宾能够查看在本地运行的 Web 应用和数据库等</li>
+                        <li><a id="share-terminal-link" href="https://aka.ms/vsls-docs/vs#share-a-terminal" target="_blank">共享终端</a>并协同运行命令</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <p class=" bottom-text">如果遇到任何问题，请参阅我们的<a id="troubleshooting-link" href="http://aka.ms/vsls-troubleshooting" target="_blank">疑难解答文档</a>了解潜在的解决方法。此外，如有任何疑问和/或反馈，请随时使用“帮助”菜单中的“发送反馈”选项联系相关团队<i></i><i></i>。</p>
+        <!--Getting Started Page Content End--DO NOT TRANSLATE THIS COMMENT-->
+    </div>
+    </body>
+    </html>

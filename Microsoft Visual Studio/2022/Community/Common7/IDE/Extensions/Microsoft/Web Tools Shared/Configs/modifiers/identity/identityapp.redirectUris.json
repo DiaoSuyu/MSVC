@@ -1,0 +1,6 @@
+{
+  "kind": "identityApp.cli",
+  "order": 5,
+  "restorable": true,
+  "model": {}
+}

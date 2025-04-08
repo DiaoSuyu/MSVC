@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>移除字符串的各个部分 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从一个字符串中移除另一个字符串的所有匹配项。</Description>
+      <Keywords>
+        <Keyword>字符串</Keyword>
+        <Keyword>替换</Keyword>
+      </Keywords>
+      <Shortcut>typeRemove</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ToRemove</ID>
+          <Type>System.String</Type>
+          <ToolTip>替换为要从 withPart 中移除的字符串。</ToolTip>
+          <Default>"and "</Default>
+        </Literal>
+        <Literal>
+          <ID>StringWithParts</ID>
+          <Type>System.String</Type>
+          <ToolTip>替换为要移除其各个部分的字符串。</ToolTip>
+          <Default>"Books and Chapters and Pages"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim withParts As String = $StringWithParts$
+Dim withoutParts As String = withParts.Replace($ToRemove$, "")]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,30 @@
+﻿div#flameGraph {
+    display: flex;
+    flex: 1;
+    overflow: auto;
+}
+
+.flamegraph-frame {
+    stroke: var(--CallerCalleeFunctionLowUsageBorder-Background, aquamarine);
+    fill: var(--CallerCalleeFunctionLowUsageBackground-Background, chartreuse);
+    cursor: pointer;
+    stroke-width: 1px;
+    height: 20px; /* Keep in sync with the height in the databinding */
+    outline-offset: -2px;
+    outline-width: 2px;
+    outline-style: none;
+}
+
+    /* SVG groups cannot use classes so instead just select it with the decendent CSS selector */
+    .flamegraph > g:hover > rect, .flamegraph-frame:focus {
+        stroke: var(--CallerCalleeFunctionLowUsageBorderHover-Background, greenyellow);
+        fill: var(--CallerCalleeFunctionLowUsageBackgroundHover-Background, cyan);
+        outline-style: solid;
+    }
+
+.flamegraph-frameName {
+    text-align: center;
+    text-overflow: ellipsis;
+    height: 20px; /* Keep in sync with the height in the databinding */
+    padding: 1px 6px;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>写入文本文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将消息写入应用程序事件日志。</Description>
+      <Shortcut>appLog</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>fileName</ID>
+          <Type>String</Type>
+          <ToolTip>存储文件名的字符串变量，要向相应文件进行写入。</ToolTip>
+          <Default>"TheFile.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>textContents</ID>
+          <Type>String</Type>
+          <ToolTip>要写入文件中的文本。</ToolTip>
+          <Default>"TextContents"</Default>
+        </Literal>
+        <Literal>
+          <ID>append</ID>
+          <Type>Boolean</Type>
+          <ToolTip>指定应将文本添加到文件的末尾(true)，还是覆盖现有内容(false)。</ToolTip>
+          <Default>False</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.WriteAllText($fileName$, $textContents$, $append$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity name="VSPerfReport.exe" version="15.0.0.0" processorArchitecture="x86" type="win32" />
+  <dependency>
+    <dependentAssembly dependencyType="install" codebase="msdia140.dll.manifest" >
+      <assemblyIdentity name="msdia140.dll" version="1.0.0.0" processorArchitecture="x86" type="win32" />
+    </dependentAssembly>
+  </dependency>
+</assembly>

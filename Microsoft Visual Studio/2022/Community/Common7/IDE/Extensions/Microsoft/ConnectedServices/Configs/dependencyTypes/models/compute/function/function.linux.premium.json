@@ -1,0 +1,28 @@
+{
+  "id": "compute.function.linux.premium",
+  "provisioningId": "Microsoft.Web/sites",
+  "isExternal": true,
+  "name": "strings:#/functionDependencyTypeName",
+  "description": "strings:#/functionDependencyTypeDescription",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3795
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3795
+  },
+  "displayOrder": 30100,
+  "actions": [
+    "openInPortal",
+    "viewStreamingLogs",
+    "startApplication",
+    "stopApplication",
+    "downloadPublishProfile"
+  ],
+  "tags": [
+    "strings:#/function",
+    "strings:#/compute",
+    "Azure"
+  ]
+}

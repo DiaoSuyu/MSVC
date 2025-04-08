@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="77E1B4B1-51C4-4B24-9CA2-3CFAC4943DFF" Version="4.13.0.2516703" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Roslyn Services for .NET ServiceHub Host</DisplayName>
+    <Description xml:space="preserve">Roslyn Services for .NET ServiceHub Host</Description>
+    <PackageId>Microsoft.CodeAnalysis.VisualStudio.ServiceHub.Setup.x64</PackageId>
+    <License>EULA.rtf</License>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,]">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.VSWinDesktopExpress" Version="[17.0,]">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.VWDExpress" Version="[17.0,]">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.VSWinExpress" Version="[17.0,]">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Roslyn.VisualStudio.ServiceHub.Setup.x64.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.CodeLensComponent.Dotnet" Path="Microsoft.VisualStudio.LanguageServices.CodeLens.dll" />
+    <!-- ServiceHub assets are added by msbuild target -->
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.AssetSynchronizationCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.AsynchronousOperationListenerCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.CodeLensReferencesCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.CompilationAvailableCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ConvertTupleToStructCodeRefactoringCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DependentTypeFinderCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DesignerAttributeDiscoveryCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DiagnosticAnalyzerCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DocumentHighlightsCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.EditAndContinueCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.EncapsulateFieldCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ExtensionMethodImportCompletionCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.FindUsagesCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.FullyQualifyCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.GlobalNotificationDeliveryCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.InheritanceMarginCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.KeepAliveCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.LegacySolutionEventsAggregationCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.MissingImportDiscoveryCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.NavigateToSearchCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.NavigationBarItemCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ProcessTelemetryCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ProjectTelemetryCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.RelatedDocumentsCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.RenamerCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SemanticClassificationCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SemanticSearchCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SourceGenerationCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.StackTraceExplorerCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SymbolFinderCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SymbolSearchUpdateCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.TaskListCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.UnitTestingSearchCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.UnusedReferenceAnalysisCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ValueTrackingCore64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.AssetSynchronizationCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.AsynchronousOperationListenerCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.CodeLensReferencesCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.CompilationAvailableCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ConvertTupleToStructCodeRefactoringCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DependentTypeFinderCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DesignerAttributeDiscoveryCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DiagnosticAnalyzerCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.DocumentHighlightsCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.EditAndContinueCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.EncapsulateFieldCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ExtensionMethodImportCompletionCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.FindUsagesCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.FullyQualifyCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.GlobalNotificationDeliveryCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.InheritanceMarginCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.KeepAliveCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.LegacySolutionEventsAggregationCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.MissingImportDiscoveryCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.NavigateToSearchCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.NavigationBarItemCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ProcessTelemetryCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ProjectTelemetryCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.RelatedDocumentsCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.RenamerCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SemanticClassificationCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SemanticSearchCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SourceGenerationCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.StackTraceExplorerCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SymbolFinderCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.SymbolSearchUpdateCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.TaskListCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.UnitTestingSearchCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.UnusedReferenceAnalysisCore64S.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Microsoft.VisualStudio.LanguageServices.ValueTrackingCore64S.servicehub.service.json" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

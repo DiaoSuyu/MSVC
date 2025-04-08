@@ -1,0 +1,19 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "signalr.nuget"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "signalr.serviceConnector.local"
+      ]
+    }
+  }
+}

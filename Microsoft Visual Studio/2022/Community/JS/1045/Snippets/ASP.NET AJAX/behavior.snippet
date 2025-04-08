@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>behavior</Title>
+    <Author>Microsoft Corporation</Author>
+    <Description>Fragment kodu dla kontrolki klienckiej ASP.NET AJAX</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>namespace</ID>
+        <ToolTip>Przestrzeń nazw</ToolTip>
+        <Default>mynamespace</Default>
+      </Literal>
+      <Literal>
+        <ID>controlname</ID>
+        <ToolTip>Nazwa kontrolki</ToolTip>
+        <Default>mycontrol</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[Type.registerNamespace("$namespace$");
+
+$namespace$.$controlname$ = function(element) {
+    $namespace$.$controlname$.initializeBase(this, [element]);
+}
+
+$namespace$.$controlname$.prototype = {
+    initialize: function() {
+        $namespace$.$controlname$.callBaseMethod(this, 'initialize');
+    },
+    dispose: function() {
+        $namespace$.$controlname$.callBaseMethod(this, 'dispose');
+    }
+}
+
+$namespace$.$controlname$.registerClass('$namespace$.$controlname$', Sys.UI.Behavior);$end$
+]]></Code>
+  </Snippet>
+</CodeSnippet>

@@ -1,0 +1,134 @@
+{
+  // This file is an adaptation from the VS Code one: https://github.com/microsoft/vscode/blob/886ef21ab7a82e9c3bf9f55b523208b16923cc47/extensions/typescript-basics/language-configuration.json
+  // Note that because of some differences in the JSON parsers, we had to make some changes. You can refer to https://devdiv.visualstudio.com/DevDiv/_git/VS-Platform?path=/src/Productivity/TextMate/Core/LanguageConfiguration/Def/LanguageConfigurationContract.cs&version=GBmain&_a=contents
+  // to check which types VS is expecting.
+  "brackets": [
+    [ "${", "}" ],
+    [ "{", "}" ],
+    [ "[", "]" ],
+    [ "(", ")" ]
+  ],
+  "autoClosingPairs": [
+    {
+      "open": "{",
+      "close": "}"
+    },
+    {
+      "open": "[",
+      "close": "]"
+    },
+    {
+      "open": "(",
+      "close": ")"
+    },
+    {
+      "open": "'",
+      "close": "'",
+      "notIn": [ "string", "comment" ]
+    },
+    {
+      "open": "\"",
+      "close": "\"",
+      "notIn": [ "string" ]
+    },
+    {
+      "open": "`",
+      "close": "`",
+      "notIn": [ "string", "comment" ]
+    },
+    {
+      "open": "/**",
+      "close": " */",
+      "notIn": [ "string" ]
+    }
+  ],
+  "surroundingPairs": [
+    {
+      "open": "{",
+      "close": "}"
+    },
+    {
+      "open": "[",
+      "close": "]"
+    },
+    {
+      "open": "(",
+      "close": ")"
+    },
+    {
+      "open": "'",
+      "close": "'"
+    },
+    {
+      "open": "\"",
+      "close": "\""
+    },
+    {
+      "open": "`",
+      "close": "`"
+    },
+    {
+      "open": "<",
+      "close": ">"
+    }
+  ],
+  "autoCloseBefore": ";:.,=}])>` \r\n\t",
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\@\\~\\!\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>/\\?\\s]+)",
+  "indentationRules": {
+    "decreaseIndentPattern": "^((?!.*?/\\*).*\\*\/)?\\s*[\\}\\]].*$",
+    "increaseIndentPattern": "^((?!//).)*(\\{([^}\"'`/]*|(\\t|[ ])*//.*)|\\([^)\"'`/]*|\\[[^\\]\"'`/]*)$",
+    // e.g.  * ...| or */| or *-----*/|
+    "unIndentedLinePattern": "^(\\t|[ ])*[ ]\\*[^/]*\\*/\\s*$|^(\\t|[ ])*[ ]\\*/\\s*$|^(\\t|[ ])*[ ]\\*([ ]([^\\*]|\\*(?!/))*)?$"
+  },
+  "onEnterRules": [
+    {
+      // e.g. /** | */
+      "beforeText": "^\\s*/\\*\\*(?!/)([^\\*]|\\*(?!/))*$",
+      "afterText": "^\\s*\\*/$",
+      "action": {
+        "indent": "indentOutdent",
+        "appendText": " * "
+      }
+    },
+    {
+      // e.g. /** ...|
+      "beforeText": "^\\s*/\\*\\*(?!/)([^\\*]|\\*(?!/))*$",
+      "action": {
+        "indent": "none",
+        "appendText": " * "
+      }
+    },
+    {
+      // e.g.  * ...|
+      "beforeText": "^(\\t|[ ])*[ ]\\*([ ]([^\\*]|\\*(?!/))*)?$",
+      "previousLineText": "(?=^(\\s*(/\\*\\*|\\*)).*)(?=(?!(\\s*\\*/)))",
+      "action": {
+        "indent": "none",
+        "appendText": "* "
+      }
+    },
+    {
+      // e.g.  */|
+      "beforeText": "^(\\t|[ ])*[ ]\\*/\\s*$",
+      "action": {
+        "indent": "none",
+        "removeText": 1
+      }
+    },
+    {
+      // e.g.  *-----*/|
+      "beforeText": "^(\\t|[ ])*[ ]\\*[^/]*\\*/\\s*$",
+      "action": {
+        "indent": "none",
+        "removeText": 1
+      }
+    },
+    {
+      "beforeText": "^\\s*(\\bcase\\s.+:|\\bdefault:)$",
+      "afterText": "^(?!\\s*(\\bcase\\b|\\bdefault\\b))",
+      "action": {
+        "indent": "indent"
+      }
+    }
+  ]
+}

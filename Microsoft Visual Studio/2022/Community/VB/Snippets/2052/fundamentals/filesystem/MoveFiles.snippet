@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>移动文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将文件移动到新目录。</Description>
+      <Shortcut>filMoveFile</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>oldFilePath</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要移动的文件的完整路径。</ToolTip>
+          <Default>"C:\OldDirectory\File.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>newFilePath</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文件的新路径。</ToolTip>
+          <Default>"c:\NewDirectory\File.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.MoveFile($oldFilePath$, $newFilePath$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

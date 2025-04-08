@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将类实例复制到剪贴板</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将可序列化类的实例复制到剪贴板。</Description>
+      <Shortcut>clipCopyClass</Shortcut>
+    </Header>
+    <Snippet>
+		<References>
+			<Reference>
+				<Assembly>System.Windows.Forms.dll</Assembly>
+			</Reference>
+		</References>
+		<Imports>
+			<Import>
+				<Namespace>System</Namespace>
+			</Import>
+			<Import>
+				<Namespace>Microsoft.VisualBasic</Namespace>
+			</Import>
+			<Import>
+				<Namespace>System.Windows.Forms</Namespace>
+			</Import>
+		</Imports>
+      <Declarations>
+        <Literal>
+          <ID>className</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要复制到剪贴板的实例(作为字符串)的类型。  请注意，该类型必须可序列化。</ToolTip>
+          <Default>Object</Default>
+        </Literal>
+        <Object>
+          <ID>classInstance</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为要复制到剪贴板的实例。</ToolTip>
+          <Default>classInstance</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[My.Computer.Clipboard.SetData("$className$", $classInstance$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

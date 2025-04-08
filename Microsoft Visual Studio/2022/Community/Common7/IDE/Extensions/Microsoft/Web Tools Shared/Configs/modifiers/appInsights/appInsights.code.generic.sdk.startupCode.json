@@ -1,0 +1,118 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addProgramCode",
+    "snippetModels": [
+      {
+        "name": "EnsureAddApplicationInsightsTelemetryCall",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddApplicationInsightsTelemetry",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.ApplicationInsightsExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.AddApplicationInsightsTelemetry();",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddApplicationInsightsTelemetryCallForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddApplicationInsightsTelemetry",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.ApplicationInsightsExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "LocalVariable",
+                  "properties": {
+                    "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+                    "CodeOperation": "InsertBefore"
+                  },
+                  "locationTokenName": "localWebAppVar"
+                }
+              ]
+            },
+            "body": "@@localVar@@.Services.AddApplicationInsightsTelemetry();",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "LocalVariable",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+                  "Closure": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

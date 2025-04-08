@@ -1,0 +1,36 @@
+﻿<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>setter</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>setter</Shortcut>
+    <Description>Code snippet for a setter</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>fieldType</ID>
+        <Default>string</Default>
+      </Literal>
+      <Literal>
+        <ID>property</ID>
+        <Default>fullName</Default>
+      </Literal>
+      <Literal>
+        <ID>newValue</ID>
+        <Default>newFullName</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript">
+  <![CDATA[
+     private _$property$: $type$;
+
+     set $property$($newValue$): $type$ {
+         this._$property$ = $newValue$;
+     }
+
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

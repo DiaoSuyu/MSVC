@@ -1,0 +1,29 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.JavaScript.ProjectSystem" Version="1.11.50.2419" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>JavaScript Project System</DisplayName>
+    <Description xml:space="preserve">The JavaScript Project System.</Description>
+  </Metadata>
+  <Installation SystemComponent="true" AllUsers="true">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Pro">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.JavaScript.ProjectSystem.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.JavaScript.TestAdapter.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.JavaScript.TestAdapterImpl.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.JavaScript.ProjectSystem.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.JavaScript.Common.pkgdef" />
+    <Asset Type="UnitTestExtension" Path="Microsoft.VisualStudio.JavaScript.TestAdapter.dll" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.JavaScript.SDK_1.0.2191419" Version="[1.0,99.0)" DisplayName="JavaScript SDK Nuget" />
+  </Prerequisites>
+</PackageManifest>

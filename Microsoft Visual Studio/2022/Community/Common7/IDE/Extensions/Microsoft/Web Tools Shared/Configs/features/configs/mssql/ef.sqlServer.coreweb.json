@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "ef.sqlServer.nuget.coreweb"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    }
+  }
+}

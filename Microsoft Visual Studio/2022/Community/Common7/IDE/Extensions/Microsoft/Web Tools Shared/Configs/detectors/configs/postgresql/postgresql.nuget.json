@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "postgresql",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Npgsql ": "",
+      "Npgsql.EntityFrameworkCore.PostgreSQL": ""
+    }
+  }
+}

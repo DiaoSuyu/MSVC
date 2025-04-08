@@ -1,0 +1,18 @@
+{
+  "kind": "appServiceSettings.generic",
+  "restorable": true,
+  "model": {
+    "appServiceResourceId": "@@ProfileResourceId@@",
+    "settingType": "Setting",
+    "properties": {
+      "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": {
+        "value": "Microsoft.Azure.SignalR",
+        "action": "append"
+      },
+      "Azure__SignalR__StickyServerMode": {
+        "value": "Required",
+        "action": "replace"
+      }
+    }
+  }
+}

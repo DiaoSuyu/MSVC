@@ -1,0 +1,2281 @@
+{
+  "appConfig.core": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.1.21",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "6.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "7.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "8.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appConfig.coreweb": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appConfig.function.regular": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "2.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "2.5.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.1.21",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "2.5.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "2.5.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "6.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "7.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "8.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Extensions",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appConfig.function.isolated": {
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+        "Version": "3.0.13",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "2.5.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+        "Version": "5.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+        "Version": "3.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "6.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+        "Version": "3.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "7.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+        "Version": "3.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "8.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+        "Version": "3.2.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.FeatureManagement",
+        "Version": "4.0.0-preview4",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.AppConfiguration.Functions.Worker",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appConfig": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "6.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "7.2.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.7.1": [
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.Environment",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "System.Configuration.ConfigurationManager",
+        "Version": "8.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appinsights.coreweb": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "Microsoft.ApplicationInsights.AspNetCore",
+        "Version": "2.22.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=2.0": [
+      {
+        "Id": "Microsoft.ApplicationInsights.Web",
+        "Version": "2.22.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.ApplicationInsights.AspNetCore",
+        "Version": "2.22.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appinsights.web": {
+    ".NETFramework,Version=2.0": [
+      {
+        "Id": "Microsoft.ApplicationInsights.Web",
+        "Version": "2.22.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "appinsights.worker": {
+    ".NETCoreApp,Version=3.0": [
+      {
+        "Id": "Microsoft.ApplicationInsights.WorkerService",
+        "Version": "2.22.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "cosmosdb": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.Azure.Cosmos",
+        "Version": "3.21.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+        "Version": "6.0.24",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Azure.Cosmos",
+        "Version": "3.44.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Azure.Cosmos",
+        "Version": "3.44.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Azure.Cosmos",
+        "Version": "3.44.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "ef.sqlServer": {
+    ".NETCoreApp,Version=3.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "3.0.3",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "3.0.3",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "3.1.3",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "3.1.3",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "5.0.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "5.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.SqlServer",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Tools",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.0": [
+      {
+        "Id": "EntityFramework",
+        "Version": "6.4.4",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+        "Version": "2.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+        "Version": "3.1.13",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework": [
+      {
+        "Id": "Microsoft.IdentityModel.JsonWebTokens",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Logging",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocol.Extensions",
+        "Version": "1.0.4.403061554",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocols",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Tokens",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Host.SystemWeb",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security.Cookies",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security.OpenIdConnect",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Owin",
+        "Version": "1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "System.IdentityModel.Tokens.Jwt",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp.downstreamApi": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+        "Version": "2.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+        "Version": "3.1.13",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework": [
+      {
+        "Id": "Microsoft.IdentityModel.JsonWebTokens",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Logging",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocol.Extensions",
+        "Version": "1.0.4.403061554",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocols",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.IdentityModel.Tokens",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Host.SystemWeb",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security.Cookies",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Owin.Security.OpenIdConnect",
+        "Version": "4.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Owin",
+        "Version": "1.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "System.IdentityModel.Tokens.Jwt",
+        "Version": "5.7.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp.blazor": {
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "5.0.1.5",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp.blazor.callsgraph": {
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "5.0.1.5",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Graph",
+        "Version": "4.25.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Graph",
+        "Version": "5.56.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Graph",
+        "Version": "5.56.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Graph",
+        "Version": "5.56.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Authentication.WebAssembly.Msal",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Graph",
+        "Version": "5.60.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp.callsgraph": {
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "identityapp.downstreamApi.callsgraph": {
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "1.24.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "1.16.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "5.0.11",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "1.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Identity.Web",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.UI",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.DownstreamApi",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Identity.Web.MicrosoftGraph",
+        "Version": "3.2.2",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "mongodb": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "MongoDB.Driver",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "postgresql": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Npgsql.EntityFrameworkCore.PostgreSQL",
+        "Version": "8.0.4",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "rabbitmq": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "RabbitMQ.Client",
+        "Version": "6.8.1",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "redis": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "6.0.24",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.6.1": [
+      {
+        "Id": "Microsoft.Extensions.Caching.StackExchangeRedis",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Azure.StackExchangeRedis",
+        "Version": "3.1.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "secrets.keyVault.coreweb": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureKeyVault",
+        "Version": "1.0.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.5.2": [
+      {
+        "Id": "Microsoft.Azure.KeyVault",
+        "Version": "2.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.6.1": [
+      {
+        "Id": "Azure.Security.KeyVault.Keys",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Security.KeyVault.Secrets",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.7.1": [
+      {
+        "Id": "Azure.Security.KeyVault.Keys",
+        "Version": "4.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Security.KeyVault.Secrets",
+        "Version": "4.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.Azure",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "secrets.keyVault": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.AzureKeyVault",
+        "Version": "1.0.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.10.4",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.AspNetCore.AzureKeyVault.HostingStartup",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Extensions.Configuration.Secrets",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "Version": "1.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.5.2": [
+      {
+        "Id": "Microsoft.Azure.KeyVault",
+        "Version": "2.3.2",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.6.1": [
+      {
+        "Id": "Azure.Security.KeyVault.Keys",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Security.KeyVault.Secrets",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.7.1": [
+      {
+        "Id": "Azure.Security.KeyVault.Keys",
+        "Version": "4.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Security.KeyVault.Secrets",
+        "Version": "4.6.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.Azure",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "secrets.user": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.1.13",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "6.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "7.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "8.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.7.1": [
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.UserSecrets",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "secrets.user.function": {
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "2.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=3.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "3.1.13",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=5.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "5.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "6.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=7.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "7.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "8.0.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.7.1": [
+      {
+        "Id": "Microsoft.Configuration.ConfigurationBuilders.UserSecrets",
+        "Version": "3.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "signalr.azure.coreweb": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "Microsoft.Azure.SignalR",
+        "Version": "1.28.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "signalr.azure.functions": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.Azure.WebJobs.Extensions.SignalRService",
+        "Version": "1.15.0",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Identity",
+        "Version": "1.13.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "signalr.azure": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "Microsoft.AspNetCore.SignalR.Client",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "springcloud.azure.steeltoe24": {
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Azure.SpringCloud.Client",
+        "Version": "2.0.0-preview.3",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "springcloud.azure.steeltoe30": {
+    ".NETCoreApp,Version=3.1": [
+      {
+        "Id": "Microsoft.Azure.SpringCloud.Client",
+        "Version": "2.0.0-preview.3",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "sqlite": {
+    ".NETCoreApp,Version=2.1": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Sqlite",
+        "Version": "7.0.20",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=6.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Sqlite",
+        "Version": "6.0.31",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=8.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Sqlite",
+        "Version": "8.0.10",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=9.0": [
+      {
+        "Id": "Microsoft.EntityFrameworkCore.Sqlite",
+        "Version": "9.0.0",
+        "Operation": "Install"
+      }
+    ]
+  },
+  "storage.azure": {
+    ".NETCoreApp,Version=1.0": [
+      {
+        "Id": "WindowsAzure.Storage",
+        "Version": "8.7.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETCoreApp,Version=2.0": [
+      {
+        "Id": "Azure.Storage.Blobs",
+        "Version": "12.22.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Storage.Files.Shares",
+        "Version": "12.20.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Storage.Files",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Storage.Queues",
+        "Version": "12.20.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Data.Tables",
+        "Version": "12.9.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Azure",
+        "Version": "1.7.6",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=2.0": [
+      {
+        "Id": "WindowsAzure.Storage",
+        "Version": "9.1.1",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.0": [
+      {
+        "Id": "WindowsAzure.Storage",
+        "Version": "9.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.WindowsAzure.ConfigurationManager",
+        "Version": "3.2.3",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.5.2": [
+      {
+        "Id": "WindowsAzure.Storage",
+        "Version": "9.1.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.WindowsAzure.ConfigurationManager",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Microsoft.Azure.ConfigurationManager",
+        "Version": "4.0.0",
+        "Operation": "Install"
+      }
+    ],
+    ".NETFramework,Version=4.6.1": [
+      {
+        "Id": "Azure.Storage.Blobs",
+        "Version": "12.22.2",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Storage.Files.Shares",
+        "Version": "12.20.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Storage.Files",
+        "Operation": "Uninstall"
+      },
+      {
+        "Id": "Azure.Storage.Queues",
+        "Version": "12.20.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Azure.Data.Tables",
+        "Version": "12.9.1",
+        "Operation": "Install"
+      },
+      {
+        "Id": "Microsoft.Extensions.Azure",
+        "Version": "1.7.6",
+        "Operation": "Install"
+      }
+    ]
+  }
+}

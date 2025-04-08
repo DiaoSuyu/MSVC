@@ -1,0 +1,24 @@
+{
+  "name": "htmlLSP",
+  "scopeName": "text.htmlLsp.basic",
+  "injections": {
+    "L:source.css": {
+      "patterns": [
+        {
+          "match": "[^\\s](?<=)[\\w\\W]*?(?=(\\s*{))",
+          "name": "meta.selector.custom.css"
+        }
+      ]
+    }
+  },
+  "fileTypes": [
+    "html",
+    "htm",
+    "vue"
+  ],
+  "patterns": [
+    {
+      "include": "text.html.basic"
+    }
+  ]
+}

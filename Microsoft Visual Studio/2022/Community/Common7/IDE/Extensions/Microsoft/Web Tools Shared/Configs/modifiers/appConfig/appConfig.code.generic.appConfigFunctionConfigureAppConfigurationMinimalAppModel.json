@@ -1,0 +1,77 @@
+{
+  "kind": "code.generic",
+  "order": 34,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureConfigureAppConfigurationMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Hosting.HostingHostBuilderExtensions"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureFunctionsWorkerDefaults",
+                    "TypeName": "Microsoft.Extensions.Hosting.WorkerHostBuilderExtensions",
+                    "CodeOperation": "ReplaceCode"
+                  }
+                }
+              ]
+            },
+            "body": "host\r\n    .ConfigureAppConfiguration(builder =>\r\n    {\r\n        const string SentinelKey = `TestApp:Settings:Sentinel`;\r\n\r\n        var userSecretConfig = new ConfigurationBuilder();\r\n        userSecretConfig.AddUserSecrets(System.Reflection.Assembly.GetExecutingAssembly(), true);\r\n        var azAppConfigConnection = userSecretConfig.Build()[`@@connectionId@@`];\r\n\r\n        if (Uri.TryCreate(azAppConfigConnection, UriKind.Absolute, out var endpoint))\r\n{\r\n            // Use Azure Active Directory authentication.\r\n            // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n            // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n            builder.AddAzureAppConfiguration(options =>\r\n            {\r\n                options.Connect(endpoint, new DefaultAzureCredential());\r\n                // Load all keys that start with 'TestApp:' and have no label\r\n                options.Select(`TestApp:*`);\r\n                // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.\r\n                // Use the default cache expiration of 30 seconds. It can be overriden via AzureAppConfigurationRefreshOptions.SetCacheExpiration.\r\n                options.ConfigureRefresh(refresh =>\r\n                {\r\n                    refresh.Register(SentinelKey, refreshAll: true);\r\n                });\r\n                // Load all feature flags with no label. To load specific feature flags and labels, set via FeatureFlagOptions.Select.\r\n                // Use the default cache expiration of 30 seconds. It can be overriden via FeatureFlagOptions.CacheExpirationInterval.\r\n                options.UseFeatureFlags();\r\n            });\r\n        }\r\n    })\r\n",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              },
+              "endpoint": {
+                "name": "endpoint",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "endpoint"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

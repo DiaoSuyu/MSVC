@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从事件日志中读取特定应用程序创建的项</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用应用程序的所有事件日志项填充列表。</Description>
+      <Shortcut>evReadApp</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>LogName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为日志名称。此时将读取本地计算机上的应用程序日志。</ToolTip>
+          <Default>"Application"</Default>
+        </Literal>
+        <Literal>
+          <ID>SourceName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为源名称。写入事件时，该源名称与特定应用程序关联。</ToolTip>
+          <Default>"SourceName"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim log As New EventLog($LogName$)
+Dim entries As New List(Of EventLogEntry)
+For Each entry As EventLogEntry In log.Entries
+    If entry.Source = $SourceName$ Then
+        entries.Add(entry)
+    End If
+Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

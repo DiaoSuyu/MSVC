@@ -1,0 +1,14 @@
+{
+  "components": {
+    "appServiceSettings": {
+      "modifiers": [
+        "appInsights.appServiceSettings"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appInsights.nuget"
+      ]
+    }
+  }
+}

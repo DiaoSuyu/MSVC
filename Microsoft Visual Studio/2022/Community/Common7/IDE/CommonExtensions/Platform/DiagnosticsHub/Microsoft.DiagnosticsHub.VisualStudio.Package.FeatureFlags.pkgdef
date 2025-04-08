@@ -1,0 +1,27 @@
+[$RootKey$\FeatureFlags\DiagnosticsHub\BlockedTimeTool]
+"Description"="Determines if the new Blocked Time analysis tool shows up in the Diagnostics Hub."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\DiagnosticsHub\SupportsMeterAPI]
+"Description"="Determines if the .Net Counters Tool is supporting Meter Counters."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\InstrumentationAnalyzer]
+"Description"="Determines if using DataWarehouse to analyze vsp files"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\UserMarks]
+"Description"="Determines if the user marks feature in the Diagnostics Hub is enabled."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\CopilotInsightsSupported]
+"Description"="Determines if DiagnosticsHub tools should support the Ask GitHub Copilot feature for generating top insights."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\CopilotDetailsViewBenchmarkSupported]
+"Description"="Determines if DiagnosticsHub CPU tool should support the Ask GitHub Copilot feature for generating benchmarks from the details view."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\DiagnosticsHub\CopilotSourceLineBenchmarkingSupported]
+"Description"="Determines if DiagnosticsHub CPU tool should support the Ask GitHub Copilot feature for generating benchmarks from the source line."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\DiagnosticsHub\EnableMultiProcessSupport]
+"Description"="Determines if DiagnosticsHub should enable capturing data from multiple processes."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\NativeTargetedInstrumentationEnabled]
+"Description"="Determines if the Instrumentation tool should enable the Native Targeted Instrumentation feature."
+"Value"=dword:00000001

@@ -1,0 +1,388 @@
+{
+  "always": {
+    "kind": "bool",
+    "value": true
+  },
+  "isWebAssembly": {
+    "kind": "HasProjectCapability",
+    "capability": "WebAssembly"
+  },
+  "isDotNetCore": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isCps" },
+      { "$ref": "#/isDotNet" }
+    ]
+  },
+  "isDotNetCoreWeb": {
+    "kind": "HasProjectCapability",
+    "capability": "DotNetCoreWeb"
+  },
+  "isNetStandard": {
+    "kind": "HasTargetFramework",
+    "tfmPrefixOrFull": ".NetStandard"
+  },
+  "isDotNetCoreAndNotNetStandard": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCore" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isNetStandard"
+        }
+      }
+    ]
+  },
+  "isDotNetCoreWebAndNotNetStandard": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isNetStandard"
+        }
+      }
+    ]
+  },
+  "isWebAndNotNetStandard": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isWeb" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isNetStandard"
+        }
+      }
+    ]
+  },
+  "isAppServiceApiEligibleProject": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allWebProjects" },
+      { "$ref": "#/isDotNetCoreWeb31AndNotNetStandard" }
+    ]
+  },
+  "isFunctionAppApiEligibleProject": {
+    "base": { "$refmerge": "#/isAzureFunction" }
+  },
+  "isDotNetCoreWeb31AndNotNetStandard": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWebAndNotNetStandard" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "3.1",
+        "comparison": "GreaterThanOrEqualTo"
+      }
+    ]
+  },
+  "isDotNetCore60": {
+    "kind": "TfmVersionComparison",
+    "tfmType": "netcore",
+    "version": "6.0",
+    "comparison": "GreaterThanOrEqualTo"
+  },
+  "isDotNetCoreWebAndNotNetStandardBefore31": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWebAndNotNetStandard" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "3.1",
+        "comparison": "LessThan"
+      }
+    ]
+  },
+  "isNotDotNetCoreWebAndNotNetStandard": {
+    "kind": "not",
+    "operand": {
+      "$ref": "#/isDotNetCoreWebAndNotNetStandard"
+    }
+  },
+  "isWeb": {
+    "kind": "HasProjectCapability",
+    "capability": "Web"
+  },
+  "isWebSite": {
+    "kind": "HasProjectCapability",
+    "capability": "WebsiteProject"
+  },
+  "hasSteelToe": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/hasSteelToe30OrHigherContents" },
+      { "$ref": "#/hasSteelToe24OrHigherContents" }
+    ]
+  },
+  "hasSteelToe30OrHigherContents": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/hasAzureSpringCloudClient20OrHigher" },
+      { "$ref": "#/isSteelToe30OrHigher" }
+    ]
+  },
+  "hasSteelToe24OrHigherContents": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/hasAzureSpringCloudClient10OrHigher" },
+      { "$ref": "#/isSteelToe24OrHigher" }
+    ]
+  },
+  "hasAzureSpringCloudClient10OrHigher": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb31AndNotNetStandard" },
+      {
+        "kind": "IsPackageInstalledAtLeastVersion",
+        "minVersion": "1.0.0-alpha.1",
+        "packageNames": [
+          "Microsoft.Azure.SpringCloud.Client"
+        ]
+      }
+    ]
+  },
+  "hasAzureSpringCloudClient20OrHigher": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb31AndNotNetStandard" },
+      {
+        "kind": "IsPackageInstalledAtLeastVersion",
+        "minVersion": "2.0.0-preview.1",
+        "packageNames": [
+          "Microsoft.Azure.SpringCloud.Client"
+        ]
+      }
+    ]
+  },
+  "isSteelToe30OrHigher": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb31AndNotNetStandard" },
+      {
+        "kind": "IsPackageInstalledAtLeastVersion",
+        "minVersion": "3.0",
+        "packageNames": [
+          "Steeltoe.CircuitBreaker.HystrixCore",
+          "Steeltoe.CircuitBreaker.Hystrix.MetricsStreamCore",
+          "Steeltoe.CircuitBreaker.Hystrix.MetricsEventsCore",
+          "Steeltoe.CloudFoundry.Connector.EFCore",
+          "Steeltoe.CloudFoundry.ConnectorCore",
+          "Steeltoe.Connector.ConnectorCore",
+          "Steeltoe.Discovery.ClientCore",
+          "Steeltoe.Extensions.Configuration.CloudFoundryCore",
+          "Steeltoe.Extensions.Configuration.ConfigServerCore",
+          "Steeltoe.Extensions.Configuration.PlaceholderCore",
+          "Steeltoe.Extensions.Configuration.RandomValueBase",
+          "Steeltoe.Extensions.Logging.DynamicLogger",
+          "Steeltoe.Management.CloudFoundryCore",
+          "Steeltoe.Management.ExporterCore"
+        ]
+      }
+    ]
+  },
+  "isSteelToe24OrHigher": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb31AndNotNetStandard" },
+      {
+        "kind": "IsPackageInstalledAtLeastVersion",
+        "minVersion": "2.4",
+        "packageNames": [
+          "Steeltoe.CircuitBreaker.HystrixCore",
+          "Steeltoe.CircuitBreaker.Hystrix.MetricsStreamCore",
+          "Steeltoe.CircuitBreaker.Hystrix.MetricsEventsCore",
+          "Steeltoe.CloudFoundry.Connector.EFCore",
+          "Steeltoe.CloudFoundry.ConnectorCore",
+          "Steeltoe.Connector.ConnectorCore",
+          "Steeltoe.Discovery.ClientCore",
+          "Steeltoe.Extensions.Configuration.CloudFoundryCore",
+          "Steeltoe.Extensions.Configuration.ConfigServerCore",
+          "Steeltoe.Extensions.Configuration.PlaceholderCore",
+          "Steeltoe.Extensions.Configuration.RandomValueBase",
+          "Steeltoe.Extensions.Logging.DynamicLogger",
+          "Steeltoe.Management.CloudFoundryCore",
+          "Steeltoe.Management.ExporterCore"
+        ]
+      }
+    ]
+  },
+  "allWebProjects": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/isWeb" },
+      { "$ref": "#/isWebSite" }
+    ]
+  },
+  "isAzureFunction": {
+    "kind": "or",
+    "operands": [
+      {
+        "kind": "HasProjectCapability",
+        "capability": "AzureFunctions"
+      },
+      {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectItem",
+            "projectItem": "local.settings.json"
+          },
+          {
+            "kind": "HasProjectItem",
+            "projectItem": "host.json"
+          }
+        ]
+      }
+    ]
+  },
+  "isCps": {
+    "kind": "HasProjectCapability",
+    "capability": "CPS"
+  },
+  "isCSharp": {
+    "kind": "HasProjectCapability",
+    "capability": "CSharp"
+  },
+  "isDotNet": {
+    "kind": "HasProjectCapability",
+    "capability": ".NET"
+  },
+  "isExeProjectOutputType": {
+    "kind": "or",
+    "operands": [
+      {
+        "kind": "ProjectProperty",
+        "propertyName": "OutputType",
+        "expectedValue": "Exe"
+      },
+      {
+        "kind": "ProjectProperty",
+        "propertyName": "OutputType",
+        "expectedValue": "WinExe"
+      }
+    ]
+  },
+  "isDotNetCoreWorker": {
+    "kind": "HasProjectCapability",
+    "capability": "DotNetCoreWorker"
+  },
+  "isDotNetCoreWithAppConfigCode": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isCps" },
+      { "$ref": "#/isCSharp" },
+      { "$ref": "#/isDotNet" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isNetStandard"
+        }
+      },
+      { "$ref": "#/isExeProjectOutputType" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isAzureFunction"
+        }
+      },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isDotNetCoreWorker"
+        }
+      },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "2.0",
+        "comparison": "GreaterThanOrEqualTo"
+      }
+    ]
+  },
+  "isAzureFunctionIsolated": {
+    "kind": "ProjectProperty",
+    "propertyName": "FunctionsExecutionModel",
+    "expectedValue": "isolated"
+  },
+  "isAzureFunction31OrHigher": {
+    "kind": "and",
+    "operands": [
+      {
+        "$ref": "#/isAzureFunction"
+      },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "3.1",
+        "comparison": "GreaterThanOrEqualTo"
+      }
+    ]
+  },
+  "isAzureFunctionRegularWithAppConfigCode": {
+    "kind": "and",
+    "operands": [
+      {
+        "$ref": "#/isAzureFunction31OrHigher"
+      },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isAzureFunctionIsolated"
+        }
+      }
+    ]
+  },
+  "isAzureFunctionIsolatedWithAppConfigCode": {
+    "kind": "and",
+    "operands": [
+      {
+        "$ref": "#/isAzureFunction31OrHigher"
+      },
+      {
+        "$ref": "#/isAzureFunctionIsolated"
+      }
+    ]
+  },
+  "callsMicrosoftGraph": {
+    "kind": "FeatureContextProperty",
+    "property": "CallsMicrosoftGraph",
+    "value": "True"
+  },
+  "callsDownstreamApi": {
+    "kind": "FeatureContextProperty",
+    "property": "CallsDownstreamApi",
+    "value": "True"
+  },
+  "callsMicrosoftGraphAndDownstreamApi": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/callsMicrosoftGraph" },
+      { "$ref": "#/callsDownstreamApi" }
+    ]
+  },
+  "isDotNetFramework_GreaterThan_v4.5": {
+    "kind": "TfmVersionComparison",
+    "tfmType": "netFramework",
+    "version": "4.5",
+    "comparison": "GreaterThan"
+  },
+  "isWebAssemblyAndCallsGraph": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/callsMicrosoftGraph" },
+      { "$ref": "#/isWebAssembly" }
+    ]
+  },
+  "isWebAssemblyAndCallsDownstreamApi": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/callsDownstreamApi" },
+      { "$ref": "#/isWebAssembly" }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "UserAccount",
+      "additionalConfigs": [
+        {
+          "configName": "@@connectionSimpleName@@",
+          "configValue": "@@ConnectionValue@@"
+        }
+      ]
+    }
+  ]
+}

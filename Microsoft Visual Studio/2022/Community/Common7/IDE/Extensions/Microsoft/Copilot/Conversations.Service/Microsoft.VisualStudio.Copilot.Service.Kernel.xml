@@ -1,0 +1,995 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Copilot.Service.Kernel</name>
+    </assembly>
+    <members>
+        <member name="M:Conversations.Kernel.Context.ResponseInstructionsContext.AddInstructionsHint(System.Collections.Generic.IEnumerable{Microsoft.Extensions.AI.AIContent})">
+            <summary>
+            Adds instructions hint to the user message.
+            </summary>
+            <param name="content">The user's message.</param>
+            <returns>A string that contains the user's message followed by an end of prompt marker and the start sequence of the completion response.</returns>
+        </member>
+        <member name="M:Conversations.Kernel.Context.ResponseInstructionsContext.CodeMessageAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates a standalone prompt message to help instruct the model on how to respond in a parseable format that's specific to code generation
+            </summary>
+            <param name="language">The programming language for which to generate RESPONSE examples.</param>
+            <param name="cancellationToken"></param>
+            <returns>Prompt instructions on how to generate code.</returns>
+        </member>
+        <member name="M:Conversations.Kernel.Context.ResponseInstructionsContext.CodeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates prompt content to help instruct the model on how to respond in a parseable format that's specific to code generation
+            </summary>
+            <param name="language">The programming language for which to generate RESPONSE examples.</param>
+            <param name="cancellationToken"></param>
+            <returns>Prompt instructions on how to generate code.</returns>
+        </member>
+        <member name="F:Conversations.Kernel.ConversationHelpers.MultiToolToolName">
+            <summary>
+            Function names used to call functions in argument in parallel.
+            </summary>
+            <seealso href="https://community.openai.com/t/model-tries-to-call-unknown-function-multi-tool-use-parallel/490653/44" />
+            <remarks>
+            This appears to be an internal function to make function calls happen in parallel, but sometimes it gets passed to us directly.
+            </remarks>
+        </member>
+        <member name="M:Conversations.Kernel.ConversationHelpers.PushMultiTool(CopilotClient.CopilotAPIRequest,Microsoft.Extensions.AI.FunctionCallContent,Conversations.Abstractions.IStreamingResponse)">
+            <summary>
+            Handle the multi_tool_use.parallel format.
+            </summary>
+            <remarks>
+            Sometimes the model comes back with an alternate format where the single tool call is a call to parallelize calls, the arguments contain the individual calls.
+            </remarks>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotChatHistory.GetExchanges(System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Copilot.CopilotInteraction})">
+            <summary>
+            Takes a list of interactions in a conversation and groups them into an ordered list of exchanges,
+            where each exchange contains a request with its associated responses.
+            </summary>
+            <param name="history">The conversation history.</param>
+            <returns>The conversation interactions groups into turns.</returns>
+            <remarks>In the special case where a conversation starts with responses instead of a request,
+            all responses preceding the first request will be grouped into the initial exchange, followed by an
+            exchange with the first request and subsequent response(s).</remarks>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotChatHistory.GetResponseMessagesWithToolCallsAsync(Microsoft.VisualStudio.Copilot.CopilotResponse,Conversations.Abstractions.IContextProviders,CopilotExchangeContextEvaluation,System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the response messages for this request including any tool call requests and results.
+            Tool results that are represented as <see cref="T:Microsoft.VisualStudio.Copilot.CopilotContext" /> can be included in a reduced form if a
+            <see cref="T:CopilotExchangeContextEvaluation" /> that contains the tool context is also provided.
+            </summary>
+            <param name="response">The response to evaluate.</param>
+            <param name="context">The context providers to use for evaluation.</param>
+            <param name="contextEvaluation">A context evaluation to use for rendering tool result messages. If provided, tool results
+            can be included in a reduced form. Otherwise, the full tool result value will be used without attempting reduction.</param>
+            <param name="cancellation">The cancellation token.</param>
+        </member>
+        <member name="T:Conversations.Kernel.CopilotModelResolver">
+            <summary>
+            This class is responsible for discovering which models are available in the Copilot service
+            and selecting the best model for a given request based on the intersection of the set of models
+            supported by the service and the set of models supported by the clients.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotModelResolver.#ctor(Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotAPIClient,Conversations.Shared.Options.IMarshaledCopilotOptions,Microsoft.Extensions.Logging.ILogger,System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Conversations.Kernel.CopilotModelResolver" /> class.
+            </summary>
+            <param name="client">The LLM client to discover available models on the service.</param>
+            <param name="options">The options that contain the list of client-supported models.</param>
+            <param name="logger">The logger.</param>
+            <param name="backgroundRefreshInterval">The interval at which to allow a background refresh of models. Defaults to one hour
+            if not specified.</param>
+            <param name="forceRefreshInterval">The interval at which to allow a force refresh of models in the background. This interval
+            is usually shorter than the background refresh interval so that updates to the model list are detected sooner during outages.
+            Defaults to five minutes if not specified.</param>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotModelResolver.GetModelsAsync(Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Get the list of models that are available for requests based on the intersection of the
+            set of models supported by the service and the set of models supported by the clients.
+            </summary>
+            <param name="clientId">The client id of the client getting the models.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The list of models that can be used for a request.</returns>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotModelResolver.SelectModelAsync(Microsoft.VisualStudio.Copilot.CopilotModelRequest,Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Selects the best model for a given request based on the intersection of the set of models
+            supported by the service and the set of models supported by the clients.
+            </summary>
+            <param name="request">The request for which to select a model.</param>
+            <param name="clientId">The client id of the client selecting the model.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The best model for the given request.</returns>
+        </member>
+        <member name="M:Conversations.Kernel.CopilotModelResolver.SelectModelAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Copilot.CopilotModelRequest},Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Selects the best model for a given list of model requests based on the intersection of the set of models
+            supported by the service and the set of models supported by the clients. Each model request will be
+            evaluated in order, returning the first matching model.
+            </summary>
+            <param name="requests">The list of requests for which to select a model.</param>
+            <param name="clientId">The client id of the client selecting the model.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The best model for the given request.</returns>
+        </member>
+        <member name="M:Conversations.Kernel.Copilot.SemanticKernelEmbeddingService.GenerateEmbeddingsAsync(System.Collections.Generic.IList{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Implement embedding generation for Semantic Kernel's <see cref="T:Microsoft.SemanticKernel.AI.Embeddings.ITextEmbeddingGeneration" />.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.CustomInstructions.CopilotCustomInstructionsProvider.GetCustomInstructionFilePathAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the custom instructions for the current workspace.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task containing either the custom instructions or null if no instructions are found.</returns>
+        </member>
+        <member name="T:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings">
+            <summary>
+            Class containing SuggestedAction data for embedding purposes.
+            </summary>
+        </member>
+        <member name="T:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings.SuggestedActionEmbedding">
+            <summary>
+            Represents a the text for the vector.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings.SuggestedActionEmbedding.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Represents a the text for the vector.
+            </summary>
+        </member>
+        <member name="F:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings.CollectionName">
+            <summary>
+            The name of the embedding collection containing SuggestedAction data.
+            </summary>
+        </member>
+        <member name="F:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings._embedding">
+            <summary>
+            The list of SuggestedAction data for embedding.
+            </summary>
+        </member>
+        <member name="P:Conversations.Kernel.Embeddings.SuggestedActionsEmbeddings.Embeddings">
+            <summary>
+            The collection name and CannedAction data for embedding.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.IServiceKernelFactory.CreateAsync(System.Action{Microsoft.SemanticKernel.KernelBuilder},System.Threading.CancellationToken)">
+            <summary>
+            Create the conversation kernel
+            </summary>
+            <param name="configure">An action to configure the inner builder</param>
+            <param name="cancellationToken">a cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Conversations.Kernel.LLMClient">
+            <summary>
+            Utility class for better interacting with an LLM.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.LLMClient.#ctor(Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotAPIClient,Conversations.Kernel.CopilotModelResolver)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Conversations.Kernel.LLMClient" /> class.
+            </summary>
+            <param name="capiClient">The Copilot API client.</param>
+            <param name="modelResolver">The model resolver for requests.</param>
+        </member>
+        <member name="M:Conversations.Kernel.LLMClient.GetAsync(CopilotClient.CopilotAPIRequest,Microsoft.VisualStudio.Copilot.CopilotCorrelationId,Microsoft.VisualStudio.Copilot.CopilotClientId,System.Threading.CancellationToken)">
+            <summary>
+            Sends a chat request to the Copilot API and returns the response.
+            </summary>
+            <param name="request">The chat request.</param>
+            <param name="correlationId">The correlation ID.</param>
+            <param name="clientId">The client id.</param>
+            <returns>The chat response.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Conversations.Kernel.LLMClient.StreamAsync(CopilotClient.CopilotAPIRequest,Microsoft.VisualStudio.Copilot.CopilotCorrelationId,Microsoft.VisualStudio.Copilot.CopilotClientId,Microsoft.VisualStudio.Copilot.ICopilotStreamingContentSink,System.Threading.CancellationToken)">
+            <summary>
+            Sends a chat request to the Copilot API and streams the response to the provided <paramref name="streamTarget" />.
+            </summary>
+            <param name="request">The chat request.</param>
+            <param name="correlationId">The correlation ID.</param>
+            <param name="clientId">The client id</param>
+            <param name="streamTarget">The stream target.</param>
+            <returns>The chat response.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:Conversations.Kernel.MemoryFactory">
+            <summary>
+            Factory for creating memory for the kernel
+            </summary>
+        </member>
+        <member name="F:Conversations.Kernel.RemoteAgentConversation.ToolResultTypeName">
+            <summary>
+            A placeholder type name for tool results to be reported as copilot references.
+            In future we may utilize more specific names but there is no spec available at the moment.
+            </summary>
+        </member>
+        <member name="F:Conversations.Kernel.RemoteAgentConversation.FallbackAgentModel">
+            <summary>
+            The client might not know what model a remote agent is using, but at the same time, we need to know the model
+            in order to do context reduction and token counting on the client side before submitting the request. So we
+            setup a fake model that the client can use to do context reduction and token counting if we are unsure which
+            model the remote agent will use.
+            </summary>
+        </member>
+        <member name="M:Conversations.Kernel.RequestBuilder.BaseRequestBuilder.BuildAsync(System.Threading.CancellationToken)">
+            <summary>
+            Builds the set of request messages for a given request using the inputs provided
+            in the constructor.
+            </summary>
+            <param name="cancellation">The cancellation token.</param>
+            <returns>A list of chat messages that can be sent to the Copilot model.</returns>
+            <remarks>
+            This method builds up all of the required components of the request and then
+            delegates the addition of the optional components to derived classes. Each derived
+            class can decide how to allocate the remaining tokens towards any optional components
+            in the inputs. This method is virtual to enable a derived class to fully customize the
+            request building process, including changing the required components or the final
+            message ordering of the composed request. Most derived classes will only need to
+            implement the <see cref="M:Conversations.Kernel.RequestBuilder.BaseRequestBuilder.AddOptionalComponentsAsync(System.Threading.CancellationToken)" /> method.
+            </remarks>
+        </member>
+        <member name="M:Conversations.Kernel.RequestBuilder.BaseRequestBuilder.AddHistoryAsync(System.Threading.CancellationToken,System.Nullable{System.Int32})">
+            <summary>
+            Adds history messages to the request, one turn at a time in reverse-chronological order.
+            </summary>
+            <param name="cancellation">The cancellation token.</param>
+            <param name="budget">The budget to use for history. If not specified, all of the remaining tokens
+            will be available as the budget.</param>
+            <returns>A task representing the completion of adding any history to the request.</returns>
+            <remarks>
+            This is not called by the base class, but it exists in the base class because it is shared
+            among several derived classes and avoids the derived classes needing to duplicate the logic.
+            </remarks>
+        </member>
+        <member name="P:Conversations.Kernel.Speculation.CopilotAPISpeculationRequest.Temperature">
+            <summary>
+            Gets or sets the sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+            </summary>
+        </member>
+        <member name="P:Conversations.Kernel.Speculation.CopilotAPISpeculationRequest.Stream">
+            <summary>
+            Gets or sets the value indicating whether to stream the response. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Conversations.Kernel.Speculation.CopilotAPISpeculationRequest.Stop">
+            <summary>
+            Gets or sets up to 4 sequences where the API will stop generating further tokens.
+            </summary>
+        </member>
+        <member name="T:Conversations.Utils.Implementation.CopilotChatResponseMessageReader`2">
+            <summary>
+            Response reader for a single stream. A new instance should be created for each stream to be read.
+            </summary>
+            <typeparam name="TChunk"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+        </member>
+        <member name="P:Conversations.Utils.Implementation.CopilotChatResponseMessageReader`2.PersistToolCalls">
+            <summary>
+            If set to true by inheriting classes, enumeration will persist tool calls to be retrieved
+            in later responses. This is required by agent message reader implementation.
+            </summary>
+        </member>
+        <member name="M:Conversations.Utils.Implementation.CopilotChatResponseMessageReader`2.GetToolCall(System.Int32,System.String,System.Boolean)">
+            <summary>
+            Retrieves a tool call instance streamed earlier.
+            </summary>
+            <param name="choiceIndex">Choice index to look up.</param>
+            <param name="toolCallId">Tool call id.</param>
+            <param name="markAsUsed">If true tool call will be marked as used and won't be returned when Build is called.</param>
+        </member>
+        <member name="M:Conversations.Utils.Implementation.CopilotChatResponseMessageReader`2.TryHandleChunk(`0,`1@)">
+            <summary>
+            Gives the inheriting class a chance to observe and process a chunk before any operations.
+            </summary>
+            <param name="chunk">Chunk retrieved from SSE stream.</param>
+            <param name="response">Output response object to be returned if method returns true.</param>
+            <returns>
+            Returns true if chunk was handled and a response was generated that should be returned.
+            Returns false if processing should continue as normal.</returns>
+        </member>
+        <member name="M:Conversations.Utils.Implementation.CopilotChatResponseMessageReader`2.ProcessChunk(`0)">
+            <summary>
+            Gives the inheriting class a chance to observe a chunk and do post processing.
+            This method does not impact rest of the stream reading.
+            </summary>
+            <param name="chunk">Chunk retrieved from SSE stream.</param>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+        <member name="T:System.Net.ServerSentEvents.SseItem`1">
+            <summary>Represents a server-sent event.</summary>
+            <typeparam name="T">Specifies the type of data payload in the event.</typeparam>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseItem`1.#ctor(`0,System.String)">
+            <summary>Initializes the server-sent event.</summary>
+            <param name="data">The event's payload.</param>
+            <param name="eventType">The event's type.</param>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseItem`1.Data">
+            <summary>Gets the event's payload.</summary>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseItem`1.EventType">
+            <summary>Gets the event's type.</summary>
+        </member>
+        <member name="T:System.Net.ServerSentEvents.SseItemParser`1">
+            <summary>Encapsulates a method for parsing the bytes payload of a server-sent event.</summary>
+            <typeparam name="T">Specifies the type of the return value of the parser.</typeparam>
+            <param name="eventType">The event's type.</param>
+            <param name="data">The event's payload bytes.</param>
+            <returns>The parsed <typeparamref name="T" />.</returns>
+        </member>
+        <member name="T:System.Net.ServerSentEvents.SseParser">
+            <summary>Provides a parser for parsing server-sent events.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser.EventTypeDefault">
+            <summary>The default <see cref="P:System.Net.ServerSentEvents.SseItem`1.EventType" /> ("message") for an event that did not explicitly specify a type.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser.Create(System.IO.Stream)">
+            <summary>Creates a parser for parsing a <paramref name="sseStream" /> of server-sent events into a sequence of <see cref="T:System.Net.ServerSentEvents.SseItem`1" /> values.</summary>
+            <param name="sseStream">The stream containing the data to parse.</param>
+            <returns>
+            The enumerable of strings, which may be enumerated synchronously or asynchronously. The strings
+            are decoded from the UTF8-encoded bytes of the payload of each event.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="sseStream" /> is null.</exception>
+            <remarks>
+            This overload has behavior equivalent to calling <see cref="M:System.Net.ServerSentEvents.SseParser.Create``1(System.IO.Stream,System.Net.ServerSentEvents.SseItemParser{``0})" /> with a delegate
+            that decodes the data of each event using <see cref="P:System.Text.Encoding.UTF8" />'s GetString method.
+            </remarks>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser.Create``1(System.IO.Stream,System.Net.ServerSentEvents.SseItemParser{``0})">
+            <summary>Creates a parser for parsing a <paramref name="sseStream" /> of server-sent events into a sequence of <see cref="T:System.Net.ServerSentEvents.SseItem`1" /> values.</summary>
+            <typeparam name="T">Specifies the type of data in each event.</typeparam>
+            <param name="sseStream">The stream containing the data to parse.</param>
+            <param name="itemParser">The parser to use to transform each payload of bytes into a data element.</param>
+            <returns>The enumerable, which may be enumerated synchronously or asynchronously.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="sseStream" /> is null.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="itemParser" /> is null.</exception>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser.Utf8GetString(System.ReadOnlySpan{System.Byte})">
+            <summary>Encoding.UTF8.GetString(bytes)</summary>
+        </member>
+        <member name="T:System.Net.ServerSentEvents.SseParser`1">
+            <summary>Provides a parser for server-sent events information.</summary>
+            <typeparam name="T">Specifies the type of data parsed from an event.</typeparam>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1.CR">
+            <summary>Carriage Return.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1.LF">
+            <summary>Line Feed.</summary>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseParser`1.CRLF">
+            <summary>Carriage Return Line Feed.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1.DefaultArrayPoolRentSize">
+            <summary>The default size of an ArrayPool buffer to rent.</summary>
+            <remarks>Larger size used by default to minimize number of reads. Smaller size used in debug to stress growth/shifting logic.</remarks>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._stream">
+            <summary>The stream to be parsed.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._itemParser">
+            <summary>The parser delegate used to transform bytes into a <typeparamref name="T" />.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._used">
+            <summary>Indicates whether the enumerable has already been used for enumeration.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._lineBuffer">
+            <summary>Buffer, either empty or rented, containing the data being read from the stream while looking for the next line.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._lineOffset">
+            <summary>The starting offset of valid data in <see cref="F:System.Net.ServerSentEvents.SseParser`1._lineBuffer" />.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._lineLength">
+            <summary>The length of valid data in <see cref="F:System.Net.ServerSentEvents.SseParser`1._lineBuffer" />, starting from <see cref="F:System.Net.ServerSentEvents.SseParser`1._lineOffset" />.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._newlineIndex">
+            <summary>The index in <see cref="F:System.Net.ServerSentEvents.SseParser`1._lineBuffer" /> where a newline ('\r', '\n', or "\r\n") was found.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._lastSearchedForNewline">
+            <summary>The index in <see cref="F:System.Net.ServerSentEvents.SseParser`1._lineBuffer" /> of characters already checked for newlines.</summary>
+            <remarks>
+            This is to avoid O(LineLength^2) behavior in the rare case where we have long lines that are built-up over multiple reads.
+            We want to avoid re-checking the same characters we've already checked over and over again.
+            </remarks>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._eof">
+            <summary>Set when eof has been reached in the stream.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._dataBuffer">
+            <summary>Rented buffer containing buffered data for the next event.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._dataLength">
+            <summary>The length of valid data in <see cref="F:System.Net.ServerSentEvents.SseParser`1._dataBuffer" />, starting from index 0.</summary>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._dataAppended">
+            <summary>Whether data has been appended to <see cref="F:System.Net.ServerSentEvents.SseParser`1._dataBuffer" />.</summary>
+            <remarks>This can be different than <see cref="F:System.Net.ServerSentEvents.SseParser`1._dataLength" /> != 0 if empty data was appended.</remarks>
+        </member>
+        <member name="F:System.Net.ServerSentEvents.SseParser`1._eventType">
+            <summary>The event type for the next event.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.#ctor(System.IO.Stream,System.Net.ServerSentEvents.SseItemParser{`0})">
+            <summary>Initialize the enumerable.</summary>
+            <param name="stream">The stream to parse.</param>
+            <param name="itemParser">The function to use to parse payload bytes into a <typeparamref name="T" />.</param>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.Enumerate">
+            <summary>Gets an enumerable of the server-sent events from this parser.</summary>
+            <exception cref="T:System.InvalidOperationException">The parser has already been enumerated. Such an exception may propagate out of a call to <see cref="M:System.Collections.IEnumerator.MoveNext" />.</exception>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.EnumerateAsync(System.Threading.CancellationToken)">
+            <summary>Gets an asynchronous enumerable of the server-sent events from this parser.</summary>
+            <param name="cancellationToken">The cancellation token to use to cancel the enumeration.</param>
+            <exception cref="T:System.InvalidOperationException">The parser has already been enumerated. Such an exception may propagate out of a call to <see cref="M:System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync" />.</exception>
+            <exception cref="T:System.OperationCanceledException">The enumeration was canceled. Such an exception may propagate out of a call to <see cref="M:System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync" />.</exception>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.GetNextSearchOffsetAndLength(System.Int32@,System.Int32@)">
+            <summary>Gets the next index and length with which to perform a newline search.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.ShiftOrGrowLineBufferIfNecessary">
+            <summary>
+            If there's no room remaining in the line buffer, either shifts the contents
+            left or grows the buffer in order to make room for the next read.
+            </summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.ProcessLine(System.Net.ServerSentEvents.SseItem{`0}@,System.Int32@)">
+            <summary>Processes a complete line from the SSE stream.</summary>
+            <param name="sseItem">The parsed item if the method returns true.</param>
+            <param name="advance">How many characters to advance in the line buffer.</param>
+            <returns>true if an SSE item was successfully parsed; otherwise, false.</returns>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseParser`1.LastEventId">
+            <summary>Gets the last event ID.</summary>
+            <remarks>This value is updated any time a new last event ID is parsed. It is not reset between SSE items.</remarks>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseParser`1.ReconnectionInterval">
+            <summary>Gets the reconnection interval.</summary>
+            <remarks>
+            If no retry event was received, this defaults to <see cref="F:System.Threading.Timeout.InfiniteTimeSpan" />, and it will only
+            ever be <see cref="F:System.Threading.Timeout.InfiniteTimeSpan" /> in that situation. If a client wishes to retry, the server-sent
+            events specification states that the interval may then be decided by the client implementation and should be a
+            few seconds.
+            </remarks>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.ThrowIfNotFirstEnumeration">
+            <summary>Transitions the object to a used state, throwing if it's already been used.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.FillLineBuffer">
+            <summary>Reads data from the stream into the line buffer.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.FillLineBufferAsync(System.Threading.CancellationToken)">
+            <summary>Reads data asynchronously from the stream into the line buffer.</summary>
+        </member>
+        <member name="P:System.Net.ServerSentEvents.SseParser`1.Utf8Bom">
+            <summary>Gets the UTF8 BOM.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.SkipBomIfPresent">
+            <summary>Called at the beginning of processing to skip over an optional UTF8 byte order mark.</summary>
+        </member>
+        <member name="M:System.Net.ServerSentEvents.SseParser`1.GrowBuffer(System.Byte[]@,System.Int32)">
+            <summary>Grows the buffer, returning the existing one to the ArrayPool and renting an ArrayPool replacement.</summary>
+        </member>
+        <member name="T:CopilotClient.ChatAgentError">
+            <summary>
+            Represents a GitHub error used by remote agent framework.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentError.Type">
+            <summary>
+            Gets the type of the error.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentError.Code">
+            <summary>
+            Gets the code of the error.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentError.Message">
+            <summary>
+            Gets the message associated with the error.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentError.Identifier">
+            <summary>
+            Gets the identifier of the error.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.ChatAgentConfirmation">
+            <summary>
+            Represents a GitHub reference used by remote agent framework.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentConfirmation.Type">
+            <summary>
+            Gets the type of the reference.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentConfirmation.Title">
+            <summary>
+            Gets the confirmation request title to be displayed to the user.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentConfirmation.Message">
+            <summary>
+            Gets the confirmation request message to be displayed to the user.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentConfirmation.AdditionalData">
+            <summary>
+            Gets the confirmation metadata including identifier.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentConfirmation.SerializedData">
+            <summary>
+            Gets or sets the serialized data of the reference, this field is used by MessagePack serialization.
+            </summary>
+        </member>
+        <member name="M:CopilotClient.ChatAgentConfirmation.DeserializeAdditionalData(System.String)">
+            <summary>
+            Gets a deserialized element from previously serialized data.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.DisplayName">
+            <summary>
+            Gets the name of the chat agent.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.Description">
+            <summary>
+            Gets the name of the chat agent.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.AgentName">
+            <summary>
+            Gets the name of the chat agent.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.RegistrationId">
+            <summary>
+            Gets the unique identifier of the chat agent extension.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.Icon">
+            <summary>
+            Gets the icon of the agent.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentDescriptor.CanUseEditorContext">
+            <summary>
+            Gets whether the agent can utilize editor context.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentRequest.MemoryId">
+            <summary>
+            Gets the unique identifier for the request.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentRequest.Messages">
+            <summary>
+            Gets the messages to generate chat completions for, in the chat format.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.ChatAgentsResponse.Agents">
+            <summary>
+            Gets the name of the chat agent.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.CopilotAPIRequest">
+            <summary>
+            Represents a request to generate chat completions.
+            </summary>
+        </member>
+        <member name="M:CopilotClient.CopilotAPIRequest.#ctor(System.Collections.Generic.IReadOnlyList{Microsoft.Extensions.AI.ChatMessage},System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:CopilotClient.CopilotAPIRequest" /> class with the specified prompt.
+            </summary>
+            <remarks>This can be used for requests to remote agents.</remarks>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Messages">
+            <summary>
+            Gets or sets the messages to generate chat completions for, in the chat format.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Model">
+            <summary>
+            Gets or sets the ID of the model to use.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.CopilotModel">
+            <summary>
+            Gets the <see cref="P:CopilotClient.CopilotAPIRequest.CopilotModel" /> to use for the request.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Temperature">
+            <summary>
+            Gets or sets the sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.TopP">
+            <summary>
+            Gets or sets the value of p to use for nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.N">
+            <summary>
+            Gets or sets the number of chat completion choices to generate for each input message.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Stream">
+            <summary>
+            Gets or sets the value indicating whether to stream the response. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Stop">
+            <summary>
+            Gets or sets up to 4 sequences where the API will stop generating further tokens.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.MaxTokens">
+            <summary>
+            Gets or sets the maximum number of tokens allowed for the generated answer. If unspecified, the response can be up to the model's maximum output size.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.PresencePenalty">
+            <summary>
+            Gets or sets a number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.FrequencyPenalty">
+            <summary>
+            Gets or sets a number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.LogitBias">
+            <summary>
+            Gets or sets the modification of the likelihood of specified tokens appearing in the completion.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Tools">
+             <summary>
+             Gets or sets the functions to be considered.
+            
+             When providing one or more functions the model may choose to call one of them in the response. See <see cref="P:CopilotClient.CopilotChatResponseMessage.ToolCalls" />.
+            
+             Full documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools
+             </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.ToolChoice">
+             <summary>
+             Gets the value indicating whether to consider calling <see cref="P:CopilotClient.CopilotAPIRequest.Tools" /> in responses.
+             Can be set to <c>required</c> to enforce the use of a tool in the response.
+             If null, the implied value is "none" if no tools are provided, and "auto" if tools are provided.
+            
+             Full documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tool_choice
+             </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.ParallelToolCalls">
+             <summary>
+             Gets the value indicating whether to enable parallel tool calling.
+            
+             Defaults to <c>true</c>
+            
+             Full documentation: https://platform.openai.com/docs/api-reference/chat/create#chat-create-parallel_tool_calls
+             </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.OffTopicFilterText">
+            <summary>
+            Gets the text to be used for off topic filtering (or not) the request.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotAPIRequest.Snippy">
+            <summary>
+            Gets or sets the configuration for Snippy the GitHub Copilot filter that detects code suggestions
+            matching public code on GitHub. Snippy can be explicitly enabled or disabled by setting an
+            'enabled' key in the dictionary with a value of true or false. If the Snippy property is null
+            then Snippy will be enabled/disabled depending on the configuration for the current user. For
+            Microsoft  accounts Snippy is enabled by default and cannot be disabled via GitHub
+            https://aka.ms/copilot-chat-filtered-docs.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.CopilotAPIModelsResponse">
+            <summary>
+            A response from the models API that contains a list of supported models in CAPI.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotChatResponseStreamChunk.CodeVulnerability.StartOffset">
+            <summary>
+            Gets or sets how many bytes from the beginning of the response text the annotation starts. The start offset may be negative,
+            if the match is partly in the prompt. Not currently available.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotChatResponseStreamChunk.CodeVulnerability.EndOffset">
+            <summary>
+            Gets or sets how many bytes from the beginning of the response text the annotation stops. Not currently available.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.CopilotChatResponseStreamChunk.IPCodeCitation">
+            <summary>
+            Represents an IP code citation.
+            </summary>
+            <remarks>
+            Refer to https://github.com/github/releases/issues/4106 and
+            https://github.com/github/copilot/blob/main/docs/copilot-api-service/rai_annotations.md#response.
+            </remarks>
+        </member>
+        <member name="T:CopilotClient.CopilotChatResponseStreamChunk.IPCodeCitationDetails">
+            <summary>
+            Represents the details of an IP code citation.
+            </summary>
+            <remarks>
+            Refer to https://github.com/github/releases/issues/4106 and
+            https://github.com/github/copilot/blob/main/docs/copilot-api-service/rai_annotations.md#response.
+            </remarks>
+        </member>
+        <member name="P:CopilotClient.CopilotChatResponseStreamChunk.TextCopyright.StartOffset">
+            <summary>
+            Gets or sets how many bytes from the beginning of the response text the annotation starts. The start offset may be negative,
+            if the match is partly in the prompt. Not currently available.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotChatResponseStreamChunk.TextCopyright.EndOffset">
+            <summary>
+            Gets or sets how many bytes from the beginning of the response text the annotation stops. Not currently available.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.CopilotTextEmbeddingRequest">
+            <summary>
+            A request to create embedding vector representing input text
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotTextEmbeddingRequest.Input">
+            <summary>
+            Input to embed
+            </summary>
+        </member>
+        <member name="P:CopilotClient.CopilotTextEmbeddingRequest.Model">
+            <summary>
+            Model to generate the embedding
+            </summary>
+        </member>
+        <member name="F:CopilotClient.CopilotTextEmbeddingRequest.Models.Ada002">
+            <summary>
+            Represents the OpenAI Ada-002 text embedding model.
+            </summary>
+        </member>
+        <member name="F:CopilotClient.CopilotTextEmbeddingRequest.Models.TextEmbedding3Small">
+            <summary>
+            Represents the OpenAI Text Embedding 3 Small model.
+            </summary>
+        </member>
+        <member name="F:CopilotClient.CopilotTextEmbeddingRequest.Models.Default">
+            <summary>
+            The default model to use for text embedding.
+            </summary>
+        </member>
+        <member name="T:CopilotClient.TextEmbeddingResponse`1">
+            <summary>
+            A response from an embedding request.
+            </summary>
+        </member>
+        <member name="P:CopilotClient.TextEmbeddingResponse`1.EmbeddingResponseIndex.Values">
+            <summary>
+            The embedding vector
+            </summary>
+        </member>
+        <member name="P:CopilotClient.TextEmbeddingResponse`1.EmbeddingResponseIndex.Index">
+            <summary>
+            Index of the embedding vector
+            </summary>
+        </member>
+        <member name="P:CopilotClient.TextEmbeddingResponse`1.Embeddings">
+            <summary>
+            A list of embeddings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.DisposableBag">
+            <summary>
+            A collection of disposable objects that should be disposed together when the collection is disposed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.DisposableBag.disposables">
+            <summary>
+            The set of disposable blocks.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Copilot.DisposableBag" /> class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.DisposableBag.IsDisposed">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.Dispose">
+            <summary>
+            Disposes of all elements in the collection and clears the collection.
+            </summary>
+            <remarks>
+            Any elements added to the collection later are instead immediately disposed.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.AddDisposable(System.IDisposable)">
+            <summary>
+            Adds a value to be disposed of when this collection is disposed of.
+            </summary>
+            <param name="value">
+            The value to be disposed of when this collection is disposed of.
+            Will be disposed of immediately if this collection is already disposed of.
+            May be <see langword="null" />.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.AddDisposables(System.Collections.Generic.IEnumerable{System.IDisposable})">
+            <summary>
+            Adds values to be disposed of when this collection is disposed of or canceled.
+            </summary>
+            <param name="values">
+            The value to be disposed of when this collection is disposed of.
+            All elements will be disposed of immediately if this collection is already disposed of.
+            Individual elements of the collection or the collection itself may be <see langword="null" />.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.RemoveDisposable(System.IDisposable)">
+            <summary>
+            Removes a disposable value from the collection.
+            </summary>
+            <param name="value">The value to remove. May be <see langword="null" />.</param>
+            <remarks>
+            No exception is thrown if the <paramref name="value" /> is not found in the collection.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.DisposableBag.DisposeCore">
+            <summary>
+            Invoked when this collection is disposed (for the first time)
+            but before its contained elements are disposed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.IsLineBreak(System.Char)">
+            <summary>
+            Checks if a character is a line break character.
+            </summary>
+            <param name="character">The input character.</param>
+            <returns>True if the input character is a line break character, else false.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetFirstLine(System.String)">
+            <summary>
+            Gets the text before the first line break.
+            </summary>
+            <param name="text">The input string.</param>
+            <returns>The first line of text.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineFromPosition(System.String,System.Int32)">
+            <summary>
+            Get the line number from a position in a text.
+            </summary>
+            <param name="text">The content.</param>
+            <param name="position">Position in the text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineAndColumnFromPosition(System.String,System.Int32)">
+            <summary>
+            Get the line and column number from a position in a text.
+            </summary>
+            <param name="text">The content.</param>
+            <param name="position">Position in the text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineBreakText(System.String)">
+            <summary>
+            Determines the line break character of the input string.
+            </summary>
+            <param name="text">The input string.</param>
+            <returns>The line break character of the input string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.LineBreakLength(System.String,System.Int32)">
+            <summary>
+            Gets the length of the line break character
+            0 : if no line break in the text
+            1 : if the line break is one of single line break characters
+            2 : if the line break character is \r\n combined
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.NormalizeLineBreaks(System.String,Microsoft.VisualStudio.Text.ITextSnapshot,System.String@)">
+            <summary>
+            Normalizes the line breaks of a given original string by replacing the line break text with the target line break text.
+            </summary>
+            <param name="original">The original string to be normalized.</param>
+            <param name="snapshot">The text snapshot to use for obtaining the target line break text.</param>
+            <param name="targetLineBreak">The target line break text to use for normalization.</param>
+            <returns>The normalized string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.CopilotTokenManagerProxyClient.GetAuthInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks GitHub and Copilot token and returns auth status.
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.CopilotTokenManagerProxyClient.GetCopilotIdentityAsync(System.Boolean,System.Threading.CancellationToken,System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation})">
+            <summary>
+            Get token, refreshing it if needed
+            </summary>
+            <param name="forceRefresh"></param>
+            <param name="cancellationToken"></param>
+            <param name="correlationId"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotAPIClient">
+            <summary>
+            Raw Copilot proxy client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotAPIClient.GenerateEmbeddingsAsync``1(CopilotClient.CopilotTextEmbeddingRequest,System.Threading.CancellationToken)">
+            <summary>
+            Request to generate embeddings and return the raw response from the endpoint.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotRequestCache">
+            <summary>
+            A cache of requests and responses from the Copilot service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotRequestCache.SetAsync(System.String,System.Uri,System.Net.HttpStatusCode,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Puts the specified request and response in the cache, replacing any pre-existing entries for the same request.
+            </summary>
+            <param name="requestPayload">The serialized request payload.</param>
+            <param name="apiEndpoint"> The API endpoint where the request was sent.</param>
+            <param name="status">The HTTP response status of the response being cached.</param>
+            <param name="responseContent">The response content to cache as a string.</param>
+            <param name="metadata">Optional metadata about the cached response.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.ICopilotRequestCache.GetAsync(System.String,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a cached response for the specified request from the Copilot service. Returns null if no cached response
+            is found for the given request.
+            </summary>
+            <param name="requestPayload">The serialized request payload.</param>
+            <param name="apiEndpoint">The API endpoint where the request is intended to be sent.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The cached response as an HttpResponseMessage.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.CopilotClient.AnnotationsBuilder">
+            <summary>
+            De-duplicates annotations returned in the Copilot response. Streamed responses may contain the same annotation
+            multiple times. The last update to the annotation is the one that should be used.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.CopilotClient.AnnotationsBuilder.Append(CopilotClient.CopilotChatResponseStreamChunk.Annotations)">
+            <summary>
+            Appends an annotation. If the annotation already exists, it will be replaced.
+            </summary>
+            <returns>True if the annotation was added or no annotations were found.
+            False if any annotation could not be added due to missing information.</returns>
+        </member>
+        <member name="T:ChoiceConverter">
+            <summary>
+            This ChoiceConverter is only here to support the Choice type returned by the Speculative decoding endpoint.
+            It will potentially change once that endpoint stabilizes.
+            This converter ensures we don't affect supported types, but also we can morph and accept the Speculative decoding Choice type.
+            Which contains a `text` string instead of a `Delta` property.
+            </summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>ahA/mbGJfKexbSg5p29wOSSHqd8zx2MF9zj87D2he8A=</DigestValue></Reference></SignedInfo><SignatureValue>WyQaSWjWk7kTGUyy2LEI9iuVaV7Tx84Bp0V4Yui9sHP+mxcw5vt6Ay50WmimgWHLEdB8erQE76etIBTbUMDGgePDzcMeqlRiHLEl3DHj045N9j/RSn/Rbg3q57+pRkkIGyXjYfw/MEpW8jhef9tRf9efX6areUXMIJ9WbsU44Zj4uDHjtsamuTRZyytaT+Zp4NwhWcYggVJu4ysOSglTnvMBYH3wnghDgW7CpROz1h0ndRGHjmd/PvJjxsq7SqxXVlt4J++LjhM7y7utHIsRg6FfIrBsuVRMVeF7SUAeN6UzBhULoNUZ9gA7repfnQxQ8XyUUxIAVjh6cQeL9hPtzA==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

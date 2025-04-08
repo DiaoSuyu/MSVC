@@ -1,0 +1,1498 @@
+{
+  "properties": {
+    "textEditor.general.dragDropEditing": {
+      "type": "boolean",
+      "default": true,
+      "title": "@DragDropEditing;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@DragDropEditingKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Drag Drop Editing"
+          }
+        }
+      }
+    },
+    "textEditor.general.selectSubwordOnDoubleClick": {
+      "type": "boolean",
+      "default": false,
+      "title": "@SubwordDoubleClick;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@SubWordDoubleClickKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Select subword on double click"
+          }
+        }
+      }
+    },
+    "textEditor.general.cutOrCopyIfNoSelection": {
+      "type": "boolean",
+      "default": true,
+      "title": "@CutOrCopyIfNoSelection;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@CutOrCopyIfNoSelectionKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.CutOrCopyIfNoSelection"
+          }
+        }
+      }
+    },
+    "textEditor.general.automaticDelimiterHighlighting": {
+      "type": "boolean",
+      "default": true,
+      "title": "@AutomaticDelimiterHighlighting;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@AutomaticDelimiterHighlightingKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Automatic Delimiter Highlighting"
+          }
+        }
+      }
+    },
+    "textEditor.general.trackChanges": {
+      "type": "boolean",
+      "default": true,
+      "title": "@TrackChanges;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@TrackChangesModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Track Changes"
+          }
+        }
+      }
+    },
+    "textEditor.general.trackChangesMode": {
+      "type": "string",
+      "default": "gitChanges",
+      "enableWhen": "${config:textEditor.general.trackChanges}=='true'",
+      "enum": [
+        "gitChanges",
+        "fileChanges"
+      ],
+      "enumItemLabels": [
+        "@TrackChangesMode_SourceControlChanges;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TrackChangesMode_FileChanges;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "additionalKeywords": [ "@TrackChangesModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "title": "@TrackChangesMode;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.TrackChangesMode"
+          },
+          "map": [
+            {
+              "result": "gitChanges",
+              "match": 0
+            },
+            {
+              "result": "fileChanges",
+              "match": 1
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.general.autoDetectUtf8": {
+      "type": "boolean",
+      "default": true,
+      "title": "@AutoDetectUtf8;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@AutoDetectUtf8Keywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Detect UTF8"
+          }
+        }
+      }
+    },
+    "textEditor.general.followProjectCodingConventions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@FollowProjectCodingConventions;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@FollowProjectCodingConventionsKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Coding Conventions"
+          }
+        }
+      }
+    },
+    "textEditor.general.imageHoverPreview": {
+      "type": "boolean",
+      "default": false,
+      "title": "@EnableImageHoverPreview;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "alternateDefault": {
+        "flagName": "Editor.ImageHoverPreview",
+        "default": true
+      },
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Image Hover Preview"
+          }
+        }
+      }
+    },
+    "textEditor.general.audioCues": {
+      "type": "boolean",
+      "default": false,
+      "tags": [ "accessibility" ],
+      "title": "@EnableAudioCues;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableAudioCuesKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Audio Cues"
+          }
+        }
+      }
+    },
+    "textEditor.general.clickToGoToDefinition": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableClickGoToDef;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableClickGoToDefKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Clickable Goto Definition"
+          }
+        }
+      }
+    },
+    "textEditor.general.clickToGoToDefinitionModifierKey": {
+      "type": "string",
+      "default": "ctrl",
+      "enum": [
+        "ctrl",
+        "alt",
+        "ctrlAlt"
+      ],
+      "enumItemLabels": [
+        "@ClickGoToDefModifierKeyCtrl;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@ClickGoToDefModifierKeyAlt;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@ClickGoToDefModifierKeyCtrlAlt;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@ModifierKey;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.clickToGoToDefinition}=='true'",
+      "additionalKeywords": [ "@ClickGoToDefModifierKeyKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Modifier Key Used with Mouse Click for Goto Definition"
+          },
+          "map": [
+            {
+              "result": "ctrl",
+              "match": 2
+            },
+            {
+              "result": "alt",
+              "match": 1
+            },
+            {
+              "result": "ctrlAlt",
+              "match": 3
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.general.clickToGoToDefinitionOpenInPeek": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ClickGoToDefOpenInPeek;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.clickToGoToDefinition}=='true'",
+      "additionalKeywords": [ "@ClickGoToDefOpenInPeekKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Open Definition in Peek View"
+          }
+        }
+      }
+    },
+    "textEditor.general.stickyScroll.enable": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "Editor.StickyScroll",
+        "default": true
+      },
+      "title": "@EnableStickyScroll;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableStickyScrollKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.EnableStickyScroll"
+          }
+        }
+      }
+    },
+    "textEditor.general.stickyScroll.maxLines": {
+      "type": "integer",
+      "default": 5,
+      "title": "@MaxLinesofStickyScroll;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.stickyScroll.enable}=='true'",
+      "additionalKeywords": [ "@MaxLinesofStickyScrollKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "description": "@MaxLinesOfStickyScrollDescription;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Max Line of Sticky Header"
+          }
+        }
+      }
+    },
+    "textEditor.general.stickyScroll.scopePreference": {
+      "type": "string",
+      "default": "preferInnerScopes",
+      "enableWhen": "${config:textEditor.general.stickyScroll.enable}=='true'",
+      "enum": [
+        "preferInnerScopes",
+        "preferOuterScopes"
+      ],
+      "enumItemLabels": [
+        "@ShowInnerScopesOfStickyScroll;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@ShowOuterScopesOfStickyScroll;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@ShowInnerOrOuterScopesOfStickyScroll;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowInnerOrOuterScopesOfStickyScrollKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.StickyScrollScopeOverflowKind"
+          },
+          "map": [
+            {
+              "result": "preferOuterScopes",
+              "match": 0
+            },
+            {
+              "result": "preferInnerScopes",
+              "match": 1
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.advanced.horizontalScrollBarLocation": {
+      "type": "string",
+      "default": "alwaysInTray",
+      "alternateDefault": {
+        "flagName": "Editor.HorizontalScrollBarAutoPopUp",
+        "default": "auto"
+      },
+      "enum": [
+        "auto",
+        "alwaysInTray",
+        "alwaysAboveTray"
+      ],
+      "enumItemLabels": [
+        "@HorizontalScrollBarAutomaticPopUp;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@HorizontalScrollBarAlwaysInTray;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@HorizontalScrollBarAlwaysAboveTray;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@HorizontalScrollBarLocationKind;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@HorizontalScrollBarLocationKindNameKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.horizontalScrollBarLocation"
+          },
+          "map": [
+            {
+              "result": "auto",
+              "match": 0
+            },
+            {
+              "result": "alwaysInTray",
+              "match": 1
+            },
+            {
+              "result": "alwaysAboveTray",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.general.display.visibleWhitespace": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ShowWhitespace;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ViewWhitespaceKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Visible Whitespace"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.wordWrapAutoIndent": {
+      "type": "boolean",
+      "default": true,
+      "title": "@WordWrapAutoIndent;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@WordWrapAutoIndentKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Word Wrap Auto Indent"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.bidirectionalTextControlCharacters": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowBidirectionalTextControlCharacters;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ViewBidirectionalTextControlCharactersKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Bidirectional Text Control Characters"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.zeroWidthCharacters": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ShowZeroWidthCharacters;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ViewZeroWidthCharactersKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Zero Width Characters"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.selectionMargin": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowSelectionMargin;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@SelectionMarginKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Selection Margin"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.bracePairColorization": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "Editor.BracePairColorization",
+        "default": true
+      },
+      "title": "@BracePair;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Brace Pair Colorization"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.autoBraceSurround": {
+      "type": "boolean",
+      "default": false,
+      "alternateDefault": {
+        "flagName": "Editor.AutoBraceSurround",
+        "default": true
+      },
+      "title": "@AutoBraceSurroundDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@AutoBraceSurroundKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Enable Auto Brace Surround"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.glyphMargin": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowGlyphMargin;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@GlyphMarginKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Indicator Margin"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.highlightCurrentLine": {
+      "type": "boolean",
+      "default": true,
+      "title": "@HighlightCurrentLine;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@HighlightCurrentLineKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Highlight Current Line"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.blockStructure": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowBlockStructure;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowBlockStructureKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Block Structure"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.errorSquiggles": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowErrorSquiggles;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowErrorSquigglesKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Error Suiggles"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.selectionMatches": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowSelectionMatches;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowSelectionMatchesKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Selection Matches"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.fileHealthIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ShowFileHealthIndicator;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowFileHealthIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show File Health Indicator"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.lineSpacing": {
+      "type": "string",
+      "default": "1.0",
+      "enum": [
+        "1.0",
+        "1.15",
+        "1.5",
+        "2.0",
+        "2.5",
+        "3.0"
+      ],
+      "enumItemLabels": [
+        "@LineSpacingValue1;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@LineSpacingValue2;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@LineSpacingValue3;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@LineSpacingValue4;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@LineSpacingValue5;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@LineSpacingValue6;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+
+      ],
+      "title": "@LineSpacing;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@LineSpacingKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "TextEditor.General.Line Spacing"
+            }
+          ],
+          "map": [
+            {
+              "result": "1.0",
+              "matches": [
+                1
+              ]
+            },
+            {
+              "result": "1.15",
+              "matches": [
+                1.15
+              ]
+            },
+            {
+              "result": "1.5",
+              "matches": [
+                1.5
+              ]
+            },
+            {
+              "result": "2.0",
+              "matches": [
+                2
+              ]
+            },
+            {
+              "result": "2.5",
+              "matches": [
+                2.5
+              ]
+            },
+            {
+              "result": "3.0",
+              "matches": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.general.display.editingContext": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EditingStateIndicatorsDescription;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EditingStateIndicatorsDescriptionKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Editing State Margins"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.lineColIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@LineColIndicatorDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.display.editingContext}=='true'",
+      "additionalKeywords": [ "@LineColIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show RowCol Margins"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.selectionIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@SelectionIndicatorDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.display.editingContext}=='true'",
+      "additionalKeywords": [ "@SelectionIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Selection State Margin"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.insertModeIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@InsertModeIndicatorDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.display.editingContext}=='true'",
+      "additionalKeywords": [ "@InsertModeIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Insert Margin"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.leadingWhitespaceIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@LeadingWhitespaceIndicatorDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.display.editingContext}=='true'",
+      "additionalKeywords": [ "@LeadingWhitespaceIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Leading Whitespace Margin"
+          }
+        }
+      }
+    },
+    "textEditor.general.display.lineEndingIndicator": {
+      "type": "boolean",
+      "default": true,
+      "title": "@LineEndingIndicatorDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.general.display.editingContext}=='true'",
+      "additionalKeywords": [ "@LineEndingIndicatorKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Show Line Ending Margin"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.diffHighlightMode": {
+      "type": "string",
+      "default": "wholeLine",
+      "enum": [
+        "codeContour",
+        "wholeLine",
+        "blockOutline",
+        "mixedOutline"
+      ],
+      "enumItemLabels": [
+        "@DiffCodeContour;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DiffWholeLine;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DiffBlockOutline;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DiffMixedOutline;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@DiffMode;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@DiffModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.Diff.HighlightMode"
+          },
+          "map": [
+            {
+              "result": "codeContour",
+              "match": 0
+            },
+            {
+              "result": "wholeLine",
+              "match": 1
+            },
+            {
+              "result": "blockOutline",
+              "match": 2
+            },
+            {
+              "result": "mixedOutline",
+              "match": 3
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.advanced.diffOverviewMargin": {
+      "type": "boolean",
+      "default": false,
+      "title": "@DiffOverviewMargin;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowDiffOverviewMarginKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.ShowDiffOverviewMargin"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.responsiveCompletion": {
+      "type": "boolean",
+      "default": true,
+      "tags": [ "performance" ],
+      "title": "@EnableResponsiveCompletion;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableResponsiveCompletionKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.ResponsiveCompletionEnabled"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.clickPerformPeekDifference": {
+      "type": "string",
+      "default": "singleClick",
+      "enum": [
+        "off",
+        "singleClick",
+        "doubleClick"
+      ],
+      "enumItemLabels": [
+        "@DisableMouseClickToPeekMargin;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@SingleClickPerformPeekDiff;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DoubleClickPerformPeekDiff;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@EnableMouseClickPerformPeekDifference;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableMouseClickPerformPeekDifferenceKeyword;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.InteractiveChangeMarginGesture"
+          },
+          "map": [
+            {
+              "result": "off",
+              "match": 0
+            },
+            {
+              "result": "singleClick",
+              "match": 1
+            },
+            {
+              "result": "doubleClick",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.advanced.wordBasedSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableWordBasedSuggestionsDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableWordBasedSuggestionsKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.WordBasedSuggestions"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.textMateParserLineLimit": {
+      "type": "integer",
+      "default": 10000,
+      "minimum": 0,
+      "tags": [ "performance" ],
+      "requiresRestart": true,
+      "title": "@TextMateParserLineLimitUSXDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@TextMateParserLineLimitKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.TextMateParserLineLimit"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.defaultCompletionMode": {
+      "type": "string",
+      "default": "automatic",
+      "enum": [
+        "automatic",
+        "tabOnly",
+        "lastUsed"
+      ],
+      "enumItemLabels": [
+        "@DefaultCompletionModeAutoCompletion;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DefaultCompletionModeSuggestion;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@DefaultCompletionModeLastUsed;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@DefaultCompletionModeDisplayName;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@DefaultCompletionModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.DefaultCompletionMode"
+          },
+          "map": [
+            {
+              "result": "automatic",
+              "match": 0
+            },
+            {
+              "result": "tabOnly",
+              "match": 1
+            },
+            {
+              "result": "lastUsed",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.advanced.codeLensDisplacesCaretLine": {
+      "type": "boolean",
+      "default": true,
+      "title": "@DisplaceCaretLineOption;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@DisplaceCaretLineOptionKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.DisplaceCaretLineOption"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.showFileLevelCodeLens": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ShowFileLevelCodeLens;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@ShowFileLevelCodeLensKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.ShowFileLevelCodeLens"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.boxSelection": {
+      "type": "boolean",
+      "default": false,
+      "title": "@BoxSelection;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@UseBoxSelectionKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.UseBoxSelection"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.adaptiveFormatting": {
+      "type": "boolean",
+      "default": true,
+      "title": "@AdaptiveFormatting;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@AdaptiveFormattingKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.AdaptiveFormatting"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.findInFilesIndexing": {
+      "type": "boolean",
+      "default": true,
+      "title": "@IndexedFindInFiles;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableIndexedFindInFilesKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.EnableIndexedFindInFiles"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.rtfCopy": {
+      "type": "boolean",
+      "default": true,
+      "tags": [ "performance" ],
+      "title": "@EnableRtfCopy;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableRtfCopyKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.EnableRtfCopy"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.maxRtfCopyLength": {
+      "type": "integer",
+      "default": 10240,
+      "minimum": 0,
+      "tags": [ "performance" ],
+      "title": "@MaxRtfCopyLength;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "enableWhen": "${config:textEditor.advanced.rtfCopy}=='true'",
+      "additionalKeywords": [ "@MaxRtfCopyLengthKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.MaxRtfCopyLength"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.typingLatencyGuard": {
+      "type": "boolean",
+      "default": true,
+      "tags": [ "performance" ],
+      "title": "@EnableTypingLatencyGuard;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableTypingLatencyGuardKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.EnableTypingLatencyGuard"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.scrolling.linesPerVerticalScroll": {
+      "type": "integer",
+      "default": 3,
+      "maximum": 100,
+      "minimum": 1,
+      "title": "@VerticalScrollSensitivity;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@VerticalScrollSensitivityKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.VerticalScrollSensitvity"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.scrolling.charsPerHorizontalScroll": {
+      "type": "integer",
+      "default": 10,
+      "maximum": 100,
+      "minimum": 1,
+      "title": "@HorizontalScrollSensitivity;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@HorizontalScrollSensitivityKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.HorizontalScrollSensitvity"
+          }
+        }
+      }
+    },
+    "textEditor.advanced.textFormatting": {
+      "type": "string",
+      "default": "automatic",
+      "tags": [ "accessibility" ],
+      "enum": [
+        "automatic",
+        "ideal",
+        "display"
+      ],
+      "enumItemLabels": [
+        "@TextFormattingModeAutomatic;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TextFormattingModeIdeal;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TextFormattingModeDisplay;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@TextFormattingMode;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@TextFormattingModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.TextFormattingMode"
+          },
+          "map": [
+            {
+              "result": "automatic",
+              "match": 0
+            },
+            {
+              "result": "ideal",
+              "match": 1
+            },
+            {
+              "result": "display",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.advanced.textRendering": {
+      "type": "string",
+      "default": "automatic",
+      "tags": [ "accessibility" ],
+      "enum": [
+        "automatic",
+        "clearType",
+        "grayscale",
+        "aliased"
+      ],
+      "enumItemLabels": [
+        "@TextRenderingModeAutomatic;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TextRenderingModeClearType;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TextRenderingModeGrayscale;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@TextRenderingModeAliased;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@TextRenderingMode;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@TextRenderingModeKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.General.TextRenderingMode"
+          },
+          "map": [
+            {
+              "result": "automatic",
+              "match": 0
+            },
+            {
+              "result": "aliased",
+              "match": 1
+            },
+            {
+              "result": "grayscale",
+              "match": 2
+            },
+            {
+              "result": "clearType",
+              "match": 3
+            }
+          ]
+        }
+      }
+    },
+    "textEditor.codeCleanup.profile": {
+      "type": "string",
+      "title": "@CodeCleanUpOnSaveSelectProfile;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "default": "none",
+      "enum": [
+        "none",
+        "profile1",
+        "profile2"
+      ],
+      "enumItemLabels": [
+        "@CodeCleanUpNoneOption;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@CodeCleanupOnSaveProfile1;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@CodeCleanupOnSaveProfile2;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "TextEditor.CodeCleanupOnSave.EnableCodeCleanupOnSave"
+            },
+            {
+              "store": "SettingsManager",
+              "path": "TextEditor.CodeCleanupOnSave.CodeCleanupOnSaveSelectedProfile"
+            }
+          ],
+          "map": [
+            {
+              "result": "none",
+              "matches": [ false, "@any" ]
+            },
+            {
+              "result": "profile1",
+              "matches": [ true, "@missing" ]
+            },
+            {
+              "result": "none",
+              "matches": [ false, "@missing" ]
+            },
+            {
+              "result": "none",
+              "matches": [ "@missing", "@any" ]
+            },
+            {
+              "result": "profile1",
+              "matches": [ true, "Profile1" ]
+            },
+            {
+              "result": "profile2",
+              "matches": [ true, "Profile2" ]
+            }
+          ]
+
+        }
+      },
+      "commands": [
+        {
+          "vsct": {
+            "text": "@ConfigureCodeCleanupCommand;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+            "set": "160961b3-909d-4b28-9353-a1bef587b4a6",
+            "id": 320
+          }
+        }
+      ]
+    },
+    "textEditor.inlayHints.enable": {
+      "type": "string",
+      "default": "whilePressingHotKey",
+      "enum": [
+        "always",
+        "whilePressingHotKey",
+        "never"
+      ],
+      "enumItemLabels": [
+        "@Always;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@WhilePressingHotKey;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+        "@Never;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+      ],
+      "title": "@EnableInlayHints;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "additionalKeywords": [ "@EnableInlayHintsKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "TextEditor.EnableInlayHints"
+          },
+          "map": [
+            {
+              "result": "always",
+              "match": 0
+            },
+            {
+              "result": "never",
+              "match": 1
+            },
+            {
+              "result": "whilePressingHotKey",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "environment.tasklist.tokens": {
+      "type": "array",
+      "title": "@TokenList;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "@TasklistName;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low",
+              "normal",
+              "high"
+            ],
+            "enumItemLabels": [
+              "@TasklistPriorityLowLabel;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+              "@TasklistPriorityNormalLabel;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+              "@TasklistPriorityHighLabel;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+            ],
+            "title": "@TasklistPriority;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+            "default": "normal"
+          }
+        }
+      },
+      "default": [
+        {
+          "text": "HACK",
+          "priority": "normal"
+        },
+        {
+          "text": "UNDONE",
+          "priority": "normal"
+        },
+        {
+          "text": "UnresolvedMergeConflict",
+          "priority": "high"
+        }
+      ],
+      "itemsAreOrdered": false,
+      "hasUserSelectableDefaultItem": false,
+      "migrationCallback": {
+        "packageId": "4A9B7E50-AA16-11d0-A8C5-00A0C921A4D2",
+        "serviceId": "F207EE73-3849-4EFF-9B68-F1177B0FEB58"
+      },
+      "messages": [
+        {
+          "text": "@TODOMessage;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+        }
+      ]
+    },
+    "environment.findReplace.showNoResultsFound": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceShowNoResultsFound;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\ShowNoFound" //set in manager code to same location, g_bDisplayInformationalMessages, VSSPROPID_DisplayInformationalMessages
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.showNoMoreResults": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceShowNoMoreResults;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\ShowNoMore" //set in manager code to same location, g_bDisplayInformationalMessages, VSSPROPID_DisplayInformationalMessages
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.showAllResultsReplacedMessage": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceShowAllResultsReplacedMessage;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\ShowCancel" //set in manage code, g_bDisplayInformationalMessages, VSSPROPID_DisplayInformationalMessages
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.showBadRegExMessage": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceShowBadRegExMessage;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\ShowBadRegex" //was not present in old settings dialog, only in manage code
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.limitSearchToSelection": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceLimitSearchToSelection;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\AutomaticallyLimitSearchToSelection" //native & manage code envopt.cpp IsAutoLimitFindToSelection, VSSPROPID_AutomaticallyLimitFindToSelection, QuickFindUtilities.cs 
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.populateFindTextFromEditor": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": true,
+      "title": "@FindAndReplaceFindTextFromEditor;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "Find\\FindTextFromEditor" //referenced in native code, VSSPROPID_AutomaticallyPopulateFindInFilesDialog, and FindUtilities.IsAutoPopulateFindTextEnabled
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [ "1" ]
+            },
+            {
+              "result": false,
+              "matches": [ "0" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.findReplace.useEditorBackgroundInFindAllReferences": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": false,
+      "title": "@FindAndReplaceUseEditorBackgroundInFindAllReferences;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\SyncFARandEditorBackground" //native code, VSSPROPID_SyncFARandEditorBackground, ColorManager.IsSyncFARAndEditorBackgroundOptionTurnedOn
+          }
+        }
+      }
+    },
+    "environment.findReplace.keepSearchResults": {
+      "transientScopesSupported": false,
+      "type": "boolean",
+      "default": false,
+      "title": "@FindAndReplaceKeepFindResultsByDefault;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\KeepFindResultsByDefault" //native code, VSSPROPID_KeepFindResultsByDefault, GroupingTableControlToolWindowPane.IsKeepFindResultsByDefaultTurnedOn
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "textEditor": {
+      "title": "@500;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 2
+    },
+    "textEditor.general": {
+      "title": "@501;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 0,
+      "legacyOptionPageId": "c178af61-531a-46f0-bd57-102d9e42c711"
+    },
+    "textEditor.general.display": {
+      "title": "@DisplayBlock;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 0
+    },
+    "textEditor.general.display.editingContextInEditor": {
+      "title": "@EditingStateIndicatorsDescription;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 1
+    },
+    "textEditor.general.stickyScroll": {
+      "title": "@StickyScrollBlock;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 2
+    },
+    "textEditor.advanced": {
+      "title": "@601;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 1,
+      "legacyOptionPageId": "efd55f3d-23c1-4a1d-a58b-77295611c7d4"
+    },
+    "textEditor.advanced.scrolling": {
+      "title": "@ScrollSettingsBlockDescription;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+    },
+    "textEditor.codeCleanup": {
+      "title": "@CodeCleanup;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "legacyOptionPageId": "D15E80D1-F395-4D76-9C1B-5C0923248E4F",
+      "additionalKeywords": [ "@CodeCleanupKeywords;{e269b994-ef71-4ce0-8bcd-581c217372e8}" ],
+      "order": 2
+    },
+    "textEditor.inlayHints": {
+      "title": "@116;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "order": 3
+    },
+    "environment.tasklist": {
+      "title": "@Tasklist;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "legacyOptionPageId": "BEF96440-1769-11D1-8F8D-00A0C91BBFA2"
+    },
+    "environment.findReplace": {
+      "title": "@FindAndReplaceSettingsTitle;{e269b994-ef71-4ce0-8bcd-581c217372e8}",
+      "legacyOptionPageId": "5C264115-2DC3-4d07-9FE3-19CA959D5B77"
+    },
+    "languages": {
+      "title": "@LanguagesSettingsCategoryTitle;{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+    }
+  }
+}

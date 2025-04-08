@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "identityapp",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Authentication.WebAssembly.Msal": ""
+    }
+  }
+}

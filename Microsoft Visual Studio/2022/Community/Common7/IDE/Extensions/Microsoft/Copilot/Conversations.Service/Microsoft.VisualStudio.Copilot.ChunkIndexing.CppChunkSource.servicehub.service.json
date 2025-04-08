@@ -1,0 +1,9 @@
+﻿{
+  "host": "dotnet",
+  "name": "Microsoft.VisualStudio.Copilot.ChunkIndexing.CppChunkSource",
+  "version": "0.3",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.Copilot.Service.Indexing.dll",
+    "fullClassName": "Microsoft.VisualStudio.Conversations.Service.Indexing.IndexingServiceFactory"
+  }
+}

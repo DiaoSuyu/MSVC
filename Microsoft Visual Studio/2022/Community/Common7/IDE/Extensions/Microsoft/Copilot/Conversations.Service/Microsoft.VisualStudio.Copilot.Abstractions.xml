@@ -1,0 +1,860 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Copilot.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Conversations.Abstractions.Annotations.Annotation">
+            <summary>
+            Creates a new <see cref="T:Conversations.Abstractions.Annotations.Annotation" />.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.Annotation.Id">
+            <summary>
+            Gets the unique identifier for this annotation.
+            </summary>
+            <remarks>
+            Note that the identifier from the message cannot be used since it is regenerated on
+            every message even for the same annotation. For the CodeVulnerability annotation, this
+            will temporarily use the code vulnerability type.
+            </remarks>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.Annotation.StartOffset">
+            <summary>
+            Gets the zero-based offset of the start of the annotated text.
+            </summary>
+            <remarks>
+            Currently not set by GitHub Copilot.
+            </remarks>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.Annotation.EndOffset">
+            <summary>
+            Gets the zero-based offset of the end of the annotated text.
+            </summary>
+            <remarks>
+            Currently not set by GitHub Copilot.
+            </remarks>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.Annotation.Length">
+            <summary>
+            Gets the length of the annotated text.
+            </summary>
+            <remarks>
+            Currently not set by GitHub Copilot.
+            </remarks>
+        </member>
+        <member name="T:Conversations.Abstractions.Annotations.CodeVulnerability">
+            <summary>
+            Creates a new <see cref="T:Conversations.Abstractions.Annotations.CodeVulnerability" />.
+            </summary>
+            <param name="Id">The unique id for a code vulnerability in a response.</param>
+            <param name="Type">The type of code vulnerability that was identified.</param>
+            <param name="FallbackDisplayType">The name of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</param>
+            <param name="FallbackDisplayDescription">The description of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.Annotations.CodeVulnerability.#ctor(System.Int32,Microsoft.VisualStudio.Copilot.CopilotCodeVulnerabilityType,System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Conversations.Abstractions.Annotations.CodeVulnerability" />.
+            </summary>
+            <param name="Id">The unique id for a code vulnerability in a response.</param>
+            <param name="Type">The type of code vulnerability that was identified.</param>
+            <param name="FallbackDisplayType">The name of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</param>
+            <param name="FallbackDisplayDescription">The description of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</param>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.CodeVulnerability.Type">
+            <summary>The type of code vulnerability that was identified.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.CodeVulnerability.FallbackDisplayType">
+            <summary>The name of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.CodeVulnerability.FallbackDisplayDescription">
+            <summary>The description of the type to display, as provided by the server. Used as a fallback if we don't have client-side strings for the type.</summary>
+        </member>
+        <member name="T:Conversations.Abstractions.Annotations.IPCodeCitation">
+            <summary>
+            Creates a new <see cref="T:Conversations.Abstractions.Annotations.IPCodeCitation" />.
+            </summary>
+            <param name="Id">The unique id for a code vulnerability in a response.</param>
+            <param name="Snippet">The snippet of code that is vulnerable.</param>
+            <param name="Url">The URL to the code snippet.</param>
+            <param name="IPType">The type of intellectual property that is cited.</param>
+            <param name="License">The license for the cited intellectual property.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.Annotations.IPCodeCitation.#ctor(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Conversations.Abstractions.Annotations.IPCodeCitation" />.
+            </summary>
+            <param name="Id">The unique id for a code vulnerability in a response.</param>
+            <param name="Snippet">The snippet of code that is vulnerable.</param>
+            <param name="Url">The URL to the code snippet.</param>
+            <param name="IPType">The type of intellectual property that is cited.</param>
+            <param name="License">The license for the cited intellectual property.</param>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.IPCodeCitation.Snippet">
+            <summary>The snippet of code that is vulnerable.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.IPCodeCitation.Url">
+            <summary>The URL to the code snippet.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.IPCodeCitation.IPType">
+            <summary>The type of intellectual property that is cited.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.Annotations.IPCodeCitation.License">
+            <summary>The license for the cited intellectual property.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.AuthException.AuthStatus">
+            <summary>
+            Auth status of the user.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.AuthException.MessageForUser">
+            <summary>
+            Any message for the user.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.AuthException.#ctor(System.String,System.Exception,System.Nullable{Conversations.Abstractions.AuthStatus},System.String)">
+            <summary>
+            Auth exception is a specific exception related to a not-OK auth status.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="inner">Inner exception.</param>
+            <param name="authStatus">Auth status of the user.</param>
+            <param name="messageForUser">Any message for the user.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.AuthInfo.IsSessionAuthEqual(Conversations.Abstractions.AuthInfo)">
+            <summary>
+            Checks if chat session auth of two AuthInfo objects is equal.
+            Session auth only cares about if auth status and github identity has changed.
+            This is not meant for Completions.
+            </summary>
+            <param name="a">One AuthInfo object</param>
+            <returns></returns>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.Unknown">
+            <summary>
+            Auth status is unknown.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.OK">
+            <summary>
+            User has access to GitHub and Copilot.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.NotSignedInToGitHub">
+            <summary>
+            User has not signed into GitHub.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.StaleGitHubCredentials">
+            <summary>
+            User's GitHub token has expired.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.InvalidCopilotToken">
+            <summary>
+            No Copilot token or token does not have the right access.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.CopilotDisabledByGroupPolicy">
+            <summary>
+            Copilot is disabled by group policy.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.CopilotForIndividualsDisabledByGroupPolicy">
+            <summary>
+            Copilot for Individuals is disabled by group policy.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.ChatDisabledByGroupPolicy">
+            <summary>
+            Chat is disabled by group policy.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.AuthStatus.Loading">
+            <summary>
+            Auth status is loading.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.CopilotIdentity">
+            <summary>
+            Copilot identity data.
+            </summary>
+            <param name="CopilotToken">Copilot token, this is used to access most copilot services.</param>
+            <param name="GitHubUsername">GitHubUsername.</param>
+            <param name="GitHubAccountId">Account identifier.</param>
+            <param name="SubscriptionType">Subscription type of the user.</param>
+            <param name="GitHubToken">GitHub OAuth token, this is used to access newer APIs such as GitHub agents, skills endpoint.</param>
+            <param name="CopilotExclusion">Whether Copilot exclusion rules are enabled for the user's subscription and organization.</param>
+            <param name="TokenEnvelope">CopilotToken envelope with all token fields as required by the agent.</param>
+            <param name="Host">Alternative host if user is a proxima user, github enterpise</param>
+            <param name="TelemetryStamp">Location for logging telemetry</param>
+            <param name="TokenEndpoint">Endpoint used to request Copilot token</param>
+            <param name="Endpoint">If SKU isolation is enabled, this is the endpoint requests should go to</param>
+            <param name="IsIndividual">Indicates whether the identity is for an individual (i.e. not enterprise) account.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.CopilotIdentity.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean,Conversations.Abstractions.CopilotAuthToken,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Copilot identity data.
+            </summary>
+            <param name="CopilotToken">Copilot token, this is used to access most copilot services.</param>
+            <param name="GitHubUsername">GitHubUsername.</param>
+            <param name="GitHubAccountId">Account identifier.</param>
+            <param name="SubscriptionType">Subscription type of the user.</param>
+            <param name="GitHubToken">GitHub OAuth token, this is used to access newer APIs such as GitHub agents, skills endpoint.</param>
+            <param name="CopilotExclusion">Whether Copilot exclusion rules are enabled for the user's subscription and organization.</param>
+            <param name="TokenEnvelope">CopilotToken envelope with all token fields as required by the agent.</param>
+            <param name="Host">Alternative host if user is a proxima user, github enterpise</param>
+            <param name="TelemetryStamp">Location for logging telemetry</param>
+            <param name="TokenEndpoint">Endpoint used to request Copilot token</param>
+            <param name="Endpoint">If SKU isolation is enabled, this is the endpoint requests should go to</param>
+            <param name="IsIndividual">Indicates whether the identity is for an individual (i.e. not enterprise) account.</param>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.CopilotToken">
+            <summary>Copilot token, this is used to access most copilot services.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.GitHubUsername">
+            <summary>GitHubUsername.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.GitHubAccountId">
+            <summary>Account identifier.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.SubscriptionType">
+            <summary>Subscription type of the user.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.GitHubToken">
+            <summary>GitHub OAuth token, this is used to access newer APIs such as GitHub agents, skills endpoint.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.CopilotExclusion">
+            <summary>Whether Copilot exclusion rules are enabled for the user's subscription and organization.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.TokenEnvelope">
+            <summary>CopilotToken envelope with all token fields as required by the agent.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.Host">
+            <summary>Alternative host if user is a proxima user, github enterpise</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.TelemetryStamp">
+            <summary>Location for logging telemetry</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.TokenEndpoint">
+            <summary>Endpoint used to request Copilot token</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.Endpoint">
+            <summary>If SKU isolation is enabled, this is the endpoint requests should go to</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.IsIndividual">
+            <summary>Indicates whether the identity is for an individual (i.e. not enterprise) account.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.CopilotIdentity.IsEnterprise">
+            <summary>
+            Indicates whether the identity is for an enterprise (i.e. not individual) account.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.GitHubIdentity">
+            <summary>
+            GitHub Identity data.
+            </summary>
+            <param name="AccountId">GitHub account id.</param>
+            <param name="Stale">If GitHub token is stale.</param>
+            <param name="Token">GitHub token.</param>
+            <param name="Username">GitHub username.</param>
+            <param name="Scopes">Scopes on GitHub token.</param>
+            <param name="UniqueId">Unique id for GitHub account.</param>
+            <param name="Host">Alternative host if user is a proxima user, github enterpise</param>
+            <param name="Logo">Logo for the account.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.GitHubIdentity.#ctor(System.String,System.Boolean,System.String,System.String,System.String[],System.String,System.String,System.Byte[])">
+            <summary>
+            GitHub Identity data.
+            </summary>
+            <param name="AccountId">GitHub account id.</param>
+            <param name="Stale">If GitHub token is stale.</param>
+            <param name="Token">GitHub token.</param>
+            <param name="Username">GitHub username.</param>
+            <param name="Scopes">Scopes on GitHub token.</param>
+            <param name="UniqueId">Unique id for GitHub account.</param>
+            <param name="Host">Alternative host if user is a proxima user, github enterpise</param>
+            <param name="Logo">Logo for the account.</param>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.AccountId">
+            <summary>GitHub account id.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Stale">
+            <summary>If GitHub token is stale.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Token">
+            <summary>GitHub token.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Username">
+            <summary>GitHub username.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Scopes">
+            <summary>Scopes on GitHub token.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.UniqueId">
+            <summary>Unique id for GitHub account.</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Host">
+            <summary>Alternative host if user is a proxima user, github enterpise</summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubIdentity.Logo">
+            <summary>Logo for the account.</summary>
+        </member>
+        <member name="M:Conversations.Abstractions.ICopilotTokenManager.GetAuthInfoAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Checks GitHub and Copilot token and returns auth status.
+            </summary>
+            <param name="forceRefresh">If true, forces a new token generation</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Abstractions.ICopilotTokenManager.GetCopilotIdentityAsync(System.Boolean,System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation},System.Threading.CancellationToken)">
+            <summary>
+            Get Copilot token, refreshing it if needed.
+            </summary>
+            <param name="forceRefresh">Whether to force a token refresh.</param>
+            <param name="correlationId">Telemetry correlation id</param>
+            <param name="cancellationToken"></param>
+            <returns>Copilot Identity</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Conversations.Abstractions.ICopilotTokenManager.UserHasGithubCopilotExclusionEnabledAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks copilotignore_enabled flag in the token envelope in GitHub, which is true in the following cases:
+               1- IF user gets access from a business seat (no individual access) and those org(s)/enterprise has rules defined at either repo or org level.
+               2- OR one of their orgs are in the "always on" feature flag even if the repo has no rules.
+            </summary>
+            <returns>bool for copilotignore_enabled flag in the token envelope</returns>
+        </member>
+        <member name="E:Conversations.Abstractions.ICopilotTokenManager.CopilotIdentityChanged">
+            <summary>
+            Event is raised when Copilot identity changes
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.IGitHubTokenManager.GetGitHubIdentityAsync(System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation},System.Threading.CancellationToken)">
+            <summary>
+            Returns the GitHub identity of the user for the account they're signed in with in VS.
+            </summary>
+            <param name="correlationId">Telemetry correlation id</param>
+            <param name="cancellationToken">Token for cancellation</param>
+            <returns>GitHub Identity</returns>
+        </member>
+        <member name="M:Conversations.Abstractions.IGitHubTokenManager.GetAuthStatusUserMessageAsync(Conversations.Abstractions.AuthStatus)">
+            <summary>
+            Gets user message associated with a given authentication status.
+            </summary>
+            <param name="authStatus">Authentication status of user</param>
+            <returns></returns>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.Unknown">
+            <summary>
+            Unrecognizable finish_reason
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.Success">
+            <summary>
+            Indicates a completion response had finish_reason "stop"
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.ExceededMaxTokens">
+            <summary>
+            Indicates a completion response had finish_reason "length"
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.ContentFilterFlagged">
+            <summary>
+            Indicates a completion response had finish_reason "content_filter" and was blocked by a filter other than the public code match filter 'Snippy'.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.OffTopic">
+            <summary>
+            User's prompt isn't development related
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.ContentFilterSnippyFlagged">
+            <summary>
+            Indicates a completion response had finish_reason "content_filter" and was blocked by the public code match filter 'Snippy'.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.FunctionCall">
+             <summary>
+             Indicates a completion response had finish_reason "function_call". The expectation is for the consumer to invoke the given function call and make a subsequent request with its value.
+            
+             See the function_call finish_reason and underlying function_call member under choices in the full documentation: https://platform.openai.com/docs/api-reference/chat/object#chat/object-choices
+             </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.CompletionResponseStatus.QuotaExceeded">
+            <summary>
+            Indicates user run out of quota.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.ContentTypeNames">
+            <summary>
+            A class that provides constants for common ContentType names.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.EventIds">
+            <summary>
+            Contains <see cref="T:Microsoft.Extensions.Logging.EventId" /> properties for use when logging with <see cref="M:Microsoft.Extensions.Logging.ILogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})" />.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.GitHubAgents.ChatAgentReference">
+            <summary>
+            Represents a GitHub reference used by remote agent framework.
+            </summary>
+        </member>
+        <member name="F:Conversations.Abstractions.GitHubAgents.ChatAgentReference.ServiceDescriptor">
+            <summary>
+            Descriptor for remote agent context references.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.Type">
+            <summary>
+            Gets the type of the reference.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.Identifier">
+            <summary>
+            Gets the identifier of the reference.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.Data">
+            <summary>
+            Gets the data of the reference, this can be a Json object including a string.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.SerializedData">
+            <summary>
+            Gets or sets the serialized data of the reference, this field is used by MessagePack serialization.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.Metadata">
+            <summary>
+            Gets the metadata for the reference.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.IsImplicit">
+            <summary>
+            Gets whether the reference is an implicitly added one.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.DisplayName">
+            <summary>
+            Gets the display name of the reference if available.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.DisplayUrl">
+            <summary>
+            Gets the display url of the reference if available.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.ToolTip">
+            <summary>
+            Gets the tooltip/display text of the reference if available.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.GitHubAgents.ChatAgentReference.RequiredSkill">
+            <summary>
+            Gets the skill that needs to be requested in order to process this reference.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.ICopilotGitHelper.IsGitTrackedAsync(System.Threading.CancellationToken,System.String)">
+            <summary>
+            Checks whether a solution/folder is git tracked or not.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="directory">the target directory to check, if not sent this function will check the currently opened solution/folder</param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Abstractions.ICopilotGitHelper.GetActiveRepoInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the active repo information if exists.
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Abstractions.ImageUtils.CalculateImageSizeToCountTokenSpec(System.Int32,System.Int32)">
+            <summary>
+            Calculate the image size to count token spec from Open AI
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.Push(System.String)">
+            <summary>
+            Pushes a chunk into the streaming response.
+            </summary>
+            <param name="chunk">A complete chunk (typically word) including the spacing (' ' or '\n') that terminated it.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.PushConfirmation(System.String,System.String,Microsoft.VisualStudio.Copilot.CopilotConfirmation)">
+            <summary>
+            Pushes a copilot confirmation part in to the response.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.PushFunction(Microsoft.VisualStudio.Copilot.CopilotFunctionInvocation)">
+            <summary>
+            Pushes a function invocation to the response.
+            </summary>
+            <param name="function">Function invocation</param>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.PushAnnotations(System.Collections.Generic.IReadOnlyList{Conversations.Abstractions.Annotations.Annotation})">
+            <summary>
+            Pushes the given <paramref name="annotations" /> into the streaming response. The annotations should be the final
+            de-duplicated list when the response has completed.
+            </summary>
+            <param name="annotations">A list of annotations for the response.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.Complete(Conversations.Abstractions.CompletionResponseStatus)">
+            <summary>
+            Completes the streaming response with the given <paramref name="reason" />.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.IStreamingResponse.StreamAsync(System.Threading.CancellationToken)">
+            <summary>
+            Begins streaming the response.
+            </summary>
+            <returns>The stream-parsed <see cref="T:Conversations.Abstractions.CompletionResponse" /> or <c>null</c> if the response was empty.</returns>
+        </member>
+        <member name="T:Conversations.Abstractions.LanguageExtensions">
+            <summary>
+            A class that provides supported file extensions for common languages.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.LanguageExtensions.Cpp">
+            <summary>
+            Gets the supported file extensions for C and C++.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.LanguageExtensions.Razor">
+            <summary>
+            Gets the supported file extensions for Razor.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.LanguageExtensions.Xaml">
+            <summary>
+            Gets the supported file extensions for XAML.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.ContentStreamingParser.PushAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Pushes a content chunk into the parser.
+            </summary>
+            <param name="chunk">A chunk of the content, must complete and include space or newline.</param>
+            <param name="cancellation">A cancellation token.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.ContentStreamingParser.PushFunctionAsync(Microsoft.VisualStudio.Copilot.CopilotFunctionInvocation,System.Threading.CancellationToken)">
+            <summary>
+            Pushes a function call into content.
+            </summary>
+            <param name="function">Function invocation.</param>
+            <param name="cancellation">Cancellation token.</param>
+        </member>
+        <member name="M:Conversations.Abstractions.ContentStreamingParser.CompleteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Completes the content streaming, any remaining components will be pushed into the content sink.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.IMultiHeaderResponseType">
+            <summary>
+            Interface that is implemented for response types that have multiple headers.
+            A response type with multiple headers may be a result of the Model not being accurate on the format it should follow.
+            We've seen this happen in the past with the Model using different headers for the File.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.RawResponse.#ctor(Conversations.Abstractions.ResponseTypeSection,Microsoft.VisualStudio.Copilot.ICopilotStreamingContentSink)">
+            <summary>
+            Creates a new raw response instance to build a response of the given <paramref name="responseType" />
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.RawResponse.#ctor(Microsoft.VisualStudio.Copilot.ICopilotStreamingContentSink)">
+            <summary>
+            Creates a new raw response to build a generic markdown only response.
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.RawResponse.TryStartSection(System.String)">
+            <summary>
+            Tries to start a new section from <paramref name="chunk" />.
+            </summary>
+            <param name="chunk">The chunk to pass to the section handlers.</param>
+            <returns>The matching <see cref="T:Conversations.Abstractions.ResponseSection" /> if any matched <paramref name="chunk" />, otherwise <c>null</c>.</returns>
+        </member>
+        <member name="T:Conversations.Abstractions.RechunkingQueue">
+            <summary>
+            Streaming chunk queue that only yields full chunks.
+            </summary>
+            <remarks>
+            <see cref="M:Conversations.Abstractions.RechunkingQueue.Enqueue(System.Object)" /> and <see cref="M:Conversations.Abstractions.RechunkingQueue.TryGetChunk(System.Object@)" /> are safe to call
+            from separate threads.
+            </remarks>
+        </member>
+        <member name="M:Conversations.Abstractions.RechunkingQueue.Enqueue(System.Object)">
+            <summary>
+            Enqueues a chunk of any size.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Throws when called after <see cref="M:Conversations.Abstractions.RechunkingQueue.Complete" /> has been called.</exception>
+        </member>
+        <member name="M:Conversations.Abstractions.RechunkingQueue.Complete">
+            <summary>
+            Marks the enqueue as complete.
+            </summary>
+            <remarks>
+            <see cref="M:Conversations.Abstractions.RechunkingQueue.TryGetChunk(System.Object@)" /> will return true while its chunk parameter will
+            be <c>null</c> once it reaches complete.
+            </remarks>
+        </member>
+        <member name="M:Conversations.Abstractions.RechunkingQueue.TryGetChunk(System.Object@)">
+            <param name="chunk">The next complete chunk available. <c>null</c> if returns <c>false</c> or complete.</param>
+            <returns><c>true</c> if a chunk or <c>null</c> is available, otherwise <c>false</c>.</returns>
+            <remarks>
+            <para>
+            Not safe to call from multiple threads.
+            </para>
+            <para>
+            The heavier processing is purposefully done here instead of <see cref="M:Conversations.Abstractions.RechunkingQueue.Enqueue(System.Object)" />.
+            This is so that the IO streaming side can return to receiving the next chunk while the processing "thread"
+            spends the actual parsing work.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Conversations.Abstractions.RechunkingQueue.TryGetChunk(System.String@)">
+            <summary>
+            Gets the next string chunk. Any chunk that is not a string will be ignored.
+            </summary>
+            <remarks>This method is added for compatibility reasons for clients only using strings.</remarks>
+        </member>
+        <member name="T:Conversations.Abstractions.ResponseSection">
+            <summary>
+            Represents and handles an individual part of a model response.
+            </summary>
+            <seealso cref="T:Conversations.Abstractions.ResponseSectionType" />
+        </member>
+        <member name="M:Conversations.Abstractions.ResponseSection.CompleteAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Externally completes this section.
+            </summary>
+            <param name="force">Whether or not to force completion in the case of an error.</param>
+            <param name="cancellation">A cancellation token.</param>
+            <remarks>
+            <para>
+            Most sections should complete themselves, but some may not have a well defined end (like content)
+            and if the response content does not end with any signaling, the last section will be told to end
+            when content runs out.
+            </para>
+            <para>
+            If <paramref name="force" /> is <c>false</c>, a section should assume everything is as expected and
+            close out and include any pending operations. When the stream completes in a way that is not
+            <see cref="F:Conversations.Abstractions.CompletionResponseStatus.Success" />, this will be called with <paramref name="force" />
+            set to <c>true</c>. In this case, any pending operations should be discarded.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Conversations.Abstractions.ResponseSection.IsSection(System.String)">
+            <summary>
+            Gets whether or not the <paramref name="content" /> contains an indication of a new section.
+            </summary>
+            <param name="content">A single chunk or current assembled history</param>
+        </member>
+        <member name="F:Conversations.Abstractions.ResponseSection.responseSectionTypeHeaders">
+            <summary>Each entry corresponds to the matching entry in <see cref="T:Conversations.Abstractions.ResponseSectionType" />, lowercased and suffixed with a colon.</summary>
+        </member>
+        <member name="T:Conversations.Abstractions.StreamingParser">
+            <summary>
+            Parses a <see cref="T:Conversations.Abstractions.CompletionResponse" /> as it streams in.
+            </summary>
+            <remarks>
+            The parser is not reusable for response to response.
+            </remarks>
+        </member>
+        <member name="T:Conversations.Abstractions.StreamingParserManager">
+            <summary>
+            Generates and holds <see cref="T:Conversations.Abstractions.StreamingParser" /> instances by request reference.
+            </summary>
+            <remarks>
+            The only reason this class exists as to work as a side channel around Semantic Kernel.
+            <c>DefaultConversation</c> will pass the request in to <see cref="M:Conversations.Abstractions.StreamingParserManager.StreamRequestAsync(Microsoft.VisualStudio.Copilot.CopilotCorrelationId,Microsoft.VisualStudio.Copilot.ICopilotStreamingContentSink,System.Threading.CancellationToken)" />
+            and the <c>CopilotAPIClient</c> will request it later via <see cref="M:Conversations.Abstractions.StreamingParserManager.TryGetStream(Microsoft.VisualStudio.Copilot.CopilotCorrelationId)" />.
+            </remarks>
+        </member>
+        <member name="P:Conversations.Abstractions.SingleContextEvaluation.ContextPrompt">
+            <summary>
+            Gets the promptified context without headers.
+            </summary>
+        </member>
+        <member name="P:Conversations.Abstractions.SingleContextEvaluation.Reference">
+            <summary>
+            Gets the reference link value generated.
+            </summary>
+        </member>
+        <member name="T:Conversations.Abstractions.Tokenizer.TokenCounter">
+            <summary>
+            Singleton class providing utility to count tokens using the o200k_base encoder used for
+            the gpt-4o model, reference:
+            https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py
+            </summary>
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.Encode(System.String)">
+            <summary>
+            Encodes the text into tokens
+            </summary>
+            <param name="text">The text needs to be tokenized</param>
+            <returns>The list of tokens for the text</returns>
+            <exception cref="T:System.NullReferenceException">Throws if the Tokenizer is null</exception>
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.CountTokens(System.String)">
+            <summary>
+            Count tokens in a piece of text using OpenAI cl100k_base BPE tokenizer
+            </summary>
+            <param name="text">The text needs to be tokenized</param>
+            <returns>The exact token count</returns>
+            <exception cref="T:System.NullReferenceException">Throws if the Tokenizer is null</exception>
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.TrimSuffixByTokenCount(System.String,System.Int32)">
+            <summary>
+            The function trimmed a piece of text by suffix based on token count needs to be preserved
+            </summary>
+            <param name="text">Text to be trimmed by suffix based on token count</param>
+            <param name="count">Max token count to be preserved</param>
+            <returns>Trimmed string</returns>
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.TrimSuffixByTokenCountAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.TrimPrefixByTokenCount(System.String,System.Int32)">
+            <summary>
+            The function trimmed a piece of text by prefix based on token count needs to be preserved
+            </summary>
+            <param name="text">Text to be trimmed by prefix based on token count</param>
+            <param name="count">Max token count to be preserved</param>
+            <returns>Trimmed string</returns>
+        </member>
+        <member name="M:Conversations.Abstractions.Tokenizer.TokenCounter.TrimPrefixByTokenCountAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.ActiveInteractions">
+            <summary>
+            Contains active interactions requested for a copilot request.
+            </summary>
+            <remarks>
+            As this is a container to hand things to out of proc, the receiver of this type is responsible for its disposal.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingException">
+            <summary>
+            Copilot exclusion rules loading status exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingException.RulesLoadingStatus">
+            <summary>
+            Rules loading status.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingException.#ctor(System.String,Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus,System.Exception)">
+            <summary>
+            Copilot exclusion rules exception is a specific exception related to a not-OK Copilot exclusion rules loading status.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="inner">Inner exception.</param>
+            <param name="rulesLoadingStatus">Rules loading status.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus">
+            <summary>
+            The status of the loading of the exclusion rules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.Unknown">
+            <summary>
+             The status is unknown.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.NotLoadedYet">
+            <summary>
+            The rules are not loaded.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.Loaded">
+            <summary>
+            The rules are loaded successfully.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.Failed">
+            <summary>
+            The rules failed to load.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.CacheExpired">
+            <summary>
+            The cached rules are expired.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Copilot.CopilotExclusion.CopilotExclusionRulesLoadingStatus.NotApplicable">
+            <summary>
+            Remotely defined rule state is not applicable to the exclusion rule domain.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.IsLineBreak(System.Char)">
+            <summary>
+            Checks if a character is a line break character.
+            </summary>
+            <param name="character">The input character.</param>
+            <returns>True if the input character is a line break character, else false.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetFirstLine(System.String)">
+            <summary>
+            Gets the text before the first line break.
+            </summary>
+            <param name="text">The input string.</param>
+            <returns>The first line of text.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineFromPosition(System.String,System.Int32)">
+            <summary>
+            Get the line number from a position in a text.
+            </summary>
+            <param name="text">The content.</param>
+            <param name="position">Position in the text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineAndColumnFromPosition(System.String,System.Int32)">
+            <summary>
+            Get the line and column number from a position in a text.
+            </summary>
+            <param name="text">The content.</param>
+            <param name="position">Position in the text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.GetLineBreakText(System.String)">
+            <summary>
+            Determines the line break character of the input string.
+            </summary>
+            <param name="text">The input string.</param>
+            <returns>The line break character of the input string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.LineBreakLength(System.String,System.Int32)">
+            <summary>
+            Gets the length of the line break character
+            0 : if no line break in the text
+            1 : if the line break is one of single line break characters
+            2 : if the line break character is \r\n combined
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Copilot.SharedStringExtensions.NormalizeLineBreaks(System.String,Microsoft.VisualStudio.Text.ITextSnapshot,System.String@)">
+            <summary>
+            Normalizes the line breaks of a given original string by replacing the line break text with the target line break text.
+            </summary>
+            <param name="original">The original string to be normalized.</param>
+            <param name="snapshot">The text snapshot to use for obtaining the target line break text.</param>
+            <param name="targetLineBreak">The target line break text to use for normalization.</param>
+            <returns>The normalized string.</returns>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>o+TWbBEBimuVBofkNEfPDopMxQdeTpNvHSVR6bdEM3c=</DigestValue></Reference></SignedInfo><SignatureValue>rddYwiruvp/XwOoFq2d8BbuN1F0zkni43yJXI4hifMv9UWqMxZJ8vU5SYUP9aR13vwzfvEix0M5wwxmPTkQQIH4v+N48XvI5G+JCnOWViafes8KOYpwMm3C0sZMX0gRoXakN8MTK8wnZr61sP1ecRKeXeiBXBka0HTZqpwX2pteIMcZ4m6XRMvp5ZJjVVsxRSEgamW4ra6PwWMOTjw5+4vbjH1BlKqfKmS8ieSqeZyCDqLjJJcs7dmIVUnTKmCwzkN0ZXjV9zXr2+iKRgAWcyXZQCkiIZrHlSh/o2xCIKd+oAJDrSTksRFXZ+bn3uZIoPJkv+rTzbPzt6KECuG7uvA==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

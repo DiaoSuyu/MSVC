@@ -1,0 +1,27 @@
+{
+  "id": "postgresql",
+  "isBase": true,
+  "name": "strings:#/postgresqlDependencyTypeName",
+  "description": "strings:#/postgresqlDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "displayOrder": 5600,
+  "actions": [
+    "addMigration",
+    "updateDatabase",
+    "createSQLScript"
+  ],
+  "tags": [
+    "SQL",
+    "strings:#/database"
+  ]
+}

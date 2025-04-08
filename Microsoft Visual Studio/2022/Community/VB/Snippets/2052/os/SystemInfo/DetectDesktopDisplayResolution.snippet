@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定桌面显示分辨率 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>确定桌面的宽度和高度(以像素为单位)。</Description>
+      <Shortcut>sysRes</Shortcut>
+      <Keywords>
+        <Keyword>EventLog 组件</Keyword>
+        <Keyword>记录事件</Keyword>
+      </Keywords>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim height = My.Computer.Screen.Bounds.Height
+Dim width = My.Computer.Screen.Bounds.Width]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,13 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "appConfig.azure",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Azure.AppConfiguration.AspNetCore": "",
+      "Microsoft.Extensions.Configuration.AzureAppConfiguration": "",
+      "Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration": ""
+    }
+  }
+}

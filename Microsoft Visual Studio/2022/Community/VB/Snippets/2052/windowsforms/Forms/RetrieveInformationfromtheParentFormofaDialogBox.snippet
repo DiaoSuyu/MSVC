@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在对话框的 MDI 父窗体中检索信息</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在 MDI 父窗体中检索信息。</Description>
+      <Shortcut>formBox</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>formName</ID>
+          <Type>Form</Type>
+          <ToolTip>替换为对某个窗体的引用，您要查找该窗体的父窗体。</ToolTip>
+          <Default>Me</Default>
+        </Object>
+        <Object>
+          <ID>text</ID>
+          <Type>String</Type>
+          <ToolTip>存储父窗体的文本。</ToolTip>
+          <Default>text</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$text$ = $formName$.ParentForm.Text
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

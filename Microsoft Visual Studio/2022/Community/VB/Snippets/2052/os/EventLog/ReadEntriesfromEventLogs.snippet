@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>读取事件日志项</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>读取所有事件日志项。</Description>
+      <Shortcut>evReadLog</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>LogName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为本地计算机上的日志名称。</ToolTip>
+          <Default>"Application"</Default>
+        </Literal>
+        <Object>
+          <ID>EntryType</ID>
+          <Type>EventLogEntryType</Type>
+          <ToolTip>替换为枚举值。</ToolTip>
+          <Default>EventLogEntryType.Error</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim log As New EventLog($LogName$)
+Dim entries As EventLogEntryCollection = log.Entries]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

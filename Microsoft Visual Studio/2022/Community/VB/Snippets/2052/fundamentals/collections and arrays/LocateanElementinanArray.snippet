@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在数组中查找元素 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>查找给定元素在数组中的索引。</Description>
+      <Keywords>
+      </Keywords>
+      <Shortcut>arrLoc</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object>
+          <ID>arrayName</ID>
+          <Type>Array</Type>
+          <ToolTip>替换为要搜索的数组的名称。</ToolTip>
+          <Default>myArray</Default>
+        </Object>
+        <Literal>
+          <ID>SearchString</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要搜索的值。</ToolTip>
+          <Default>"value"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim index As Integer
+        index = Array.IndexOf($arrayName$, $SearchString$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

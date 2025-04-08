@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>向应用程序发送键击 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向应用程序发送键击。</Description>
+      <Shortcut>appKeys</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>key</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要发送到活动应用程序的键码。</ToolTip>
+          <Default>"{ENTER}"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[SendKeys.SendWait($key$)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

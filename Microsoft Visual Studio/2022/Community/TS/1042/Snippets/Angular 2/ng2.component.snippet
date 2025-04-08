@@ -1,0 +1,43 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2component</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2component</Shortcut>
+    <Description>각도 2 구성 요소 추가용 코드 조각</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>myComponent</ID>
+        <ToolTip>구성 요소 이름</ToolTip>
+        <Default>my-component</Default>
+      </Literal>
+      <Literal>
+        <ID>template</ID>
+        <ToolTip>템플릿</ToolTip>
+        <Default><div>안녕하세요, 제 이름은 {{name}}입니다.</div></Default>
+      </Literal>
+      <Literal>
+        <ID>ComponentName</ID>
+        <ToolTip>구성 요소 클래스 이름</ToolTip>
+        <Default>Example</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+      import { Component } from 'angular/core'; 
+     
+      @Component({
+          selector: '$myComponent$',
+          template: '$template$'
+      })
+      export class $ComponentName$Component {
+          constructor() {
+              this.name = 'Sam';
+          }
+      }
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

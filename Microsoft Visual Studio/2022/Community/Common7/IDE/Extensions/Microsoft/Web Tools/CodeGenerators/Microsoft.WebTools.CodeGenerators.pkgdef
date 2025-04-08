@@ -1,0 +1,22 @@
+﻿[$RootKey$\Packages\{f97fc405-54eb-4873-9215-24b7cfa8a75d}]
+@="Microsoft.WebTools.CodeGenerators.CodeGeneratorsPackage, Microsoft.WebTools.CodeGenerators"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.CodeGenerators.CodeGeneratorsPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.CodeGenerators.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Menus]
+"{f97fc405-54eb-4873-9215-24b7cfa8a75d}"=", Menus.ctmenu, 1"
+
+[$RootKey$\UIContextRules\{7941d596-a429-42a7-9cff-ba936e31df9b}]
+@="CSharp or VB File Active"
+"Expression"="(CSharpFileActive | VBFileActive)"
+"CSharpFileActive"="ActiveEditorContentType:CSharp"
+"VBFileActive"="ActiveEditorContentType:Basic"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{614CA905-B4F8-402A-930C-6F83BA3D0AA2}]
+"name"="Microsoft.WebTools.CodeGenerators"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.CodeGenerators.dll"

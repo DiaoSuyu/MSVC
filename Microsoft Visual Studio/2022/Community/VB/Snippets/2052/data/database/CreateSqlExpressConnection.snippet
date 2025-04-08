@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建 SQL Express 的本地 SQLConnection</Title>
+      <Author>Microsoft</Author>
+      <Description>创建 SQL 连接，并为使用 User Instance=True 的 SQL Express 连接的典型连接名称/值对提供替换内容</Description>
+      <Shortcut>adoCreateSqlExpConn</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>dataBaseName</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为数据库的文件名。</ToolTip>
+          <Default>Northwind</Default>
+        </Literal>
+        <Literal>
+          <ID>dataDirectory</ID>
+          <Type>String</Type>
+          <ToolTip>要使用作为 Click Once 的一部分创建的 DataDirectory，可以使用 |DataDirectory| 宏。  如果要使用特定目录，需要替换这个宏</ToolTip>
+          <Default>|DataDirectory|</Default>
+        </Literal>
+        <Object>
+          <ID>conn</ID>
+          <Type>SqlConnection</Type>
+          <ToolTip>将此项替换为连接对象的名称。</ToolTip>
+          <Default>conn</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $conn$ As New SqlConnection()
+$conn$.ConnectionString = "Data Source=.\SQLEXPRESS;AttachDbFilename=$dataDirectory$\$dataBaseName$.mdf;Integrated Security=True;User Instance=True"
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

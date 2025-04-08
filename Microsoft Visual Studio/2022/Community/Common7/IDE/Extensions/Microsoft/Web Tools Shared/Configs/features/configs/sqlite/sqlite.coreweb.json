@@ -1,0 +1,14 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "sqlite.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId"
+      ]
+    }
+  }
+}

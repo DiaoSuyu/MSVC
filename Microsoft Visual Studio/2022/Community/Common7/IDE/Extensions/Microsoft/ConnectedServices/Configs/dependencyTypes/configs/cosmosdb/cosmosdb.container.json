@@ -1,0 +1,89 @@
+{
+  "feature": {
+    "id": "cosmosdb.local"
+  },
+  "requirements": [
+    "dockerDesktop"
+  ],
+  "editSteps": [
+    "Containers",
+    "Connection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:CosmosDBConnection"
+    },
+    "ConnectionValue": {
+      "value": "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+    },
+    "SatellitesToGenerate": {
+      "value": "docker-compose"
+    },
+    "containerName": {
+      "value": "cosmosdb"
+    },
+    "containerImage": {
+      "value": "mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator"
+    },
+    "containerPorts": {
+      "value": "8081:8081,10251:10251,10252:10252,10253:10253,10254:10254"
+    },
+    "containerSSLCertificatePath": {
+      "value": "/tmp/cosmos/appdata/default.sslcert.pfx"
+    },
+    "containerSSLCertificateKey": {
+      "value": "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "containerName": {},
+    "containerImage": {},
+    "containerPorts": {},
+    "group": {
+      "isBase": true
+    }
+  },
+  "satellites": [
+    {
+      "id": "docker-compose",
+      "kind": "shadow",
+      "generator": "static",
+      "fileExtension": ".docker-compose.yml",
+      "model": {
+        "templatePath": "path:#/dependencyTypes/configs/cosmosdb/docker-compose.yml"
+      }
+    }
+  ]
+}

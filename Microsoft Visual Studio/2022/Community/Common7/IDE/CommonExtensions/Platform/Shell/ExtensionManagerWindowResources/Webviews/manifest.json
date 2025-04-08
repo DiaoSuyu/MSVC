@@ -1,0 +1,19 @@
+﻿{
+  "start_url": "default.html",
+  "domain": "http://microsoft.com",
+  "name": "MarkdownRendererControl",
+  "version": "1.0",
+  "browserHostVersion": "2.0",
+  "use_css_variables": true,
+  "vs": {
+    "theme_token_aliases": {},
+    "user_agent": "Visual-Studio-Extension-Manager-UI",
+    "themed_images": {
+      "vs-imagemoniker-collapseup-dark-svg": {
+        "svg_source": "ImageMonikers\\CollapseUp.Dark.svg",
+        "background_color": "plugin-background-color",
+        "as_data_url": true
+      }
+    }
+  }
+}

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <assembly>
+    <name>CppCodeProvider</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualC.CodeDomTypeInfo">
+      <summary>封装类型的说明。</summary>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.#ctor(Microsoft.VisualC.CodeDomTypeInfo)">
+      <summary>为类型信息基于指定的 <see cref="T:Microsoft.VisualC.CodeDomTypeInfo" /> 创建一个容器。</summary>
+      <param name="type">使用模型类型信息 <see cref="T:Microsoft.VisualC.CodeDomTypeInfo" /> 对象的实例。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.#ctor(Microsoft.VisualC.CodeDomTypeInfo,System.Int32)">
+      <summary>基于指定的 <see cref="T:Microsoft.VisualC.CodeDomTypeInfo" /> 和 <see cref="T:System.Int32" /> 为信息关于给定的数组创建一个容器。</summary>
+      <param name="type">使用模型类型信息 <see cref="T:Microsoft.VisualC.CodeDomTypeInfo" /> 对象的实例。</param>
+      <param name="rank"><see cref="T:System.Int32" /> 表示数组 dimensions 的数量</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.#ctor(System.CodeDom.CodeTypeDeclaration)">
+      <summary>为类型信息基于指定的 <see cref="T:System.CodeDom.CodeTypeDeclaration" /> 创建一个容器。</summary>
+      <param name="declaredType"><see cref="T:System.CodeDom.CodeTypeDeclaration" /> 用于模型类型信息。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.#ctor(System.Type)">
+      <summary>为类型信息基于指定的 <see cref="T:System.Type" /> 创建一个容器。</summary>
+      <param name="runtimeType"><see cref="T:System.Type" /> 用于模型类型信息。</param>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.DeclaredType">
+      <summary>获取声明类型。</summary>
+      <returns><see cref="T:System.CodeDom.CodeTypeDeclaration" />，表示类、结构、接口或枚举的类型声明。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.FullName">
+      <summary>获取类型的完全限定名。</summary>
+      <returns>一个包含类型的完全限定类型名称的 <see cref="T:System.String" />。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.GetTypeRelationship(Microsoft.VisualC.CodeDomTypeInfo)">
+      <summary>发现两个类型之间的关系。</summary>
+      <returns>指示如何与当前类型相关的指定类型的 <see cref="T:Microsoft.VisualC.TypeRelationship" />。</returns>
+      <param name="type">
+        <see cref="T:Microsoft.VisualC.CodeDomTypeInfo" />
+      </param>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.IsArray">
+      <summary>获取一个值，该值指示类型说明定义了数组。</summary>
+      <returns>如果类型说明定义为数组，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.IsBaseTypeValueType"></member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.IsInterface">
+      <summary>获取一个值，该值指示类型说明定义了接口。</summary>
+      <returns>如果类型说明定义了接口，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.IsValueType">
+      <summary>获取一个值，该值指示类型说明定义为值类型。</summary>
+      <returns>如果类型说明定义了值类型，则为 true；否则为 false。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.Name">
+      <summary>获取类型的名称。</summary>
+      <returns>指示类型名称的 <see cref="T:System.String" />。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.Rank">
+      <summary>获取和设置指示数组类型的秩（维数）的值。</summary>
+      <returns>指示数组类型的秩（维数）的 <see cref="T:System.Int32" />。</returns>
+    </member>
+    <member name="P:Microsoft.VisualC.CodeDomTypeInfo.RuntimeType">
+      <summary>获取运行时对象的实际类型。</summary>
+      <returns>在运行时对象的 <see cref="T:System.Type" />。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CodeDomTypeInfo.ToString">
+      <summary>生成类型信息的字符串表示形式。</summary>
+      <returns>描述该类型的 <see cref="T:System.String" />。</returns>
+    </member>
+    <member name="T:Microsoft.VisualC.CppCodeGenerator">
+      <summary>提供 <see cref="T:System.CodeDom.Compiler.ICodeGenerator" /> 接口和 <see cref="T:System.CodeDom.Compiler.ICodeCompiler" /> 接口的示例实现。</summary>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGenerator.#ctor">
+      <summary>初始化 <see cref="T:Microsoft.VisualC.CppCodeGenerator" /> 类的新实例。</summary>
+    </member>
+    <member name="T:Microsoft.VisualC.CppCodeGenerator7">
+      <summary>提供 <see cref="T:System.CodeDom.Compiler.ICodeGenerator" /> 接口的示例实现。</summary>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGenerator7.#ctor">
+      <summary>初始化 <see cref="T:Microsoft.VisualC.CppCodeGenerator7" /> 类的新实例。</summary>
+    </member>
+    <member name="T:Microsoft.VisualC.CppCodeGeneratorBase"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.#ctor"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.CreateEscapedIdentifier(System.String)">
+      <param name="name"></param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.CreateEscapedIdentifierInternal(System.String)">
+      <param name="name"></param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.CreateValidIdentifier(System.String)">
+      <param name="name"></param>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.CurrentTypeString"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.Dispose"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.Dispose(System.Boolean)">
+      <param name="disposing">释放。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateArrayCreateExpression(System.CodeDom.CodeArrayCreateExpression)">
+      <param name="e">数组创建表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateAttributes(System.CodeDom.CodeAttributeDeclarationCollection)">
+      <param name="attributes">特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateAttributes(System.CodeDom.CodeAttributeDeclarationCollection,System.String)">
+      <param name="attributes">特性。</param>
+      <param name="prefix">前缀。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCastExpression(System.CodeDom.CodeCastExpression)">
+      <param name="e">强制转换表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromCompileUnit(System.CodeDom.CodeCompileUnit,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">编译单元。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromExpression(System.CodeDom.CodeExpression,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">表达式。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromField(System.CodeDom.CodeMemberField,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions,System.CodeDom.MemberAttributes)">
+      <param name="e">成员字段。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+      <param name="maAmbient">成员特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">类型成员。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromMethod(System.CodeDom.CodeMemberMethod,System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">成员方法。</param>
+      <param name="c">类型声明。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromNamespace(System.CodeDom.CodeNamespace,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">命名空间。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromStatement(System.CodeDom.CodeStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">语句。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCodeFromType(System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)">
+      <param name="e">类型声明。</param>
+      <param name="w">文本编写器。</param>
+      <param name="o">代码生成器选项。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateCommentStatements(System.CodeDom.CodeCommentStatementCollection)">
+      <param name="e">注释。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateEntryPointMethod(System.CodeDom.CodeEntryPointMethod)">
+      <param name="e">入口点方法。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateExpression(System.CodeDom.CodeExpression)">
+      <param name="e">表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateLinePragmaEnd(System.CodeDom.CodeLinePragma)">
+      <param name="e">行杂注。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateLinePragmaStart(System.CodeDom.CodeLinePragma)">
+      <param name="e">行杂注。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateMethodInvokeExpression(System.CodeDom.CodeMethodInvokeExpression)">
+      <param name="e">方法调用表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateMethodReferenceExpression(System.CodeDom.CodeMethodReferenceExpression)">
+      <param name="e">方法引用表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GeneratePossibleBoxExpression(Microsoft.VisualC.CodeDomTypeInfo,System.CodeDom.CodeExpression)">
+      <param name="typeLeft">类型。</param>
+      <param name="right">表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GeneratePossibleBoxExpression(System.CodeDom.CodeExpression,System.CodeDom.CodeExpression)">
+      <param name="left">左表达式。</param>
+      <param name="right">右表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateProperty(System.CodeDom.CodeMemberProperty)">
+      <param name="e">成员属性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateStatements(System.CodeDom.CodeStatementCollection)">
+      <param name="s">语句。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GenerateTypeOfExpression(System.CodeDom.CodeTypeOfExpression)">
+      <param name="e">TypeOf 表达式。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetBaseTypeOutput(System.CodeDom.CodeTypeReference)">
+      <param name="typeRef">类型引用。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetBaseTypeReference(System.CodeDom.CodeTypeReference)">
+      <param name="typeRef">类型引用。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetClassNameOutput(System.String)">
+      <param name="s">一个字符串。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetNewTempName"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetTypeOutput(System.CodeDom.CodeTypeReference)">
+      <param name="typeRef">类型引用。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.GetTypeOutputInternal(System.CodeDom.CodeTypeReference)">
+      <param name="typeRef">类型引用。</param>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.Indent"></member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.IsCurrentInterface"></member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.IsInline"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.IsValidIdentifier(System.String)">
+      <param name="value">一个字符串。</param>
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.m_entrypoint"></member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.m_keywords"></member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.NullToken"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputArrayPostfix(System.Int32)">
+      <param name="arrayRank">数组秩。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputAttributeDeclarations(System.CodeDom.CodeAttributeDeclarationCollection)">
+      <param name="attributes">特性声明。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputAttributeDeclarations(System.CodeDom.CodeAttributeDeclarationCollection,System.Boolean)">
+      <param name="attributes">特性声明。</param>
+      <param name="isProperty">为属性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputClassHead(System.CodeDom.CodeTypeDeclaration)">
+      <param name="e">类型声明。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputClassHeadForwardDeclaration(System.CodeDom.CodeTypeDeclaration)">
+      <param name="e">类型声明。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputEventScopeModifier(System.CodeDom.MemberAttributes)">
+      <param name="attributes">特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputFunctionModifiers(System.CodeDom.MemberAttributes)">
+      <param name="attributes">特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputIdentifier(System.String)">
+      <param name="s">标识符。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputIndexerParameterList(System.CodeDom.CodeParameterDeclarationExpressionCollection)">
+      <param name="parameters">参数。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputKeyword(Microsoft.VisualC.CppCodeGeneratorBase.EKeyword)">
+      <param name="e">关键字。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputMemberAccessModifier(System.CodeDom.MemberAttributes)">
+      <param name="attributes">特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputMemberScopeModifier(System.CodeDom.MemberAttributes)">
+      <param name="attributes">特性。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputParameters(System.CodeDom.CodeParameterDeclarationExpressionCollection)">
+      <param name="parameters">参数。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputStartingBrace"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputStatementsBlock(System.CodeDom.CodeStatementCollection)">
+      <param name="statements">语句。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputType(System.CodeDom.CodeTypeReference)">
+      <param name="typeRef">类型引用。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputType(System.CodeDom.CodeTypeReference,Microsoft.VisualC.CodeDomTypeInfo)">
+      <param name="typeRef">类型引用。</param>
+      <param name="typeInfo">键入信息。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.OutputTypeArguments(System.CodeDom.CodeTypeReferenceCollection)">
+      <param name="types">类型。</param>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.PassNumber"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.PopOutputStreams"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.PopulateKeywords"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.ProcessPossibleGlobalTypeName(System.String)">
+      <param name="t">类型名称。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.PushOutputStreams"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.QuoteSnippetString(System.String)">
+      <param name="value">代码段字符串。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.QuoteSnippetStringCStyle(System.String)">
+      <param name="value">代码段字符串。</param>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.ResetSymTabStack"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.SmartLineBreak"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.Supports(System.CodeDom.Compiler.GeneratorSupport)">
+      <param name="support">支持。</param>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.SymTabStack"></member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.TempSuffix"></member>
+    <member name="P:Microsoft.VisualC.CppCodeGeneratorBase.TypeResolutionService"></member>
+    <member name="M:Microsoft.VisualC.CppCodeGeneratorBase.ValidateIdentifier(System.String)">
+      <param name="value">标识符。</param>
+    </member>
+    <member name="T:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword"></member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.GC">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.NEW">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.POINTER">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.VALUE">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.SEALED">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.ABSTRACT">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.DELEGATE">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.EVENT">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.TYPEOF">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.INTERFACE">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.CppCodeGeneratorBase.EKeyword.FINALLY">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualC.CppCodeProvider">
+      <summary>为 <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> 的 C/C++ 实现提供基类。</summary>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider.#ctor">
+      <summary>初始化 <see cref="T:Microsoft.VisualC.CppCodeProvider" /> 类的新实例。</summary>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeProvider.CompileUnit">
+      <summary>获取或设置 C++ 程序图。</summary>
+      <returns>表示 C++ 程序图的 <see cref="T:System.CodeDom.CodeCompileUnit" />。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider.CreateCompiler">
+      <summary>创建 C++ 代码编译器的实例。</summary>
+      <returns><see cref="T:System.CodeDom.Compiler.ICodeCompiler" />，可用于编译基于 <see cref="N:System.CodeDom" /> 的 C++ 源代码表示形式。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider.CreateGenerator">
+      <summary>创建 C++ 代码生成器的实例。</summary>
+      <returns><see cref="T:System.CodeDom.Compiler.ICodeGenerator" />，可用于生成基于 <see cref="N:System.CodeDom" /> 的 C++ 源代码表示形式。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider.CreateParser">
+      <summary>未实现。</summary>
+      <exception cref="T:System.NotImplementedException"></exception>
+    </member>
+    <member name="P:Microsoft.VisualC.CppCodeProvider.FileExtension">
+      <summary>获取 C++ 源代码文件的文件扩展名。</summary>
+      <returns>表示 C++ 源代码文件的文件扩展名的 <see cref="T:System.String" />。</returns>
+    </member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider.GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)"></member>
+    <member name="T:Microsoft.VisualC.CppCodeProvider7"></member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider7.#ctor"></member>
+    <member name="M:Microsoft.VisualC.CppCodeProvider7.CreateGenerator"></member>
+    <member name="T:Microsoft.VisualC.SymbolTableStack">
+      <summary>表示一个简单的 C++ 代码文档对象模型 (CodeDOM) 对象的后进先出 (LIFO) 非泛型集合。</summary>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.#ctor(System.CodeDom.CodeObject)">
+      <param name="tree">
+        <see cref="T:System.CodeDom.CodeObject" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.Add(System.CodeDom.CodeParameterDeclarationExpressionCollection)">
+      <param name="arguments">
+        <see cref="T:System.CodeDom.CodeParameterDeclarationExpressionCollection" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.Add(System.CodeDom.CodeStatementCollection)">
+      <param name="statements">
+        <see cref="T:System.CodeDom.CodeStatementCollection" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.Add(System.String,Microsoft.VisualC.CodeDomTypeInfo)">
+      <param name="id"></param>
+      <param name="type">CodeDomTypeInfo</param>
+    </member>
+    <member name="P:Microsoft.VisualC.SymbolTableStack.CurrentType"></member>
+    <member name="P:Microsoft.VisualC.SymbolTableStack.CurrentTypeInfo"></member>
+    <member name="P:Microsoft.VisualC.SymbolTableStack.Errors"></member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateIndexer(System.CodeDom.CodeIndexerExpression)">
+      <param name="e">
+        <see cref="T:System.CodeDom.CodeIndexerExpression" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateMethod(Microsoft.VisualC.CodeDomTypeInfo,System.String)">
+      <param name="targetInfo">CodeDomTypeInfo</param>
+      <param name="methodName">
+        <see cref="T:System.String" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateMethod(Microsoft.VisualC.CodeDomTypeInfo,System.String,System.Int32)">
+      <param name="targetInfo">CodeDomTypeInfo</param>
+      <param name="methodName">
+        <see cref="T:System.String" />
+      </param>
+      <param name="paramCount"></param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateMethod(System.CodeDom.CodeMethodInvokeExpression)">
+      <param name="e">
+        <see cref="T:System.CodeDom.CodeMethodInvokeExpression" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateProperty(System.CodeDom.CodePropertyReferenceExpression)">
+      <param name="e">
+        <see cref="T:System.CodeDom.CodePropertyReferenceExpression" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateType(System.CodeDom.CodeExpression)">
+      <param name="e">
+        <see cref="T:System.CodeDom.CodeExpression" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.EvaluateType(System.CodeDom.CodeTypeReference)">
+      <param name="e">
+        <see cref="T:System.CodeDom.CodeTypeReference" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.ExitScope"></member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.GetTypeFromName(System.String)"></member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.SetCurrentType(System.CodeDom.CodeNamespace)">
+      <param name="ns">
+        <see cref="T:System.CodeDom.CodeNamespace" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.SetCurrentType(System.CodeDom.CodeTypeDeclaration)">
+      <param name="type">
+        <see cref="T:System.CodeDom.CodeTypeDeclaration" />
+      </param>
+    </member>
+    <member name="M:Microsoft.VisualC.SymbolTableStack.SetScope"></member>
+    <member name="P:Microsoft.VisualC.SymbolTableStack.TypeResolutionService"></member>
+    <member name="P:Microsoft.VisualC.SymbolTableStack.Warnings"></member>
+    <member name="T:Microsoft.VisualC.TypeRelationship"></member>
+    <member name="F:Microsoft.VisualC.TypeRelationship.Unknown">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.TypeRelationship.DerivedFrom">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.TypeRelationship.SameType">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.TypeRelationship.MaybeBoxNeeded">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualC.TypeRelationship.BoxNeeded">
+      <summary />
+    </member>
+  </members>
+</doc>

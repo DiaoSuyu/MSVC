@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建文件 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>新建文件。</Description>
+      <Shortcut>filCreateFile</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Filename</ID>
+          <Type>String</Type>
+          <ToolTip>替换为新文件的文件名。</ToolTip>
+          <Default>"C:\Test.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>Text</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要写入文件中的文本。</ToolTip>
+          <Default>"Some text"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.WriteAllText($Filename$, String.Empty, False)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

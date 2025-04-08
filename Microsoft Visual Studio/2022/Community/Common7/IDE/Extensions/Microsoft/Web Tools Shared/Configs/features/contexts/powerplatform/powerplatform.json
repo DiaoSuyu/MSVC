@@ -1,0 +1,11 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "bool",
+        "value": true
+      },
+      "config": "powerplatform"
+    }
+  ]
+}

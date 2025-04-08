@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SnippetCollection>
+    <Language Lang="TypeScript" Guid="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}">
+        <SnippetDir>
+            <OnOff>On</OnOff>
+            <Installed>true</Installed>
+            <Locale>1028</Locale>
+            <DirPath>%InstallRoot%TSJS\Snippets\%LCID%\TypeScript\General\</DirPath>
+            <LocalizedName>一般</LocalizedName>
+        </SnippetDir>
+        <SnippetDir>
+            <OnOff>On</OnOff>
+            <Installed>true</Installed>
+            <Locale>1028</Locale>
+            <DirPath>%InstallRoot%TSJS\Snippets\%LCID%\TypeScript\Angular 2\</DirPath>
+            <LocalizedName>TypeScript</LocalizedName>
+        </SnippetDir>
+    </Language>
+</SnippetCollection>

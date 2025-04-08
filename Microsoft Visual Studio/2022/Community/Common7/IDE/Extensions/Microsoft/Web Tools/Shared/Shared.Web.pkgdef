@@ -1,0 +1,28 @@
+﻿[$RootKey$\Packages\{F285DF87-079E-47A6-80E1-B92CC9305E60}]
+@="Shared Web Components"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Shared.Web.VS.WebSharedPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Shared.Web.VS.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\AutoLoadPackages\{3419BB27-A33D-47A9-A60E-9F24BA63E13B}]
+"{F285DF87-079E-47A6-80E1-B92CC9305E60}"=dword:00000002
+
+[$RootKey$\Services\{33E55578-F4AE-49C6-94A2-8DE65A1749F5}]
+@="{F285DF87-079E-47A6-80E1-B92CC9305E60}"
+"Name"="IWebUrlLocationContainerService"
+
+[$RootKey$\UIContextRules\{3419BB27-A33D-47A9-A60E-9F24BA63E13B}]
+@="WebProjectsUIContext"
+"Expression"="( WAP | WebSite | Capability)  & !Node "
+"WAP"="SolutionHasProjectFlavor:{349C5851-65DF-11DA-9384-00065B846F21}"
+"WebSite"="SolutionHasProjectFlavor:{E24C65DC-7377-472B-9ABA-BC803B73C61A}"
+"Capability"="SolutionHasProjectCapability:DotNetCoreWeb | DockerCompose"
+"Node"="ActiveProjectFlavor:{3AF33F2E-1136-4D97-BBB7-1795711AC8B8}"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{A05576DA-2198-4478-973D-F54CD54F3AF8}]
+"name"="Microsoft.WebTools.Shared.Web.VS"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Shared.Web.VS.dll"

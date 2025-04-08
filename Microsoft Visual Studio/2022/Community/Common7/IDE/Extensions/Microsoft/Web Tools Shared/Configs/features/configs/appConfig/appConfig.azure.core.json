@@ -1,0 +1,28 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "appConfig.code.generic.appConfigCore",
+        "appConfig.code.generic.appConfigCoreMinimalAppModel",
+        "appConfig.code.generic.appConfigCoreMinimalAppModelUsing1",
+        "appConfig.code.generic.appConfigCoreMinimalAppModelUsing2",
+        "appConfig.code.generic.appConfigCoreMinimalAppModelUsing3"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appConfig.nuget.core"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "appConfig.serviceConnector.local"
+      ]
+    }
+  }
+}

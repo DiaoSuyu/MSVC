@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Group Join - Named Group</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建对两个不同的源的结果进行分组并返回每组中的项数的查询。同时，为组指定名称</Description>
+      <Shortcut>queGroJoName</Shortcut>
+    </Header>
+    <Snippet>
+   <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item1</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的第一个变量的标识符。</ToolTip>
+          <Default>size</Default>
+        </Literal>
+        <Literal>
+          <ID>item2</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的第二个变量的标识符。</ToolTip>
+          <Default>fruit</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource2</ID>
+          <Type>String</Type>
+          <ToolTip>替换为第一个数据源的标识符。</ToolTip>
+         <Default>New String() {"apple", "orange", "pear", "banana", "strawberry", "blueberry"}</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为第二个数据源的标识符。</ToolTip>
+          <Default>fruitLength</Default>
+        </Literal>       
+        <Literal>
+          <ID>dataType1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为第一个数据源的类型</ToolTip>
+          <Default>Integer()</Default>
+        </Literal>
+        <Literal>
+          <ID>groupfield</ID>
+          <Type>String</Type>
+          <ToolTip>替换为源的分组。</ToolTip>
+          <Default>Length</Default>
+        </Literal>
+        <Literal>
+          <ID>aggregate</ID>
+          <Type>String</Type>
+          <ToolTip>替换为组的聚合。</ToolTip>
+          <Default>Count()</Default>
+        </Literal>
+        <Literal>
+          <ID>groupName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为组的名称。</ToolTip>
+          <Default>Fruits</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $dataSource1$() As $dataType1$ = {"4", "5", "6"}
+
+                 Dim $queryResult$ = From $item1$ In $dataSource1$ _
+                             Group Join $item2$ In $dataSource2$ _
+                                   On $item2$.$groupfield$ Equals $item1$ _
+                                   Into $groupName$ = Group, $aggregate$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

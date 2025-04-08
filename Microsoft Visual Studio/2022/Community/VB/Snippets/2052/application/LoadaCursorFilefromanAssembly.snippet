@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从程序集加载光标文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在光标文件中设置 Windows 窗体的光标，该文件作为应用程序的嵌入资源。</Description>
+      <Shortcut>appCur</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Reflection</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>cursorFilename</ID>
+          <Type>String</Type>
+          <ToolTip>作为资源嵌入的光标文件的名称。</ToolTip>
+          <Default>"CursorResourceName"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim newCursor As New Cursor(My.Resources.ResourceManager.GetStream($cursorFilename$))
+Me.Cursor = newCursor
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

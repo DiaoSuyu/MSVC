@@ -1,0 +1,6 @@
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{38FD803E-87C6-4312-B6A7-D626877147DF}]
+"name"="Microsoft.VisualStudio.PerformanceTools.EditorIntegration"
+"codeBase"="$PackageFolder$\Microsoft.VisualStudio.PerformanceTools.EditorIntegration.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"

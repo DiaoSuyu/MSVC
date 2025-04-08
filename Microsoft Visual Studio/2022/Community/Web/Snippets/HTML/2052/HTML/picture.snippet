@@ -1,0 +1,26 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>图片</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>picture</Shortcut>
+    <Description>具有多个源的图片的标记段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+      <Declarations>
+          <Literal>
+              <ID>file</ID>
+              <ToolTip>文件</ToolTip>
+              <Default>file</Default>
+          </Literal>
+      </Declarations>
+    <Code Language="html"><![CDATA[<picture>
+  <source media="(min-width: 465px)" srcset="$file$-small.jpg" />
+  <source media="(min-width: 650px)" srcset="$file$-medium.jpg" />
+  <img src="$file$.jpg" alt="" />
+</picture>$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

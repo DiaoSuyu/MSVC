@@ -1,0 +1,14 @@
+{
+  "components": {
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "redis.serviceConnector.appService"
+      ]
+    }
+  }
+}

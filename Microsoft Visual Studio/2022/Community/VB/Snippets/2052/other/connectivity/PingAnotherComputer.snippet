@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Ping 其他计算机</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>确定指定网站是否响应。</Description>
+      <Shortcut>conPing</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Web.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>url</ID>
+          <ToolTip>替换为要 ping 的计算机的主机名或 IP 地址</ToolTip>
+          <Default>"somehost.my.domain"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim siteResponds = My.Computer.Network.Ping($url$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

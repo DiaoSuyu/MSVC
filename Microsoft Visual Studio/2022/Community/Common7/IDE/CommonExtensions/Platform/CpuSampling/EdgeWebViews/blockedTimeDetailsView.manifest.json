@@ -1,0 +1,106 @@
+﻿{
+  "start_url": "blockedTimeDetailsView.html",
+  "domain": "http://microsoft.com",
+  "name": "blockedTimeDetailsView",
+  "browserHostVersion": "2.0",
+  "use_css_variables": true,
+  "resource_aliases": {
+    "Resources": {
+      "path": "CPUSampling.ScriptResources",
+      "is_default": true
+    }
+  },
+  "vs": {
+    "theme_token_aliases": {
+      "CommonControls-FocusVisual-Foreground": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "ForegroundColor",
+        "name": "FocusVisual"
+      },
+      "CommonControls-InnerTabActiveBackground-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "InnerTabActiveBackground"
+      },
+      "TreeGridCellLabelText": {
+        "category": "02071ec8-0cf0-4822-af30-9f001537e7eb",
+        "key_type": "BackgroundColor",
+        "name": "TreeGridCellLabelText"
+      },
+      "Environment-CommandBarTextActive-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextActive"
+      },
+      "Environment-CommandBarTextHover-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextHover"
+      },
+      "Environment-CommandBarToolBarSeparator-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarToolBarSeparator"
+      },
+      "Environment-CommandBarOptionsBackground-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarOptionsBackground"
+      },
+      "Environment-GridLine-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "GridLine"
+      },
+      "Header-Default-Background": {
+        "category": "4997f547-1379-456e-b985-2f413cdfa536",
+        "key_type": "BackgroundColor",
+        "name": "Default"
+      },
+      "Header-MouseOver-Background": {
+        "category": "4997f547-1379-456e-b985-2f413cdfa536",
+        "key_type": "BackgroundColor",
+        "name": "MouseOver"
+      },
+      "Header-SeparatorLine-Background": {
+        "category": "4997f547-1379-456e-b985-2f413cdfa536",
+        "key_type": "BackgroundColor",
+        "name": "SeparatorLine"
+      },
+      "DiagnosticsHub-Hyperlink": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "Hyperlink"
+      },
+      "DiagnosticsHub-HyperlinkHover": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "HyperlinkHover"
+      },
+      "diagnostics-host-toolbar-text-disabled": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "ToolbarTextDisabled"
+      },
+      "vs-command-bar-gradient-begin-color": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarGradientBegin"
+      }
+    },
+    "themed_images": {
+      "itemCollapsed": {
+        "bitmap_source": "Images\\itemCollapsed.png",
+        "background_color": "plugin-background-color"
+      },
+      "itemExpanded": {
+        "bitmap_source": "Images\\itemExpanded.png",
+        "background_color": "plugin-background-color"
+      },
+      "addBlockedTrack": {
+        "bitmap_source": "Images\\addTrack.png",
+        "background_color": "plugin-background-color"
+      }
+    }
+  }
+}

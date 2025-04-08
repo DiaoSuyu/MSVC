@@ -1,0 +1,132 @@
+{
+  "debugExtensions": {
+    "remoteWindows": {
+      "vsDebugEngineGuid": "{​​​​​3B476D35-A401-11D2-AAD4-00C04F990171}​​​​​",
+      "VsDebugTargetInfo4": {
+        "bstrCurDir": "${​​​​​debugInfo.defaultWorkingDirectory}​​​​​",
+        "bstrExe": "${​​​​​debugInfo.fullTargetPath}​​​​​",
+        "bstrOptions": "*"
+      },
+      "templates": [
+        {
+          "templateId": "launchRemoteWindows",
+          "displayName": "{F50A0AB8-B1FA-4901-BA52-1AF791ABA4B1}:5001",
+          "description": "{F50A0AB8-B1FA-4901-BA52-1AF791ABA4B1}:5002",
+          "fileExtensions": [
+            "*.exe",
+            "*.dll"
+          ],
+          "initialConfiguration": {
+            "remoteMachineName": "",
+            "cwd": "${debugInfo.defaultWorkingDirectory}",
+            "program": "${debugInfo.fullTargetPath}",
+            "deploy": [],
+            "comment": "了解如何配置远程 Windows 调试。有关详细信息，请参阅 https://docs.microsoft.com/cpp/build/cmake-remote-debugging",
+            "args": [],
+            "env": {}
+          }
+        }
+      ],
+      "schema": {
+        "definitions": {
+          "remote_windows_schema": {
+            "type": "object",
+            "properties": {
+              "program": {
+                "type": "string",
+                "default": "${debugInfo.fullTargetPath}",
+                "description": "指定要执行的调试命令。在使用 CMake 时，可以使用宏 ${debugInfo.fullTargetPath} 作为此字段的值。"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "remoteWindows"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "description": "指定传递给被调试程序的命令行参数。",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "remoteMachineName": {
+                "type": "string",
+                "description": "远程服务器的名称/IP。"
+              },
+              "debugType": {
+                "type": "string",
+                "enum": [
+                  "native",
+                  "mixed"
+                ],
+                "default": "native",
+                "description": "指定 native 或 mixed 调试类型。"
+              },
+              "deployDirectory": {
+                "type": "string",
+                "description": "指定要将项目输出自动部署到的远程计算机中的目录。"
+              },
+              "deploy": {
+                "type": "array",
+                "description": "指定部署设置的高级配置。",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourcePath": {
+                      "type": "string",
+                      "description": "指定本地计算机上的文件或目录位置。"
+                    },
+                    "targetPath": {
+                      "type": "string",
+                      "description": "指定远程计算机上的文件或目录位置。"
+                    }
+                  }
+                }
+              },
+              "cwd": {
+                "type": "string",
+                "default": "${debugInfo.defaultWorkingDirectory}",
+                "description": "指定在其中运行 \"program\" 的远程计算机上目录的完整路径。默认值是包含 program 字段中指定的可执行文件的目录。"
+              },
+              "authenticationType": {
+                "type": "string",
+                "enum": [
+                  "windows",
+                  "none"
+                ],
+                "default": "windows",
+                "description": "指定连接类型。其值应与在远程计算机上运行的远程调试器的值匹配。\"windows\" 对应于“Windows 身份验证”，\"none\" 对应于“无身份验证”。"
+              },
+              "deployDebugRuntimeLibraries": {
+                "type": "boolean",
+                "description": "指示是否为活动平台部署调试运行时库。如果活动 configurationType 为 \"Debug\"，则默认为 \"true\"。"
+              },
+              "deployRuntimeLibraries": {
+                "type": "boolean",
+                "description": "指示是否为活动平台部署运行时库。如果活动 configurationtype 为 \"MinSizeRel\"、\"RelWithDebInfo\" 或 \"Release\"，则默认为 \"true\"。"
+              },
+              "disableDeploy": {
+                "type": "boolean",
+                "description": "指示是否禁止将文件部署到远程计算机。",
+                "default": "false"
+              }
+            },
+            "required": [
+              "type",
+              "remoteMachineName"
+            ]
+          },
+          "remoteWindowsTemplateLayout": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/remote_windows_schema"
+              }
+            ]
+          }
+        },
+        "configuration": "#/definitions/remoteWindowsTemplateLayout"
+      }
+    }
+  }
+}

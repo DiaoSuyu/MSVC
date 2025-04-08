@@ -1,0 +1,13 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netFramework",
+        "version": "4.5",
+        "comparison": "GreaterThan"
+      },
+      "config": "identityapp.wap.local"
+    }
+  ]
+}

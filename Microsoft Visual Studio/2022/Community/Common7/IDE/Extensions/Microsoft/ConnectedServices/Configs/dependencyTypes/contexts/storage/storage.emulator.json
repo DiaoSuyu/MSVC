@@ -1,0 +1,11 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "EnvironmentId",
+        "id": "local"
+      },
+      "config": "storage.emulator"
+    }
+  ]
+}

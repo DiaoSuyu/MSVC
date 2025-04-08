@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>列出环境变量</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建一个字符串，该字符串列出所有用户环境变量及其变量值。</Description>
+      <Shortcut>sysListVar</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>target</ID>
+          <Type>EnvironmentVariableTarget</Type>
+          <ToolTip>替换为要检索的变量的枚举。</ToolTip>
+          <Default>EnvironmentVariableTarget.User</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim environmentVariables = Environment.GetEnvironmentVariables($target$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

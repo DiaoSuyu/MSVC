@@ -1,0 +1,67 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "springCloud.azure",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "EntryPoint",
+            "properties": {}
+          },
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "CreateHostBuilder",
+              "TypeName": "System.String[]"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseAzureSpringCloudService"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "EntryPoint",
+            "properties": {}
+          },
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "CreateWebHostBuilder",
+              "TypeName": "System.String[]"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseAzureSpringCloudService"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseAzureSpringCloudService"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

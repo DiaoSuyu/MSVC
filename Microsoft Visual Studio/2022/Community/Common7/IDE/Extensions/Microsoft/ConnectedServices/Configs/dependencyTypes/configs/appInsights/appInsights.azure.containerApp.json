@@ -1,0 +1,78 @@
+{
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    "PickInstance",
+    "RemoteConnection",
+    "DependencySummary"
+  ],
+  "properties": {
+    "IsConfiguringSpecificConnectionName": {
+      "value": true
+    },
+    "connectionId": {
+      "value": "APPLICATIONINSIGHTS_CONNECTION_STRING"
+    }
+  },
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "group": {
+      "isBase": true
+    }
+  },
+  "arm": {
+    "apiVersion": "2015-05-01",
+    "templateGenerator": {
+      "id": "export",
+      "model": {
+        "templatePreprocessors": [
+          {
+            "id": "removeUnnecessaryProperties",
+            "model": {
+              "properties": [
+                "etag",
+                "id",
+                "properties/*",
+                "tags"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "feature": {
+    "id": "appInsights.containerApp"
+  },
+  "persistencePreprocessors": [
+    "ContainerName",
+    "SecretStoreResourceId"
+  ],
+  "secretStores": [
+    "ContainerAppSettings",
+    "none"
+  ]
+}

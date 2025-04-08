@@ -1,0 +1,14 @@
+{
+  "components": {
+    "dotnetMsIdentity": {
+      "modifiers": [
+        "identityapp.redirectUris"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "identityapp.nuget.wap"
+      ]
+    }
+  }
+}

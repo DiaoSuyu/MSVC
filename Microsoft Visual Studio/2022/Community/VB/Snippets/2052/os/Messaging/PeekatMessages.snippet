@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>速览消息</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 Peek 方法可查看队列中的第一条消息，但不从队列中移除该消息。</Description>
+      <Shortcut>mqPeek</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Messaging.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Messaging</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>QueueName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为队列名称。“.”表示本地计算机。</ToolTip>
+          <Default>".\QueueName"</Default>
+        </Literal>
+        <Literal>
+          <ID>BodyType</ID>
+          <Type>System.Type</Type>
+          <ToolTip>替换为消息正文的类型。</ToolTip>
+          <Default>GetType(String)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim queue As New MessageQueue($QueueName$)
+Dim firstMessage As Message
+firstMessage = queue.Peek
+firstMessage.Formatter = New XmlMessageFormatter(New Type() {$BodyType$})
+Dim text As String = firstMessage.Body.ToString]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

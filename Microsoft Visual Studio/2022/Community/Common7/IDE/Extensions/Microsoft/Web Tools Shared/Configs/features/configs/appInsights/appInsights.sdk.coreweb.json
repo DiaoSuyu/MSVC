@@ -1,0 +1,14 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "appInsights.code.generic.sdk.startupCode"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appInsights.nuget.coreweb"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "itemTemplates.itemTemplateCreator",
+  "order": 40,
+  "model": {
+    "itemTemplate": "Azure.Function.CosmosDBTrigger",
+    "parameters": {
+      "DatabaseName": "@@DatabaseName@@",
+      "ContainerName": "@@ContainerName@@",
+      "Connection": "@@connectionId@@",
+      "IncludeLaunchSettings": "False",
+      "ConnectionStringSetting": "@@connectionId@@",
+      "CollectionName": "@@CollectionName@@"
+    }
+  }
+}

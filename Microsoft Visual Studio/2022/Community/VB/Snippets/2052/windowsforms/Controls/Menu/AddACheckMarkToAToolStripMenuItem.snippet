@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>向 ToolStripMenuItem 添加选中标记</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向 ToolStripMenuItem 添加选中标记。</Description>
+      <Shortcut>menuAddCheck</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>menuItemName</ID>
+          <Type>ToolStripMenuItem</Type>
+          <ToolTip>替换为窗体上的下拉菜单项。</ToolTip>
+          <Default>ToolStripMenuItem1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$menuItemName$.Checked = True]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

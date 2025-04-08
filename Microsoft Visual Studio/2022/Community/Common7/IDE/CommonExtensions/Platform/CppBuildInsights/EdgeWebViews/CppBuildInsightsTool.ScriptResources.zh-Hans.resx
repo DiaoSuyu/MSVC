@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoCompleteLists" xml:space="preserve">
+    <value>自动完成列表</value>
+  </data>
+  <data name="Build_Label" xml:space="preserve">
+    <value>生成: {0} 秒</value>
+  </data>
+  <data name="Build_Tootip" xml:space="preserve">
+    <value>生成时间</value>
+  </data>
+  <data name="Button_Apply" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Button_ArialLabel_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Button_OpenInWPA" xml:space="preserve">
+    <value>在 WPA 中打开</value>
+  </data>
+  <data name="Button_OpenInWPA_ToolTip" xml:space="preserve">
+    <value>单击以在 WPA 中打开跟踪</value>
+  </data>
+  <data name="Button_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="ContextMenu_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="ContextMenu_CopyAsMarkdown" xml:space="preserve">
+    <value>复制为 Markdown</value>
+  </data>
+  <data name="ContextMenu_GoToFile" xml:space="preserve">
+    <value>转到文件</value>
+  </data>
+  <data name="ContextMenu_GoToInstantiationFile" xml:space="preserve">
+    <value>转到模板实例化文件</value>
+  </data>
+  <data name="ContextMenu_GoToTranslationUnitFile" xml:space="preserve">
+    <value>转到翻译单元文件</value>
+  </data>
+  <data name="ContextMenu_ShowInIncludedFiles" xml:space="preserve">
+    <value>在“包含的文件”视图中显示</value>
+  </data>
+  <data name="ContextMenu_ShowInIncludeTree" xml:space="preserve">
+    <value>在包含树视图中显示</value>
+  </data>
+  <data name="DiagnosticsSession_Label" xml:space="preserve">
+    <value>诊断会话: {0} 秒</value>
+  </data>
+  <data name="DiagnosticsSession_Tooltip" xml:space="preserve">
+    <value>诊断会话时钟时间</value>
+  </data>
+  <data name="FilesFilterWatermark" xml:space="preserve">
+    <value>筛选文件</value>
+  </data>
+  <data name="FilesTableAriaLabel" xml:space="preserve">
+    <value>包含文件分析统计信息的表</value>
+  </data>
+  <data name="FilterAriaLabel" xml:space="preserve">
+    <value>筛选文件</value>
+  </data>
+  <data name="FilterButton" xml:space="preserve">
+    <value>筛选列</value>
+  </data>
+  <data name="Filter_Tooltip" xml:space="preserve">
+    <value>筛选文件</value>
+  </data>
+  <data name="FunctionsFilterWatermark" xml:space="preserve">
+    <value>筛选函数</value>
+  </data>
+  <data name="FunctionsTableAriaLabel" xml:space="preserve">
+    <value>包含函数统计信息的表</value>
+  </data>
+  <data name="Header_Component" xml:space="preserve">
+    <value>翻译单元</value>
+  </data>
+  <data name="Header_Component_ToolTip" xml:space="preserve">
+    <value>输入到编译器的源文件的路径</value>
+  </data>
+  <data name="Header_Contribution" xml:space="preserve">
+    <value>贡献[秒，%]</value>
+  </data>
+  <data name="Header_WallTimeResponsibility" xml:space="preserve">
+    <value>时钟责任[秒，%]</value>
+  </data>
+  <data name="Header_WallTimeResponsibility_ToolTip" xml:space="preserve">
+    <value>这表示在考虑到了多线程生成中的并行度时，在生成过程的总时钟时间中的占比。</value>
+  </data>
+  <data name="Header_FilePath" xml:space="preserve">
+    <value>文件路径</value>
+  </data>
+  <data name="Header_ForceinlineSize" xml:space="preserve">
+    <value>强制内联大小</value>
+  </data>
+  <data name="Header_ForceinlineSize_ToolTip" xml:space="preserve">
+    <value>强制内联函数的大小，表示为中间指令计数。</value>
+  </data>
+  <data name="Header_FunctionName" xml:space="preserve">
+    <value>函数名称</value>
+  </data>
+  <data name="Header_IncludedFilesCount" xml:space="preserve">
+    <value>包含的文件计数</value>
+  </data>
+  <data name="Header_IncludedFilesCount_ToolTip" xml:space="preserve">
+    <value>此文件包含的标头数</value>
+  </data>
+  <data name="Header_InstantiationCount" xml:space="preserve">
+    <value>计数</value>
+  </data>
+  <data name="Header_InstantiationFilePath" xml:space="preserve">
+    <value>实例化文件路径</value>
+  </data>
+  <data name="Header_IncludedByCount" xml:space="preserve">
+    <value>已按计数包括</value>
+  </data>
+  <data name="Header_IncludedByCount_ToolTip" xml:space="preserve">
+    <value>另一个文件包含此文件的次数</value>
+  </data>
+  <data name="Header_Project" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Header_SpecializationName" xml:space="preserve">
+    <value>专业化名称</value>
+  </data>
+  <data name="Header_TemplateName" xml:space="preserve">
+    <value>模板名称</value>
+  </data>
+  <data name="Header_Time" xml:space="preserve">
+    <value>时间[秒, %]</value>
+  </data>
+  <data name="LoadingDataMessage" xml:space="preserve">
+    <value>正在加载数据... </value>
+  </data>
+  <data name="MetricsAndPercent" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>{0} is the unit accounted for (i.e. sample count or time in ms) and {1} is the percentage of total usage</comment>
+  </data>
+  <data name="NoDataMessage" xml:space="preserve">
+    <value>无可用数据。为了避免性能降低，会丢弃影响可忽略的生成事件。</value>
+  </data>
+  <data name="NoDataMessageTemplatesView" xml:space="preserve">
+    <value>无可用数据。可能是为了避免性能下降而丢弃了影响可忽略不计的生成事件，或者收集跟踪时关闭了模板实例化收集。</value>
+  </data>
+  <data name="Overlay_ProgressIndeterminateAriaLabel" xml:space="preserve">
+    <value>正在加载数据...</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>(全选)</value>
+  </data>
+  <data name="TemplatesFilterWatermark" xml:space="preserve">
+    <value>筛选器模板</value>
+  </data>
+  <data name="TemplatesTableAriaLabel" xml:space="preserve">
+    <value>包含文件分析统计信息的表</value>
+  </data>
+  <data name="Tooltip_Build_Contribution_Header" xml:space="preserve">
+    <value>考虑并行度时占总生成时间的时间。也称为“时钟时间责任”。</value>
+  </data>
+  <data name="TopFilesAriaLabel" xml:space="preserve">
+    <value>热门文件</value>
+  </data>
+  <data name="TopFunctionsAriaLabel" xml:space="preserve">
+    <value>排名靠前的函数</value>
+  </data>
+  <data name="UnableShowDataMessage" xml:space="preserve">
+    <value>无法显示数据</value>
+  </data>
+  <data name="VerticalSplitterAriaLabel" xml:space="preserve">
+    <value>拆分器</value>
+  </data>
+  <data name="Header_Duration" xml:space="preserve">
+    <value>持续时间[秒]</value>
+  </data>
+  <data name="Header_Duration_ToolTip" xml:space="preserve">
+    <value>所有线程的聚合持续时间</value>
+  </data>
+  <data name="Header_ExclusiveDuration" xml:space="preserve">
+    <value>独占持续时间[秒]</value>
+  </data>
+  <data name="Header_ExclusiveDuration_ToolTip" xml:space="preserve">
+    <value>分析文件的持续时间，排除包含的所有标头的持续时间</value>
+  </data>
+  <data name="Header_InclusiveDuration" xml:space="preserve">
+    <value>非独占持续时间[秒]</value>
+  </data>
+  <data name="Header_InclusiveDuration_ToolTip" xml:space="preserve">
+    <value>分析文件的持续时间，包括包含的所有标头的持续时间</value>
+  </data>
+  <data name="Value_LocalizedDecimal" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Header_ComponentFileName" xml:space="preserve">
+    <value>翻译单元名称</value>
+  </data>
+  <data name="Header_ComponentFileName_ToolTip" xml:space="preserve">
+    <value>输入到编译器的源文件的名称</value>
+  </data>
+  <data name="Header_ComponentRelativePath" xml:space="preserve">
+    <value>翻译单元相对路径</value>
+  </data>
+  <data name="Header_ComponentRelativePath_ToolTip" xml:space="preserve">
+    <value>输入到编译器的源文件的解决方案的相对路径</value>
+  </data>
+  <data name="Header_FileName" xml:space="preserve">
+    <value>文件名</value>
+  </data>
+  <data name="Header_RelativeFilePath" xml:space="preserve">
+    <value>相对文件路径</value>
+  </data>
+  <data name="Header_InstantiationFileName" xml:space="preserve">
+    <value>实例化文件名</value>
+  </data>
+  <data name="Header_InstantiationRelativeFilePath" xml:space="preserve">
+    <value>实例化相对文件路径</value>
+  </data>
+  <data name="LearningAid_IncludedFiles" xml:space="preserve">
+    <value>使用此视图确定最常包含的标头，并确定要在预编译标头(PCH)中包含的内容。</value>
+  </data>
+  <data name="LearningAidHtml_Include" xml:space="preserve">
+    <value>https://go.microsoft.com/fwlink/?linkid=2289348</value>
+  </data>
+  <data name="LearningAid_Functions" xml:space="preserve">
+    <value>使用此视图确定代码生成时间较长和存在强制内联问题的函数。</value>
+  </data>
+  <data name="LearningAid_Templates" xml:space="preserve">
+    <value>使用此视图确定模板实例化。</value>
+  </data>
+  <data name="LearningAidHtml_Functions" xml:space="preserve">
+    <value>https://go.microsoft.com/fwlink/?linkid=2289441</value>
+  </data>
+  <data name="LearningAid_IncludeTree" xml:space="preserve">
+    <value>使用此视图确定 #include 依赖项并可视化包含链。</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="WarningIconAriaLabel" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="QuestionMarkIconAriaLabel" xml:space="preserve">
+    <value>问号图标</value>
+  </data>
+  <data name="DocumentationLinkAriaLabel" xml:space="preserve">
+    <value>文档链接</value>
+  </data>
+  <data name="FilesToInclude" xml:space="preserve">
+    <value>要包含的文件</value>
+  </data>
+  <data name="FilesToExclude" xml:space="preserve">
+    <value>要排除的文件</value>
+  </data>
+  <data name="FilesToExcludeAriaLabel" xml:space="preserve">
+    <value>要排除的文件，例如 *.cpp、src/**/exclude</value>
+  </data>
+  <data name="FilesToIncludeAriaLabel" xml:space="preserve">
+    <value>要包括的文件，例如 *.cpp、src/**/include</value>
+  </data>
+</root>

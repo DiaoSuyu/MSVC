@@ -1,0 +1,5 @@
+[$RootKey$\FeatureFlags\Editor\SmartRenamePromptEditing]
+"Description"="Customize the prompt used to generate the Smart Rename naming suggestions. Requires LSP Editor."
+"Value"=dword:00000000
+"Title"="Smart Rename Prompt Editing (LSP only)"
+"PreviewPaneChannels"="IntPreview,int.main"

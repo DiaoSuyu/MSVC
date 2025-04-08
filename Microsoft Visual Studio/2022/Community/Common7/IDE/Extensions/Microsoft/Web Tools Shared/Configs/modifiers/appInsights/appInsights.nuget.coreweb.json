@@ -1,0 +1,37 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=1.0": [
+        {
+          "Id": "Microsoft.ApplicationInsights.AspNetCore",
+          "Version": "2.22.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETFramework,Version=2.0": [
+        {
+          "Id": "Microsoft.ApplicationInsights.Web",
+          "Version": "2.22.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.ApplicationInsights.AspNetCore",
+          "Version": "2.22.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+[$RootKey$\CLSID\{B16E301A-6259-11d3-9B49-00C04F685DC8}]
+"InprocServer32"="$BaseInstallDir$\Common7\IDE\VC\vcpackages\msgblder.dll"
+@="VC++ Message Builder Class"

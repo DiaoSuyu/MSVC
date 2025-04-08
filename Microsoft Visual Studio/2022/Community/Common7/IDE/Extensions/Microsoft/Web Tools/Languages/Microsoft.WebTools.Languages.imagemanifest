@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="CssEditorResources" Value="/Microsoft.WebTools.Languages.Css.Editor;v17.0.0.0;b03f5f7f11d50a3a;Component/Resources" />
+    <String Name="HtmlEditorSchemaResources" Value="/Microsoft.WebTools.Languages.Html.Editor;v17.0.0.0;b03f5f7f11d50a3a;Component/Resources" />
+    <Guid Name="LanguagesImagesGuid" Value="{D859B854-B2ED-49C0-9D0C-A4B2D54582FE}" />
+    <ID Name="Bootstrap" Value="1" />
+    <ID Name="Angular" Value="2" />
+  </Symbols>
+  
+  <Images>
+    <Image Guid="$(LanguagesImagesGuid)" ID="$(Bootstrap)">
+      <Source Uri="$(CssEditorResources)/bootstrap.png" >
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(LanguagesImagesGuid)" ID="$(Angular)">
+      <Source Uri="$(HtmlEditorSchemaResources)/angular16.png" >
+        <Size Value="16" />
+      </Source>
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

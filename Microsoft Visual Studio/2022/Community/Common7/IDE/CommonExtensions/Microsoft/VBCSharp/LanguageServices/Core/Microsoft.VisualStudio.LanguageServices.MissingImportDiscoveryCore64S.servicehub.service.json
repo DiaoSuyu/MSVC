@@ -1,0 +1,10 @@
+{
+  "host": "dotnet",
+  "hostId": "RoslynCodeAnalysisServiceS",
+  "hostGroupAllowed": true,
+  "serviceOverride": true, 
+  "entryPoint": {
+    "assemblyPath": ".\\Microsoft.CodeAnalysis.Remote.ServiceHub.dll",
+    "fullClassName": "Microsoft.CodeAnalysis.Remote.RemoteMissingImportDiscoveryService+Factory"
+  }
+}

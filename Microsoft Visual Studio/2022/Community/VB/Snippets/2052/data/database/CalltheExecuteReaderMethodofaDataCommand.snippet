@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>调用 SqlCommand 的 ExecuteReader 方法</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用现有数据命令的 SqlCommand.ExecuteReader 方法从数据库中提取数据。</Description>
+      <Shortcut>adoExecReader</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ProcessSprocResult</ID>
+          <Type>String</Type>
+          <ToolTip>替换为用于处理 DataReader 结果的代码。</ToolTip>
+          <Default>Console.WriteLine(reader.GetValue(0))</Default>
+        </Literal>
+        <Object>
+          <ID>conn</ID>
+          <Type>SqlConnection</Type>
+          <ToolTip>替换为现有的连接对象。</ToolTip>
+          <Default>conn</Default>
+        </Object>
+        <Object>
+          <ID>cmd</ID>
+          <Type>SqlCommand</Type>
+          <ToolTip>替换为要对其调用 ExecuteReader 的 SqlCommand。</ToolTip>
+          <Default>cmd</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim reader As SqlDataReader
+Dim previousConnectionState As ConnectionState = $conn$.State
+Try
+If $conn$.State = ConnectionState.Closed Then
+	$conn$.Open()
+End If
+reader = $cmd$.ExecuteReader()
+Using reader
+	While reader.Read
+		' Process SprocResults datareader here.
+		$ProcessSprocResult$
+	End While
+End Using
+Finally
+    If previousConnectionState = ConnectionState.Closed Then
+        $conn$.Close()
+    End If
+End Try
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

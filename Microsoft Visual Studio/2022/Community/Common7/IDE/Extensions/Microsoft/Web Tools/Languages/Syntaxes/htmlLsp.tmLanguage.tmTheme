@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Html TextMate Theme</string>
+    <key>includes</key>
+    <string>general.tmLanguage.tmTheme, css.tmLanguage.tmTheme, javascript.tmLanguage.tmTheme</string>
+    <key>settings</key>
+    <array>
+
+      <!-- [<]a[>] href[=]"Hello"> -->
+      <dict>
+        <key>scope</key>
+        <string>
+          punctuation.definition.tag,
+          punctuation.separator.key-value.html
+        </string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Operator</string>
+        </dict>
+      </dict>
+
+      <!-- <[a]> href="Hello"> -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Element Name</string>
+        </dict>
+      </dict>
+
+      <dict>
+        <key>scope</key>
+        <string>html.template.separator</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HtmlClientTemplateSeparator</string>
+        </dict>
+      </dict>
+        
+      <dict>
+        <key>scope</key>
+        <string>html.template.value</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HtmlClientTemplateValue</string>
+        </dict>
+      </dict>
+            
+      <!-- <a> [href]="Hello"> -->
+      <dict>
+        <key>scope</key>
+        <string>entity.other.attribute-name.html</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Attribute Name</string>
+        </dict>
+      </dict>
+
+      <!-- <a> href=["Hello"]> -->
+      <dict>
+        <key>scope</key>
+        <string>
+          meta.attribute,
+          meta.attribute string.quoted
+        </string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Attribute Value</string>
+        </dict>
+      </dict>
+
+      <dict>
+        <key>scope</key>
+        <string>comment.block.html</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Comment</string>
+        </dict>
+      </dict>
+
+    </array>
+    <key>uuid</key>
+    <string>D5935FC5-F04D-4021-83FD-66BCA3F452D2</string>
+  </dict>
+</plist>

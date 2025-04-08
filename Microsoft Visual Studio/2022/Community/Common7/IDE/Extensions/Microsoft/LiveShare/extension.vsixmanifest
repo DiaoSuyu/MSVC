@@ -1,0 +1,52 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.LiveShare.2022" Version="1.0.5949.1" Language="en-US" Publisher="Microsoft" />
+    <PackageId>Microsoft.VisualStudio.LiveShare.2022</PackageId>
+    <DisplayName>Live Share 2022</DisplayName>
+    <Description xml:space="preserve">Real-time collaborative development from the comfort of your favorite tools.</Description>
+    <MoreInfo>https://visualstudio.microsoft.com/services/live-share/</MoreInfo>
+    <License>eula.rtf</License>
+    <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
+    <Icon>Resources\Market_Cascade_128x.png</Icon>
+    <PreviewImage>Resources\Market_Cascade_128x.png</PreviewImage>
+    <Tags>Collaboration;Co-Edit;Collaborative Editing;Co-Debug;Collaborative Debugging;Debug;Remote;Sharing</Tags>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0.31808.319, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Coauthoring.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.FeedbackDiagnostics.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Telemetry.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Search.16.0.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Tasks.16.3.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.UI.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.ToolWindow.UI.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.DebuggerService.Server.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.ExceptionHelper.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.Client.dll" AssemblyName="Microsoft.VisualStudio.LiveShare.Client, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.Core.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.UI.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.ToolWindow.UI.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.Daytona.pkgdef" />
+    <!-- Include the pkgdef files in the auto-generated clientenabledpkg file -->
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.VSIX.pkgdef" />
+    <!-- Vsls file system provider implements RPC contract that has different versions -->
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.LiveShare.FileSystemProvider.pkgdef" />
+    <!-- VS Terminal Service -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LiveShare.VSTerminalService.16.9.dll" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.JavaScript.TypeScript" Version="[15.0,)" DisplayName="JavaScript and TypeScript language support" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Roslyn.LanguageServices" Version="[15.0,)" DisplayName="C# and Visual Basic" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Debugger.JustInTime" Version="[15.0,)" DisplayName="Just-In-Time debugger" />
+  </Prerequisites>
+</PackageManifest>

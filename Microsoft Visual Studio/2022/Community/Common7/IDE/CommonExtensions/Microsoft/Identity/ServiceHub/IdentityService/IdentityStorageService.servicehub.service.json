@@ -1,0 +1,8 @@
+{
+  "host": "dotnet.x64",
+  "hostId": "IdentityHost",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.Developer.IdentityService.dll",
+    "fullClassName": "Microsoft.Developer.IdentityService.StorageService.StorageServiceFactory"
+  }
+}

@@ -1,0 +1,7 @@
+@inherits Microsoft.AspNet.Scaffolding.Templating.RazorTemplateBase
+@{
+  var Model = ObjectModel as Microsoft.WebTools.Scaffolding.Core.Scaffolders.Dependency.SharedViewsTemplateModel;
+}
+@@using @Model.Namespace
+@@namespace @(Model.Namespace).Pages
+@@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

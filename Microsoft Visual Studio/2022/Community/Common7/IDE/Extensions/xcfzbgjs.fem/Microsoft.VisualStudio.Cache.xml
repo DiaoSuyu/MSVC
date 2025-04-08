@@ -1,0 +1,1320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Cache</name>
+    </assembly>
+    <members>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.ActiveContext">
+            <summary>
+            Tracks an active context.
+            </summary>
+            <remarks>
+            Obtain instances of this object from <see cref="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.ActivateContextAsync(Microsoft.VisualStudio.Cache.CacheContext,System.Threading.CancellationToken)" />.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.ActiveContext.#ctor(Microsoft.VisualStudio.Cache.CacheContext,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.ActiveContext" /> class
+            and creates a temporary file to indicate to all open processes that a context is open.
+            </summary>
+            <param name="context">The active context.</param>
+            <param name="activeContextDirectoryPath">
+            The path to the directory where context files should be created.
+            This directory will be created if it does not already exist.
+            </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.ActiveContext.Context">
+            <summary>
+            Gets the context itself.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.ActiveContext.Dispose">
+            <summary>
+            Closes a file (which may result in its deletion) that represents this open context.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.ActiveContext.IsActive(System.ReadOnlyMemory{System.Byte},System.String)">
+            <summary>
+            Checks whether a given context is active in any process.
+            </summary>
+            <param name="contextHash">A hash of the context (i.e. the value from <see cref="P:Microsoft.VisualStudio.Cache.CacheContext.Hash" />.</param>
+            <param name="activeContextDirectoryPath"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.ActiveContext.#ctor(Microsoft.VisualStudio.Cache.CacheContext,System.String)" path="/param[@name='activeContextDirectoryPath']" /></param>
+            <returns><see langword="true" /> if the context identified by <paramref name="contextHash" /> is active in any process that shares <paramref name="activeContextDirectoryPath" />.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.ByValue">
+            <summary>
+            Utility methods that compare equality between two data structures by value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.ByValue.Equal(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Checks for equality between two buffers.
+            </summary>
+            <param name="expected">The first buffer.</param>
+            <param name="actual">The second buffer.</param>
+            <returns>A value indicating whether the buffers are equal.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.CacheContext">
+            <summary>
+            Context that parameterizes an initialized <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> instance.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheContext.dimensions">
+            <summary>
+            Backing field for the <see cref="P:Microsoft.VisualStudio.Cache.CacheContext.Dimensions" /> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheContext.EmptyDimensions">
+            <summary>
+            Gets an empty dictionary that uses the required comparer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheContext.RelativePathBase">
+            <summary>
+            Gets the absolute path to use as the base for any relative paths.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheContext.Dimensions">
+            <summary>
+            Gets the contextual dimensions to implicitly add to any <see cref="P:Microsoft.VisualStudio.RpcContracts.Caching.CacheContainerKey.Dimensions" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheContext.Hash">
+            <summary>
+            Gets the hash of the content from the <see cref="P:Microsoft.VisualStudio.Cache.CacheContext.Dimensions" /> property.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.CacheService">
+            <content>
+            Contains the cloud-connecting methods of the service.
+            </content>
+            <summary>
+            An implementation of the <see cref="T:Microsoft.VisualStudio.RpcContracts.Caching.ICacheService" />,
+            as made available via <see cref="P:Microsoft.VisualStudio.VisualStudioServices.VS2022_2Services.CacheService" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.UploadContextAsync(System.Threading.CancellationToken)">
+            <summary>
+            Uploads all shareable cache entries associated with the active context.
+            </summary>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A task that tracks the async operation.</returns>
+            <remarks>
+            This method only uploads cache entries that were saved as shareable and that belong to a shareable context.
+            If the context is not shareable (e.g. no git repo applies) or no shareable cache entries belong to it,
+            this method does nothing but return a successful result.
+            </remarks>
+            <exception cref="T:System.UnauthorizedAccessException">Thrown when the user does not have permission to upload to the Azure storage account.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the context does not support being shared.
+            This may be because the open context is not bound to git, or because no storage account has been specified for the repo.
+            </exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.DownloadContainerAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheContainerKey,System.IProgress{Microsoft.VisualStudio.RpcContracts.ProgressData},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.GetBlobClientAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Creates a <see cref="T:Azure.Storage.Blobs.BlobContainerClient" /> for use with uploading or downloading blobs.
+            </summary>
+            <param name="writeAccessRequired"><see langword="true" /> if the caller requires a token that will grant write access to the container; <see langword="false" /> otherwise.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>An instance of <see cref="T:Azure.Storage.Blobs.BlobContainerClient" />, or <see langword="null" /> if no Azure resource can be accessed.</returns>
+            <exception cref="T:System.UnauthorizedAccessException">Thrown when the user has not been granted the necessary access to the Azure storage account.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CreateTokenCredentialAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            When overridden in a derived class, creates a token credential for use when gaining authorization to access an Azure Storage account.
+            </summary>
+            <param name="tenantId">The tenant.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A token credential.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.FindStorageInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            Looks up the Azure Storage account info from the contextual repo.
+            </summary>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>The storage info, if any was found.</returns>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.RelativePathBaseActivationArgKey">
+            <summary>
+            The key to use in <see cref="P:Microsoft.ServiceHub.Framework.ServiceActivationOptions.ActivationArguments" /> for the local, absolute path to what should be considered the
+            base of the opened code container (e.g. solution directory or open folder).
+            </summary>
+            <remarks>
+            This activation argument is optional.
+            Without it, the service will acquire the value from the <see cref="P:Microsoft.VisualStudio.VisualStudioServices.VS2019_9Services.SolutionService" />.
+            But with it, the cache service can be constructed more quickly and without any UI thread dependencies.
+            It also provides the caller with the ability to control the context under which the cache is activated rather than inheriting it from the environment.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" />
+            <param name="context"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" path="/param[@name='context']" /></param>
+            <param name="serviceBroker"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" path="/param[@name='serviceBroker']" /></param>
+            <param name="authorizationService"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" path="/param[@name='authorizationService']" /></param>
+            <param name="connectionPool">A shared connection pool. This will *not* be disposed of when this <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> is disposed.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean,Microsoft.ServiceHub.Framework.ServiceMoniker)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean,Microsoft.ServiceHub.Framework.ServiceMoniker)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> class.
+            </summary>
+            <param name="context">The context under which this cache service instance will operate. This value will be disposed of with the <see cref="T:Microsoft.VisualStudio.Cache.CacheService" />.</param>
+            <param name="serviceBroker">The service broker through which other services may be obtained.</param>
+            <param name="authorizationService">The authorization service. This value will be disposed of with the <see cref="T:Microsoft.VisualStudio.Cache.CacheService" />.</param>
+            <param name="connectionPool">A shared connection pool.</param>
+            <param name="connectionPoolOwned"><see langword="true" /> to dispose of <paramref name="connectionPool" /> when this instance is disposed.</param>
+            <param name="activationMoniker">The service moniker this service was activated with.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.CacheService.TraceEvents">
+            <summary>
+            Event IDs raised to our <see cref="P:Microsoft.VisualStudio.Cache.CacheService.TraceSource" />.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.TraceEvents.ActiveContext">
+            <summary>
+            Occurs when the active context has been determined.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.TraceEvents.SetCacheEntry">
+            <summary>
+            Occurs when a cache entry is locally written.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.TraceEvents.UploadContainer">
+            <summary>
+            Occurs when a container is uploaded to cloud storage.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.TraceEvents.DownloadContainer">
+            <summary>
+            Occurs when a container download from cloud storage is attempted.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.CacheService.TraceEvents.MergeContainer">
+            <summary>
+            Occurs when a downloaded container is merged with the local database.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.RelativePathBase">
+            <summary>
+            Gets the value that is returned from <see cref="M:Microsoft.VisualStudio.Cache.CacheService.GetRelativePathBaseAsync(System.Threading.CancellationToken)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.IsDisposed">
+            <inheritdoc cref="P:Microsoft.IDisposableObservable.IsDisposed" />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.TraceSource">
+            <summary>
+            Gets the logging mechanism.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.DefaultCacheLocation">
+            <summary>
+            Gets the default location for the cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.LatestServices">
+            <summary>
+            Gets the latest Visual Studio brokered services object that we support.
+            </summary>
+            <devremarks>
+            Keep this <em>value</em> updated to whatever the latest offered by our reference assembly is.
+            The property <em>type</em> need only be updated when a new service is required that doesn't appear on the version this property is typed as.
+            </devremarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.ActivationMoniker">
+            <summary>
+            Gets the service moniker this service was activated with.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.ServiceBroker">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceHub.Framework.IServiceBroker" /> used by this instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.IsActiveContextShareable">
+            <summary>
+            Gets a value indicating whether the active context can be shared.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.CacheService.ShareableReadDefault">
+            <summary>
+            Gets a value indicating whether cache read operations that do not include a shareable parameter should default to accepting downloaded cache values.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> class.
+            </summary>
+            <param name="serviceBroker">The service broker through which other services may be obtained.</param>
+            <param name="authorizationService"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" path="/param[@name='authorizationService']" /></param>
+            <param name="serviceActivationOptions">Service activation options.</param>
+            <param name="connectionPool">A shared pool of SQLite connections. This value will *not* be disposed of when the returned <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> is disposed.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>The newly initialized instance.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CreateAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,Microsoft.ServiceHub.Framework.ServiceMoniker,System.Diagnostics.TraceSource,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> class.
+            </summary>
+            <param name="serviceBroker">The service broker through which other services may be obtained.</param>
+            <param name="authorizationService"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean)" path="/param[@name='authorizationService']" /></param>
+            <param name="serviceActivationOptions">Service activation options.</param>
+            <param name="connectionPool">A shared pool of SQLite connections. This value will *not* be disposed of when the returned <see cref="T:Microsoft.VisualStudio.Cache.CacheService" /> is disposed.</param>
+            <param name="activationMoniker"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.#ctor(Microsoft.VisualStudio.Cache.ActiveContext,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.Boolean,Microsoft.ServiceHub.Framework.ServiceMoniker)" path="/param[@name='activationMoniker']" /></param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource" /> that may be used to log actions taken by this cache service.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>The newly initialized instance.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CheckExistsAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CheckExistsAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.GetRelativePathBaseAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.SetItemAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.IO.Pipelines.PipeReader,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.TryGetItemAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.IO.Pipelines.PipeWriter,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.TryGetItemAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.IO.Pipelines.PipeWriter,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.ShrinkCacheAsync(System.Int32,System.TimeSpan,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.ShrinkCache(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.Int32,System.DateTimeOffset,System.Threading.CancellationToken)" />
+            <param name="minimumAge">The time a context must be inactive before being eligible for deletion.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.DisposeAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.GetContextualDimensionsAsync(Microsoft.ServiceHub.Framework.IServiceBroker,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.CacheService.GetContextualDimensionsAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Diagnostics.TraceSource,System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.GetContextualDimensionsAsync(Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Diagnostics.TraceSource,System.Threading.CancellationToken)">
+            <summary>
+            Creates a cache context based on the ambient environment.
+            </summary>
+            <param name="serviceBroker">The service broker through which the ambient environment may be discovered.</param>
+            <param name="serviceActivationOptions">Service activation options.</param>
+            <param name="traceSource">An optional logging system.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>The cache context.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.GenerateFallbackContexts">
+            <summary>
+            Generates additional <see cref="T:Microsoft.VisualStudio.Cache.CacheContext" /> objects that may be used to lookup cache values when the <see cref="F:Microsoft.VisualStudio.Cache.CacheService.activeContext" /> has no match.
+            </summary>
+            <returns>A sequence of contexts. The further down the sequence, the less precise the match.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.CheckExistsHelperAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.RpcContracts.Caching.ICacheService.CheckExistsAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.Boolean,System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.CacheService.TryGetItemHelperAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.IO.Pipelines.PipeWriter,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.RpcContracts.Caching.ICacheService.TryGetItemAsync(Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey,System.IO.Pipelines.PipeWriter,System.Boolean,System.Threading.CancellationToken)" />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.HashingBufferWriter">
+            <summary>
+            An <see cref="T:System.Buffers.IBufferWriter`1" /> that hashes the output without buffering the full output.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.HashingBufferWriter.HashByteLength">
+            <summary>
+            The length (in bytes) of the result of the hash identified by <see cref="T:System.Security.Cryptography.HashAlgorithmName" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.HashingBufferWriter" /> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.Advance(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.GetMemory(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.GetSpan(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.Write(MessagePack.MessagePackWriter@,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Writes the content of a dictionary to a <see cref="T:MessagePack.MessagePackWriter" />.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="map">The dictionary to write out.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.HashingBufferWriter.ComputeFinalHash(System.Span{System.Byte})">
+            <summary>
+            Finalizes the computation given the bytes already written and writes the hash to a buffer.
+            </summary>
+            <param name="hash">The buffer to write the hash to.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.Hex">
+            <summary>
+            Encodes/decodes byte buffers to and from hexidecimal character representation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.Byte[])">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.ReadOnlySpan{System.Byte})" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.ReadOnlyMemory{System.Byte})">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.ReadOnlySpan{System.Byte})" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Encode some buffer as hex characters.
+            </summary>
+            <param name="buffer">The buffer to encode.</param>
+            <returns>The hex string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Encode(System.ReadOnlySpan{System.Byte},System.Span{System.Char})">
+            <summary>
+            Encode some buffer as hex characters.
+            </summary>
+            <param name="buffer">The byte buffer to encode.</param>
+            <param name="hex">The character buffer to initialize with hex. Excess space in this buffer will not be changed.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Decode(System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.Hex.Decode(System.ReadOnlySpan{System.Char})" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Decode(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Converts a hex string into a byte buffer.
+            </summary>
+            <param name="hex">The hex-encoded buffer.</param>
+            <returns>The raw byte buffer.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.Hex.Decode(System.ReadOnlySpan{System.Char},System.Span{System.Byte})">
+            <summary>
+            Converts a hex string into a byte buffer.
+            </summary>
+            <param name="hex">The hex-encoded buffer.</param>
+            <param name="buffer">The buffer to initialize with the decoded hex data. Excess space in this buffer will not be changed.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.PolyfillExtensions">
+            <summary>
+            Extension methods to fill in for pre-netcoreapp3.1 targeting builds.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.PolyfillExtensions.WriteAsync(System.IO.Stream,System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)">
+            <summary>
+            Writes to a stream from a memory buffer.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="buffer">The buffer to read from.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A task that indicates when the write operation is complete.</returns>
+            <devremarks>
+            This method shamelessly copied from the .NET Core 2.1 Stream class: https://github.com/dotnet/coreclr/blob/a113b1c803783c9d64f1f0e946ff9a853e3bc140/src/System.Private.CoreLib/shared/System/IO/Stream.cs#L672-L696.
+            </devremarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SqliteInitializer">
+            <summary>
+            Contains the sqlite initializer call.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SqliteInitializer.InitSqlite">
+            <summary>
+            Initializes sqlite's native bindings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.DataType">
+            <summary>
+            Data types of sqlite columns.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.DataType.Integer">
+            <summary>
+            An integer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.DataType.Float">
+            <summary>
+            A floating point number.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.DataType.Text">
+            <summary>
+            A string.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.DataType.Blob">
+            <summary>
+            A blob.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.DataType.Null">
+            <summary>
+            Null, or an unset value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.OpenFlags">
+            <summary>
+            Flags that may be passed to the <see cref="M:SQLitePCL.raw.sqlite3_open_v2(System.String,SQLitePCL.sqlite3@,System.Int32,System.String)" /> API.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_READONLY">
+            <summary>
+            The database is opened in read-only mode. If the database does not already exist, an error is returned.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_READWRITE">
+            <summary>
+            The database is opened for reading and writing if possible, or reading only if the file is write protected by the operating system. In either case the database must already exist, otherwise an error is returned.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_CREATE">
+            <summary>
+            The database file is created if it does not already exist.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_DELETEONCLOSE">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_EXCLUSIVE">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_AUTOPROXY">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_URI">
+            <summary>
+            The filename can be interpreted as a URI if this flag is set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_MEMORY">
+            <summary>
+            The database will be opened as an in-memory database. The database is named by the "filename" argument for the purposes of cache-sharing, if shared cache mode is enabled, but the "filename" is otherwise ignored.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_MAIN_DB">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_TEMP_DB">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_TRANSIENT_DB">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_MAIN_JOURNAL">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_TEMP_JOURNAL">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_SUBJOURNAL">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_MASTER_JOURNAL">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_NOMUTEX">
+            <summary>
+            The new database connection will use the "multi-thread" threading mode. This means that separate threads are allowed to use SQLite at the same time, as long as each thread is using a different database connection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_FULLMUTEX">
+            <summary>
+            The new database connection will use the "serialized" threading mode. This means the multiple threads can safely attempt to use the same database connection at the same time. (Mutexes will block any actual concurrency, but in this mode there is no harm in trying.)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_SHAREDCACHE">
+            <summary>
+            The database is opened shared cache enabled, overriding the default shared cache setting provided by sqlite3_enable_shared_cache().
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_PRIVATECACHE">
+            <summary>
+            The database is opened shared cache disabled, overriding the default shared cache setting provided by sqlite3_enable_shared_cache().
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.OpenFlags.SQLITE_OPEN_WAL">
+            <summary>VFS only.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.PrepareFlags">
+            <summary>
+            Flags that may be passed to the <see cref="M:SQLitePCL.raw.sqlite3_prepare_v3(SQLitePCL.sqlite3,System.ReadOnlySpan{System.Byte},System.UInt32,SQLitePCL.sqlite3_stmt@)" /> API.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.PrepareFlags.None">
+            <summary>
+            No flags.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.PrepareFlags.Persistent">
+            <summary>
+            A hint to the query planner that the prepared statement will be retained for a long time and probably reused many times. Without this flag, sqlite3_prepare_v3() and sqlite3_prepare16_v3() assume that the prepared statement will be used just once or at most a few times and then destroyed using sqlite3_finalize() relatively soon. The current implementation acts on this hint by avoiding the use of lookaside memory so as not to deplete the limited store of lookaside memory. Future versions of SQLite may act on this hint differently.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.Result">
+            <summary>
+            Sqlite error codes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.OK">
+            <summary>Successful result.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.ERROR">
+            <summary>SQL error or missing database.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.INTERNAL">
+            <summary>Internal logic error in SQLite.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.PERM">
+            <summary>Access permission denied.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.ABORT">
+            <summary>Callback routine requested an abort.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.BUSY">
+            <summary>The database file is locked.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.LOCKED">
+            <summary>A table in the database is locked.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.NOMEM">
+            <summary>A malloc() failed.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.READONLY">
+            <summary>Attempt to write a readonly database.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.INTERRUPT">
+            <summary>Operation terminated by sqlite3_interrupt().</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.IOERR">
+            <summary>Some kind of disk I/O error occurred.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.CORRUPT">
+            <summary>The database disk image is malformed.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.NOTFOUND">
+            <summary>Unknown opcode in sqlite3_file_control().</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.FULL">
+            <summary>Insertion failed because database is full.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.CANTOPEN">
+            <summary>Unable to open the database file.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.PROTOCOL">
+            <summary>Database lock protocol error.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.EMPTY">
+            <summary>Database is empty.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.SCHEMA">
+            <summary>The database schema changed.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.TOOBIG">
+            <summary>String or BLOB exceeds size limit.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.CONSTRAINT">
+            <summary>Abort due to constraint violation.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.MISMATCH">
+            <summary>Data type mismatch.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.MISUSE">
+            <summary>Library used incorrectly.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.NOLFS">
+            <summary>Uses OS features not supported on host.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.AUTH">
+            <summary>Authorization denied.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.FORMAT">
+            <summary>Auxiliary database format error.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.RANGE">
+            <summary>2nd parameter to sqlite3_bind out of range.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.NOTADB">
+            <summary>File opened that is not a database file.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.NOTICE">
+            <summary>Notifications from sqlite3_log().</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.WARNING">
+            <summary>Warnings from sqlite3_log().</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.ROW">
+            <summary>sqlite3_step() has another row ready.</summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Result.DONE">
+            <summary>sqlite3_step() has finished executing.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.Schema">
+            <summary>
+            Contains details regarding the schema of storage, including both sql db content and auxiliary file storage.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.CacheStorageVersion">
+            <summary>
+            A version string that changes whenever a breaking change is made.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.DBFileName">
+            <summary>
+            The simple filename of the sqlite database file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.WriteCacheDatabaseAlias">
+            <summary>
+            The name of the schema that the write cache tables belong to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.PersistedDatabaseAlias">
+            <summary>
+            The name of the schema that the persisted tables belong to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.ExportedDatabaseAlias">
+            <summary>
+            The name of the schema that an exported database is attached with.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.MaxRetryCount">
+            <summary>
+            The maximum recommended times to retry an operation that fails with <see cref="F:Microsoft.VisualStudio.Cache.SQLite.Result.LOCKED" /> or <see cref="F:Microsoft.VisualStudio.Cache.SQLite.Result.BUSY" />.
+            </summary>
+            <remarks>
+            This value is set such that it is for all expected scenarios it essentially is infinite.
+            If the retry count is exceeded, something has gone seriously wrong and the calling code ought to fail to draw attention to our failure.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.GetCacheEntrySql">
+            <summary>
+            Searches for a cache hit based on Context.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.GetCacheEntryVersionNoContextSql">
+            <summary>
+            Searches for a cache hit based on Version rather than context.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.Schema.GetCacheEntryInRelatedContextSql">
+            <summary>
+            Searches for a cache hit in any related context for fuzzy matching.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.SetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Boolean)">
+            <summary>
+            Sets a cache value in the cache table.
+            </summary>
+            <param name="connection">The connection to use.</param>
+            <param name="contextHash">The hash of environmental context, such as git commit.</param>
+            <param name="containerKey">The container's key hash.</param>
+            <param name="name"><inheritdoc cref="P:Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey.ItemName" path="/summary" /></param>
+            <param name="version"><inheritdoc cref="P:Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey.Version" path="/summary" /></param>
+            <param name="value">The cached value.</param>
+            <param name="shareable">A value indicating whether the cached value is suitable for sharing across machines and users.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.SetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.String,System.Boolean)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.SetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Boolean)" />
+            <param name="nameOfFileWithValue">The leaf name of the file whose content is the value of this entry.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Lazy{System.Collections.Generic.List{System.ReadOnlyMemory{System.Byte}}},System.Boolean,SQLitePCL.sqlite3_stmt@)">
+            <summary>
+            Retrieves a cache entry for a given context, container, name, and optionally version.
+            </summary>
+            <param name="connection">The connection to use.</param>
+            <param name="contextHash">The hash of environmental context, such as git commit.</param>
+            <param name="containerKey">The container's key hash.</param>
+            <param name="name"><inheritdoc cref="P:Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey.ItemName" path="/summary" /></param>
+            <param name="version"><inheritdoc cref="P:Microsoft.VisualStudio.RpcContracts.Caching.CacheItemKey.Version" path="/summary" /></param>
+            <param name="relatedContextHashes">A lazily-initialized collection of context hashes that may be considered for fuzzy cache hits.</param>
+            <param name="allowDownloaded">A value indicating whether reading cached values that were downloaded is allowed.</param>
+            <param name="stmt">
+            Receives the sqlite statement from which the value may be obtained.
+            The data can be obtained by passing this value (and column 0) to <see cref="M:SQLitePCL.raw.sqlite3_column_blob(SQLitePCL.sqlite3_stmt,System.Int32)" />.
+            Or if the data is large, column 0 will be NULL and a file name will be in column 1.
+            Column 2 is the hash of the context in which the cached value was found.
+            The caller must call <see cref="M:SQLitePCL.raw.sqlite3_reset(SQLitePCL.sqlite3_stmt)" /> with this value after reading the data
+            if <see langword="true" /> is returned from this method.
+            </param>
+            <returns><see langword="true" /> if a value for this cache key was found; otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.DeleteCacheEntriesWithExternalBlob(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.String)">
+            <summary>
+            Deletes all cache entries that point to a given external blob.
+            </summary>
+            <param name="connection">The connection to use.</param>
+            <param name="externalBlobName">The name of the blob that should not be referenced by the database any more.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.ShrinkCache(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.Int32,System.DateTimeOffset,System.Threading.CancellationToken)">
+            <summary>
+            Purges stale entries from the cache.
+            </summary>
+            <param name="connection">The sqlite connection to use.</param>
+            <param name="minimumInactiveCount">The number of inactive contexts we're willing to preserve, regardless of age.</param>
+            <param name="preserveNewerThan">Contexts that have been accessed after this time will not be eligible for deletion.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <remarks>
+            Contexts will be preserved if they were accessed after <paramref name="preserveNewerThan" />
+            or if they are among the <paramref name="minimumInactiveCount" /> most recently accessed contexts.
+            All others will be deleted.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.IsContextTimestampTouchRequired(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Checks whether a recent context timestamp has already been set or if a timestamp refresh is warranted.
+            </summary>
+            <param name="connection">The connection to use.</param>
+            <param name="contextHash">The hash of environmental context, such as git commit.</param>
+            <returns><see langword="true" /> if the caller should switch to a write scheduler and call <see cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TouchContextTimestamp(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte})" />; otherwise <see langword="false" />.</returns>
+            <remarks>
+            Callers should already be on a non-exclusive scheduler.
+            Anyone already on the exclusive scheduler should call <see cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TouchContextTimestamp(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte})" /> directly.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TouchContextTimestamp(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Records that a given context was just accessed, and thus any cache purge policy should consider this context as fresh.
+            </summary>
+            <param name="connection">The connection to use.</param>
+            <param name="contextHash">The hash of environmental context, such as git commit.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.InitializeDatabase(SQLitePCL.sqlite3,System.Uri)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.InitializeDatabase(SQLitePCL.sqlite3,System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.FlushWriteCacheToDisk(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection)">
+            <summary>
+            Flushes the content of write cache to disk.
+            </summary>
+            <param name="connection">The connection to use.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.EnumerateContainers(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlyMemory{System.Byte})">
+            <summary>
+            Enumerate containers that contain cache entries for a given context.
+            </summary>
+            <param name="connection">The connection to read from.</param>
+            <param name="contextHash">The hash of the context to read containers from.</param>
+            <returns>An enumerable that lazily generates the container key hashes. The memory is only valid until enumeration resumes.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.ExportContainer(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Exports a subset of the database to another.
+            </summary>
+            <param name="connection">The connection to use for reading the database.</param>
+            <param name="contextHash">The hash of the context to be exported.</param>
+            <param name="containerKey">The key of the container to be exported.</param>
+            <returns>The absolute path to the exported database file.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.ImportDatabase(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.String)">
+            <summary>
+            Imports the cache entries from one database into another.
+            </summary>
+            <param name="connection">The connection to import into.</param>
+            <param name="dbPath">The path to the database to import from.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.ProcessExternalBlobsAsync(System.String,System.Func{System.String,System.Threading.CancellationToken,System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            Enumerates through each external blob and invokes a callback to perform some processing of it.
+            </summary>
+            <param name="exportedDatabasePath">The path to the database to open.</param>
+            <param name="processBlob">A function that accepts each external blob name to perform processing.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A task that tracks the async operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.GetRetryDelay(System.Int32)">
+            <summary>
+            Computes the duration of a delay to wait before retrying a sqlite operation.
+            </summary>
+            <param name="attempt">The number of the attempt that just failed. 1 is the recommended first number.</param>
+            <returns>The time to wait before the next attempt.</returns>
+            <remarks>
+            This function is implemented as an exponential backoff function.
+            Each attempt waits twice as long as the previous attempt waited, with a max of 1 second.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.IsWorthRetry(Microsoft.VisualStudio.Cache.SQLite.SqliteException,System.Int32)">
+            <summary>
+            Gets a value indicating whether the caller might have luck with retrying a sqlite operation due to failing with some kind of temporary condition.
+            </summary>
+            <param name="ex">The exception that was thrown from the operation.</param>
+            <param name="attempt">The number of times the operation has already been attempted.</param>
+            <returns><see langword="true" /> if the caller might retry; <see langword="false" /> if retrying is not likely to succeed.</returns>
+            <remarks>The caller should ideally wait for a time specified by <see cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.GetRetryDelay(System.Int32)" /> before retrying to increase the odds of success without consuming too many resources.</remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntryHelper(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Boolean,SQLitePCL.sqlite3_stmt@)">
+            <summary>
+            Retrieves a cache entry for a given context, container, name, and optionally version.
+            </summary>
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Lazy{System.Collections.Generic.List{System.ReadOnlyMemory{System.Byte}}},System.Boolean,SQLitePCL.sqlite3_stmt@)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntryHelper(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Boolean,SQLitePCL.sqlite3_stmt@)">
+            <summary>
+            Retrieves a cache entry for a given container, name, and version.
+            </summary>
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Lazy{System.Collections.Generic.List{System.ReadOnlyMemory{System.Byte}}},System.Boolean,SQLitePCL.sqlite3_stmt@)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntryHelper(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.Collections.Generic.List{System.ReadOnlyMemory{System.Byte}},System.ReadOnlySpan{System.Byte},System.String,System.Boolean,SQLitePCL.sqlite3_stmt@)">
+            <summary>
+            Retrieves a cache entry for a given container, name, and related context for fuzzy matching.
+            </summary>
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.TryGetCacheEntry(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Lazy{System.Collections.Generic.List{System.ReadOnlyMemory{System.Byte}}},System.Boolean,SQLitePCL.sqlite3_stmt@)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.InitializeDatabase(SQLitePCL.sqlite3,System.String)">
+            <summary>
+            Initializes a potentially brand new database.
+            </summary>
+            <param name="db">The database to initialize.</param>
+            <param name="schemaName">The schema to add the tables and indexes to.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction">
+            <summary>
+            Represents an open transaction and provides rollback and commit functionality.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction.#ctor(Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction" /> struct
+            and begins a transaction.
+            </summary>
+            <param name="connection">The connection to create the transaction on.</param>
+            <param name="immediate"><see langword="true" /> to create a write transaction; <see langword="false" /> to create an upgradeable read transaction.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction.Dispose">
+            <summary>
+            Rolls back the transaction if <see cref="M:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction.Commit" /> has not yet been called.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.Schema.Transaction.Commit">
+            <summary>
+            Commits the transaction.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection">
+            <summary>
+            A <see cref="T:SQLitePCL.sqlite3" /> connection together with prepared statements.
+            </summary>
+            <remarks>
+            Instance members of this type are <em>not</em> thread-safe.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.queryToStatement">
+            <summary>
+            Our cache of prepared statements for given sql strings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.#ctor(Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection" /> class.
+            </summary>
+            <param name="pool">The pool this connection belongs to.</param>
+            <param name="localCachePath">The path to the directory that contains the sqlite database and any supporting files.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.Database">
+            <summary>
+            Gets the underlying database object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.Pool">
+            <summary>
+            Gets the pool that this connection belongs to.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.GetPreparedStatement(System.String)">
+            <summary>
+            Compiles a given SQL query on this connection and returns a cached result.
+            </summary>
+            <param name="query">A repeatedly used SQL query.</param>
+            <returns>The compiled SQL statement.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.MarkMemoryCacheDirty">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.MarkMemoryCacheDirty" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.AssertScheduler(System.Boolean)">
+            <summary>
+            Throws an internal error exception if the caller is not on a <see cref="T:System.Threading.Tasks.TaskScheduler" /> intended for sqlite access.
+            </summary>
+            <param name="exclusive"><see langword="true" /> if the caller will be writing to the database; <see langword="false" /> otherwise.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool">
+            <summary>
+            A pool of <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection" /> objects.
+            </summary>
+            <remarks>
+            All members on this type are thread-safe.
+            When this pool is disposed of, any currently rented connections are left open until they are returned.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool" /> class
+            that accesses a database in the default location.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool" /> class.
+            </summary>
+            <param name="localCachePath"><inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection.#ctor(Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,System.String)" path="/param[@name='localCachePath']" /></param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.IsDisposed">
+            <inheritdoc cref="P:Microsoft.IDisposableObservable.IsDisposed" />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Schedulers">
+            <summary>
+            Gets the schedulers to use when accessing sqlite.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.CachePath">
+            <summary>
+            Gets the path to the directory that contains the sqlite database.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.BlobsPath">
+            <summary>
+            Gets the path to the external blob directory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.DisposalToken">
+            <summary>
+            Gets a disposal token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.DisposeAsync">
+            <summary>
+            Disposes of managed and native resources owned by this object.
+            </summary>
+            <returns>
+            A task that completes with disposal.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.ActivateContextAsync(Microsoft.VisualStudio.Cache.CacheContext,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.ActiveContext.#ctor(Microsoft.VisualStudio.Cache.CacheContext,System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Take">
+            <summary>
+            Returns a <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection" /> wrapped in a rental so it can be returned to the pool when the caller is done using it.
+            </summary>
+            <returns>A rental that may be disposed to return it.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.MarkMemoryCacheDirty">
+            <summary>
+            Schedules a flush of the in-memory cache to disk.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.ScheduleDataAccessWithRetryAsync``1(System.Func{Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,``0},System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.ScheduleDataAccessWithRetryAsync``1(System.Func{Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,``0},System.Boolean,System.Boolean,System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.ScheduleDataAccessWithRetryAsync``1(System.Func{Microsoft.VisualStudio.Cache.SQLite.SqliteConnection,``0},System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Schedules work on a scheduler designed to minimize LOCKED or BUSY result codes.
+            This is only 100% effective when only one pool and process accesses a given file.
+            </summary>
+            <typeparam name="T">The type of value returned from the <paramref name="action" />.</typeparam>
+            <param name="action">
+            The function that accesses the sqlite database.
+            This delegate must be prepared to execute again if it throws a <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> with an error code of <see cref="F:Microsoft.VisualStudio.Cache.SQLite.Result.BUSY" /> or <see cref="F:Microsoft.VisualStudio.Cache.SQLite.Result.LOCKED" />.
+            </param>
+            <param name="exclusive"><see langword="true" /> if the <paramref name="action" /> will write to the database; <see langword="false" /> if only read access is required.</param>
+            <param name="skipDisposalCheck"><see langword="true" /> to not throw if the instance is already disposed.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>A task whose result will be the result from <paramref name="action" />.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.IsContextActive(System.ReadOnlyMemory{System.Byte})">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.ActiveContext.IsActive(System.ReadOnlyMemory{System.Byte},System.String)" />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental">
+            <summary>
+            A returnable wrapper around a pooled <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnection" /> object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental.#ctor(Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool,Microsoft.VisualStudio.Cache.SQLite.SqliteConnection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental" /> struct.
+            </summary>
+            <param name="pool">The pool from which <paramref name="connection" /> was drawn.</param>
+            <param name="connection">The rented connection.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental.Connection">
+            <summary>
+            Gets the sqlite connection object that was taken from the pool.
+            </summary>
+            <remarks>
+            Callers should <em>not</em> close this connection.
+            If callers cannot return the connection in a clean state ready for subsequent users, avoid calling <see cref="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental.Dispose" /> to return the connection to the pool and close the connection directly.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteConnectionPool.Rental.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException">
+            <summary>
+            An exception that represents an error from sqlite.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> class.
+            </summary>
+            <param name="message"><inheritdoc cref="M:System.Exception.#ctor(System.String)" path="/param[@name='message']" /></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> class.
+            </summary>
+            <param name="message"><inheritdoc cref="M:System.Exception.#ctor(System.String,System.Exception)" path="/param[@name='message']" /></param>
+            <param name="inner"><inheritdoc cref="M:System.Exception.#ctor(System.String,System.Exception)" path="/param[@name='inner']" /></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.#ctor(Microsoft.VisualStudio.Cache.SQLite.Result,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> class.
+            </summary>
+            <param name="errorCode">The error code from sqlite.</param>
+            <param name="message">An additional message that may be supplied by sqlite.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException" /> class.
+            </summary>
+            <param name="info"><inheritdoc cref="M:System.Exception.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" path="/param[@name='info']" /></param>
+            <param name="context"><inheritdoc cref="M:System.Exception.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" path="/param[@name='context']" /></param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.SQLite.SqliteException.ErrorCode">
+            <summary>
+            Gets the error code from sqlite.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SQLite.SqliteException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.SqliteUtilities">
+            <summary>
+            Extension methods on sqlite.raw methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SqliteUtilities.ThrowOnFailure(Microsoft.VisualStudio.Cache.SQLite.Result,System.String)">
+            <summary>
+            Throws an exception if a sqlite result code represents a failure.
+            </summary>
+            <param name="result">The result code.</param>
+            <param name="errMsg">The message describing error details, if available.</param>
+            <returns>The result, if it wasn't an error.</returns>
+            <exception cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException">Thrown when <paramref name="result" /> represents an error.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SqliteUtilities.ThrowOnFailure(Microsoft.VisualStudio.Cache.SQLite.Result,Microsoft.VisualStudio.Cache.SQLite.SqliteConnection)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Cache.SqliteUtilities.ThrowOnFailure(Microsoft.VisualStudio.Cache.SQLite.Result,SQLitePCL.sqlite3)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cache.SqliteUtilities.ThrowOnFailure(Microsoft.VisualStudio.Cache.SQLite.Result,SQLitePCL.sqlite3)">
+            <summary>
+            Throws an exception if a sqlite result code represents a failure.
+            </summary>
+            <param name="result">The result code.</param>
+            <param name="db">The connection that produced the error code.</param>
+            <returns>The result, if it wasn't an error.</returns>
+            <exception cref="T:Microsoft.VisualStudio.Cache.SQLite.SqliteException">Thrown when <paramref name="result" /> represents an error.</exception>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.StorageInfo">
+            <summary>
+            Describes the schema of the JSON file that may appear in a repo to
+            identify the Azure Storage account to use to share the cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.StorageInfo.TenantId">
+            <summary>
+            Gets or sets the ID of the tenant with the subscription that contains the storage account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.StorageInfo.AccountName">
+            <summary>
+            Gets or sets the name of the storage account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.StorageInfo.ContainerName">
+            <summary>
+            Gets or sets the name of the container to use.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cache.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.ErrorReadingFromPipe">
+            <summary>
+              Looks up a localized string similar to Error while reading the value from the pipe..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.MinimumRequiredServiceVersionNotMet">
+            <summary>
+              Looks up a localized string similar to This operation requires service version {0} but {1} was activated. Obtain the newer version from {2} or later..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.NonEmptyValueRequired">
+            <summary>
+              Looks up a localized string similar to Non-empty value required..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.NoStorageAccountFound">
+            <summary>
+              Looks up a localized string similar to No storage account has been set up for this repo..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.NotBoundToVersionControl">
+            <summary>
+              Looks up a localized string similar to The open context is not tied to a supported version control system..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Cache.Strings.RelativePathBaseNotAvailable">
+            <summary>
+              Looks up a localized string similar to The relative path base is not available, possibly because there is no open folder or solution..
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.Foundation.PCWSTR">
+            <summary>
+            A pointer to a constant character string.
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Foundation.PCWSTR.Value">
+            <summary>
+            A pointer to the first character in the string. The content should be considered readonly, as it was typed as constant in the SDK.
+            </summary>
+        </member>
+        <member name="P:Windows.Win32.Foundation.PCWSTR.Length">
+            <summary>
+            Gets the number of characters up to the first null character (exclusive).
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.ToString">
+            <summary>
+            Returns a <see langword="string" /> with a copy of this character array.
+            </summary>
+            <returns>A <see langword="string" />, or <see langword="null" /> if <see cref="F:Windows.Win32.Foundation.PCWSTR.Value" /> is <see langword="null" />.</returns>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.PInvoke">
+            <content>
+            Contains extern methods from "KERNEL32.dll".
+            </content>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CloseHandle(Windows.Win32.Foundation.HANDLE)">
+            <summary>Closes an open object handle.</summary>
+            <param name="hObject">A valid handle to an open object.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>. If the application is running under a debugger,  the function will throw an exception if it receives either a  handle value that is not valid  or a pseudo-handle value. This can happen if you close a handle twice, or if you  call <b>CloseHandle</b> on a handle returned by the <a href="/windows/desktop/api/fileapi/nf-fileapi-findfirstfilea">FindFirstFile</a> function instead of calling the <a href="/windows/desktop/api/fileapi/nf-fileapi-findclose">FindClose</a> function.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//handleapi/nf-handleapi-closehandle">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateFile(System.String,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,System.Nullable{Windows.Win32.Security.SECURITY_ATTRIBUTES},Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,System.Runtime.InteropServices.SafeHandle)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.CreateFile(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,Windows.Win32.Foundation.HANDLE)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.CreateFile(Windows.Win32.Foundation.PCWSTR,Windows.Win32.Storage.FileSystem.FILE_ACCESS_FLAGS,Windows.Win32.Storage.FileSystem.FILE_SHARE_MODE,Windows.Win32.Security.SECURITY_ATTRIBUTES*,Windows.Win32.Storage.FileSystem.FILE_CREATION_DISPOSITION,Windows.Win32.Storage.FileSystem.FILE_FLAGS_AND_ATTRIBUTES,Windows.Win32.Foundation.HANDLE)">
+            <summary>Creates or opens a file or I/O device. The most commonly used I/O devices are as follows:\_file, file stream, directory, physical disk, volume, console buffer, tape drive, communications resource, mailslot, and pipe.</summary>
+            <param name="lpFileName">
+            <para>The name of the file or device to be created or opened. You may use either forward slashes (/) or backslashes (\\) in this name. In the ANSI version of this function, the name is limited to <b>MAX_PATH</b> characters. To extend this limit to 32,767 wide characters, use this Unicode version of the function and prepend "\\\\?\\" to the path. For more information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming Files, Paths, and Namespaces</a>. For information on special device names, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/defining-an-ms-dos-device-name">Defining an MS-DOS Device Name</a>. To create a file stream, specify the name of the file, a colon, and then the name of the stream. For more information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-streams">File Streams</a>. <div class="alert"><b>Tip</b>  Starting with Windows 10, version 1607, for the unicode version of this function (<b>CreateFileW</b>), you can opt-in to remove the <b>MAX_PATH</b> limitation without prepending "\\?\". See the "Maximum Path Length Limitation" section of <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming Files, Paths, and Namespaces</a> for details.</div> <div> </div></para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwDesiredAccess">
+            <para>The requested access to the file or device, which can be summarized as read, write, both or neither zero). The most commonly used values are <b>GENERIC_READ</b>, <b>GENERIC_WRITE</b>, or both (<c>GENERIC_READ | GENERIC_WRITE</c>). For more information, see <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/generic-access-rights">Generic Access Rights</a>, <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-security-and-access-rights">File Security and Access Rights</a>, <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-access-rights-constants">File Access Rights Constants</a>, and <a href="https://docs.microsoft.com/windows/desktop/SecAuthZ/access-mask">ACCESS_MASK</a>. If this parameter is zero, the application can query certain metadata such as file, directory, or device attributes without accessing that file or device, even if <b>GENERIC_READ</b> access would have been denied. You cannot request an access mode that conflicts with the sharing mode that is specified by the <i>dwShareMode</i> parameter in an open request that already has an open handle. For more information, see the Remarks section of this topic and <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwShareMode">
+            <para>The requested sharing mode of the file or device, which can be read, write, both, delete, all of these, or none (refer to the following table). Access requests to attributes or extended attributes are not affected by this flag. If this parameter is zero and <b>CreateFile</b> succeeds, the file or device cannot be shared and cannot be opened again until the handle to the file or device is closed. For more information, see the Remarks section. You cannot request a sharing mode that conflicts with the access mode that is specified in an existing request that has an open handle. <b>CreateFile</b> would fail and the <a href="https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a> function would return <b>ERROR_SHARING_VIOLATION</b>. To enable a process to share a file or device while another process has the file or device open, use a</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="lpSecurityAttributes">
+            <para>A pointer to a <a href="https://docs.microsoft.com/previous-versions/windows/desktop/legacy/aa379560(v=vs.85)">SECURITY_ATTRIBUTES</a> structure that contains two separate but related data members: an optional security descriptor, and a Boolean value that determines whether the returned handle can be inherited by child processes. This parameter can be <b>NULL</b>. If this parameter is <b>NULL</b>, the handle returned by <b>CreateFile</b> cannot be inherited by any child processes the application may create and the file or device associated with the returned handle gets a default security descriptor. The <b>lpSecurityDescriptor</b> member of the structure specifies a <a href="https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-security_descriptor">SECURITY_DESCRIPTOR</a> for a file or device. If this member is <b>NULL</b>, the file or device associated with the returned handle is assigned a default security descriptor. <b>CreateFile</b> ignores the <b>lpSecurityDescriptor</b> member when opening an existing file or device, but continues to use the <b>bInheritHandle</b> member. The <b>bInheritHandle</b>member of the structure specifies whether the returned handle can be inherited. For more information, see the Remarks section.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwCreationDisposition">
+            <para>An action to take on a file or device that exists or does not exist. For devices other than files, this parameter is usually set to <b>OPEN_EXISTING</b>. For more information, see the Remarks section.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="dwFlagsAndAttributes">
+            <para>The file or device attributes and flags, <b>FILE_ATTRIBUTE_NORMAL</b> being the most common default value for files. This parameter can include any combination of the available file attributes (<b>FILE_ATTRIBUTE_*</b>). All other file attributes override <b>FILE_ATTRIBUTE_NORMAL</b>. This parameter can also contain combinations of flags (<b>FILE_FLAG_*</b>) for control of file or device caching behavior, access modes, and other special-purpose flags. These combine with any <b>FILE_ATTRIBUTE_*</b> values. This parameter can also contain Security Quality of Service (SQOS) information by specifying the <b>SECURITY_SQOS_PRESENT</b> flag. Additional SQOS-related flags information is presented in the table following the attributes and flags tables. <div class="alert"><b>Note</b>  When <b>CreateFile</b> opens an existing file, it generally combines the file flags with the file attributes of the existing file, and ignores any file attributes supplied as part of <i>dwFlagsAndAttributes</i>. Special cases are detailed in <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>.</div> <div> </div> Some of the following file attributes and flags may only apply to files and not necessarily all other types of devices that <b>CreateFile</b> can open. For additional information, see the Remarks section of this topic and <a href="https://docs.microsoft.com/windows/desktop/FileIO/creating-and-opening-files">Creating and Opening Files</a>. For more advanced access to file attributes, see <a href="https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-setfileattributesa">SetFileAttributes</a>. For a complete list of all file attributes with their values and descriptions, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-attribute-constants">File Attribute Constants</a>. </para>
+            <para>This doc was truncated.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <param name="hTemplateFile">
+            <para>A valid handle to a template file with the <b>GENERIC_READ</b> access right. The template file supplies file attributes and extended attributes for the file that is being created. This parameter can be <b>NULL</b>. When opening an existing file, <b>CreateFile</b> ignores this parameter. When opening a new encrypted file, the file inherits the discretionary access control list from its parent directory. For additional information, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/file-encryption">File Encryption</a>.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is an open handle to the specified file, device, named pipe, or mail slot. If the function fails, the return value is <b>INVALID_HANDLE_VALUE</b>. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//fileapi/nf-fileapi-createfilew">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="T:Windows.Win32.Security.SECURITY_ATTRIBUTES">
+            <summary>The SECURITY_ATTRIBUTES structure contains the security descriptor for an object and specifies whether the handle retrieved by specifying this structure is inheritable.</summary>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//wtypesbase/ns-wtypesbase-security_attributes#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.nLength">
+            <summary>The size, in bytes, of this structure. Set this value to the size of the **SECURITY\_ATTRIBUTES** structure.</summary>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.lpSecurityDescriptor">
+            <summary>
+            <para>A pointer to a [**SECURITY\_DESCRIPTOR**](../winnt/ns-winnt-security_descriptor.md) structure that controls access to the object. If the value of this member is **NULL**, the object is assigned the default security descriptor associated with the [*access token*](/windows/win32/secauthz/access-tokens) of the calling process. This is not the same as granting access to everyone by assigning a **NULL** [*discretionary access control list*](/windows/win32/secauthz/dacls-and-aces) (DACL). By default, the default DACL in the access token of a process allows access only to the user represented by the access token. For information about creating a security descriptor, see [Creating a Security Descriptor](/windows/win32/secauthz/creating-a-security-descriptor-for-a-new-object-in-c--).</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//wtypesbase/ns-wtypesbase-security_attributes#members">Read more on docs.microsoft.com</see>.</para>
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Security.SECURITY_ATTRIBUTES.bInheritHandle">
+            <summary>A Boolean value that specifies whether the returned handle is inherited when a new process is created. If this member is **TRUE**, the new process inherits the handle.</summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>L0t8SarejQ2YxGPHBt+rH0P4CFEW4/N7Nu/FEuvrfO4=</DigestValue></Reference></SignedInfo><SignatureValue>aHS8sb9clJjIOqFtvjR3WaAPyaHq/ZkEWA1OioqJFnhx2t+D3Bi+W3CbVjbgJZhgPJVXuiqPk4FwQGOcTSvhe/QKgdB2ev/0RK7RqTcs/2XWOWwMjGJfZY0t0muJXyLixwovFax2XL7qmiVIOeYcsaZ7i8J1IIGJ2bNnd2DPgxge7w6zml0bBYVGn+z+rFM+Uy4DUjRDQTgaWF1xiLIiQYEBDJPrWLrIXnx3GOi+/2lJqoqwyqUJpxEABdif4G87KCgOfGPygQc+x+HI4iOHH5q9nfkZBBdUp1uEx66zCNAr1XJCjegQNGMInoUwWn01/q7x+xODp38sB+Ws9w5p1w==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

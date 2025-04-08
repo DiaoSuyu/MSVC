@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在控制台上输出 XML 数据中的特定子元素</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在控制台上输出 XML 数据中的特定子元素。</Description>
+      <Shortcut>xmlPrnt</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>XELEM</ID>
+          <Type>XElement</Type>
+          <ToolTip>将此项替换为 XElement 实例。</ToolTip>
+          <Default>Book</Default>
+        </Literal>
+        <Literal>
+          <ID>AxisExpr</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为轴表达式。</ToolTip>
+          <Default>&lt;rss&gt;.&lt;child&gt;.&lt;item&gt;</Default>
+        </Literal>       
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[For Each item In $XELEM$.$AxisExpr$
+            Console.WriteLine(item)
+        Next
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

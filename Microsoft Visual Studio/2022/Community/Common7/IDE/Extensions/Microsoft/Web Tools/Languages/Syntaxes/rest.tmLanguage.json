@@ -1,0 +1,9 @@
+{
+  "name": "Rest",
+  "scopeName": "source.rest",
+  "fileTypes": [
+    "http",
+    "rest"
+  ],
+  "patterns": []
+}

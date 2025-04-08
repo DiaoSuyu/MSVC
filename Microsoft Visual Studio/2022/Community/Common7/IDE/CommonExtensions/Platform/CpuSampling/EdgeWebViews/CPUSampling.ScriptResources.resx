@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CpuUsageTreeGrid_SelfSamplesHeader" xml:space="preserve">
+    <value>Self CPU [unit, %]</value>
+  </data>
+  <data name="CpuUsageTreeGrid_SelfSamplesHeaderTooltip" xml:space="preserve">
+    <value>CPU time spent executing code in this function, excluding time in functions called by this function</value>
+  </data>
+  <data name="CpuUsageTreeGrid_FunctionNameHeader" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="CpuUsageTreeGrid_FunctionNameTooltip" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="CpuUsageTreeGrid_TotalSamplesHeader" xml:space="preserve">
+    <value>Total CPU [unit, %]</value>
+  </data>
+  <data name="CpuUsageTreeGrid_TotalSamplesHeaderTooltip" xml:space="preserve">
+    <value>CPU time or samples spent executing code in this function and in functions called by this function</value>
+  </data>
+  <data name="CpuUsageTreeGrid_ContextMenu_ViewSource" xml:space="preserve">
+    <value>View Source</value>
+  </data>
+  <data name="Label_Filter" xml:space="preserve">
+    <value>Filter:</value>
+  </data>
+  <data name="Label_ThreadsSelection" xml:space="preserve">
+    <value>Thread:</value>
+  </data>
+  <data name="Message_SearchNoMatches" xml:space="preserve">
+    <value>Could not find any matches.</value>
+  </data>
+  <data name="Message_SearchStartFromTop" xml:space="preserve">
+    <value>Reached the end of the document. Do you want to restart the search from the beginning?</value>
+  </data>
+  <data name="ThreadsSelection_All" xml:space="preserve">
+    <value>[Select]</value>
+  </data>
+  <data name="ThreadsSelection" xml:space="preserve">
+    <value>{0} #{1} : {2}</value>
+    <comment>Startup Thread #6321 : 10.3%</comment>
+  </data>
+  <data name="CategorySelection" xml:space="preserve">
+    <value>{0} : {1}</value>
+    <comment>UI : 10.3%</comment>
+  </data>
+  <data name="ThreadsSelection_Role" xml:space="preserve">
+    <value>Thread #{0} : {1} ({2})</value>
+    <comment>Thread #6321 : 10.3% (UI thread)</comment>
+  </data>
+  <data name="ThreadsSelection_LessThan" xml:space="preserve">
+    <value>{0} #{1} : &lt; {2}</value>
+    <comment>Startup Thread #6321 : &lt; 0.1%</comment>
+  </data>
+  <data name="ThreadsSelection_LessThan_Role" xml:space="preserve">
+    <value>Thread #{0} : &lt; {1} ({2})</value>
+    <comment>Thread #6321 : &lt; 0.1% (UI thread)</comment>
+  </data>
+  <data name="ThreadsSelection_Thread" xml:space="preserve">
+    <value>{0} #{1}</value>
+    <comment>UI thread #6321</comment>
+  </data>
+  <data name="CategoriesSelection_Category" xml:space="preserve">
+    <value>Category {0}</value>
+    <comment>Category UI</comment>
+  </data>
+  <data name="CPUViewFilterView" xml:space="preserve">
+    <value>Threads</value>
+  </data>
+  <data name="CPUViewCategoryView" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="CPUViewSelectAll" xml:space="preserve">
+    <value>(Select all)</value>
+  </data>
+  <data name="CPUViewSelectAllAriaText" xml:space="preserve">
+    <value>Select all checkbox</value>
+  </data>
+  <data name="CPUViewThreadListboxLabel" xml:space="preserve">
+    <value>Threads:</value>
+  </data>
+  <data name="CPUViewThreadListboxTooltip" xml:space="preserve">
+    <value>Threads</value>
+  </data>
+  <data name="Button_OpenDetails" xml:space="preserve">
+    <value>Open details...</value>
+  </data>
+  <data name="Button_RefreshView" xml:space="preserve">
+    <value>Refresh View</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_CPUProfiling" xml:space="preserve">
+    <value>Record CPU Profile</value>
+  </data>
+  <data name="ButtonTooltip_CPUProfilingToggled" xml:space="preserve">
+    <value>Disable CPU Profiling</value>
+  </data>
+  <data name="ButtonTooltip_CPUProfilingNotToggled" xml:space="preserve">
+    <value>Enable CPU Profiling</value>
+  </data>
+  <data name="ButtonAriaLabel_CPUProfiling" xml:space="preserve">
+    <value>Enable CPU Profiling</value>
+  </data>
+  <data name="SampleCountLabel" xml:space="preserve">
+    <value>Sample count: {0}</value>
+  </data>
+  <data name="UIThreadRole" xml:space="preserve">
+    <value>UI thread</value>
+  </data>
+  <data name="StartupThreadRole" xml:space="preserve">
+    <value>Startup thread</value>
+  </data>
+  <data name="ThreadName_IncomingRequestThread" xml:space="preserve">
+    <value>Incoming Request Thread</value>
+  </data>
+  <data name="ThreadName_.NETFinalizerThread" xml:space="preserve">
+    <value>.NET Finalizer Thread</value>
+  </data>
+  <data name=".NETBackgroundGCThread" xml:space="preserve">
+    <value>.NET Background GC Thread</value>
+  </data>
+  <data name="ThreadName_.NETThreadPool" xml:space="preserve">
+    <value>.NET ThreadPool</value>
+  </data>
+  <data name="ThreadName_.NETThreadPoolWorker" xml:space="preserve">
+    <value>.NET ThreadPool Worker</value>
+  </data>
+  <data name="ThreadName_.NETIOThreadPoolWorker" xml:space="preserve">
+    <value>.NET IO ThreadPool Worker</value>
+  </data>
+  <data name="SamplePercentOfProcessLabel" xml:space="preserve">
+    <value>Sample % of process: {0}</value>
+  </data>
+  <data name="Button_CPUViewCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_CPUViewApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="CPUViewShowJustMyCodeLabel" xml:space="preserve">
+    <value>Show Just My Code</value>
+    <comment>Shows only user code to filter CPU Tool</comment>
+  </data>
+  <data name="CPUViewShowNativeCodeLabel" xml:space="preserve">
+    <value>Show Native Code</value>
+  </data>
+  <data name="CpuUsageTreeGrid_TotalSamplesPercentHeader" xml:space="preserve">
+    <value>Total CPU (%)</value>
+  </data>
+  <data name="ExternalCallLabel" xml:space="preserve">
+    <value>[External Call]</value>
+  </data>
+  <data name="SystemCallLabel" xml:space="preserve">
+    <value>[System Call]</value>
+  </data>
+  <data name="ExternalCodeLabel" xml:space="preserve">
+    <value>[External Code]</value>
+  </data>
+  <data name="SystemCodeLabel" xml:space="preserve">
+    <value>[System Code]</value>
+  </data>
+  <data name="AsyncMethodLabel" xml:space="preserve">
+    <value>[Async]</value>
+  </data>
+  <data name="UnwalkableStackLabel" xml:space="preserve">
+    <value>[Unwalkable]</value>
+  </data>
+  <data name="UnwalkableStackTooltip" xml:space="preserve">
+    <value>The location of these calls cannot be determined because a stackwalk could not be completed during collection of these stacks.</value>
+  </data>
+  <data name="OtherLabel" xml:space="preserve">
+    <value>[Other]</value>
+  </data>
+  <data name="NativeCodeLabel" xml:space="preserve">
+    <value>[Native]</value>
+  </data>
+  <data name="SingleLevelExternalCodePrefix" xml:space="preserve">
+    <value>[External: {0}]</value>
+    <comment>"[External: X]" The X is replaced during application with the function name in user program. Example: [External: MyFunc]</comment>
+  </data>
+  <data name="SingleLevelSystemCodePrefix" xml:space="preserve">
+    <value>[System: {0}]</value>
+    <comment>See comment for SingleLevelExternalCodePrefix entry.</comment>
+  </data>
+  <data name="CpuUsageTreeGrid_ModuleHeader" xml:space="preserve">
+    <value>Module</value>
+  </data>
+  <data name="CpuUsageTreeGrid_ModuleTooltip" xml:space="preserve">
+    <value>Module(s) where stack frame occurred</value>
+  </data>
+  <data name="MultipleModuleLabel" xml:space="preserve">
+    <value>Multiple modules</value>
+  </data>
+  <data name="PreparingThreadsProgressTaskName" xml:space="preserve">
+    <value>Preparing threads...</value>
+  </data>
+  <data name="PreparingCpuUsageDataProgressTaskName" xml:space="preserve">
+    <value>Preparing data.</value>
+  </data>
+  <data name="ErrMsg_InvalidRegularExpression" xml:space="preserve">
+    <value>The supplied regular expression for searching is invalid.</value>
+  </data>
+  <data name="CpuUsageTreeGrid_SampleTimeTooltip" xml:space="preserve">
+    <value>{0} ms of CPU time ({1} sample(s) at {2} samples/sec)</value>
+  </data>
+  <data name="CpuUsageTreeGrid_SampleCountTooltip" xml:space="preserve">
+    <value>{0} sample(s) at {2} samples/sec</value>
+  </data>
+  <data name="CollectionTimeSelectionUserPrompt" xml:space="preserve">
+    <value>Select a range of time on the graph(s) above to see a breakdown of CPU utilization</value>
+  </data>
+  <data name="Overlay_NotSupported" xml:space="preserve">
+    <value>CPU Profiling while debugging is not available on this version of Windows.&lt;br&gt;To see CPU usage details, run the CPU Usage tool without the debugger (Debug -&gt; Performance Profiler...).</value>
+    <comment>Note the content between the '()' is an actual command and should translate the same way as the command in the menu</comment>
+  </data>
+  <data name="Overlay_UnableShowData" xml:space="preserve">
+    <value>Unable to show data</value>
+  </data>
+  <data name="Overlay_OperationIncomplete" xml:space="preserve">
+    <value>Select a different range of time to view the data</value>
+  </data>
+  <data name="Overlay_ProfilingDisabled" xml:space="preserve">
+    <value>CPU profiling is disabled.</value>
+  </data>
+  <data name="Overlay_EnablePerformanceDebugger" xml:space="preserve">
+    <value>Enable CPU profiling to see a breakdown of CPU usage by function.</value>
+  </data>
+  <data name="CpuDetailsViewCannotEnableCpuProfiling" xml:space="preserve">
+    <value>Cannot enable CPU profiling. {0}.</value>
+    <comment>"Cannot enable CPU profiling. X" The X is replaced with error message explaining the reason why CPU profiling cannot be enabled.</comment>
+  </data>
+  <data name="CpuDetailsViewCannotDisableCpuProfiling" xml:space="preserve">
+    <value>Cannot disable CPU profiling. {0}.</value>
+    <comment>"Cannot disable CPU profiling. X" The X is replaced with error message explaining the reason why CPU profiling cannot be disabled.</comment>
+  </data>
+  <data name="DotNetNativeBuildTimeAndRuntimeModuleFormat" xml:space="preserve">
+    <value>{0} [.NET Native Binary: {1}]</value>
+  </data>
+  <data name="BreakAllRunning" xml:space="preserve">
+    <value>Breaking...</value>
+  </data>
+  <data name="ProcessRowNameFormat" xml:space="preserve">
+    <value>{0} (PID: {1})</value>
+    <comment>The first element element is the process name and the second is the PID, similar to "Notepad.exe (PID: 12134)"</comment>
+  </data>
+  <data name="ProcessRowTooltipFormat" xml:space="preserve">
+    <value>{0} has {1} children</value>
+  </data>
+  <data name="CalledFromNFunctionsInUserCode" xml:space="preserve">
+    <value>Called from {0} function(s) in user code</value>
+  </data>
+  <data name="SelfSamplesAggregatedFromCallees" xml:space="preserve">
+    <value>Value of self samples aggregates exclusive samples from external callee(s)</value>
+  </data>
+  <data name="CurrentViewDropDownLabel" xml:space="preserve">
+    <value>Current View:</value>
+  </data>
+  <data name="CallTreeViewName" xml:space="preserve">
+    <value>Call Tree</value>
+  </data>
+  <data name="CallerCalleeViewName" xml:space="preserve">
+    <value>Caller/Callee</value>
+  </data>
+  <data name="ModulesViewName" xml:space="preserve">
+    <value>Modules</value>
+  </data>
+  <data name="CpuDetailsViewSelectionDebugRun_BreakAll" xml:space="preserve">
+    <value>Break All </value>
+    <comment>This text will be a clickable hyperlink concatenated with CpuDetailsViewSelectionDebugRun_Posthyperlink. Note the space after the word as the text is concatenated without adding additional spaces</comment>
+  </data>
+  <data name="CpuDetailsViewSelectionDebugRun_Posthyperlink" xml:space="preserve">
+    <value>or set and hit a breakpoint to view CPU Usage data.</value>
+    <comment>See comment in CpuDetailsViewSelectionDebugRun_BreakAll</comment>
+  </data>
+  <data name="NoUserCodeMessage" xml:space="preserve">
+    <value>No user code was running during the selected time range</value>
+  </data>
+  <data name="NoCodeRunningMessage" xml:space="preserve">
+    <value>No code was running during the selected time range</value>
+  </data>
+  <data name="CallerCalleeViewFunctionBody" xml:space="preserve">
+    <value>Function Body</value>
+  </data>
+  <data name="CallingFunctionsTitle" xml:space="preserve">
+    <value>Calling Functions</value>
+  </data>
+  <data name="CallingFunctionsAriaLabel" xml:space="preserve">
+    <value>List of functions calling the current function. Use arrow keys to navigate list</value>
+  </data>
+  <data name="CurrentFunctionTitle" xml:space="preserve">
+    <value>Current Function</value>
+  </data>
+  <data name="CurrentFunctionAriaLabel" xml:space="preserve">
+    <value>Current function. Use arrow keys to navigate list of items</value>
+  </data>
+  <data name="CalledFunctionsTitle" xml:space="preserve">
+    <value>Called Functions</value>
+  </data>
+  <data name="CalledFunctionsAriaLabel" xml:space="preserve">
+    <value>List of functions called by the current function. Use arrow keys to navigate list</value>
+  </data>
+  <data name="CallerCalleeFunctionSampleTimeAriaLabel" xml:space="preserve">
+    <value>{0} self time {1}ms ({2})</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds, {2} element is the time as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionSampleCountAriaLabel" xml:space="preserve">
+    <value>{0} self {1} count ({2})</value>
+    <comment>{0} is the function name, {1} is the sample count, {2} element is the sample as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionBodySampleTimeAriaLabel" xml:space="preserve">
+    <value>Function Body {0}ms ({1})</value>
+    <comment>{0} is the time in milliseconds, {1} is the time as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionBodySampleCountAriaLabel" xml:space="preserve">
+    <value>Function Body {0} count ({1})</value>
+    <comment>{0} is the sample count, {1} is the count as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionSampleTimeTooltip" xml:space="preserve">
+    <value>{0} and its children used {1} ms of CPU time ({2} sample(s) at {3} samples/sec)</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds, {2} is number of samples, {3} is sample rate</comment>
+  </data>
+  <data name="CallerCalleeFunctionSampleCountTooltip" xml:space="preserve">
+    <value>{0} and its children accounted for {1} sample(s) ({3} samples/sec)</value>
+    <comment>{0} is the function name, {1} is the sample count, {2} ignored, {3} is sample rate</comment>
+  </data>
+  <data name="CallerCalleeCurrentFunctionBodySampleTimeTooltip" xml:space="preserve">
+    <value>{0} used {1} ms of CPU time ({2} sample(s) at {3} samples/sec) executing code in the function body</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds, {2} is number of samples, {3} is sample rate</comment>
+  </data>
+  <data name="CallerCalleeCurrentFunctionBodySampleCountTooltip" xml:space="preserve">
+    <value>{0} accounted for {1} sample(s) ({3} samples/sec) executing code in the function body</value>
+    <comment>{0} is the function name, {1} is the sample count, {2} ignored, {3} is sample rate</comment>
+  </data>
+  <data name="UnknownModuleLabel" xml:space="preserve">
+    <value>[External Code]</value>
+  </data>
+  <data name="UnknownFunctionLabel" xml:space="preserve">
+    <value>Unknown function</value>
+  </data>
+  <data name="CallerCalleeTopOfCallStackMessage" xml:space="preserve">
+    <value>Top of call stack</value>
+  </data>
+  <data name="CallerCalleeBottomOfCallStackMessage" xml:space="preserve">
+    <value>Bottom of call stack</value>
+  </data>
+  <data name="MetricsAndPercent" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>{0} is the unit accounted for (i.e. sample count or time in ms) and {1} is the percentage of total usage</comment>
+  </data>
+  <data name="CallerCalleeNoDataAvailableForSelection" xml:space="preserve">
+    <value>No code was running during the selected time</value>
+  </data>
+  <data name="CallTreeSearchControlAriaLabel" xml:space="preserve">
+    <value>Search CPU call tree</value>
+  </data>
+  <data name="CallTreeAriaLabel" xml:space="preserve">
+    <value>Call Tree</value>
+  </data>
+  <data name="FlatFunctionsSearchControlAriaLabel" xml:space="preserve">
+    <value>Search CPU functions list</value>
+  </data>
+  <data name="FlatFunctionsAriaLabel" xml:space="preserve">
+    <value>CPU usage by function</value>
+  </data>
+  <data name="ModulesAriaLabel" xml:space="preserve">
+    <value>CPU usage grouped by modules</value>
+  </data>
+  <data name="ModulesSearchControlAriaLabel" xml:space="preserve">
+    <value>Search CPU modules list</value>
+  </data>
+  <data name="Modules_NameHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Modules_NameTooltip" xml:space="preserve">
+    <value>Name of the module or function</value>
+  </data>
+  <data name="ProcessNameFormat" xml:space="preserve">
+    <value>{0} (PID: {1})</value>
+    <comment>{0} will be the name of the process and {1} will be the ID of the process</comment>
+  </data>
+  <data name="ProcessIdFormat" xml:space="preserve">
+    <value>PID: {0}</value>
+    <comment>{0} will be the ID of the process</comment>
+  </data>
+  <data name="BlockedTimeSummary_AriaLabel" xml:space="preserve">
+    <value>Blocked time by thread</value>
+  </data>
+  <data name="BlockedTimeSummary_NameHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="BlockedTimeSummary_DurationHeader" xml:space="preserve">
+    <value>Duration (ms)</value>
+  </data>
+  <data name="BlockedTimeBlockedStack_Header" xml:space="preserve">
+    <value>Blocked Stack</value>
+  </data>
+  <data name="BlockedTimeReadyStack_Header" xml:space="preserve">
+    <value>Ready Stack</value>
+  </data>
+  <data name="BlockedTimeSummary_MaxHeader" xml:space="preserve">
+    <value>Max (ms)</value>
+  </data>
+  <data name="SearchIconAriaLabel" xml:space="preserve">
+    <value>Execute search</value>
+  </data>
+  <data name="ContextMenu_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ContextMenu_ExpandHotPath" xml:space="preserve">
+    <value>Expand Hot Path</value>
+  </data>
+  <data name="CallTree_ExpandHotPathAriaLabel" xml:space="preserve">
+    <value>Expand Hot Path</value>
+  </data>
+  <data name="CallTree_ShowHotPathAriaLabel" xml:space="preserve">
+    <value>Show Hot Path</value>
+  </data>
+  <data name="CallTree_ExpandHotPathButtonText" xml:space="preserve">
+    <value>Expand Hot Path</value>
+  </data>
+  <data name="CallTree_ShowPathButtonText" xml:space="preserve">
+    <value>Show Hot Path</value>
+  </data>
+  <data name="ContextMenu_ShowInCallerCallee" xml:space="preserve">
+    <value>View in Caller/Callee</value>
+  </data>
+  <data name="ContextMenu_ShowInCallTree" xml:space="preserve">
+    <value>View in Call Tree</value>
+  </data>
+  <data name="ContextMenu_ShowInModulesView" xml:space="preserve">
+    <value>View in Modules</value>
+  </data>
+  <data name="AdditionalOutputInfo" xml:space="preserve">
+    <value>The output window (View &gt; Output &gt; Diagnostics Hub) may contain additional information.</value>
+    <comment>(View &gt; Output &gt; Diagnostics Hub) corresponds to the menus the user needs to navigate through to see the output</comment>
+  </data>
+  <data name="Overlay_CollectingData" xml:space="preserve">
+    <value>Collecting CPU data...</value>
+  </data>
+  <data name="Overlay_CollectionPaused" xml:space="preserve">
+    <value>CPU profiling is paused.</value>
+  </data>
+  <data name="Overlay_EnableProfiling" xml:space="preserve">
+    <value>Enable CPU profiling.</value>
+  </data>
+  <data name="Overlay_StopCollection" xml:space="preserve">
+    <value>Stop collection to view CPU usage data.</value>
+  </data>
+  <data name="SearchCaseSensitive" xml:space="preserve">
+    <value>Match Case</value>
+  </data>
+  <data name="SearchIconAriaLabel1" xml:space="preserve">
+    <value>Execute Search</value>
+  </data>
+  <data name="SearchOptionsTitle" xml:space="preserve">
+    <value>Search options</value>
+  </data>
+  <data name="SearchRegularExpression" xml:space="preserve">
+    <value>Use Regular Expressions</value>
+  </data>
+  <data name="SearchWatermark" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ContextMenu_LoadSymbols" xml:space="preserve">
+    <value>Load Module Symbols</value>
+  </data>
+  <data name="ContextMenu_LoadAllSymbols" xml:space="preserve">
+    <value>Load All Symbols</value>
+  </data>
+  <data name="CpuUsageTreeGrid_CategoryHeader" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="MultipleCategoriesLabel" xml:space="preserve">
+    <value>Multiple Categories</value>
+  </data>
+  <data name="FlatFunctionsViewName" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="PieChartItemAriaLabel" xml:space="preserve">
+    <value>{0} - {1}</value>
+    <comment>{0} will be the value displayed in a pie chart, and {1} will be the corresponding legend text</comment>
+  </data>
+  <data name="HotPathAriaLabel" xml:space="preserve">
+    <value>Hot path from process root</value>
+  </data>
+  <data name="TopFunctionsAriaLabel" xml:space="preserve">
+    <value>Functions by total samples</value>
+  </data>
+  <data name="CPUViewTopCategoryView" xml:space="preserve">
+    <value>Top Five Categories</value>
+  </data>
+  <data name="CategoryPercent_LessThan" xml:space="preserve">
+    <value>&lt; {0}</value>
+  </data>
+  <data name="DetailsView_HotPathHeader" xml:space="preserve">
+    <value>Hot Path</value>
+  </data>
+  <data name="DetailsView_TopFunctionsHeader" xml:space="preserve">
+    <value>Top Functions</value>
+  </data>
+  <data name="DetailsView_HotPathNameHeader" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="DetailsView_HotPathSelfHeader" xml:space="preserve">
+    <value>Self CPU [unit, %]</value>
+  </data>
+  <data name="DetailsView_HotPathTotalHeader" xml:space="preserve">
+    <value>Total CPU [unit, %]</value>
+  </data>
+  <data name="DetailsView_TopFunctionsNameHeader" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="DetailsView_TopFunctionsSelfHeader" xml:space="preserve">
+    <value>Self CPU [unit, %]</value>
+  </data>
+  <data name="DetailsView_TopFunctionsTotalHeader" xml:space="preserve">
+    <value>Total CPU [unit, %]</value>
+  </data>
+  <data name="Overlay_NoFilterData" xml:space="preserve">
+    <value>There is no data in the current set of filters.</value>
+  </data>
+  <data name="ContextMenu_ShowInFunctions" xml:space="preserve">
+    <value>View in Functions</value>
+  </data>
+  <data name="VerticalSplitterAriaLabel" xml:space="preserve">
+    <value>Splitter</value>
+  </data>
+  <data name="CPUViewCategoryPieChartLegend" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>This text shows in the CPU category pie chart legend next to the colors representing each slice of the chart. Ex. Kernel : 54.2% (424). {0} is category name and percent, {1} is category count. Note, {0} comes from the formatted "CategorySelection" string</comment>
+  </data>
+  <data name="ContextMenu_CopyAsMarkdown" xml:space="preserve">
+    <value>Copy as Markdown</value>
+    <comment>Context menu item for copying the selected text to the clipboard as Markdown</comment>
+  </data>
+  <data name="FlameGraphViewName" xml:space="preserve">
+    <value>Flame Graph</value>
+    <comment>This is a specific type of visualization and is the name of the view</comment>
+  </data>
+  <data name="FlameGraph_TooltipName" xml:space="preserve">
+    <value>Name: {0}</value>
+    <comment>The name part for flame graph tooltip</comment>
+  </data>
+  <data name="FlameGraph_TooltipValue" xml:space="preserve">
+    <value>Value: {0}</value>
+    <comment>The value part for flame graph tooltip</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomAriaLabel" xml:space="preserve">
+    <value>Reset Zoom</value>
+    <comment>Aria label for reset zoom button in Flame Graph view toolbar.</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomButtonText" xml:space="preserve">
+    <value>Reset Zoom</value>
+    <comment>Text on reset zoom button in Flame Graph view toolbar</comment>
+  </data>
+  <data name="FlameGraph_FlipAriaLabel" xml:space="preserve">
+    <value>Flip Flame Graph</value>
+    <comment>Aria label for flip flame graph button in Flame Graph view toolbar.</comment>
+  </data>
+  <data name="FlameGraph_FlipButtonText" xml:space="preserve">
+    <value>Flip Flame Graph</value>
+    <comment>Text on flip flame graph button in Flame Graph view toolbar</comment>
+  </data>
+  <data name="StackTagCategory_Compression" xml:space="preserve">
+    <value>Compression</value>
+  </data>
+  <data name="StackTagCategory_AspNet" xml:space="preserve">
+    <value>ASP.NET</value>
+  </data>
+  <data name="StackTagCategory_Cryptography" xml:space="preserve">
+    <value>Cryptography</value>
+  </data>
+  <data name="StackTagCategory_Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="StackTagCategory_Driver" xml:space="preserve">
+    <value>Driver</value>
+  </data>
+  <data name="StackTagCategory_FileSystem" xml:space="preserve">
+    <value>File System</value>
+  </data>
+  <data name="StackTagCategory_Graphics" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
+  <data name="StackTagCategory_IO" xml:space="preserve">
+    <value>IO</value>
+  </data>
+  <data name="StackTagCategory_JIT" xml:space="preserve">
+    <value>JIT</value>
+  </data>
+  <data name="StackTagCategory_Json" xml:space="preserve">
+    <value>Json</value>
+  </data>
+  <data name="StackTagCategory_Kernel" xml:space="preserve">
+    <value>Kernel</value>
+  </data>
+  <data name="StackTagCategory_Logging" xml:space="preserve">
+    <value>Logging</value>
+  </data>
+  <data name="StackTagCategory_Networking" xml:space="preserve">
+    <value>Networking</value>
+  </data>
+  <data name="StackTagCategory_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="StackTagCategory_Protobuf" xml:space="preserve">
+    <value>Protobuf</value>
+  </data>
+  <data name="StackTagCategory_Reflection" xml:space="preserve">
+    <value>Reflection</value>
+  </data>
+  <data name="StackTagCategory_Regex" xml:space="preserve">
+    <value>Regex</value>
+  </data>
+  <data name="StackTagCategory_Runtime" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="StackTagCategory_Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="StackTagCategory_Serialization" xml:space="preserve">
+    <value>Serialization</value>
+  </data>
+  <data name="StackTagCategory_Threading" xml:space="preserve">
+    <value>Threading</value>
+  </data>
+  <data name="StackTagCategory_UI" xml:space="preserve">
+    <value>UI</value>
+  </data>
+  <data name="StackTagCategory_WPF" xml:space="preserve">
+    <value>WPF</value>
+  </data>
+  <data name="StackTagCategory_XML" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="Overlay_ProgressAriaLabel" xml:space="preserve">
+    <value>Percent complete</value>
+    <comment>Aria label for progress bar in CPU tool after data collection</comment>
+  </data>
+  <data name="Overlay_ProgressIndeterminateAriaLabel" xml:space="preserve">
+    <value>Loading data...</value>
+    <comment>Aria label for indeterminate progress bar in CPU tool after data collection</comment>
+  </data>
+  <data name="FlameGraph_FlipStatus" xml:space="preserve">
+    <value>Flame graph flipped</value>
+    <comment>Message reported to screen readers when flame graph is flipped</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomStatus" xml:space="preserve">
+    <value>Zoom reset</value>
+    <comment>Message reported to screen readers when zoom is reset</comment>
+  </data>
+  <data name="ContextMenu_SetRoot" xml:space="preserve">
+    <value>Set Root</value>
+    <comment>Context menu item for setting the root node in the call tree</comment>
+  </data>
+  <data name="ContextMenu_ResetRoot" xml:space="preserve">
+    <value>Reset Root</value>
+    <comment>Context menu item for resetting the root node in the call tree</comment>
+  </data>
+  <data name="DetailsView_TopInsightsDescriptionHeader" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DetailsView_TopInsightsHeader" xml:space="preserve">
+    <value>Top Insights</value>
+    <comment>"Top Insights" here refers to the most important issues found when running analysis.</comment>
+  </data>
+  <data name="DetailsView_TopInsightsTitleHeader" xml:space="preserve">
+    <value>Issue</value>
+  </data>
+  <data name="TopInsightsAriaLabel" xml:space="preserve">
+    <value>Top insights found</value>
+  </data>
+  <data name="CallTree_ResetRootAriaLabel" xml:space="preserve">
+    <value>Reset Root</value>
+    <comment>Aria label for reset root button in Call Tree view toolbar</comment>
+  </data>
+  <data name="CallTree_ResetRootButtonText" xml:space="preserve">
+    <value>Reset Root</value>
+    <comment>Text on reset root button in Call Tree view toolbar</comment>
+  </data>
+  <data name="AutoCompleteLists" xml:space="preserve">
+    <value>Auto Complete Lists</value>
+  </data>
+  <data name="DetailsView_ViewSourceCode" xml:space="preserve">
+    <value>View source code</value>
+  </data>
+  <data name="CpuUsageTreeGrid_CallCount" xml:space="preserve">
+    <value>Call Count</value>
+  </data>
+  <data name="CpuUsageTreeGrid_CallCountTooltip" xml:space="preserve">
+    <value>Total number of times function was called. N/A if call count is not available.</value>
+  </data>
+  <data name="CallCountNotAvailable" xml:space="preserve">
+    <value>N/A</value>
+    <comment>This is shown in each cell of the call count column where the call count is not available</comment>
+  </data>
+  <data name="CallCountNotAvailableTooltip" xml:space="preserve">
+    <value>Call count is not available for this function</value>
+  </data>
+  <data name="CallCountNotAvailableRowTypeTooltip" xml:space="preserve">
+    <value>Call count not applicable for this row</value>
+  </data>
+  <data name="DetailsView_LearnMore" xml:space="preserve">
+    <value>Learn more</value>
+    <comment>Text that links to documentation about top insights issue</comment>
+  </data>
+  <data name="DetailsView_NoInsights" xml:space="preserve">
+    <value>No insights found.</value>
+    <comment>Message displayed when no insights were found.</comment>
+  </data>
+  <data name="CPUViewSettingsView" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="DetailsView_UpdateDotNET" xml:space="preserve">
+    <value>How to Update .NET</value>
+  </data>
+  <data name="DetailsView_RequestAiHelp" xml:space="preserve">
+    <value>Ask Copilot</value>
+  </data>
+  <data name="Overlay_NativeHidden" xml:space="preserve">
+    <value>Data for native code is detected but hidden behind the current filters.</value>
+    <comment>Overlay displayed when there could be data hiding behind native code filter.</comment>
+  </data>
+  <data name="Overlay_ToggleNative" xml:space="preserve">
+    <value>Toggle {0} underneath {1} to show.</value>
+    <comment>{0} is the label for the button to show native code. {1} is the label for Settings.</comment>
+  </data>
+  <data name="Overlay_NoData" xml:space="preserve">
+    <value>There is no data available to show.</value>
+    <comment>Show when we have no threads or any data</comment>
+  </data>
+  <data name="FlameGraph_TooltipPercent" xml:space="preserve">
+    <value>Total percent: {0}</value>
+    <comment>Percentage part for the flame graph tooltip. {0} is the total sample percentage. E.g., "Total percent: 5%"</comment>
+  </data>
+  <data name="ContextMenu_ShowInFlameGraph" xml:space="preserve">
+    <value>View in Flame Graph</value>
+    <comment>This is a specific type of visualization and is the name of the page the data is being shown in</comment>
+  </data>
+  <data name="CpuUsageTreeGrid_InlinedLocationHeader" xml:space="preserve">
+    <value>Inlined Location</value>
+  </data>
+  <data name="CpuUsageTreeGrid_InlinedLocationHeaderTooltip" xml:space="preserve">
+    <value>The source location that this RVA was inlined from</value>
+  </data>
+  <data name="CpuUsageTreeGrid_InlinedMethodHeader" xml:space="preserve">
+    <value>Inlined Method</value>
+  </data>
+  <data name="CpuUsageTreeGrid_InlinedMethodHeaderTooltip" xml:space="preserve">
+    <value>The method that this RVA was inlined from. In the case that multiple methods were inlined at this RVA, we only show the first, but also list the additonal number that we're hiding.</value>
+  </data>
+  <data name="CpuUsageTreeGrid_LocationHeader" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="CpuUsageTreeGrid_LocationHeaderTooltip" xml:space="preserve">
+    <value>The source location that this RVA address points to</value>
+  </data>
+  <data name="InlinedMethodTooltip" xml:space="preserve">
+    <value>{0} more method(s) got inlined at this RVA</value>
+    <comment>{0} is the inlined method's name and the number of methods that are inlined here. e.g. "Board::CntValidMoves +1"</comment>
+  </data>
+  <data name="RvaTooltip" xml:space="preserve">
+    <value>RVA: {0}</value>
+    <comment>{0} is the relative virtual address of the IP address</comment>
+  </data>
+  <data name="SingleInlinedMethodTooltip" xml:space="preserve">
+    <value>{0} got inlined at this RVA</value>
+    <comment>{0} is the inlined method's name</comment>
+  </data>
+  <data name="CopilotInsightButtonTooltip" xml:space="preserve">
+    <value>Ask Copilot to analyze this session and suggest optimizations</value>
+    <comment>The tooltip shown on the Ask Copilot button which will ask Copilot to generate optimization improvements for the current diagsession</comment>
+  </data>
+  <data name="CopilotInsightTooltip" xml:space="preserve">
+    <value>This insight was suggested by AI and may be inaccurate</value>
+    <comment>The tooltip shown when the insight was generated by the Copilot artificial intelligence (AI) and as such it may not be fully accurate</comment>
+  </data>
+  <data name="TopInsightTooltip" xml:space="preserve">
+    <value>Top insight suggestion</value>
+    <comment>The tooltip shown to the user when they hover over the information icon next to a top insight</comment>
+  </data>
+  <data name="FlatFunctions_CallCountsInfoBar" xml:space="preserve">
+    <value>No call counts are available for this session.</value>
+    <comment>Text that shows when no call counts are available after the user requested them.</comment>
+  </data>
+  <data name="FlatFunctions_InformationBarDoNotShow" xml:space="preserve">
+    <value>Don't show again</value>
+    <comment>Text link that when clicked on, allows the user to not show information bar again.</comment>
+  </data>
+  <data name="DetailsView_RequestingAIInsights" xml:space="preserve">
+    <value>Requesting insights...</value>
+    <comment>Message shown to the user while Copilot is generating top insights for a trace. It is combined with a progress spinner icon.</comment>
+  </data>
+  <data name="UnknownLineLabel" xml:space="preserve">
+    <value>[Unknown Line]</value>
+  </data>
+  <data name="DetailsView_RequestAiBenchmarkHelp" xml:space="preserve">
+    <value>Create Benchmark with Copilot</value>
+    <comment>Text link that shows up next to eligible functions from the HotPath and Top Functions in the details view to create benchmark with the help of Copilot</comment>
+  </data>
+  <data name="DetailsView_AiInsightsExcluded" xml:space="preserve">
+    <value>Copilot assisted insights are disabled due to content exclusion.</value>
+  </data>
+  <data name="DetailsView_WhatIsExclusion" xml:space="preserve">
+    <value>What is Content Exclusion?</value>
+  </data>
+  <data name="DetailsView_AutoInsightsAiHelpExcluded" xml:space="preserve">
+    <value>Ask Copilot not available due to content exclusion. </value>
+  </data>
+  <data name="DisabledCopilotInsightButtonTooltip" xml:space="preserve">
+    <value>Not enough information available to generate AI assisted optimizations</value>
+    <comment>The tooltip shown on the disabled Ask Copilot button</comment>
+  </data>
+  <data name="AllProcessesLabel" xml:space="preserve">
+    <value>All Processes</value>
+    <comment>The title shown in the UI when we are listing all the processes in the trace</comment>
+  </data>
+  <data name="CopilotNotAvailable" xml:space="preserve">
+    <value>GitHub Copilot Not Available</value>
+  </data>
+</root>

@@ -1,0 +1,539 @@
+{
+  "version": "1.0.0",
+  "detectors": {
+    "apis.code.coreweb": {
+      "model": "/detectors/configs/apis/apis.code.coreweb.json",
+      "appliesTo": "/detectors/contexts/appServiceApiEligibleProject.json"
+    },
+    "apis.nuget.coreweb": {
+      "model": "/detectors/configs/apis/apis.nuget.coreweb.json",
+      "appliesTo": "/detectors/contexts/appServiceApiEligibleProject.json"
+    },
+    "apis.nuget.functions": {
+      "model": "/detectors/configs/apis/apis.nuget.functions.json",
+      "appliesTo": "/detectors/contexts/functionAppApiEligibleProject.json"
+    },
+    "appConfig.code.addConfiguration.coreweb": {
+      "model": "/detectors/configs/appConfig/appConfig.code.addConfiguration.coreweb31.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandardBefore31.json"
+    },
+    "appConfig.code.addConfiguration.coreweb31": {
+      "model": "/detectors/configs/appConfig/appConfig.code.addConfiguration.coreweb31.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandardAfter31.json"
+    },
+    "appConfig.code.addConfiguration.nonweb": {
+      "model": "/detectors/configs/appConfig/appConfig.code.addConfiguration.nonweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWithAppConfigCode.json"
+    },
+    "appConfig.code.coreweb": {
+      "model": "/detectors/configs/appConfig/appConfig.code.coreweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "appConfig.launchSettings": {
+      "model": "/detectors/configs/appConfig/appConfig.launchSettings.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "appConfig.nuget": {
+      "model": "/detectors/configs/appConfig/appConfig.nuget.json"
+    },
+    "appInsights.code.startup": {
+      "model": "/detectors/configs/appInsights/appInsights.code.startup.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "appInsights.nuget.coreweb": {
+      "model": "/detectors/configs/appInsights/appInsights.nuget.coreweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "appInsights.nuget.web": {
+      "model": "/detectors/configs/appInsights/appInsights.nuget.web.json",
+      "appliesTo": "/detectors/contexts/web.json"
+    },
+    "appInsights.projectProperty": {
+      "model": "/detectors/configs/appInsights/appInsights.projectProperty.json"
+    },
+    "cosmosdb.nuget": {
+      "model": "/detectors/configs/cosmosdb/cosmosdb.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "cosmosdb.nuget.worker": {
+      "model": "/detectors/configs/cosmosdb/cosmosdb.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "identity.nuget.blazor": {
+      "model": "/detectors/configs/identity/identity.nuget.blazor.json",
+      "appliesTo": "/detectors/contexts/webAssembly.json"
+    },
+    "identity.nuget.coreweb": {
+      "model": "/detectors/configs/identity/identity.nuget.coreweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "identity.nuget.wap": {
+      "model": "/detectors/configs/identity/identity.nuget.wap.json",
+      "appliesTo": "/detectors/contexts/web.json"
+    },
+    "grpc.code.startup": {
+      "model": "/detectors/configs/grpc/grpc.code.startup.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "mongodb.nuget": {
+      "model": "/detectors/configs/mongodb/mongodb.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "mongodb.nuget.worker": {
+      "model": "/detectors/configs/mongodb/mongodb.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "mssql.appSettings.everywhere": {
+      "model": "/detectors/configs/mssql/mssql.appSettings.everywhere.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "mssql.appSettings.explicitSection": {
+      "model": "/detectors/configs/mssql/mssql.appSettings.explicitSection.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "mssql.nuget.coreweb": {
+      "model": "/detectors/configs/mssql/mssql.nuget.coreweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebOrFunctionAndNotNetStandard.json"
+    },
+    "mssql.nuget.worker": {
+      "model": "/detectors/configs/mssql/mssql.nuget.coreweb.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "mssql.nuget.web": {
+      "model": "/detectors/configs/mssql/mssql.nuget.web.json",
+      "appliesTo": "/detectors/contexts/web.json"
+    },
+    "postgresql.nuget": {
+      "model": "/detectors/configs/postgresql/postgresql.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "postgresql.nuget.worker": {
+      "model": "/detectors/configs/postgresql/postgresql.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "rabbitmq.nuget": {
+      "model": "/detectors/configs/rabbitmq/rabbitmq.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "rabbitmq.nuget.worker": {
+      "model": "/detectors/configs/rabbitmq/rabbitmq.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "redis.nuget": {
+      "model": "/detectors/configs/redis/redis.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "redis.nuget.worker": {
+      "model": "/detectors/configs/redis/redis.nuget.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWorker.json"
+    },
+    "secrets.keyVault.code.configBuild": {
+      "model": "/detectors/configs/secrets/secrets.keyVault.code.configBuild.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "secrets.keyVault.launchSettings": {
+      "model": "/detectors/configs/secrets/secrets.keyVault.launchSettings.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "secrets.keyVault.nuget": {
+      "model": "/detectors/configs/secrets/secrets.keyVault.nuget.json"
+    },
+    "secrets.user.projectProperty": {
+      "model": "/detectors/configs/secrets/secrets.user.projectProperty.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "signalr.code.startup": {
+      "model": "/detectors/configs/signalr/signalr.code.startup.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "signalr.launchSettings": {
+      "model": "/detectors/configs/signalr/signalr.launchSettings.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWeb.json"
+    },
+    "signalr.nuget": {
+      "model": "/detectors/configs/signalr/signalr.nuget.json"
+    },
+    "springCloud.code.configBuild": {
+      "model": "/detectors/configs/springCloud/springCloud.code.configBuild.json",
+      "appliesTo": "/detectors/contexts/hasSteelToe.json"
+    },
+    "springCloud.nuget": {
+      "model": "/detectors/configs/springCloud/springCloud.nuget.json",
+      "appliesTo": "/detectors/contexts/hasSteelToe.json"
+    },
+    "sqlite.nuget": {
+      "model": "/detectors/configs/sqlite/sqlite.nuget.json"
+    },
+    "storage.appSettings.everywhere": {
+      "model": "/detectors/configs/storage/storage.appSettings.everywhere.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "storage.appSettings.explicitSection": {
+      "model": "/detectors/configs/storage/storage.appSettings.explicitSection.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "storage.code.startup": {
+      "model": "/detectors/configs/storage/storage.code.startup.json",
+      "appliesTo": "/detectors/contexts/dotNetCoreWebAndNotNetStandard.json"
+    },
+    "storage.nuget": {
+      "model": "/detectors/configs/storage/storage.nuget.json"
+    }
+  },
+  "modifiers": {
+    "apis.msbuildProperty.coreweb": "/modifiers/apis/apis.msbuildProperty.coreweb.json",
+    "apis.msbuildProperty.function": "/modifiers/apis/apis.msbuildProperty.function.json",
+    "appConfig.appSettings": "/modifiers/appConfig/appConfig.appSettings.json",
+    "appConfig.code.generic.appConfigCore": "/modifiers/appConfig/appConfig.code.generic.appConfigCore.json",
+    "appConfig.code.generic.appConfigCoreMinimalAppModel": "/modifiers/appConfig/appConfig.code.generic.appConfigCoreMinimalAppModel.json",
+    "appConfig.code.generic.appConfigCoreMinimalAppModelUsing1": "/modifiers/appConfig/appConfig.code.generic.appConfigCoreMinimalAppModelUsing1.json",
+    "appConfig.code.generic.appConfigCoreMinimalAppModelUsing2": "/modifiers/appConfig/appConfig.code.generic.appConfigCoreMinimalAppModelUsing2.json",
+    "appConfig.code.generic.appConfigCoreMinimalAppModelUsing3": "/modifiers/appConfig/appConfig.code.generic.appConfigCoreMinimalAppModelUsing3.json",
+    "appConfig.code.generic.appConfigFunctionConfigureAppConfiguration": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureAppConfiguration.json",
+    "appConfig.code.generic.appConfigFunctionConfigureAppConfigurationMinimalAppModel": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureAppConfigurationMinimalAppModel.json",
+    "appConfig.code.generic.appConfigFunctionConfigureFunctionsWorkerDefaults": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureFunctionsWorkerDefaults.json",
+    "appConfig.code.generic.appConfigFunctionConfigureServices": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureServices.json",
+    "appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel.json",
+    "appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel2": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel2.json",
+    "appConfig.code.generic.appConfigFunctionUsingDeclaration": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionUsingDeclaration.json",
+    "appConfig.code.generic.appConfigFunctionUsingDeclarationMinimalAppModel": "/modifiers/appConfig/appConfig.code.generic.appConfigFunctionUsingDeclarationMinimalAppModel.json",
+    "appConfig.code.generic.appConfigWebCore_Main": "/modifiers/appConfig/appConfig.code.generic.appConfigWebCore_Main.json",
+    "appConfig.code.generic.appConfigWebCore_Main30": "/modifiers/appConfig/appConfig.code.generic.appConfigWebCore_Main30.json",
+    "appConfig.code.generic.appConfigWebCoreMinimalAppModel": "/modifiers/appConfig/appConfig.code.generic.appConfigWebCoreMinimalAppModel.json",
+    "appConfig.code.generic.appConfigWebCoreMinimalAppModelUsing": "/modifiers/appConfig/appConfig.code.generic.appConfigWebCoreMinimalAppModelUsing.json",
+    "appConfig.code.generic.codeFunctionShowBetaFeature.isolated": "/modifiers/appConfig/appConfig.code.generic.codeFunctionShowBetaFeature.isolated.json",
+    "appConfig.code.generic.codeFunctionShowBetaFeature.regular": "/modifiers/appConfig/appConfig.code.generic.codeFunctionShowBetaFeature.regular.json",
+    "appConfig.code.generic.codeFunctionShowMessage.isolated": "/modifiers/appConfig/appConfig.code.generic.codeFunctionShowMessage.isolated.json",
+    "appConfig.code.generic.codeFunctionShowMessage.regular": "/modifiers/appConfig/appConfig.code.generic.codeFunctionShowMessage.regular.json",
+    "appConfig.code.generic.codeFunctionStartup.regular": "/modifiers/appConfig/appConfig.code.generic.codeFunctionStartup.regular.json",
+    "appConfig.code.generic.startupCode": "/modifiers/appConfig/appConfig.code.generic.startupCode.json",
+    "appConfig.nuget.core": "/modifiers/appConfig/appConfig.nuget.core.json",
+    "appConfig.nuget.coreweb": "/modifiers/appConfig/appConfig.nuget.coreweb.json",
+    "appConfig.nuget.function.isolated": "/modifiers/appConfig/appConfig.nuget.function.isolated.json",
+    "appConfig.nuget.function.regular": "/modifiers/appConfig/appConfig.nuget.function.regular.json",
+    "appConfig.nuget": "/modifiers/appConfig/appConfig.nuget.json",
+    "appConfig.serviceConnector.appService": "/modifiers/appConfig/appConfig.serviceConnector.appService.json",
+    "appConfig.serviceConnector.containerApp": "/modifiers/appConfig/appConfig.serviceConnector.containerApp.json",
+    "appConfig.serviceConnector.local": "/modifiers/appConfig/appConfig.serviceConnector.local.json",
+    "appInsights.appInsightsConfig": "/modifiers/appInsights/appInsights.appInsightsConfig.json",
+    "appInsights.appServiceSettings": "/modifiers/appInsights/appInsights.appServiceSettings.json",
+    "appInsights.appSettings": "/modifiers/appInsights/appInsights.appSettings.json",
+    "appInsights.code.generic.sdk.startupCode": "/modifiers/appInsights/appInsights.code.generic.sdk.startupCode.json",
+    "appInsights.code.generic.startupCode": "/modifiers/appInsights/appInsights.code.generic.startupCode.json",
+    "appInsights.code.usings": "/modifiers/appInsights/appInsights.code.usings.json",
+    "appInsights.nuget.coreweb": "/modifiers/appInsights/appInsights.nuget.coreweb.json",
+    "appInsights.nuget": "/modifiers/appInsights/appInsights.nuget.json",
+    "appInsights.projectProperty": "/modifiers/appInsights/appInsights.projectProperty.json",
+    "appInsights.secretStore.local.connectionId":"/modifiers/appInsights/appInsights.secretStore.local.connectionId.json",
+    "code.generic.startupSystemNamespace": "/modifiers/code/code.generic.startupSystemNamespace.json",
+    "cosmosdb.itemTemplateCreator": "/modifiers/cosmosdb/cosmosdb.itemTemplateCreator.json",
+    "cosmosdb.nuget.allPackages": "/modifiers/cosmosdb/cosmosdb.nuget.allPackages.json",
+    "cosmosdb.serviceConnector.appService": "/modifiers/cosmosdb/cosmosdb.serviceConnector.appService.json",
+    "cosmosdb.serviceConnector.local": "/modifiers/cosmosdb/cosmosdb.serviceConnector.local.json",
+    "ef.sqlServer.functionSqlItemTemplateCreator": "/modifiers/mssql/ef.sqlServer.functionSqlItemTemplateCreator.json",
+    "ef.sqlServer.nuget.coreweb": "/modifiers/mssql/ef.sqlServer.nuget.coreweb.json",
+    "ef.sqlServer.nuget": "/modifiers/mssql/ef.sqlServer.nuget.json",
+    "ef.sqlServer.serviceConnector.appService": "/modifiers/mssql/ef.sqlServer.serviceConnector.appService.json",
+    "ef.sqlServer.serviceConnector.local": "/modifiers/mssql/ef.sqlServer.serviceConnector.local.json",
+    "identityapp.code.update": "/modifiers/identity/identityapp.code.update.json",
+    "identityapp.nuget.blazor.callsgraph": "/modifiers/identity/identityapp.nuget.blazor.callsgraph.json",
+    "identityapp.nuget.blazor": "/modifiers/identity/identityapp.nuget.blazor.json",
+    "identityapp.nuget.callsgraph": "/modifiers/identity/identityapp.nuget.callsgraph.json",
+    "identityapp.nuget.default": "/modifiers/identity/identityapp.nuget.default.json",
+    "identityapp.nuget.downstreamApi": "/modifiers/identity/identityapp.nuget.downstreamApi.json",
+    "identityapp.nuget.downstreamApi.callsgraph": "/modifiers/identity/identityapp.nuget.downstreamApi.callsgraph.json",
+    "identityapp.nuget.wap": "/modifiers/identity/identityapp.nuget.wap.json",
+    "identityapp.redirectUris": "/modifiers/identity/identityapp.redirectUris.json",
+    "identityapp.webConfig.wap": "/modifiers/identity/identityapp.webConfig.wap.json",
+    "mongodb.nuget.allPackages": "/modifiers/mongodb/mongodb.nuget.allPackages.json",
+    "postgresql.nuget.allPackages": "/modifiers/postgresql/postgresql.nuget.allPackages.json",
+    "powerplatform.connector": "/modifiers/powerplatform/powerplatform.connector.json",
+    "rabbitmq.itemTemplateCreator": "/modifiers/rabbitmq/rabbitmq.itemTemplateCreator.json",
+    "rabbitmq.nuget.allPackages": "/modifiers/rabbitmq/rabbitmq.nuget.allPackages.json",
+    "redis.code.startup": "/modifiers/redis/redis.code.startup.json",
+    "redis.code.usings": "/modifiers/redis/redis.code.usings.json",
+    "redis.code.usings.Azure.Identity": "/modifiers/redis/redis.code.usings.Azure.Identity.json",
+    "redis.nuget.allPackages": "/modifiers/redis/redis.nuget.allPackages.json",
+    "redis.serviceConnector.local": "/modifiers/redis/redis.serviceConnector.local.json",
+    "redis.serviceConnector.appService": "/modifiers/redis/redis.serviceConnector.appService.json",
+    "secrets.keyVault.code.buildConfig": "/modifiers/secrets/secrets.keyVault.code.buildConfig.json",
+    "secrets.keyVault.code.usings": "/modifiers/secrets/secrets.keyVault.code.usings.json",
+    "secrets.keyVault.launchSettings": "/modifiers/secrets/secrets.keyVault.launchSettings.json",
+    "secrets.keyVault.nuget.coreweb": "/modifiers/secrets/secrets.keyVault.nuget.coreweb.json",
+    "secrets.keyVault.nuget.coreweb31": "/modifiers/secrets/secrets.keyVault.nuget.coreweb31.json",
+    "secrets.keyVault.nuget": "/modifiers/secrets/secrets.keyVault.nuget.json",
+    "secrets.keyVault.serviceConnector.appService.coreweb": "/modifiers/secrets/secrets.keyVault.serviceConnector.appService.coreweb.json",
+    "secrets.keyVault.serviceConnector.appService": "/modifiers/secrets/secrets.keyVault.serviceConnector.appService.json",
+    "secrets.keyVault.serviceConnector.containerApp": "/modifiers/secrets/secrets.keyVault.serviceConnector.containerApp.json",
+    "secrets.user.nuget.function": "/modifiers/secrets/secrets.user.nuget.function.json",
+    "secrets.user.nuget": "/modifiers/secrets/secrets.user.nuget.json",
+    "secretStore.local.connectionId": "/modifiers/secretStore/secretStore.local.connectionId.json",
+    "secretStore.localSecretsOrAcaKeyVault.connectionId": "/modifiers/secretStore/secretStore.localSecretsOrAcaKeyVault.connectionId.json",
+    "signalr.appServiceSettings.webAppSettings": "/modifiers/signalr/signalr.appServiceSettings.webAppSettings.json",
+    "signalr.appSettings": "/modifiers/signalr/signalr.appSettings.json",
+    "signalr.code.startup": "/modifiers/signalr/signalr.code.startup.json",
+    "signalr.code.usings": "/modifiers/signalr/signalr.code.usings.json",
+    "signalr.itemTemplateCreator": "/modifiers/signalr/signalr.itemTemplateCreator.json",
+    "signalr.launchSettings": "/modifiers/signalr/signalr.launchSettings.json",
+    "signalr.msbuildProperty": "/modifiers/signalr/signalr.msbuildProperty.json",
+    "signalr.nuget.coreweb": "/modifiers/signalr/signalr.nuget.coreweb.json",
+    "signalr.nuget.function": "/modifiers/signalr/signalr.nuget.function.json",
+    "signalr.nuget": "/modifiers/signalr/signalr.nuget.json",
+    "signalr.serviceConnector.appService": "/modifiers/signalr/signalr.serviceConnector.appService.json",
+    "signalr.serviceConnector.local": "/modifiers/signalr/signalr.serviceConnector.local.json",
+    "springCloud.nuget.steeltoe24": "/modifiers/springCloud/springCloud.nuget.steeltoe24.json",
+    "springCloud.nuget.steeltoe30": "/modifiers/springCloud/springCloud.nuget.steeltoe30.json",
+    "steeltoe.code.generic.buildConfig": "/modifiers/springCloud/steeltoe.code.generic.buildConfig.json",
+    "sqlite.nuget.allPackages": "/modifiers/sqlite/sqlite.nuget.allPackages.json",
+    "storage.code.generic.extensions": "/modifiers/storage/storage.code.generic.extensions.json",
+    "storage.code.generic.startupCode": "/modifiers/storage/storage.code.generic.startupCode.json",
+    "storage.code.generic.startupMicrosoftExtensionsAzureNamespace": "/modifiers/storage/storage.code.generic.startupMicrosoftExtensionsAzureNamespace.json",
+    "storage.code.generic.startupMoreUsings": "/modifiers/storage/storage.code.generic.startupMoreUsings.json",
+    "storage.code.worker.startupCode": "/modifiers/storage/storage.code.worker.startupCode.json",
+    "storage.itemTemplateCreator.blob": "/modifiers/storage/storage.itemTemplateCreator.blob.json",
+    "storage.itemTemplateCreator.queue": "/modifiers/storage/storage.itemTemplateCreator.queue.json",
+    "storage.access.local": "/modifiers/storage/storage.access.local.json",
+    "storage.nuget.allPackages": "/modifiers/storage/storage.nuget.allPackages.json",
+    "storage.secretStore.localOrKeyVault.connectionId.blob": "/modifiers/storage/storage.secretStore.localOrKeyVault.connectionId.blob.json",
+    "storage.secretStore.localOrKeyVault.connectionId.queue": "/modifiers/storage/storage.secretStore.localOrKeyVault.connectionId.queue.json",
+    "storage.secretStore.localOrKeyVault.connectionId.table": "/modifiers/storage/storage.secretStore.localOrKeyVault.connectionId.table.json",
+    "storage.secretStore.local.connectionId.blob": "/modifiers/storage/storage.secretStore.local.connectionId.blob.json",
+    "storage.secretStore.local.connectionId.queue": "/modifiers/storage/storage.secretStore.local.connectionId.queue.json",
+    "storage.secretStore.local.connectionId.table": "/modifiers/storage/storage.secretStore.local.connectionId.table.json",
+    "storage.serviceConnector.local": "/modifiers/storage/storage.serviceConnector.local.json",
+    "storage.serviceConnector.cloud.appService": "/modifiers/storage/storage.serviceConnector.cloud.appService.json",
+    "storage.serviceConnector.cloud.containerApp": "/modifiers/storage/storage.serviceConnector.cloud.containerApp.json"
+  },
+  "components": {
+    "appInsightsConfig": "/components/appInsightsConfig.json",
+    "appServiceRemoteAccess": "/components/appServiceRemoteAccess.json",
+    "appServiceSettings": "/components/appServiceSettings.json",
+    "appSettings": "/components/appSettings.json",
+    "code": "/components/code.json",
+    "containerAppRemoteAccess": "/components/containerAppRemoteAccess.json",
+    "containerAppSettings": "/components/containerAppSettings.json",
+    "customConnector": "/components/customConnector.json",
+    "devtunnel": "/components/devtunnel.json",
+    "dotnetMsIdentity": "/components/dotnetMsIdentity.json",
+    "identityCodeUpdate": "/components/identityCodeUpdate.json",
+    "itemTemplateCreator": "/components/itemTemplateCreator.json",
+    "launchSettings": "/components/launchSettings.json",
+    "localAccess": "/components/localAccess.json",
+    "msbuildProperty": "/components/msbuildProperty.json",
+    "nuget": "/components/nuget.json",
+    "projectProperty": "/components/projectProperty.json",
+    "secretStore": "/components/secretStore.json",
+    "serviceConnector": "/components/serviceConnector.json",
+    "wapWebConfig": "/components/wapWebConfig.json"
+  },
+  "features": {
+    "apis.azure": {
+      "appliesTo": "/features/contexts/apis/apis.azure.json"
+    },
+    "appConfig.azure": {
+      "appliesTo": "/features/contexts/appConfig/appConfig.azure.json"
+    },
+    "appConfig.azure.appService": {
+      "appliesTo": "/features/contexts/appConfig/appConfig.azure.appService.json"
+    },
+    "appConfig.azure.containerApp": {
+      "appliesTo": "/features/contexts/appConfig/appConfig.azure.containerApp.json"
+    },
+    "appInsights.appService": {
+      "appliesTo": "/features/contexts/appInsights/appInsights.appService.json"
+    },
+    "appInsights.containerApp": {
+      "appliesTo": "/features/contexts/appInsights/appInsights.containerApp.json"
+    },
+    "appInsights": {
+      "appliesTo": "/features/contexts/appInsights/appInsights.json"
+    },
+    "appInsights.sdk": {
+      "appliesTo": "/features/contexts/appInsights/appInsights.sdk.json"
+    },
+    "cosmosdb.azure.appService": {
+      "appliesTo": "/features/contexts/cosmosdb/cosmosdb.azure.appService.json"
+    },
+    "cosmosdb.azure": {
+      "appliesTo": "/features/contexts/cosmosdb/cosmosdb.azure.json"
+    },
+    "cosmosdb.local": {
+      "appliesTo": "/features/contexts/cosmosdb/cosmosdb.local.json"
+    },
+    "ef.sqlServer.local": {
+      "appliesTo": "/features/contexts/mssql/ef.sqlServer.local.json"
+    },
+    "ef.sqlServer.azure": {
+      "appliesTo": "/features/contexts/mssql/ef.sqlServer.azure.json"
+    },
+    "ef.sqlServer.azure.appService": {
+      "appliesTo": "/features/contexts/mssql/ef.sqlServer.azure.appService.json"
+    },
+    "grpc": {
+      "appliesTo": "/features/contexts/grpc/grpc.json"
+    },
+    "identityapp": {
+      "appliesTo": "/features/contexts/identity/identityapp.json"
+    },
+    "identityapp.wap.local": {
+      "appliesTo": "/features/contexts/identity/identityapp.wap.local.json"
+    },
+    "identityapp.wap.remote": {
+      "appliesTo": "/features/contexts/identity/identityapp.wap.remote.json"
+    },
+    "mongodb": {
+      "appliesTo": "/features/contexts/mongodb/mongodb.json"
+    },
+    "postgresql": {
+      "appliesTo": "/features/contexts/postgresql/postgresql.json"
+    },
+    "powerplatform": {
+      "appliesTo": "/features/contexts/powerplatform/powerplatform.json"
+    },
+    "rabbitmq": {
+      "appliesTo": "/features/contexts/rabbitmq/rabbitmq.json"
+    },
+    "redis.azure": {
+      "appliesTo": "/features/contexts/redis/redis.azure.json"
+    },
+    "redis.azure.appService": {
+      "appliesTo": "/features/contexts/redis/redis.azure.appService.json"
+    },
+    "redis.local": {
+      "appliesTo": "/features/contexts/redis/redis.local.json"
+    },
+    "secrets.keyVault.appService": {
+      "appliesTo": "/features/contexts/secrets/secrets.keyVault.appService.json"
+    },
+    "secrets.keyVault.containerApp": {
+      "appliesTo": "/features/contexts/secrets/secrets.keyVault.containerApp.json"
+    },
+    "secrets.keyVault": {
+      "appliesTo": "/features/contexts/secrets/secrets.keyVault.json"
+    },
+    "secrets.user": {
+      "appliesTo": "/features/contexts/secrets/secrets.user.json"
+    },
+    "signalr.appService": {
+      "appliesTo": "/features/contexts/signalr/signalr.appService.json"
+    },
+    "signalr": {
+      "appliesTo": "/features/contexts/signalr/signalr.json"
+    },
+    "springCloud.azure": {
+      "appliesTo": "/features/contexts/springCloud/springCloud.azure.json"
+    },
+    "sqlite": {
+      "appliesTo": "/features/contexts/sqlite/sqlite.json"
+    },
+    "storage.azure.appService": {
+      "appliesTo": "/features/contexts/storage/storage.azure.appService.json"
+    },
+    "storage.azure.containerApp": {
+      "appliesTo": "/features/contexts/storage/storage.azure.containerApp.json"
+    },
+    "storage.azure": {
+      "appliesTo": "/features/contexts/storage/storage.azure.json"
+    },
+    "storage.emulator": {
+      "appliesTo": "/features/contexts/storage/storage.emulator.json"
+    }
+  },
+  "featureConfigs": {
+    "apis.azure.coreweb": "/features/configs/apis/apis.azure.coreweb.json",
+    "apis.azure.function": "/features/configs/apis/apis.azure.function.json",
+    "appConfig.azure.core": "/features/configs/appConfig/appConfig.azure.core.json",
+    "appConfig.azure.coreweb": "/features/configs/appConfig/appConfig.azure.coreweb.json",
+    "appConfig.azure.coreweb30": "/features/configs/appConfig/appConfig.azure.coreweb30.json",
+    "appConfig.azure.function.isolated": "/features/configs/appConfig/appConfig.azure.function.isolated.json",
+    "appConfig.azure.function.regular": "/features/configs/appConfig/appConfig.azure.function.regular.json",
+    "appConfig.azure": "/features/configs/appConfig/appConfig.azure.json",
+    "appConfig.azure.appService.core": "/features/configs/appConfig/appConfig.azure.appService.core.json",
+    "appConfig.azure.appService.coreweb": "/features/configs/appConfig/appConfig.azure.appService.coreweb.json",
+    "appConfig.azure.appService.coreweb30": "/features/configs/appConfig/appConfig.azure.appService.coreweb30.json",
+    "appConfig.azure.containerApp": "/features/configs/appConfig/appConfig.azure.containerApp.json",
+    "appConfig.azure.containerApp.core": "/features/configs/appConfig/appConfig.azure.containerApp.core.json",
+    "appConfig.azure.containerApp.coreweb": "/features/configs/appConfig/appConfig.azure.containerApp.coreweb.json",
+    "appInsights.appService.coreweb": "/features/configs/appInsights/appInsights.appService.coreweb.json",
+    "appInsights.appService": "/features/configs/appInsights/appInsights.appService.json",
+    "appInsights.appService.wap": "/features/configs/appInsights/appInsights.appService.wap.json",
+    "appInsights.containerApp.core": "/features/configs/appInsights/appInsights.containerApp.core.json",
+    "appInsights.coreweb": "/features/configs/appInsights/appInsights.coreweb.json",
+    "appInsights": "/features/configs/appInsights/appInsights.json",
+    "appInsights.sdk.coreweb": "/features/configs/appInsights/appInsights.sdk.coreweb.json",
+    "appInsights.sdk": "/features/configs/appInsights/appInsights.sdk.json",
+    "appInsights.wap": "/features/configs/appInsights/appInsights.wap.json",
+    "cosmosdb.azure": "/features/configs/cosmosdb/cosmosdb.azure.json",
+    "cosmosdb.azure.coreweb": "/features/configs/cosmosdb/cosmosdb.azure.coreweb.json",
+    "cosmosdb.azure.appService": "/features/configs/cosmosdb/cosmosdb.azure.appService.json",
+    "cosmosdb.azure.appService.coreweb": "/features/configs/cosmosdb/cosmosdb.azure.appService.coreweb.json",
+    "cosmosdb.coreweb": "/features/configs/cosmosdb/cosmosdb.coreweb.json",
+    "cosmosdb.function": "/features/configs/cosmosdb/cosmosdb.function.json",
+    "cosmosdb": "/features/configs/cosmosdb/cosmosdb.json",
+    "ef.sqlServer": "/features/configs/mssql/ef.sqlServer.json",
+    "ef.sqlServer.azure": "/features/configs/mssql/ef.sqlServer.azure.json",
+    "ef.sqlServer.azure.appService": "/features/configs/mssql/ef.sqlServer.azure.appService.json",
+    "ef.sqlServer.coreweb": "/features/configs/mssql/ef.sqlServer.coreweb.json",
+    "ef.sqlServer.azure.coreweb": "/features/configs/mssql/ef.sqlServer.azure.coreweb.json",
+    "ef.sqlServer.azure.appService.coreweb": "/features/configs/mssql/ef.sqlServer.azure.appService.coreweb.json",
+    "ef.sqlServer.function": "/features/configs/mssql/ef.sqlServer.function.json",
+    "grpc": "/features/configs/grpc/grpc.json",
+    "identityapp.blazor.callsgraph": "/features/configs/identity/blazor/identityapp.blazor.callsgraph.json",
+    "identityapp.blazor.downstreamapi": "/features/configs/identity/blazor/identityapp.blazor.downstreamapi.json",
+    "identityapp.blazor": "/features/configs/identity/blazor/identityapp.blazor.json",
+    "identityapp.wap.local": "/features/configs/identity/wap/identityapp.wap.local.json",
+    "identityapp.wap.remote": "/features/configs/identity/wap/identityapp.wap.remote.json",
+    "identityapp.callsgraph_api": "/features/configs/identity/identityapp.callsgraph_api.json",
+    "identityapp.callsgraph": "/features/configs/identity/identityapp.callsgraph.json",
+    "identityapp.downstreamapi": "/features/configs/identity/identityapp.downstreamapi.json",
+    "identityapp": "/features/configs/identity/identityapp.json",
+    "mongodb.coreweb": "/features/configs/mongodb/mongodb.coreweb.json",
+    "mongodb": "/features/configs/mongodb/mongodb.json",
+    "postgresql.coreweb": "/features/configs/postgresql/postgresql.coreweb.json",
+    "postgresql": "/features/configs/postgresql/postgresql.json",
+    "powerplatform": "/features/configs/powerplatform/powerplatform.json",
+    "rabbitmq.coreweb": "/features/configs/rabbitmq/rabbitmq.coreweb.json",
+    "rabbitmq.function": "/features/configs/rabbitmq/rabbitmq.function.json",
+    "rabbitmq": "/features/configs/rabbitmq/rabbitmq.json",
+    "redis.azure": "/features/configs/redis/redis.azure.json",
+    "redis.azure.appService": "/features/configs/redis/redis.azure.appService.json",
+    "redis.azure.appService.coreweb": "/features/configs/redis/redis.azure.appService.coreweb.json",
+    "redis.azure.appService.coreweb60": "/features/configs/redis/redis.azure.appService.coreweb60.json",
+    "redis.azure.coreweb": "/features/configs/redis/redis.azure.coreweb.json",
+    "redis.azure.coreweb60": "/features/configs/redis/redis.azure.coreweb60.json",
+    "redis.coreweb": "/features/configs/redis/redis.coreweb.json",
+    "redis.coreweb60": "/features/configs/redis/redis.coreweb60.json",
+    "redis": "/features/configs/redis/redis.json",
+    "secrets.keyVault.appService.coreweb": "/features/configs/secrets/secrets.keyVault.appService.coreweb.json",
+    "secrets.keyVault.appService.coreweb31": "/features/configs/secrets/secrets.keyVault.appService.coreweb31.json",
+    "secrets.keyVault.containerApp.coreweb": "/features/configs/secrets/secrets.keyVault.containerApp.coreweb.json",
+    "secrets.keyVault.containerApp.coreweb31": "/features/configs/secrets/secrets.keyVault.containerApp.coreweb31.json",
+    "secrets.keyVault.appService": "/features/configs/secrets/secrets.keyVault.appService.json",
+    "secrets.keyVault.coreweb": "/features/configs/secrets/secrets.keyVault.coreweb.json",
+    "secrets.keyVault.coreweb31": "/features/configs/secrets/secrets.keyVault.coreweb31.json",
+    "secrets.keyVault": "/features/configs/secrets/secrets.keyVault.json",
+    "secrets.user.coreweb": "/features/configs/secrets/secrets.user.coreweb.json",
+    "secrets.user.function": "/features/configs/secrets/secrets.user.function.json",
+    "secrets.user": "/features/configs/secrets/secrets.user.json",
+    "signalr.appService.coreweb": "/features/configs/signalr/signalr.appService.coreweb.json",
+    "signalr.appService.function": "/features/configs/signalr/signalr.appService.function.json",
+    "signalr.appService": "/features/configs/signalr/signalr.appService.json",
+    "signalr.coreweb": "/features/configs/signalr/signalr.coreweb.json",
+    "signalr.function": "/features/configs/signalr/signalr.function.json",
+    "signalr": "/features/configs/signalr/signalr.json",
+    "springCloud.steeltoe24": "/features/configs/springCloud/springCloud.steeltoe24.json",
+    "springCloud.steeltoe30": "/features/configs/springCloud/springCloud.steeltoe30.json",
+    "sqlite.coreweb": "/features/configs/sqlite/sqlite.coreweb.json",
+    "storage.azure.appService.coreweb": "/features/configs/storage/storage.azure.appService.coreweb.json",
+    "storage.azure.appService": "/features/configs/storage/storage.azure.appService.json",
+    "storage.azure.containerApp.coreweb": "/features/configs/storage/storage.azure.containerApp.coreweb.json",
+    "storage.azure.coreweb": "/features/configs/storage/storage.azure.coreweb.json",
+    "storage.azure.worker": "/features/configs/storage/storage.azure.worker.json",
+    "storage.azure.function": "/features/configs/storage/storage.azure.function.json",
+    "storage.azure": "/features/configs/storage/storage.azure.json",
+    "storage.emulator": "/features/configs/storage/storage.emulator.json",
+    "storage.emulator.coreweb": "/features/configs/storage/storage.emulator.coreweb.json",
+    "storage.emulator.worker": "/features/configs/storage/storage.emulator.worker.json",
+    "storage.emulator.function": "/features/configs/storage/storage.emulator.function.json"
+  }
+}

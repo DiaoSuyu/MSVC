@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "../../../schemas/servicehub.service.schema.json",
+  "host": "netfx.anycpu",
+  "hostId": "CodeLensService",
+  "hostGroupAllowed": true,
+  "entryPoint": {
+    "assemblyPath": "netfx\\Microsoft.VisualStudio.CodeLens.Service.dll",
+    "fullClassName": "Microsoft.VisualStudio.CodeLens.Service.CodeLensServiceHubServiceFactory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%"
+  }
+}

@@ -1,0 +1,11 @@
+[$RootKey$\Projects\{4fd007e8-1a56-7e75-70ca-0466484d4f98}]
+@="VisualBasic Test Project"
+"Language(VsTemplate)"="VisualBasic"
+"Package"="{52CBD135-1F97-2580-011F-C7CD052E44DE}"
+"ShowOnlySpecifiedTemplates(VsTemplate)"=dword:00000000
+"TemplateGroupIDs(VsTemplate)"="TestProject-V1"
+
+[$RootKey$\Projects\{4fd007e8-1a56-7e75-70ca-0466484d4f98}\AddItemTemplates\TemplateDirs\{164B10B9-B200-11D0-8C61-00A0C91E29D5}\/1]
+@="#3082"
+"SortPriority"=dword:00000050
+"TemplatesDir"="$ShellFolder$\VB\VBProjectItems"

@@ -1,0 +1,11 @@
+.dataGridContainer .name, 
+.dataGridContainer .message, 
+.dataGridContainer .pid, 
+.dataGridContainer .markId {
+    text-align: left;
+}
+
+#UserMarksList {
+    flex: 1 1 auto;
+    overflow: hidden;
+}

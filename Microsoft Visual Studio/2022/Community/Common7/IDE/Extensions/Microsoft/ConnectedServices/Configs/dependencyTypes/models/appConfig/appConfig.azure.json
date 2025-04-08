@@ -1,0 +1,31 @@
+{
+  "id": "appConfig.azure",
+  "provisioningId": "Microsoft.AppConfiguration/configurationStores",
+  "name": "strings:#/appConfigDependencyTypeName",
+  "description": "strings:#/appConfigDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3925
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3925
+  },
+  "displayOrder": 4520,
+  "learnMoreUrl": "2146781",
+  "actions": [
+    "openInPortal",
+    "appConfigConfigurationExplorer",
+    "appConfigFeatureManager",
+    "appConfigImportExport",
+    "restore",
+    "learnMore"
+  ],
+  "tags": [
+    "strings:#/store",
+    "Azure"
+  ]
+}

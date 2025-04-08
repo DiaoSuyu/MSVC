@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- NOTE: This file is generated from a template. Update the template instead and generate a new version of this file. -->
+<!-- Copyright (C) 1981-2007 Microsoft Corporation -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+    <noInheritable/>
+<assemblyIdentity type="win32" name="Automation\dsref80.dll" processorArchitecture="amd64" version="1.0.0.0"></assemblyIdentity>
+<file name="dsref80.dll">
+    <comClass clsid="{e09ee6ac-fef0-41ae-9f77-3c394da49849}" progid="DSRefObject8.Simple"/>
+</file>
+</assembly>

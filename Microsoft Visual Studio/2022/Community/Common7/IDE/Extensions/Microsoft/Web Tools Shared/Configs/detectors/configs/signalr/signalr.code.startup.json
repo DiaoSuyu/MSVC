@@ -1,0 +1,99 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "signalr",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseSignalR",
+              "TypeName": "Microsoft.AspNetCore.Builder.ConfigureMethod"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "Configure",
+              "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+              "MethodParameterAnyPosition": true,
+              "MethodParameterAnyNumberOfParameters": true
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapHub",
+              "TypeName": "Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "Configure",
+              "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+              "MethodParameterAnyPosition": true,
+              "MethodParameterAnyNumberOfParameters": true
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapBlazorHub",
+              "TypeName": "Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapHub",
+              "TypeName": "Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapBlazorHub",
+              "TypeName": "Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

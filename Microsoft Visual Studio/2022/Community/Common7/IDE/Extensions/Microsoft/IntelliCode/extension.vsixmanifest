@@ -1,0 +1,40 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="IntelliCode.VSIX.598224b2-b987-401b-8509-f568d0c0b946" Version="2.2.2906.22659" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Visual Studio IntelliCode</DisplayName>
+    <Description xml:space="preserve">AI-assisted development for Visual Studio.</Description>
+    <PackageId>Microsoft.VisualStudio.IntelliCode</PackageId>
+    <ComponentId>Microsoft.VisualStudio.IntelliCode</ComponentId>
+    <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
+    <Icon>Market_BrandIntelliCode_128x.png</Icon>
+    <License>EULA.rtf</License>
+    <RemoveOldPerUserExtension>true</RemoveOldPerUserExtension>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true" Experimental="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.2,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <!-- Main IntelliCode assets -->
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.IntelliCode.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.IntelliCode.dll" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="vs-intellicode-models32.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="vs-intellicode-models64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="vs-intellicode-models-arm64.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Suggestions\vs-intellicode-refactorings-net8.servicehub.service.json" />
+    <!-- XAML Assets -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.DesignTools.XamlIntelliCode.dll" />
+    <!-- C++ Assets -->
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="IntelliCodeCpp.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="IntelliCodeCpp.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="IntelliCodeCpp.dll" AssemblyName="IntelliCodeCpp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </Assets>
+</PackageManifest>

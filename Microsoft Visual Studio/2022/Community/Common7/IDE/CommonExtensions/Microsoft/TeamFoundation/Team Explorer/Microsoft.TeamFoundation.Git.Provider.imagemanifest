@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.TeamFoundation.Git.Provider;v17.0.0.0;b03f5f7f11d50a3a;Component/Icons" />
+    <Guid Name="PackageImageSetGuid" Value="{588B9BAA-39D7-4824-8E0B-753DD4D35F3E}" />
+    <ID Name="RepositoryUploadedNoColor" Value="0" />
+    <ID Name="BranchRemoteNoColor" Value="1" />
+    <ID Name="BranchUploadedNoColor" Value="2" />
+    <ID Name="SparkleEdit" Value="3" />
+    <ID Name="Sparkle" Value="4" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(PackageImageSetGuid)" ID="$(RepositoryUploadedNoColor)">
+      <Source Uri="$(Resources)/RepositoryUploadedNoColor.png">
+        <Size Value="16" />
+      </Source>
+      <Source Uri="$(Resources)/RepositoryUploadedNoColor.xaml" />
+    </Image>
+    <Image Guid="$(PackageImageSetGuid)" ID="$(BranchRemoteNoColor)">
+      <Source Uri="$(Resources)/BranchRemoteNoColor.png">
+        <Size Value="16" />
+      </Source>
+      <Source Uri="$(Resources)/BranchRemoteNoColor.xaml" />
+    </Image>
+    <Image Guid="$(PackageImageSetGuid)" ID="$(BranchUploadedNoColor)">
+      <Source Uri="$(Resources)/BranchUploadedNoColor.png">
+        <Size Value="16" />
+      </Source>
+      <Source Uri="$(Resources)/BranchUploadedNoColor.xaml" />
+    </Image>
+    <Image Guid="$(PackageImageSetGuid)" ID="$(SparkleEdit)">
+      <Source Uri="$(Resources)/SparkleEdit.png">
+        <Size Value="16" />
+      </Source>
+      <Source Uri="$(Resources)/SparkleEdit.xaml" />
+    </Image>
+    <Image Guid="$(PackageImageSetGuid)" ID="$(Sparkle)">
+      <Source Uri="$(Resources)/Sparkle.png">
+        <Size Value="16" />
+      </Source>
+      <Source Uri="$(Resources)/Sparkle.xaml" />
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

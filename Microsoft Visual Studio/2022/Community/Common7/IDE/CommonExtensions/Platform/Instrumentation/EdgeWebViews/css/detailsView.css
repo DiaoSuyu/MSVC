@@ -1,0 +1,270 @@
+﻿#openDetailsButton {
+    /* This will align the button and succeeding toolbar items to the right side */
+    margin-left: auto;
+}
+
+#enableViewButton {
+    /* This will align the enable Instrumentation button on the left and succeeding toolbar items to the right side */
+    margin-right: auto;
+}
+
+a:focus {
+    color: var(--plugin-treeview-content-inactive-selected-color, chartreuse);
+    background-color: var(--plugin-treeview-content-inactive-selected-background-color, chartreuse);
+    text-decoration: underline;
+}
+
+#leftSide {
+    overflow: auto;
+}
+
+    #leftSide tr:not(.topInsightNotification):hover {
+        color: var(--plugin-treeview-content-inactive-selected-color, chartreuse);
+        background-color: var(--plugin-treeview-content-inactive-selected-background-color, chartreuse);
+    }
+
+    #leftSide tbody > tr {
+        height: 1.8em;
+        overflow: hidden;
+    }
+
+        #leftSide tbody > tr > td:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-width: 40em;
+        }
+
+        #leftSide tbody > tr > td > a > span {
+            text-overflow: ellipsis;
+        }
+
+.issueDescription {
+    white-space: normal;
+}
+
+.dashboardName {
+    min-width: 40em; /* Provides space for name to show while not being overly large */
+}
+
+.total, .self {
+    min-width: 10em; /* Enough width to render the wall time and percent with some extra whitespace if the numbers are large */
+}
+
+.hotPath-indent {
+    text-overflow: ellipsis;
+}
+
+.dashboardTitleRow > th {
+    text-align: left;
+    background-color: var(--CommonControls-InnerTabActiveBackground-Background, lawngreen);
+}
+
+td, th {
+    padding: 2px 5px;
+    white-space: nowrap;
+}
+
+#sideBar {
+    border-left: 1px solid var(--Environment-CommandBarOptionsBackground-Background, chartreuse);
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 10em;
+}
+
+    #sideBar > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    #sideBar .title {
+        flex: 0 0 auto;
+        line-height: 26px; /* TODO(Nik) Match this to the tree grid next to it */
+        text-align: center;
+        background-color: var(--CommonControls-InnerTabActiveBackground-Background, chartreuse);
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    #sideBar .pieChartContainer {
+        /* Set the basis to auto so the chart doesn't disappear */
+        flex: 1 1 auto;
+    }
+
+    #sideBar .legend {
+        flex: 0 0 auto;
+        margin: 2px;
+    }
+
+.detailsViewHeader {
+    font-weight: bold;
+    font-size: 1.25em;
+    border: 1px solid var(--Header-SeparatorLine-Background, chartreuse);
+    border-left-width: 0px;
+    border-right-width: 0px;
+    padding: 3px 0px 2px 5px;
+    margin-top: 0px;
+    display: block;
+}
+
+.detailsViewSubHeader {
+    border: 0 solid var(--Header-SeparatorLine-Background, chartreuse);
+    border-left-width: 0px;
+    border-right-width: 0px;
+    padding: 3px 0px 2px 5px;
+    margin-top: 0px;
+    display: block;
+}
+
+#sideBar .detailsViewHeader {
+    /* Add flex so the chart doesn't overlap with the header */
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.boxedTreeGrid {
+    padding: 5px;
+}
+
+.topInsightsTable {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#hotPathHeader {
+    margin-top: 25px !important;
+}
+
+.topInsightsContainer {
+    max-height: 20%;
+    overflow: auto;
+}
+
+.copilotInsightButton {
+    margin: 10px;
+}
+
+td > .insightIcon {
+    display: block;
+    width: 1.4em;
+    height: 1.4em;
+    background: var(--infomationBlueImage, url("../images/information_blue.png")) no-repeat 0px 0px;
+    background-size: 80%;
+    float: left;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+#leftSide tbody > tr.topInsightNotification > td:first-child {
+    overflow: visible;
+    text-overflow: unset;
+    min-width: 42em;
+    max-width: 42em;
+    text-wrap: wrap;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+}
+
+#leftSide tbody > tr.topInsightNotification > td:first-child > a {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.copilotInsightButton {
+    padding: 0;
+    margin: 15px 0 10px 12px;
+}
+
+.copilotInsightButton > .copilotIcon {
+    background: var(--copilot, url("../images/copilot.png")) no-repeat 0px 0px;
+    background-size: 100%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+    vertical-align: text-bottom;
+}
+
+.copilotInsightButton > .copilotText {
+    display: inline-block;
+    padding: 2px 4px 2px 4px;
+    margin-right: 1px;
+}
+
+.copilotVote {
+    display: inline-block;
+    float: right;
+}
+
+td > .insightIcon.copilotInsight {
+    background: var(--copilotInsightImage, url("../images/copilotInsight.png")) no-repeat 0px 0px;
+    background-size: 100%;
+    margin-top: 0;
+}
+
+.copilotInsightsProgress {
+    height: 16px;
+    margin: 18px 0 13px 12px;
+    display: flex;
+}
+
+.copilotInsightsProgress > div {
+    margin-top: -11px;
+    transform: scale(0.5);
+}
+
+.topInsightsContainer .dashboardTitleRow > th:first-child {
+    padding-left: 25px;
+}
+
+.topInsightsContainer .thumbButton {
+    height: 16px;
+    width: 16px;
+    padding: 3px;
+    border: 1px solid transparent;
+}
+
+.topInsightsContainer .thumbButton:hover {
+    border-color: var(--CommonControls-ButtonHover-Background, chartreuse);
+}
+
+.topInsightsContainer .thumbButton.thumbUp {
+    background: var(--thumbUp, url("../images/thumbUp.png")) no-repeat 0px 0px;
+    background-size: 100%;
+}
+
+.topInsightsContainer .thumbButton.thumbDown {
+    background: var(--thumbDown, url("../images/thumbDown.png")) no-repeat 0px 0px;
+    background-size: 100%;
+}
+
+.topInsightsContainer .thumbButton.thumbUp.voted {
+    background: var(--thumbUpFilled, url("../images/thumbUpFilled.png")) no-repeat 0px 0px;
+    background-size: 100%;
+}
+
+.topInsightsContainer .thumbButton.thumbDown.voted {
+    background: var(--thumbDownFilled, url("../images/thumbDownFilled.png")) no-repeat 0px 0px;
+    background-size: 100%;
+}
+
+.copilotInsightsExcluded {
+    height: 16px;
+    margin: 18px 0 10px 1px;
+    display: flex;
+    align-items: center;
+}
+
+.copilotInsightsExcluded > .exclusionText {
+    display: inline-block;
+    padding: 2px 4px;
+}
+
+.copilotInsightsExcluded > .exclusionLink {
+    display: inline-block;
+}

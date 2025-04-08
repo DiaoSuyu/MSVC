@@ -1,0 +1,24 @@
+{
+  "feature": {
+    "id": "cosmosdb.azure.appService"
+  },
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    {
+      "$refmerge": "/definitions/common.json#/remoteInstanceEditSteps"
+    }
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:CosmosDBConnection"
+    }
+  },
+  "persistenceProperties": {
+    "$ref": "/definitions/common.json#/persistenceProperties"
+  },
+  "arm": {
+    "$ref": "/dependencyTypes/configs/cosmosdb/arm.json"
+  }
+}

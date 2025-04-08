@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>根据字符串数组创建 RadioButton 组</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>根据字符串数组创建 RadioButton 组。</Description>
+      <Shortcut>rbString</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Drawing</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>array</ID>
+          <ToolTip>替换为字符串数组。</ToolTip>
+          <Default>names</Default>
+        </Literal>
+        <Literal>
+          <ID>topY</ID>
+          <ToolTip>替换为最顶层 RadioButton 位置的 y 值。</ToolTip>
+          <Default>30</Default>
+        </Literal>
+        <Literal>
+          <ID>x</ID>
+          <ToolTip>替换为 RadioButton 位置的 x 值。</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>spacing</ID>
+          <ToolTip>替换为 RadioButton 位置之间的间距。</ToolTip>
+          <Default>30</Default>
+        </Literal>
+        <Object>
+          <ID>groupBoxName</ID>
+          <Type>GroupBox</Type>
+          <ToolTip>替换为窗体上将要包含 RadioButton 的 GroupBox。</ToolTip>
+          <Default>GroupBox1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim radio As RadioButton
+Dim y As Integer = $topY$
+
+For Each button As String In $array$
+    radio = New RadioButton()
+    With radio
+        .Location = New Point($x$, y)
+		.Text = button
+    End With
+    y += $spacing$
+    Me.$groupBoxName$.Controls.Add(radio)
+Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

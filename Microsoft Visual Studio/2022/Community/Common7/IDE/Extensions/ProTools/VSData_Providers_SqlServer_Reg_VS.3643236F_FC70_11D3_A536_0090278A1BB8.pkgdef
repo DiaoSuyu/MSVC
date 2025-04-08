@@ -1,0 +1,124 @@
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}]
+@=".NET Framework Data Provider for SQL Server"
+"Assembly"="Microsoft.VisualStudio.Data.Providers.SqlServer,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"AssociatedSource"="{067EA0D9-BA62-43f7-9106-34930C60C528}"
+"Description"="DataProvider_Sql_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"DisplayName"="DataProvider_Sql, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"InvariantName"="System.Data.SqlClient"
+"PlatformVersion"="2.0"
+"ShortDisplayName"="DataProvider_Sql_Short, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Technology"="{77AB9A9D-78B9-4ba7-91AC-873F5338F1D2}"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataAsyncCommand]
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataCommand]
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionEquivalencyComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionEquivalencyComparer"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionPromptDialog]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionPromptDialog"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionProperties]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionProperties"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionSupport]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionSupport"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionUIConnector]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionUIConnector"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataConnectionUIProperties]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionProperties"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataMappedObjectConverter]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlMappedObjectConverter"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataObjectIdentifierConverter]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectIdentifierConverter"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataObjectIdentifierResolver]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectIdentifierResolver"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataObjectMemberComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectMemberComparer"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataObjectSelector]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectSelector"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataObjectSupport]
+@="Microsoft.VisualStudio.Data.Framework.DataObjectSupport"
+"Assembly"="Microsoft.VisualStudio.Data.Framework,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectSupport.xml"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataSourceInformation]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceInformation"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataSourceSpecializer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceSpecializer"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataSourceVersionComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceVersionComparer"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataTransaction]
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\IVsDataViewSupport]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlViewSupport"
+"AllowAsynchronousEnumerations"="true"
+"HasDocumentProvider"=dword:00000001
+"PersistentCommands"=hex(7):35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,31,00,33,00,2C,00,33,00,00,00,35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,32,00,38,00,2C,00,33,00,00,00,00,00
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlViewSupport.xml"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionProperties]
+@="Microsoft.Data.ConnectionUI.SqlConnectionProperties"
+"Assembly"="Microsoft.Data.ConnectionUI.Dialog,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+[$RootKey$\DataProviders\{91510608-8809-4020-8897-FBA057E22D54}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionUIControl]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionUIControl"
+[$RootKey$\DataSources\{067EA0D9-BA62-43f7-9106-34930C60C528}\SupportingProviders\{91510608-8809-4020-8897-FBA057E22D54}]
+"DisplayName"="DataSource_MicrosoftSqlServer, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescription"="DataProvider_Sql_DataSource_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+[$RootKey$\DataSources\{485C80D5-BC85-46db-9E6D-4238A0AD7B6B}\SupportingProviders\{91510608-8809-4020-8897-FBA057E22D54}]
+"DisplayName"="DataSource_MicrosoftSqlServerFile, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescription"="DataProvider_Sql_FileDataSource_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}]
+@="Microsoft SqlClient Data Provider for SQL Server"
+"Assembly"="Microsoft.VisualStudio.Data.Providers.SqlServer,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"AssociatedSource"="{067EA0D9-BA62-43f7-9106-34930C60C528}"
+"Description"="DataProvider_Mds_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"DisplayName"="DataProvider_Mds, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"InvariantName"="Microsoft.Data.SqlClient"
+"PlatformVersion"="2.0"
+"ShortDisplayName"="DataProvider_Mds_Short, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Technology"="{77AB9A9D-78B9-4ba7-91AC-873F5338F1D2}"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataAsyncCommand]
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataCommand]
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionEquivalencyComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionEquivalencyComparer"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionPromptDialog]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionPromptDialog"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionProperties]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionProperties"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionSupport]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionSupport"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionUIConnector]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionUIConnector"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataConnectionUIProperties]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionProperties"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataMappedObjectConverter]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlMappedObjectConverter"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataObjectIdentifierConverter]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectIdentifierConverter"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataObjectIdentifierResolver]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectIdentifierResolver"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataObjectMemberComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectMemberComparer"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataObjectSelector]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectSelector"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataObjectSupport]
+@="Microsoft.VisualStudio.Data.Framework.DataObjectSupport"
+"Assembly"="Microsoft.VisualStudio.Data.Framework,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlObjectSupport.xml"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataSourceInformation]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceInformation"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataSourceSpecializer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceSpecializer"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataSourceVersionComparer]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlSourceVersionComparer"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataTransaction]
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\IVsDataViewSupport]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlViewSupport"
+"AllowAsynchronousEnumerations"="true"
+"HasDocumentProvider"=dword:00000001
+"PersistentCommands"=hex(7):35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,31,00,33,00,2C,00,33,00,00,00,35,00,30,00,31,00,38,00,32,00,32,00,45,00,31,00,2D,00,42,00,35,00,41,00,46,00,2D,00,31,00,31,00,64,00,30,00,2D,00,42,00,34,00,44,00,43,00,2D,00,30,00,30,00,41,00,30,00,43,00,39,00,31,00,35,00,30,00,36,00,45,00,46,00,2C,00,30,00,78,00,33,00,35,00,32,00,38,00,2C,00,33,00,00,00,00,00
+"XmlResource"="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlViewSupport.xml"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionProperties]
+@="Microsoft.Data.ConnectionUI.SqlConnectionProperties"
+"Assembly"="Microsoft.Data.ConnectionUI.Dialog,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+[$RootKey$\DataProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}\SupportedObjects\Microsoft.Data.ConnectionUI.IDataConnectionUIControl]
+@="Microsoft.VisualStudio.Data.Providers.SqlServer.SqlConnectionUIControl"
+[$RootKey$\DataSources\{067EA0D9-BA62-43f7-9106-34930C60C528}\SupportingProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}]
+"DisplayName"="DataSource_MicrosoftSqlServer, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescription"="DataProvider_Mds_DataSource_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+[$RootKey$\DataSources\{485C80D5-BC85-46db-9E6D-4238A0AD7B6B}\SupportingProviders\{8800600A-ADD9-47E8-81D2-1D13B5A09C13}]
+"DisplayName"="DataSource_MicrosoftSqlServerFile, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"UsingDescription"="DataProvider_Mds_FileDataSource_Description, SR, Microsoft.Data.ConnectionUI.Dialog, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"

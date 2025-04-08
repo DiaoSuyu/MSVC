@@ -1,0 +1,44 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "appConfig.azure",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureAppConfiguration",
+              "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureAppConfiguration",
+              "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

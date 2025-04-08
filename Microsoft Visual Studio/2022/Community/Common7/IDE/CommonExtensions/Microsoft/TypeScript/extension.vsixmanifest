@@ -1,0 +1,31 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.TypeScript.3D12078A-1A3F-4AFF-8B70-0037C0F580CD" Version="17.0.31211.2001" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>TypeScript Tools for Microsoft Visual Studio</DisplayName>
+    <Description>Language service for TypeScript</Description>
+    <MoreInfo>https://go.microsoft.com/fwlink/?LinkId=615017</MoreInfo>
+    <License>TypeScript_License.rtf</License>
+    <PackageId>TypeScript.LanguageService</PackageId>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true" ExtensionType="VSSDK+VisualStudio.Extensibility">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community" />
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.LanguageServices.TypeScript.dll" />
+    <Asset Type="Microsoft.VisualStudio.CodeLensComponent.Dotnet" Path="Microsoft.CodeAnalysis.TypeScript.EditorFeatures.CodeLens.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="TypeScriptVisualStudio.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="GeneratedPackageDefinition.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="TypeScriptLinting.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.Analyzer" Path="Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

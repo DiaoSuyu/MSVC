@@ -1,0 +1,25 @@
+{
+  "isSingleton": true,
+  "name": "strings:#/identityDependencyTypeName",
+  "provisioningId": "Microsoft.Identity/applications",
+  "description": "strings:#/identityDependencyTypeDescription",
+  "recomendationMessage": "strings:#/identityDependencyTypeRecomendation",
+  "smallImage": {
+    "$ref": "images:#/azureActiveDirectory"
+  },
+  "resizableImage": {
+    "$ref": "images:#/azureActiveDirectory"
+  },
+  "displayOrder": 20000,
+  "learnMoreUrl": "https://go.microsoft.com/fwlink/?linkid=2181048",
+  "actions": [
+    {
+      "$refmerge": "/definitions/common.json#/defaultActions"
+    },
+    "learnMore"
+  ],
+  "tags": [
+    "strings:#/secrets",
+    "Azure"
+  ]
+}

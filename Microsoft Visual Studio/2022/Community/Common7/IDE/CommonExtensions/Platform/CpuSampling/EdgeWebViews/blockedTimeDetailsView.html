@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="CSS/main.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/blockedTimeDetailsView.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/treeGrid.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/blockedTime.css" type="text/css" rel="stylesheet" />
+
+    <script src="scripts/diagnosticsHub.js" data-include-ui="true"></script>
+    <script src="scripts/blockedTimeDetailsViewModel.js"></script>
+    <title>Blocked Time Analysis</title>
+</head>
+<body>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                var marshalerExports = require("utilitiesPortMarshaler");
+                var pluginKoExports = require("diagnosticsHub-ui/pluginKnockoutBindings");
+
+                var marshaler = new marshalerExports.UtilitiesPortMarshaler();
+                marshaler.getDoubleClickTimeMs().then(function (doubleClickTimeMs) {
+                    pluginKoExports.Init(doubleClickTimeMs);
+                    var detailsViewExports = require("blockedTimeDetailsViewModel");
+                    detailsViewExports.getBlockedTimeDetailsViewModel();
+                });
+            }
+        })();
+    </script>
+    <div id="mainToolbar" class="toolbar-container">
+    </div>
+    <div class="mainArea" data-bind="with: mainViewModel">
+        <div id="blockedEventSummary" data-bind="template: { name: 'TreeGridView', data: summaryViewModel, afterRender: summaryViewModel.onAfterDomInsert }"></div>
+        <div data-bind="localizedAriaLabel: 'VerticalSplitterAriaLabel', verticalSplit: { leftSelector: '#blockedEventSummary', rightSelector: '#stackViews' }"></div>
+        <div id="stackViews" style="width: 200px">
+            <div id="blockingStack" class="stackView">
+                <span class="title" data-bind="localizedText: 'BlockedTimeBlockedStack_Header'"></span>
+                <!-- ko if: dataLoadStatus() === DataLoadEvent.DataLoadCompleted -->
+                <!-- ko if: blockedStack().length > 0 -->
+                <ul tabindex="0" data-bind="foreach: blockedStack, circularFocus: { selector: 'li', vertical: true }">
+                    <li class="stackFrame" tabindex="-1" data-bind="click: goToSource, onEnter: goToSource">
+                        <span class="stackFrameLabel" data-bind="text: label"></span>
+                        <span data-bind="text: name, css: { 'goToSource': canGoToSource }"></span>
+                    </li>
+                </ul>
+                <!-- /ko -->
+                <!-- ko if: blockedStack().length === 0 -->
+                <div class="container">
+                    <span class="message">No stack found</span>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: dataLoadStatus() === DataLoadEvent.DataLoadStart -->
+                <progress></progress>
+                <!-- /ko -->
+            </div>
+            <div id="releasingStack" class="stackView">
+                <span class="title" data-bind="localizedText: 'BlockedTimeReadyStack_Header'"></span>
+                <!-- ko if: dataLoadStatus() === DataLoadEvent.DataLoadCompleted -->
+                <!-- ko if: readyStack().length > 0 -->
+                <ul tabindex="0" data-bind="foreach: readyStack, circularFocus: { selector: 'li', vertical: true }">
+                    <li class="stackFrame" tabindex="-1" data-bind="click: goToSource, onEnter: goToSource">
+                        <span class="stackFrameLabel" data-bind="text: label"></span>
+                        <span data-bind="text: name, css: { 'goToSource': canGoToSource }"></span>
+                    </li>
+                </ul>
+                <!-- /ko -->
+                <!-- ko if: readyStack().length === 0 -->
+                <div class="container">
+                    <span class="message">No stack found</span>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: dataLoadStatus() === DataLoadEvent.DataLoadStart -->
+                <progress></progress>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

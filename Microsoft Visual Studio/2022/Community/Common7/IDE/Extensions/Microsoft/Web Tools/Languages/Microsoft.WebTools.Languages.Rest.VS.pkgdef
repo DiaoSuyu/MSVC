@@ -1,0 +1,107 @@
+﻿[$RootKey$\ShellFileAssociations\.http]
+"DefaultIconMoniker"="KnownMonikers.WebScript"
+
+[$RootKey$\ShellFileAssociations\.rest]
+"DefaultIconMoniker"="KnownMonikers.WebScript"
+
+[$RootKey$\Packages\{70a33ee9-3617-487c-a918-66212bc6b2ec}]
+@="RestPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Rest.VS.Package.RestPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Rest.VS.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Editors\{5703b403-55e7-4c63-8c88-a8f52c7a45c5}]
+@="RestEditorFactory"
+"DisplayName"="#351"
+"Package"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{5703b403-55e7-4c63-8c88-a8f52c7a45c5}\Extensions]
+"http"=dword:0000FFFF
+"rest"=dword:0000FFFF
+
+[$RootKey$\Editors\{5703b403-55e7-4c63-8c88-a8f52c7a45c5}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Languages\Language Services\Rest\EditorToolsOptions\Advanced]
+"Package"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"IsServerAware"=dword:00000000
+"Page"="{0c011b09-cbde-377f-9cc3-325d1ec31b73}"
+"Keywords"="#102"
+
+[$RootKey$\Languages\File Extensions\.http]
+@="{4D6B4D05-32DF-49FF-B42A-21D0F236816C}"
+
+[$RootKey$\Languages\File Extensions\.rest]
+@="{4D6B4D05-32DF-49FF-B42A-21D0F236816C}"
+
+[$RootKey$\Languages\Language Services\Rest]
+@="{4D6B4D05-32DF-49FF-B42A-21D0F236816C}"
+"Package"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"LangResID"=dword:00000000
+"DefaultToInsertSpaces"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+"Default to Non Hot URLs"=dword:00000001
+"ShowHotURLs"=dword:00000000
+
+[$RootKey$\Menus]
+"{70a33ee9-3617-487c-a918-66212bc6b2ec}"=", Menus.ctmenu, 1"
+
+[$RootKey$\UserSettings\Rest_Advanced]
+@="351"
+"Package"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"Category"="{0c011b09-cbde-377f-9cc3-325d1ec31b73}"
+"ToolsOptionsPath"="Rest"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.Rest.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+[$RootKey$\AutomationProperties\TextEditor\Rest]
+@="#104"
+"Description"="#105"
+"Name"="Rest"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ResourcePackage"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"ProfileSave"=dword:00000001
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\Rest Advanced]
+@="#101"
+"Description"="#103"
+"Name"="Rest Advanced"
+"Package"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"ResourcePackage"="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Services\{4D6B4D05-32DF-49FF-B42A-21D0F236816C}]
+@="{70a33ee9-3617-487c-a918-66212bc6b2ec}"
+"Name"="Rest Language Service"
+
+// Registers the language grammar files with Visual Studio
+[$RootKey$\TextMate\Repositories]
+"Rest"="$PackageFolder$\Syntaxes"
+
+// Defines where the language configuration file for a given
+// grammar name is (value of the ScopeName tag in the tmlanguage file).
+[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.rest"="$PackageFolder$\Syntaxes\rest.language-configuration.json"
+
+// Defines where the language configuration file for a given
+// language name is (partial value of the content type name)
+[$RootKey$\TextMate\LanguageConfiguration\ContentTypeMapping]
+"Rest"="$PackageFolder$\Syntaxes\rest.language-configuration.json"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{5B909DCA-A7AD-492D-BE0B-82A3700494AC}]
+"name"="Microsoft.WebTools.Languages.Rest.VS"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"Version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Rest.VS.dll"
+

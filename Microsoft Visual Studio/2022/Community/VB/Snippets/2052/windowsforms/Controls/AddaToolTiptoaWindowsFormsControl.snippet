@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>向 Windows 窗体控件添加工具提示</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向 Windows 窗体控件添加工具提示。</Description>
+      <Shortcut>controlTip</Shortcut>
+    </Header>
+    <Snippet>
+		<References>
+			<Reference>
+				<Assembly>System.Windows.Forms.dll</Assembly>
+			</Reference>
+		</References>
+		<Imports>
+			<Import>
+				<Namespace>Microsoft.VisualBasic</Namespace>
+			</Import>
+			<Import>
+				<Namespace>System.Windows.Forms</Namespace>
+			</Import>
+		</Imports>
+      <Declarations>
+        <Object>
+          <ID>control</ID>
+          <Type>Control</Type>
+          <ToolTip>替换为窗体上的控件。</ToolTip>
+          <Default>Button1</Default>
+        </Object>
+        <Literal>
+          <ID>text</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要显示在工具提示中的字符串。</ToolTip>
+          <Default>"ToolTip Text"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim tooltip As New ToolTip()
+tooltip.SetToolTip($control$, $text$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

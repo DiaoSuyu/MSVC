@@ -1,0 +1,27 @@
+[!if CONNECTION_POINTS]
+	[
+		uuid($guid_connection_point_iid$)
+	]
+	dispinterface _$interface_name$Events
+	{
+		properties:
+		methods:
+	};
+[!endif]
+	[
+		uuid($guid_clsid$),
+[!if LICENSED]
+		licensed,
+[!endif]
+		control
+	]
+	coclass $coclass$
+	{
+		[default] interface $interface_name$;
+[!if CONNECTION_POINTS]
+		[default, source] dispinterface _$interface_name$Events;
+[!endif]
+[!if HTML_CONTROL]
+		interface $interface_name$UI;
+[!endif]
+	};

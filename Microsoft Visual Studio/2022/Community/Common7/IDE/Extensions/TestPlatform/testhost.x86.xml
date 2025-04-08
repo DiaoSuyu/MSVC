@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>testhost.x86</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.TestHost.AppDomainEngineInvoker`1">
+            <summary>
+            Implementation for the Invoker which invokes engine in a new AppDomain
+            Type of the engine must be a marshalable object for app domain calls and also must have a parameterless constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestHost.AppDomainEngineInvoker`1.Invoke(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Invokes the Engine with the arguments
+            </summary>
+            <param name="argsDictionary">Arguments for the engine</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestHost.AppDomainEngineInvoker`1.CreateInvokerInAppDomain(System.AppDomain)">
+            <summary>
+            Create the Engine Invoker in new AppDomain based on test source path
+            </summary>
+            <param name="appDomain">The appdomain in which the invoker should be created.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.TestHost.CustomAssemblySetup">
+            <summary>
+            Custom domain setup that sets UICulture and an Assembly resolver for child app domain to resolve testplatform assemblies
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.TestHost.DefaultEngineInvoker.ClientListenTimeOut">
+            <summary>
+            The timeout for the client to connect to the server.
+            Increasing Timeout to allow client to connect, not always the client can connect within 5 seconds
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.TestHost.IEngineInvoker">
+            <summary>
+            Interface contract for invoking the engine
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestHost.IEngineInvoker.Invoke(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Invokes the Engine with the arguments
+            </summary>
+            <param name="argsDictionary">Arguments for the engine</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.TestHost.Program">
+            <summary>
+            The program.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestHost.Program.Main(System.String[])">
+            <summary>
+            The main.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient">
+            <summary>
+            Initialization point for Old UWP application
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.CreateDefaultUI">
+            <summary>
+            Create default UI for UWP app
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.Run(System.String)">
+            <summary>
+            Entry point for testhost, in App Model(UWP) scenario
+            </summary>
+            <param name="arguments">testhost initialization arguments</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.SplitArguments(System.String)">
+            <summary>
+            Split Arguments on space, if they are not inside Single/Double Quotes
+            </summary>
+            <param name="commandLine"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

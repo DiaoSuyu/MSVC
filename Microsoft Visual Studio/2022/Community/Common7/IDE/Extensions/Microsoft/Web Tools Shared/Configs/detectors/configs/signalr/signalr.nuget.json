@@ -1,0 +1,19 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "signalr",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.AspNetCore.SignalR.Common": "",
+      "Microsoft.AspNetCore.SignalR": "",
+      "Microsoft.AspNetCore.SignalR.Core": "",
+      "Microsoft.AspNetCore.SignalR.Protocols.Json": "",
+      "Microsoft.AspNet.SignalR": "",
+      "Microsoft.AspNet.SignalR.SystemWeb": "",
+      "Microsoft.Azure.SignalR": "",
+      "Microsoft.Azure.SignalR.Protocols": "",
+      "Microsoft.Azure.SignalR.AspNet": ""
+    }
+  }
+}

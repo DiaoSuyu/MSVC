@@ -1,0 +1,17 @@
+{
+  "kind": "msbuildProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "@@ProfilePath@@",
+    "properties": {
+      "ApiResourceId": {
+        "value": "@@resourceId@@",
+        "action": "replace"
+      },
+      "UpdateApiOnPublish": {
+        "value": "true",
+        "action": "replace"
+      }
+    }
+  }
+}

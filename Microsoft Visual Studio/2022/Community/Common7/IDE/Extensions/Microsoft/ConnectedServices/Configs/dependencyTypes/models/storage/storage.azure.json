@@ -1,0 +1,28 @@
+{
+  "id": "storage.azure",
+  "provisioningId": "Microsoft.Storage/storageAccounts",
+  "name": "strings:#/storageAzureDependencyTypeName",
+  "description": "strings:#/storageAzureDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3798
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3798
+  },
+  "displayOrder": 2200,
+  "learnMoreUrl": "513126",
+  "actions": [
+    "openInPortal",
+    "openStorageExplorer",
+    "restore",
+    "learnMore"
+  ],
+  "tags": [
+    "strings:#/storage",
+    "Azure"
+  ]
+}

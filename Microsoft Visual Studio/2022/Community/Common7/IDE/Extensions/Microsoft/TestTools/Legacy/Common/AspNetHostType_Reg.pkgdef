@@ -1,0 +1,6 @@
+[$RootKey$\EnterpriseTools\QualityTools\HostAdapters\ASP.NET]
+"EditorType"="Microsoft.VisualStudio.TestTools.HostAdapters.AspNetHostUserControl, Microsoft.VisualStudio.QualityTools.HostAdapters.ASPNETAgent, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Type"="Microsoft.VisualStudio.TestTools.HostAdapters.WebHostAdapter, Microsoft.VisualStudio.QualityTools.HostAdapters.ASPNETAgent, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+
+[$RootKey$\EnterpriseTools\QualityTools\HostAdapters\ASP.NET\SupportedTestTypes]
+"{13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b}"="Unit Test"

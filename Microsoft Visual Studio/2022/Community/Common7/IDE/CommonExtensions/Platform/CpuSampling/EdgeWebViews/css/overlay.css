@@ -1,0 +1,26 @@
+﻿#message-overlay {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10000;
+    transition: opacity .25s, height 0s;
+    background-color: var(--plugin-background-color, rgba(200,200,200,0.50));
+}
+
+#message-overlay.hide {
+    height: 0px;
+    opacity: 0;
+    transition: opacity .25s, height 0 .25s;
+}
+
+#message-overlay > div { 
+    background-color: var(--plugin-background-color, rgba(200,200,200,0.50));
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 30%;
+}

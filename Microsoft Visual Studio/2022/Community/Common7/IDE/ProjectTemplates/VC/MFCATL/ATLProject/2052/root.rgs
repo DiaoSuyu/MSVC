@@ -1,0 +1,17 @@
+HKCR
+{
+[!if SUPPORT_COMPONENT_REGISTRAR]
+	NoRemove CLSID
+	{
+		ForceRemove {$guid_compreg$} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{$guid_libid$}'
+			Version = s '1.0'
+		}
+	}
+[!endif]
+}

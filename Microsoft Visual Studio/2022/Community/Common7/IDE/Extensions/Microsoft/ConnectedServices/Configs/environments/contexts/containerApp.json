@@ -1,0 +1,68 @@
+{
+  "appliesTo": {
+    "when": {
+      "kind": "and",
+      "operands": [
+        {
+          "kind": "EnvironmentProperty",
+          "property": "PublishProvider",
+          "value": "ContainerApp"
+        },
+        {
+          "kind": "or",
+          "operands": [
+            {
+              "kind": "or",
+              "operands": [
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "Web"
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "WebsiteProject"
+                }
+              ]
+            },
+            {
+              "kind": "and",
+              "operands": [
+                {
+                  "kind": "and",
+                  "operands": [
+                    {
+                      "kind": "not",
+                      "operand": {
+                        "kind": "HasProjectCapability",
+                        "capability": "Web"
+                      }
+                    },
+                    {
+                      "kind": "not",
+                      "operand": {
+                        "kind": "HasProjectCapability",
+                        "capability": "WebsiteProject"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "AppServicePublish"
+                },
+                {
+                  "kind": "not",
+                  "operand": {
+                    "kind": "ProjectProperty",
+                    "propertyName": "OutputType",
+                    "expectedValue": "library"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

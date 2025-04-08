@@ -1,0 +1,46 @@
+﻿; Azure Port Supplier
+; NOTE:
+;    - For engine GUID purposes, this PortSupplierID is for msvsmon.exe
+;
+;    - The Azure Port Supplier Id for Linux App Service is {663388E3-5A8D-4761-B541-C527B3ACF692}
+;      This PortSupplierId will be inserted using IDebugPort172.GetEngineListPortSupplierId
+[$RootKey$\AD7Metrics\PortSupplier\{2068E361-2346-47FC-8CC2-53EEFF309368}]
+"CLSID"="{CD4AC52B-E3AD-40D7-9BF3-A8033C827D4C}"
+"PortPickerCLSID"="{88789683-392F-49B1-9E47-0E64FC4196A4}"
+"Name"="Microsoft Azure App Services"
+"DisallowUserEnteredPorts"=dword:00000001
+
+; This is a hidden port supplier used for App Service on Windows debugging over Web Sockets.
+[$RootKey$\AD7Metrics\PortSupplier\{2B16AB68-A988-4B2A-9060-5D6801DE25C3}]
+"DisallowUserEnteredPorts"=dword:00000001
+"CustomMsvsmonChannelFactory"="{D4F2B7AD-7F6B-4FD6-8334-76DB16D6100E}"
+
+; Azure Port Supplier CLSID
+[$RootKey$\CLSID\{CD4AC52B-E3AD-40D7-9BF3-A8033C827D4C}]
+"Assembly"="Microsoft.VisualStudio.Debugger.AzureAttach"
+"Class"="Microsoft.VisualStudio.Debugger.AzureAttach.AzurePortSupplier"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.AzureAttach.dll"
+
+; Class registration for Azure Port Supplier Custom Channel Factory
+[$RootKey$\CLSID\{D4F2B7AD-7F6B-4FD6-8334-76DB16D6100E}]
+"Assembly"="Microsoft.VisualStudio.Debugger.AzureAttach"
+"Class"="Microsoft.VisualStudio.Debugger.AzureAttach.AzurePortSupplierWebSocketsCustomChannelFactory"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.AzureAttach.dll"
+
+; Azure Port Picker Registration
+[$RootKey$\CLSID\{88789683-392F-49B1-9E47-0E64FC4196A4}]
+"Assembly"="Microsoft.VisualStudio.Debugger.AzureAttach"
+"Class"="Microsoft.VisualStudio.Debugger.AzureAttach.AzurePortPicker"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.AzureAttach.dll"
+
+[$RootKey$\Debugger\ErrorResources\AA]
+"ResourceDll"="$PackageFolder$\*\Microsoft.VisualStudio.Debugger.AzureAttach.ErrorResources.dll"
+
+; Class registration for WebSocketDebugAdapterHostComponent
+[$RootKey$\CLSID\{EF31D55D-093E-47C0-99D7-29BB6AE6AA95}]
+"Assembly"="Microsoft.VisualStudio.Debugger.AzureAttach"
+"Class"="Microsoft.VisualStudio.Debugger.AzureAttach.AdapterLauncher.WebSocketLauncher"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.AzureAttach.dll"

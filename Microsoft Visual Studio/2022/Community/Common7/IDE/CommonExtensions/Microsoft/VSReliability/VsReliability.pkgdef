@@ -1,0 +1,3 @@
+[$RootKey$\Reliability\VSReliabilityAssemblyPath]
+"x86"="$BaseInstallDir$\common7\ide\x86\VSReliability.dll"
+"x64"="$BaseInstallDir$\common7\ide\VSReliability.dll"

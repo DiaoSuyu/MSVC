@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>重命名文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>重命名文件。</Description>
+      <Shortcut>filRenFile</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>old</ID>
+          <ToolTip>替换为旧的路径和文件名。</ToolTip>
+          <Default>"C:\OldFilename.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>NewName</ID>
+          <ToolTip>替换为新文件名(无路径)。</ToolTip>
+          <Default>"NewFilename.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.RenameFile($old$, $NewName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

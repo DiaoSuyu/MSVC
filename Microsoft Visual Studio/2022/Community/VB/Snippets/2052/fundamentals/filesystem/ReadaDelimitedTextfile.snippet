@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>读取分隔的文本文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从包含以逗号分隔的数据的文本文件中返回每一列和每一行中的值。可以使用其他分隔符。</Description>
+      <Shortcut>filParseText</Shortcut>
+    </Header>
+    <Snippet>
+	<Imports>
+          <Import>
+            <Namespace>Microsoft.VisualBasic.FileIO</Namespace>
+          </Import>
+  </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Filename</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文本文件的文件名。</ToolTip>
+          <Default>"C:\Test.txt"</Default>
+        </Literal>
+        <Literal>
+          <ID>Delimiter</ID>
+          <Type>String</Type>
+          <ToolTip>替换为分隔符字符串。</ToolTip>
+          <Default>","</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim filename As String = $Filename$
+        Dim fields As String()
+        Dim delimiter As String = $Delimiter$
+        Using parser As New TextFieldParser(filename)
+            parser.SetDelimiters(delimiter)
+            While Not parser.EndOfData
+                ' Read in the fields for the current line
+                fields = parser.ReadFields()
+                ' Add code here to use data in fields variable.
+
+            End While
+        End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

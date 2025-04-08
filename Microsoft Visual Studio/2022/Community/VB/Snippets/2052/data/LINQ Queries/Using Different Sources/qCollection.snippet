@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>对集合进行查询</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>对集合进行查询。</Description>
+      <Shortcut>qArray</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的变量的标识符。</ToolTip>
+          <Default>name</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>names</Default>
+        </Literal>
+          <Literal>
+          <ID>dataSourceType</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的类型。</ToolTip>
+          <Default>List(Of String)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $dataSource$ As New $dataSourceType$
+        
+                 ' populate your collection here.
+                 ' $dataSource$.Add( ... )
+
+                 Dim $queryResult$ = From $item$ In $dataSource$ _
+                              Select $item$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

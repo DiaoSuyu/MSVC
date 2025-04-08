@@ -1,0 +1,84 @@
+{
+  "controlContainers": [
+    {
+      "tooltipText": "%TypeScriptCommandMenu.Menu.DisplayName%",
+      "type": "Menu",
+      "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu",
+      "displayName": "%TypeScriptCommandMenu.Menu.DisplayName%"
+    }
+  ],
+  "controlGroups": [
+    {
+      "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.Group"
+    },
+    {
+      "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu.DefaultGeneratedGroup0"
+    }
+  ],
+  "controlPlacements": [
+    {
+      "controlName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.Group",
+      "parent": {
+        "legacyParentId": {
+          "guid": "d309f791-903f-11d0-9efc-00a0c911004f",
+          "id": 136
+        },
+        "priority": 38
+      }
+    },
+    {
+      "controlName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu",
+      "parent": {
+        "parentName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.Group",
+        "relativeDisplayOrder": 100
+      }
+    },
+    {
+      "controlName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu.DefaultGeneratedGroup0",
+      "parent": {
+        "parentName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu",
+        "relativeDisplayOrder": 100
+      }
+    },
+    {
+      "controlName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.CollectTSServerLogsCommand",
+      "parent": {
+        "parentName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint.TypeScriptMenu.DefaultGeneratedGroup0",
+        "relativeDisplayOrder": 100
+      }
+    }
+  ],
+  "commandSets": [
+    {
+      "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint",
+      "serviceMoniker": {
+        "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypointCommandSet",
+        "version": "1.0"
+      },
+      "commands": [
+        {
+          "tooltipText": "%TypeScriptCommandMenu.CollectTSServerLogsCommand.DisplayName%",
+          "flags": "None",
+          "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.CollectTSServerLogsCommand",
+          "displayName": "%TypeScriptCommandMenu.CollectTSServerLogsCommand.DisplayName%",
+          "contextProviderName": "Editor,Shell"
+        }
+      ],
+      "dynamicCommandAnchors": []
+    }
+  ],
+  "services": [
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypointCommandSet",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "1.0",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.CodeAnalysis.TypeScript.EditorFeatures.CommandMenu.dll",
+        "fullClassName": "Microsoft.CodeAnalysis.Editor.TypeScript.Features.CommandMenu.TypeScriptExtensionEntrypoint"
+      },
+      "allowHostingInProcess": true
+    }
+  ]
+}

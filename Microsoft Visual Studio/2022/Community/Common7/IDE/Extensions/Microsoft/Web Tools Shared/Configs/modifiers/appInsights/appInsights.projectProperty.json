@@ -1,0 +1,12 @@
+{
+  "kind": "projectProperty.generic",
+  "restorable": true,
+  "model": {
+    "properties": {
+      "ApplicationInsightsResourceId": {
+        "value": "@@resourceId@@",
+        "action": "replace"
+      }
+    }
+  }
+}

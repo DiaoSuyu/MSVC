@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>计算年限总额折旧</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>返回一个双精度值，该值指定某项资产在指定期间的年限总额折旧。</Description>
+      <Shortcut>mathDep</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Cost</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为资产的原始成本</ToolTip>
+          <Default>1000</Default>
+        </Literal>
+        <Literal>
+          <ID>EndValue</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为资产在其使用年限结束时的价值</ToolTip>
+          <Default>200</Default>
+        </Literal>
+        <Literal>
+          <ID>UsefulLife</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为资产的使用年限</ToolTip>
+          <Default>3</Default>
+        </Literal>
+        <Literal>
+          <ID>Year</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为计算资产折旧时所用的年限</ToolTip>
+          <Default>2005</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim depreciation As Double
+depreciation = SYD($Cost$, $EndValue$, $UsefulLife$, $Year$)
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,24 @@
+{
+  "id": "powerplatform.local",
+  "isSingleton": true,
+  "name": "strings:#/powerPlatformDependencyTypeName",
+  "provisioningId": "Microsoft.PowerPlatform/",
+  "description": "strings:#/powerPlatformDependencyTypeDescription",
+  "smallImage": {
+    "guid": "ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B",
+    "id": 4
+  },
+  "resizableImage": {
+    "guid": "ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B",
+    "id": 4
+  },
+  "displayOrder": 20100,
+  "actions": [
+    "openDeveloperHub",
+    "openPowerApps",
+    "openPowerPlatformAdminCenter"
+  ],
+  "tags": [
+    "API"
+  ]
+}

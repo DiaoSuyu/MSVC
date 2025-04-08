@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>计算每月的还贷额</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>计算每月的还贷额。</Description>
+      <Shortcut>mathPayLoan</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>annualInterestRate</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为年利率的双精度值(例如，用 0.05 替换 5%)。</ToolTip>
+          <Default>.05</Default>
+        </Literal>
+        <Literal>
+          <ID>numberOfPayments</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为返回月付款总额的双精度值的代码。</ToolTip>
+          <Default>36</Default>
+        </Literal>
+        <Literal>
+          <ID>loanAmount</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为返回贷款额的双精度值的代码。</ToolTip>
+          <Default>1000</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim futureValue As Double = 0
+Dim payment As Double
+payment = Pmt($annualInterestRate$ / 12, $numberOfPayments$, -$loanAmount$, futureValue, DueDate.EndOfPeriod)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../schemas/servicehub.host.schema.json",
+  "hostExecutable": "./ServiceHub.Host.dotnet.x64.exe",
+  "hostArgs": [ "$HOSTID", "$PIPE", "$TELEMETRYSESSION" ],
+  "additionalEnvironmentVariables": {}
+}

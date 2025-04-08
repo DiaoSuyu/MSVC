@@ -1,0 +1,31 @@
+{
+  "id": "mssql.container",
+  "name": "strings:#/mssqlContainerDependencyTypeName",
+  "description": "strings:#/mssqlContainerDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "displayOrder": 5200,
+  "actions": [
+    "openInContainerTools",
+    "openInSQLServerExplorer",
+    "addMigration",
+    "updateDatabase",
+    "createSQLScript"
+  ],
+  "runnerKinds": "container",
+  "tags": [
+    "SQL",
+    "strings:#/database",
+    "strings:#/container",
+    "strings:#/local"
+  ]
+}

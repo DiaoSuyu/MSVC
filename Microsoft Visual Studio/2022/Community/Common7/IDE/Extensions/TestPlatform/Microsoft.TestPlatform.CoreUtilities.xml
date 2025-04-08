@@ -1,0 +1,2136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.TestPlatform.CoreUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants">
+            <summary>
+            The set of constants required for across various(Communication, CrossPlatform, etc.) modules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.VstestConsoleProcessName">
+            <summary>
+             Vstest.console process name, without file extension(.exe/.dll)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.TesthostProcessName">
+            <summary>
+            Testhost process name, without file extension(.exe/.dll) and architecture type(x86).
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.DatacollectorProcessName">
+            <summary>
+            Datacollector process name, without file extension(.exe/.dll)
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.StandardErrorMaxLength">
+            <summary>
+            Number of character should be logged on child process exited with
+            error message on standard error.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.DotNetUserSpecifiedCulture">
+            <summary>
+            Environment Variable Specified by user to setup Culture.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Constants.TestSourcesKeyName">
+            <summary>
+            Test sources key name
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions.StringBuilderExtensions.AppendSafeWithNewLine(System.Text.StringBuilder,System.String)">
+            <summary>
+            Append given data from to string builder with new line.
+            </summary>
+            <param name="result">string builder</param>
+            <param name="data">data to be appended.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions.StringExtensions.AddDoubleQuote(System.String)">
+            <summary>
+            Add double quote around string. Useful in case of path which has white space in between.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.CommandLineArgumentsHelper">
+            <summary>
+            Helper class for processing arguments passed to a process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.CommandLineArgumentsHelper.GetArgumentsDictionary(System.String[])">
+            <summary>
+            Parse command line arguments to a dictionary.
+            </summary>
+            <param name="args">Command line arguments. Ex: <c>{ "--port", "12312", "--parentprocessid", "2312", "--testsourcepath", "C:\temp\1.dll" }</c></param>
+            <returns>Dictionary of arguments keys and values.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.CommandLineArgumentsHelper.GetIntArgFromDict(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            Parse the value of an argument as an integer.
+            </summary>
+            <param name="argsDictionary">Dictionary of all arguments Ex: <c>{ "--port":"12312", "--parentprocessid":"2312" }</c></param>
+            <param name="fullname">The full name for required argument. Ex: "--port"</param>
+            <returns>Value of the argument.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if value of an argument is not an integer.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.CommandLineArgumentsHelper.TryGetIntArgFromDict(System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Int32@)">
+            <summary>
+            Try get the argument and parse the value of an argument as an integer.
+            </summary>
+            <param name="argsDictionary">Dictionary of all arguments Ex: <c>{ "--port":"12312", "--parentprocessid":"2312" }</c></param>
+            <param name="fullname">The full name for required argument. Ex: "--port"</param>
+            <param name="value">The output value.</param>
+            <returns>Value of the argument.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if value of an argument is not an integer.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.CommandLineArgumentsHelper.GetStringArgFromDict(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            Parse the value of an argument as a string.
+            </summary>
+            <param name="argsDictionary">Dictionary of all arguments Ex: <c>{ "--port":"12312", "--parentprocessid":"2312" }</c></param>
+            <param name="fullname">The full name for required argument. Ex: "--port"</param>
+            <returns>Value of the argument.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if value of an argument is not an integer.</exception>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy">
+            <summary>
+            An enum representing the dotnet muxer resolution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy.DotnetRootArchitecture">
+            <summary>
+            Indicates if the muxer resolution process should take dotnet root into account.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy.DotnetRootArchitectureLess">
+            <summary>
+            Indicates if the muxer resolution process should take arch independent dotnet root into account.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy.GlobalInstallationLocation">
+            <summary>
+            Indicates if the muxer resolution process should look in the global installation location.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy.DefaultInstallationLocation">
+            <summary>
+            Indicates if the muxer resolution process should look in the default installation location.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy.Default">
+            <summary>
+            Default muxer resolution strategy.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.EnvironmentHelper.GetConnectionTimeout">
+            <summary>
+            Get timeout based on environment variable VSTEST_CONNECTION_TIMEOUT.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.EnvironmentVariableHelper.GetEnvironmentVariable(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.EnvironmentVariableHelper.GetEnvironmentVariableAsEnum``1(System.String,``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.EnvironmentVariableHelper.SetEnvironmentVariable(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.EnvironmentVariableHelper.GetEnvironmentVariables">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.StringUtils.IsNullOrEmpty(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrEmpty(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.StringUtils.IsNullOrWhiteSpace(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.TPDebug.Assert(System.Boolean)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.TPDebug.Assert(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.CannotBeNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to The parameter cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.CommandLineError">
+            <summary>
+              Looks up a localized string similar to Error: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.CommandLineInformational">
+            <summary>
+              Looks up a localized string similar to Information: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.CommandLineWarning">
+            <summary>
+              Looks up a localized string similar to Warning: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentIsEmpty">
+            <summary>
+              Looks up a localized string similar to The specified argument cannot be empty..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentIsNegative">
+            <summary>
+              Looks up a localized string similar to The specified argument cannot be negative..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentNotTypeOf">
+            <summary>
+              Looks up a localized string similar to The specified argument must have the following type: {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentPropertyIsEmpty">
+            <summary>
+              Looks up a localized string similar to The specified argument has the following property, which cannot be an empty string: {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentPropertyIsNegative">
+            <summary>
+              Looks up a localized string similar to The specified argument has the following property, which cannot be negative: {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentPropertyIsNull">
+            <summary>
+              Looks up a localized string similar to The specified argument has the following property, which cannot be null: {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Error_ArgumentPropertyNotTypeOf">
+            <summary>
+              Looks up a localized string similar to The specified argument has the following property: {0}. This property must have the following type: {1}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.ExceptionFromJobProcessor">
+            <summary>
+              Looks up a localized string similar to Unhandled exception occurred while processing a job from the &apos;{0}&apos; queue: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.QueueAlreadyDisposed">
+            <summary>
+              Looks up a localized string similar to The {0} queue has already been disposed..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.QueuePausedDisposeError">
+            <summary>
+              Looks up a localized string similar to The {0} queue cannot be disposed while paused..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.Utility_ProcessNameWhenCannotGetIt">
+            <summary>
+              Looks up a localized string similar to Error getting process name..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.NoDotnetExeFound">
+            <summary>
+              Looks up a localized string similar to Could not find {0}. Make sure that the dotnet is installed on the machine..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Resources.Resources.MethodNotImplementedOnPlatform">
+            <summary>
+              Looks up a localized string similar to &apos;{0}.{1}&apos; is not implemented on this platform!.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource">
+            <summary>
+            TestPlatform Instrumentation events
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.VsTestConsoleStart">
+            <summary>
+            The vs test console start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.VsTestConsoleStop">
+            <summary>
+            The vs test console stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DiscoveryRequestStart">
+            <summary>
+            The discovery request start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DiscoveryRequestStop">
+            <summary>
+            The discovery request stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.ExecutionRequestStart">
+            <summary>
+            The execution request start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.ExecutionRequestStop">
+            <summary>
+            The execution request stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestHostStart">
+            <summary>
+            The test host start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestHostStop">
+            <summary>
+            The test host stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestHostAppDomainCreationStart">
+            <summary>
+            The test host AppDomain Start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestHostAppDomainCreationStop">
+            <summary>
+            The test host AppDomain Stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterSearchStart">
+            <summary>
+            The adapter search start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterSearchStop">
+            <summary>
+            The adapter search stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterExecutionStart(System.String)">
+            <summary>
+            The adapter execution start.
+            </summary>
+            <param name="executorUri">
+            The executor uri.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterExecutionStop(System.Int64)">
+            <summary>
+            The adapter execution stop.
+            </summary>
+            <param name="numberOfTests">
+            The number of tests.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterDiscoveryStart(System.String)">
+            <summary>
+            The adapter discovery start.
+            </summary>
+            <param name="executorUri">
+            The executor uri.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.AdapterDiscoveryStop(System.Int64)">
+            <summary>
+            The adapter discovery stop.
+            </summary>
+            <param name="numberOfTests">
+            The number of tests.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DiscoveryStart">
+            <summary>
+            The discovery start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DiscoveryStop(System.Int64)">
+            <summary>
+            The discovery stop.
+            </summary>
+            <param name="numberOfTests">
+            The number of tests.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.ExecutionStart">
+            <summary>
+            The execution start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.ExecutionStop(System.Int64)">
+            <summary>
+            The execution stop.
+            </summary>
+            <param name="numberOfTests">
+            The number of tests.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DataCollectionStart(System.String)">
+            <summary>
+            The data collection start.
+            </summary>
+            <param name="dataCollectorUri">
+            The data collector uri.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.DataCollectionStop">
+            <summary>
+            The data collection stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerInitializeStart">
+            <summary>
+            Mark the start of translation layer initialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerInitializeStop">
+            <summary>
+            Mark the completion of translation layer initialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerDiscoveryStart">
+            <summary>
+            Mark the start of translation layer discovery request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerDiscoveryStop">
+            <summary>
+            Mark the completion of translation layer discovery request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerExecutionStart(System.Int64,System.Int64,System.Int64,System.String)">
+            <summary>
+            Mark the start of translation layer execution request.
+            </summary>
+            <param name="customTestHost">Set to 1 if custom test host is used, 0 otherwise</param>
+            <param name="sourcesCount"></param>
+            <param name="testCasesCount">Number of test cases if request has a filter</param>
+            <param name="runSettings"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerExecutionStop">
+            <summary>
+            Mark the completion of translation layer execution request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.MetricsDisposeStart">
+            <summary>
+            Mark the start of Metrics Dispose.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.MetricsDisposeStop">
+            <summary>
+            Mark the completion of Metrics Dispose.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestRunAttachmentsProcessingRequestStart">
+            <summary>
+            The test run attachments processing request start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestRunAttachmentsProcessingRequestStop">
+            <summary>
+            The test run attachments processing request stop.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestRunAttachmentsProcessingStart(System.Int64)">
+            <summary>
+            The test run attachments processing start.
+            </summary>
+            <param name="numberOfAttachments">
+            The number of attachments.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TestRunAttachmentsProcessingStop(System.Int64)">
+            <summary>
+            The test run attachments processing stop.
+            </summary>
+            <param name="numberOfAttachments">
+            The number of attachments.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerTestRunAttachmentsProcessingStart">
+            <summary>
+            Mark the start of translation layer test run attachments processing request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerTestRunAttachmentsProcessingStop">
+            <summary>
+            Mark the completion of translation layer test run attachments processing request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.StartTestSessionStart">
+            <summary>
+            The start of the test session start request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.StartTestSessionStop">
+            <summary>
+            The end of the test session start request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerStartTestSessionStart">
+            <summary>
+            Mark the start of a translation layer start test session request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerStartTestSessionStop">
+            <summary>
+            Mark the end of a translation layer start test session request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.StopTestSessionStart">
+            <summary>
+            The start of the test session stop request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.StopTestSessionStop">
+            <summary>
+            The end of the test session stop request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerStopTestSessionStart">
+            <summary>
+            Mark the start of a translation layer stop test session request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.Interfaces.ITestPlatformEventSource.TranslationLayerStopTestSessionStop">
+            <summary>
+            Mark the end of a translation layer stop test session request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.Instance">
+            <summary>
+            Gets the instance of <see cref="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.VsTestConsoleStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.VsTestConsoleStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DiscoveryRequestStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DiscoveryRequestStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.ExecutionRequestStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.ExecutionRequestStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestHostStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestHostStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestHostAppDomainCreationStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestHostAppDomainCreationStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterSearchStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterSearchStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterExecutionStart(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterExecutionStop(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterDiscoveryStart(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.AdapterDiscoveryStop(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DiscoveryStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DiscoveryStop(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.ExecutionStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.ExecutionStop(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DataCollectionStart(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.DataCollectionStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerInitializeStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerInitializeStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerDiscoveryStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerDiscoveryStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerExecutionStart(System.Int64,System.Int64,System.Int64,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerExecutionStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.MetricsDisposeStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.MetricsDisposeStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestRunAttachmentsProcessingRequestStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestRunAttachmentsProcessingRequestStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestRunAttachmentsProcessingStart(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TestRunAttachmentsProcessingStop(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerTestRunAttachmentsProcessingStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerTestRunAttachmentsProcessingStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.StartTestSessionStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.StartTestSessionStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerStartTestSessionStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerStartTestSessionStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.StopTestSessionStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.StopTestSessionStop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerStopTestSessionStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformEventSource.TranslationLayerStopTestSessionStop">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents">
+            <summary>
+            TestPlatform Event Ids and tasks constants
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DiscoveryStartEventId">
+            <summary>
+            The discovery start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DiscoveryStopEventId">
+            <summary>
+            The discovery stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.ExecutionStartEventId">
+            <summary>
+            The execution start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.ExecutionStopEventId">
+            <summary>
+            The execution stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterExecutionStartEventId">
+            <summary>
+            The adapter execution start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterExecutionStopEventId">
+            <summary>
+            The adapter execution stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.VsTestConsoleStartEventId">
+            <summary>
+            The console runner start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.VsTestConsoleStopEventId">
+            <summary>
+            The console runner stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestHostStartEventId">
+            <summary>
+            The test host start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestHostStopEventId">
+            <summary>
+            The test host stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterSearchStartEventId">
+            <summary>
+            The adapter search start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterSearchStopEventId">
+            <summary>
+            The adapter search stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DiscoveryRequestStartEventId">
+            <summary>
+            The discovery request start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DiscoveryRequestStopEventId">
+            <summary>
+            The discovery request stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.ExecutionRequestStartEventId">
+            <summary>
+            The execution request start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.ExecutionRequestStopEventId">
+            <summary>
+            The execution request stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DataCollectionStartEventId">
+            <summary>
+            The data collection start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.DataCollectionStopEventId">
+            <summary>
+            The data collection stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterDiscoveryStartEventId">
+            <summary>
+            The adapter discovery start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.AdapterDiscoveryStopEventId">
+            <summary>
+            The adapter discovery stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestHostAppDomainCreationStartEventId">
+            <summary>
+            The test host appdomain start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestHostAppDomainCreationStopEventId">
+            <summary>
+            The test host appdomain stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerInitializeStartEventId">
+            <summary>
+            Events fired on initialization of translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerInitializeStopEventId">
+            <summary>
+            Events fired on initialization complete of translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerDiscoveryStartEventId">
+            <summary>
+            Events fired on discovery start of translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerDiscoveryStopEventId">
+            <summary>
+            Events fired on discovery complete in translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerExecutionStartEventId">
+            <summary>
+            Event fired on execution start in translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerExecutionStopEventId">
+            <summary>
+            Event fired on execution complete in translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.MetricsDisposeStartEventId">
+            <summary>
+            Event fired on Metrics Dispose start.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.MetricsDisposeStopEventId">
+            <summary>
+            Event fired on Metrics Dispose completes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestRunAttachmentsProcessingStartEventId">
+            <summary>
+            The session attachments processing start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestRunAttachmentsProcessingStopEventId">
+            <summary>
+            The session attachments processing stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestRunAttachmentsProcessingRequestStartEventId">
+            <summary>
+            The session attachments processing request start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TestRunAttachmentsProcessingRequestStopEventId">
+            <summary>
+            The session attachments processing request stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerTestRunAttachmentsProcessingStartEventId">
+            <summary>
+            Events fired on session attachments processing start of translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerTestRunAttachmentsProcessingStopEventId">
+            <summary>
+            Events fired on session attachments processing complete in translation layer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.StartTestSessionStartEventId">
+            <summary>
+            The start test session start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.StartTestSessionStopEventId">
+            <summary>
+            The start test session stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerStartTestSessionStartEventId">
+            <summary>
+            The translation layer start test session start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerStartTestSessionStopEventId">
+            <summary>
+            The translation layer start test session stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.StopTestSessionStartEventId">
+            <summary>
+            The stop test session start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.StopTestSessionStopEventId">
+            <summary>
+            The stop test session stop event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerStopTestSessionStartEventId">
+            <summary>
+            The translation layer stop test session start event id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CoreUtilities.Tracing.TestPlatformInstrumentationEvents.TranslationLayerStopTestSessionStopEventId">
+            <summary>
+            The translation layer stop test session stop event id.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.FeatureFlag">
+             <summary>
+             !!!NEVER USE A FLAG TO ENABLE FUNCTIONALITY!!!
+            
+             The reasoning is:
+            
+             * New version will automatically ship with the feature enabled. There is no action needed to be done just before release.
+             * Anyone interested in the new feature will get it automatically by grabbing our preview.
+             * Anyone who needs more time before using the new feature can disable it in the released package.
+             * If we remove the flag from our code, we will do it after the feature is the new default, or after the functionality was completely removed from our codebase.
+             * If there is a very outdated version of an assembly that for some reason loaded with the newest version of TP and it cannot find a feature flag, because we removed that feature flag in the meantime, it will just run with all it's newest features enabled.
+            
+             Use constants so the feature name will be compiled directly into the assembly that references this, to avoid backwards compatibility issues, when the flag is removed in newer version.
+             </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper">
+            <summary>
+            The file helper.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.CreateDirectory(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetCurrentDirectory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.DirectoryExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetStream(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetStream(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.EnumerateFiles(System.String,System.IO.SearchOption,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetFileAttributes(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetFileVersion(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.CopyFile(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.MoveFile(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.WriteAllTextToFile(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetFullPath(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.DeleteEmptyDirectroy(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.GetFiles(System.String,System.String,System.IO.SearchOption)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.FileHelper.Delete(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IEnvironmentVariableHelper.GetEnvironmentVariable(System.String)">
+            <summary>
+            Retrieves the value of an environment variable from the current process.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <returns>The value of the environment variable specified by variable, or null if the environment variable is not found.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IEnvironmentVariableHelper.GetEnvironmentVariableAsEnum``1(System.String,``0)">
+            <summary>
+            Retrieves the value of an environment variable from the current process and converts it to the given type.
+            </summary>
+            <typeparam name="TEnum">The type used for conversion.</typeparam>
+            <param name="variable">The name of the environment variable.</param>
+            <param name="defaultValue">The default value to return if the environment variable is not found.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IEnvironmentVariableHelper.SetEnvironmentVariable(System.String,System.String)">
+            <summary>
+            Creates, modifies, or deletes an environment variable stored in the current process.
+            </summary>
+            <param name="variable">The name of an environment variable.</param>
+            <param name="value">A value to assign to variable.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IEnvironmentVariableHelper.GetEnvironmentVariables">
+            <summary>
+            Retrieves all environment variable names and their values from the current process.
+            </summary>
+            <returns>A dictionary that contains all environment variable names and their values; otherwise, an empty dictionary if no environment variables are found.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper">
+            <summary>
+            The FileHelper interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.CreateDirectory(System.String)">
+            <summary>
+            Creates a directory.
+            </summary>
+            <param name="path">Path of the directory.</param>
+            <returns><see cref="T:System.IO.DirectoryInfo"/> for the created directory.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetCurrentDirectory">
+            <summary>
+            Gets the current directory
+            </summary>
+            <returns>Current directory</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.Exists(System.String)">
+            <summary>
+            Exists utility to check if file exists (case sensitive).
+            </summary>
+            <param name="path"> The path of file. </param>
+            <returns>True if file exists <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.DirectoryExists(System.String)">
+            <summary>
+            Exists utility to check if directory exists (case sensitive).
+            </summary>
+            <param name="path"> The path of file. </param>
+            <returns>True if directory exists <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetStream(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Gets a stream for the file.
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="mode"><see cref="T:System.IO.FileMode"/> for file operations.</param>
+            <param name="access"><see cref="T:System.IO.FileAccess"/> for file operations.</param>
+            <returns>A <see cref="T:System.IO.Stream"/> that supports read/write on the file.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetStream(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)">
+            <summary>
+            Gets a stream for the file.
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="mode"><see cref="T:System.IO.FileMode"/> for file operations.</param>
+            <param name="access"><see cref="T:System.IO.FileAccess"/> for file operations.</param>
+            <param name="share"><see cref="T:System.IO.FileShare"/> for file operations.</param>
+            <returns>A <see cref="T:System.IO.Stream"/> that supports read/write on the file.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.EnumerateFiles(System.String,System.IO.SearchOption,System.String[])">
+            <summary>
+            Enumerates files which match a pattern (case insensitive) in a directory.
+            </summary>
+            <param name="directory">Parent directory to search.</param>
+            <param name="searchOption"><see cref="T:System.IO.SearchOption"/> for directory.</param>
+            <param name="endsWithSearchPatterns">Patterns used to select files using String.EndsWith</param>
+            <returns>List of files matching the pattern.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetFileAttributes(System.String)">
+            <summary>
+            Gets attributes of a file.
+            </summary>
+            <param name="path">Full path of the file.</param>
+            <returns>Attributes of the file.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetFileVersion(System.String)">
+            <summary>
+            Gets the version information of the file.
+            </summary>
+            <param name="path">Full path to the file.</param>
+            <returns>File Version information of the file.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.CopyFile(System.String,System.String)">
+            <summary>
+            Copy a file in the file system.
+            </summary>
+            <param name="sourcePath">Full path of the file.</param>
+            <param name="destinationPath">Target path for the file.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.MoveFile(System.String,System.String)">
+            <summary>
+            Moves a file in the file system.
+            </summary>
+            <param name="sourcePath">Full path of the file.</param>
+            <param name="destinationPath">Target path for the file.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.WriteAllTextToFile(System.String,System.String)">
+            <summary>
+            The write all text to file.
+            </summary>
+            <param name="filePath">
+            The file Path.
+            </param>
+            <param name="content">
+            The content.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetFullPath(System.String)">
+            <summary>
+            Gets full path if relative path is specified.
+            </summary>
+            <param name="path">
+            The path.
+            </param>
+            <returns>
+            Full path.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.DeleteEmptyDirectroy(System.String)">
+            <summary>
+            Helper for deleting a directory. It deletes the directory only if its empty.
+            </summary>
+            <param name="directoryPath">
+            The directory path.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.DeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            Helper for deleting a directory.
+            </summary>
+            <param name="directoryPath">
+            The directory path.
+            </param>
+            <param name="recursive">If we should delete recursively.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetFiles(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Gets all files in directory based on search pattern
+            </summary>
+            <param name="path">Directory Path</param>
+            <param name="searchPattern">Search pattern</param>
+            <param name="searchOption">Search option</param>
+            <returns>string[]</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.Delete(System.String)">
+            <summary>
+            Deletes the specified file
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetTempPath">
+            <summary>
+            Get temporary file path
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper.GetFileLength(System.String)">
+            <summary>
+            Get file length
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.RunSettingsHelper">
+            <summary>
+            RunSettingsHelper is used to globally share additional informations about the state of runsettings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.RunSettingsHelper.IsDefaultTargetArchitecture">
+            <summary>
+            If false user updated the RunConfiguration.TargetPlatform using
+            --arch or runsettings file or -- RunConfiguration.TargetPlatform=arch
+            This option is needed because we otherwise don't know if user specified an architecture or if we inferred it from
+            the dll. When we add the capability to distinguish this in runsettings, this helper won't be needed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.RunSettingsHelper.IsDesignMode">
+            <summary>
+            True indicates the test run is started from an Editor or IDE.
+            Defaults to false.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput">
+            <summary>
+            Sends output to the console.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput"/> class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput.Instance">
+            <summary>
+            Gets the instance of <see cref="T:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput.WriteLine(System.String,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel)">
+            <summary>
+            Writes the message with a new line.
+            </summary>
+            <param name="message">Message to be output.</param>
+            <param name="level">Level of the message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.ConsoleOutput.Write(System.String,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel)">
+            <summary>
+            Writes the message with no new line.
+            </summary>
+            <param name="message">Message to be output.</param>
+            <param name="level">Level of the message.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.IOutput">
+            <summary>
+            Interface to output information under the command line.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.IOutput.WriteLine(System.String,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel)">
+            <summary>
+            Writes the message with a new line.
+            </summary>
+            <param name="message">Message to be output.</param>
+            <param name="level">Level of the message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.IOutput.Write(System.String,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel)">
+            <summary>
+            Writes the message with no new line.
+            </summary>
+            <param name="message">Message to be output.</param>
+            <param name="level">Level of the message.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions">
+            <summary>
+            Utility Methods for sending output to IOutput.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Error(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,System.Boolean,System.String,System.Object[])">
+            <summary>
+            Output an error message.
+            </summary>
+            <param name="output">Output instance the method is being invoked with.</param>
+            <param name="appendPrefix">Bool to decide whether Verbose level should be added as prefix or not in log messages.</param>
+            <param name="format">Format string for the error message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Warning(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,System.Boolean,System.String,System.Object[])">
+            <summary>
+            Output a warning message.
+            </summary>
+            <param name="output">Output instance the method is being invoked with.</param>
+            <param name="appendPrefix">Bool to decide whether Verbose level should be added as prefix or not in log messages.</param>
+            <param name="format">Format string for the warning message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Information(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,System.Boolean,System.String,System.Object[])">
+            <summary>
+            Output a informational message.
+            </summary>
+            <param name="output">Output instance the method is being invoked with.</param>
+            <param name="appendPrefix">Bool to decide whether Verbose level should be added as prefix or not in log messages.</param>
+            <param name="format">Format string for the informational message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Information(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,System.Boolean,System.ConsoleColor,System.String,System.Object[])">
+            <summary>
+            Output a informational message.
+            </summary>
+            <param name="output">Output instance the method is being invoked with.</param>
+            <param name="appendPrefix">Bool to decide whether Verbose level should be added as prefix or not in log messages.</param>
+            <param name="foregroundColor">Color in which text prints.</param>
+            <param name="format">Format string for the informational message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Write(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,System.String,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel,System.ConsoleColor)">
+            <summary>
+            Write string with a given console color
+            </summary>
+            <param name="output">Output instance the method is being invoked with.</param>
+            <param name="message">Message to be written</param>
+            <param name="level">OutputLevel</param>
+            <param name="foregroundColor">Console color for the output message</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Output(Microsoft.VisualStudio.TestPlatform.Utilities.IOutput,Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel,System.String,System.String,System.Object[])">
+            <summary>
+            Formats the message.
+            </summary>
+            <param name="output">An output instance to write the message.</param>
+            <param name="level">Message level.</param>
+            <param name="messageTypeFormat">Format string for the message type.</param>
+            <param name="format">Format string for the error message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.OutputExtensions.Format(System.String,System.String,System.Object[])">
+            <summary>
+            Formats the message.
+            </summary>
+            <param name="messageTypeFormat">Format string for the message type.</param>
+            <param name="format">Format string for the error message.</param>
+            <param name="args">Arguments to format into the format string.</param>
+            <returns>Formatted message.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel">
+            <summary>
+            Defines the level of output.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel.Information">
+            <summary>
+            Informational message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel.Warning">
+            <summary>
+            Warning message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.OutputLevel.Error">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1">
+            <summary>
+            Generic queue for processing jobs on a background thread.
+            </summary>
+            <typeparam name="T">The type of the job that is being processed.</typeparam>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._processJob">
+            <summary>
+            Handler which processes the individual jobs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._displayName">
+            <summary>
+            Name used when displaying information or reporting errors about this queue.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._jobsQueue">
+            <summary>
+            The queue of jobs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._jobAdded">
+            <summary>
+            Signaled when a job is added to the queue.  Used to wakeup the background thread.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._maxNumberOfJobsInQueue">
+            <summary>
+            The maximum number of jobs the job queue may hold.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._maxBytesQueueCanHold">
+            <summary>
+            The maximum total size of jobs the job queue may hold.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._currentNumberOfBytesQueueIsHolding">
+            <summary>
+            Gives the approximate total size of objects in the queue.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._enableBoundsOnQueue">
+            <summary>
+            Tells whether the queue should be bounded on size and no of events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._queueProcessing">
+            <summary>
+            Used to pause and resume processing of the queue.  By default the manual reset event is
+            set so the queue can continue processing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._backgroundJobProcessor">
+            <summary>
+            The background thread which is processing the jobs.  Used when disposing to wait
+            for the thread to complete.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._isDisposed">
+            <summary>
+            Keeps track of if we are disposed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1._exceptionLogger">
+            <summary>
+            Logs to this action any exception when processing jobs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.IsPaused">
+            <summary>
+            True when the job queue is paused. Don't use this for synchronization,
+            it is not super thread-safe. Just use it to see if the queue was started already.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.#ctor(System.Action{`0},System.String,System.Int32,System.Int32,System.Boolean,System.Action{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1"/> class.
+            </summary>
+            <param name="processJob">Action to handle the processing of the job.</param>
+            <param name="displayName">Name to used when displaying information about this queue.</param>
+            <param name="maxQueueLength">The max Queue Length.</param>
+            <param name="maxQueueSize">The max Queue Size.</param>
+            <param name="enableBounds">The enable Bounds.</param>
+            <param name="exceptionLogger">The exception Logger.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.QueueJob(`0,System.Int32)">
+            <summary>
+            Adds a job to the queue.
+            </summary>
+            <param name="job"> Job to add to the queue. </param>
+            <param name="jobSize"> The job Size. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.Pause">
+            <summary>
+            Pause the processing of queued jobs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.Resume">
+            <summary>
+            Resume the processing of queued jobs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.Flush">
+            <summary>
+            Waits for all current jobs in the queue to be processed and then returns.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.Dispose">
+            <summary>
+            Waits for all pending jobs to complete and shutdown the background thread.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.WaitForQueueToGetEmpty">
+            <summary>
+            Block the queue call.
+            A separate protected virtual method had to be made so that it can be over-ridden when writing unit test to check
+            if bounds on the queue are applied correctly.
+            </summary>
+            <returns>True if the queue is empty.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.InternalQueueJob(Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job{`0})">
+            <summary>
+            Queue the job and signal the background thread.
+            </summary>
+            <param name="job">Job to be queued.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.CheckDisposed">
+            <summary>
+            Throws wen the queue has been disposed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.BackgroundJobProcessor(System.String)">
+            <summary>
+            Method which processes the jobs on the background thread.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.JobQueue`1.SafeProcessJob(`0)">
+            <summary>
+            Executes the process job handler and logs any exceptions which occur.
+            </summary>
+            <param name="job">Job to be executed.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.MulticastDelegateUtilities">
+            <summary>
+            Utility methods for MulticastDelegates.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.MulticastDelegateUtilities.SafeInvoke(System.Delegate,System.Object,System.EventArgs,System.String)">
+            <summary>
+            Invokes each of the subscribers of the event and handles exceptions which are thrown
+            ensuring that each handler is invoked even if one throws.
+            </summary>
+            <param name="delegates">Event handler to invoke.</param>
+            <param name="sender">Sender to use when raising the event.</param>
+            <param name="args">Arguments to provide.</param>
+            <param name="traceDisplayName">Name to use when tracing out errors.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.MulticastDelegateUtilities.SafeInvoke(System.Delegate,System.Object,System.Object,System.String)">
+            <summary>
+            Invokes each of the subscribers of the event and handles exceptions which are thrown
+            ensuring that each handler is invoked even if one throws.
+            </summary>
+            <param name="delegates">Event handler to invoke.</param>
+            <param name="sender">Sender to use when raising the event.</param>
+            <param name="args">Arguments to provide.</param>
+            <param name="traceDisplayName">Name to use when tracing out errors.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper.#ctor(Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper,Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper"/> class.
+            </summary>
+            <param name="fileHelper">File Helper</param>
+            <param name="environment">Environment Helper</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper.#ctor(Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper,Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IEnvironment,Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IWindowsRegistryHelper,Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IEnvironmentVariableHelper,Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces.IProcessHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper"/> class.
+            </summary>
+            <param name="fileHelper">File Helper</param>
+            <param name="environment">Environment Helper</param>
+            <param name="windowsRegistryHelper">WindowsRegistry Helper</param>
+            <param name="environmentVariableHelper">EnvironmentVariable Helper</param>
+            <param name="processHelper">Process Helper</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper.GetDotnetPath">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.Interfaces.IDotnetHostHelper">
+            <summary>
+            Helper class for getting info about dotnet host.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.Interfaces.IDotnetHostHelper.GetDotnetPath">
+            <summary>
+            Gets the full path for of .net core host.
+            </summary>
+            <returns>Full path to <c>dotnet</c> executable</returns>
+            <remarks>Debuggers require the full path of executable to launch it.</remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.Interfaces.IDotnetHostHelper.GetMonoPath">
+            <summary>
+            Gets the full path of mono host.
+            </summary>
+            <returns>Full path to <c>mono</c> executable</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.Interfaces.IDotnetHostHelper.TryGetDotnetPathByArchitecture(Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformArchitecture,Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers.DotnetMuxerResolutionStrategy,System.String@)">
+            <summary>
+            Try to locate muxer of specific architecture
+            </summary>
+            <param name="targetArchitecture">Specific architecture</param>
+            <param name="dotnetMuxerResolutionStrategy">The dotnet muxer resolution strategy.</param>
+            <param name="muxerPath">Path to the muxer</param>
+            <returns>True if native muxer is found</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace">
+            <summary>
+            Wrapper class for tracing.
+                - Shortcut-methods for Error, Warning, Info, Verbose.
+                - Adds additional information to the trace: calling process name, PID, ThreadID, Time.
+                - Uses custom switch <c>EqtTraceLevel</c> from .config file.
+                - By default tracing if OFF.
+                - Our build environment always sets the /d:TRACE so this class is always enabled,
+                  the Debug class is enabled only in debug builds (/d:DEBUG).
+                - We ignore exceptions thrown by underlying TraceSwitch (e.g. due to config file error).
+                  We log ignored exceptions to system Application log.
+                  We pass through exceptions thrown due to incorrect arguments to <c>EqtTrace</c> methods.
+            Usage: <c>EqtTrace.Info("Here's how to trace info");</c>
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether tracing error statements is enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether tracing info statements is enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.IsVerboseEnabled">
+            <summary>
+            Gets a value indicating whether tracing verbose statements is enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.IsWarningEnabled">
+            <summary>
+            Gets a value indicating whether tracing warning statements is enabled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InitializeVerboseTrace(System.String)">
+            <summary>
+            Initializes the verbose tracing with custom log file
+            And overrides if any trace is set before
+            </summary>
+            <param name="customLogFile">
+            A custom log file for trace messages.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InitializeTrace(System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel)">
+            <summary>
+            Initializes the tracing with custom log file and trace level.
+            Overrides if any trace is set before.
+            </summary>
+            <param name="customLogFile">Custom log file for trace messages.</param>
+            <param name="traceLevel">Trace level.</param>
+            <returns>Trace initialized flag.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Fail(System.String)">
+            <summary>
+            Prints an error message and prompts with a Debug dialog
+            </summary>
+            <param name="message">the error message</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Fail(System.String,System.Object[])">
+            <summary>
+            Combines together <c>EqtTrace.Fail</c> and Debug.Fail:
+            Prints an formatted error message and prompts with a Debug dialog.
+            </summary>
+            <param name="format">The formatted error message</param>
+            <param name="args">Arguments to the format</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Error(System.String)">
+            <summary>
+            Trace an error message.
+            </summary>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorIf(System.Boolean,System.String)">
+            <summary>
+            Only prints the message if the condition is true
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace error message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorUnless(System.Boolean,System.String)">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace error message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for trace.</param>
+            <param name="bumpLevel">Level for trace.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Error(System.String,System.Object[])">
+            <summary>
+            Trace an error message with formatting arguments.
+            </summary>
+            <param name="format">Format of error message.</param>
+            <param name="args">Parameters for the error message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorUnless(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for trace.</param>
+            <param name="format">Message format.</param>
+            <param name="args">Trace message format arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String,System.Object[])">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for trace.</param>
+            <param name="bumpLevel">Level for trace.</param>
+            <param name="format">Message format.</param>
+            <param name="args">Trace message format arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorIf(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Only prints the formatted message if the condition is true
+            </summary>
+            <param name="condition">Condition for trace.</param>
+            <param name="format">Message format.</param>
+            <param name="args">Trace message format arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.ErrorAssert(System.String,System.Object[])">
+            <summary>
+            Error and Debug.Fail combined in one call.
+            </summary>
+            <param name="format">The message to send to Debug.Fail and Error.</param>
+            <param name="args">Arguments to string.Format.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Error(System.Exception)">
+            <summary>
+            Write a exception if tracing for error is enabled
+            </summary>
+            <param name="exceptionToTrace">The exception to write.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Warning(System.String)">
+            <summary>
+            Trace a warning message.
+            </summary>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningIf(System.Boolean,System.String)">
+            <summary>
+            Only prints the formatted message if the condition is true
+            </summary>
+            <param name="condition">Condition to evaluate for tracing.</param>
+            <param name="message">Message to trace.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningUnless(System.Boolean,System.String)">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition to evaluate for tracing.</param>
+            <param name="message">Message to trace.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition to evaluate for tracing.</param>
+            <param name="bumpLevel">Trace message level.</param>
+            <param name="message">Message to trace.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Warning(System.String,System.Object[])">
+            <summary>
+            Trace a warning message.
+            </summary>
+            <param name="format">Format of the trace message.</param>
+            <param name="args">Arguments for the trace message format.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningIf(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Trace a warning message based on a condition.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Format of the trace message.</param>
+            <param name="args">Arguments for the trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningUnless(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Format of trace message.</param>
+            <param name="args">Arguments for the trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.WarningUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String,System.Object[])">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="bumpLevel">Level of trace message.</param>
+            <param name="format">Format of the trace message.</param>
+            <param name="args">Arguments for trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Info(System.String)">
+            <summary>
+            Trace an informational message.
+            </summary>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoIf(System.Boolean,System.String)">
+            <summary>
+            Trace an informational message based on a condition.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoUnless(System.Boolean,System.String)">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="bumpLevel">Trace message level.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Info(System.String,System.Object[])">
+            <summary>
+            Trace an informational message based on a format.
+            </summary>
+            <param name="format">Trace message format.</param>
+            <param name="args">Arguments for trace format.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoIf(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Trace an informational message based on a condition.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Format of the trace message.</param>
+            <param name="args">Arguments for the trace format.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoUnless(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Trace message format.</param>
+            <param name="args">Trace message format arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.InfoUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String,System.Object[])">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="bumpLevel">Trace message level.</param>
+            <param name="format">Trace message format.</param>
+            <param name="args">Trace message arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Verbose(System.String)">
+            <summary>
+            Trace a verbose message.
+            </summary>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseIf(System.Boolean,System.String)">
+            <summary>
+            Trace a verbose message based on condition.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseUnless(System.Boolean,System.String)">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String)">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="level">Trace message level.</param>
+            <param name="message">Trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.Verbose(System.String,System.Object[])">
+            <summary>
+            Trace a verbose message.
+            </summary>
+            <param name="format">Format of trace message.</param>
+            <param name="args">Arguments for trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseIf(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Trace a verbose message based on a condition.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Message format.</param>
+            <param name="args">Arguments for trace message.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseUnless(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Only prints the formatted message if the condition is false
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="format">Format for the trace message.</param>
+            <param name="args">Trace message arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.VerboseUnlessAlterTrace(System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.PlatformTraceLevel,System.String,System.Object[])">
+            <summary>
+            Prints the message if the condition is false. If the condition is true,
+            the message is instead printed at the specified trace level.
+            </summary>
+            <param name="condition">Condition for tracing.</param>
+            <param name="level">Trace message level.</param>
+            <param name="format">Format of the trace message.</param>
+            <param name="args">Arguments for the trace message format.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.EqtTrace.FormatException(System.Exception)">
+            <summary>
+            Formats an exception into a nice looking message.
+            </summary>
+            <param name="exceptionToTrace">The exception to write.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg">
+            <summary>
+            Helper to validate parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNull``1(``0,System.String)">
+            <summary>
+            Throws ArgumentNullException if the argument is null, otherwise passes it through.
+            </summary>
+            <typeparam name="T">
+            Type to validate.
+            </typeparam>
+            <param name="arg">
+            The argument to check.
+            </param>
+            <param name="parameterName">
+            The parameter name of the argument.
+            </param>
+            <returns>
+            Type of argument.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Validate a string is not null or empty.
+            </summary>
+            <param name="arg">
+            Input string.
+            </param>
+            <param name="parameterName">
+            Name of the parameter to validate.
+            </param>
+            <returns>
+            Validated string.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input string is null or empty.
+            </exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Validate a string is not null, empty or consists only of white-space characters.
+            </summary>
+            <param name="arg">
+            Input string.
+            </param>
+            <param name="parameterName">
+            Name of the parameter to validate.
+            </param>
+            <returns>
+            Validated string.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the input string is null, empty or consists only of white-space characters.
+            </exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNegative(System.Int32,System.String)">
+            <summary>
+            Throws ArgumentOutOfRangeException if the argument is less than zero.
+            </summary>
+            <param name="arg">The argument to check.</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNegative(System.Int64,System.String)">
+            <summary>
+            Throws ArgumentOutOfRangeException if the argument is less than zero.
+            </summary>
+            <param name="arg">The argument to check.</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws ArgumentNullException if the string is null, ArgumentException if the string is empty.
+            </summary>
+            <typeparam name="T">Type of parameter to validate.</typeparam>
+            <param name="arg">The argument to check.</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArg.TypeOf``1(System.Object,System.String)">
+            <summary>
+            Throws ArgumentNullException if the argument is null, ArgumentException if the argument is not the correct type.
+            </summary>
+            <param name="arg">The argument to check.</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+            <typeparam name="T">The type of the expected argument.</typeparam>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgProperty">
+            <summary>
+            Helper to validate parameter properties.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgProperty.NotNull(System.Object,System.String,System.String)">
+            <summary>
+            Throws ArgumentException if the argument is null.
+            </summary>
+            <param name="arg">The argument to check (e.g. <c>Param1.PropertyA</c>).</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+            <param name="propertyName">The property name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgProperty.NotNegative(System.Int32,System.String,System.String)">
+            <summary>
+            Throws ArgumentException if the argument is less than zero.
+            </summary>
+            <param name="arg">The argument to check (e.g. <c>Param1.PropertyA</c>).</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+            <param name="propertyName">The property name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgProperty.NotNullOrEmpty(System.String,System.String,System.String)">
+            <summary>
+            Throws ArgumentException if the argument string is null or empty.
+            </summary>
+            <param name="arg">The argument to check (e.g. <c>Param1.PropertyA</c>).</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+            <param name="propertyName">The property name of the argument.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.ObjectModel.ValidateArgProperty.TypeOf``1(System.Object,System.String,System.String)">
+            <summary>
+            Throws ArgumentException if the argument is null or is not the correct type.
+            </summary>
+            <param name="arg">The argument to check (e.g. <c>Param1.PropertyA</c>).</param>
+            <param name="parameterName">The parameter name of the argument.</param>
+            <param name="propertyName">The property name of the argument.</param>
+            <typeparam name="T">The type of the expected argument.</typeparam>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1">
+            <summary>
+            Wrapper class around a job used to send additional information to the background thread.
+            </summary>
+            <typeparam name="TPayload">The type of the job.</typeparam>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.#ctor(`0,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1"/> class.
+            </summary>
+            <param name="job">
+            Job to be processed.
+            </param>
+            <param name="size">
+            Size of payload.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.ShutdownJob">
+            <summary>
+            Gets a special job that indicates the queue should shutdown.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.Payload">
+            <summary>
+            Gets the job to be processed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.Shutdown">
+            <summary>
+            Gets a value indicating whether the background thread should shutdown.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.WaitManualResetEvent">
+            <summary>
+            Gets the signal that this job is being processed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.Size">
+            <summary>
+            Gets the size of this job instance. This is used to manage the total size of Job Queue.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Common.Utilities.Job`1.CreateWaitJob(System.Threading.ManualResetEvent)">
+            <summary>
+            Creates a job with a manual reset event that will be set when the job is processed.
+            </summary>
+            <param name="waitEvent"> The wait Event. </param>
+            <returns> The wait job. </returns>
+        </member>
+        <member name="T:System.GuidPolyfill">
+            <summary>
+            A polyfill helper for Guid.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,16 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "$ref": "/definitions/conditions.json#/isLocalEnvironment"
+      },
+      "config": "cosmosdb.emulator"
+    },
+    {
+      "when": {
+        "$ref": "/definitions/conditions.json#/local"
+      },
+      "config": "cosmosdb.emulator"
+    }
+  ]
+}

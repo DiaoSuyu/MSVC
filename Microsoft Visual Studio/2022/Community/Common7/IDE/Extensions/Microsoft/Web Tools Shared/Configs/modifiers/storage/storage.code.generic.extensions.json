@@ -1,0 +1,12 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "kind": "File",
+    "condition": "MinimalAppModel",
+    "properties": {
+      "FileName": "AzureClientFactoryBuilderExtensions.cs",
+      "TemplatePath": "path:#/modifiers/storage/AzureClientFactoryBuilderExtensions.cs"
+    }
+  }
+}

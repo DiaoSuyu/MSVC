@@ -1,0 +1,83 @@
+{
+  "feature": {
+    "id": "mongodb"
+  },
+  "requirements": [
+    "dockerDesktop"
+  ],
+  "editSteps": [
+    "Containers",
+    "Connection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:DatabaseConnection"
+    },
+    "ConnectionValue": {
+      "value": "mongodb://localhost:27017"
+    },
+    "SatellitesToGenerate": {
+      "value": "docker-compose"
+    },
+    "containerName": {
+      "value": "mongodb"
+    },
+    "containerImage": {
+      "value": "mongo"
+    },
+    "containerPorts": {
+      "value": "27017:27017"
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "containerName": {},
+    "containerImage": {},
+    "containerPorts": {},
+    "group": {
+      "isBase": true
+    }
+  },
+  "satellites": [
+    {
+      "id": "docker-compose",
+      "kind": "shadow",
+      "generator": "static",
+      "fileExtension": ".docker-compose.yml",
+      "model": {
+        "templatePath": "path:#/dependencyTypes/configs/mongodb/docker-compose.yml"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "ef.sqlServer",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "EntityFramework": "",
+      "EntityFramework.SqlServer": ""
+    }
+  }
+}

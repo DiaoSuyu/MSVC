@@ -1,0 +1,90 @@
+﻿/*
+ *   TabControl styles
+ */
+
+.tabControl {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+    .tabControl > .tabHeader {
+        grid-column: 1;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto 1fr;
+        grid-row: 1;
+        background-color: TRANSPARENT; /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+        display: grid;
+        border-left: 1px solid TRANSPARENT; /*[1px solid {plugin-responsiveness-graph-border}]*/
+    }
+
+    .tabControl > .tabHeader > .beforeBarContainer {
+        grid-column: 1;
+        grid-row: 1;
+        box-sizing: border-box;
+    }
+
+    .tabControl > .tabHeader > .tabBarContainer {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        justify-self: center;
+        box-sizing: border-box;
+    }
+
+    .tabControl > .tabHeader > .tabBarContainerLeftAlign {
+        justify-self: start;
+    }
+
+    .tabControl > .tabHeader > .afterBarContainer {
+        grid-column: 3;
+        grid-row: 1;
+        box-sizing: border-box;
+    }
+
+    .tabControl ul.tabBar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        cursor: default;
+    }
+
+        .tabControl ul.tabBar li {
+            display: inline-block;
+            margin: 5px 2px 5px 10px;
+            vertical-align: bottom;
+            color: TRANSPARENT; /*[{plugin-color}]*/
+            font-family: "Segoe UI", Arial, sans-serif; /*[{plugin-font-family} , Arial, sans-serif]*/
+        }
+
+            .tabControl ul.tabBar li:hover {
+                color: TRANSPARENT; /*[{vs-tab-title-link}]*/
+                cursor: pointer;
+            }
+
+            .tabControl ul.tabBar li:focus {
+                outline: 1px dotted TRANSPARENT; /*[1px dotted {plugin-perftools-focusdots}]*/
+            }
+
+            .tabControl ul.tabBar li.active {
+                color: TRANSPARENT; /*[{vs-tab-title-link}]*/
+                font-weight: bold;
+            }
+
+    .tabControl > .tabContentPane {
+        grid-column: 1;
+        grid-column: span 3;
+        grid-row: 2;
+        box-sizing: border-box;
+    }
+
+        .tabControl > .tabContentPane > .tabItemContent {
+            display: none;
+        }
+
+        .tabControl > .tabContentPane > .active {
+            display: block;
+        }

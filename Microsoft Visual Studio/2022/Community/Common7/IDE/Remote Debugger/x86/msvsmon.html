@@ -1,0 +1,532 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Help for remote debugging</title>
+    <style type="text/css">
+        .TableClass
+        {
+            background-color: #f8f8f8;
+            border: #505050 1px solid;
+            border-collapse: collapse;
+            display: table;
+        }
+        .TableCell
+        {
+            border-collapse: collapse;
+            border: #909090 1px solid;
+            vertical-align: top;
+            display: table-cell;
+        }
+    </style>
+</head>
+<body>
+    <h1 id='HelpTopicsLabel' role='header'>
+        Help Topics:</h1>
+    <ol aria-labelledby='HelpTopicsLabel' role='directory'>
+        <li><a href="#RemoteDebuggingOverview">Overview</a> -- How do I remote debug from Visual
+            Studio?</li>
+        <li><a href="#RemoteDebuggingCommandLineHelp">Command Line</a> -- What are the remote
+            debugger command-line options? What do they do?</li>
+        <li><a href="#RemoteDebuggingSetupHelp">Setup</a> -- How do I setup remote debugging?</li>
+        <li><a href="#RemoteDebuggingSecurityHelp">Security</a> -- What security options are
+            available when remote debugging?</li>
+        <li><a href="#RemoteDebuggingUserInterfaceHelp">User Interface</a> -- What do user interface
+            options do?</li>
+        <li><a href="#RemoteDebuggingFirewallConfiguration">Firewall Configuration</a> -- How
+            does the remote debugger work through the firewall?</li>
+        <li><a href="#RemoteDebuggingWWS">Windows Web Services</a> -- Why does the remote debugger
+            need Windows Web Services?</li>
+        <li><a href="#RemoteDebuggingMultiInstance">Running multiple instances of the remote
+            debugger</a> -- How do multiple users run the remote debugger on the same shared
+            computer?</li>
+        <li><a href="#RemoteDebuggingServiceHelp">Service</a> -- Should I run the remote debugger
+            as a Service?</li>
+        </ol>
+    <h1 role='header' id='RemoteDebuggingOverviewLabel'>
+        <a id="RemoteDebuggingOverview">Overview</a></h1>
+    <p>
+        Remote debugging allows you to debug programs which run on a different computer than the computer where Visual Studio is running.
+    </p>
+    <p>
+        With this release of Visual Studio, remote debugging has never been easier. Basic steps:
+    </p>
+    <ol role='directory' aria-labelledby='RemoteDebuggingOverviewLabel'>
+        <li>Run the remote debugger (msvsmon.exe) on the computer that you want to debug to.
+            See the <a href="#RemoteDebuggingSetupHelp"> setup help</a> for more information. </li>
+        <li><span id='ConfigureVSRemoteDebuggerLabel'>Configure Visual Studio to connect to the remote debugger</span>
+            <ul role='directory' aria-labelledby='ConfigureVSRemoteDebuggerLabel'>
+                <li><em>If you want to launch a C#/VB project:</em> Open properties for your project (right click
+                    in solution explorer), and on the Debug tab, check the option to use a remote machine.</li>
+                <li><em>If you want to launch a C++ project:</em> Open properties for your project (right click
+                    in solution explorer), and on the Debugger menu, change the Debugger to Launch value
+                    to Remote Windows Debugger. Set the Remote Command property to path that the remote
+                    computer should use.</li>
+                <li><em>To attach to an already running process:</em> Start the Attach to Process dialog from
+                    the Tools or Debug menu, and enter the remote computer name into the Qualifier edit
+                    box.</li>
+                <li><em>To debug a web site:</em> Open the web site from a remote file share, and then configure
+                    the Custom Web Server property to the web server's URL (exe: http://myserver).</li>
+                <li><em>To launch an executable without a project:</em> Create a debugger project by opening
+                    the executable as a project (File->Open Project) and entering the path to the executable
+                    that you want to debug (ex: \\MyTestComputer\c$\MyTest.exe). Then open project properties
+                    and change the Connection property. Also adjust the Executable property to the path
+                    that the remote computer should use.</li>
+            </ul>
+        </li>
+        <li>Start debugging </li>
+    </ol>
+    <h1 role='header' id='RemoveDebuggingCommandLineHelpLabel'><a id="RemoteDebuggingCommandLineHelp">Command Line</a></h1>
+    <table cellpadding='2' cellspacing='1' class='TableClass' aria-labelledby='RemoveDebuggingCommandLineHelpLabel'>
+        <caption style="text-align:left">
+            Description of all remote debugger command line options
+        </caption>
+        <tr>
+            <th class='TableCell'>
+                Option
+            </th>
+            <th class='TableCell'>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /allow <em>user_name</em>
+            </td>
+            <td class='TableCell'>
+                Allows specified users to connect to the remote debugger. Only fully trusted users
+                should be allowed to debug. If a malicious user was given permission to connect,
+                they would be able to take over the user account of the user running the remote
+                debugger. User names should be semicolon or comma separated (example: SomeDomain\Bob;SomeDomain\Alice)
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /port <em>port_number</em>
+            </td>
+            <td class='TableCell'>
+                Changes the TCP/IP port number that the remote debugger will listen on. This option is commonly 
+                used to allow <a href="#RemoteDebuggingMultiInstance">multiple instances</a> of the remote debugger
+                to run on the same computer.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /wow64port <em>port_number</em>
+                <br />
+                <i>(Windows x64 only)</i>
+            </td>
+            <td class='TableCell'>
+                On Windows x64, the remote debugger listens on an additional port to allow debugging 32-bit processes
+                running under the WOW64 (Windows 32-bit On Windows 64-bit) emulation layer. The /wow64port option
+                allows this port number to be configured. This may be useful to accommodate a hardware firewall. 
+                If unspecified, the debugger will attempt to use 4025, but will fall back to any unused port if 4025 
+                is already in use.
+                <br /><br />
+
+                Note that it is not recommended to ask Visual Studio to directly connect to this port, as this will only 
+                allow for debugging 32-bit process. Instead, if Visual Studio connects to the primary port (see /port),
+                it will automatically switch to the 32-bit port when needed.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /timeout <em>number_of_seconds</em>
+            </td>
+            <td class='TableCell'>
+                Configures the number of seconds the remote debugger waits before exiting if no
+                user is connected. In Windows Authentication mode, the default timeout is infinite.
+                In No Authentication mode, the default timeout is 15 minutes.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /noauth
+            </td>
+            <td class='TableCell'>
+                Switches the remote debugger from Windows Authentication mode to No Authentication
+                mode. For more information, see <a href="#RemoteDebuggingSecurityHelp">Security</a>.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /anyuser
+            </td>
+            <td class='TableCell'>
+                In No Authentication mode, Visual Studio sends the current user's username to the
+                remote debugger. The remote debugger uses this username for a safety check to help
+                prevent users from accidentally connecting to a different user's remote debugger.
+                This option disables the safety check so that any user can connect.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /nostatus
+            </td>
+            <td class='TableCell'>
+                Starts the remote debugger with the status window hidden. The status window can
+                be shown from the remote debugger's system tray icon.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /nodiscovery
+            </td>
+            <td class='TableCell'>
+                Starts the remote debugger with discovery disabled. This remote debugger instance
+                will not be found in Visual Studio's Find Remote Debugger Instance dialog.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /silent
+            </td>
+            <td class='TableCell'>
+                Tells the remote debugger not to show the user interface.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /prepcomputer [options]
+            </td>
+            <td class='TableCell'>
+                Prepares this computer for remote debugging by ensuring the <a href="#RemoteDebuggingFirewallConfiguration">
+                Windows Firewall is configured</a>. To use /prepcomputer, msvsmon should
+                be launched as an administrator.
+
+                <p>
+                    Several additional switches may be passed along with /prepcomputer.
+                </p>
+                <p>
+                    General options:<br />
+                    /quiet : error dialogs (or other blocking UI) will be suppressed. The exit code for the msvsmon.exe process indicates any errors.<br />
+                    /nofirewall : the firewall should not be configured
+                </p>
+                <p>
+                    Firewall profile options:<br />
+                    /domain : enable domain networks, such as a workplace network<br />
+                    /private : enable private networks, such as my home or work network<br />
+                    /public : enable public networks, such as those in airports and coffee shops<br />
+                    If no profile option is given, all profiles will be configured.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /ntlm
+            </td>
+            <td class='TableCell'>
+                By default, the remote debugger negotiates the strongest Windows authentication
+                provider that can be used between the Visual Studio computer and the remote debugger's
+                computer. Today, this will generally be Kerberos authentication if both computers
+                are on the same domain. This is done to provide the best possible security.
+                <br />
+                The '/ntlm' option instructions the remote debugger to instead use NTLM authentication
+                provider. This option is generally not recommended. However, it can be very useful
+                in situations where Kerberos is failing to authenticate.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /hostname <em>hostname_value</em>
+            </td>
+            <td class='TableCell'>
+                Instructs the remote debugger to listen on the network using the specified hostname
+                value, or IP address value. On a computer with multiple network cards, or with multiple
+                assigned DNS host names, this option can be used to restrict which of these will
+                allow remote debugging. For example, a server may have an internet facing address,
+                and an internal address. By using '/hostname private_ip_address', remote debugging
+                will not be available through the internet facing address.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /noclrwarn
+            </td>
+            <td class='TableCell'>
+                The remote debugger tries to load the 2.0 Common Language Runtime (CLR). This option
+                suppresses the warning that appears if the installed CLR is incompatible. This option
+                is useful if you don't want to debug managed code.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /nosecuritywarn
+            </td>
+            <td class='TableCell'>
+                When using the '/noauth' or '/allow' command line options, the remote debugger normally
+                displays a warning because both of these options are dangerous unless used with
+                care. The '/nosecuritywarn' disables these warnings. This option should only be
+                used if you understand the security implications of the '/noauth' and '/allow' options.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /nofirewallwarn
+            </td>
+            <td class='TableCell'>
+                Do not warn if the Windows Firewall blocks remote debugging.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /nowowwarn
+            </td>
+            <td class='TableCell'>
+                64-bit versions of Windows are capable of running 32-bit applications. This technology
+                is called 'WOW'. When running the remote debugger under WOW, it is not able to attach
+                to 64-bit processes. This option turns off checking for this condition.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /FallbackLoadRemoteManagedPdbs
+            </td>
+            <td class='TableCell'>
+                Enables loading managed PDB files on this computer (the target computer) when the PDB 
+                file cannot be found on the Visual Studio computer. When enabled, the debugger will search
+                in the path where the PDB was originally built and also next to where the dll/exe is 
+                currently located. This option may have a performance impact on remote debugging since now
+                any queries for the PDB will go over the network, but it is minimal in typical cases.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                /name <em>server_name</em>
+            </td>
+            <td class='TableCell'>
+                (deprecated) Causes the remote debugger to listen at specified server name in addition
+                to a TCP/IP port. Visual Studio can connect using this server name using the &lt;server_name&gt;@&lt;computer_name&gt;
+                syntax. When using this option, the remote computer must allow file sharing access.
+                This option is not recommended and is provided only for backward compatibility.
+            </td>
+        </tr>
+    </table>
+    <h1 role="header">
+        <a id="RemoteDebuggingSetupHelp">Setup</a></h1>
+    <p>
+        There are several different ways to setup remote debugging.</p>
+    <h3>
+        Running the remote debugger off a file share</h3>
+    <p>
+        For many scenarios, the easiest way to setup remote debugging is to run the remote
+        debugger (msvsmon.exe) from a file share. Visual Studio installs msvsmon.exe into
+        these directories:</p>
+    <pre>
+ Program Files\Microsoft Visual Studio 17.0\Common7\IDE\Remote Debugger\x86
+ Program Files\Microsoft Visual Studio 17.0\Common7\IDE\Remote Debugger\x64
+ Program Files\Microsoft Visual Studio 17.0\Common7\IDE\Remote Debugger\arm
+    </pre>
+    <p>
+        By sharing out the 'Remote Debugger' directory on the Visual Studio computer, you
+        can run msvsmon.exe on the remote computer.</p>
+    <p>
+        Features that will not work if msvsmon.exe is run from a share:</p>
+    <ul role='directory' aria-label='Features that will not work if msvsmon.exe is run from a share'>
+        <li>Launching Windows Store apps. However, it is still possible to manually attach.</li>
+        <li>JavaScript debugging</li>
+        <li>Stepping into a web service. However, it is still possible to manually attach.</li>
+        <li>Automatically launching an ASP.NET site under the debugger. Manually attaching is
+            still possible.</li>
+    </ul>
+    <h3>
+        Running remote debugger setup on the remote computer</h3>
+    <p>The remote debugger is included in the 'Remote Tools for Visual Studio 2022' 
+        installer. The latest version can be downloaded from the Microsoft download center by visiting 
+        <a href="http://microsoft.com">microsoft.com</a>, and searching for the product.</p>
+    <h1 role="header" id="RemoteDebuggingSecurityHelpLabel">
+        <a id="RemoteDebuggingSecurityHelp">Security</a></h1>
+    <p>
+        The remote debugger supports two authentication modes:</p>
+    <ol role='directory' aria-labelledby='RemoteDebuggingSecurityHelpLabel'>
+        <li>Windows Authentication mode (used by default)</li>
+        <li>No Authentication mode</li>
+    </ol>
+    <h3>
+        Windows Authentication mode</h3>
+    <p>
+        Windows Authentication mode uses Windows's built-in security to provide a high level
+        of security. Kerberos and/or NTLM authenticate and encrypt all requests. The remote
+        debugger will, by default, only accept connections from the user who launched the
+        remote debugger and members of the Administrators group. Additional users must be
+        explicitly granted permissions using Tools->Permissions from within the remote debugger's
+        UI, or from the command line using the /allow option.
+    </p>
+    <h3>
+        No Authentication mode</h3>
+    <p>
+        No Authentication mode has no security. Visual Studio sends the current username
+        to the remote debugger, but this information is not verified. No Authentication
+        mode should never be used on a network that may have hostile traffic. When using
+        no authentication mode, it is recommended to use firewall settings to restrict which
+        computers are able to connect to the remote debugger. Even with strong firewall
+        settings, no authentication mode offers significantly weaker protection than Windows
+        Authentication mode. So it is recommended to use Windows Authentication mode whenever
+        possible.</p>
+    <h1 role="header">
+        <a id="RemoteDebuggingUserInterfaceHelp">User Interface</a></h1>
+    <h3>
+        Status window</h3>
+    <p>
+        The status window shows remote debugging events. Successful connections and successful
+        initializations are shown.</p>
+    <h3 id="OptionsDialogLabel">
+        Options dialog</h3>
+    <table cellpadding='2' cellspacing='1' class='TableClass' aria-labelledby='OptionsDialogLabel'>
+        <tr>
+            <th class='TableCell'>
+                Option
+            </th>
+            <th class='TableCell'>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                Windows Authentication
+            </td>
+            <td class='TableCell'>
+                This option enables Windows Authentication mode. For more information, see <a href="#RemoteDebuggingSecurityHelp">
+                    Security</a>.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                Permissions
+            </td>
+            <td class='TableCell'>
+                In Windows Authentication mode, this option opens the permissions dialog.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                No Authentication
+            </td>
+            <td class='TableCell'>
+                This option enables No Authentication mode. For more information, see <a href="#RemoteDebuggingSecurityHelp">
+                    Security</a>.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                TCP/IP port number
+            </td>
+            <td class='TableCell'>
+                In No Authentication mode, the remote debugger will listen on a TCP/IP port. This
+                option can be used to configure what TCP/IP port to listen on.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                Allow any user to debug
+            </td>
+            <td class='TableCell'>
+                In No Authentication mode, Visual Studio sends the current user's username to the
+                remote debugger. The remote debugger uses this username for a safety check to help
+                prevent users from accidentally connecting to a different user's remote debugger.
+                This option disables the safety check so that any user can connect.
+            </td>
+        </tr>
+        <tr>
+            <td class='TableCell'>
+                Maximum idle time (seconds)
+            </td>
+            <td class='TableCell'>
+                Configures the number of seconds the remote debugger waits before exiting if no
+                user is connected. In Windows Authentication mode, the default timeout is infinite.
+                In No Authentication mode, the default timeout is 15 minutes.
+            </td>
+        </tr>
+    </table>
+    <h3>
+        Permissions dialog</h3>
+    <p>
+        In Windows Authentication mode, this dialog can be used to specify which users can
+        connect and debug through the remote debugger. Only fully trusted users should be
+        allowed to debug. If a malicious user was given permission to connect, they would
+        be able to take over the user account of the user running the remote debugger.</p>
+    <h1 role="header">
+        <a id="RemoteDebuggingFirewallConfiguration">Firewall Configuration</a></h1>
+    <p>
+        To allow remote debugging, any firewalls between the Visual Studio computer and
+        the remote debugger must be configured so that the remote debugger (msvsmon.exe)
+        will be able to receive data sent from Visual Studio. The remote debugger is able
+        to automatically configure the Windows Firewall.</p>
+    <p>
+        When using a firewall other than the Windows Firewall such as third party software
+        firewall or a hardware firewall, the firewall must be manually configured
+        to allow remote debugging. To do so, allow traffic on TCP/IP ports that msvsmon.exe
+        is listening on. By default, these are port 4026 and 4025,
+        where 4026 is used on all operating systems, and 4025
+        is used only on Windows x64 to allow debugging x86 processes.</p>
+
+    <p>
+        By default, the Remote Debugger Configuration dialog configures the Windows Firewall
+        rule to apply to all network profiles (Domain, Private and Informal/Public). The
+        Informal/Public configuration enables the scenario when the Visual Studio computer
+        is directly connected to a target device via an Ethernet cable. The Visual Studio
+        remote debugger uses authentication and encryption to maintain security in this
+        scenario.</p>
+    
+    <p>
+        You can disable one or more network profiles by clearing the appropriate checkboxes
+        (Domain/Private/Informal). However, if all currently active profiles are unchecked,
+        the configuration dialog disables the 'Configure remote debugging' button. For example,
+        if your computer is connected to a single network, and this network is an Informal
+        network, then unchecking the Informal checkbox will disable the Configure button.</p>
+
+    <h1 role="header">
+        <a id="RemoteDebuggingWWS">Windows Web Services</a></h1>
+    <p>
+        Remote debugging is implemented using the Windows Web Services API. The Windows
+        Web Services API is a building block that applications, such as the remote debugger,
+        can use to communicate over the network. This API is already included in Windows
+        7, Windows Server 2008 R2 and later operating systems. For Windows Server 2008 
+        (pre-R2), the Visual Studio Remote Tools setup will automatically install the API.</p>
+    <h1 role="header">
+        <a id="RemoteDebuggingMultiInstance">Running multiple instances of the remote debugger</a>
+    </h1>
+    <p>
+        Multiple instances of the remote debugger may be run on the same computer. This
+        is required if there is a single server shared by multiple users, and
+        each user wants to run their own instance of the remote debugger to debug their
+        own processes.</p>
+    <p>
+        Each instance of the remote debugger must run on its own TCP/IP port number. The
+        remote debugger can be configured to listen at a specific port number from Tools->Options
+        in the remote debugger, or from the command line using /port:&lt;value&gt;.</p>
+    <p>
+        To connect to a specific instance of the remote debugger, include the port number
+        along with the computer name in the 'remote machine'/'qualifier' setting (ex: MyServer:1234
+        to connect to port 1234 on MyServer).</p>
+    <h1 role="header">
+        <a id="RemoteDebuggingServiceHelp">Running the remote debugger as a service</a></h1>
+    <p>
+        You can run the remote debugger as either a Windows service or a Windows application.
+        Running the remote debugger as a service allows you to easily debug server applications
+        such as ASP.NET without logging onto the remote computer.</p>
+    <p>
+        Running the remote debugger as a service causes it to always run and listen on the
+        network. It is not recommended to run the remote debugger as a service for debugging
+        client applications.</p>
+    <p>
+        With the Visual Studio 2022 Remote Debug Configuration wizard, you can control the
+        username and password that the remote debugger service runs under. When the remote
+        debugger is running as a service, the following requirements must be met to debug
+        remotely:</p>
+    <ol role='directory' aria-label='Debugger Requirements when running as a service'>
+        <li>The user must be a member of the Administrators group to allow debugging of any
+            process. </li>
+        <li>The user must be granted the 'Log on as a service' privilege. This can be done with
+            the 'Local Security Policy' administrative tool. </li>
+    </ol>
+    <p>
+        The default user for the remote debugger service is 'LocalSystem.'</p>
+    <p>
+        The name of the service is 'Visual Studio 2022 Remote Debugger'. It is recommended
+        that you only control the service through the Visual Studio 2022 Remote Debugger
+        Configuration wizard. If necessary, it can be controlled through the computer management
+        administration tool, or on the command line -- 'net stop msvsmon170' or 'net start
+        msvsmon170'.</p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>forin</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>forin</Shortcut>
+    <Description>for...in 루프용 코드 조각</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>index</ID>
+        <ToolTip>인덱스</ToolTip>
+        <Default>i</Default>
+      </Literal>
+      <Literal>
+        <ID>object</ID>
+        <ToolTip>개체</ToolTip>
+        <Default>o</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[for (var $index$ in $object$) {
+    $selected$$end$
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

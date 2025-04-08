@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Working with projects and solutions"
+           Description="Learn the basics of projects and solutions, and how to navigate using the debugger."
+           RequiredPackageNames="Microsoft.VisualStudio.Workload.NetWeb|Microsoft.VisualStudio.Workload.ManagedDesktop,Microsoft.NetCore.Component.DevelopmentTools"
+           Id="ProjectAndSolution"
+           SortOrder="75"
+           EstimatedMinutesToComplete="4"
+           IconPath="Projects_Guide.png">
+    <vst:Step Title="Welcome to the Working with projects and solutions guide!"
+              Id="Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn:
+- How to work with projects/solutions - and understand why you need these
+- How to create a new project
+- Basic debugging capabilities
+- How to run your code
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+    <vst:Step Title="What is project/solution?"
+              Id="WhatIsProjectSolution">
+        <vst:Step.Description>
+            <![CDATA[
+**Projects**
+
+Each app or website in Visual Studio starts with a project.
+
+A project contains all the files that are compiled into an executable, library, or website.
+
+Those files can include source code, icons, images, data files, and so on.
+
+A project also contains compiler settings and other configuration files that might be needed by various services or components that your program communicates with.
+
+
+**Solutions**
+
+A project is contained within a solution.
+
+Despite its name, a solution is not an "answer". It's simply a container for one or more related projects, along with build information, document window positions, and any miscellaneous files that aren't associated with a particular project.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+ 
+    </vst:Step>
+    
+    <vst:Step Title="Create a new project"
+              Id="CreateProject"
+              MenuToHighlight="File">
+        <vst:Step.Description>
+            <![CDATA[
+Now, we'll create a basic console app so we can explore some features of the Visual Studio.
+
+1. From the menu bar, select **File** > **New** > **Project** {KeyboardShortcut:File.NewProject} to open the new project dialog.
+1. In the **Create a new project** page, select the **Console App** template, and then select Next.
+
+   ![1-ConsoleAppTemplate](1-ConsoleAppTemplate.png "1-ConsoleAppTemplate")
+
+1. In the **Configure your new project** page, enter **MyConsoleApp** in the **Project name** field. Then, select **Next**.
+1. In the **Additional information** page, use the default values and select **Create**.
+1. A containing solution is created when you create a new project.
+
+   ![2-SolutionCreateInSE](2-SolutionCreateInSE.png "2-SolutionCreateInSE")
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+     <vst:Step Title="Building and output window"
+               Id="BuildOutput"
+               MenuToHighlight="Build">
+        <vst:Step.Description>
+            <![CDATA[
+"Building" translates your source code into binary code that the CPU or runtime can understand.
+
+**Build configuration**
+
+1. Set configurations to different values and Run **Build** > **Build solution** {KeyboardShortcut:Build.BuildSolution} to see what changed in your build result in Output window.
+
+   ![7-BuildConfiguration](7-BuildConfiguration.png "7-BuildConfiguration")
+
+**Build errors**
+
+Let's explore errors.
+
+1. Delete a ";" character in [Program.cs](file://project/Program.cs), which introduces an error.
+
+   ![8-ErrorCode](8-ErrorCode.png "8-ErrorCode")
+
+1. Run **Build** > **Build solution** {KeyboardShortcut:Build.BuildSolution}.
+
+1. Double click the error in **Output** window, which takes you to the line of code.
+
+   ![9-ErrorInOutputWindow](9-ErrorInOutputWindow.png "9-ErrorInOutputWindow")
+
+1. Double click the error in **Error List** window, which takes you to the line of code.
+ 
+   ![e-ErrorList](e-ErrorList.png "e-ErrorList")
+
+1. If **Output** window is not open for you after build, it can be found at **View** > **Output** {KeyboardShortcut:View.Output}.
+
+   In the **Output** window, choose **Show output from: Build**.
+
+   To automatically show the **Output** window when you build, select **Tools** > **Options** > **Projects and Solutions** and then check **Show Output window when build starts**.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Add new files"
+              Id="AddFile">
+        <vst:Step.Description>
+            <![CDATA[
+1. In Solution Explorer, right click project node **MyConsoleApp**.
+
+   ![3-ProjectNodeInSE](3-ProjectNodeInSE.png "3-ProjectNodeInSE")
+
+1. In the context menu, select **Add** > **New Item**.
+1. In **Add New Item - MyConsoleApp** dialog, use the default **Class** template, change name to "MyClass.cs", and then select **Add**.
+
+   ![f-AddNewItem](f-AddNewItem.png "f-AddNewItem")
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Add a new project to existing solution"
+              Id="AddProject">
+        <vst:Step.Description>
+            <![CDATA[
+1. A solution can contain one or more projects. In Solution Explorer, right click solution node **Solution 'MyConsoleApp'**.
+
+   ![4-SolutionNodeInSE](4-SolutionNodeInSE.png "4-SolutionNodeInSE")
+
+1. In the context menu, select **Add** > **New Project**.
+1. In the **Add a new project** page, select the **Class Library** template, and then select Next.
+
+   ![5-ClassLibraryTemplate](5-ClassLibraryTemplate.png "5-ClassLibraryTemplate")
+
+1. In the **Configure your new project** page, enter **MyClassLibrary** in the **Project name** field. Then, select **Next**.
+1. In the **Additional information** page, use the default values and select **Create**.
+
+Select **Continue** to proceed.
+]]>
+
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Solution Configuration"
+              Id="SolutionConfig">
+        <vst:Step.Description>
+            <![CDATA[
+Before you write code that uses an internal or external component, your project must first contain a reference to it. A reference is an entry in a project file that contains the information that Visual Studio needs to locate the component.
+
+Making project MyConsoleApp depends on project **MyClassLibrary**.
+
+1. In Solution Explorer, right-click solution node **Solution 'MyConsoleApp'**
+1. In the context menu, select **Properties** 
+1. In the **Solution 'MyConsoleApp' Property Pages**, select **Project Dependencies**, check "MyClassLibrary" in **Depends on** list, and then select OK.
+
+   ![6-SolutionPropertyDependencies](6-SolutionPropertyDependencies.png "6-SolutionPropertyDependencies")
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Running/Debugging"
+              Id="RunDebug"
+              CommandToHighlight="Debug.StartWithoutDebugging"
+              MenuToHighlight="Debug">
+        <vst:Step.Description>
+            <![CDATA[
+Your application can run with or without a debugger. When you are running an application under a debugger (now you are debugging), you can pause execution at a particular line of code and look at the state of the application at that moment.
+
+**Set startup project**
+
+   1. The startup project is the project that will be executed when you select the start button or press F5.
+
+   1. In Solution Explorer, right-click project node **MyConsoleApp**. In the context menu, select **Set as Startup Project**.
+
+**Run the application**
+
+There are 3 ways to run your code. Try the commands below to see which makes sense for your project:
+
+   - **Debug** > **Start Debugging** {KeyboardShortcut:Debug.Start}
+
+     ![b-StartDebugging](b-StartDebugging.png "b-StartDebugging")
+   
+     If you see the console window exit immediately after debugging and you want to keep it, disable it by navigating to: **Debug** > **Options** > **Automatically close the console when debugging stops**.
+
+     ![a-ToolsOptions](a-ToolsOptions.png "a-ToolsOptions")
+
+   - **Debug** > **Start Without Debugging** {KeyboardShortcut:Debug.StartWithoutDebugging}
+
+     ![c-StartWithoutDebugging](c-StartWithoutDebugging.png "c-StartWithoutDebugging")
+
+
+   - In Solution Explorer, right click project node **MyConsoleApp**. In the context menu, select **Debug** > **Start New Instance**
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Returning to Visual Studio"
+              Id="GetBack"
+              MenuToHighlight="File">
+        <vst:Step.Description>
+            <![CDATA[
+After you close a solution or exit Visual Studio, you can get back to this solution by:
+1. Navigating to the **Start window** 
+
+   ![d-StartWindwMru](d-StartWindwMru.png "d-StartWindwMru")
+
+1. Through **File** > **Recent project or solutions**.
+
+1. Through **File** > **Open** > **Project/Solution** {KeyboardShortcut:File.OpenProject}.
+
+1. From the Windows jump list. Right-click Visual Studio from Windows Task bar, and select solution from the Recent section.
+
+   ![g-JumpList](g-JumpList.png "g-JumpList")
+
+Select **Continue** to proceed.
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Next steps"
+              Id="NextSteps"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+Congratulations on completing this Guide! We hope you enjoyed learning about projects and solutions.
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=ProjectAndSolution)**
+
+![Congratulation](congrats_tutorial.png "Congratulation")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+</vst:Guide>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定注册表项是否存在 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>检查指定的注册表项是否存在。</Description>
+      <Shortcut>regExist</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Win32</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>keyPath</ID>
+          <ToolTip>替换为注册表项的路径。</ToolTip>
+          <Default>"Software\Microsoft\TestApp\1.0"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim exists As Boolean = False
+Try
+    If My.Computer.Registry.CurrentUser.OpenSubKey($keyPath$) IsNot Nothing Then
+        exists = True
+    End If
+Finally
+    My.Computer.Registry.CurrentUser.Close()
+End Try]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

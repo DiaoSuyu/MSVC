@@ -1,0 +1,19 @@
+{
+  "components": {
+    "dotnetMsIdentity": {
+      "modifiers": [
+        "identityapp.redirectUris"
+      ]
+    },
+    "identityCodeUpdate": {
+      "modifiers": [
+        "identityapp.code.update"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "identityapp.nuget.blazor"
+      ]
+    }
+  }
+}

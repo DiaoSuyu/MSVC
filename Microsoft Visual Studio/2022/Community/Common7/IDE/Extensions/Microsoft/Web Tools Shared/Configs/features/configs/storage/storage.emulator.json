@@ -1,0 +1,17 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "storage.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId",
+        "storage.secretStore.local.connectionId.blob",
+        "storage.secretStore.local.connectionId.queue",
+        "storage.secretStore.local.connectionId.table"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "jsonProperty.generic",
+  "confidence": "Medium",
+  "featureId": "appConfig.azure",
+  "componentId": "launchSettings",
+  "model": {
+    "filePath": "@@propertiesFolder@@/launchSettings.json",
+    "key": "profiles/*/environmentVariables",
+    "properties": {
+      "Endpoints:@@connectionId@@": {
+        "value": ""
+      }
+    }
+  }
+}

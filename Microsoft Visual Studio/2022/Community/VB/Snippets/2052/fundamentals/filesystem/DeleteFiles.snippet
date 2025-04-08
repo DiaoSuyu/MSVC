@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>删除文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>经用户确认后删除文件。</Description>
+      <Shortcut>filDelFile</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Filename</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"C:\Test.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.DeleteFile($Filename$, FileIO.UIOption.AllDialogs, FileIO.RecycleOption.SendToRecycleBin)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

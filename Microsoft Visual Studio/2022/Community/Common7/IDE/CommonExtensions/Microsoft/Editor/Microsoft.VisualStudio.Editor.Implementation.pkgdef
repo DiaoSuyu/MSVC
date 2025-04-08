@@ -1,0 +1,129 @@
+[$RootKey$\ToolsOptionsPages\Text Editor\Advanced]
+@="#601"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Page"="{efd55f3d-23c1-4a1d-a58b-77295611c7d4}"
+"Sort"=dword:00000001
+"Keywords"="@AdvancedKeywords"
+
+[$RootKey$\ToolsOptionsPages\Text Editor\General]
+@="#501"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Page"="{c178af61-531a-46f0-bd57-102d9e42c711}"
+"Keywords"="@GeneralKeywords"
+
+[$RootKey$\ToolsOptionsPages\Text Editor\Code Cleanup]
+@="#701"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Page"="{D15E80D1-F395-4D76-9C1B-5C0923248E4F}"
+"Keywords"="@CodeCleanupKeywords"
+"Sort"=dword:00000002
+"IsInUnifiedSettings"=dword:00000001
+
+[$RootKey$\ToolsOptionsPages\Text Editor\Inlay Hints]
+@="#116"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Page"="{1503E402-0731-41BF-A77F-0A61639D4C71}"
+"Sort"=dword:00000003
+"Keywords"="@InlayHintsKeywords"
+"IsInUnifiedSettings"=dword:00000001
+
+[$RootKey$\UserSettings\Text Editor_Advanced]
+@="601"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Category"="{efd55f3d-23c1-4a1d-a58b-77295611c7d4}"
+"ToolsOptionsPath"="Text Editor"
+"AlternateParent"="AutomationProperties\TextEditor"
+"Description"="602"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\UserSettings\Text Editor_Code Cleanup]
+@="701"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Category"="{D15E80D1-F395-4D76-9C1B-5C0923248E4F}"
+"ToolsOptionsPath"="Text Editor"
+"AlternateParent"="AutomationProperties\TextEditor"
+"Description"="702"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\UserSettings\Text Editor_General]
+@="501"
+"Package"="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Category"="{c178af61-531a-46f0-bd57-102d9e42c711}"
+"ToolsOptionsPath"="Text Editor"
+"AlternateParent"="AutomationProperties\TextEditor"
+"Description"="502"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\ToolWindows\{6324226f-61b6-4f28-92ee-18d4b5fe1e48}]
+@="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+"Float"="100, 100, 550, 520"
+"Name"="Find In Files"
+"Window"="6324226f-61b6-4f28-92ee-18d4b5fe1e48"
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.OpenDocumentService\1.0]
+@="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+// See ServiceAudience enum
+"audience"=dword:10000C03
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.OpenDocumentService\1.1]
+@="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+// See ServiceAudience enum
+"audience"=dword:10000C03
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Editor.FindService\1.0]
+@="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+// See ServiceAudience enum
+"Audience"=dword:10000100
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Editor.FindService\1.1]
+@="{e269b994-ef71-4ce0-8bcd-581c217372e8}"
+// See ServiceAudience enum
+"Audience"=dword:10000100
+
+// HACK: Register our MEF brokered services as being proffered by MefServiceBrokerPackage
+// with PackageGuid {95faa709-2640-4f04-a6b5-657b26d9d494}.
+//
+// MEF brokered services don't require PKGDEF entries on VS Windows to work but registering
+// them ensures that no calls to GetProxyAsync() for these services ever return before
+// MefServiceBrokerPackage finishes loading and proferring its packages, preventing
+// intermittently null proxies.
+//
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticManagerService\1.0]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000003
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticManagerService\1.1]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000003
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticViewerService\1.0]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000503
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticViewerService\1.1]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000503
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticManagerBroadcastService\1.0]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:00000003
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Shell.DiagnosticManagerBroadcastService\1.1]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:00000003
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Editor.TextEditorSynchronizationService\1.0]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000003
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Editor.EditorOptionsService\1.1]
+@="{95faa709-2640-4f04-a6b5-657b26d9d494}"
+// See ServiceAudience enum
+"Audience"=dword:10000003

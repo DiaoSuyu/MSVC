@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text\html" />
+    <!-- Include all CSS here -->
+    <link href="css/main.css" type="text/css" rel="stylesheet" />
+    <link href="css/treeGrid.css" type="text/css" rel="stylesheet" />
+    <link href="css/toolbar.css" type="text/css" rel="stylesheet" />
+    <link href="css/functionRow.css" type="text/css" rel="stylesheet" />
+    <link href="css/filter.css" type="text/css" rel="stylesheet" />
+    <link href="css/autoComplete.css" type="text/css" rel="stylesheet" />
+    <link href="css/indeterminateProgress.css" type="text/css" rel="stylesheet" />
+    <script src="scripts/diagnosticsHub.js" data-include-ui="true"></script>
+    <script src="scripts/FunctionsViewModel.js"></script>
+    <title>Functions</title>
+</head>
+<body>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+
+                // Allows us to control clipboard keys
+                plugin.HotKeys.setClipboardState(true);
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                const exports = require("functionsViewModel");
+
+                // The call below creates a singleton of FunctionsDetailsView
+                exports.getFunctionsViewModel();
+            }
+        })();
+    </script>
+    <div id="mainToolbar" class="toolbar-container">
+        <span data-bind="text: sessionDuration,
+                     localizedTooltip: 'DiagnosticsSession_Tooltip' "></span>
+        <span data-bind="text: buildDuration,
+                 localizedTooltip: 'Build_Tootip' "></span>
+        <!-- ko template: { name: 'ToolbarButtonView', data: settingsButtonViewModel } --><!-- /ko -->
+        <!-- ko template: { name: 'FilterView', data: filterViewModel } --><!-- /ko -->
+    </div>
+    <div class="learningAid">
+        <span data-bind="localizedText: 'LearningAid_Functions'"></span>
+        <a role="link" data-bind="attr: { href: learningAidLink, target: '_blank' }, localizedAriaLabel:'DocumentationLinkAriaLabel', click: onDocumentationLinkClick">
+            <div class="icon" role="img" data-bind="svgImage: 'status-help', localizedAriaLabel:'QuestionMarkIconAriaLabel'"></div>
+        </a>
+    </div>
+    <div class="mainArea" aria-live="assertive">
+        <div id="FunctionsTreeFilter" data-bind="
+             template: {
+                name: 'FilterContainerView',
+                data: functionsTreeFilter }">
+        </div>
+        <div id="TreeGrid"
+             data-bind="
+                event: { keydown: onKeyDown },
+                dynamicContextMenu: contextMenu,
+                template: {
+                name: 'TreeGridWithFilterView',
+                data: functionsTreeGrid,
+                afterRender: functionsTreeGrid.onAfterDomInsert }">
+        </div>
+    </div>
+    <div id="bottomToolBar" class="toolbar-container">
+        <!-- ko template: { name: 'ToolbarButtonView', data: openInWPAButtonViewModel } --><!-- /ko -->
+    </div>
+    <div id="message-overlay" data-bind="css: { hide: !currentOverlay() }, if: currentOverlay">
+        <div class="message" data-bind="template: currentOverlay">
+        </div>
+    </div>
+</body>
+</html>

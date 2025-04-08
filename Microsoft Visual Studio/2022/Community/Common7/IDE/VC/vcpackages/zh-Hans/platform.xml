@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Platform</name>
+  </assembly>
+  <members>
+      <!-- Begin of default namespace -->  
+     <member name="N:default">
+      <summary>提供 C++/CX 的基类型。</summary>
+    </member>
+    
+    <member name="T:default.int8">
+      <summary>default.int8 的表示形式</summary>
+    </member>
+    <member name="F:default.int8._value">
+      <summary>类型的 int8 值。</summary>
+    </member>
+    <member name="M:default.int8.#ctor(default.int8)">
+      <summary>default.int8 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.int8.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.int8.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.int8.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.int8.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.uint16">
+      <summary>default.uint16 的表示形式</summary>
+    </member>
+    <member name="F:default.uint16._value">
+      <summary>类型的 uint16 值。</summary>
+    </member>
+    <member name="M:default.uint16.#ctor(default.uint16)">
+      <summary>uint16 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.uint16.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.uint16.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.uint16.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.uint16.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+
+    <member name="T:default.int16">
+      <summary>default.int16 的表示形式</summary>
+    </member>
+    <member name="F:default.int16._value">
+      <summary>类型的 int16 值。</summary>
+    </member>
+    <member name="M:default.int16.#ctor(default.int16)">
+      <summary>int16 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.int16.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.int16.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.int16.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.int16.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.uint32">
+      <summary>default.uint32 的表示形式</summary>
+    </member>
+    <member name="F:default.uint32._value">
+      <summary>类型的 uint32 值。</summary>
+    </member>
+    <member name="M:default.uint32.#ctor(default.uint32)">
+      <summary>uint32 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.uint32.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.uint32.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.uint32.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.uint32.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.int32">
+      <summary>default.int32 的表示形式</summary>
+    </member>
+    <member name="F:default.int32._value">
+      <summary>类型的 int32 值。</summary>
+    </member>
+    <member name="M:default.int32.#ctor(default.int32)">
+      <summary>int32 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.int32.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.int32.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.int32.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.int32.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.float32">
+      <summary>default.float32 的表示形式</summary>
+    </member>
+    <member name="F:default.float32._value">
+      <summary>类型的 float32 值。</summary>
+    </member>
+    <member name="M:default.float32.#ctor(default.float32)">
+      <summary>float32 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.float32.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.float32.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.float32.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.float32.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.float64">
+      <summary>default.float64 的表示形式</summary>
+    </member>
+    <member name="F:default.float64._value">
+      <summary>类型的 float64 值。</summary>
+    </member>
+    <member name="M:default.float64.#ctor(default.float64)">
+      <summary>float64 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.float64.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.float64.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.float64.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.float64.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.uint64">
+      <summary>default.uint64 的表示形式</summary>
+    </member>
+    <member name="F:default.uint64._value">
+      <summary>类型的 uint64 值。</summary>
+    </member>
+    <member name="M:default.uint64.#ctor(default.uint64)">
+      <summary>uint64 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.uint64.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.uint64.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.uint64.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.uint64.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+
+    <member name="T:default.int64">
+      <summary>默认 int64 的表示形式</summary>
+    </member>
+    <member name="F:default.int64._value">
+      <summary>类型的 int64 值。</summary>
+    </member>
+    <member name="M:default.int64.#ctor(default.int64)">
+      <summary>int64 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.int64.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.int64.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.int64.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.int64.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.char16">
+      <summary>default.char16 的表示形式</summary>
+    </member>
+    <member name="F:default.char16._value">
+      <summary>类型的 char16 值。</summary>
+    </member>
+    <member name="M:default.char16.#ctor(default.char16)">
+      <summary>char16 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.char16.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.char16.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.char16.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.char16.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:default.uint8">
+      <summary>default.uint8 的表示形式</summary>
+    </member>
+    <member name="F:default.uint8._value">
+      <summary>类型的 uint8 值。</summary>
+    </member>
+    <member name="M:default.uint8.#ctor(default.uint8)">
+      <summary>uint8 对象的构造函数。</summary>
+    </member>    
+    <member name="M:default.uint8.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:default.uint8.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:default.uint8.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:default.uint8.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+
+    <!-- End of default namespace -->  
+  
+    <!-- Begin of Platform namespace -->
+    <member name="N:Platform">
+      <summary>提供常规 C++/CX 框架接口和类。</summary>
+    </member>
+
+    <member name="T:Platform.AccessDeniedException">
+      <summary>表示访问拒绝异常(E_ACCESSDENIED)。</summary>
+    </member>
+    <member name="M:Platform.AccessDeniedException.#ctor()">
+      <summary>Platform.AccessDeniedException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.AccessDeniedException.#ctor(Platform.String)">
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+
+    <member name="T:Platform.Boolean">
+      <summary>Platform.Bolean 类型的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Boolean.#ctor(Platform.Boolean)">
+      <summary>Platform.Boolean 的默认构造函数。</summary>
+    </member>
+    <member name="F:Platform.Boolean._value">
+      <summary>类型的 bool 值。</summary>
+    </member>
+    <member name="M:Platform.Boolean.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Boolean.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Boolean.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="M:Platform.Boolean.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type。</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+
+    <member name="T:Platform.COMException">
+      <summary>表示 COMException 类型。</summary>
+    </member>
+    <member name="M:Platform.COMException.#ctor(default.int32)">
+      <summary>以 HRESULT 作为输入参数的构造函数。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+    </member>
+    <member name="M:Platform.COMException.#ctor(default.int32,Platform.String)">    
+      <summary>以 HRESULT 和调试消息作为参数的构造函数。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.CallbackContext">
+      <summary>表示 Platform.CallbackContext 类。</summary>
+    </member>
+    <member name="F:Platform.CallbackContext.value__">
+      <summary>Platform.CallbackContext 数据的值。</summary>
+    </member>
+    <member name="F:Platform.CallbackContext.Any">
+      <summary>任何上下文 - 支持自由线程封送处理程序。</summary>
+    </member>
+    <member name="F:Platform.CallbackContext.Same">
+      <summary>某些上下文 - 不支持自由线程封送处理程序。</summary>
+    </member>
+
+    <member name="T:Platform.ChangedStateException">
+      <summary>表示变更状态异常(E_CHANGED_STATE)。</summary>
+    </member>
+    <member name="M:Platform.ChangedStateException.#ctor">
+      <summary>Platform.ChangedStateException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.ChangedStateException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.ClassNotRegisteredException">
+      <summary>表示未注册类异常(REGDB_E_CLASSNOTREG)。</summary>
+    </member>
+    <member name="M:Platform.ClassNotRegisteredException.#ctor">
+      <summary>Platform.ClassNotRegisteredException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.ClassNotRegisteredException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+    
+    <member name="T:Platform.Delegate">
+      <summary>表示 Platform.Delegate 类。</summary>
+    </member>
+    <member name="M:Platform.Delegate.#ctor">
+      <summary>Platform.Delegate 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.Delegate.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Delegate.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Delegate.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.DisconnectedException">
+      <summary>表示连接断开异常(RPC_E_DISCONNECTED)。</summary>
+    </member>
+    <member name="M:Platform.DisconnectedException.#ctor">
+      <summary>Platform.DisconnectedException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.DisconnectedException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+
+    <member name="T:Platform.Enum">
+      <summary>表示 Platform.Enum 类。</summary>
+    </member>
+    <member name="M:Platform.Enum.#ctor">
+      <summary>Platform.Enum 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.Enum.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Enum.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Enum.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.Exception">
+      <summary>表示 Platform.Exception 类。</summary>
+    </member>
+    <member name="F:Platform.Exception.__capabilitySid">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__description">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__hresult">
+      <summary>Platform.Exception 的 HRESULT。</summary>
+    </member>
+    <member name="F:Platform.Exception.__restrictedErrorReference">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__restrictedErrorString">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__restrictedInfo">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__size">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Exception.__throwInfo">
+      <summary>保留。</summary>
+    </member>
+    <member name="M:Platform.Exception.#ctor(default.int32)">
+      <summary>以 HRESULT 作为输入参数的构造函数。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+    </member>
+    <member name="M:Platform.Exception.#ctor(default.int32,Platform.String)">    
+      <summary>以 HRESULT 和调试消息作为参数的构造函数。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+      <param name="message">输入调试消息。</param>
+    </member>
+    <member name="M:Platform.Exception.CreateException(default.int32)">
+      <summary>根据输入的 HRESULT 参数创建强类型异常实例。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+      <returns>Platform.Exception 的实例。</returns>
+    </member>
+    <member name="M:Platform.Exception.CreateException(default.int32,Platform.String)">    
+      <summary>根据输入的 HRESULT 参数创建强类型异常实例。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+      <param name="message">输入调试消息。</param>
+      <returns>Platform.Exception 的实例。</returns>
+    </member>
+    <member name="M:Platform.Exception.Dispose">
+      <summary>Platform.Exception 的清理例程。</summary>
+    </member>
+    <member name="M:Platform.Exception.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Exception.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.Exception.ReCreateException(default.int32)">
+      <summary>根据输入的 HRESULT 参数和 IRestrictedErrorInfo 数据重新创建强类型异常实例。</summary>
+      <param name="hresult">输入 HRESULT。</param>
+      <returns>Platform.Exception 的实例。</returns>
+    </member>    
+    <member name="P:Platform.Exception.Message">
+      <summary>指定用于获取表示异常的字符串消息的属性。</summary>      
+    </member>
+    <member name="P:Platform.Exception.HResult">
+      <summary>指定用于获取表示异常的 HRESULT 值的属性。</summary>      
+    </member>
+    <member name="M:Platform.Exception.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.FailureException">
+      <summary>表示连接断开异常(E_FAIL)。</summary>
+    </member>
+    <member name="M:Platform.FailureException.#ctor">
+      <summary>Platform.FailureException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.FailureException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.Guid">
+      <summary>表示 Platform.Guid 类。</summary>
+    </member>
+    <member name="F:Platform.Guid.__a">
+      <summary>Platform.Guid 的前 4 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__b">
+      <summary>Platform.Guid 的下 2 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__c">
+      <summary>Platform.Guid 的下 2 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__d">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__e">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__f">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__g">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__h">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__i">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__j">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>
+    <member name="F:Platform.Guid.__k">
+      <summary>Platform.Guid 的下 1 个字节。</summary>
+    </member>    
+    <member name="M:Platform.Guid.#ctor(Platform.Details._GUID)">
+      <summary>以 Platform.Details._GUID 作为输入参数的构造函数。</summary>
+      <param name="guid">输入 Platform.Details._GUID。</param>
+    </member>    
+    <member name="M:Platform.Guid.#ctor(default.uint32,default.uint16,default.uint16,default.uint8[])">
+      <summary>以基元类型作为输入来创建 Platform.Guid 的构造函数。</summary>
+      <param name="a">Platform.Guid 的前 4 个字节。</param>
+      <param name="b">Platform.Guid 的前 2 个字节。</param>
+      <param name="c">Platform.Guid 的前 2 个字节。</param>
+      <param name="c">Platform.Guid 的 8 字节数组。</param>
+    </member>    
+    <member name="M:Platform.Guid.#ctor(default.uint32,default.uint16,default.uint16,default.uint8,default.uint8,default.uint8,default.uint8,default.uint8,default.uint8,default.uint8,default.uint8)">
+      <summary>以基元类型作为输入来创建 Platform.Guid 的构造函数。</summary>
+      <param name="a">Platform.Guid 的前 4 个字节。</param>
+      <param name="b">Platform.Guid 的前 2 个字节。</param>
+      <param name="c">Platform.Guid 的前 2 个字节。</param>
+      <param name="d">Platform.Guid 的下 1 个字节。</param>
+      <param name="e">Platform.Guid 的下 1 个字节。</param>
+      <param name="f">Platform.Guid 的下 1 个字节。</param>
+      <param name="g">Platform.Guid 的下 1 个字节。</param>
+      <param name="h">Platform.Guid 的下 1 个字节。</param>
+      <param name="i">Platform.Guid 的下 1 个字节。</param>
+      <param name="j">Platform.Guid 的下 1 个字节。</param>
+      <param name="k">Platform.Guid 的下 1 个字节。</param>
+    </member>    
+    <member name="M:Platform.Guid.#ctor">
+      <summary>Platform.Guid 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.Guid.Equals(Platform.Details._GUID)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <param name="a">输入 Platform.Details._GUID。</param>
+      <returns>如果 Platform.Details._GUID 相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.Equals(Platform.Guid)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+       <param name="a">输入 Platform.Guid。</param>
+      <returns>如果 Platform.Details.Guid 相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Guid.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.Guid.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    <member name="M:Platform.Guid.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>    
+    <member name="M:Platform.Guid.op_Equality(Platform.Guid,Platform.Guid)">
+      <summary>如果对象相同则返回 True，否则返回 False。</summary>
+      <returns>如果相同则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_Implicit(Platform.Details._GUID)">
+      <summary>将 Platform.Details._GUID 转换为 Platform.Guid。</summary>
+      <returns>返回 Platform.Guid。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_Inequality(Platform.Guid,Platform.Guid)">
+      <summary>如果对象不相同则返回 True，否则返回 False。</summary>
+      <returns>如果不相同则为 True，否则为 False。</returns>
+    </member>
+    
+    <member name="T:Platform.IBoxArray`1">
+      <summary>数组框界面的表示形式。</summary>
+    </member>    
+    <member name="P:Platform.IBoxArray`1.Value">
+      <summary>指定用于获取包含 Platform.IBoxArray`1 的值的属性。</summary>      
+    </member>    
+    
+    <member name="T:Platform.IBox`1">
+      <summary>框界面的表示形式。</summary>
+    </member>
+    <member name="P:Platform.IBox`1.Value">
+      <summary>指定用于获取包含 Platform.IBox`1 的值的属性。</summary>      
+    </member>        
+
+    <member name="T:Platform.IDisposable">
+      <summary>用于提供清理例程的界面的表示形式。</summary>
+    </member>    
+    <member name="M:Platform.IDisposable.Dispose">
+      <summary>清理例程。</summary>
+    </member>    
+
+    <member name="T:Platform.IValueType">
+      <summary>值类型接口的表示形式。</summary>
+    </member>    
+
+    <member name="T:Platform.IntPtr">
+      <summary>指针类型的表示形式。</summary>
+    </member>
+    <member name="F:Platform.IntPtr._value">
+      <summary>类型的 void* 值。</summary>
+    </member>
+    <member name="M:Platform.IntPtr.#ctor(default.int32)">
+      <summary>以 default.int32 作为参数的构造函数。</summary>
+      <param name="ptr">default.int32 指针值。</param>
+    </member>
+    <member name="M:Platform.IntPtr.#ctor(native int)">
+      <summary>以 native int 作为参数的构造函数。</summary>
+      <param name="ptr">native int 指针值。</param>
+    </member>
+    <member name="M:Platform.IntPtr.#ctor(void*)">
+      <summary>以 void* 作为参数的构造函数。</summary>
+      <param name="ptr">void* 指针值。</param>
+    </member>
+    <member name="M:Platform.IntPtr.ToInt32">
+      <summary>提供 Platform.IntPtr 的 default.int32 值。</summary>
+      <param name="ptr">void* 指针值。</param>
+    </member>
+    <member name="M:Platform.IntPtr.op_Explicit(void*)~Platform.IntPtr">
+      <summary>将 void* 转换为 Platform.IntPtr。</summary>
+      <returns>返回 Platform.IntPtr。</returns>
+    </member>
+    <member name="M:Platform.IntPtr.op_Explicit(default.int32)~Platform.IntPtr">
+      <summary>将 default.int32 转换为 Platform.IntPtr。</summary>
+      <returns>返回 Platform.IntPtr。</returns>
+    </member>
+    <member name="M:Platform.IntPtr.op_Explicit(native int)~Platform.IntPtr">
+      <summary>将 native int 转换为 Platform.IntPtr。</summary>
+      <returns>返回 Platform.IntPtr。</returns>
+    </member>
+    
+    <member name="T:Platform.InvalidArgumentException">
+      <summary>表示参数无效异常(E_INVALIDARG)。</summary>
+    </member>
+    <member name="M:Platform.InvalidArgumentException.#ctor">
+      <summary>Platform.InvalidArgumentException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.InvalidArgumentException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.InvalidCastException">
+      <summary>表示参数无效异常(E_NOINTERFACE)。</summary>
+    </member>
+    <member name="M:Platform.InvalidCastException.#ctor">
+      <summary>Platform.InvalidCastException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.InvalidCastException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.MTAThreadAttribute">
+      <summary>表示 MTA 特性。</summary>
+    </member>
+    <member name="M:Platform.MTAThreadAttribute.#ctor">
+      <summary>Platform.MTAThreadAttribute 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.MTAThreadAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.MTAThreadAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.MTAThreadAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+
+    <member name="T:Platform.NotImplementedException">
+      <summary>表示未实现异常(E_NOTIMPL)。</summary>
+    </member>    
+    <member name="M:Platform.NotImplementedException.#ctor">
+      <summary>Platform.NotImplementedException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.NotImplementedException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+
+    <member name="T:Platform.NullReferenceException">
+      <summary>表示未实现异常(E_POINTER)。</summary>
+    </member>
+    <member name="M:Platform.NullReferenceException.#ctor">
+      <summary>Platform.NotImplementedException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.NullReferenceException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+    
+    <member name="T:Platform.Object">
+      <summary>表示 Platform.Object 类。</summary>
+    </member>
+    <member name="M:Platform.Object.#ctor">
+      <summary>Platform.Object 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.Object.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Object.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.Object.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    <member name="M:Platform.Object.ReferenceEquals(Platform.Object,Platform.Object)">
+      <summary>比较两个 Platform.Object 的引用是否相同。</summary>
+      <param name="obj1">Platform.Object 值。</param>
+      <param name="obj2">Platform.Object 值。</param>
+      <returns>如果引用相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.Object.ReferenceEquals(Platform.String,Platform.String)">
+      <summary>比较两个 Platform.String 的引用是否相同。</summary>    
+      <param name="str1">Platform.String 值。</param>
+      <param name="str2">Platform.String 值。</param>
+      <returns>如果引用相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.Object.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.OperationCanceledException">
+      <summary>表示操作取消异常(E_ABORT)。</summary>
+    </member>
+    <member name="M:Platform.OperationCanceledException.#ctor">
+      <summary>Platform.OperationCanceledException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.OperationCanceledException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+
+    <member name="T:Platform.OutOfBoundsException">
+      <summary>表示越界异常(E_BOUNDS)。</summary>
+    </member>
+    <member name="M:Platform.OutOfBoundsException.#ctor">
+      <summary>Platform.OutOfBoundsException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.OutOfBoundsException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+    
+    <member name="T:Platform.OutOfMemoryException">
+      <summary>表示内存不足异常(E_OUTOFMEMORY)。</summary>
+    </member>
+    <member name="M:Platform.OutOfMemoryException.#ctor">
+      <summary>Platform.OutOfMemoryException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.OutOfMemoryException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>
+    
+    <member name="T:Platform.STAThreadAttribute">
+      <summary>表示 STA 特性。</summary>
+    </member>
+    <member name="M:Platform.STAThreadAttribute.#ctor">
+      <summary>Platform.STAThreadAttribute 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.STAThreadAttribute.Equals(Platform.Object)">
+    <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.STAThreadAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.STAThreadAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+
+    <member name="T:Platform.SizeT">
+      <summary>表示 Platform.SizeT 类。</summary>
+    </member>
+    <member name="F:Platform.SizeT._value">
+      <summary>类型的 void* 值。</summary>
+    </member>
+    <member name="M:Platform.SizeT.#ctor(default.int32)">
+      <summary>以 default.int32 作为参数的构造函数。</summary>
+      <param name="ptr">default.int32 指针值。</param>
+    </member>
+    <member name="M:Platform.SizeT.#ctor(void*)">
+      <summary>以 void* 作为参数的构造函数。</summary>
+      <param name="ptr">void* 指针值。</param>
+    </member>
+    <member name="M:Platform.SizeT.Equals(Platform.Object)">
+    <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.SizeT.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.SizeT.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+
+    <member name="T:Platform.String">
+      <summary>表示 Platform.String 类。</summary>
+    </member>
+    <member name="M:Platform.String.#ctor(char modopt(Platform.Runtime.CompilerServices.IsConst)*)">
+      <summary>以 HSTRING/wchar_t* 作为输入参数的构造函数。</summary>
+      <param name="str">字符串指针。</param>
+    </member>
+    <member name="M:Platform.String.#ctor(char modopt(Platform.Runtime.CompilerServices.IsConst)*, default.uint32)">
+      <summary>以 wchar_t* 作为输入参数和字符串长度的构造函数。</summary>
+      <param name="str">字符串指针。</param>
+      <param name="strLen">字符串长度。</param>
+    </member>
+    <member name="M:Platform.String.#ctor">
+      <summary>Platform.String 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.String.Begin">
+        <summary>提供指向矢量结尾处外侧的指针。</summary>
+        <returns>返回指针。</returns>
+    </member>
+    <member name="M:Platform.String.CompareOrdinal(Platform.String,Platform.String)">
+      <summary>比较两个字符串，并在它们相同时返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>返回 default.int32。</returns>
+    </member>
+    <member name="M:Platform.String.Concat(Platfrom.Object,Platform.Object)">
+      <summary>将两个对象作为字符串进行串联。</summary>
+      <param name="str1">输入 Platform.Object。</param>
+      <param name="str2">输入 Platform.Object。</param>
+      <returns>返回 Platform.String。</returns>
+    </member>
+    <member name="M:Platform.String.Concat(Platform.String,Platform.String)">
+      <summary>串联两个字符串。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>返回 Platform.String。</returns>
+    </member>
+    <member name="M:Platform.String.Data">
+      <summary>从 Platform.String 提取 wchar_t* 缓冲区。</summary>
+      <returns>返回 wchar_t* 缓冲区。</returns>
+    </member>    
+    <member name="M:Platform.String.Dispose">
+      <summary>Platform.Exception 的清理例程。</summary>
+    </member>
+    <member name="M:Platform.String.End">
+      <summary>提供指向容器中第一个元素的指针。</summary>
+      <returns>返回指针。</returns>
+    </member>
+    <member name="M:Platform.String.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <param name="obj">平台对象。</param>
+      <returns>如果对象的字符串值相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.String.Equals(Platform.String)">
+      <summary>将对象与其他 Platform.String 进行比较。</summary>
+      <param name="str">String 对象。</param>
+      <returns>如果字符串相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.String.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.String.IsEmpty">
+      <summary>检查 Platform.String 是否为空。</summary>
+      <returns>如果 Platform.String 为空则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.String.IsFastPass">
+      <summary>如果 Platform.String 为 fast pass 则提供信息。</summary>
+      <returns>如果 Platform.String 为 fast pass 则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.String.Length">
+      <summary>返回字符串的长度。</summary>
+      <returns>字符串的长度。</returns>
+    </member>
+    <member name="M:Platform.String.ToString">
+      <summary>返回字符串。</summary>
+      <returns>字符串值。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_Equality(Platform.String,Platform.String)">
+      <summary>如果 Platform.String 相同则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果相同则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_GreaterThan(Platform.String,Platform.String)">
+      <summary>如果第一个字符串大于第二个字符串则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果第一个字符串大于第二个字符串则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_GreaterThanOrEqual(Platform.String,Platform.String)">
+      <summary>如果第一个字符串大于或等于第二个字符串则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果第一个字符串大于或等于第二个字符串则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_Inequality(Platform.String,Platform.String)">
+      <summary>如果 Platform.String 不相同则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果不相同则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_LessThan(Platform.String,Platform.String)">
+      <summary>如果第二个字符串大于第一个字符串则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果第二个字符串大于第一个字符串则为 True，否则为 False。</returns>
+    </member>
+    <member name="M:Platform.Guid.op_LessThanOrEqual(Platform.String,Platform.String)">
+      <summary>如果第二个字符串大于或等于第一个字符串则返回 True，否则返回 False。</summary>
+      <param name="str1">输入 Platform.String。</param>
+      <param name="str2">输入 Platform.String。</param>
+      <returns>如果第二个字符串大于或等于第一个字符串则为 True，否则为 False。</returns>
+    </member>
+    
+    <member name="T:Platform.Type">
+      <summary>表示 Platform.Type 类。</summary>
+    </member>
+    <member name="F:Platform.Type._descriptior">
+      <summary>保留。</summary>
+    </member>
+    <member name="F:Platform.Type._owndescriptior">
+      <summary>保留。</summary>
+    </member>
+    <member name="M:Platform.Type.#ctor(Windows.UI.Xaml.Interop.TypeName)">
+      <summary>以 Windows.UI.Xaml.Interop.TypeName 作为参数的构造函数。</summary>
+      <param name="type">Windows.UI.Xaml.Interop.TypeName 输入值。</param>
+    </member>
+    <member name="M:Platform.Type.#ctor(Platform.Object)">
+      <summary>以 Platform.Object 作为参数的构造函数。</summary>
+      <param name="obj">Platform.Object 输入值。</param>
+    </member>
+    <member name="M:Platform.Type.#ctor(Platform.IntPtr)">
+      <summary>以 Platform.IntPtr 作为参数的构造函数。</summary>
+      <param name="ptr">Platform.IntPtr 输入值。</param>
+    </member>
+    <member name="M:Platform.Type.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Type.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.Type.GetTypeCode(Platform.Type)">
+      <summary>从 Platform.Type 检索 Platform.TypeCode。</summary>
+      <param name="type">Platform.Type 值。</param>
+      <returns>返回 Plaform.TypeCode。</returns>
+    </member>
+    <member name="M:Platform.Type.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    <member name="P:Platform.Type.FullName">
+      <summary>指定用于获取对象类型的完整名称的属性。</summary>      
+    </member>
+    <member name="M:Platform.Type.op_Implicit Windows.UI.Xaml.Interop.TypeName(Platform.Type)">
+      <summary>将 Platform.Type 转换为 Windows.UI.Xaml.Interop.TypeName。</summary>
+      <returns>返回 Windows.UI.Xaml.Interop.TypeName。</returns>
+    </member>
+    <member name="M:Platform.Type.op_Implicit(Windows.UI.Xaml.Interop.TypeName)">
+      <summary>将 Windows.UI.Xaml.Interop.TypeName 转换为 Platform.Type。</summary>
+      <returns>返回 Platform.Type。</returns>
+    </member>
+    
+    <member name="T:Platform.TypeCode">
+      <summary>表示 Platform.TypeCode 类。</summary>
+    </member>
+    <member name="F:Platform.TypeCode._value">
+      <summary>类型的 default.int32 值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Empty">
+      <summary>空类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Object">
+      <summary>对象类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Boolean">
+      <summary>bool 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Char16">
+      <summary>Char16 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Int8">
+      <summary>Int8 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.UInt8">
+      <summary>UInt8 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Int16">
+      <summary>Int16 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.UInt16">
+      <summary>UInt16 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Int32">
+      <summary>Int32 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.UInt32">
+      <summary>UInt32 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Int64">
+      <summary>Int64 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.UInt64">
+      <summary>UInt64 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Single">
+      <summary>单精度类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Double">
+      <summary>双精度类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.DateTime">
+      <summary>DateTime 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.String">
+      <summary>字符串类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.TimeSpan">
+      <summary>TimeSpan 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Point">
+      <summary>Point 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Size">
+      <summary>大小类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Rect">
+      <summary>Rect 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Guid">
+      <summary>Guid 类型的值。</summary>
+    </member>
+    <member name="F:Platform.TypeCode.Custom">
+      <summary>自定义类型的值。</summary>
+    </member>
+
+    <member name="T:Platform.UIntPtr">
+      <summary>无符号指针类型的表示形式。</summary>
+    </member>
+    <member name="F:Platform.UIntPtr._value">
+      <summary>类型的 void* 值。</summary>
+    </member>
+    
+    <member name="T:Platform.ValueType">
+      <summary>表示 Platform.ValueType 类。</summary>
+    </member>
+    <member name="M:Platform.ValueType.#ctor">
+      <summary>Platform.Object 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.ValueType.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.ValueType 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.ValueType.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    <member name="M:Platform.ValueType.GetType">
+      <summary>方法返回表示对象类型的 Platform.Type</summary>      
+      <returns>返回此对象的 Platform.Type。</returns>
+    </member>
+    <member name="M:Platform.ValueType.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.WrongThreadException">
+      <summary>表示错误线程异常(RPC_E_WRONG_THREAD)。</summary>
+    </member>
+    <member name="M:Platform.WrongThreadException.#ctor">
+      <summary>Platform.WrongThreadException 的默认构造函数。</summary>
+    </member>
+    <member name="M:Platform.WrongThreadException.#ctor(Platform.String)">    
+      <summary>以调试消息作为参数的构造函数。</summary>
+      <param name="message">输入调试消息。</param>
+    </member>    
+    
+    <!-- End of Platform namespace -->
+    
+    <!-- Begin of Platform.Details namespace -->
+    <member name="N:Platform.Details">
+      <summary>提供常规 C++/CX 框架内部实现接口和类。</summary>
+    </member>
+    
+    <member name="T:Platform.Details.Console">
+      <summary>标准输出流的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Details.Console.WriteLine(Platform.Object)">
+      <summary>将 Platform.Object 的字符串值输出到标准输出流。</summary>
+      <param name="obj">输入 Platform.Object</param>
+    </member>
+    <member name="M:Platform.Details.Console.WriteLine(Platform.String)">
+      <summary>将 Platform.String 输出到标准输出流。</summary>
+      <param name="string">输入 Platform.String</param>
+    </member>
+    <member name="M:Platform.Details.Console.WriteLine">
+      <summary>将行尾输出到标准输出流。</summary>      
+    </member>
+    
+    <member name="T:Platform.Details.Heap">
+      <summary>堆对象的表示形式</summary>
+    </member>
+    <member name="M:Platform.Details.Heap.AlignedAllocate(Platform.SizeT, Platform.SizeT)">
+      <summary>在指定对齐边界分配内存。</summary>
+      <param name="size">请求的内存分配的大小。</param>
+      <param name="alignment">对齐值，必须是 2 的整数次幂。</param>
+      <returns>指向已分配内存的指针。</returns>      
+    </member>    
+    <member name="M:Platform.Details.Heap.AllignedFree(void*, Platform.SizeT)">
+      <summary>释放已通过 Platfrom.Details.Heap.AlignedAllocate 分配的内存块。</summary>
+      <param name="ptr">指向已通过 Platform.Details.Heap.AlignedAllocate 分配的内存的指针。</param>
+      <param name="alignment">对齐值，必须是 2 的整数次幂。</param>
+    </member>    
+    <member name="M:Platform.Details.Heap.Allocate(Platform.SizeT,void*)">
+      <summary>放置分配。</summary>
+    </member>
+    <member name="M:Platform.Details.Heap.Allocate(Platform.SizeT)">
+      <summary>分配内存块。</summary>
+      <param name="size">要分配的字节数。</param>
+      <returns>指向已分配内存的指针。</returns>      
+    </member>
+    <member name="M:Platform.Details.Heap.EnumerateAllocatedObjects(Platform.Details.HeapEntryHandler)">
+      <summary>通过 Platform.Details.HeapEntryHandler 枚举所有已分配的对象</summary>
+      <param name="size">将在枚举时调用的委托。</param>
+    </member>    
+    <member name="M:Platform.Details.Heap.Free(void*)">
+      <summary>解除分配或释放内存块。</summary>
+      <param name="ptr">要释放的以前分配的内存块。</param>      
+    </member>
+    <member name="M:Platform.Details.Heap.PlacementFree(void*, void*)">
+      <summary>释放放置。</summary>      
+    </member>
+    <member name="P:Platform.Details.Heap.BreakOnAllocationId">
+      <summary>指定用于设置/获取将由 Platform.Details.Heap 调用调试中断的分配 ID 的属性。</summary>      
+    </member>
+    <member name="P:Platform.Details.Heap.BreakOnFreeId">
+      <summary>指定用于设置/获取将由 Platform.Details.Heap 调用调试中断的释放 ID 的属性。</summary>
+    </member>
+    <member name="P:Platform.Details.Heap.CurrentAllocationId">
+      <summary>指定用于从 Platform.Details.Heap 获取当前分配 ID 的属性。</summary>      
+    </member>
+    <member name="P:Platform.Details.Heap.ObjectCount">
+      <summary>指定用于从 Platform.Details.Heap 获取对象计数的属性。</summary>      
+    </member>
+    <member name="P:Platform.Details.Heap.TrackingLevel">
+      <summary>指定用于设置/获取 Platform.Details.Heap 的跟踪级别的属性。</summary>      
+    </member>
+    
+    <member name="T:Platform.Details.HeapAllocationTrackingLevel">
+      <summary>表示分配跟踪级别值</summary>
+    </member>
+    <member name="F:Platform.Details.HeapAllocationTrackingLevel.value__">
+      <summary>分配跟踪级别的值。</summary>
+    </member>
+    <member name="F:Platform.Details.HeapAllocationTrackingLevel.NoTracking">
+      <summary>跟踪被禁用。</summary>
+    </member>
+    <member name="F:Platform.Details.HeapAllocationTrackingLevel.ObjectCount">
+      <summary>跟踪对象计数。</summary>
+    </member>
+    <member name="F:Platform.Details.HeapAllocationTrackingLevel.ObjectInstances">
+      <summary>跟踪对象实例。</summary>
+    </member>
+    <member name="F:Platform.Details.HeapAllocationTrackingLevel.BreakOnErrors">
+      <summary>中断错误。</summary>
+    </member>
+
+    <member name="T:Platform.Details.HeapEntryHandler">
+      <summary>表示在枚举对象时可由 Platform.Details.Heap 调用的委托</summary>
+    </member>
+    <member name="M:Platform.Details.HeapEntryHandler.Invoke(Platform.Object, default.int32)">
+      <summary>在调用 Platform.Details.Heap.EnumerateAllocatedObjects 时调用用户定义的操作</summary>
+      <param name="obj">已由 Platform.Details.Heap 分配的 Platform.Object</param>
+      <param name="allocId">分配 ID</param>
+    </member>
+    
+    <member name="T:Platform.Details.IActivationFactory">
+      <summary>必须为具有可激活类标识符、且已在 Windows Runtime Activation Store 中注册的每个类实现此接口。</summary>
+    </member>
+    <member name="M:Platform.Details.IActivationFactory.ActivateInstance">
+      <summary>创建与当前激活工厂关联的新 Windows 运行时类实例。</summary>
+      <returns>返回请求的对象</returns>
+    </member>
+    
+    <member name="T:Platform.Details.IAgileObject">
+      <summary>将接口在各个单元中标记为敏捷。</summary>
+    </member>
+    
+    <member name="T:Platform.Details.IClassFactory">
+      <summary>启用要创建的对象的类。</summary>
+    </member>
+    <member name="M:Platform.Details.IClassFactory.CreateInstance(Platform.Object, Platform.Guid)">
+      <summary>创建一个未初始化的对象。</summary>
+      <param name="pUnkOuter">如果要创建的对象是一个聚合的组成部分，则指定一个指向该聚合的控制 Iunknown 接口的指针。否则，该参数必须为 NULL。</param>
+      <param name="riid">对要用于与新建对象进行通信的接口的标识符的引用。如果 pUnkOuter 为 NULL，则该参数通常是初始化接口的 IID；如果 pUnkOuter 不为 NULL，则 riid 必须为 IID_IUnknown。</param>
+      <returns>返回请求的对象</returns>
+    </member>
+    <member name="M:Platform.Details.IClassFactory.LockSever(default.int32)">
+      <summary>锁定在内存中打开的对象应用程序。这可实现更快速的实例创建。</summary>
+      <param name="fLock">如果为 TRUE，则递增锁计数；如果为 FALSE，则递减锁计数。</param>
+    </member>
+    
+    <member name="T:Platform.Details.IEquatable">
+      <summary>default.int8 的表示形式</summary>
+    </member>
+    <member name="M:Platform.Details.IEquatable.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>
+    <member name="M:Platform.Details.IEquatable.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>
+    
+    <member name="T:Platform.Details.IPrintable">
+      <summary>表示对象的可打印接口。</summary>
+    </member>
+    <member name="M:Platform.Details.IPrintable.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.Details.IWeakReference">
+      <summary>表示对象的弱引用接口。</summary>
+    </member>
+    <member name="M:Platform.Details.IWeakReference.Resolve(Platform.Guid)">
+      <summary>通过返回对指定对象的强引用来解析弱引用。</summary>
+      <returns>返回 Platform.Object</returns>
+    </member>
+
+    <member name="T:Platform.Details.IWeakReferenceSource">
+      <summary>表示可检索对其的弱引用的源对象。</summary>
+    </member>    
+    <member name="M:Platform.Details.IWeakReferenceSource.GetWeakReference">
+      <summary>从 Platform.IWeakReferenceSource 检索弱引用。</summary>
+      <returns>返回 Platform.IWeakReference 接口</returns>
+    </member>
+    
+    <member name="T:Platform.Details._GUID">
+      <summary>Platform._GUID 的表示形式。</summary>
+    </member>
+    
+    <!-- End of Platform.Details namespace -->
+    
+    <!-- Begin of Platform.Metadata namespace -->
+    <member name="N:Platform.Metadata">
+      <summary>提供元数据属性的类型。</summary>
+    </member>
+    
+    <member name="T:Platform.Metadata.Attribute">
+      <summary>Platform.Metadata.Attribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Metadata.Attribute.#ctor">
+      <summary>Platform.Metadata.Attribute 对象的默认构造函数。</summary>
+    </member>    
+    <member name="M:Platform.Metadata.Attribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.Attribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.Attribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.Metadata.DefaultMemberAttribute">
+      <summary>Platform.Metadata.DefaultMemberAttribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Metadata.DefaultMemberAttribute.#ctor(Platform.String)">
+      <summary>Platform.Metadata.DefaultMemberAttribute 对象的构造函数。</summary>
+      <param name="str">输入 Platform.String。</param>
+    </member>    
+    <member name="M:Platform.Metadata.DefaultMemberAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.DefaultMemberAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.DefaultMemberAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.Metadata.FlagsAttribute">
+      <summary>Platform.Metadata.FlagsAttribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Metadata.FlagsAttribute.#ctor">
+      <summary>Platform.Metadata.FlagsAttribute 对象的默认构造函数。</summary>
+    </member>    
+    <member name="M:Platform.Metadata.FlagsAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.FlagsAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.FlagsAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+    <member name="T:Platform.Metadata.RuntimeClassNameAttribute">
+      <summary>Platform.Metadata.RuntimeClassNameAttribute 的表示形式。指定将从中获取运行时类名称的接口。</summary>
+    </member>
+    <member name="M:Platform.Metadata.RuntimeClassNameAttribute.#ctor">
+      <summary>Platform.Metadata.RuntimeClassNameAttribute 对象的默认构造函数。</summary>
+    </member>    
+    <member name="M:Platform.Metadata.RuntimeClassNameAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.RuntimeClassNameAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Metadata.RuntimeClassNameAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>    
+    <!-- End of Platform.Metadata namespace -->
+    
+    
+    <!-- Begin of Platform.Runtime.CompilerServices namespace -->
+    <member name="N:Platform.Runtime.CompilerServices">
+      <summary>已保留编译器修饰符。</summary>
+    </member>
+    
+    <member name="T:Platform.Runtime.CompilerServices.CallConvCdecl">
+      <summary>指定调用约定 __cdecl。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.CallConvFastcall">
+      <summary>指定调用约定 __fastcall。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.CallConvStdcall">
+      <summary>指定调用约定 __stdcall。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.CallConvThiscall">
+      <summary>指定调用约定 __thiscall。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.CompilerMarshalOverride">
+      <summary>指定编译器封送重写。</summary>
+    </member>
+
+    <member name="T:Platform.Runtime.CompilerServices.IndexerNameAttribute">
+      <summary>指定索引器名称特性。</summary>
+    </member>
+	<member name="M:Platform.Runtime.CompilerServices.IndexerNameAttribute.#ctor(Platform.String)">
+      <summary>Platform.Runtime.CompilerServices.IndexerNameAttribute 对象的构造函数。</summary>
+      <param name="str">输入字符串。</param>
+    </member>  
+	<member name="M:Platform.Runtime.CompilerServices.IndexerNameAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.CompilerServices.IndexerNameAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.CompilerServices.IndexerNameAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>    
+
+    <member name="T:Platform.Runtime.CompilerServices.IsBoxed">
+      <summary>将类型指定为“装箱”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsByValue">
+      <summary>将类型指定为“按值”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsConst">
+      <summary>将类型指定为“const”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsCopyConstructed">
+      <summary>将类型指定为“构造副本”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsExplicitlyDereferenced">
+      <summary>将类型指定为“显式取消引用”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsImplicitlyDereferenced">
+      <summary>将类型指定为“隐式取消引用”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsLong">
+      <summary>将类型指定为“long”</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsSignUnspecifiedByte">
+      <summary>指定未指定签名的字节。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsSigned">
+      <summary>将类型指定为“已签名”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsUdtReturn">
+      <summary>指定的 udt 返回。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.IsVolatile">
+      <summary>将类型指定为“可变”。</summary>
+    </member>
+    <member name="T:Platform.Runtime.CompilerServices.OnePhaseConstructedAttribute">
+      <summary>指定将采用一段式构造的类型。</summary>
+    </member>    
+	<member name="M:Platform.Runtime.CompilerServices.OnePhaseConstructedAttribute.#ctor(Platform.String)">
+      <summary>默认构造函数。</summary>
+    </member>  
+	<member name="M:Platform.Runtime.CompilerServices.OnePhaseConstructedAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.CompilerServices.OnePhaseConstructedAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.CompilerServices.OnePhaseConstructedAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>   
+    <!-- End of Platform.Runtime.CompilerServices namespace -->
+
+    <!-- Begin of Platform.Runtime.InteropServices namespace -->
+    <member name="N:Platform.Runtime.InteropServices">
+      <summary>Interopt 修饰符。</summary>
+    </member>
+    
+    <member name="T:Platform.Runtime.InteropServices.ComInterfaceType">
+      <summary>Platform.Runtime.InteropServices.ComInterfaceType 的表示形式。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.ComInterfaceType.value__">
+      <summary>类型的 default.int32 值。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.ComInterfaceType.InterfaceIsDual">
+      <summary>接口为双重接口。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.ComInterfaceType.InterfaceIsIDispatch">
+      <summary>接口为可调度的接口。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable">
+      <summary>接口基于 IInspectable。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown">
+      <summary>接口基于 IUnknown。</summary>
+    </member>
+    
+    <member name="T:Platform.Runtime.InteropServices.LayoutKind">
+      <summary>Platform.Runtime.InteropServices.LayoutKind 的表示形式。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.LayoutKind.value__">
+      <summary>类型的 default.int32 值。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.LayoutKind.Auto">
+      <summary>布局为自动布局。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.LayoutKind.Explicit">
+      <summary>布局为显式布局。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.LayoutKind.Sequential">
+      <summary>布局为连续布局。</summary>
+    </member>
+    
+    <member name="T:Platform.Runtime.InteropServices.MarshalAsAttribute">
+      <summary>Platform.Runtime.InteropServices.MarshalAsAttribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Runtime.InteropServices.MarshalAsAttribute.#ctor">
+      <summary>Platform.Runtime.InteropServices.MarshalAsAttribute 对象的默认构造函数。</summary>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.MarshalAsAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.MarshalAsAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.MarshalAsAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+	
+	<member name="T:Platform.Runtime.InteropServices.InterfaceTypeAttribute">
+      <summary>Platform.Runtime.InteropServices.InterfaceTypeAttribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Runtime.InteropServices.InterfaceTypeAttribute.#ctor(Platform.Runtime.InteropServices.ComInterfaceType)">
+      <summary>Platform.Runtime.InteropServices.InterfaceTypeAttribute 对象的构造函数。</summary>
+	  <param name="interface type">接口的类型。</param>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.InterfaceTypeAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.InterfaceTypeAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.InterfaceTypeAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+	 <member name="T:Platform.Runtime.InteropServices.StructLayoutAttribute">
+      <summary>Platform.Runtime.InteropServices.StructLayoutAttribute 的表示形式。</summary>
+    </member>
+    <member name="M:Platform.Runtime.InteropServices.StructLayoutAttribute.#ctor(Platform.Runtime.InteropServices.LayoutKind)">
+      <summary>Platform.Runtime.InteropServices.StructLayoutAttribute 对象的构造函数。</summary>
+	  <param name="layout">布局类型。</param>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.StructLayoutAttribute.Equals(Platform.Object)">
+      <summary>将对象与其他 Platform.Object 进行比较。</summary>
+      <returns>如果对象相同则返回 True，否则返回 False。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.StructLayoutAttribute.GetHashCode">
+      <summary>根据包含的数据生成哈希代码。</summary>
+      <returns>对象的哈希代码。</returns>
+    </member>    
+    <member name="M:Platform.Runtime.InteropServices.StructLayoutAttribute.ToString">
+      <summary>返回对象的字符串表示形式。</summary>
+      <returns>对象的字符串值。</returns>
+    </member>
+    
+	
+    <member name="T:Platform.Runtime.InteropServices.UnmanagedType">
+      <summary>Platform.Runtime.InteropServices.UnmanagedType 的表示形式。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.UnmanagedType.value__">
+      <summary>类型的 default.int32 值。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.UnmanagedType.BStr">
+      <summary>非托管类型为 BStr。</summary>
+    </member>
+    <member name="F:Platform.Runtime.InteropServices.UnmanagedType.LPWStr">
+      <summary>非托管类型为 LPWstr。</summary>
+    </member>
+    <!-- End of Platform.Runtime.InteropServices namespace -->
+    
+  </members>
+</doc>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+    xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal" 
+    Title="Welcome to Visual Studio: Part 1" 
+    Description="Get a quick tour of the IDE and its features." 
+    RequiredPackageNames="Microsoft.VisualStudio.Component.CoreEditor"
+    Id="Welcome" 
+    SortOrder="010" 
+    EstimatedMinutesToComplete="5" 
+    IconPath="welcome.ico">
+    <vst:Step Title="Welcome to Visual Studio!" Id="Welcome.Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll get a brief introduction to the Visual Studio IDE.
+
+The guide is broken up into two parts. In Part 1, you'll learn about the IDE's basic features. In Part 2, you'll learn about editing and debugging with the IDE.
+
+In this part, you'll learn about the following topics:
+
+- Creating new projects
+- Navigating Solution Explorer
+- Using the integrated Git tools to clone a repository, commit changes, and more
+- Using Feature Search to find features in Visual Studio
+- Setting your preferred theme
+- Customizing editor preferences
+- Customizing the window layout
+- Extending Visual Studio with extensions
+- Installing additional languages and workloads
+- Signing in to Visual Studio
+
+Let's start by learning how to create a new project. Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Creating new projects"
+              Id="Welcome.FileMenu"
+              MenuToHighlight="File" >
+        <vst:Step.Description>
+            <![CDATA[
+Creating a new project is easy!
+
+From the menu bar, select [**File** > **New** > **Project**](vscmd://File.NewProject) (or press {KeyboardShortcut:File.NewProject}) to open the **Create a new project** dialog. This dialog lets you create new projects and add them to your solution. You can browse the project templates by language, platform, and type. If you don't see the template you want, you can search for it by name.
+
+The list of available templates depends on the workloads you've installed. We'll talk more about workloads later.
+
+![An animation showing how to create a new project. The "Create a new project" dialog is open. The user selects C# as their language and "Web" as their project type. The user then selects "ASP.NET Core Web App" from the list of results and clicks Next.](Welcome.NewProject.mp4 "Create a new project")
+
+Select **Continue** to learn about the Solution Explorer window.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step 
+        Title="Navigating Solution Explorer" 
+        Id="Welcome.SolutionExplorer" 
+        ToolWindowToOpen="SolutionExplorer">
+        <vst:Step.Description>
+            <![CDATA[
+This is the [**Solution Explorer**](vscmd://View.SolutionExplorer) window. It shows the files in your project, as well as the files in any other projects in your solution. You can use **Solution Explorer** to navigate to any file in your solution, and to add new files to your project. You can also use **Solution Explorer** to manage your project's references, and to build and run your project.
+
+![Solution Explorer](Welcome.SolutionExplorer.png)
+
+The nodes contained in **Solution Explorer** vary depending on the project type. In the following example, the solution is a C# console application with two projects. The **Solution Explorer** window shows each project's files, as well as their references and dependencies.
+
+![Screenshot of the Visual Studio IDE that shows **Solution Explorer** with the elements highlighted. The definitions are in the table below.](Welcome.SolutionExplorer.Annotated.png)
+
+The following table contains definitions for the elements highlighted in the screenshot above.
+
+| **UI element**  | **Action**  |
+|----------------------|---------|
+| **Toolbar** | Control how your files appear |
+| **Search** bar | Search for specific files and file types |
+| **Main** window | View and manage your files, projects, & solutions |
+| **Solution** node | Manage your solution(s) |
+| **Project** node] | Manage your project(s) |
+| **Dependencies** node | Manage your solution & project dependencies |
+| **Program** node | View, edit, and manage your app |
+| **Git Changes** tab |  Use Git & GitHub within Visual Studio to collaborate on projects with your team |
+
+[Learn more about Solution Explorer](https://learn.microsoft.com/visualstudio/ide/use-solution-explorer).
+
+Select **Continue** to learn how to use Git repositories in Visual Studio.         
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Git tools in Visual Studio"
+        Id="Welcome.Git">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio includes integrated Git tools that make it easy to work with Git repositories. If you have the Git source control plug-in enabled, you can can clone a repository, commit changes, and more, all from the **Git** menu. You can also use the Git tools to create branches, merge branches, and resolve conflicts.
+
+![A screenshot of the Git menu with the Clone Repository command highlighted](Welcome.Git.Menu.png "Git menu")
+
+The **Git Changes** window shows the changes you've made to your files. You can use it to stage changes, commit changes, and push changes to a remote repository.
+
+![A screenshot of the Git Changes window. The open editor tab compares changes made to Program.cs. The comment "Removed debug line" is written in the message box.](Welcome.Git.Changes.png "Git Changes window")
+
+Note that the **Git** menu and **Git Changes** window are only available if you have the Git source control plug-in enabled (it's enabled by default). You can configure Git and other source control plug-ins by selecting [**Tools** > **Options**](vscmd://Tools.Options), and then expanding **Source Control**.
+
+[Learn more about version control in Visual Studio](https://learn.microsoft.com/visualstudio/version-control/).
+
+Select **Continue** to learn how to quickly find features and tools in Visual Studio.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Using Feature Search to find features in Visual Studio" 
+        Id="Welcome.Search" 
+        CommandToHighlight="Window.QuickLaunch"> <!-- This isn't going to work ☹️ -->
+        <vst:Step.Description>
+            <![CDATA[
+If you're not sure where to find the feature you're looking for, you can use the [**Feature Search**](vscmd://Window.QuickLaunch) tool to find it. You can also use the **Feature Search** tool to open files, run commands, and more.
+
+Let's try it out. Select **Feature Search** {KeyboardShortcut:Window.QuickLaunch} from the dropdown next to the **Search** button on the menu bar. Type *theme* and select one of the first search results to change your theme.
+
+![An animation demonstrating the Feature Search tool. Visual Studio is displayed using the Dark theme. The user opens the Feature Search tool and types "theme". The user selects the "Blue -- Tools > Theme > Blue" search result and applies the theme.](Welcome.Search.mp4 "Feature Search")
+
+[Learn more about searching for features and code in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-search)
+
+Select **Continue** to learn another way of changing your theme.            
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Setting your preferred theme" 
+        Id="Welcome.Themes" 
+        MenuToHighlight="Tools">
+        <vst:Step.Description>
+            <![CDATA[
+Speaking of themes, the commands to change your theme are located under **Tools** > **Theme**. Try changing your theme again.
+
+![An animation showing how to change the theme. Visual Studio is displayed using the Blue theme. The user selects "Tools" > "Theme" > "Dark" and the change is applied.](Welcome.Themes.mp4 "Setting your preferred theme")
+
+[Learn more about personalizing Visual Studio](https://learn.microsoft.com/visualstudio/ide/quickstart-personalize-the-ide).
+
+Select **Continue** to learn about customizing your editor preferences.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Customizing editor preferences" 
+        Id="Welcome.Editor" 
+        MenuToHighlight="Tools">
+        <vst:Step.Description>
+            <![CDATA[
+Do you prefer tabs or spaces? What about word wrap? What's your preferred font size? Every developer has their preferences, and you can customize the editor to suit yours. The commands to change your editor preferences are located under [**Tools** > **Options**](vscmd://Tools.Options), and then expand **Text Editor**.
+
+You can set your preferences for all languages, or you can set them for a specific language.
+
+![A screenshot of the Options dialog with the Text Editor node expanded. Indenting has been set to "Smart." Tab size has been set to 4. Indent size has been set to 4. The "Insert spaces" radio button is selected.](Welcome.Editor.Options.png "Editor preferences")
+
+[Learn more about text editor options in Visual Studio](https://learn.microsoft.com/visualstudio/ide/reference/options-text-editor-general).
+
+Select **Continue** to learn about window layouts.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Customizing the window layout"
+        Id="Welcome.WindowLayout" 
+        MenuToHighlight="Window">
+        <vst:Step.Description>
+            <![CDATA[
+Most tool windows in Visual Studio can be docked, floated, or hidden. Try clicking and dragging the title bar of this **Guides** window to move it around. You can use the visual cues to dock it to the edges of the screen, or put it into its own tab by dragging to the icon in the center.
+
+When you're ready to reset the layout, select [**Window** > **Reset Window Layout**](vscmd://Window.ResetWindowLayout).
+
+![Animation demonstrating window layout functions. The Guide window is undocked, moved, resized, and then docked to the top of the screen. The window layout is then reset using the Reset Window Layout command on the Window menu.](Welcome.WindowLayout.mp4 "Window Layout")
+
+If you close a window and can't remember how to open it, you can use the [**Feature Search**](vscmd://Window.QuickLaunch) {KeyboardShortcut:Window.QuickLaunch} tool to find it.
+
+[Learn more about customizing window layouts in Visual Studio](https://learn.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio).
+
+Select **Continue** to proceed learn about extending Visual Studio.
+        ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Extending Visual Studio with extensions"
+        Id="Welcome.Extensions" 
+        MenuToHighlight="Extensions">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio is extensible! Extensions are code packages that run inside Visual Studio and provide new or improved features. To view the list of installed extensions, select **Extensions** > **Manage Extensions**. You can also browse Visual Studio Marketplace to find and install new extensions.
+
+![A screenshot of the Manage Extensions dialog. The Visual Studio Marketplace branch of the tree is highlighted and the most popular extensions are listed.](Welcome.Extensions.Manager.png "Manage Extensions dialog")
+
+[Learn more about extensions in Visual Studio](https://learn.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
+
+select **Continue** to learn about workloads.
+        ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Installing additional languages and workloads"
+        Id="Welcome.Workloads"
+        MenuToHighlight="Tools">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio comes with a set of workloads installed by default. A workload is a collection of tools and features that are relevant to a specific type of development. For example, the **Python** workload includes tools for building apps with Python, the **Azure development** workload includes tools for building apps that run in Azure, and so on.
+
+To see the list of installed workloads or install additional workloads, select [**Tools** > **Get Tools and Features**](vscmd://Tools.GetToolsAndFeatures). You can also use the [**Feature Search**](vscmd://Window.QuickLaunch) tool to find the **Get Tools and Features** command.
+
+![A screenshot of the Visual Studio Installer. The Workloads tab is selected. The Python workload is selected for installation.](Welcome.Workloads.GetToolsOrFeatures.png "Adding workloads")
+
+[Learn more about modifying Visual Studio workloads, components, and language packs](https://learn.microsoft.com/visualstudio/install/modify-visual-studio).
+   
+Select **Continue** to learn about signing in to Visual Studio.
+        ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Signing in to Visual Studio"
+        Id="Welcome.SignIn"
+        MenuToHighlight="File">
+        <vst:Step.Description>
+            <![CDATA[
+Why sign in? There are several reasons, including syncing your settings across devices, automatically signing in to Azure, and more. You can read more about the benefits of signing in to Visual Studio [here](https://learn.microsoft.com/visualstudio/ide/signing-in-to-visual-studio?view=vs-2022#benefits-why-sign-in).
+
+If you're not already signed in, you can do so by selecting [**File** > **Account Settings**](vscmd://File.AccountSettings). Select the **Sign in** button and follow the prompts.
+
+![A screenshot of the Account Settings dialog. The "Sign in" button is highlighted.](Welcome.SignIn.AccountSettings.png "Account Settings dialog")
+
+[Learn more about settings synchronization](https://learn.microsoft.com/visualstudio/ide/synchronized-settings-in-visual-studio).
+
+Select **Continue** to proceed.
+        ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Next steps"
+        Id="Welcome.NextSteps" >
+        <vst:Step.Description>
+            <![CDATA[
+That's a quick rundown of the Visual Studio IDE! Now that you're familiar with the basics, let's try some of the editing and debugging features. To continue, choose your preferred language from the list below. You'll be prompted to install the appropriate workload if it's not installed already.
+
+- [C#](vscmd://Help.StartGuide?args=Welcome.CSharp)
+- [C++](vscmd://Help.StartGuide?args=Welcome.Cpp)
+- [Python](vscmd://Help.StartGuide?args=Welcome.Python)
+
+If you're not sure which language to choose, you can always come back later. 
+
+For additional learning resources, check out the following links:
+
+- [Visual Studio documentation](https://learn.microsoft.com/visualstudio/windows/)
+- [Introduction to Visual Studio](https://learn.microsoft.com/training/modules/visual-studio-intro/) (Microsoft Learn Training)
+- [Visual Studio on YouTube](https://www.youtube.com/visualstudio)
+
+Comments or suggestions for this guide? [Send us feedback](vscmd://Help.MyFeedback)!
+        ]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+</vst:Guide>

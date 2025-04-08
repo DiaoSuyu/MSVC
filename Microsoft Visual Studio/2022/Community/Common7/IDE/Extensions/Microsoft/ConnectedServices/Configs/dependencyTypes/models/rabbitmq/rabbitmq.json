@@ -1,0 +1,20 @@
+{
+  "id": "rabbitmq",
+  "isBase": true,
+  "name": "strings:#/rabbitmqDependencyTypeName",
+  "description": "strings:#/rabbitmqDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1866
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1866
+  },
+  "displayOrder": 6900,
+  "actions": [],
+  "tags": []
+}

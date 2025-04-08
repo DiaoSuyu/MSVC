@@ -1,0 +1,9 @@
+[$RootKey$\Licenses\C373D34F-42BF-4a9a-86E8-7CAF19D93A60]
+@="qpoitapoutpqwoiutdegjmznzxmcnvzxclguituwpo"
+
+[$RootKey$\Menus]
+"{13bfcd3d-3597-4e97-bbac-16a393654f5a}"=", 1003, 1"
+
+[$RootKey$\Packages\{13bfcd3d-3597-4e97-bbac-16a393654f5a}\SatelliteDll]
+"DllName"="Microsoft.VisualStudio.QualityTools.TestCaseManagementUI.dll"
+"Path"="$ShellFolder$\Common7\IDE\PrivateAssemblies\"

@@ -1,0 +1,46 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationAzureAppConfigurationNamespaceMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration.AzureAppConfiguration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration.AzureAppConfiguration;",
+            "tokens": {}
+          }
+        ]
+      }
+    ]
+  }
+}

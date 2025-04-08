@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 HTTP 下载文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 HTTP 下载文件。</Description>
+      <Shortcut>conDown</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>url</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要下载的文件的 URL。</ToolTip>
+          <Default>"http://www.URLtoDownloadFrom.net"</Default>
+        </Literal>
+        <Literal>
+          <ID>location</ID>
+          <Type>String</Type>
+          <ToolTip>替换为本地文件的路径。</ToolTip>
+          <Default>"C:\filename.html"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.Network.DownloadFile($url$, $location$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

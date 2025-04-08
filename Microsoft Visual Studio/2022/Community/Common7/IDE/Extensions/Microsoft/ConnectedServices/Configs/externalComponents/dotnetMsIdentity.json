@@ -1,0 +1,18 @@
+{
+  "id": "dotnetMsIdentity",
+  "kind": "DotNetMsIdentity",
+  "needsHostRestart": false,
+  "canAutoInstall": true,
+  "name": "strings:#/dotnetMsIdentity",
+  "description": "strings:#/dotnetMsIdentityToolDescription",
+  "image": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3810
+  },
+  "model": {
+    "toolName": "Microsoft.DotNet-MsIdentity",
+    "packageName": "microsoft.dotnet-msidentity",
+    "minVersion": "2.0.8",
+    "maxVersion": ""
+  }
+}

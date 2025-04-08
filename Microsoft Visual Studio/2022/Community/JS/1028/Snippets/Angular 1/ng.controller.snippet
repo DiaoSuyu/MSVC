@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ngctrl</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>用於新增 Angular Controller 的範本</Description>
+      <Shortcut>ngctrl</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>module</ID>
+          <ToolTip>取代為模組名稱。</ToolTip>
+          <Default>app</Default>
+        </Literal>
+        <Literal>
+          <ID>controller</ID>
+          <ToolTip>取代為控制器名稱。</ToolTip>
+          <Default>customController</Default>
+        </Literal>
+        <Literal>
+          <ID>dependency</ID>
+          <ToolTip>取代為控制器相依性的名稱。</ToolTip>
+          <Default>$scope</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="JavaScript">
+        <![CDATA[
+(function () {
+    'use strict';
+
+    angular
+      .module('$module$')
+      .controller('$controller$', ['$dependency$', $controller$]);
+
+    function $controller$($dependency$) {
+        var vm = this;
+
+        vm.title = '';
+
+        activate();
+
+        function activate() { }
+    }
+})();
+                ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

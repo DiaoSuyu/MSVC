@@ -1,0 +1,7 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateDir>
+    <RelativePath>VC\Test</RelativePath>
+    <LocalizedName Package="{976CF7D5-2A72-47A3-9E46-5B7C3DB95F17}" ID="2309" />
+    <SortOrder>80</SortOrder>
+  </VSTemplateDir>
+</VSTemplateManifest>

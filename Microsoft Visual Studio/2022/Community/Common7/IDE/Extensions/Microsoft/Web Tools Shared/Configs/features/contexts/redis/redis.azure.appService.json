@@ -1,0 +1,61 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "6.0",
+        "comparison": "GreaterThanOrEqualTo"
+      },
+      "config": "redis.azure.appService.coreweb60"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "redis.azure.appService.coreweb"
+    },
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "DotNetCoreWorker"
+      },
+      "config": "redis.azure.appService.coreweb"
+    },
+    {
+      "when": {
+        "kind": "not",
+        "operand": {
+          "kind": "and",
+          "operands": [
+            {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            },
+            {
+              "kind": "not",
+              "operand": {
+                "kind": "HasTargetFramework",
+                "tfmPrefixOrFull": ".NetStandard"
+              }
+            }
+          ]
+        }
+      },
+      "config": "redis.azure.appService"
+    }
+  ]
+}

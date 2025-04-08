@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  @@containerName@@:
+    hostname: vs
+    image: "@@containerImage@@"
+    ports: 
+@@        - :[containerPorts]@@
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_log:/var/log/rabbitmq
+
+volumes: 
+  rabbitmq_data:
+  rabbitmq_log:

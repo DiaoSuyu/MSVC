@@ -1,0 +1,175 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespaces",
+        "condition": "ClassicEntryPoint",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationAzureAppConfigurationNamespaces",
+        "condition": "ClassicEntryPoint",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration.AzureAppConfiguration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration.AzureAppConfiguration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAzureIdentityNamespaces",
+        "condition": "ClassicEntryPoint",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Azure.Identity;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Azure.Identity;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddAzureAppConfiguration",
+        "condition": "ClassicEntryPoint",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureAppConfiguration"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "\r\n\r\n// Add Azure App Configuration.\r\nvar config = new ConfigurationBuilder().AddUserSecrets(System.Reflection.Assembly.GetExecutingAssembly(), true);\r\nvar azAppConfigConnection = config.Build()[`@@connectionId@@`];\r\nIConfigurationRefresher refresher = null;\r\nvar key = `TestApp:Settings:Message`;\r\n\r\nif (Uri.TryCreate(azAppConfigConnection, UriKind.Absolute, out var endpoint)) {\r\n// Use Azure Active Directory authentication.\r\n// The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n// For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\nconfig.AddAzureAppConfiguration(options => {\r\noptions.Connect(endpoint, new DefaultAzureCredential());\r\noptions.ConfigureRefresh(refresh => {\r\n// Register for refresh operation.\r\nrefresh.Register(key);\r\n});\r\nrefresher = options.GetRefresher();\r\n});\r\n}\r\n\r\nvar azAppConfig = config.Build();\r\nConsole.WriteLine($`The current value of '{key}' is '{azAppConfig[key] ?? `Key not found`}'.`);\r\n\r\n// Wait for the value to change.\r\nConsole.WriteLine($`Now please change the value of the key '{key}' in App Configuration and then press Enter...`);\r\nConsole.ReadLine();\r\nrefresher?.TryRefreshAsync().Wait();\r\n\r\nConsole.WriteLine($`The current value of '{key}' is '{azAppConfig[key] ?? `Key not found`}'.`);",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              },
+              "endpoint": {
+                "name": "endpoint",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "endpoint"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "Microsoft.ApiManagement/service/apis": "apis.azure",
+  "Microsoft.AppConfiguration/configurationStores": "appConfig.azure",
+  "Microsoft.Cache/Redis": "redis.azure",
+  "Microsoft.DocumentDB/databaseAccounts": "cosmosdb.azure",
+  "Microsoft.Identity/applications": "identityapp.secretStore",
+  "microsoft.insights/components": "appInsights.azure",
+  "Microsoft.KeyVault/vaults": "secrets.keyVault",
+  "Microsoft.SignalRService/SignalR": "signalr.azure",
+  "Microsoft.Sql/servers/databases": "mssql.azure",
+  "Microsoft.Storage/storageAccounts": "storage.azure",
+  "Microsoft.Web/sites": "compute.appService"
+}

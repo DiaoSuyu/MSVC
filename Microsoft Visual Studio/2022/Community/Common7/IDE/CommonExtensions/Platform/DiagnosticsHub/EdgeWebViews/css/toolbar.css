@@ -1,0 +1,166 @@
+﻿#header-float {
+    overflow: visible;
+    width: 100%;
+}
+
+.toolbar-separator {
+    display: inline-block;
+    width: 1px;
+    height: 100%;
+    background-color: black; /*[{Environment-CommandBarToolBarSeparator-Background}]*/
+    background-color: var(--Environment-CommandBarToolBarSeparator-Background, black);
+    margin-left: 4px;
+    margin-right: 4px;
+    border-top: solid 0 var(--Environment-CommandBarToolBarSeparator-Background, grey);
+    border-bottom: solid 0 var(--Environment-CommandBarToolBarSeparator-Background, grey);
+    position: relative;
+}
+
+/* The button.* rules are so each selector is specific enough to override default styles injected by daytona */
+.toolbar-button, button.toolbar-button {
+    padding: 2px 4px 2px 2px;
+    background-image: none; /*This overrides a background image injected by Plugin.css*/
+    background-color: transparent;
+    color: var(--Environment-CommandBarTextActive-Background, lawngreen);
+    height: 100%;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    display: inline-grid;
+    border: 1px solid transparent;
+}
+
+    .toolbar-button:hover, button.toolbar-button:hover {
+        border: 1px solid var(--Environment-CommandBarBorder-Background);
+        background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+    }
+
+    .toolbar-button:active, button.toolbar-button:active {
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+    }
+
+    .toolbar-button > .svg-disabled, button.toolbar-button > .svg-disabled {
+        visibility: collapse;
+    }
+
+    .toolbar-button > .svg-enabled, button.toolbar-button > .svg-enabled {
+        visibility: visible;
+    }
+
+.toolbar-button-disabled, button.toolbar-button-disabled {
+    padding: 2px;
+    background-color: transparent;
+    color: var(--Environment-CommandBarTextInactive-Background, lawngreen);
+    height: 100%;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    display: inline-grid;
+    border: 1px solid transparent;
+}
+
+    .toolbar-button-disabled > .svg-disabled, button.toolbar-button-disabled > .svg-disabled {
+        visibility: visible;
+    }
+
+    .toolbar-button-disabled > .svg-enabled, button.toolbar-button-disabled > .svg.svg-enabled {
+        visibility: collapse;
+    }
+
+.toolbar-button.unchecked > .svg-disabled, button.toolbar-button.unchecked > .svg-disabled {
+    visibility: visible;
+}
+
+.toolbar-button.unchecked > .svg-enabled, button.toolbar-button.unchecked > .svg-enabled {
+    visibility: collapse;
+}
+
+button.toolbar-button.unchecked:hover {
+    background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+    color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+    border: 1px solid var(--Environment-CommandBarBorder-Background, lawngreen);
+}
+
+button.toolbar-button.unchecked:active {
+    background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+    color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+    border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+}
+
+.toolbar-button.checked, button.toolbar-button.checked {
+    background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+    color: var(--Environment-CommandBarTextSelected-Background, lawngreen);
+    border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+}
+
+    .toolbar-button.checked > .svg-disabled, button.toolbar-button.checked> .svg-disabled {
+        visibility: collapse;
+    }
+
+    .toolbar-button.checked > .svg-enabled, button.toolbar-button.checked > .svg-enabled {
+        visibility: visible;
+    }
+
+   button.toolbar-button.checked:hover {
+        background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+        border: 1px solid var(--Environment-CommandBarHoverOverSelectedIconBorder-Background, lawngreen)
+    }
+
+    button.toolbar-button.checked:active {
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+    }
+
+.button-text {
+    grid-row: 1;
+    grid-column: 2;
+    background-color: transparent;
+    color: inherit;
+    height: 100%;
+    padding-left: 3px;
+    display: block;
+    width: 100%;
+    transition: width .5s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.toolbar-container .button-text {
+    line-height: 1.3em;
+}
+
+.limitedSpace .button-text {
+    width: 0px;
+}
+
+.button-text-disabled {
+    color: var(--diagnostics-host-toolbar-text-disabled, #c0c0c0)
+}
+
+.button-image {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    height: 1.333em;
+    width: 1.333em;
+    display: block;
+    background-color: inherit;
+}
+
+.toolbar-container {
+    width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: var(--plugin-color, black);
+    font-size: var(--plugin-font-size, 9pt);
+    font-family: var(--plugin-font-family, "Segoe UI"), Arial, sans-serif;
+    background-color: var(--vs-command-bar-gradient-begin-color, grey);
+    float: left;
+    overflow: visible;
+    white-space: nowrap;
+}

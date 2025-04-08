@@ -1,0 +1,15 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=2.1": [
+        {
+          "Id": "MongoDB.Driver",
+          "Version": "3.0.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

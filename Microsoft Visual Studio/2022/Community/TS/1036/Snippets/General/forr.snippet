@@ -1,0 +1,29 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>forr</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>forr</Shortcut>
+    <Description>Extrait de code pour une boucle reverse for</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>index</ID>
+        <ToolTip>Index</ToolTip>
+        <Default>i</Default>
+      </Literal>
+      <Literal>
+        <ID>max</ID>
+        <ToolTip>Longueur max.</ToolTip>
+        <Default>length</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[for (var $index$ = $max$ - 1; $index$ >= 0; $index$--) {
+    $selected$$end$
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

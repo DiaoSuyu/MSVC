@@ -1,0 +1,19 @@
+{
+  "components": {
+    "dotnetMsIdentity": {
+      "modifiers": [
+        "identityapp.redirectUris"
+      ]
+    },
+    "wapWebConfig": {
+      "modifiers": [
+        "identityapp.webConfig.wap"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "identityapp.nuget.wap"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "feature": {
+    "id": "identityapp.wap.local"
+  },
+  "requirements": [
+    "dotnetMsIdentity"
+  ],
+  "persistenceProperties": {
+    "connectionInfo": {},
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    }
+  },
+  "editSteps": [
+    "IdentityPickInstance",
+    "DependencySummary"
+  ],
+  "persistencePreprocessors": [
+    "LocalIdentityWAP",
+    "SusiPolicyId"
+  ]
+}

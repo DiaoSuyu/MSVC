@@ -1,0 +1,510 @@
+{
+  "properties": {
+    "projectsAndSolutions.general.showErrorListOnBuildErrors": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_ShowErrorListOnBuildErrors;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowTasklistOnBuildEnd"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.trackActiveItem": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ProjectsAndSolutions_General_TrackActiveItem;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.TrackSelCtxInSlnExp"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.showOutputWindow": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_ShowOutputWindow;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowOutputWindowOnBuildStart"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptBeforeMove": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_PromptBeforeMove;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\PromptForFileMove"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.parallelProjectLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_ParallelProjectLoad;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\UseDTBatchBuildService"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.reopenDocsOnLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_ReopenDocsOnLoad;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "tags": [ "performance" ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\RestoreDocumentsOnSolutionLoad"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.restoreExplorerStateOnLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_RestoreExplorerStateOnLoad;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "General\\RestoreSolutionExplorerStateOnSolutionLoad"
+            }
+          ],
+          "map": [
+            {
+              "result": true,
+              "matches": [
+                1 // RestoreProjectHierarchyOptionsState_EnabledByExperiment
+              ]
+            },
+            {
+              "result": true,
+              "matches": [
+                3 // RestoreProjectHierarchyOptionsState_Enabled
+              ]
+            },
+            {
+              "result": false,
+              "matches": [
+                0 // RestoreProjectHierarchyOptionsState_DisabledByExperiment
+              ]
+            },
+            {
+              "result": false,
+              "matches": [
+                2 // RestoreProjectHierarchyOptionsState_Disabled
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.general.openProjectFilesForEdit": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_OpenProjectFilesForEdit;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.DoubleClickOpenProjectFile"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.symbolicRenameOnFileRename": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_SymbolicRenameOnFileRename;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.EnableSymbolicRename"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptForSymbolicRename": {
+      "type": "boolean",
+      "default": true,
+      "enableWhen": "${config:projectsAndSolutions.general.symbolicRenameOnFileRename}==\u0027true\u0027",
+      "title": "@ProjectsAndSolutions_General_PromptForSymbolicRename;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\PromptForSymbolicRename"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.updateNamespaceOnFileMove": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_General_UpdateNamespaceOnFileMove;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.EnableNamespaceUpdate"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptForNamespaceUpdate": {
+      "type": "boolean",
+      "default": true,
+      "enableWhen": "${config:projectsAndSolutions.general.updateNamespaceOnFileMove}==\u0027true\u0027",
+      "title": "@ProjectsAndSolutions_General_PromptForNamespaceUpdate;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.PromptNamespaceUpdate"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.maxParallelBuilds": {
+      "type": "integer",
+      "default": 0,
+      "maximum": 1024,
+      "minimum": 0,
+      "environmentVariableDefault": "NUMBER_OF_PROCESSORS",
+      "title": "@ProjectsAndSolutions_BuildAndRun_MaxParallelBuilds;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MaxConcurrentBuilds"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunOnlyBuildStartupProjects": {
+      "type": "boolean",
+      "default": true,
+      "title": "@ProjectsAndSolutions_BuildAndRun_OnRunOnlyBuildStartupProjects;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.BuildStartupsOnlyOnRun"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunWhenOutOfDate": {
+      "type": "string",
+      "default": "alwaysBuild",
+      "enum": [
+        "alwaysBuild",
+        "neverBuild",
+        "promptToBuild"
+      ],
+      "enumItemLabels": [
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenOutOfDate_AlwaysBuild;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenOutOfDate_NeverBuild;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenOutOfDate_PromptToBuild;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "title": "@ProjectsAndSolutions_BuildAndRun_OnRunWhenOutOfDate;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.BuildOutOfDateProjects"
+          },
+          "map": [
+            {
+              "result": "alwaysBuild",
+              "match": 0
+            },
+            {
+              "result": "neverBuild",
+              "match": 1
+            },
+            {
+              "result": "promptToBuild",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunWhenBuildErrors": {
+      "type": "string",
+      "default": "promptToLaunch",
+      "enum": [
+        "launchOld",
+        "doNotLaunch",
+        "promptToLaunch"
+      ],
+      "enumItemLabels": [
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenBuildErrors_LaunchOld;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenBuildErrors_DoNotLaunch;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OnRunWhenBuildErrors_PromptToLaunch;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "title": "@ProjectsAndSolutions_BuildAndRun_OnRunWhenBuildErrors;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.RunAfterBuildErrors"
+          },
+          "map": [
+            {
+              "result": "launchOld",
+              "match": 0
+            },
+            {
+              "result": "doNotLaunch",
+              "match": 1
+            },
+            {
+              "result": "promptToLaunch",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.useSelectedProjectAsDefaultStartupProject": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ProjectsAndSolutions_BuildAndRun_UseSelectedProjectAsDefaultStartupProject;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.DefaultStartupProject"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.outputVerbosity": {
+      "type": "string",
+      "default": "minimal",
+      "enum": [
+        "quiet",
+        "minimal",
+        "normal",
+        "detailed",
+        "diagnostic"
+      ],
+      "enumItemLabels": [
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Quiet;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Minimal;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Normal;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Detailed;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Diagnostic;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "title": "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MSBuildLoggerVerbosity"
+          },
+          "map": [
+            {
+              "result": "quiet",
+              "match": 0
+            },
+            {
+              "result": "minimal",
+              "match": 1
+            },
+            {
+              "result": "normal",
+              "match": 2
+            },
+            {
+              "result": "detailed",
+              "match": 3
+            },
+            {
+              "result": "diagnostic",
+              "match": 4
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.outputFileVerbosity": {
+      "type": "string",
+      "default": "quiet",
+      "enum": [
+        "quiet",
+        "minimal",
+        "normal",
+        "detailed",
+        "diagnostic"
+      ],
+      "enumItemLabels": [
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Quiet;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Minimal;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Normal;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Detailed;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@ProjectsAndSolutions_BuildAndRun_OutputVerbosity_Diagnostic;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "title": "@ProjectsAndSolutions_BuildAndRun_OutputFileVerbosity;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MSBuildLogFileVerbosity"
+          },
+          "map": [
+            {
+              "result": "quiet",
+              "match": 0
+            },
+            {
+              "result": "minimal",
+              "match": 1
+            },
+            {
+              "result": "normal",
+              "match": 2
+            },
+            {
+              "result": "detailed",
+              "match": 3
+            },
+            {
+              "result": "diagnostic",
+              "match": 4
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.lowPriorityBuild": {
+      "type": "boolean",
+      "default": false,
+      "title": "@ProjectsAndSolutions_BuildAndRun_LowPriorityBuild;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.LowPriorityBuild"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.locations.newProjectOrSolution": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%USERPROFILE%\\source\\repos",
+      "title": "@ProjectsAndSolutions_Locations_NewProjectOrSolution;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "VisualStudioProjectsLocation"
+          }
+        }
+      },
+      "commands": [
+        {
+          "vsct": {
+            "text": "@ProjectsAndSolutions_Locations_NewProjectOrSolution_UpdateWithDevDrivePath;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+            "set": "8E4F066F-1883-49D1-B17A-CBD4B54947C6",
+            "id": 1
+          }
+        }
+      ]
+    },
+    "projectsAndSolutions.locations.projectTemplates": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%VisualStudioDir%\\Templates\\ProjectTemplates",
+      "title": "@ProjectsAndSolutions_Locations_ProjectTemplates;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "UserProjectTemplatesLocation"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.locations.projectItemTemplates": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%VisualStudioDir%\\Templates\\ItemTemplates",
+      "title": "@ProjectsAndSolutions_Locations_ProjectItemTemplates;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "UserItemTemplatesLocation"
+          }
+        }
+      }
+    }
+  },
+
+  "categories": {
+    "projectsAndSolutions": {
+      "title": "@ProjectsAndSolutions;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 0
+    },
+    "projectsAndSolutions.general": {
+      "title": "@ProjectsAndSolutions_General;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 0,
+      "legacyOptionPageId": "6b115dd7-9cbc-461a-9562-5227bbd2d115"
+    },
+    "projectsAndSolutions.buildAndRun": {
+      "title": "@ProjectsAndSolutions_BuildAndRun;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "legacyOptionPageId": "a686ff7e-b765-4545-ae25-31684b4f6195"
+    },
+    "projectsAndSolutions.locations": {
+      "title": "@ProjectsAndSolutions_Locations;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "legacyOptionPageId": "5a8597fe-8871-4bad-a443-54814b84e596"
+    }
+
+  }
+}

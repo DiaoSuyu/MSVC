@@ -1,0 +1,12 @@
+{
+  "kind": "itemTemplates.itemTemplateCreator",
+  "order": 40,
+  "model": {
+    "itemTemplate": "Azure.Function.SignalR",
+    "parameters": {
+      "IncludeLaunchSettings": "False",
+      "AccessRights": "@@AccessRights@@",
+      "HubName": "@@HubName@@"
+    }
+  }
+}

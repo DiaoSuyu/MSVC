@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>为检索到的消息指定格式化程序</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>确定如何对消息正文进行反序列化。</Description>
+      <Shortcut>mqFormat</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Messaging.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Messaging</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>BodyType</ID>
+          <Type>System.Type</Type>
+          <ToolTip>替换为与消息正文类型匹配的 Type 对象。</ToolTip>
+          <Default>GetType(String)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim msg As New Message()
+msg.Formatter = _
+New XmlMessageFormatter(New Type() {$BodyType$})]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

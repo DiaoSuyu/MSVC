@@ -1,0 +1,2229 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.TestPlatform.CommunicationUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.CommunicationEndpointFactory">
+            <summary>
+            Implements ICommunicationEndpointFactory.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.CommunicationEndpointFactory.Create(Microsoft.VisualStudio.TestPlatform.ObjectModel.ConnectionRole)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler">
+            <summary>
+            Handles test session events received from vstest console process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler._cancellationTokenSource">
+            <summary>
+            Use to cancel data collection test case events monitoring if test run is canceled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager,Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IMessageSink,Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IDataCollectionManager,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer,Microsoft.VisualStudio.TestPlatform.Utilities.Helpers.Interfaces.IFileHelper,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.IRequestData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler"/> class.
+            </summary>
+            <param name="communicationManager">
+            The communication manager.
+            </param>
+            <param name="messageSink">
+            The message sink.
+            </param>
+            <param name="dataCollectionManager">
+            The data collection manager.
+            </param>
+            <param name="dataCollectionTestCaseEventHandler">
+            The data collection test case event handler.
+            </param>
+            <param name="dataSerializer">
+            Serializer for serialization and deserialization of the messages.
+            </param>
+            <param name="fileHelper">
+            File Helper
+            </param>
+            <param name="requestData">
+            Request data
+            </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.Instance">
+            <summary>
+            Gets the singleton instance of DataCollectionRequestHandler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.Create(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager,Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IMessageSink)">
+            <summary>
+            Creates singleton instance of DataCollectionRequestHandler.
+            </summary>
+            <param name="communicationManager">
+            Handles socket communication.
+            </param>
+            <param name="messageSink">
+            Message sink for sending messages to execution process.
+            </param>
+            <returns>
+            The instance of <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.InitializeCommunication(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.WaitForRequestSenderConnection(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.ProcessRequests">
+            <summary>
+            Process requests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.SendDataCollectionMessage(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.DataCollectionMessageEventArgs)">
+            <summary>
+            Sends datacollection message.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.Dispose">
+            <summary>
+            The dispose.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.Close">
+            <summary>
+            Closes the connection
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestHandler.AddExtensionAssemblies(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.BeforeTestRunStartPayload)">
+            <summary>
+            Update the test adapter paths provided through run settings to be used by the test plugin cache.
+            </summary>
+            <param name="payload">
+            The before test run start payload
+            </param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender">
+            <summary>
+            Utility class that facilitates the IPC communication. Acts as server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender"/> class.
+            </summary>
+            <param name="communicationManager">
+            The communication manager.
+            </param>
+            <param name="dataSerializer">
+            The data serializer.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.InitializeCommunication">
+            <summary>
+            Creates an endpoint and listens for client connection asynchronously
+            </summary>
+            <returns>Port number</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.WaitForRequestHandlerConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to be connected
+            </summary>
+            <param name="clientConnectionTimeout">Time to wait for connection</param>
+            <returns>True, if Handler is connected</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.Dispose">
+            <summary>
+            The dispose.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.Close">
+            <summary>
+            Closes the connection
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.SendTestHostLaunched(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestHostLaunchedPayload)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.SendBeforeTestRunStartAndGetResult(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestMessageEventHandler)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionRequestSender.SendAfterTestRunEndAndGetResult(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestMessageEventHandler,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler">
+            <summary>
+            The test case data collection request handler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.#ctor(Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IMessageSink)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.#ctor(Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IMessageSink,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager,Microsoft.VisualStudio.TestPlatform.Common.DataCollector.Interfaces.IDataCollectionManager,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler"/> class.
+            </summary>
+            <param name="messageSink">Sink for messages</param>
+            <param name="communicationManager">Communication manager implementation.</param>
+            <param name="dataCollectionManager">Data collection manager implementation.</param>
+            <param name="dataSerializer">Serializer for serialization and deserialization of the messages.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.InitializeCommunication">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.WaitForRequestHandlerConnection(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.DataCollectionTestCaseEventHandler.ProcessRequests">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestHandler">
+            <summary>
+            The DataCollectionRequestHandler interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestHandler.InitializeCommunication(System.Int32)">
+            <summary>
+            Setups client based on port
+            </summary>
+            <param name="port">port number to connect</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestHandler.WaitForRequestSenderConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to connect to Request Sender
+            </summary>
+            <param name="connectionTimeout">Timeout for establishing connection</param>
+            <returns>True if connected, false if timed-out</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestHandler.ProcessRequests">
+            <summary>
+            Listens to the commands from server
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestHandler.Close">
+            <summary>
+            Closes the connection
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender">
+            <summary>
+            Defines contract to send test platform requests to test host
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.InitializeCommunication">
+            <summary>
+            Initializes the communication for sending requests
+            </summary>
+            <returns>Port Number of the communication channel</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.WaitForRequestHandlerConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to be connected
+            </summary>
+            <param name="connectionTimeout">Time to wait for connection</param>
+            <returns>True, if Handler is connected</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.Close">
+            <summary>
+            Close the Sender
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.SendTestHostLaunched(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestHostLaunchedPayload)">
+            <summary>
+            Sends the TestHostLaunched event
+            </summary>
+            <param name="testHostLaunchedPayload">
+            Test host launched payload
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.SendBeforeTestRunStartAndGetResult(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestMessageEventHandler)">
+            <summary>
+            Sends the BeforeTestRunStart event and waits for result
+            </summary>
+            <param name="settingXml">
+            Run settings for test run.
+            </param>
+            <param name="sources">
+            Test run sources
+            </param>
+            <param name="isTelemetryOptedIn">
+            Telemetry opted in flag.
+            </param>
+            <param name="runEventsHandler">
+            Test message event handler for handling messages.
+            </param>
+            <returns>
+            BeforeTestRunStartResult containing environment variables
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollection.Interfaces.IDataCollectionRequestSender.SendAfterTestRunEndAndGetResult(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestMessageEventHandler,System.Boolean)">
+            <summary>
+            Sends the AfterTestRunEnd event and waits for result
+            </summary>
+            <param name="runEventsHandler">
+            Test message event handler for handling messages.
+            </param>
+            <param name="isCancelled">
+            The value to specify whether the test run is canceled or not.
+            </param>
+            <returns>
+            AfterTestRunEndResult containing dataCollector attachments and metrics
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender"/> class.
+            </summary>
+            <param name="communicationManager">Communication manager.</param>
+            <param name="dataSerializer">Serializer for serialization and deserialization of the messages.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.Instance">
+            <summary>
+            Gets the singleton instance of DataCollectionTestCaseEventSender.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.Create">
+            <summary>
+            Gets singleton instance of DataCollectionRequestHandler.
+            </summary>
+            <returns>A singleton instance of <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender"/></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.InitializeCommunication(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.WaitForRequestSenderConnection(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.SendTestCaseStart(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.TestCaseStartEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.SendTestCaseEnd(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.TestCaseEndEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.DataCollectionTestCaseEventSender.SendTestSessionEnd(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.SessionEndEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler">
+            <summary>
+            The test discovery event handler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler"/> class.
+            </summary>
+            <param name="requestHandler"> The Request Handler. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler.HandleDiscoveredTests(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase})">
+            <summary>
+            Handles discovered tests
+            </summary>
+            <param name="discoveredTestCases">List of test cases</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler.HandleDiscoveryComplete(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.DiscoveryCompleteEventArgs,System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase})">
+            <summary>
+            Handle discovery complete.
+            </summary>
+            <param name="discoveryCompleteEventArgs"> Discovery Complete Events Args. </param>
+            <param name="lastChunk"> The last chunk. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestDiscoveryEventHandler.HandleLogMessage(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestMessageLevel,System.String)">
+            <summary>
+            The handle discovery message.
+            </summary>
+            <param name="level"> Logging level. </param>
+            <param name="message"> Logging message. </param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestInitializeEventsHandler">
+            <summary>
+            The test run events handler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestInitializeEventsHandler.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestInitializeEventsHandler"/> class.
+            </summary>
+            <param name="requestHandler">test request handler</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestInitializeEventsHandler.HandleLogMessage(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestMessageLevel,System.String)">
+            <summary>
+            Handles a test run message.
+            </summary>
+            <param name="level"> The level. </param>
+            <param name="message"> The message. </param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler">
+            <summary>
+            The test run events handler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler"/> class.
+            </summary>
+            <param name="requestHandler">test request handler</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.HandleTestRunStatsChange(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunChangedEventArgs)">
+            <summary>
+            Handle test run stats change.
+            </summary>
+            <param name="testRunChangedArgs"> The test run changed args. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.HandleTestRunComplete(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunChangedEventArgs,System.Collections.Generic.ICollection{Microsoft.VisualStudio.TestPlatform.ObjectModel.AttachmentSet},System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Handle test run complete.
+            </summary>
+            <param name="testRunCompleteArgs"> The test run complete args. </param>
+            <param name="lastChunkArgs"> The last chunk args. </param>
+            <param name="runContextAttachments"> The run context attachments. </param>
+            <param name="executorUris"> The executor uris. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.HandleLogMessage(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestMessageLevel,System.String)">
+            <summary>
+            Handles a test run message.
+            </summary>
+            <param name="level"> The level. </param>
+            <param name="message"> The message. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.LaunchProcessWithDebuggerAttached(Microsoft.VisualStudio.TestPlatform.ObjectModel.TestProcessStartInfo)">
+            <summary>
+            Launches a process with a given process info under debugger
+            Adapter get to call into this to launch any additional processes under debugger
+            </summary>
+            <param name="testProcessStartInfo">Process start info</param>
+            <returns>ProcessId of the launched process</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.EventHandlers.TestRunEventsHandler.AttachDebuggerToProcess(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.Interfaces.AttachDebuggerInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException">
+            <summary>
+            Exception thrown when communication on a channel fails.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException" /> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException" /> class with provided
+            message.
+            </summary>
+            <param name="message">Message describing the error.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.CommunicationException" /> class with provided
+            message and inner exception.
+            </summary>
+            <param name="message">Message describing the error.</param>
+            <param name="inner">Inner exception.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs">
+            <summary>
+            Provides properties for the connected communication channel.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationChannel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs"/> class.
+            </summary>
+            <param name="channel">Communication channel for this connection.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs.Channel">
+            <summary>
+            Gets the communication channel based on this connection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs.Connected">
+            <summary>
+            Gets a value indicating whether channel is connected or not, true if it's connected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ConnectedEventArgs.Fault">
+            <summary>
+            Gets the exception if it's not connected.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.DisconnectedEventArgs">
+            <summary>
+            Provides information on disconnection of a communication channel.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.DisconnectedEventArgs.Error">
+            <summary>
+            Gets or sets if there's an error on disconnection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationChannel.MessageReceived">
+            <summary>
+            Event raised when data is received on the communication channel.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationChannel.Send(System.String)">
+            <summary>
+            Frames and sends the provided data over communication channel.
+            </summary>
+            <param name="data">Data to send over the channel.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> implying async nature of the function.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationChannel.NotifyDataAvailable(System.Threading.CancellationToken)">
+            <summary>
+            Notification from server/client that data is available.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> implying async nature of the function.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.MessageReceivedEventArgs">
+            <summary>
+            Provides a framed data and related properties.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.MessageReceivedEventArgs.Data">
+            <summary>
+            Gets or sets the data contained in message frame.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint.Connected">
+            <summary>
+            Event raised when an endPoint is connected.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint.Disconnected">
+            <summary>
+            Event raised when an endPoint is disconnected on failure. It should not be notified when we are just closing the connection after success.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint.Start(System.String)">
+            <summary>
+            Starts the endPoint and channel.
+            </summary>
+            <param name="endPoint">Address to connect</param>
+            <returns>Address of the connected endPoint</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint.Stop">
+            <summary>
+            Stops the endPoint and closes the underlying communication channel.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndpointFactory.Create(Microsoft.VisualStudio.TestPlatform.ObjectModel.ConnectionRole)">
+            <summary>
+            Create communication endpoint.
+            </summary>
+            <param name="role" cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.ConnectionRole">Endpoint role.</param>
+            <returns cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint">Return communication endpoint object.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager">
+            <summary>
+            The Communication Manager interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.HostServer(System.Net.IPEndPoint)">
+            <summary>
+            Host a server and listens on endpoint for requests
+            </summary>
+            <param name="endpoint">End point where server is hosted</param>
+            <returns>Port number of the listening endpoint</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.AcceptClientAsync">
+            <summary>
+            Accepts client connection asynchronously
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.WaitForClientConnection(System.Int32)">
+            <summary>
+            Waits for client to be connected to this server
+            Whoever hosting the server should use this method to
+            wait for a client to connect
+            </summary>
+            <param name="connectionTimeout">Time to wait for the connection</param>
+            <returns>True, if Server got a connection from client</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.WaitForServerConnection(System.Int32)">
+            <summary>
+            Waits for server to be connected
+            Whoever creating the client and trying to connect to a server
+            should use this method to wait for connection to be established with server
+            </summary>
+            <param name="connectionTimeout">Time to wait for the connection</param>
+            <returns>True, if Server got a connection from client</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.StopServer">
+            <summary>
+            Stops any hosted server
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.SetupClientAsync(System.Net.IPEndPoint)">
+            <summary>
+            Creates a Client Channel and connects to server on given port number
+            </summary>
+            <param name="endpoint">End point for client to connect to</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.StopClient">
+            <summary>
+            Stops any client connected to server
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.SendMessage(System.String)">
+            <summary>
+            Writes message to the binary writer.
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.ReceiveMessage">
+            <summary>
+            Reads message from the binary reader
+            </summary>
+            <returns>Returns message read from the binary reader</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.ReceiveRawMessage">
+            <summary>
+            Reads message from the binary reader
+            </summary>
+            <returns> Raw message string </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.ReceiveMessageAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reads message from the binary reader using read timeout
+            </summary>
+            <param name="cancellationToken">
+            The cancellation Token.
+            </param>
+            <returns>
+            Returns message read from the binary reader
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.ReceiveRawMessageAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reads message from the binary reader using read timeout
+            </summary>
+            <param name="cancellationToken">
+            The cancellation Token.
+            </param>
+            <returns>
+            Raw message string
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.SendMessage(System.String,System.Object)">
+            <summary>
+             Writes message to the binary writer with payload
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+            <param name="payload">payload to be sent</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.SendMessage(System.String,System.Object,System.Int32)">
+            <summary>
+             Writes message to the binary writer with payload
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+            <param name="payload">payload to be sent</param>
+            <param name="version">version to be sent</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.SendRawMessage(System.String)">
+            <summary>
+            Send serialized raw message
+            </summary>
+            <param name="rawMessage">serialized message</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationManager.DeserializePayload``1(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message)">
+            <summary>
+            Deserializes the Message into actual TestPlatform objects
+            </summary>
+            <typeparam name="T"> The type of object to deserialize to. </typeparam>
+            <param name="message"> Message object </param>
+            <returns> TestPlatform object </returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler">
+            <summary>
+            Interface for interacting with execution process for getting test case events in data collection process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler.InitializeCommunication">
+            <summary>
+            Initializes the communication for sending requests
+            </summary>
+            <returns>Port Number of the communication channel</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler.WaitForRequestHandlerConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to be connected.
+            </summary>
+            <param name="connectionTimeout">Time to wait for connection</param>
+            <returns>True, if Handler is connected</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler.Close">
+            <summary>
+            Close the handler
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventHandler.ProcessRequests">
+            <summary>
+            Listens to the commands from execution process
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender">
+            <summary>
+            Interface for sending test case events from test execution process to data collection process
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.InitializeCommunication(System.Int32)">
+            <summary>
+            Setups client based on port
+            </summary>
+            <param name="port">port number to connect</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.WaitForRequestSenderConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to connect to Request Sender
+            </summary>
+            <param name="connectionTimeout">Timeout for establishing connection</param>
+            <returns>True if connected, false if timed-out</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.Close">
+            <summary>
+            Closes the connection
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.SendTestCaseStart(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.TestCaseStartEventArgs)">
+            <summary>
+            Sends the TestCaseStart event.
+            </summary>
+            <param name="e">
+            The args containing info about TestCaseStart event.
+            </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.SendTestCaseEnd(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.TestCaseEndEventArgs)">
+            <summary>
+            Sends the TestCaseCompleted event along with outcome.
+            </summary>
+            <param name="e">
+            The args containing info about TestResult event.
+            </param>
+            <returns>
+            The <see cref="T:System.Collections.ObjectModel.Collection`1"/>Collection of TestCase attachments.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataCollectionTestCaseEventSender.SendTestSessionEnd(Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.SessionEndEventArgs)">
+            <summary>
+            Sends the SessionEnd event. This is used to as a trigger to close communication channel between datacollector process and testhost process.
+            </summary>
+            <param name="e">
+            The args containing info about SessionEnd event.
+            </param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer">
+            <summary>
+            IDataSerializer interface for serializing data
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.DeserializeMessage(System.String)">
+            <summary>
+            Deserializes the raw message into Message
+            </summary>
+            <param name="rawMessage">Raw message off the IPC channel</param>
+            <returns>Message object</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.DeserializePayload``1(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message)">
+            <summary>
+            Deserializes the Message into actual TestPlatform objects
+            </summary>
+            <typeparam name="T"> The type of object to deserialize to. </typeparam>
+            <param name="message"> Message object </param>
+            <returns> TestPlatform object </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.SerializeMessage(System.String)">
+            <summary>
+            Serializes and creates a raw message given a message type
+            </summary>
+            <param name="messageType">Message Type</param>
+            <returns>Raw Serialized message</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.SerializePayload(System.String,System.Object)">
+            <summary>
+            Serializes and creates a raw message given a message type and the object payload
+            </summary>
+            <param name="messageType">Message Type</param>
+            <param name="payload">Payload of the message</param>
+            <returns>Raw Serialized message</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.SerializePayload(System.String,System.Object,System.Int32)">
+            <summary>
+            Serializes and creates a raw message given a message type and the object payload
+            </summary>
+            <param name="messageType">Message Type</param>
+            <param name="payload">Payload of the message</param>
+            <param name="version">version to be sent</param>
+            <returns>Raw Serialized message</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer.Clone``1(``0)">
+            <summary>
+            Creates cloned object for given object.
+            </summary>
+            <typeparam name="T"> The type of object to be cloned. </typeparam>
+            <param name="obj">Object to be cloned.</param>
+            <returns>Newly cloned object.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler">
+            <summary>
+            Defines the contract for handling test platform requests
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.ConnectionInfo">
+            <summary>
+            Gets or sets connection info for to start server/client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.InitializeCommunication">
+            <summary>
+            Setups client based on port
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.WaitForRequestSenderConnection(System.Int32)">
+            <summary>
+            Waits for Request Handler to connect to Request Sender
+            </summary>
+            <param name="connectionTimeout">Timeout for establishing connection</param>
+            <returns>True if connected, false if timed-out</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.ProcessRequests(Microsoft.VisualStudio.TestPlatform.ObjectModel.Engine.TesthostProtocol.ITestHostManagerFactory)">
+            <summary>
+            Listens to the commands from server
+            </summary>
+            <param name="testHostManagerFactory">the test host manager.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.Close">
+            <summary>
+            Closes the connection
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.SendTestCases(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase})">
+            <summary>
+            The send test cases.
+            </summary>
+            <param name="discoveredTestCases"> The discovered test cases. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.SendTestRunStatistics(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunChangedEventArgs)">
+            <summary>
+            The send test run statistics.
+            </summary>
+            <param name="testRunChangedArgs"> The test run changed args. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.SendLog(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestMessageLevel,System.String)">
+            <summary>
+            Sends the logs back to the server.
+            </summary>
+            <param name="messageLevel"> The message level. </param>
+            <param name="message"> The message. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.SendExecutionComplete(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunChangedEventArgs,System.Collections.Generic.ICollection{Microsoft.VisualStudio.TestPlatform.ObjectModel.AttachmentSet},System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            The send execution complete.
+            </summary>
+            <param name="testRunCompleteArgs"> The test run complete args. </param>
+            <param name="lastChunkArgs"> The last chunk args. </param>
+            <param name="runContextAttachments"> The run context attachments. </param>
+            <param name="executorUris"> The executor uris. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.DiscoveryComplete(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.DiscoveryCompleteEventArgs,System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase})">
+            <summary>
+            The discovery complete handler
+            </summary>
+            <param name="discoveryCompleteEventArgs">Discovery Complete Event Args</param>
+            <param name="lastChunk"> The last Chunk. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.LaunchProcessWithDebuggerAttached(Microsoft.VisualStudio.TestPlatform.ObjectModel.TestProcessStartInfo)">
+            <summary>
+            Launches a process with a given process info under debugger
+            Adapter get to call into this to launch any additional processes under debugger
+            </summary>
+            <param name="testProcessStartInfo">Process start info</param>
+            <returns>ProcessId of the launched process</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestHandler.AttachDebuggerToProcess(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.Interfaces.AttachDebuggerInfo)">
+            <summary>
+            Attach debugger to an already running process.
+            </summary>
+            <param name="attachDebuggerInfo">Process ID and tfm of the process to which the debugger should be attached.</param>
+            <returns><see langword="true"/> if the debugger was successfully attached to the requested process, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender">
+            <summary>
+            Defines contract to send test platform requests to test host
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.InitializeCommunication">
+            <summary>
+            Initializes the communication for sending requests
+            </summary>
+            <returns>Port Number of the communication channel</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.CheckVersionWithTestHost">
+            <summary>
+            Used for protocol version check with TestHost
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.WaitForRequestHandlerConnection(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Waits for Request Handler to be connected
+            </summary>
+            <param name="connectionTimeout">Time to wait for connection</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>True, if Handler is connected</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.Close">
+            <summary>
+            Close the Sender
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.InitializeDiscovery(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes the Discovery
+            </summary>
+            <param name="pathToAdditionalExtensions">Paths to check for additional extensions</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.InitializeExecution(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes the Execution
+            </summary>
+            <param name="pathToAdditionalExtensions">Paths to check for additional extensions</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.DiscoverTests(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.DiscoveryCriteria,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestDiscoveryEventsHandler2)">
+            <summary>
+            Discovers the tests
+            </summary>
+            <param name="discoveryCriteria">DiscoveryCriteria for discovery</param>
+            <param name="discoveryEventsHandler">EventHandler for discovery events</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.StartTestRun(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.IInternalTestRunEventsHandler)">
+            <summary>
+            Starts the TestRun with given sources and criteria
+            </summary>
+            <param name="runCriteria">RunCriteria for test run</param>
+            <param name="eventHandler">EventHandler for test run events</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.StartTestRun(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.IInternalTestRunEventsHandler)">
+            <summary>
+            Starts the TestRun with given test cases and criteria
+            </summary>
+            <param name="runCriteria">RunCriteria for test run</param>
+            <param name="eventHandler">EventHandler for test run events</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.EndSession">
+            <summary>
+            Ends the Session
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.SendTestRunCancel">
+            <summary>
+            Send the request to cancel the test run
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.SendTestRunAbort">
+            <summary>
+            Send the request to abort the test run
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.SendDiscoveryAbort">
+            <summary>
+            Sends the request to abort the discovery.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITestRequestSender.OnClientProcessExit(System.String)">
+            <summary>
+            Handle client process exit
+            </summary>
+            <param name="stdError">Standard error output</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITransport">
+            <summary>
+            The transport Layer Interface
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITransport.Initialize">
+            <summary>
+            Initializes Transport Layer
+            </summary>
+            <returns>Endpoint</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ITransport.WaitForConnection(System.Int32)">
+            <summary>
+            Waits for the connection over transport layer to established
+            </summary>
+            <param name="connectionTimeout">Time to wait for connection</param>
+            <returns>True if connection is established</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer">
+            <summary>
+            JsonDataSerializes serializes and deserializes data using Json format
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer"/> class from being created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Instance">
+            <summary>
+            Gets the JSON Serializer instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.DeserializeMessage(System.String)">
+            <summary>
+            Deserialize a <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message"/> from raw JSON text.
+            </summary>
+            <param name="rawMessage">JSON string.</param>
+            <returns>A <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message"/> instance.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.DeserializePayload``1(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message)">
+            <summary>
+            Deserialize the <see cref="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message.Payload"/> for a message.
+            </summary>
+            <param name="message">A <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message"/> object.</param>
+            <typeparam name="T">Payload type.</typeparam>
+            <returns>The deserialized payload.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.TryGetSubstringUntilDelimiter(System.String,System.Int32,System.Char,System.Int32,System.String@,System.Int32@)">
+            <summary>
+             Try getting substring until a given delimiter, but don't search more characters than maxSearchLength.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Deserialize``1(System.String,System.Int32)">
+            <summary>
+            Deserialize raw JSON to an object using the default serializer.
+            </summary>
+            <param name="json">JSON string.</param>
+            <param name="version">Version of serializer to be used.</param>
+            <typeparam name="T">Target type to deserialize.</typeparam>
+            <returns>An instance of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.SerializeMessage(System.String)">
+            <summary>
+            Serialize an empty message.
+            </summary>
+            <param name="messageType">Type of the message.</param>
+            <returns>Serialized message.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.SerializePayload(System.String,System.Object)">
+            <summary>
+            Serialize a message with payload.
+            </summary>
+            <param name="messageType">Type of the message.</param>
+            <param name="payload">Payload for the message.</param>
+            <returns>Serialized message.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.SerializePayload(System.String,System.Object,System.Int32)">
+            <summary>
+            Serialize a message with payload.
+            </summary>
+            <param name="messageType">Type of the message.</param>
+            <param name="payload">Payload for the message.</param>
+            <param name="version">Version for the message.</param>
+            <returns>Serialized message.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Serialize``1(``0,System.Int32)">
+            <summary>
+            Serialize an object to JSON using default serialization settings.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="data">Instance of the object to serialize.</param>
+            <param name="version">Version to be stamped.</param>
+            <returns>JSON string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Clone``1(``0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Serialize``1(Newtonsoft.Json.JsonSerializer,``0)">
+            <summary>
+            Serialize data.
+            </summary>
+            <typeparam name="T">Type of data.</typeparam>
+            <param name="serializer">Serializer.</param>
+            <param name="data">Data to be serialized.</param>
+            <returns>Serialized data.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Deserialize``1(Newtonsoft.Json.JsonSerializer,System.String)">
+            <summary>
+            Deserialize data.
+            </summary>
+            <typeparam name="T">Type of data.</typeparam>
+            <param name="serializer">Serializer.</param>
+            <param name="data">Data to be deserialized.</param>
+            <returns>Deserialized data.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.Deserialize``1(Newtonsoft.Json.JsonSerializer,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Deserialize JToken object to T object.
+            </summary>
+            <typeparam name="T">Type of data.</typeparam>
+            <param name="serializer">Serializer.</param>
+            <param name="jToken">JToken to be deserialized.</param>
+            <returns>Deserialized data.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.MessageHeader">
+            <summary>
+            Just the header from versioned messages, to avoid touching the Payload when we deserialize message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.VersionedMessageWithRawMessage">
+            <summary>
+            Container for the rawMessage string, to avoid changing how messages are passed.
+            This allows us to pass MessageWithRawMessage the same way that Message is passed for protocol version 1.
+            And VersionedMessage is passed for later protocol versions, but without touching the payload string when we just
+            need to know the header.
+            !! This message does not populate the Payload property even though it is still present because that comes from Message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.PayloadedMessage`1">
+            <summary>
+            This grabs payload from the message, we already know version and message type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.VersionedMessageForSerialization">
+            <summary>
+            For serialization directly into string, without first converting to JToken, and then from JToken to string.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.VersionedMessageForSerialization.Version">
+            <summary>
+            Gets or sets the version of the message
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.VersionedMessageForSerialization.MessageType">
+            <summary>
+            Gets or sets the message type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.JsonDataSerializer.VersionedMessageForSerialization.Payload">
+            <summary>
+            Gets or sets the payload.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel">
+            <summary>
+            A communication channel using a length prefix packet frame for communication.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel._writeSyncObject">
+            <summary>
+            Sync object for sending messages
+            Write for binarywriter is NOT thread-safe
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel.MessageReceived">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel.Send(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel.NotifyDataAvailable(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.LengthPrefixCommunicationChannel.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.BeforeTestRunStartPayload">
+            <summary>
+            The before test run start payload
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.BeforeTestRunStartPayload.SettingsXml">
+            <summary>
+            Gets or sets run settings xml.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.BeforeTestRunStartPayload.Sources">
+            <summary>
+            Gets or sets list of test sources.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.BeforeTestRunStartPayload.IsTelemetryOptedIn">
+            <summary>
+            Gets or sets a value indicating whether telemetry is enabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload">
+            <summary>
+            The discovery complete payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.TotalTests">
+            <summary>
+            Gets or sets the total number of tests discovered.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.LastDiscoveredTests">
+            <summary>
+            Gets or sets the last chunk of discovered tests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.IsAborted">
+            <summary>
+            Gets or sets a value indicating whether discovery was aborted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.Metrics">
+            <summary>
+            Gets or sets the Metrics
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.FullyDiscoveredSources">
+            <summary>
+            Gets or sets list of sources which were fully discovered.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.PartiallyDiscoveredSources">
+            <summary>
+            Gets or sets list of sources which were partially discovered (started discover tests, but then discovery aborted).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.NotDiscoveredSources">
+            <summary>
+            Gets or sets list of sources which were not discovered at all.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.SkippedDiscoverySources">
+            <summary>
+            Gets or sets list of sources which skipped in discovery on purpose, e.g. because they are known dlls that have no tests, or there is no runtime provider to run them.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.DiscoveryCompletePayload.DiscoveredExtensions">
+            <summary>
+            Gets or sets the collection of discovered extensions.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType">
+            <summary>
+            The message type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.SessionStart">
+            <summary>
+            The session start.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.SessionEnd">
+            <summary>
+            The session end.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.SessionAbort">
+            <summary>
+            The is aborted.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.SessionConnected">
+            <summary>
+            The session connected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestMessage">
+            <summary>
+            Test Message
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.VersionCheck">
+            <summary>
+            Protocol Version
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.ProtocolError">
+            <summary>
+            Protocol Error
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DiscoveryInitialize">
+            <summary>
+            The session start.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StartDiscovery">
+            <summary>
+            The discovery started.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestCasesFound">
+            <summary>
+            The test cases found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DiscoveryComplete">
+            <summary>
+            The discovery complete.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.CancelDiscovery">
+            <summary>
+            Cancel Test Discovery
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.ExecutionInitialize">
+            <summary>
+            The session start.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.CancelTestRun">
+            <summary>
+            Cancel the current test run
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AbortTestRun">
+            <summary>
+            Cancel the current test run
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StartTestExecutionWithSources">
+            <summary>
+            Start test execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StartTestExecutionWithTests">
+            <summary>
+            Start test execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunStatsChange">
+            <summary>
+            The test run stats change.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.ExecutionComplete">
+            <summary>
+            The execution complete.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.GetTestRunnerProcessStartInfoForRunAll">
+            <summary>
+            The message to get runner process startInfo for run all tests in given sources
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.GetTestRunnerProcessStartInfoForRunSelected">
+            <summary>
+            The message to get runner process startInfo for run selected tests
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.CustomTestHostLaunch">
+            <summary>
+            CustomTestHostLaunch
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.CustomTestHostLaunchCallback">
+            <summary>
+            Custom Test Host launch callback
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunAttachmentsProcessingStart">
+            <summary>
+            Test run attachments processing
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunAttachmentsProcessingComplete">
+            <summary>
+            Test run attachments processing callback
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunAttachmentsProcessingProgress">
+            <summary>
+            Test run attachments processing progress
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunAttachmentsProcessingCancel">
+            <summary>
+            Cancel test run attachments processing
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.ExtensionsInitialize">
+            <summary>
+            Extensions Initialization
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunAllSourcesWithDefaultHost">
+            <summary>
+            Start Test Run All Sources
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestRunSelectedTestCasesDefaultHost">
+            <summary>
+             Start Test Run - Testcases
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.LaunchAdapterProcessWithDebuggerAttached">
+            <summary>
+            Launch Adapter Process With DebuggerAttached
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.LaunchAdapterProcessWithDebuggerAttachedCallback">
+            <summary>
+            Launch Adapter Process With DebuggerAttached
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AttachDebugger">
+            <summary>
+            Attach debugger to process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AttachDebuggerCallback">
+            <summary>
+            Attach debugger to process callback.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.EditorAttachDebugger">
+            <summary>
+            Attach debugger to process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.EditorAttachDebuggerCallback">
+            <summary>
+            Attach debugger to process callback.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DataCollectionMessage">
+            <summary>
+            Data Collection Message
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StartTestSession">
+            <summary>
+            StartTestSession message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StartTestSessionCallback">
+            <summary>
+            StartTestSession callback message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StopTestSession">
+            <summary>
+            StopTestSession message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.StopTestSessionCallback">
+            <summary>
+            StopTestSession callback message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TestHostLaunched">
+            <summary>
+            Event message type sent to datacollector process right after test host process has started.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.BeforeTestRunStart">
+            <summary>
+            Event message type send to datacollector process before test run starts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.BeforeTestRunStartResult">
+            <summary>
+            Event message type used by datacollector to send results  after receiving test run start event.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AfterTestRunEnd">
+            <summary>
+            Event message type send to datacollector process after test run ends.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AfterTestRunEndResult">
+            <summary>
+            Event message type used by datacollector to send result on receiving test run end event.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DataCollectionTestStart">
+            <summary>
+            Event message type send to datacollector process before test case execution starts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DataCollectionTestEnd">
+            <summary>
+            Event message type used to signal datacollector process that test case execution has ended.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DataCollectionTestEndResult">
+            <summary>
+            Event message type used by datacollector to send result on receiving TestEnd.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.DataCollectionTestStartAck">
+            <summary>
+            Ack Event message type send to datacollector process before test case execution starts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.EditorAttachDebugger2">
+            <summary>
+            Attach debugger to process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.TelemetryEventMessage">
+            <summary>
+            Telemetry event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestHostLaunchedPayload.ProcessId">
+            <summary>
+            Gets or sets the test run process id of test host.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestMessagePayload">
+            <summary>
+            The test message payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestMessagePayload.MessageLevel">
+            <summary>
+            Gets or sets the message level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestMessagePayload.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunAttachmentsProcessingCompletePayload">
+            <summary>
+            Test run attachments processing complete payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunAttachmentsProcessingCompletePayload.AttachmentsProcessingCompleteEventArgs">
+            <summary>
+            Gets or sets the test run attachments processing complete args.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunAttachmentsProcessingCompletePayload.Attachments">
+            <summary>
+            Gets or sets the attachments.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunAttachmentsProcessingProgressPayload">
+            <summary>
+            Test run attachments processing complete payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunAttachmentsProcessingProgressPayload.AttachmentsProcessingProgressEventArgs">
+            <summary>
+            Gets or sets the test run attachments processing complete args.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCompletePayload">
+            <summary>
+            The test run complete payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCompletePayload.TestRunCompleteArgs">
+            <summary>
+            Gets or sets the test run complete args.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCompletePayload.LastRunTests">
+            <summary>
+            Gets or sets the last run tests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCompletePayload.RunAttachments">
+            <summary>
+            Gets or sets the run attachments.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCompletePayload.ExecutorUris">
+            <summary>
+            Gets or sets the executor uris that were used to run the tests.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunStatsPayload">
+            <summary>
+            The test run stats payload.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunStatsPayload.TestRunChangedArgs">
+            <summary>
+            Gets or sets the test run changed event args.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunStatsPayload.InProgressTestCases">
+            <summary>
+            Gets or sets the in progress test cases.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources">
+            <summary>
+            The test run criteria with sources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources.#ctor(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.String,System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.Engine.ClientProtocol.TestExecutionContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources"/> class.
+            </summary>
+            <param name="adapterSourceMap"> The adapter source map.  </param>
+            <param name="package"> The package which actually contain sources. A testhost can at max execute for one package at time
+            Package can be null if test source, and package are same
+            </param>
+            <param name="runSettings"> The run settings.  </param>
+            <param name="testExecutionContext"> The test Execution Context. </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources.AdapterSourceMap">
+            <summary>
+            Gets the adapter source map.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources.RunSettings">
+            <summary>
+            Gets the run settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources.TestExecutionContext">
+            <summary>
+            Gets or sets the test execution context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources.Package">
+            <summary>
+            Gets the test Containers (e.g. .appx, .appxrecipie)
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests">
+            <summary>
+            The test run criteria with tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests.#ctor(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase},System.String,System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.Engine.ClientProtocol.TestExecutionContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests"/> class.
+            Ensure that names of constructor parameters match the public property names of the same for JSON serialization
+            </summary>
+            <param name="tests"> The tests. </param>
+            <param name="package"> The package which actually contain sources. A testhost can at max execute for one package at time
+            Package can be null if test source, and package are same
+            </param>
+            <param name="runSettings"> The test run settings. </param>
+            <param name="testExecutionContext"> The test Execution Context. </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests.Tests">
+            <summary>
+            Gets the tests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests.RunSettings">
+            <summary>
+            Gets the test run settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests.TestExecutionContext">
+            <summary>
+            Gets or sets the test execution context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests.Package">
+            <summary>
+            Gets the test Containers (e.g. .appx, .appxrecipie)
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message">
+            <summary>
+            Construct used for communication
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message.MessageType">
+            <summary>
+            Gets or sets the message type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message.Payload">
+            <summary>
+            Gets or sets the payload.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message.ToString">
+            <summary>
+            To string implementation.
+            </summary>
+            <returns> The <see cref="T:System.String"/>. </returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.VersionedMessage">
+            <summary>
+            Construct with version used for communication
+            Introduced in 15.1.0 version and default message protocol v2 onwards.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.VersionedMessage.Version">
+            <summary>
+            Gets or sets the version of the message
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.StringUtils.IsNullOrEmpty(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrEmpty(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.StringUtils.IsNullOrWhiteSpace(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TPDebug.Assert(System.Boolean)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TPDebug.Assert(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ProtocolVersioning.Version0">
+            <summary>
+            The original protocol with no versioning. It sends and receives a Message that carries just data
+            and has no Version field. It is used during negotiation to ensure that we communicate at the
+            lowest available version the other side can be.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ProtocolVersioning.Version1">
+            <summary>
+            Adds versioning to the protocol by introducing VersionedMessage.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ProtocolVersioning.Version2">
+            <summary>
+            Changed serialization because the serialization of properties in bag was too verbose,
+            so common properties are considered built-in and serialized without type info.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ProtocolVersioning.Version3">
+            <summary>
+            Added attach debugger messages to allow attaching to external process.
+            /!\ This protocol version should not be used. It incorrectly serializes using the old
+            version 1 serializer that is very slow.
+            Added messages:
+            <see cref="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AttachDebugger"/>
+            <see cref="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.AttachDebuggerCallback"/>
+            <see cref="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.EditorAttachDebugger"/>
+            <see cref="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.MessageType.EditorAttachDebuggerCallback"/>
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.AbortedTestDiscovery">
+            <summary>
+              Looks up a localized string similar to The active test discovery was aborted..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.AbortedTestDiscoveryWithReason">
+            <summary>
+              Looks up a localized string similar to The active test discovery was aborted. Reason: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.AbortedTestRun">
+            <summary>
+              Looks up a localized string similar to The active test run was aborted. Reason: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.AttachDebuggerToDefaultTestHostFailure">
+            <summary>
+              Looks up a localized string similar to Cannot attach the debugger to the default test host..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.ConnectionClosed">
+            <summary>
+              Looks up a localized string similar to An existing connection was forcibly closed by the remote host..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.ConnectionTimeoutErrorMessage">
+            <summary>
+              Looks up a localized string similar to {0} process failed to connect to {1} process after {2} seconds. This may occur due to machine slowness, please set environment variable {3} to increase timeout..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.TestHostProcessCrashed">
+            <summary>
+              Looks up a localized string similar to Test host process crashed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.UnableToCommunicateToTestHost">
+            <summary>
+              Looks up a localized string similar to Unable to communicate with test host process..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.UnexpectedMessage">
+            <summary>
+              Looks up a localized string similar to Unexpected message received. Expected MessageType : {0} Actual MessageType: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.VersionCheckFailed">
+            <summary>
+              Looks up a localized string similar to Protocol version check failed. Make sure test runner and host are compatible..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources.Resources.VersionCheckTimedout">
+            <summary>
+              Looks up a localized string similar to Failed to negotiate protocol, waiting for response timed out after {0} seconds. This may occur due to machine slowness, please set environment variable {1} to increase timeout..
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.DefaultTestPlatformContractResolver">
+            <summary>
+            JSON contract resolver for mapping test platform types.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.DefaultTestPlatformContractResolver.CreateContract(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.DefaultTestPlatformContractResolver7">
+            TODO: This is not used now, but I was experimenting with this quite a bit for performance, leaving it here in case I was wrong
+            and the serializer settings actually have signigicant impact on the speed.
+            <summary>
+            JSON contract resolver for mapping test platform types.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.DefaultTestPlatformContractResolver7.CreateContract(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestCaseConverter">
+            <summary>
+            Converter used by v1 protocol serializer to serialize TestCase object to and from v1 json
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestCaseConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestCaseConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestCaseConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter">
+            <summary>
+            JSON converter for the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.TestObject"/> and derived entities.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter.CanRead">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter.CanWrite">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7">
+            TODO: This is not used now, but I was experimenting with this quite a bit for performance, leaving it here in case I was wrong
+            and the serializer settings actually have signigicant impact on the speed.
+            <summary>
+            JSON converter for the <see cref="T:Microsoft.VisualStudio.TestPlatform.ObjectModel.TestObject"/> and derived entities.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7.CanRead">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7.CanWrite">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestObjectConverter7.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestPlatformContractResolver1">
+            <summary>
+            JSON contract resolver for mapping test platform types for v1 serialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestPlatformContractResolver1.CreateContract(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestResultConverter">
+            <summary>
+            Converter used by v1 protocol serializer to serialize TestResult object to and from v1 json
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestResultConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestResultConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestResultConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestRunStatisticsConverter">
+            <summary>
+            JSON converter for converting ITestRunStatistics to TestRunStatistics
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestRunStatisticsConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestRunStatisticsConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Serialization.TestRunStatisticsConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketClient">
+            <summary>
+            Communication client implementation over sockets.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketClient.Connected">
+            <inheritdoc />
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketClient.Disconnected">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketClient.Start(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketClient.Stop">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager">
+            <summary>
+            Facilitates communication using sockets
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.STREAMREADTIMEOUT">
+            <summary>
+            The server stream read timeout constant (in microseconds).
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._tcpListener">
+            <summary>
+            TCP Listener to host TCP channel and listen
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._tcpClient">
+            <summary>
+            TCP Client that can connect to a TCP listener
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._binaryWriter">
+            <summary>
+            Binary Writer to write to channel stream
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._binaryReader">
+            <summary>
+            Binary reader to read from channel stream
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._dataSerializer">
+            <summary>
+            Serializer for the data objects
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._clientConnectedEvent">
+            <summary>
+            Event used to maintain client connection state
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._clientConnectionAcceptedEvent">
+            <summary>
+            Event used to maintain client connection state
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._sendSyncObject">
+            <summary>
+            Sync object for sending messages
+            SendMessage over socket channel is NOT thread-safe
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager._receiveSyncObject">
+            <summary>
+            Sync object for receiving messages
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.HostServer(System.Net.IPEndPoint)">
+            <summary>
+            Host TCP Socket Server and start listening
+            </summary>
+            <param name="endpoint">End point where server is hosted</param>
+            <returns>Port of the listener</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.AcceptClientAsync">
+            <summary>
+            Accepts client async
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.WaitForClientConnection(System.Int32)">
+            <summary>
+            Waits for Client Connection
+            </summary>
+            <param name="clientConnectionTimeout">Time to Wait for the connection</param>
+            <returns>True if Client is connected, false otherwise</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.StopServer">
+            <summary>
+            Stop Listener
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.SetupClientAsync(System.Net.IPEndPoint)">
+            <summary>
+            Connects to server async
+            </summary>
+            <param name="endpoint">EndPointAddress for client to connect</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.WaitForServerConnection(System.Int32)">
+            <summary>
+            Waits for server to be connected
+            Whoever creating the client and trying to connect to a server
+            should use this method to wait for connection to be established with server
+            </summary>
+            <param name="connectionTimeout">Time to wait for the connection</param>
+            <returns>True, if Server got a connection from client</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.StopClient">
+            <summary>
+            Stop Listener
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.SendMessage(System.String)">
+            <summary>
+            Writes message to the binary writer.
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.SendMessage(System.String,System.Object)">
+            <summary>
+             Writes message to the binary writer with payload
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+            <param name="payload">payload to be sent</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.SendMessage(System.String,System.Object,System.Int32)">
+            <summary>
+             Writes message to the binary writer with payload
+            </summary>
+            <param name="messageType">Type of Message to be sent, for instance TestSessionStart</param>
+            <param name="payload">payload to be sent</param>
+            <param name="version">version to be sent</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.SendRawMessage(System.String)">
+            <summary>
+            Send serialized raw message
+            </summary>
+            <param name="rawMessage">serialized message</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.ReceiveMessage">
+            <summary>
+            Reads message from the binary reader
+            </summary>
+            <returns>Returns message read from the binary reader</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.ReceiveMessageAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reads message from the binary reader using read timeout
+            </summary>
+            <param name="cancellationToken">
+            The cancellation Token.
+            </param>
+            <returns>
+            Returns message read from the binary reader
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.ReceiveRawMessage">
+            <summary>
+            Reads message from the binary reader
+            </summary>
+            <returns> Raw message string </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.ReceiveRawMessageAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reads message from the binary reader using read timeout
+            </summary>
+            <param name="cancellationToken">
+            The cancellation Token.
+            </param>
+            <returns>
+            Raw message string
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.DeserializePayload``1(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Message)">
+            <summary>
+            Deserializes the Message into actual TestPlatform objects
+            </summary>
+            <typeparam name="T"> The type of object to deserialize to. </typeparam>
+            <param name="message"> Message object </param>
+            <returns> TestPlatform object </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketCommunicationManager.WriteAndFlushToChannel(System.String)">
+            <summary>
+            Writes the data on socket and flushes the buffer
+            </summary>
+            <param name="rawMessage">message to write</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer">
+            <summary>
+            Communication server implementation over sockets.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.#ctor(System.Func{System.IO.Stream,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationChannel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer"/> class with given channel
+            factory implementation.
+            </summary>
+            <param name="channelFactory">Factory to create communication channel.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.Connected">
+            <inheritdoc />
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.Disconnected">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.Stop">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketServer.StopOnError(System.Exception)">
+            <summary>
+            Stop the connection when error was encountered. Dispose all communication, and notify subscribers of Disconnected event
+            that we aborted.
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketTransport">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketTransport._disposed">
+            <summary>
+            Specifies whether the resolver is disposed or not
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketTransport.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketTransport.WaitForConnection(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.SocketTransport.GetIpEndPoint(System.String)">
+            <summary>
+            Converts a given string endpoint address to valid Ipv4, Ipv6 IPEndpoint
+            </summary>
+            <param name="endpointAddress">Input endpoint address</param>
+            <returns>IPEndpoint from give string</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TcpClientExtensions.GetIpEndPoint(System.String)">
+            <summary>
+            Converts a given string endpoint address to valid Ipv4, Ipv6 IPEndpoint
+            </summary>
+            <param name="value">Input endpoint address</param>
+            <returns>IPEndpoint from give string, if its not a valid string. It will create endpoint with loop back address with port 0</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender">
+            <summary>
+            Test request sender implementation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.#ctor(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ProtocolConfig,Microsoft.VisualStudio.TestPlatform.ObjectModel.Host.ITestRuntimeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender"/> class.
+            </summary>
+            <param name="protocolConfig">Protocol configuration.</param>
+            <param name="runtimeProvider">The runtime provider.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.#ctor(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.ICommunicationEndPoint,Microsoft.VisualStudio.TestPlatform.ObjectModel.TestHostConnectionInfo,Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Interfaces.IDataSerializer,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ProtocolConfig,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender"/> class.
+            Used only for testing to inject communication endpoint.
+            </summary>
+            <param name="communicationEndPoint">Communication server implementation.</param>
+            <param name="connectionInfo">ConnectionInfo to set up transport layer</param>
+            <param name="serializer">Serializer implementation.</param>
+            <param name="protocolConfig">Protocol configuration.</param>
+            <param name="clientExitedWaitTime">Time to wait for client process exit.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.InitializeCommunication">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.WaitForRequestHandlerConnection(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.CheckVersionWithTestHost">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.InitializeDiscovery(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.DiscoverTests(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.DiscoveryCriteria,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestDiscoveryEventsHandler2)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.SendDiscoveryAbort">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.InitializeExecution(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.StartTestRun(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithSources,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.IInternalTestRunEventsHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.StartTestRun(Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel.TestRunCriteriaWithTests,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.IInternalTestRunEventsHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.SendTestRunCancel">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.SendTestRunAbort">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.EndSession">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.OnClientProcessExit(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.TestRequestSender.Dispose">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

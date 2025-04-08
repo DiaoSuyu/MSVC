@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用键索引到强类型字典。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用键索引到强类型字典。</Description>
+      <Shortcut>colIndex</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>itemVar</ID>
+          <ToolTip>替换为项变量的标识符。</ToolTip>
+          <Default>capitol</Default>
+        </Literal>
+        <Literal>
+          <ID>itemType</ID>
+          <ToolTip>替换为集合中的项的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>storageVar</ID>
+          <ToolTip>替换为要索引到的集合对象。</ToolTip>
+          <Default>stateCaps</Default>
+          <Type>System.Collections.IDictionary</Type>
+        </Object>
+        <Literal>
+          <ID>key</ID>
+          <ToolTip>替换为存储值时所用的键。</ToolTip>
+          <Default>"NM"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $itemVar$ As $itemType$ = $storageVar$.Item($key$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,17 @@
+[
+	object,
+	uuid($guid_interface_iid$),
+[!if INTERFACE_DUAL]
+	dual,
+[!endif]
+[!if AUTOMATION]
+	oleautomation,
+[!endif]
+[!if INTERFACE_DUAL || AUTOMATION]
+	nonextensible,
+[!endif]	
+	pointer_default(unique)
+]
+interface $interface_name$ : [!if INTERFACE_DUAL]IDispatch[!else]IUnknown[!endif]
+{
+};

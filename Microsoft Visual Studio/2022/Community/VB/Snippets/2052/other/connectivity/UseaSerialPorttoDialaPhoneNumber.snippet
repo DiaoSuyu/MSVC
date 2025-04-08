@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 SerialPort 拨号</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 SerialPort 拨号。</Description>
+      <Shortcut>condialser</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.IO.Ports</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>com</ID>
+          <ToolTip>替换为调制解调器 COM 端口的名称。</ToolTip>
+          <Default>"COM1"</Default>
+        </Literal>
+        <Literal>
+          <ID>baud</ID>
+          <ToolTip>替换为波特率。</ToolTip>
+          <Default>2400</Default>
+        </Literal>
+        <Literal>
+          <ID>dial</ID>
+          <ToolTip>替换为拨号命令字符串。</ToolTip>
+          <Default>"ATDT 206-555-1000"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Using comPort = My.Computer.Ports.OpenSerialPort($Com$, $Baud$)
+    comPort.DtrEnable = True
+    comPort.Write($Dial$ & vbCrLf)
+
+    ' All data transfer code goes here.
+
+End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

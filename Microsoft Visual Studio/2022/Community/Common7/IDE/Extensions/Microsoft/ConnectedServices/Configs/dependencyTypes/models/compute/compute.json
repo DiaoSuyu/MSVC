@@ -1,0 +1,15 @@
+{
+  "id": "compute",
+  "provisioningId": "Microsoft.Web/sites",
+  "name": "strings:#/computeDependencyTypeName",
+  "description": "strings:#/computeDependencyTypeDescription",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3793
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3793
+  },
+  "displayOrder": 30000
+}

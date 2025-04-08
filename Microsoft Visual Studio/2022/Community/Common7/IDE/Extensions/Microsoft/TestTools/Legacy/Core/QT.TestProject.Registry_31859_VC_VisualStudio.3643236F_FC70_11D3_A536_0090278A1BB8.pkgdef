@@ -1,0 +1,12 @@
+[$RootKey$\Projects\{7D6034C3-AFB8-05CB-2A75-DAA65E89BE83}]
+@="Visucal C++ Test Project"
+"DisableOnlineTemplates"=dword:00000001
+"Language(VsTemplate)"="VisualC"
+"Package"="{52CBD135-1F97-2580-011F-C7CD052E44DE}"
+"ShowOnlySpecifiedTemplates(VsTemplate)"=dword:00000000
+"TemplateGroupIDs(VsTemplate)"="TestProject-V1"
+
+[$RootKey$\Projects\{7D6034C3-AFB8-05CB-2A75-DAA65E89BE83}\AddItemTemplates\TemplateDirs\{F1C25864-3097-11D2-A5C5-00C04F7968B4}\/1]
+@="#10007"
+"SortPriority"=dword:00000050
+"TemplatesDir"="$ShellFolder$\VC\VCProjectItems"

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将查询嵌入 XElement</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将查询嵌入 XElement。</Description>
+      <Shortcut>xmlQuery</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Root</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为根名称。</ToolTip>
+          <Default>Root</Default>
+        </Literal>
+         <Literal>
+          <ID>Result</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为结果名称。</ToolTip>
+          <Default>Result</Default>
+        </Literal>
+        <Literal>
+          <ID>QueryExpr</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为集合。</ToolTip>
+          <Default>"abc"</Default>          
+        </Literal>       
+        <Literal>
+          <ID>QueryExpr2</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为条件。</ToolTip>
+          <Default>= "b"</Default>          
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[
+        Dim y = <$Root$>
+                    <%= From i in $QueryExpr$ _
+                        where i $QueryExpr2$ _
+                        Select <$Result$>
+                                   <%= i %>
+                               </$Result$> _
+                               %>
+                </$Root$>
+
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

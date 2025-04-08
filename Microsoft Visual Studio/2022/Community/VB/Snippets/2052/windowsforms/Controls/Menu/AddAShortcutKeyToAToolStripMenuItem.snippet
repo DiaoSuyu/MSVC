@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>向 ToolStripMenuItem 添加快捷键</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向 ToolStripMenuItem 添加快捷键。</Description>
+      <Shortcut>menuAddShort</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+		<Import>
+		  <Namespace>System.Windows.Forms.Keys</Namespace>
+		</Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>menuItemName</ID>
+          <Type>ToolStripMenuItem</Type>
+          <ToolTip>替换为窗体上的下拉菜单项。</ToolTip>
+          <Default>ToolStripMenuItem1</Default>
+        </Object>
+        <Object>
+          <ID>shortcutKey</ID>
+          <Type>Keys</Type>
+          <ToolTip>替换为要使用的快捷键。</ToolTip>
+          <Default>F6</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$menuItemName$.ShortcutKeys = $shortcutKey$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

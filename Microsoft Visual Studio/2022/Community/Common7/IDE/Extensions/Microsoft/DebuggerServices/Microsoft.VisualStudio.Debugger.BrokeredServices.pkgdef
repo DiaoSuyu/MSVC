@@ -1,0 +1,46 @@
+﻿// ------------------------------------------------------------------------------- //
+// Remove once we are able to pull the latest Debugger.Engine package.
+// In the mean time, we must update these values with any proffered services.
+// ------------------------------------------------------------------------------- //
+
+// Solution Configuration Services ----------------------------------------------- //
+[$RootKey$\Packages\{0d8bee22-bb59-45b6-9670-addf9a4f5b63}]
+@="VS Debugger Brokered Services Package"
+"InprocServer32"="$WinDir$\system32\mscoree.dll"
+"Class"="Microsoft.VisualStudio.Debugger.BrokeredServices.BrokeredServicesPackage"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.BrokeredServices.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+// Brokered services ------------------------------------------------------------- //
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Debugger.ManagedEditAndContinueConcordEngineService\0.1]
+@="{0d8bee22-bb59-45b6-9670-addf9a4f5b63}"
+; Local | RemoteExclusiveClient
+"audience"=dword:00000103
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Debugger.ManagedEditAndContinueVsdbgEngineService\0.1]
+@="{0d8bee22-bb59-45b6-9670-addf9a4f5b63}"
+; Local | RemoteExclusiveClient
+"audience"=dword:00000103
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Debugger.ManagedHotReloadService\1.0]
+@="{0d8bee22-bb59-45b6-9670-addf9a4f5b63}"
+; Local | RemoteExclusiveClient
+"audience"=dword:00000103
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Debugger.AttachService\0.1]
+@="{0d8bee22-bb59-45b6-9670-addf9a4f5b63}"
+; RemoteExclusiveClient
+"audience"=dword:00000100
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.Debugger.SymbolLocatorService\0.1]
+@="{0d8bee22-bb59-45b6-9670-addf9a4f5b63}"
+; Local
+"audience"=dword:00000003
+
+// Dependencies (code base needed to load in Load context and respect NGEN image)
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{2E9FCCCA-2208-4519-8B67-3AD860E664E6}]
+"Name"="Microsoft.VisualStudio.Debugger.Shared"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"Version"="16.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Debugger.Shared.dll"

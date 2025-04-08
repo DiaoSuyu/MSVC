@@ -1,0 +1,383 @@
+﻿[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{BEEB2581-1F92-451C-B5DE-DD75A7F633A3}]
+"Name"="Microsoft.WebTools.Languages.Css"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"OldVersion"="15.0.0.0-17.0.0.0"
+"NewVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Css.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{A3AD039D-8488-4FF1-9D36-EF7C2FE6AD41}]
+"Name"="Microsoft.WebTools.Languages.Css.Editor"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"OldVersion"="15.0.0.0-17.0.0.0"
+"NewVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Css.Editor.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{168C3FE5-2FE5-4F9A-B044-E1743595F8EA}]
+"Name"="Microsoft.WebTools.Languages.Html"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"OldVersion"="15.0.0.0-17.0.0.0"
+"NewVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Html.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{2EFBBD38-FC4A-4A1B-8A6C-D9DC3FBFEB58}]
+"Name"="Microsoft.WebTools.Languages.Html.Editor"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"OldVersion"="15.0.0.0-17.0.0.0"
+"NewVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Html.Editor.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{F237E3C7-F860-4BD9-938D-82614D7F4908}]
+"Name"="Microsoft.WebTools.Languages.Html.VS"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"OldVersion"="15.0.0.0-17.0.0.0"
+"NewVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Html.VS.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{ec402266-1e21-4296-8a0a-df2ebabf09d0}]
+"name"="Microsoft.WebTools.Languages.LanguageServer.Delegation"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Languages.LanguageServer.Delegation.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{5632E3FE-7AC8-4FF6-9B44-744A5B50CDAD}]
+"name"="Microsoft.WebTools.Languages.LanguageServer.Server"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Languages.LanguageServer.Server.dll"
+
+[$RootKey$\Packages\{5330c67f-305c-4b17-a3dc-fbb7aee69c09}]
+@="CssPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Html.VS.Package.Css.CssPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Html.VS.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Editors\{a5401142-f49d-43db-90b1-f57ba349e55c}]
+@="CssEditorFactory"
+"DisplayName"="#201"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{a5401142-f49d-43db-90b1-f57ba349e55c}\Extensions]
+"*"=dword:00000017
+"css"=dword:00000032
+
+[$RootKey$\Editors\{a5401142-f49d-43db-90b1-f57ba349e55c}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Editors\{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}]
+@="CssEditorFactory with encoding"
+"DisplayName"="#204"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000003
+"LinkedEditorGuid"="{a5401142-f49d-43db-90b1-f57ba349e55c}"
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}\Extensions]
+"*"=dword:00000016
+"css"=dword:00000031
+
+[$RootKey$\Editors\{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Languages\CodeExpansions\CSS]
+@="{a764e898-518d-11d2-9a89-00c04f79efc3}"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"DisplayName"="202"
+"LangStringID"="CSS"
+"IndexPath"="%InstallRoot%\Web\Snippets\CSS\%LCID%\SnippetsIndex.xml"
+"ShowRoots"=dword:00000000
+
+[$RootKey$\Languages\CodeExpansions\CSS\Paths]
+"CSS"="%InstallRoot%\Web\Snippets\CSS\%LCID%\CSS\;%MyDocs%\Code Snippets\Visual Web Developer\My CSS Snippets\"
+
+[$RootKey$\Languages\CodeExpansions\CSS\ForceCreateDirs]
+"CSS"="%InstallRoot%\Web\Snippets\CSS\%LCID%\CSS\;%MyDocs%\Code Snippets\Visual Web Developer\My CSS Snippets\"
+
+[$RootKey$\Languages\Language Services\CSS\EditorToolsOptions\Advanced]
+@="#150"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"Page"="{978df9f7-5f7c-46c1-afe6-3e4335e93514}"
+
+[$RootKey$\Languages\File Extensions\.css]
+@="{a764e898-518d-11d2-9a89-00c04f79efc3}"
+
+[$RootKey$\Languages\Language Services\CSS]
+@="{a764e898-518d-11d2-9a89-00c04f79efc3}"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"LangResID"=dword:000000CA
+"DefaultToInsertSpaces"=dword:00000001
+"RequestStockColors"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+"ShowCompletion"=dword:00000001
+"ShowDropdownBarOption"=dword:00000001
+"ShowSmartIndent"=dword:00000001
+
+[$RootKey$\UserSettings\CSS_Advanced]
+@="201"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"Category"="{978df9f7-5f7c-46c1-afe6-3e4335e93514}"
+"ToolsOptionsPath"="CSS"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Services\{a764e898-518d-11d2-9a89-00c04f79efc3}]
+@="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"Name"="CSS Language Service"
+
+[$RootKey$\AutomationProperties\TextEditor\CSS]
+@="#6002"
+"Description"="#6000"
+"Name"="CSS"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ResourcePackage"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"ProfileSave"=dword:00000001
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\CSS Specific]
+@="#6003"
+"Description"="#6001"
+"Name"="CSS Specific"
+"Package"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"ResourcePackage"="{5330c67f-305c-4b17-a3dc-fbb7aee69c09}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.CSS.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+[$RootKey$\Packages\{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}]
+@="HtmlPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Html.VS.Package.Html.HtmlPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Html.VS.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+// Auto-load HTML package when .cshtml.cs file is opened to enable Go To Page command
+[$RootKey$\AutoLoadPackages\{b7f184b0-9013-447d-811d-cca0bad96901}]
+"{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"=dword:00000002
+
+[$RootKey$\UIContextRules\{b7f184b0-9013-447d-811d-cca0bad96901}]
+@="PageModelSelected"
+"Expression"="(RazorPageModel | BlazorPageModel)"
+"RazorPageModel"="HierSingleSelectionName:.cshtml.cs$"
+"BlazorPageModel"="HierSingleSelectionName:.razor.cs$"
+
+[$RootKey$\Editors\{40d31677-cbc0-4297-a9ef-89d907823a98}]
+@="HtmlEditorFactory"
+"DisplayName"="#200"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{40d31677-cbc0-4297-a9ef-89d907823a98}\Extensions]
+"*"=dword:0000001B
+"cshtml"=dword:00000033
+"handlebars"=dword:00000033
+"hbs"=dword:00000033
+"hjs"=dword:00000033
+"htm"=dword:00000033
+"html"=dword:00000033
+"mustache"=dword:00000033
+"razor"=dword:00000033
+"stm"=dword:00000033
+"stml"=dword:00000033
+"vbhtml"=dword:00000033
+"vue"=dword:00000033
+"xhtm"=dword:00000033
+"xhtml"=dword:00000033
+
+[$RootKey$\Editors\{40d31677-cbc0-4297-a9ef-89d907823a98}\LogicalViews]
+"{7651a700-06e5-11d1-8ebd-00a0c90f26ea}"=""
+"{7651a701-06e5-11d1-8ebd-00a0c90f26ea}"=""
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Editors\{E6422C1D-B0B3-427a-A06C-AB9E38FE4EE3}]
+@="HtmlEditorFactory with Encoding"
+"DisplayName"="#203"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000003
+"LinkedEditorGuid"="{40d31677-cbc0-4297-a9ef-89d907823a98}"
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{E6422C1D-B0B3-427a-A06C-AB9E38FE4EE3}\Extensions]
+"*"=dword:0000001A
+"cshtml"=dword:00000032
+"handlebars"=dword:00000032
+"hbs"=dword:00000032
+"hjs"=dword:00000032
+"htm"=dword:00000032
+"html"=dword:00000032
+"mustache"=dword:00000032
+"razor"=dword:00000032
+"stm"=dword:00000032
+"stml"=dword:00000032
+"vbhtml"=dword:00000032
+"vue"=dword:00000032
+"xhtm"=dword:00000032
+"xhtml"=dword:00000032
+
+[$RootKey$\Editors\{E6422C1D-B0B3-427a-A06C-AB9E38FE4EE3}\LogicalViews]
+"{7651a700-06e5-11d1-8ebd-00a0c90f26ea}"=""
+"{7651a701-06e5-11d1-8ebd-00a0c90f26ea}"=""
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Languages\CodeExpansions\HTML]
+@="{9BBFD173-9770-47DC-B191-651B7FF493CD}"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"DisplayName"="106"
+"LangStringID"="HTML"
+"IndexPath"="%InstallRoot%\Web\Snippets\Html\%LCID%\SnippetsIndexHtml.xml"
+"ShowRoots"=dword:00000000
+
+[$RootKey$\Languages\CodeExpansions\HTML\Paths]
+"HTML"="%InstallRoot%\Web\Snippets\Html\%LCID%\Html\;%MyDocs%\Code Snippets\Visual Web Developer\My HTML Snippets\"
+
+[$RootKey$\Languages\CodeExpansions\HTML\ForceCreateDirs]
+"HTML"="%InstallRoot%\Web\Snippets\Html\%LCID%\Html\;%MyDocs%\Code Snippets\Visual Web Developer\My HTML Snippets\"
+
+[$RootKey$\Languages\Language Services\HTML\EditorToolsOptions\Advanced]
+@="#150"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"Page"="{3d9c2439-5c0a-4592-b9e8-42e26dfe636b}"
+
+[$RootKey$\Languages\File Extensions\.asa]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.handlebars]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.hbs]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.hjs]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.cshtml]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.htm]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.html]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.mustache]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.razor]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.shtml]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.stm]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.stml]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.vbhtml]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.vue]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.xhtm]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\File Extensions\.xhtml]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+
+[$RootKey$\Languages\Language Services\HTML]
+@="{9bbfd173-9770-47dc-b191-651b7ff493cd}"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"LangResID"=dword:0000006A
+"DefaultToInsertSpaces"=dword:00000001
+"RequestStockColors"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+"ShowCompletion"=dword:00000001
+"ShowSmartIndent"=dword:00000001
+"Support CF_HTML"=dword:00000001
+
+[$RootKey$\Menus]
+"{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"=", Menus.ctmenu, 1"
+
+[$RootKey$\UserSettings\HTML_Advanced]
+@="200"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"Category"="{3d9c2439-5c0a-4592-b9e8-42e26dfe636b}"
+"ToolsOptionsPath"="HTML"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\HTML]
+@="#20116"
+"Description"="#20138"
+"Name"="HTML"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ResourcePackage"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"ProfileSave"=dword:00000001
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\HTML Specific]
+@="#20136"
+"Description"="#20137"
+"Name"="HTML Specific"
+"Package"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"ResourcePackage"="{cf49ec7d-92b1-4bbd-9254-9cc13978e82e}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.HTML.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+// Registers the language grammar files with Visual Studio
+[$RootKey$\TextMate\Repositories]
+"htmlLsp"="$PackageFolder$\Syntaxes"
+
+// Defines where the language configuration file for a given
+// grammar name is (value of the ScopeName tag in the tmlanguage file).
+[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.css"="$PackageFolder$\Syntaxes\css.language-configuration.json"
+"text.htmlLsp.basic"="$PackageFolder$\Syntaxes\htmlLsp.language-configuration.json"
+
+// Defines where the language configuration file for a given
+// language name is (partial value of the content type name)
+[$RootKey$\TextMate\LanguageConfiguration\ContentTypeMapping]
+"htmlyLSP"="$PackageFolder$\Syntaxes\htmlLsp.language-configuration.json"
+"html-delegation"="$PackageFolder$\Syntaxes\htmlLsp.language-configuration.json"
+
+// Define feature flags here
+
+// A feature flag named WebTools.Languages.Foo.Bar should be converted to a registry path syntax like
+// [$RootKey$\FeatureFlags\WebTools\Languages\Foo\Bar]
+// Also, the PackageGuid key is needed to resolve the resource string IDs.
+
+[$RootKey$\FeatureFlags\WebTools\Languages\Html\LSP]
+"Title"="#1000"
+"Description"="#1001"
+"Value"=dword:00000000
+"PreviewPaneChannels"="*"
+"PackageGuid"="cf49ec7d-92b1-4bbd-9254-9cc13978e82e"
+
+[$RootKey$\FeatureFlags\WebTools\Languages\Css\LSP]
+"Title"="#1002"
+"Description"="#1003"
+"Value"=dword:00000000
+"PreviewPaneChannels"="*"
+"PackageGuid"="cf49ec7d-92b1-4bbd-9254-9cc13978e82e"

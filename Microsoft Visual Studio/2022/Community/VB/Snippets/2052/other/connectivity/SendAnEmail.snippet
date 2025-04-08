@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建电子邮件 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 MailMessage 类发送电子邮件。</Description>
+      <Shortcut>conEmail</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Net.Mail</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>recipient</ID>
+          <ToolTip>替换为收件人的电子邮件地址。</ToolTip>
+          <Default>"from@address"</Default>
+        </Literal>
+        <Literal>
+          <ID>sender</ID>
+          <ToolTip>替换为发件人的电子邮件地址。</ToolTip>
+          <Default>"sender@address"</Default>
+        </Literal>
+        <Literal>
+          <ID>message</ID>
+          <ToolTip>替换为消息的文本。</ToolTip>
+          <Default>"Message Text"</Default>
+        </Literal>
+        <Literal>
+          <ID>subject</ID>
+          <ToolTip>替换为电子邮件主题行的内容。</ToolTip>
+          <Default>"Subject"</Default>
+        </Literal>
+        <Literal>
+          <ID>serverName</ID>
+          <ToolTip>替换为 SMTP 服务器的名称。</ToolTip>
+          <Default>"Email Server Name"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim message As New MailMessage($sender$, $recipient$, $subject$, $message$)
+Dim emailClient As New SmtpClient($serverName$)
+emailClient.Send(message)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

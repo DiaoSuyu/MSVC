@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>uinterface</Title>
+			<Shortcut>uinterface</Shortcut>
+			<Description>Unreal Engine UINTERFACE 宏</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>MyInterface</Default>
+					<ToolTip>UINTERFACE 名称</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>parentclass</ID>
+					<Default>Interface</Default>
+					<ToolTip>UINTERFACE 父类</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[UINTERFACE() 
+				class U$name$: public U$parentclass$ 
+				{
+				GENERATED_BODY()
+				};
+				class I$name$
+				{
+				GENERATED_BODY()
+				$end$
+				public:
+				};]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

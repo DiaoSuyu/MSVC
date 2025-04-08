@@ -1,0 +1,5 @@
+[$RootKey$\ShellFileAssociations\.generictest]
+"DefaultIconMoniker"="KnownMonikers.Test"
+
+[$RootKey$\ShellFileAssociations\.mtx]
+"DefaultIconMoniker"="KnownMonikers.ManualTest"

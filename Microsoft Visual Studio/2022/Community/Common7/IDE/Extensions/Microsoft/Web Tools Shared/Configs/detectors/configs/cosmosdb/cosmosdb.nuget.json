@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "cosmosdb",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Azure.Cosmos": ""
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "components": {
+    "msbuildProperty": {
+      "modifiers": [
+        "apis.msbuildProperty.function"
+      ]
+    }
+  }
+}

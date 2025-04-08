@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义用于排序例程的类型比较器。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>比较两个对象并返回一个值，该值指示一个对象小于、等于还是大于另一个对象。</Description>
+      <Shortcut>arrComp</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>compareID</ID>
+          <ToolTip>替换为比较器类型的标识符。</ToolTip>
+          <Default>IntegerComparer</Default>
+        </Literal>
+        <Literal>
+          <ID>compType</ID>
+          <ToolTip>替换为比较器比较的项的类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>param1</ID>
+          <ToolTip>替换为要比较的第一个对象。</ToolTip>
+          <Default>param1</Default>
+        </Literal>
+        <Literal>
+          <ID>param2</ID>
+          <ToolTip>替换为要比较的第二个对象。</ToolTip>
+          <Default>param2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="type decl"><![CDATA[     Public Class $compareID$
+        Inherits Comparer(Of $compType$)
+
+        Public Overrides Function Compare(ByVal $param1$ As $compType$, ByVal $param2$ As $compType$) As Integer
+            If $param1$ < $param2$ Then
+        ' result = <0 if param1 < param2
+        Return -1
+            ElseIf $param1$ > $param2$ Then
+        ' result = >0 if param1 > param2
+        Return 1
+            Else
+        ' result = 0 if param1 = param2
+        Return 0
+            End If
+        End Function
+    End Class]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

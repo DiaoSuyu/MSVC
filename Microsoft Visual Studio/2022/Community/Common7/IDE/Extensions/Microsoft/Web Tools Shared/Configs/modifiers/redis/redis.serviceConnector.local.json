@@ -1,0 +1,15 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "UserAccount",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_REDIS_HOST",
+          "customizedName": "@@connectionId@@"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将多行字符串输入多行 TextBox</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将多行字符串输入多行 Textbox。</Description>
+      <Shortcut>tbArray</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>textboxName</ID>
+          <Type>TextBox</Type>
+          <ToolTip>替换为窗体上的多行 TextBox。</ToolTip>
+          <Default>TextBox1</Default>
+        </Object>
+        <Literal>
+          <ID>arrayName</ID>
+          <ToolTip>替换为用于填充 TextBox 各行的字符串数组。</ToolTip>
+          <Default>names</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$textboxName$.Lines = $arrayName$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

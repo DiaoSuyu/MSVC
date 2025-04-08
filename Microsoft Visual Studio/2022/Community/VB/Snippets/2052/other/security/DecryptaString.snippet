@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>对文件中的文本进行解密</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 Rijndael 加密算法对文件中的文本进行解密。</Description>
+      <Shortcut>secDecrypt</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Security.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Security.Cryptography</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>fileName</ID>
+          <Type>String</Type>
+          <ToolTip>包含待解密文本的文件的名称。</ToolTip>
+          <Default>"encrypted.txt"</Default>
+        </Literal>
+        <Object>
+          <ID>privateKey</ID>
+          <Type>Byte</Type>
+          <ToolTip>用于加密数据的私钥。</ToolTip>
+          <Default>RijndaelAlg.Key</Default>
+        </Object>
+        <Object>
+          <ID>initializationVector</ID>
+          <Type>Byte</Type>
+          <ToolTip>在对称密钥加密方案中使用的初始化向量。</ToolTip>
+          <Default>RijndaelAlg.IV</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Using fStream = File.Open("encrypted.txt", FileMode.OpenOrCreate)
+    Dim RijndaelAlg As Rijndael = Rijndael.Create
+    Using cStream As New CryptoStream(fStream,
+                                  RijndaelAlg.CreateDecryptor(RijndaelAlg.Key, RijndaelAlg.IV),
+                                  CryptoStreamMode.Read)
+
+        Using sReader As New StreamReader(cStream)
+            Dim plainText = sReader.ReadLine()
+        End Using
+    End Using
+End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,19 @@
+{
+  "components": {
+    "appServiceSettings": {
+      "modifiers": [
+        "signalr.appServiceSettings.webAppSettings"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "signalr.nuget.function"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "signalr.serviceConnector.appService"
+      ]
+    }
+  }
+}

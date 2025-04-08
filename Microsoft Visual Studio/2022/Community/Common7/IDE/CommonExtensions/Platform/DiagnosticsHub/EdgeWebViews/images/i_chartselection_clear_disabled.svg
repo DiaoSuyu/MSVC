@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16" focusable="false">
+<style type="text/css">
+	.icon-canvas-transparent{opacity:0;fill:#F6F6F6;}
+	.icon-vs-out{fill:#F6F6F6;}
+	.icon-disabled-grey{fill:#848484;}
+</style>
+<g id="canvas">
+	<path class="icon-canvas-transparent" d="M16,16H0V0h16V16z"/>
+</g>
+<g id="outline">
+	<path class="icon-vs-out" d="M15,8v8h-3h-1H9H8H6H5H2V8h4v1h2V8H6.274L4.093,6.051L2.922,7.456
+		C2.601,7.813,2.163,8,1.694,8C1.242,8,0.807,7.83,0.501,7.531C0.185,7.224,0.001,6.792,0,6.349
+		c-0.002-0.445,0.175-0.865,0.497-1.183L1.8,4L0.533,2.868C0.175,2.516-0.001,2.096,0,1.651c0.001-0.443,0.185-0.875,0.502-1.184
+		C0.807,0.171,1.241,0,1.694,0C2.162,0,2.6,0.187,2.895,0.513L4.093,1.95L6.274,0h2.86L5.802,4L8,6.638V4h4v4H15z"/>
+</g>
+<g id="iconBg">
+	<path class="icon-disabled-grey" d="M3,9h2v6H3V9z M6,15h2v-5H6V15z M12,9v6h2V9H12z M9,5v10h2V5H9z"/>
+</g>
+<g id="colorAction">
+	<path class="icon-disabled-grey" d="M3.3,4L1.199,5.878c-0.289,0.285-0.241,0.703,0,0.938
+		c0.234,0.229,0.717,0.264,0.955,0l1.833-2.2L6.656,7H7L4.5,4L7,1H6.656L3.988,3.385l-1.833-2.2c-0.238-0.263-0.721-0.229-0.955,0
+		c-0.241,0.234-0.289,0.652,0,0.938L3.3,4z"/>
+</g>
+</svg>

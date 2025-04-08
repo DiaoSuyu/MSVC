@@ -1,0 +1,15 @@
+[$RootKey$\EnterpriseTools\QualityTools\TestTypes\{13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b}]
+"NameId"="#212"
+"RunConfigurationEditorType"="Microsoft.VisualStudio.TestTools.Tips.TuipPackage.UnitTestRunConfigControl, Microsoft.VisualStudio.QualityTools.Tips.TuipPackage, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"SatelliteBasePath"="%ExecutingAssemblyDirectory%"
+"SatelliteDllName"="Microsoft.VisualStudio.QualityTools.Tips.TuipPackageUI.dll"
+"ServiceType"="Microsoft.VisualStudio.TestTools.TestTypes.Unit.SUnitTestService, Microsoft.VisualStudio.QualityTools.Vsip, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"TipProvider"="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestTip, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Tip, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"VsEditor"="{00000000-0000-0000-0000-000000000000}"
+
+[$RootKey$\EnterpriseTools\QualityTools\TestTypes\{13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b}\Extensions]
+".dll"=dword:000000D7
+".exe"=dword:000000D7
+
+[$RootKey$\EnterpriseTools\QualityTools\TestTypes\{13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b}\SupportedHostAdapters]
+"ASP.NET"="ASP.NET Host Adapter"

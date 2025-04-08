@@ -1,0 +1,60 @@
+{
+  "feature": {
+    "id": "apis.azure"
+  },
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    "PickInstance",
+    "DependencySummary"
+  ],
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "apiEndpoint": {}
+  },
+  "arm": {
+    "apiVersion": "2019-12-01",
+    "templateGenerator": {
+      "id": "export",
+      "model": {
+        "templatePreprocessors": [
+          {
+            "id": "removeUnnecessaryProperties",
+            "model": {
+              "properties": [
+                "etag",
+                "id",
+                "identity",
+                "properties/createdAtUtc",
+                "properties/developerPortalUrl",
+                "properties/gatewayRegionalUrl",
+                "properties/gatewayUrl",
+                "properties/managementApiUrl",
+                "properties/portalUrl",
+                "properties/provisioningState",
+                "properties/scmUrl",
+                "properties/targetProvisioningState",
+                "tags"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

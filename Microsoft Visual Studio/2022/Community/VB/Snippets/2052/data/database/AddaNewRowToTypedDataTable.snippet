@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>向类型化 DataTable 添加新行</Title>
+      <Description>向类型化 DataTable 添加新行 </Description>
+      <Shortcut>adoNewRow</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+        </Reference>
+      </References>
+      <Declarations>
+        <Object>
+          <ID>dataTableType</ID>
+          <Type>DataRow</Type>
+          <ToolTip>替换为要添加的行类型。</ToolTip>
+          <Default>NorthwindDataSet.CustomersRow</Default>
+        </Object>
+        <Object>
+          <ID>table</ID>
+          <Type>DataTable</Type>
+          <ToolTip>替换为新行的 DataTable。</ToolTip>
+          <Default>Me.NorthwindDataSet.Customers</Default>
+        </Object>
+        <Literal>
+          <ID>column1</ID>
+          <ToolTip>替换为新 DataRow 的第一列。</ToolTip>
+          <Default>CustomerID</Default>
+        </Literal>
+        <Literal>
+          <ID>column2</ID>
+          <ToolTip>替换为新 DataRow 的第二列。</ToolTip>
+          <Default>CompanyName</Default>
+        </Literal>
+        <Literal>
+          <ID>column1Value</ID>
+          <ToolTip>替换为此列的新值。</ToolTip>
+          <Default>"A124"</Default>
+        </Literal>
+        <Literal>
+          <ID>column2Value</ID>
+          <ToolTip>替换为此列的新值。</ToolTip>
+          <Default>"Acme"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim newRow = CType($table$.NewRow(), $dataTableType$)
+newRow.$column1$= $column1Value$
+newRow.$column2$= $column2Value$
+$table$.Rows.Add(newRow)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

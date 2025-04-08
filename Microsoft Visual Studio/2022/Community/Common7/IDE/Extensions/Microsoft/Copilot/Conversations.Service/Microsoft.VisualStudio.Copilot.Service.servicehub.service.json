@@ -1,0 +1,8 @@
+﻿{
+  "host": "dotnet",
+  "version": "0.3",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.Copilot.Service.dll",
+    "fullClassName": "Microsoft.VisualStudio.Conversations.Service.ServiceFactory"
+  }
+}

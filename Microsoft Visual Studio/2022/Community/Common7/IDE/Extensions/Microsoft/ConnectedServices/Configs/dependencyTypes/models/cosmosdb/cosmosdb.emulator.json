@@ -1,0 +1,26 @@
+{
+  "id": "cosmosdb.emulator",
+  "name": "strings:#/cosmosdbEmulatorDependencyTypeName",
+  "description": "strings:#/cosmosdbEmulatorDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "$ref": "images:#/azureCosmosDBEmulator"
+  },
+  "resizableImage": {
+    "$ref": "images:#/azureCosmosDBEmulator"
+  },
+  "displayOrder": 7100,
+  "actions": [
+    {
+      "$refmerge": "/definitions/common.json#/defaultActions"
+    }
+  ],
+  "tags": [
+    {
+      "$refmerge": "/dependencyTypes/models/cosmosdb/cosmosdb.json#/tags"
+    },
+    "strings:#/emulator",
+    "strings:#/local"
+  ]
+}

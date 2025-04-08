@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- _LocalBinding -->
+
+<!--
+ Web Accessibility Initiative (WAI)/Section 508 compliance strings.
+ Copyright 2001, Microsoft Corporation, All rights reserved.   
+ 
+ Version 11.4526
+-->
+
+<xp:ruleset version="1.0" xmlns:xp="http://schemas.microsoft.com/2001/xmlpatterns">
+
+	<!-- VARIABLE DECLARATION SECTION -->
+	
+	<xp:variable name="Checkpoint1_1">
+			
+		WCAG 1.1
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAltAndLongDesc">
+			
+		图像缺少对等文本(alt="X" 或 longdesc="X")。请考虑描述图像所传达信息的简短可选文本。您可使用图片属性对话框添加可选文本。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAltAndLongDesc_Summary">
+				
+		图像缺少对等文本(alt="X" 或 longdesc="X")。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AttributeTooLong">
+			
+		请考虑包含较少文字的可选文本。如果此网页上的基本信息在别处不可用，则可能会需要较长的说明。如果没有包含此信息的网页，则需要在此网站中创建一个并将其予以链接。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AttributeTooLong_Summary">
+				
+		请考虑包含较少文字的可选文本或添加较长的说明。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AltHasBytesDesc">
+			
+		此 &lt;<xp:value-of select="parent::node()"/>&gt; 标记的可选文本可能无效。它是否准确描述了图像所传达的信息? 请考虑信息性的可选文本，并删除词“字节”。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AltHasBytesDesc_Summary">
+				
+		此 &lt;<xp:value-of select="parent::node()"/>&gt; 标记的可选文本可能无效。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_PossibleImageNameInAlt">
+			
+		此可选文本可能无效。它是否准确描述了图像所传达的信息? 请考虑信息性的可选文本，并删除文件扩展名。
+	</xp:variable>	
+	
+	<xp:variable name="str1_1_PossibleImageNameInAlt_Summary">
+			
+		此可选文本可能无效。
+	</xp:variable>	
+
+	<xp:variable name="str1_1_InvalidDesc">
+			
+		此可选文本可能无效。它是否准确描述了图像所传达的信息?
+	</xp:variable>
+	
+	<xp:variable name="str1_1_InvalidDesc_Summary">
+			
+		此可选文本可能无效。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAlt">
+			
+		图像缺少对等文本(alt="X")。请考虑描述该图像所传达信息的简短可选文本。您可使用图片属性对话框添加可选文本。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAlt_Summary">
+			
+		图像缺少对等文本(alt="X")。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAlternativeText">
+			
+		&lt;area&gt; 标记缺少对等文本。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_MissingAlternativeText_Summary">
+			
+		&lt;area&gt; 标记缺少对等文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_AppletMissingText">
+			
+		此 APPLET 元素缺少对等文本。请考虑描述 APPLET 元素所传达信息的简短可选文本以及 APPLET 元素内容中的对等文本。这会为只处理两个表单中的一个表单的浏览器启用辅助功能。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AppletMissingText_Summary">
+			
+		此 Applet 缺少对等文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_AltEndsWithExeExt">
+			
+		此可选文本可能无效。它是否准确描述了图像所传达的信息?
+	</xp:variable>
+	
+	<xp:variable name="str1_1_AltEndsWithExeExt_Summary">
+			
+		此可选文本可能无效。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_ObjectTypeImageMissingTextEquivalent">
+			
+		此对象包含的图像缺少说明性文本。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_ObjectTypeImageMissingTextEquivalent_Summary">
+			
+		此对象包含的图像缺少说明性文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_NoObjectText">
+			
+		此可选文本可能无效。它是否准确描述了该元素所传达的信息?
+	</xp:variable>
+	
+	<xp:variable name="str1_1_NoObjectText_Summary">
+			
+		此可选文本可能无效。 
+	</xp:variable>
+	
+	<xp:variable name="str1_1_GoesHereObjectText">
+			
+		此“此处显示”文本可能无效。它是否准确描述了该元素所传达的信息?
+	</xp:variable>
+	
+	<xp:variable name="str1_1_GoesHereObjectText_Summary">
+				
+		此“此处显示”文本可能无效。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_NoNoScriptTag">
+			
+		请考虑使用 &lt;noscript&gt; 提供 &lt;script&gt; 内容的可选说明。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_NoNoScriptTag_Summary">
+				
+		此脚本可能缺少可选说明。
+	</xp:variable>
+
+	<xp:variable name="str1_1_FrameIFrameNoLongdesc">
+			
+		请确保 FRAME 和 IFRAME 元素包含可选说明性文本。应考虑使用 "longdesc=" 属性。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_FrameIFrameNoLongdesc_Summary">
+				
+		请确保 FRAME 和 IFRAME 元素包含可选说明性文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_FRAMESETMissingNOFRAMES">
+			
+		请使用框架集中的 &lt;noframes&gt;。当框架对网站的用户不可用时，它会提供可选的内容。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_FRAMESETMissingNOFRAMES_Summary">
+				
+		请使用框架集中的 &lt;noframes&gt;。
+	</xp:variable>
+
+	<xp:variable name="str1_1_PossibleAsciiArt">
+			
+		如果您使用 ASCII 图表，请确保包含可选的对等文本，同时使用带有 "title" 属性的 &lt;abbr&gt;。也要提供可跳过 ASCII 图表的链接。
+	</xp:variable>
+	
+	<xp:variable name="str1_1_PossibleAsciiArt_Summary">
+				
+		如果您使用 ASCII 图表，请确保包含可选的对等文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_MapWithNoAltText">
+			
+		一个或多个图像映射链接没有相应的对等文本。
+	</xp:variable>
+
+	<xp:variable name="str1_1_MapWithNoAltText_Summary">
+				
+		一个或多个图像映射链接没有相应的对等文本。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint1_2">
+			
+		WCAG 1.2
+	</xp:variable>
+	
+	<xp:variable name="str1_2_ImageMapPossibleNoTextLinks">
+			
+		请确保此图像映射的每个活动区域都有文本链接。如果使用了 &lt;img&gt;，则应紧跟此图像映射提供链接的冗余列表。
+	</xp:variable>
+	
+	<xp:variable name="str1_2_ImageMapPossibleNoTextLinks_Summary">
+				
+		请确保此图像映射的每个活动区域都有文本链接。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint1_3">
+			
+		WCAG 1.3
+	</xp:variable>
+	
+	<xp:variable name="str1_3_PossibleVideoWithNoAudioTrack">
+			
+		如果这是一个视觉跟踪，请确保存在一个提供视觉跟踪所传达相关信息的听觉跟踪。
+	</xp:variable>
+	
+	<xp:variable name="str1_3_PossibleVideoWithNoAudioTrack_Summary">
+				
+		此跟踪可能需要一个可选的听觉跟踪。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint1_4">
+			
+		WCAG 1.4
+	</xp:variable>
+	
+	<xp:variable name="str1_4_TimeBasedMultiMedia">
+			
+		请将可选项、标题或听觉说明与基于时间的多媒体跟踪同步。
+	</xp:variable>
+	
+	<xp:variable name="str1_4_TimeBasedMultiMedia_Summary">
+				
+		请将说明与基于时间的多媒体跟踪同步。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint2_1">
+			
+		WCAG 2.1
+	</xp:variable>
+	
+	<xp:variable name="str2_1_ColorCoding">
+			
+		请确保不要只用颜色来传达信息。最好也使用上下文或标记。
+	</xp:variable>
+	
+	<xp:variable name="str2_1_ColorCoding_Summary">
+				
+		请确保不要只用颜色来传达信息。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint2_2">
+			
+		WCAG 2.2
+	</xp:variable>
+	
+	<xp:variable name="str2_2_ColorContrast">
+			
+		请确保图像的前景色和背景色能够为视力较差的用户提供足够强的对比度，并可以用于黑白屏幕。
+	</xp:variable>
+	
+	<xp:variable name="str2_2_ColorContrast_Summary">
+				
+		请为视力较差的用户提供足够强的对比度。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_1">
+			
+		WCAG 3.1
+	</xp:variable>
+	
+	<xp:variable name="str3_1_MarkupNotImages">
+			
+		如果可能，请使用标记而不要使用图像传达信息。例如: 使用 MathML 标记数学公式；使用样式表为文本设置格式并控制布局。
+	</xp:variable>
+	
+	<xp:variable name="str3_1_MarkupNotImages_Summary">
+				
+		如果可能，请使用标记传达信息。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_2">
+			
+		WCAG 3.2
+	</xp:variable>
+	
+	<xp:variable name="str3_2_MissingDOCTYPE">
+			
+		请确保包含文档类型声明。这会启用浏览器和辅助设备以正确地解释内容。
+	</xp:variable>
+	
+	<xp:variable name="str3_2_MissingDOCTYPE_Summary">
+				
+		请确保包含文档类型声明。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_3">
+			
+		WCAG 3.3
+	</xp:variable>
+	
+	<xp:variable name="str3_3_StyleSheetsforLayout">
+			
+		请确保使用样式表控制布局和表现形式。
+	</xp:variable>
+	
+	<xp:variable name="str3_3_StyleSheetsforLayout_Summary">
+				
+		请确保使用样式表控制布局和表现形式。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_4">
+			
+		WCAG 3.4
+	</xp:variable>
+	
+	<xp:variable name="str3_4_AbsoluteValues">
+			
+		请考虑使用相对值而非绝对值，例如使用百分比值而不使用像素值。
+	</xp:variable>
+	
+	<xp:variable name="str3_4_AbsoluteValues_Summary">
+				
+		请考虑使用相对值而非绝对值。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_5">
+			
+		WCAG 3.5
+	</xp:variable>
+	
+	<xp:variable name="str3_5_HeadersForStructure">
+			
+		请使用标题元素表示文档结构，例如 &lt;h2&gt; 是 &lt;h1&gt; 的子部分。不要为字体效果使用标题元素。
+	</xp:variable>
+	
+	<xp:variable name="str3_5_HeadersForStructure_Summary">
+				
+		请使用标题元素表示文档结构。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_6">
+			
+		WCAG 3.6
+	</xp:variable>
+
+	<xp:variable name="str3_6_NoListItemsWithOLULDIR">
+			
+		没有与 &lt;ol&gt;、&lt;ul&gt; 或 &lt;dl&gt; 关联的列表项。此标记不能用于格式设置。请考虑使用级联样式表。
+	</xp:variable>
+	
+	<xp:variable name="str3_6_NoListItemsWithOLULDIR_Summary">
+				
+		没有与 &lt;ol&gt;、&lt;ul&gt; 或 &lt;dl&gt; 关联的列表项。
+	</xp:variable>
+	
+	<xp:variable name="str3_6_NoDefinedTermDefinitionWithDL">
+			
+		没有与 &lt;dl&gt; 关联的已定义术语或定义。此标记不能用于格式设置。请考虑使用级联样式表。
+	</xp:variable>
+	
+	<xp:variable name="str3_6_NoDefinedTermDefinitionWithDL_Summary">
+				
+		没有与 &lt;dl&gt; 关联的已定义术语或定义。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint3_7">
+			
+		WCAG 3.7
+	</xp:variable>
+	
+	<xp:variable name="str3_7_QuoteBlockquote">
+			
+		请确保 &lt;q&gt; 或 &lt;blockquote&gt; 元素被用于标识引用，而没有被用于缩进效果。
+	</xp:variable>
+	
+	<xp:variable name="str3_7_QuoteBlockquote_Summary">
+				
+		请确保 &lt;q&gt; 或 &lt;blockquote&gt; 元素被用于标识引用，而没有被用于缩进效果。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint4_1">
+			
+		WCAG 4.1
+	</xp:variable>
+
+	<xp:variable name="str4_1_LanguageChanges">
+			
+		请在文档中标记语言更改。例如，使用 "lang" 或 "xml:lang" 标记语言更改。
+	</xp:variable>
+	
+	<xp:variable name="str4_1_LanguageChanges_Summary">
+				
+		请在文档中标记语言更改。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint5_1">
+			
+		WCAG 5.1
+	</xp:variable>
+	<xp:variable name="str5_1_TableNoTH">
+			
+		如果这是数据表，请使用 &lt;th&gt; 添加标题行和/或列。
+	</xp:variable>
+	
+	<xp:variable name="str5_1_TableNoTH_Summary">
+				
+		如果这是数据表，请使用 &lt;th&gt; 添加标题行和/或列。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint5_2">
+			
+		WCAG 5.2
+	</xp:variable>
+
+	<xp:variable name="str5_2_TableNoTHeadTFootTBodyColColgroupAxisScopeHeaders">
+			
+		如果这是包含两个或更多标题行或列级别的复杂数据表，请标记结构行。对于重复的标题和脚注，请考虑使用 &lt;thead&gt; 和 &lt;tfoot&gt;；对于组合的行，使用 &lt;tbody&gt;；对于组合的列，使用 &lt;col&gt; 和 &lt;colgroup&gt;，同时标记带有“范围”、“轴线”和“标题”的 TABLE 元素。
+	</xp:variable>
+	
+	<xp:variable name="str5_2_TableNoTHeadTFootTBodyColColgroupAxisScopeHeaders_Summary">
+				
+		如果这是复杂数据表，请标记结构和组合。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint5_3">
+			
+		WCAG 5.3
+	</xp:variable>
+	
+	<xp:variable name="str5_3_LinearizeLayoutTable">
+			
+		如果此表用于布局，请确保在进行线性化时的合理性。否则，请为结构和定位提供线性化的版本或使用级联样式表。
+	</xp:variable>
+	
+	<xp:variable name="str5_3_LinearizeLayoutTable_Summary">
+				
+		如果此表用于布局，请确保在进行线性化时的合理性。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint5_4">
+			
+		WCAG 5.4
+	</xp:variable>
+	
+	<xp:variable name="str5_4_FormatforLayoutTable">
+			
+		如果此表用于布局，请不要将结构性格式用于可视格式。例如，不要使用 &lt;th&gt; 将单元格内容显示为居中和粗体。
+	</xp:variable>
+	
+	<xp:variable name="str5_4_FormatforLayoutTable_Summary">
+				
+		如果此表用于布局，请不要将结构性格式用于可视格式。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint6_1">
+			
+		WCAG 6.1
+	</xp:variable>
+	
+	<xp:variable name="str6_1_PossibleStyleSheet">
+			
+		如果正在使用样式表，请确认在样式表关闭时，也可以读取此文档。
+	</xp:variable>
+	
+	<xp:variable name="str6_1_PossibleStyleSheet_Summary">
+				
+		请确认在样式表关闭时，也可以读取此文档。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint6_2">
+			
+		WCAG 6.2
+	</xp:variable>
+	
+	<xp:variable name="str6_2_DynamicContentSynch">
+			
+		请确保在内容得到更新时，动态内容的对等部分也会被更新。
+	</xp:variable>
+	
+	<xp:variable name="str6_2_DynamicContentSynch_Summary">
+				
+		请确保动态内容的对等部分是最新的。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint6_3">
+			
+		WCAG 6.3
+	</xp:variable>
+	
+	<xp:variable name="str6_3_PossibleProgrammaticObjects">
+			
+		请确保当程序对象被关闭或不被支持时，此网页也是可用的。如果不可用，请提供描述元素所传达信息的可选文字。
+	</xp:variable>
+	
+	<xp:variable name="str6_3_PossibleProgrammaticObjects_Summary">
+				
+		请确保当程序对象不被支持时，此网页也是可用的。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint6_4">
+			
+		WCAG 6.4
+	</xp:variable>
+	
+	<xp:variable name="str6_4_EventHandlers">
+			
+		请确保任何事件处理程序都与设备无关。如果此网页的基本信息或使用此网页需要使用该事件处理程序: 请考虑将事件处理程序限制为与设备无关的处理程序，例如: "onfocus"、"onblur" 和 "onselect"。如果您必须使用与设备相关的属性，请提供键盘替代形式，例如对于 "onmousedown" 也要指定 "onkeydown"。
+	</xp:variable>
+	
+	<xp:variable name="str6_4_EventHandlers_Summary">
+				
+		请确保任何事件处理程序都与设备无关。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint6_5">
+			
+		WCAG 6.5
+	</xp:variable>
+	
+	<xp:variable name="str6_5_DynamicContent">
+			
+		请确保动态内容是可访问的，否则请提供可选外观。例如，如果使用 &lt;frame&gt;，请包含 &lt;noframes&gt; 选项；还要注意服务器端脚本可能比客户端脚本更容易访问。
+	</xp:variable>
+	
+	<xp:variable name="str6_5_DynamicContent_Summary">
+				
+		请确保动态内容是可访问的，否则请提供可选外观。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint7_1">
+			
+		WCAG 7.1
+	</xp:variable>
+	
+	<xp:variable name="str7_1_ScreenFlicker">
+			
+		请避免导致屏幕闪烁。如果无法避免，请允许用户对闪烁进行控制。应避免每秒闪烁 4 到 59 次，因为这时屏幕会从亮到暗快速地闪烁。
+	</xp:variable>
+	
+	<xp:variable name="str7_1_ScreenFlicker_Summary">
+				
+		请避免导致屏幕闪烁。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint7_2">
+			
+		WCAG 7.2
+	</xp:variable>
+	
+	<xp:variable name="str7_2_Blink">
+			
+		请不要使用 &lt;blink&gt;。考虑使用如 &lt;strong&gt; 或 &lt;em&gt; 等可选的强调方式；或者使用级联样式表命令 "text-decoration:  blink" 以便用户可以通过关闭样式表来停止效果。 
+	</xp:variable>
+	
+	<xp:variable name="str7_2_Blink_Summary">
+				
+		请不要使用 &lt;blink&gt;。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint7_3">
+			
+		WCAG 7.3
+	</xp:variable>
+	
+	<xp:variable name="str7_3_MovingContent">
+			
+		请避免移动内容，或者允许用户控制移动。
+	</xp:variable>	
+	
+	<xp:variable name="str7_3_MovingContent_Summary">
+				
+		请避免移动内容，或者允许用户控制移动。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint7_4">
+			
+		WCAG 7.4
+	</xp:variable>
+	
+	<xp:variable name="str7_4_AutoRefresh">
+			
+		请不要创建自动刷新网页。 
+	</xp:variable>
+	
+	<xp:variable name="str7_4_AutoRefresh_Summary">
+				
+		请不要创建自动刷新网页。 
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint7_5">
+			
+		WCAG 7.5
+	</xp:variable>
+	
+	<xp:variable name="str7_5_ReDirects">
+			
+		请提供可停止此重定向的功能或配置服务器执行重定向。
+	</xp:variable>
+	
+	<xp:variable name="str7_5_ReDirects_Summary">
+				
+		请不要自动重定向网页。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint8_1">
+			
+		WCAG 8.1
+	</xp:variable>
+	
+	<xp:variable name="str8_1_PossibleProgrammaticElements">
+			
+		请验证是否可使用辅助技术访问程序元素。
+	</xp:variable>
+	
+	<xp:variable name="str8_1_PossibleProgrammaticElements_Summary">
+				
+		请验证是否可使用辅助技术访问程序元素。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint9_1">
+			
+		WCAG 9.1
+	</xp:variable>
+	
+	<xp:variable name="str9_1_ServerSideImageMap">
+			
+		请提供客户端图像映射而非服务器端图像映射，除非区域无法用可用形状进行定义。
+	</xp:variable>
+	
+	<xp:variable name="str9_1_ServerSideImageMap_Summary">
+				
+		请提供客户端图像映射而非服务器端图像映射。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint9_2">
+			
+		WCAG 9.2
+	</xp:variable>
+	
+	<xp:variable name="str9_2_ElementWithUI">
+			
+		请验证具有其自己用户界面的任何元素是否都与设备无关。
+	</xp:variable>
+	
+	<xp:variable name="str9_2_ElementWithUI_Summary">
+				
+		请验证具有其自己用户界面的任何元素是否都与设备无关。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint9_3">
+			
+		WCAG 9.3
+	</xp:variable>
+	
+	<xp:variable name="str9_3_DeviceDependentEventHandler">
+			
+		请确保此事件处理程序与设备无关。如果此网页的基本信息或使用此网页需要使用该事件处理程序: 请考虑将事件处理程序限制为与设备无关的处理程序，例如: "onfocus"、"onblur" 和 "onselect"。如果您必须使用与设备相关的属性，请提供键盘替代形式，例如对于 "onmousedown" 也要指定 "onkeydown"。依赖于鼠标坐标的事件处理程序会造成设备相关，因而不能使用。
+	</xp:variable>
+	
+	<xp:variable name="str9_3_DeviceDependentEventHandler_Summary">
+				
+		请确保此事件处理程序与设备无关。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint10_1">
+			
+		WCAG 10.1
+	</xp:variable>
+	
+	<xp:variable name="str10_1_PopUps">
+			
+		请允许用户关闭衍生的窗口。不要产生弹出式窗口。不要在未通知用户的情况下，更改当前窗口。
+	</xp:variable>
+	
+	<xp:variable name="str10_1_PopUps_Summary">
+				
+		请不要产生弹出式窗口。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint10_2">
+			
+		WCAG 10.2
+	</xp:variable>
+	
+	<xp:variable name="str10_2_LabelWithFormControl">
+			
+		请确保表单控件的隐式关联标签放置正确。LABEL 元素必须位于同行中的其控件之前。如果为控件使用一行，为 LABEL 元素使用一行，则 &lt;label&gt; 必须位于其控件前的行中。
+	</xp:variable>
+	
+	<xp:variable name="str10_2_LabelWithFormControl_Summary">
+				
+		请确保表单控件的隐式关联标签放置正确。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint11_1">
+			
+		WCAG 11.1
+	</xp:variable>
+	
+	<xp:variable name="str11_1_LatestW3CTechnologies">
+			
+		请使用最新的 W3C 技术。例如，将 MathML 用于数学公式；将 HTML、XHTML、XML 用于结构化文档；使用 CSS 和 XSL 定义样式表；使用 XSLT 创建样式转换。
+	</xp:variable>
+	
+	<xp:variable name="str11_1_LatestW3CTechnologies_Summary">
+				
+		请使用最新的 W3C 技术。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint11_2">
+			
+		WCAG 11.2
+	</xp:variable>
+	
+	<xp:variable name="str11_2_DeprecatedElement">
+			
+		此行包含一个已否决的元素，这表示该元素可能已从正式 HTML 规范中永久删除。建议避免使用已否决的元素。好的替换示例有: 使用 &lt;object&gt; 而不要使用 &lt;applet&gt;；使用带有 "align" 属性的 &lt;div&gt; 而不要使用 &lt;center&gt;；使用 &lt;ul&gt; 而不要使用 &lt;dir&gt; 或 &lt;menu&gt;。
+	</xp:variable>
+	
+	<xp:variable name="str11_2_DeprecatedElement_Summary">
+				
+		此行包含一个已否决的元素。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint11_4">
+			
+		WCAG 11.4
+	</xp:variable>
+	
+	<xp:variable name="str11_4_AlternativeAccessiblePage">
+			
+		如果您无法创建一个可访问的网页，则请创建一个可访问的可选网页，提供相同的实用工具，并使其更新频率与不可访问的网页相同。注意: 该方法仅可作为“最后手段”使用。
+	</xp:variable>
+	
+	<xp:variable name="str11_4_AlternativeAccessiblePage_Summary">
+				
+		如果您无法创建一个可访问的网页，则请创建一个可选网页。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint12_1">
+			
+		WCAG 12.1
+	</xp:variable>
+	
+	<xp:variable name="str12_1_NoTitleAttrib">
+			
+		框架缺少说明性标题。&lt;frameset&gt;、&lt;frame&gt; 或 &lt;noframes&gt; 没有包含说明性标题文本。请添加说明性标题 (title="X")。您还可使用“框架属性”对话框来添加标题。
+	</xp:variable>
+	
+	<xp:variable name="str12_1_NoTitleAttrib_Summary">
+				
+		框架缺少说明性标题。
+	</xp:variable>
+	
+	<xp:variable name="str12_1_EmptyTitleAttrib">
+			
+		框架标题为空。&lt;frameset&gt;、&lt;frame&gt; 或 &lt;noframes&gt; 应包含说明性标题文本。请添加说明性标题 (title="X")。您还可使用“框架属性”对话框来添加标题。
+	</xp:variable>
+	
+	<xp:variable name="str12_1_EmptyTitleAttrib_Summary">
+				
+		框架标题为空。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint12_2">
+			
+		WCAG 12.2
+	</xp:variable>
+	
+	<xp:variable name="str12_2_NoframesWithoutHREF">
+			
+		&lt;noframes&gt; 应包含指向描述 FRAMESET 内容的可选网页的链接。
+	</xp:variable>
+	
+	<xp:variable name="str12_2_NoframesWithoutHREF_Summary">
+				
+		&lt;noframes&gt; 应包含指向描述 FRAMESET 内容的可选网页的链接。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint12_3">
+			
+		WCAG 12.3
+	</xp:variable>
+	
+	<xp:variable name="str12_3_FormNoFieldset">
+			
+		应对较大的信息块进行分组以便于管理。如果此表单较大，则应考虑使用 &lt;legend&gt; 和 &lt;fieldset&gt; 将其分成若干部分。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_FormNoFieldset_Summary">
+				
+		应对较大的信息块进行分组以便于管理。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_FormAndFieldsetNoLegend">
+			
+		应对较大的信息块进行分组以便于管理。如果此表单较大，则应考虑用 &lt;legend&gt; 来说明 &lt;fieldset&gt; 分组。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_FormAndFieldsetNoLegend_Summary">
+				
+		应对较大的信息块进行分组以便于管理。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_SelectOptionandNoOptgroup">
+			
+		应对较大的信息块进行分组以便于管理。如果此节较大，则应考虑使用 &lt;optgroup&gt; 来将其分成若干部分。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_SelectOptionandNoOptgroup_Summary">
+				
+		应对较大的信息块进行分组以便于管理。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_TableandNoCaption">
+			
+		应对较大的信息块进行分组以便于管理。如果这是个较大的数据表，则应考虑使用 &lt;caption&gt; 说明其内容。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_TableandNoCaption_Summary">
+				
+		应对较大的信息块进行分组以便于管理。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_ListNoULOLDL">
+			
+		应对较大的信息块进行分组以便于管理。如果此列表较大，则应考虑使用 &lt;ul&gt;、&lt;ol&gt; 或 &lt;dl&gt; 将其分成若干部分。
+	</xp:variable>
+	
+	<xp:variable name="str12_3_ListNoULOLDL_Summary">
+				
+		应对较大的信息块进行分组以便于管理。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint12_4">
+			
+		WCAG 12.4
+	</xp:variable>
+	
+	<xp:variable name="str12_4_LabelNoFor">
+			
+		请使 LABEL 元素和表单控件显式关联。应考虑在表单内使用带有 &lt;label&gt; 的 "for" 属性
+	</xp:variable>
+	
+	<xp:variable name="str12_4_LabelNoFor_Summary">
+				
+		请使标签和表单控件显式关联。
+	</xp:variable>
+	
+	<xp:variable name="str12_4_FormNoLabelNoFor">
+			
+		请使标签和表单控件显式关联。应考虑在表单内使用带有 "for" 属性的 &lt;label&gt;。
+	</xp:variable>
+	
+	<xp:variable name="str12_4_FormNoLabelNoFor_Summary">
+				
+		请使标签和表单控件显式关联。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint13_1">
+			
+		WCAG 13.1
+	</xp:variable>
+	
+	<xp:variable name="str13_1_ClickHereLinkTarget">
+			
+		请明确标识链接的目标。不要使用“单击此处”。应使用说明性文本，例如“校园地图”。
+	</xp:variable>
+	
+	<xp:variable name="str13_1_ClickHereLinkTarget_Summary">
+				
+		请明确标识链接的目标。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint13_2">
+			
+		WCAG 13.2
+	</xp:variable>
+	
+	<xp:variable name="str13_2_SemanticInformationOrientation">
+			
+		网站和网页应提供语义信息和方向。使用有效的 meta 数据可为用户提供有关该网站的方向信息。有用的标记有: &lt;title&gt;、&lt;address&gt;、&lt;meta&gt;、&lt;!doctype&gt;、&lt;link&gt;。请在列表中使用 &lt;ol&gt;、&lt;ul&gt; 和级联样式表来提供上下文提示。也可提供导航栏、网站图和搜索功能来进行协助。
+	</xp:variable>
+	
+	<xp:variable name="str13_2_SemanticInformationOrientation_Summary">
+				
+		网站和网页应提供语义信息和方向。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint13_3">
+			
+		WCAG 13.3
+	</xp:variable>
+	
+	<xp:variable name="str13_3_ProvideLayoutInformation">
+			
+		网站和网页应提供布局信息。请考虑使用网站图和目录。
+	</xp:variable>
+	
+	<xp:variable name="str13_3_ProvideLayoutInformation_Summary">
+				
+		网站和网页应提供布局信息。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint13_4">
+			
+		WCAG 13.4
+	</xp:variable>
+	
+	<xp:variable name="str13_4_ConsistentNavigation">
+			
+		导航的使用在整个网站内应是一致的。例如，导航应该出现在所有网页的相同位置上。
+	</xp:variable>
+	
+	<xp:variable name="str13_4_ConsistentNavigation_Summary">
+				
+		导航的使用在整个网站内应是一致的。
+	</xp:variable>
+	
+	<xp:variable name="Checkpoint14_1">
+			
+		WCAG 14.1
+	</xp:variable>
+	
+	<xp:variable name="str14_1_ClearLanguage">
+			
+		请使用适用于此内容的清晰简洁的语言。
+	</xp:variable>
+
+	<xp:variable name="str14_1_ClearLanguage_Summary">
+				
+		请使用适用于此内容的清晰简洁的语言。
+	</xp:variable>
+	
+	<xp:variable name="Access_Board_Part_1194_22(l)">
+			
+		508, 1194.22(l)
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(l)_AssistiveDeviceReadableScriptInfo">
+			
+		如果您使用 ;&lt;script&gt;、;&lt;object&gt;、;&lt;embed&gt; 或 ;&lt;applet&gt;，请确保使用辅助设备可读取它们所传达的重要信息。
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(l)_AssistiveDeviceReadableScriptInfo_Summary">
+				
+		请确保使用辅助设备可读取脚本所传达的重要信息。
+	</xp:variable>
+	
+	<xp:variable name="Access_Board_Part_1194_22(m)">
+			
+		508, 1194.22(m)
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(m)_ClientSideAppletPlugInOrAppRequired">
+			
+		如果此网页在客户端需要小程序、插件或其他应用程序以传递重要信息，请确保提供指向完全可访问的插件或小程序的链接。
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(m)_ClientSideAppletPlugInOrAppRequired_Summary">
+				
+		如果此网页需要小程序或插件，请提供指向完全可访问的版本的链接。
+	</xp:variable>
+	
+	<xp:variable name="Access_Board_Part_1194_22(n)">
+			
+		508, 1194.22(n)
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(n)_OnlineElectronicForms">
+			
+		如果使用为联机使用而设计的电子表单，请确保可使用辅助设备填写这些表单。
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(n)_OnlineElectronicForms_Summary">
+				
+		如果使用电子表单，请确保可使用辅助设备填写这些表单。
+	</xp:variable>
+	
+	<xp:variable name="Access_Board_Part_1194_22(o)">
+			
+		508, 1194.22(o)
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(o)_SkipRepetitiveLinks">
+			
+		如果有重复的导航链接，请为用户提供可跳过这些重复链接的方法。
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(o)_SkipRepetitiveLinks_Summary">
+				
+		请为用户提供可跳过这些重复链接的方法。
+	</xp:variable>
+	
+	<xp:variable name="Access_Board_Part_1194_22(p)">
+			
+		508, 1194.22(p)
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(p)_TimeBasedResponseRequired">
+			
+		如果需要用户作出基于时间的响应，请提供警告，允许用户请求更长的时间。
+	</xp:variable>
+	
+	<xp:variable name="str1194_22_(p)_TimeBasedResponseRequired_Summary">
+				
+		如果需要基于时间的响应，请提供警告，允许用户请求更长的时间。
+	</xp:variable>
+
+	<xp:variable name="strLangID">zh-cn</xp:variable>
+
+	<xp:variable name="strRedir1_1">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=11
+	</xp:variable>
+
+	<xp:variable name="strRedir1_2">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=12
+	</xp:variable>
+
+	<xp:variable name="strRedir1_3">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=13
+	</xp:variable>
+
+	<xp:variable name="strRedir1_4">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=14
+	</xp:variable>
+
+	<xp:variable name="strRedir10_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=101
+	</xp:variable>
+
+	<xp:variable name="strRedir10_2">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=102
+	</xp:variable>
+
+	<xp:variable name="strRedir10_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=103
+	</xp:variable>
+
+	<xp:variable name="strRedir11_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=111
+	</xp:variable>
+
+	<xp:variable name="strRedir11_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=112
+	</xp:variable>
+
+	<xp:variable name="strRedir11_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=114
+	</xp:variable>
+
+	<xp:variable name="strRedir12_1">
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=121
+	</xp:variable>
+
+	<xp:variable name="strRedir12_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=122
+	</xp:variable>
+
+	<xp:variable name="strRedir12_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=123
+	</xp:variable>
+
+	<xp:variable name="strRedir12_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=124
+	</xp:variable>
+
+	<xp:variable name="strRedir13_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=131
+	</xp:variable>
+
+	<xp:variable name="strRedir13_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=132
+	</xp:variable>
+
+	<xp:variable name="strRedir13_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=133
+	</xp:variable>
+
+	<xp:variable name="strRedir13_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=134
+	</xp:variable>
+
+	<xp:variable name="strRedir14_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=141
+	</xp:variable>
+
+	<xp:variable name="strRedir2_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=21
+	</xp:variable>
+
+	<xp:variable name="strRedir2_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=22
+	</xp:variable>
+
+	<xp:variable name="strRedir3_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=31
+	</xp:variable>
+
+	<xp:variable name="strRedir3_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=32
+	</xp:variable>
+
+	<xp:variable name="strRedir3_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=33
+	</xp:variable>
+
+	<xp:variable name="strRedir3_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=34
+	</xp:variable>
+
+	<xp:variable name="strRedir3_5">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=35
+	</xp:variable>
+
+	<xp:variable name="strRedir3_6">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=36
+	</xp:variable>
+
+	<xp:variable name="strRedir3_7">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=37
+	</xp:variable>
+
+	<xp:variable name="strRedir4_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=41
+	</xp:variable>
+
+	<xp:variable name="strRedir5_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=51
+	</xp:variable>
+
+	<xp:variable name="strRedir5_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=52
+	</xp:variable>
+
+	<xp:variable name="strRedir5_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=53
+	</xp:variable>
+
+	<xp:variable name="strRedir5_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=54
+	</xp:variable>
+
+	<xp:variable name="strRedir6_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=61
+	</xp:variable>
+
+	<xp:variable name="strRedir6_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=62
+	</xp:variable>
+
+	<xp:variable name="strRedir6_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=63
+	</xp:variable>
+
+	<xp:variable name="strRedir6_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=64
+	</xp:variable>
+
+	<xp:variable name="strRedir6_5">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=65
+	</xp:variable>
+
+	<xp:variable name="strRedir7_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=71
+	</xp:variable>
+
+	<xp:variable name="strRedir7_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=72
+	</xp:variable>
+
+	<xp:variable name="strRedir7_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=73
+	</xp:variable>
+
+	<xp:variable name="strRedir7_4">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=74
+	</xp:variable>
+
+	<xp:variable name="strRedir7_5">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=75
+	</xp:variable>
+
+	<xp:variable name="strRedir8_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=81
+	</xp:variable>
+
+	<xp:variable name="strRedir9_1">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=91
+	</xp:variable>
+
+	<xp:variable name="strRedir9_2">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=92
+	</xp:variable>
+
+	<xp:variable name="strRedir9_3">		 
+		http://r.office.microsoft.com/r/rlidWCAG?clid=<xp:value-of select="$strLangID" />&amp;p1=93
+	</xp:variable>
+		
+</xp:ruleset>

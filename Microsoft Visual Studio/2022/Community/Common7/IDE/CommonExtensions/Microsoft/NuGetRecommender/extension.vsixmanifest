@@ -1,0 +1,21 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="NuGetRecommender.1c74c0d3-19bc-4e51-a0f1-5258a3023d2b" Version="1.701" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>NuGetRecommender</DisplayName>
+    <Description xml:space="preserve">NuGetRecommender VSIX
+NuGet Package Manager UI in Visual Studio can offer more relevant NuGet Package recommendations.</Description>
+    <Preview>true</Preview>
+  </Metadata>
+  <Installation SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="NuGetRecommender.pkgdef" />
+  </Assets>
+</PackageManifest>

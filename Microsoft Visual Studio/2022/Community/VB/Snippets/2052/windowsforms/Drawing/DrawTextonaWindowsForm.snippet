@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 Windows 窗体上绘制文本</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在窗体上绘制文本。</Description>
+      <Shortcut>drawText</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>FontName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为字体名称和字号。</ToolTip>
+          <Default>"Arial"</Default>
+        </Literal>
+        <Literal>
+          <ID>FontSize</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为字号。</ToolTip>
+          <Default>16</Default>
+        </Literal>
+        <Object>
+          <ID>text</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要写入的文本。</ToolTip>
+          <Default>"hello"</Default>
+        </Object>
+        <Literal>
+          <ID>Xlocation</ID>
+          <Type>Single</Type>
+          <ToolTip>替换为文本显示位置的 X 坐标。</ToolTip>
+          <Default>150.0</Default>
+        </Literal>
+        <Literal>
+          <ID>Ylocation</ID>
+          <Type>Single</Type>
+          <ToolTip>替换为文本显示位置的 Y 坐标。</ToolTip>
+          <Default>50.0</Default>
+        </Literal>
+        <Literal>
+          <ID>color</ID>
+          <ToolTip>替换为文本的颜色。</ToolTip>
+          <Default>Color.Red</Default>
+        </Literal>
+        <Object>
+          <ID>form</ID>
+          <Type>System.Windows.Forms.Form</Type>
+          <ToolTip>替换为对窗体或控件的引用，要在该窗体或控件上绘制文本。</ToolTip>
+          <Default>Me</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[    Dim drawFormat As New StringFormat()
+
+    Using formGraphics As Graphics = $form$.CreateGraphics(), _
+        drawFont As New System.Drawing.Font($FontName$, $FontSize$), _
+        drawBrush As New SolidBrush($color$)
+
+        formGraphics.DrawString($text$, drawFont, drawBrush, _
+            $Xlocation$, $Ylocation$, drawFormat)
+    End Using
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,63 @@
+.treeGridContainer .name {
+    text-align: left;
+}
+
+.treeGridContainer .name > span {
+    text-overflow: ellipsis;
+}
+
+.treeGridContainer .moduleName, .treeGridContainer .categoryName {
+    text-align: left;
+}
+
+.callTree-loadSource {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    bottom: 0px;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    background: var(--diagnosticsHub-goToToolWindow, url("../images/goToToolWindow.png")) no-repeat 0px 0px;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100%;
+}
+
+    td > .hotHighlight {
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+    }
+
+    td > .hotHighlight.hotPath {
+        width: 1.4em;
+        height: 1.4em;
+        vertical-align: middle;
+        background: var(--hotPathImage, url("../images/hotPath.png")) no-repeat 0px 0px;
+        background-size: 100%;
+    }
+
+    td > .hotHighlight.hotItem {
+        width: 1.4em;
+        height: 1.4em;
+        vertical-align: middle;
+        background: var(--hotItemImage, url("../images/hotItem.png")) no-repeat 0px 0px;
+        background-size: 100%;
+    }
+
+    .treeGridRow:hover > .name {
+        padding-right: calc(1em + 4px);
+    }
+
+    .treeGridRow:hover .callTree-loadSource {
+        display: inline-block;
+    }
+
+    .treeGridRow.emptyRow > td {
+        font-style: italic;
+        text-align: center;
+        color: var(--plugin-inactive-color, chartreuse);
+    }

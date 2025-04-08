@@ -1,0 +1,22 @@
+{
+  "apis": "apis.azure",
+  "apis.azure": "apis.azure",
+  "appConfig": "appConfig.azure",
+  "appConfig.azure": "appConfig.azure",
+  "appInsights": "appInsights",
+  "cosmosdb": "cosmosdb",
+  "ef.sqlServer": "mssql",
+  "identityapp": "identityapp",
+  "identityapp.wap.local": "identityapp",
+  "identityapp.wap.remote": "identityapp",
+  "mongodb": "mongodb",
+  "postgresql": "postgresql",
+  "rabbitmq": "rabbitmq",
+  "redis": "redis",
+  "secrets.keyVault": "secrets.keyVault",
+  "secrets.user": "secrets.user",
+  "signalr": "signalr",
+  "sqlite": "sqlite",
+  "storage.azure": "storage",
+  "storage.emulator": "storage"
+}

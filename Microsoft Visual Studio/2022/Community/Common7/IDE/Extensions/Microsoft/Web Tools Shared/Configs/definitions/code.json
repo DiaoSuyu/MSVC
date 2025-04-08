@@ -1,0 +1,189 @@
+{
+  "locations": {
+    "EntryPoint": [
+      {
+        "kind": "EntryPoint",
+        "properties": {
+        }
+      }
+    ],
+    "ConfigureServicesMethod": [
+      {
+        "kind": "Method",
+        "properties": {
+          "Method": "ConfigureServices",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+        }
+      }
+    ],
+    "ConfigureServicesMethod_AnyParam": [
+      {
+        "kind": "Method",
+        "properties": {
+          "Method": "ConfigureServices",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+          "MethodParameterAnyPosition": true,
+          "MethodParameterAnyNumberOfParameters": true
+        }
+      }
+    ],
+    "ExtensionsClassNamespace": [
+      {
+        "$refmerge": "#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Namespace",
+        "properties": {
+        }
+      }
+    ],
+    "ConfigureMethod": [
+      {
+        "kind": "Method",
+        "properties": {
+          "Method": "Configure",
+          "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+          "MethodParameterAnyPosition": true,
+          "MethodParameterAnyNumberOfParameters": true
+        }
+      }
+    ],
+    "TopLevelMainMethod": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      }
+    ],
+    "WebApplicationBuilderLocalVar": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "LocalVariable",
+        "properties": {
+          "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?"
+        },
+        "locationTokenName": "localVar"
+      }
+    ],
+    "WebApplicationLocalVar": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "LocalVariable",
+        "properties": {
+          "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+          "CodeOperation": "InsertBefore"
+        },
+        "locationTokenName": "localWebAppVar"
+      }
+    ],
+    "CreateHostBuilder": [
+      {
+        "kind": "EntryPoint",
+        "properties": {
+        }
+      },
+      {
+        "kind": "Method",
+        "properties": {
+          "Method": "CreateHostBuilder",
+          "TypeName": "System.String[]"
+        }
+      }
+    ],
+    "CreateWebHostBuilder": [
+      {
+        "kind": "EntryPoint",
+        "properties": {
+        }
+      },
+      {
+        "kind": "Method",
+        "properties": {
+          "Method": "CreateWebHostBuilder",
+          "TypeName": "System.String[]"
+        }
+      }
+    ],
+    "ArgumentDelegate_With_AzureClientFactoryBuilder": [
+      {
+        "$refmerge": "#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddAzureClients",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+        }
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+        }
+      }
+    ],
+    "ArgumentDelegate_With_RedisCacheOptions": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddStackExchangeRedisCache",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+        }
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Microsoft.Extensions.Caching.StackExchangeRedis.RedisCacheOptions>"
+        }
+      }
+    ]
+  },
+  "tokens": {
+    "localVar_IServiceCollection": {
+      "name": "localVar",
+      "kind": "MethodParameter",
+      "properties": {
+        "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+      }
+    },
+    "localVar_IApplicationBuilder": {
+      "name": "localVar",
+      "kind": "MethodParameter",
+      "properties": {
+        "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder"
+      }
+    },
+    "localVar_IConfigurationBuilder": {
+      "name": "localConfigVar",
+      "kind": "MethodParameter",
+      "properties": {
+        "TypeName": "Microsoft.Extensions.Configuration.IConfigurationBuilder"
+      }
+    },
+    "configurationClassProperty": {
+      "name": "configurationClassProperty",
+      "kind": "ClassProperty",
+      "properties": {
+        "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+      }
+    },
+    "connectionId": {
+      "name": "connectionId",
+      "kind": "ExternalValue",
+      "properties": {
+        "ModelPropertyName": "connectionId"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "isSingleton": true,
+  "name": "strings:#/powerPlatformDependencyTypeName",
+  "provisioningId": "Microsoft.PowerPlatform/",
+  "description": "strings:#/powerPlatformDependencyTypeDescription",
+  "smallImage": {
+    "$ref": "images:#/powerPlatform"
+  },
+  "resizableImage": {
+    "$ref": "images:#/powerPlatform"
+  },
+  "displayOrder": 20100,
+  "actions": [
+    "openDeveloperHub",
+    "openPowerApps",
+    "openPowerPlatformAdminCenter",
+    {
+      "$refmerge": "/definitions/common.json#/defaultActions"
+    }
+  ],
+  "tags": [
+    "API"
+  ]
+}

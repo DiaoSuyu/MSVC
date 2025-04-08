@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>写入注册表值</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将字符串注册表值写入当前用户配置单元。</Description>
+      <Shortcut>regWrite</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Setting</ID>
+          <ToolTip>替换为新值数据。</ToolTip>
+          <Default>"value"</Default>
+        </Literal>
+        <Literal>
+          <ID>Key</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要写入的注册表项名称。</ToolTip>
+          <Default>"Name"</Default>
+        </Literal>
+        <Literal>
+          <ID>Path</ID>
+          <Type>String</Type>
+          <ToolTip>替换为注册表项的路径。</ToolTip>
+          <Default>"HKEY_CURRENT_USER\Software\CompanyName\ProductName\KeyName"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.Registry.SetValue($Path$, $Key$, $Setting$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将数字转换成八进制字符串</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>返回整数的八进制字符串表示形式。</Description>
+      <Shortcut>typeOct</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Number</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为整数。</ToolTip>
+          <Default>48</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim octal As String = Oct($Number$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,54 @@
+[$RootKey$\Themes\{dcf54a0c-0a13-4c3e-b9d9-cd49a3b40db7}]
+@="Bubblegum"
+"Name"="@ThemeName_Bubblegum;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{2efd7986-7725-488f-9029-897675d530c1}]
+@="Cool Breeze"
+"Name"="@ThemeName_CoolBreeze;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{470cc756-c742-4f74-bbda-eb3945781cca}]
+@="Icy Mint"
+"Name"="@ThemeName_IcyMint;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{899b03b0-4f44-451b-83d3-c0a45a867ea6}]
+@="Mango Paradise"
+"Name"="@ThemeName_MangoParadise;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{f9d3117a-f2f6-48fb-8132-62dc0ee556b6}]
+@="Silky Pink"
+"Name"="@ThemeName_SilkyPink;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{e39bddaf-0bdc-4a8c-901d-b7a7ade66e37}]
+@="Sunny Day"
+"Name"="@ThemeName_SunnyDay;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+
+[$RootKey$\Themes\{d05a431f-05cd-4217-aaf0-e34bed9ef215}]
+@="Cool Slate"
+"Name"="@ThemeName_CoolSlate;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+
+[$RootKey$\Themes\{0c0b67f0-0f88-4926-b7ed-c5b7ce297d39}]
+@="Juicy Plum"
+"Name"="@ThemeName_JuicyPlum;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+
+[$RootKey$\Themes\{55b5c952-62c2-44f3-84af-1ffd64671e7d}]
+@="Moonlight Glow"
+"Name"="@ThemeName_MoonlightGlow;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+
+[$RootKey$\Themes\{ab9d63ee-e782-447d-9d20-2f8dbac77843}]
+@="Mystical Forest"
+"Name"="@ThemeName_MysticalForest;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+
+[$RootKey$\Themes\{6db719f2-768e-49e5-a4c5-b177b058368d}]
+@="Spicy Red"
+"Name"="@ThemeName_SpicyRed;{5E56B3DB-7964-4588-8D49-D3523AB7BDB9}"
+"FallbackId"="{1ded0138-47ce-435e-84ef-9ec1f439b749}"

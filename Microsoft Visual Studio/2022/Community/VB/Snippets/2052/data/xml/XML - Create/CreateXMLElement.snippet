@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建 XML 元素</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建具有已嵌入表达式的 XML 元素。</Description>
+      <Shortcut>xmlEle</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Root</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为元素名称。</ToolTip>
+          <Default>Root</Default>
+        </Literal>
+        <Literal>
+          <ID>value</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为特性值。</ToolTip>
+          <Default>value</Default>
+        </Literal>
+        <Literal>
+          <ID>Attr1</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为第一个特性名称。</ToolTip>
+          <Default>attr</Default>
+        </Literal>
+        <Literal>
+          <ID>Child</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为元素名称。</ToolTip>
+          <Default>Child</Default>
+        </Literal>
+        <Literal>
+          <ID>Attr2</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为第二个特性名称。</ToolTip>
+          <Default>attr</Default>
+        </Literal>
+        <Literal>
+          <ID>Expr</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为任意生成值的表达式。</ToolTip>
+          <Default>SomeFunction()</Default>
+        </Literal>
+        <Literal>
+          <ID>StrExpr</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为任意生成字符串的表达式。</ToolTip>
+          <Default>StrExpression</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim xmllit = <$Root$ $Attr1$="$value$">
+                                      <%= $Expr$ %>
+                    <$Child$ $Attr2$=<%= $StrExpr$ %>/>
+                </>
+      ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,76 @@
+{
+  "feature": {
+    "id": "ef.sqlServer.azure.appService"
+  },
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    "PickInstance",
+    "RemoteConnection",
+    "DependencySummary"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:DatabaseConnection"
+    }
+  },
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "group": {
+      "isBase": true
+    }
+  },
+  "arm": {
+    "apiVersion": "2017-10-01-preview",
+    "templateGenerator": {
+      "id": "export",
+      "model": {
+        "templatePreprocessors": [
+          {
+            "id": "removeUnnecessaryProperties",
+            "model": {
+              "properties": [
+                "etag",
+                "id",
+                "identity",
+                "properties",
+                "tags"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "secretStores": [
+    "AzureAppSettings",
+    "secrets.keyVault",
+    "none"
+  ]
+}

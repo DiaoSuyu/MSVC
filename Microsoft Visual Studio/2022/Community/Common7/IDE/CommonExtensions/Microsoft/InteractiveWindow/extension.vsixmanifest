@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="1F42C6D0-F876-4AF0-8185-1BEB0A325BB2" Version="4.0.0.2126702" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>VisualStudio Interactive Window</DisplayName>
+    <Description>Interactive components for Visual Studio.</Description>
+    <PackageId>Microsoft.VisualStudio.InteractiveWindow</PackageId>
+  </Metadata>
+  <Installation SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,]">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,]">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.InteractiveWindow.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.VsInteractiveWindow.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.InteractiveWindow.dll" AssemblyName="Microsoft.VisualStudio.InteractiveWindow.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.VsInteractiveWindow.dll" AssemblyName="Microsoft.VisualStudio.VsInteractiveWindow.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.VsInteractiveWindow.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

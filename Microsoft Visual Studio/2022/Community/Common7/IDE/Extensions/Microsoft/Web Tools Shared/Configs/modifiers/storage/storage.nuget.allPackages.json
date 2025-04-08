@@ -1,0 +1,112 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=1.0": [
+        {
+          "Id": "WindowsAzure.Storage",
+          "Version": "8.7.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=2.0": [
+        {
+          "Id": "Azure.Storage.Blobs",
+          "Version": "12.22.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Storage.Files.Shares",
+          "Version": "12.20.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Storage.Files",
+          "Operation": "Uninstall"
+        },
+        {
+          "Id": "Azure.Storage.Queues",
+          "Version": "12.20.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Data.Tables",
+          "Version": "12.9.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Azure",
+          "Version": "1.7.6",
+          "Operation": "Install"
+        }
+      ],
+      ".NETFramework,Version=2.0": [
+        {
+          "Id": "WindowsAzure.Storage",
+          "Version": "9.1.1",
+          "Operation": "Install"
+        }
+      ],
+      ".NETFramework,Version=4.0": [
+        {
+          "Id": "WindowsAzure.Storage",
+          "Version": "9.1.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.WindowsAzure.ConfigurationManager",
+          "Version": "3.2.3",
+          "Operation": "Install"
+        }
+      ],
+      ".NETFramework,Version=4.5.2": [
+        {
+          "Id": "WindowsAzure.Storage",
+          "Version": "9.1.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.WindowsAzure.ConfigurationManager",
+          "Operation": "Uninstall"
+        },
+        {
+          "Id": "Microsoft.Azure.ConfigurationManager",
+          "Version": "4.0.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETFramework,Version=4.6.1": [
+        {
+          "Id": "Azure.Storage.Blobs",
+          "Version": "12.22.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Storage.Files.Shares",
+          "Version": "12.20.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Storage.Files",
+          "Operation": "Uninstall"
+        },
+        {
+          "Id": "Azure.Storage.Queues",
+          "Version": "12.20.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Data.Tables",
+          "Version": "12.9.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Azure",
+          "Version": "1.7.6",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

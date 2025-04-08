@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="html-body" lang="en" id="document">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <!--Getting Started Page Content Start--DO NOT TRANSLATE THIS COMMENT-->
+    <div id="simple-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">Desenvolvimento Colaborativo em Tempo Real</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4 id="simple-page-welcome-title">Bem-vindo ao Visual Studio Live Share.</h4>
+        </div>
+        <div id="simple-page-sections">
+            <div id="user-guide" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--BookAnswers"></span>
+                </div>
+                <p>Imaginando como usar o Live Share?</p>
+                <a class="simple-page-button" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vs" target="_blank">Guia do Usuário</a>
+            </div>
+
+            <div id="join-yourself" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--Touch"></span>
+                </div>
+                <p>Saiba como usar o Live Share</p>
+                <button class="simple-page-button" id="simple-page-join-yourself-button">Ingresse você mesmo</button>
+            </div>
+
+            <div id="copy-link" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--PageLink"></span>
+                </div>
+                <p>Convide outras pessoas para sua sessão via email ou chat</p>
+                <button id="simple-page-url-copy-button" class="simple-page-button">Copiar link</button>
+            </div>
+        </div>
+    </div>
+    <div id="control-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">Desenvolvimento Colaborativo em Tempo Real</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4>Bem-vindo ao Visual Studio Live Share.</h4>
+        </div>
+        <p> Inicie sua equipe em edição e depuração colaborativa com apenas algumas etapas simples:</p>
+
+        <div id="step-sign-in" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button">Iniciar login</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">Por que entrar?</h3>
+                        <p>
+                            Ao colaborar, é importante que outras pessoas possam identificar quem você é, para ficarem confiantes
+                            em compartilhar o acesso ao ambiente de desenvolvimento e código. Depois de Entrar, você terá direitos de leitura-gravação de modo que possa editar o código junto com o host.
+                        </p>
+                        <p>
+                            Para que seja mais fácil começar,
+                            você pode entrar usando uma conta Microsoft ou GitHub existente.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-sign-in-before-share" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button-before-share">Iniciar login</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">Por que entrar?</h3>
+                        <p>
+                            Ao colaborar, é importante que outras pessoas possam identificar quem você é, para ficarem confiantes
+                            em compartilhar o acesso ao ambiente de desenvolvimento e código. Depois de Entrar, você pode compartilhar seu workspace e colaborar com outras pessoas.
+                        </p>
+                        <p>
+                            Para que seja mais fácil começar,
+                            você pode entrar usando uma conta Microsoft ou GitHub existente.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-share" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Share"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">Compartilhar</h3>
+                    <p>Clique no botão <i>Live Share</i> no canto superior direito, que compartilhará o seu projeto, e copie uma URL de sessão exclusiva para sua área de transferência.</p>
+                    <!--<img src="https://aka.ms/vsls/quickstart/share" width="136px" alt="Itens da barra de status de compartilhamento do Visual Studio Code" />-->
+                    <p>Você precisará entrar na primeira vez que compartilhar (usando uma conta do GitHub ou Microsoft), o que permite que outras pessoas identifiquem você ao colaborar.</p>
+                    <img  class="signin-image" src="https://aka.ms/vsls/vs-signin" />
+                    <blockquote>
+                        <p>No Windows, talvez lhe peçam que permita que o Live Share abra uma porta de firewall para habilitar conexões ponto a ponto.</p>
+                    </blockquote>
+                    <p>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Edit" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Edit"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">Editar</h3>
+                    <p>Agora que você está em uma sessão de colaboração, você pode mover o cursor, editar e destacar o texto. Você pode ver outros participantes fazendo o mesmo.</p>
+                    <p>Você pode acessar toda a funcionalidade do Live Share clicando no menu suspenso "Ingressado" ou nos ícones do participante no canto superior direito.</p>
+                    <p>Daqui, você pode ver os participantes na sessão, bem como os servidores e os terminais que foram compartilhados.</p>
+                    <ul class="list">
+                        <li><p>Mover para outros arquivos no código. Você é capaz de navegar pelo projeto.</p></li>
+                        <li><p>Concentre-se em um participante e chame a atenção para uma parte do código para a qual você está olhando.</p></li>
+                        <li><p>Siga qualquer participante em uma sessão clicando no nome dele na parte superior direita.</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Debug" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Bug"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">Depurar</h3>
+                    <p>Resolva um problema/pergunta/tarefa com sua equipe em tempo real usando os diversos recursos de depuração colaborativos.</p>
+                    <ul class="list">
+                        <li><p> Depure em conjunto, quando em uma sessão de depuração; defina pontos de interrupção e execute etapas em conjunto em tempo real.</p></li>
+                        <li><p>☁️ Exiba servidores compartilhados clicando no menu suspenso "Ingressado" para exibir os aplicativos Web, os bancos de dados, etc. do host que estão sendo executados localmente.</p></li>
+                        <li><p> Mostre terminais compartilhados clicando no menu suspenso "Ingressado" para exibir ou executar comandos no terminal do host.</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-invite" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--ChatInviteFriend"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">Convidar</h3>
+                    <p>Envie a URL da sessão aos desenvolvedores com os quais deseja colaborar (até cinco) usando email, Skype, Slack, etc. <a id="security-info-link" href="https://aka.ms/vsls-security" target="_blank">Veja as informações de segurança</a> para saber mais sobre compartilhamento seguro.</p>
+                    <p id="join-uri">URL da sessão de colaboração: <div id="join-uri-box" class="box">${this.joinUri}</div></p><button id="join-uri-copy-button">Copiar o link do convite</button>
+                    <!--<img src="https://aka.ms/vsls/quickstart/invite" width="450px" />-->
+                    <blockquote>
+                        <p>Deseja avaliar o VS Live Share, mas não tem com quem colaborar? Sem problemas. Na verdade, você pode compartilhar com si mesmo de outra instância do VS. <a id="share-with-yourself-link" href="${this.joinUri}" target="_blank">Clique aqui para experimentar.</a></p>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-collaborate" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--People"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">Colaborar</h3>
+                    <p>É isso. Quando um "participante" ingressar, você receberá uma notificação e verá o cursor dele aparecer no arquivo aberto no momento. Todos os participantes começarão <a id="following-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">seguindo</a> você, o que significa que, ao rolar a página ou navegar entre os arquivos, eles acompanharão essas ações. Isso torna mais fácil orientá-los em relação ao problema/pergunta/tarefa no qual vocês começarão a colaborar.</p>
+                    <img class="notification-image" src="https://aka.ms/vsls/vs-join-notification" />
+                    <p>Além disso, para aproveitar ao máximo o Live Share, experimente o seguinte:</p>
+                    <ul class="list">
+                        <li>Mova o cursor, edite e realce texto e veja os participantes fazerem o mesmo</li>
+                        <li><a id="follow-guest-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">Siga um participante</a>e faça com que ele role a página e/ou navegue para outros arquivos</li>
+                        <li><a id="share-debug-session-link" href="https://aka.ms/vsls-docs/vs#co-debugging" target="_blank">Compartilhe uma sessão de depuração</a> pressionando F5 e, em seguida, entrando juntos em tempo real</li>
+                        <li><a id="share-server-link" href="https://aka.ms/vsls-docs/vs#share-a-server" target="_blank">Compartilhe um servidor</a> para que os participantes possam ver um aplicativo Web ou um banco de dados em execução local, entre outros.</li>
+                        <li><a id="share-terminal-link" href="https://aka.ms/vsls-docs/vs#share-a-terminal" target="_blank">Compartilhe um terminal</a> e execute comandos de maneira colaborativa</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <p class=" bottom-text">Se você tiver problemas, consulte nossa <a id="troubleshooting-link" href="http://aka.ms/vsls-troubleshooting" target="_blank">documentação de solução de problemas</a> para obter possíveis soluções alternativas. Além disso, se você tiver perguntas e/ou comentários, entre em contato com a equipe usando as opções <i>Enviar Comentários</i> no menu <i>Ajuda</i>.</p>
+        <!--Getting Started Page Content End--DO NOT TRANSLATE THIS COMMENT-->
+    </div>
+    </body>
+    </html>

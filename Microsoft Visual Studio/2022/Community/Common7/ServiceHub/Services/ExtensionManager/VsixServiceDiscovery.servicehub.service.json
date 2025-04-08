@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../schemas/servicehub.service.schema.json",
+  "host": "dotnet",
+  "hostId": "VSDetouredHost",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.ServiceHub.VsixServiceDiscovery.dll",
+    "fullClassName": "Microsoft.ServiceHub.VsixServiceDiscovery.DiscoveryService",
+    "assemblySearchPathsConfig": "AssemblySearchPathsConfig.json"
+  }
+}

@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RulerMarkTooltipLabel" xml:space="preserve">
+    <value> 位于 {0}</value>
+    <comment>{0} is replaced with the formatted time the mark fired.</comment>
+  </data>
+  <data name="RulerAriaLabel" xml:space="preserve">
+    <value>标尺具有的最小值为 {0}，最大值为 {1}</value>
+    <comment>{0} and {1} are time with units</comment>
+  </data>
+  <data name="RulerLeftSliderAriaLabel" xml:space="preserve">
+    <value>左侧时间筛选器</value>
+    <comment>Name of the control for selecting time regions on a line graph</comment>
+  </data>
+  <data name="RulerRightSliderAriaLabel" xml:space="preserve">
+    <value>右侧时间筛选器</value>
+    <comment>Name of the control for selecting time regions on a line graph</comment>
+  </data>
+  <data name="RulerSliderAriaValueText" xml:space="preserve">
+    <value>当前值是 {0}。最小值是 {1}。最大值是 {2}。</value>
+    <comment>{0}, {1} and {2} are time with units</comment>
+  </data>
+  <data name="RulerLifecycleMarkLabel" xml:space="preserve">
+    <value>应用程序生命周期标记</value>
+  </data>
+  <data name="RulerUserMarkLabel" xml:space="preserve">
+    <value>用户标记</value>
+  </data>
+  <data name="UserMarkTooltip" xml:space="preserve">
+    <value>指示使用 LoggingChannel API 记录的消息</value>
+  </data>
+  <data name="RulerMarkLabel" xml:space="preserve">
+    <value>用于指示发生了以下事件的标尺标记:{0}</value>
+    <comment>{0} is replaced with the tooltip content of the ruler mark(s)</comment>
+  </data>
+  <data name="RulerTitle" xml:space="preserve">
+    <value>诊断会话: {0}</value>
+  </data>
+  <data name="RulerTitleWithSelection" xml:space="preserve">
+    <value>诊断会话: {0} ({1})</value>
+    <comment>The localized total time will be formatted into 0, and the localized selection time will be formatted into 1.</comment>
+  </data>
+  <data name="MillisecondsLabel" xml:space="preserve">
+    <value>毫秒</value>
+  </data>
+  <data name="MinutesLabel" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="SecondsLabel" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="MinutesAbbreviation" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="MillisecondsAbbreviation" xml:space="preserve">
+    <value>毫秒</value>
+  </data>
+  <data name="SecondsAbbreviation" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="ToolbarZoomInButton" xml:space="preserve">
+    <value>放大</value>
+  </data>
+  <data name="ToolbarZoomToSelectionButton" xml:space="preserve">
+    <value>缩放到选定内容</value>
+  </data>
+  <data name="ToolbarZoomOutButton" xml:space="preserve">
+    <value>缩小</value>
+  </data>
+  <data name="ToolbarClearSelectionButton" xml:space="preserve">
+    <value>清除选定内容</value>
+  </data>
+  <data name="ToolbarActivateOutputWindowButton" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="ToolbarResetViewButton" xml:space="preserve">
+    <value>重置视图</value>
+  </data>
+  <data name="ToolbarResetZoomButton" xml:space="preserve">
+    <value>重置缩放</value>
+  </data>
+  <data name="TooltipTimeLabel" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="TooltipValueLabel" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="ChartSeriesFormattableTimeLabel" xml:space="preserve">
+    <value>时间: {0}</value>
+  </data>
+  <data name="ChartSeriesFormattableTooltipLabel" xml:space="preserve">
+    <value>值: {0}</value>
+  </data>
+  <data name="DataCursorInterpolatingTooltip" xml:space="preserve">
+    <value>最接近的数据</value>
+  </data>
+  <data name="ToolbarStopCollectionButton" xml:space="preserve">
+    <value>停止收集</value>
+  </data>
+  <data name="ToolbarStopCollectionTooltip" xml:space="preserve">
+    <value>停止收集(Ctrl+Shift+F2)</value>
+  </data>
+  <data name="RulerAggregatedMarks" xml:space="preserve">
+    <value>已合并的标记</value>
+  </data>
+  <data name="LifecycleMarkTooltip" xml:space="preserve">
+    <value>指示应用程序生存期内的基本事件</value>
+  </data>
+  <data name="MergedMarkTooltip" xml:space="preserve">
+    <value>指示有两种或更多类型的标记</value>
+  </data>
+  <data name="RulerMarkNavigation" xml:space="preserve">
+    <value>标尺标记，使用左右箭头键浏览</value>
+  </data>
+  <data name="ToolSelectionDropDownHeaderText" xml:space="preserve">
+    <value>选择工具</value>
+  </data>
+  <data name="ToolSelectionChangesNextDebugSession" xml:space="preserve">
+    <value>对选定工具所做的更改将应用到下一调试会话</value>
+  </data>
+  <data name="UnsupportedBrowser" xml:space="preserve">
+    <value>内容要求&lt;a&gt;新版本的 Internet Explorer&lt;/a&gt;。</value>
+  </data>
+  <data name="UnsupportedBrowserLabel" xml:space="preserve">
+    <value>单击此处下载更新版本的 Internet Explorer</value>
+  </data>
+  <data name="RulerTimeSelected" xml:space="preserve">
+    <value>已选择 {0} {1}</value>
+    <comment>{0} is time and {1} is units. e.g. 1.00 milliseconds selected or 1.00 ms selected</comment>
+  </data>
+  <data name="FormattedNumberWithUnits" xml:space="preserve">
+    <value>{0}{1}</value>
+    <comment>This is the format string for numbers that appear in the UI with a unit word associated with them. {0} will be replaced by a localized number such as 1.8 (e.g. 1,8 in German) and {1} will be replaced by the technical unit of size such as B for Bytes</comment>
+  </data>
+  <data name="FormattedNumberWithUnitsTableView" xml:space="preserve">
+    <value>{0} {1}</value>
+    <comment>This is the format string for numbers that appear in the UI with a unit word associated with them. {0} will be replaced by a localized number such as 1.8 (e.g. 1,8 in German) and {1} will be replaced by the technical unit of size such as B for Bytes</comment>
+  </data>
+  <data name="ToolSelectionSettingsAriaLabel" xml:space="preserve">
+    <value>配置工具设置</value>
+  </data>
+  <data name="ToolSelectionSettingsText" xml:space="preserve">
+    <value>设置...</value>
+  </data>
+  <data name="OpenInPerfView" xml:space="preserve">
+    <value>在 PerfView 中打开</value>
+  </data>
+  <data name="FormattedPercentage" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="ChartSeriesFormattableTooltipLabelNumberWithUnit" xml:space="preserve">
+    <value>{0} {1}</value>
+    <comment>This is the format string for numbers that appear in the swimlane with a unit word associated with them. {0} will be replaced by a localized number such as 1.8 (e.g. 1,8 in German) and {1} will be replaced by the technical unit of size such as B for Bytes</comment>
+  </data>
+  <data name="CountersDataSeriesTooltipNumberWithFormat" xml:space="preserve">
+    <value>{0} {1}</value>
+    <comment>This is the format string for numbers with units in the tooltip when hovering over swimlane above chart.</comment>
+  </data>
+  <data name="Size_byte" xml:space="preserve">
+    <value>B</value>
+    <comment>Unit for byte(singular)</comment>
+  </data>
+  <data name="Size_bytes" xml:space="preserve">
+    <value>B</value>
+    <comment>Unit for byte(plural)</comment>
+  </data>
+  <data name="Size_exbibyte" xml:space="preserve">
+    <value>EiB</value>
+    <comment>Unit for exbibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_gibibyte" xml:space="preserve">
+    <value>GiB</value>
+    <comment>Unit for gibibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_kibibyte" xml:space="preserve">
+    <value>KiB</value>
+    <comment>Unit for kibibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_mebibyte" xml:space="preserve">
+    <value>MiB</value>
+    <comment>Unit for mebibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_pebibyte" xml:space="preserve">
+    <value>PiB</value>
+    <comment>Unit for pebibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_tebibyte" xml:space="preserve">
+    <value>TiB</value>
+    <comment>Unit for tebibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_yobibyte" xml:space="preserve">
+    <value>YiB</value>
+    <comment>Unit for yobibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Size_zebibyte" xml:space="preserve">
+    <value>ZiB</value>
+    <comment>Unit for zebibyte(base 1024, binary)</comment>
+  </data>
+  <data name="Time_nanos" xml:space="preserve">
+    <value>纳秒</value>
+  </data>
+  <data name="Time_micros" xml:space="preserve">
+    <value>微秒</value>
+  </data>
+  <data name="Time_millis" xml:space="preserve">
+    <value>毫秒</value>
+  </data>
+  <data name="Time_s" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="ToolbarAddUserMarkButton" xml:space="preserve">
+    <value>添加用户标记</value>
+  </data>
+  <data name="ToolbarAddUserMarkTooltip" xml:space="preserve">
+    <value>添加用户标记</value>
+  </data>
+  <data name="ToolbarToggleCollectionButton" xml:space="preserve">
+    <value>记录</value>
+    <comment>Record here is a verb, indicating to the user to start recording</comment>
+  </data>
+  <data name="ToolbarEnableCollectionTooltip" xml:space="preserve">
+    <value>启用分析</value>
+  </data>
+  <data name="ToolbarDisableCollectionTooltip" xml:space="preserve">
+    <value>禁用分析</value>
+  </data>
+  <data name="CountBUnit" xml:space="preserve">
+    <value>B</value>
+    <comment>Abbreviation for 1000000000's of count</comment>
+  </data>
+  <data name="CountKUnit" xml:space="preserve">
+    <value>K</value>
+    <comment>Abbreviation for 1000's of count</comment>
+  </data>
+  <data name="CountMUnit" xml:space="preserve">
+    <value>M</value>
+    <comment>Abbreviation for 1000000's of count</comment>
+  </data>
+  <data name="Histogram_Legend_Tooltip" xml:space="preserve">
+    <value>此度量的百分位数</value>
+    <comment>Tooltip for a histogram legend</comment>
+  </data>
+  <data name="Histogram_Legend_50th" xml:space="preserve">
+    <value>第 50 个百分位数</value>
+    <comment>Indicate a histogram graph Legend is for 50th percentile of measurement</comment>
+  </data>
+  <data name="Histogram_Legend_95th" xml:space="preserve">
+    <value>第 95 个百分位数</value>
+    <comment>Indicate a histogram graph Legend is for 95th percentile of measurement</comment>
+  </data>
+  <data name="Histogram_Legend_99th" xml:space="preserve">
+    <value>第 99 个百分位数</value>
+    <comment>Indicate a histogram graph Legend is for 99th percentile of measurement</comment>
+  </data>
+  <data name="Button_FilterViewApply" xml:space="preserve">
+    <value>应用</value>
+    <comment>Label for a button to apply filtering changes</comment>
+  </data>
+  <data name="Button_FilterViewCancel" xml:space="preserve">
+    <value>取消</value>
+    <comment>Label for a button to cancel applying filtering changes</comment>
+  </data>
+  <data name="ProcessSelectionDropDownHeaderText" xml:space="preserve">
+    <value>流程</value>
+    <comment>Label for process filtering dropdown</comment>
+  </data>
+  <data name="ProcessIdFormat" xml:space="preserve">
+    <value>PID: {0}</value>
+    <comment>Label for each process in the dropdown menu, where {0} is the process id (an integer number) </comment>
+  </data>
+  <data name="ProcessSelectionDropDownSelectAll" xml:space="preserve">
+    <value>(全选)</value>
+    <comment>Label for a checkbox to select all</comment>
+  </data>
+</root>

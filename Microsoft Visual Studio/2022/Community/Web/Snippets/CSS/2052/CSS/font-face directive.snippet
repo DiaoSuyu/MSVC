@@ -1,0 +1,31 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>font face</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>@font-face</Shortcut>
+    <Description>字体嵌入片段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <ToolTip>名称值</ToolTip>
+        <Default>font name</Default>
+      </Literal>
+      <Literal>
+        <ID>file</ID>
+        <ToolTip>文件名称值</ToolTip>
+        <Default>/content/file</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="css" Kind="AtDirectiveName">
+        <![CDATA[@font-face {  
+  font-family: '$name$';
+  src: url('$file$.eot');
+  src: local('☺'), url('$file$.woff') format('woff'), url('$file$.ttf') format('truetype');
+}$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

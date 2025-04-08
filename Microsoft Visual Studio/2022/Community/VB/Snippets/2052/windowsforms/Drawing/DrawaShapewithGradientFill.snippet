@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用渐变填充绘制形状</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用渐变填充绘制形状。</Description>
+      <Shortcut>drawGrad</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Drawing</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing.Drawing2D</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>x</ID>
+          <ToolTip>替换为矩形的左边的 x 坐标。</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>y</ID>
+          <ToolTip>替换为矩形的顶边的 y 坐标。</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>width</ID>
+          <ToolTip>替换为矩形的宽度。</ToolTip>
+          <Default>100</Default>
+        </Literal>
+        <Literal>
+          <ID>height</ID>
+          <ToolTip>替换为矩形的高度。</ToolTip>
+          <Default>100</Default>
+        </Literal>
+        <Literal>
+          <ID>color1</ID>
+          <ToolTip>替换为渐变的第一种颜色。</ToolTip>
+          <Default>Color.Blue</Default>
+        </Literal>
+        <Literal>
+          <ID>color2</ID>
+          <ToolTip>替换为渐变的第二种颜色。</ToolTip>
+          <Default>Color.Black</Default>
+        </Literal>
+        <Literal>
+          <ID>form</ID>
+          <Type>Form</Type>
+          <ToolTip>替换为要在其上绘制形状的窗体或控件</ToolTip>
+          <Default>Me</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[    Dim rect As New Rectangle($x$, $y$, $width$, $height$)
+    Using gc = $form$.CreateGraphics()
+        Using gradientBrush As New LinearGradientBrush(rect, $color1$, $color2$, LinearGradientMode.Horizontal)
+            gc.FillRectangle(gradientBrush, rect)
+        End Using
+    End Using
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

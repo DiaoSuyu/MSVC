@@ -1,0 +1,92 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=2.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "4.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=3.1": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "5.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=5.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "5.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=6.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "6.1.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=7.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "7.2.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=8.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "8.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=9.0": [
+        {
+          "Id": "Microsoft.Azure.AppConfiguration.AspNetCore",
+          "Version": "8.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

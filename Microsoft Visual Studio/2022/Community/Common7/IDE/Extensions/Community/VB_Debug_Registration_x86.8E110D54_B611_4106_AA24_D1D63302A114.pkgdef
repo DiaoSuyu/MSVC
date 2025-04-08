@@ -1,0 +1,8 @@
+[$RootKey$\CLSID\{1faf3cb1-30ac-40ca-b115-5999e7daf938}]
+"InprocServer32"="$ShellFolder$\Common7\IDE\vbdebug.dll"
+"ThreadingModel"="Both"
+
+[$RootKey$\CLSID\{59924502-559a-4bb1-b995-5d511bb218cd}]
+@="Microsoft Visual Basic Expression Evaluator Class"
+"InprocServer32"="$ShellFolder$\Common7\IDE\vbdebug.dll"
+"ThreadingModel"="Both"

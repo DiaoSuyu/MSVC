@@ -1,0 +1,9 @@
+{
+  "sharedConfig": {
+    "$refmerge": "/dependencyTypes/configs/identity/identityapp.json"
+  },
+  "editSteps": [
+    "IdentityPickInstance",
+    "DependencySummary"
+  ]
+}

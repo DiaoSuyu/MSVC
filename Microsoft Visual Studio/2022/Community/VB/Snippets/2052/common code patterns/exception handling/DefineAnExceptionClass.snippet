@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义异常类</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>为新的异常类型提供基本实现。</Description>
+      <Keywords>
+		  <Keyword>异常</Keyword>
+		  <Keyword>错误</Keyword>
+		  <Keyword>处理</Keyword>
+      </Keywords>
+      <Shortcut>Except</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>exceptionName</ID>
+          <ToolTip>将类重命名为异常的说明。</ToolTip>
+          <Default>ProblemException</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="type decl"><![CDATA[Public Class $ExceptionName$
+    Inherits System.Exception
+
+    Public Sub New(ByVal message As String)
+        MyBase.New(message)
+    End Sub
+
+    Public Sub New(ByVal message As String, ByVal inner As Exception)
+        MyBase.New(message, inner)
+    End Sub
+End Class]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

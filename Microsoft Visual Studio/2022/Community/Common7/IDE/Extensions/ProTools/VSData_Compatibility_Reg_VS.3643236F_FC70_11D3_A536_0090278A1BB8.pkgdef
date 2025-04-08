@@ -1,0 +1,6 @@
+[$RootKey$\CLSID\{9DBACAC7-8589-4c46-AE40-4B4FDE40DCDA}]
+@="Compatible DataProviderObjectFactory Class"
+"Assembly"="Microsoft.VisualStudio.Data.Compatibility,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"Class"="Microsoft.VisualStudio.Data.Compatibility.NewProviderObjectFactory"
+"InprocServer32"="$System$\mscoree.dll"
+"ThreadingModel"="Both"

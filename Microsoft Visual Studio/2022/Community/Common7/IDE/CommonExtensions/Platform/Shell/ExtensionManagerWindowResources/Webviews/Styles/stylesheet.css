@@ -1,0 +1,21 @@
+﻿button.jump-to-bottom {
+    /* We want the button to float in the bottom right corner */
+    position: fixed;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    /* Rounding the corners makes the button look circular */
+    border-radius: 50%;
+    /* We need to override some of the default button dimensions since this isn't a normal textual button */
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0.1em;
+    min-width: 1em;
+    /* In order to stay up-to-date with the current theme, we can use the CSS variables provided by Daytona */
+    background-color: var(--plugin-highlight-background-color, blue);
+}
+
+img.jump-to-bottom {
+    width: 1em;
+    height: 1em;
+}

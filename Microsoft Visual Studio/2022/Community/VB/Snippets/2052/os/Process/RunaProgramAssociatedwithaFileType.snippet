@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>运行与文件类型关联的程序</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>运行与文件类型关联的程序。</Description>
+      <Shortcut>procRun</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Win32</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>programName</ID>
+          <ToolTip>替换为要打开的程序或文档</ToolTip>
+          <Default>"C:\Test.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Process.Start($programName$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

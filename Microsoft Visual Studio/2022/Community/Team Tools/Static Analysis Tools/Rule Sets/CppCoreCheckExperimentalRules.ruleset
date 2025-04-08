@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="C++ Core Check Experimental Rules" Description="These rules collect some experimental checks. These checks are expected to be moved to other rulesets or removed completely eventually." ToolsVersion="10.0">
+  <Localization ResourceAssembly="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.dll" ResourceBaseName="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.Localized">
+    <Name Resource="CppCoreCheckExperimentalRules_Name" />
+    <Description Resource="CppCoreCheckExperimentalRules_Description" />
+  </Localization>
+  <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
+    <!-- TU local declarations in anonymous namespace -->
+    <Rule Id="C6389" Action="Warning" />
+    <!-- path sensitive gsl::at -->
+    <Rule Id="C26458" Action="Warning" />
+    <!-- nullptr dereference warnings -->
+    <Rule Id="C26822" Action="Warning" />
+    <Rule Id="C26823" Action="Warning" />
+    <Rule Id="C26824" Action="Warning" />
+    <Rule Id="C26825" Action="Warning" />
+    <!-- Lifetime warnings -->
+    <Rule Id="C26486" Action="Warning" />
+    <Rule Id="C26487" Action="Warning" />
+    <Rule Id="C26488" Action="Warning" />
+    <Rule Id="C26489" Action="Warning" />
+    <!-- High-confidence lifetime warnings -->
+    <Rule Id="C26846" Action="Warning" />
+    <Rule Id="C26847" Action="Warning" />
+    <Rule Id="C26848" Action="Warning" />
+    <Rule Id="C26849" Action="Warning" />
+  </Rules>
+</RuleSet>

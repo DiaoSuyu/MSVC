@@ -1,0 +1,31 @@
+{
+  "id": "appInsights.azure",
+  "provisioningId": "microsoft.insights/components",
+  "name": "strings:#/appInsightsAzureDependencyTypeName",
+  "description": "strings:#/appInsightsAzureDependencyTypeDescription",
+  "recomendationMessage": "strings:#/appInsightsDependencyTypeRecomendation",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/instrumentationKey",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 173
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 173
+  },
+  "displayOrder": 1200,
+  "learnMoreUrl": "2147101",
+  "actions": [
+    "openInPortal",
+    "restore",
+    "openInAppInsights",
+    "learnMore"
+  ],
+  "tags": [
+    "strings:#/monitor",
+    "strings:#/webApp",
+    "Azure"
+  ]
+}

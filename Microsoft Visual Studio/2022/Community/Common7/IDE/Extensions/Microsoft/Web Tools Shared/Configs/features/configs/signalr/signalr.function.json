@@ -1,0 +1,24 @@
+{
+  "components": {
+    "itemTemplateCreator": {
+      "modifiers": [
+        "signalr.itemTemplateCreator"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "signalr.nuget.function"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "signalr.serviceConnector.local"
+      ]
+    }
+  }
+}

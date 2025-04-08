@@ -1,0 +1,54 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addUsingStatement",
+    "condition": "ClassicConfigureServices",
+    "snippetModels": [
+      {
+        "name": "EnsureSystemNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using System;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "using System;",
+            "tokens": {}
+          }
+        ]
+      }
+    ]
+  }
+}

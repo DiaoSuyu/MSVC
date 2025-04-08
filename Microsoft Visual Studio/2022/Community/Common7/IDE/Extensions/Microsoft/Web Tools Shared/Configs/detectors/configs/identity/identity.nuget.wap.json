@@ -1,0 +1,23 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "identityapp.wap.local",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.IdentityModel.JsonWebTokens": "",
+      "Microsoft.IdentityModel.Logging": "",
+      "Microsoft.IdentityModel.Protocol.Extensions": "",
+      "Microsoft.IdentityModel.Protocols": "",
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect": "",
+      "Microsoft.IdentityModel.Tokens": "",
+      "Microsoft.Owin": "",
+      "Microsoft.Owin.Host.SystemWeb": "",
+      "Microsoft.Owin.Security": "",
+      "Microsoft.Owin.Security.Cookies": "",
+      "Microsoft.Owin.Security.OpenIdConnect": "",
+      "Owin": "",
+      "System.IdentityModel.Tokens.Jwt": ""
+    }
+  }
+}

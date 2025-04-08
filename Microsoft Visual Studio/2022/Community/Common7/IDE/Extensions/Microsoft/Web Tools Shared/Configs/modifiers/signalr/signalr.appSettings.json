@@ -1,0 +1,14 @@
+{
+  "kind": "jsonProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "appsettings.json",
+    "key": "Azure/SignalR",
+    "properties": {
+      "Enabled": {
+        "value": "true",
+        "action": "replace"
+      }
+    }
+  }
+}

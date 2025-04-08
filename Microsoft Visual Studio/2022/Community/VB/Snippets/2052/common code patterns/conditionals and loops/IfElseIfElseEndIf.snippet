@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>If...ElseIf...Else...End If 语句</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>插入 If...ElseIf...Else...End If 语句。</Description>
+      <Shortcut>IfElseIf</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Condition1</ID>
+          <Type>Boolean</Type>
+          <ToolTip>替换为计算结果是 True 或 False 的表达式。</ToolTip>
+          <Default>True</Default>
+        </Literal>
+        <Literal>
+          <ID>Condition2</ID>
+          <Type>Boolean</Type>
+          <ToolTip>替换为计算结果是 True 或 False 的表达式。</ToolTip>
+          <Default>False</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[If $Condition1$ Then
+
+ElseIf $Condition2$ Then
+
+Else
+
+End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

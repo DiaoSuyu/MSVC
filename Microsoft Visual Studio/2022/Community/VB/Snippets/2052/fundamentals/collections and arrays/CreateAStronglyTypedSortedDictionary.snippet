@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建已排序字典。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建包含特定类型的项的已排序字典。</Description>
+      <Shortcut>colCreateSort</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>keyType</ID>
+          <ToolTip>键的类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>itemType</ID>
+          <ToolTip>替换为集合应包含的项的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Literal>
+          <ID>storageVar</ID>
+          <ToolTip>替换为后备存储器的标识符。</ToolTip>
+          <Default>sortedStudents</Default>
+        </Literal>
+        <Literal>
+          <ID>keyValue1</ID>
+          <ToolTip>替换为第一个值的键。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>keyValue2</ID>
+          <ToolTip>替换为第二个值的键。</ToolTip>
+          <Default>2</Default>
+        </Literal>
+        <Literal>
+          <ID>itemValue1</ID>
+          <ToolTip>替换为第一个值的项。</ToolTip>
+          <Default>"Mary Chase"</Default>
+        </Literal>
+        <Literal>
+          <ID>itemValue2</ID>
+          <ToolTip>替换为第二个值的项。</ToolTip>
+          <Default>"Barnaby Williams"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[        ' Backing storage -- a generic dictionary
+        Dim $storageVar$ As New SortedDictionary(Of $keyType$, $itemType$)
+
+        ' Add items to the dictionary
+        $storageVar$.Add($keyValue1$, $itemValue1$)
+        $storageVar$.Add($keyValue2$, $itemValue2$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

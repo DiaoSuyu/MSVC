@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义属性</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用支持字段定义属性。</Description>
+      <Shortcut>Property</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>PropertyName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为属性名称。</ToolTip>
+          <Default>NewProperty</Default>
+        </Literal>
+        <Literal>
+          <ID>PropertyType</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为属性类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>PrivateVariable</ID>
+          <Type>Object</Type>
+          <ToolTip>将此项替换为私有变量名。</ToolTip>
+          <Default>newPropertyValue</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Private $PrivateVariable$ As $PropertyType$
+Public Property $PropertyName$() As $PropertyType$
+    Get
+        Return $PrivateVariable$ 
+    End Get
+    Set(ByVal value As $PropertyType$)
+        $PrivateVariable$ = value
+    End Set
+End Property]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

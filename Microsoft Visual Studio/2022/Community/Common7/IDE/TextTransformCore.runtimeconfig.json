@@ -1,0 +1,15 @@
+{
+  "runtimeOptions": {
+    "tfm": "net8.0",
+    "framework": {
+      "name": "Microsoft.NETCore.App",
+      "version": "8.0.0"
+    },
+    "configProperties": {
+      "SharedAssemblyPaths": "TextTransform;PublicAssemblies;PrivateAssemblies;PrivateAssemblies\\Newtonsoft.Json.13.0.3.0;CommonExtensions\\Microsoft\\VBCSharp\\LanguageServices",
+      "STARTUP_HOOKS": "TextTransformCoreResolver",
+      "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+    }
+  }
+}

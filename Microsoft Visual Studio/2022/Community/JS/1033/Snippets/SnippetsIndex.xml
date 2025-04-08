@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SnippetCollection>
+    <Language Lang="JavaScript" Guid="{71d61d27-9011-4b17-9469-d20f798fb5c0}">
+        <SnippetDir>
+            <OnOff>On</OnOff>
+            <Installed>true</Installed>
+            <Locale>1033</Locale>
+            <DirPath>%InstallRoot%TSJS\Snippets\%LCID%\JavaScript\General\</DirPath>
+            <LocalizedName>JavaScript</LocalizedName>
+        </SnippetDir>
+        <SnippetDir>
+            <OnOff>On</OnOff>
+            <Installed>true</Installed>
+            <Locale>1033</Locale>
+            <DirPath>%InstallRoot%TSJS\Snippets\%LCID%\JavaScript\Angular 1\</DirPath>
+            <LocalizedName>JavaScript</LocalizedName>
+        </SnippetDir>
+        <SnippetDir>
+            <OnOff>On</OnOff>
+            <Installed>true</Installed>
+            <Locale>1033</Locale>
+            <DirPath>%InstallRoot%TSJS\Snippets\%LCID%\JavaScript\ASP.NET AJAX\</DirPath>
+            <LocalizedName>JavaScript</LocalizedName>
+        </SnippetDir>
+    </Language>
+</SnippetCollection>

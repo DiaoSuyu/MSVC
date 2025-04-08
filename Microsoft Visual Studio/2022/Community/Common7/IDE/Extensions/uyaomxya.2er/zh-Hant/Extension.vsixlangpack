@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <DisplayName>適用於 Google Test 的測試配接器</DisplayName>
+    <Description>利用為 Google Test 所撰寫的單元測試來啟用 Visual Studio 的測試工具。</Description>
+  </Metadata>
+</PackageLanguagePackManifest>

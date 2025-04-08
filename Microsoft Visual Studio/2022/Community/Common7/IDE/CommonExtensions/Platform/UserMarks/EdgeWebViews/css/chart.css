@@ -1,0 +1,100 @@
+﻿.arc:nth-child(7n+1) {
+    fill: #71B252;
+}
+
+.arc:nth-child(7n+2) {
+    fill: #BF3F00;
+}
+
+.arc:nth-child(7n+3) {
+    fill: #FCB714;
+}
+
+.arc:nth-child(7n+4) {
+    fill: #903F8B;
+}
+
+.arc:nth-child(7n+5) {
+    fill: #117AD1;
+}
+
+.arc:nth-child(7n+6) {
+    fill: #B5B5B5;
+}
+
+.arc:nth-child(7n+7) {
+    fill: #79D7F2;
+}
+
+.legendItem:nth-child(7n+1) > .marker {
+    background-color: #71B252;
+}
+
+.legendItem:nth-child(7n+2) > .marker {
+    background-color: #BF3F00;
+}
+
+.legendItem:nth-child(7n+3) > .marker {
+    background-color: #FCB714;
+}
+
+.legendItem:nth-child(7n+4) > .marker {
+    background-color: #903F8B;
+}
+
+.legendItem:nth-child(7n+5) > .marker {
+    background-color: #117AD1;
+}
+
+.legendItem:nth-child(7n+6) > .marker {
+    background-color: #B5B5B5;
+}
+
+.legendItem:nth-child(7n+7) > .marker {
+    background-color: #79D7F2;
+}
+
+.legend {
+    list-style-type: none;
+    padding: 2px;
+}
+
+    .legend > .legendItem {
+        display: flex;
+        align-items: center;
+    }
+
+    .legend > .legendItem > .marker {
+        flex: 0 0 auto;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 2px;
+    }
+
+    .legend > .legendItem > .label {
+        flex: 1 1 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 2px;
+    }
+
+/**
+    We manually draw the focus via another path as the outline will not conform to the
+    shape, and using the stroke for an arc will be overlapped by subsequent siblings
+*/
+.arc:focus {
+    outline: none;
+}
+
+.focusRing {
+    stroke: none;
+    fill: none;
+    stroke-width: 1;
+    stroke-dasharray: 1,1;
+}
+
+    .focusRing.show {
+        stroke: var(--CommonControls-FocusVisual-Foreground, orange);
+    }

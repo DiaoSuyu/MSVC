@@ -1,0 +1,284 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "EnvironmentId",
+            "id": "local"
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          }
+        ]
+      },
+      "config": "appInsights.azure.local"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "EnvironmentId",
+            "id": "local"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            }
+          }
+        ]
+      },
+      "config": "appInsights.azure.local"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "EnvironmentProperty",
+            "property": "PublishProvider",
+            "value": "ContainerApp"
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "HasProjectCapability",
+                "capability": "CPS"
+              },
+              {
+                "kind": "HasProjectCapability",
+                "capability": ".NET"
+              }
+            ]
+          }
+        ]
+      },
+      "config": "appInsights.azure.containerApp"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "or",
+            "operands": [
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "AppServiceContainer"
+                  },
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "ContainerApp"
+                  },
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "FunctionsContainer"
+                  }
+                ]
+              },
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "Web"
+                  },
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "WebsiteProject"
+                  }
+                ]
+              },
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "AzureFunctions"
+                  },
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "local.settings.json"
+                      },
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "host.json"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasProjectCapability",
+                          "capability": "Web"
+                        }
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasProjectCapability",
+                          "capability": "WebsiteProject"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "AppServicePublish"
+                  },
+                  {
+                    "kind": "not",
+                    "operand": {
+                      "kind": "ProjectProperty",
+                      "propertyName": "OutputType",
+                      "expectedValue": "library"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          }
+        ]
+      },
+      "config": "appInsights.azure.appService"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "or",
+            "operands": [
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "AppServiceContainer"
+                  },
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "ContainerApp"
+                  },
+                  {
+                    "kind": "EnvironmentProperty",
+                    "property": "PublishProvider",
+                    "value": "FunctionsContainer"
+                  }
+                ]
+              },
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "Web"
+                  },
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "WebsiteProject"
+                  }
+                ]
+              },
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "AzureFunctions"
+                  },
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "local.settings.json"
+                      },
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "host.json"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasProjectCapability",
+                          "capability": "Web"
+                        }
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasProjectCapability",
+                          "capability": "WebsiteProject"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "AppServicePublish"
+                  },
+                  {
+                    "kind": "not",
+                    "operand": {
+                      "kind": "ProjectProperty",
+                      "propertyName": "OutputType",
+                      "expectedValue": "library"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            }
+          }
+        ]
+      },
+      "config": "appInsights.azure.appService"
+    }
+  ]
+}

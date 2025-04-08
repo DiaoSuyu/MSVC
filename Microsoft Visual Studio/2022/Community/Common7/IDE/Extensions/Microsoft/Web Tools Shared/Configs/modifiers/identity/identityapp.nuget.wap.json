@@ -1,0 +1,75 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETFramework,Version=4.5": [
+        {
+          "Id": "Microsoft.IdentityModel.JsonWebTokens",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.IdentityModel.Logging",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.IdentityModel.Protocol.Extensions",
+          "Version": "1.0.4.403061554",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.IdentityModel.Protocols",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.IdentityModel.Tokens",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Owin",
+          "Version": "4.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Owin.Host.SystemWeb",
+          "Version": "4.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Owin.Security",
+          "Version": "4.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Owin.Security.Cookies",
+          "Version": "4.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Owin.Security.OpenIdConnect",
+          "Version": "4.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Owin",
+          "Version": "1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "System.IdentityModel.Tokens.Jwt",
+          "Version": "5.7.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

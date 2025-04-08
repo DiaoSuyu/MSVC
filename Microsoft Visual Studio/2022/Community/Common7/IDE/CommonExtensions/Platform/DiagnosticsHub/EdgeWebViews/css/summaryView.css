@@ -1,0 +1,115 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.mainContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.icon {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+}
+
+    .icon > svg {
+        width: 100%;
+        height: 100%;
+    }
+
+.toolName {
+    font-weight: 600;
+    display: inline-block;
+    padding: 3px 9px;
+    width: 100%;
+    background-color: var(--Header-Default-Background, deeppink);
+    border: 1px solid var(--Header-SeparatorLine-Background, chartreuse);
+    border-left-width: 0px;
+    border-right-width: 0px;
+    white-space: nowrap;
+}
+
+.summaryList {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.summaryItems {
+    list-style-type: none;
+    padding: 0px 1em;
+    margin: 0px;
+}
+
+.summaryItems > li {
+    padding: 3px 0px;
+}
+
+.summaryItem {
+    display: inline-flex;
+    align-items: center;
+    margin: 0px;
+    margin-left: calc(1.1em + 8px);
+    padding: 2px;
+    border: 1px solid transparent;
+}
+
+.summaryText {
+    flex: auto;
+    white-space: nowrap;
+    color: var(--plugin-color, fuchsia);
+}
+
+.summaryButton, button.summaryButton {
+    cursor: pointer;
+    background-image: none;
+    background-color: transparent;
+}
+
+    .summaryButton:hover, button.summaryButton:hover, .summaryButton:focus, button.summaryButton:focus {
+        color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, lawngreen);
+        background-color: var(--Environment-CommandBarMouseOverBackgroundBegin-Background, fuchsia);
+    }
+
+    .summaryButton:active, button.summaryButton:active {
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+    }
+
+    .summaryButton:disabled, button.summaryButton:disabled, .summaryButton:disabled > .summaryText, button.summaryButton:disabled > .summaryText {
+        color: var(--Environment-CommandBarTextInactive-Background, lawngreen);
+        border-color: transparent;
+        background-color: transparent;
+        cursor: default;
+    }
+
+    .summaryButton.toggled {
+        background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+        color: var(--Environment-CommandBarTextSelected-Background, lawngreen);
+        border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+    }
+
+.summaryItem.hasIcon {
+    margin-left: 0px;
+}
+
+    .summaryItem > .icon, summaryItem > .icon {
+        width: 0px;
+        height: 0px;
+    }
+
+    .summaryItem.hasIcon > .icon, summaryItem.hasIcon > .icon {
+        width: 1.1em;
+        height: 1.1em;
+        margin-right: 8px;
+        flex: 0 0 1.1em;
+    }

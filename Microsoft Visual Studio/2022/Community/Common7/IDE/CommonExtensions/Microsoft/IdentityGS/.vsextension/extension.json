@@ -1,0 +1,51 @@
+{
+  "controlPlacements": [
+    {
+      "controlName": "Microsoft.Developer.IdentityService.RegisterVSCommand.RegisterVisualStudio",
+      "parent": {
+        "legacyParentId": {
+          "guid": "d309f791-903f-11d0-9efc-00a0c911004f",
+          "id": 363
+        },
+        "priority": 0
+      }
+    }
+  ],
+  "commandSets": [
+    {
+      "name": "Microsoft.Developer.IdentityService.RegisterVSCommand.ConexExtension",
+      "serviceMoniker": {
+        "name": "Microsoft.Developer.IdentityService.RegisterVSCommand.ConexExtensionCommandSet",
+        "version": "1.0"
+      },
+      "commands": [
+        {
+          "tooltipText": "%Microsoft.Developer.IdentityServiceGS.RegisterVisualStudio.DisplayName%",
+          "flags": "None",
+          "icon": {
+            "IconName": "KnownMonikers.AccountGroup",
+            "iconSettings": "IconAndText"
+          },
+          "name": "Microsoft.Developer.IdentityService.RegisterVSCommand.RegisterVisualStudio",
+          "displayName": "%Microsoft.Developer.IdentityServiceGS.RegisterVisualStudio.DisplayName%",
+          "contextProviderName": "Editor,Shell"
+        }
+      ],
+      "dynamicCommandAnchors": []
+    }
+  ],
+  "services": [
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.Developer.IdentityService.RegisterVSCommand.ConexExtensionCommandSet",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "1.0",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.Developer.IdentityService.RegisterVSCommand.dll",
+        "fullClassName": "Microsoft.Developer.IdentityService.RegisterVSCommand.ConexExtension"
+      },
+      "allowHostingInProcess": true
+    }
+  ]
+}

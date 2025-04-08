@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义比较运算符(&gt; 和 &lt;)</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义比较运算符(&gt; 和 &lt;)。</Description>
+      <Shortcut>OpComp</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>TypeName</ID>
+          <Type/>
+          <ToolTip>替换为您的类名。</ToolTip>
+          <Default>ThisClass</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Public Shared Operator >(ByVal left As $TypeName$, _
+        ByVal right As $TypeName$) As Boolean
+
+    End Operator
+
+    Public Shared Operator <(ByVal left As $TypeName$, _
+        ByVal right As $TypeName$) As Boolean
+
+    End Operator]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

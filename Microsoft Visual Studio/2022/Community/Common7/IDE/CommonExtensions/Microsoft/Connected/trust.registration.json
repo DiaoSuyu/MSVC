@@ -1,0 +1,200 @@
+{
+  "properties": {
+    "environment.security.trust.enabled": {
+      "type": "boolean",
+      "title": "@EnableTrustSettingLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.enabled"
+          }
+        }
+      }
+    },
+
+    "environment.security.trust.trustDecisionPrompt": {
+      "type": "string",
+      "title": "@TrustDecisionPromptSettingLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "enableWhen": "${config:environment.security.trust.enabled}=='true'",
+      "default": "MarkOfTheWebOnly",
+      "enum": [
+        "MarkOfTheWebOnly",
+        "Always"
+      ],
+      "enumItemLabels": [
+        "@TrustDecisionPromptMotwOnlyLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}", // MarkOfTheWebOnly
+        "@TrustDecisionPromptAlwaysLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}" // Always
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.trustdecisionprompt"
+          }
+        }
+      }
+    },
+
+    "environment.security.trust.trustWellKnownLocations": {
+      "type": "boolean",
+      "enableWhen": "${config:environment.security.trust.enabled}=='true'",
+      "title": "@TrustWellKnownLocationsLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.trustwellknownlocations"
+          }
+        }
+      }
+    },
+    "environment.security.trust.locations": {
+      "type": "array",
+      "enableWhen": "${config:environment.security.trust.enabled}=='true'",
+      "itemsAreOrdered": false,
+      "hasUserSelectableDefaultItem": false,
+      "title": "@TrustedLocationsLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "format": "path",
+            "pathKind": "folder",
+            "title": "@TrustedLocationsPathLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+            "default": ""
+          },
+          "locationType": {
+            "type": "string",
+            "title": "@TrustedLocationsTypeLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+            "default": "folder",
+            "isEditable": false,
+            "enum": [
+              "folder",
+              "automationPath"
+            ],
+            "enumItemLabels": [
+              "@TrustFolderLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}", // displayed for value folder
+              "@TrustAutomationPathLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}" // displayed for value automationPath
+            ]
+          },
+          "trustedBy": {
+            "type": "string",
+            "title": "@TrustedByLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+            "default": "localUser",
+            "isEditable": false,
+            "enum": [
+              "system",
+              "localUser"
+            ],
+
+            // localizable enum lables
+            "enumItemLabels": [
+              "@TrustEnumLabelSystem;{2F6B5046-3BB0-4825-B344-3F4238921119}", // displayed for value system
+              "@TrustEnumLabelUser;{2F6B5046-3BB0-4825-B344-3F4238921119}" // displayed for value localUser
+            ]
+          }
+        }
+      },
+      "migrationCallback": {
+        "serviceId": "D84A7539-133A-4C1F-890B-8BB77C03F3F4"
+      }
+    },
+    "environment.security.trust.enableRepositoryCheck": {
+      "type": "boolean",
+      "visibleWhen": "false",
+      "enableWhen": "false",
+      "title": "@EnableTrustGitReposLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.enablerepositorycheck"
+          }
+        }
+      }
+    },
+    "environment.security.trust.repositories": {
+      "type": "array",
+      "visibleWhen": "false",
+      "enableWhen": "false",
+      "itemsAreOrdered": false,
+      "hasUserSelectableDefaultItem": false,
+      "title": "@TrustRepositoriesLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "title": "@TrustRepositoriesUrlLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+            "default": ""
+          },
+          "trustedBy": {
+            "type": "string",
+            "title": "@TrustedByLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+            "default": "localUser",
+            "isEditable": false,
+            "enum": [
+              "system",
+              "localUser"
+            ],
+
+            // localizable enum lables
+            "enumItemLabels": [
+              "@TrustEnumLabelSystem;{2F6B5046-3BB0-4825-B344-3F4238921119}", // displayed for value system
+              "@TrustEnumLabelUser;{2F6B5046-3BB0-4825-B344-3F4238921119}" // displayed for value localUser
+            ]
+          }
+        }
+      },
+      "migrationCallback": {
+        "serviceId": "56906DB6-8B76-4434-B06B-D5FA59D1AE69"
+      }
+    },
+
+    "environment.security.trust.restrictedMode": {
+      "type": "boolean",
+      "visibleWhen": "false",
+      "enableWhen": "false",
+      "title": "@TrustRepositoriesRestrictedModeLabel;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.restrictedmode"
+          }
+        }
+      }
+    },
+
+    "environment.security.enableCRLValidation": {
+      "visibleWhen": "${feature:Trust.EnableCRLValidation} == 'true'",
+      "type": "boolean",
+      "title": "@EnableCRLValidation;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "vs.trust.setting.enableCRLValidation"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "environment.security": {
+      "title": "@TrustSettings;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "legacyOptionPageId": "594697db-6898-4de1-bce9-b23705bd3773"
+    },
+    "environment.security.trust": {
+      "title": "@EnvironmentSecurityTrustCategoryTitle;{2F6B5046-3BB0-4825-B344-3F4238921119}",
+      "legacyOptionPageId": "594697db-6898-4de1-bce9-b23705bd3773"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+﻿.progress-control-message {
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+#progress-control progress {
+    display: block;
+    margin: 10px auto;
+}
+
+/**
+* Seems there is a bug that prevents styling the
+* indeterminate bar's value while keeping animiation,
+* so for now use custom indeterminate bar.
+*/
+#progress-control progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid var(--ProgressBar-IndicatorFill-Background, red);
+}
+
+    #progress-control progress[value]::-webkit-progress-value {
+        background-color: var(--ProgressBar-IndicatorFill-Background, fuchsia);
+    }
+
+    #progress-control progress[value]::-webkit-progress-bar {
+        background-color: var(--ProgressBar-Background-Background, red);
+    }

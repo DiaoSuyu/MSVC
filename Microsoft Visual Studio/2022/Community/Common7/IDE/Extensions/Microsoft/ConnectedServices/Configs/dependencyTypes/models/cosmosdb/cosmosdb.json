@@ -1,0 +1,22 @@
+{
+  "id": "cosmosdb",
+  "isBase": true,
+  "name": "strings:#/cosmosdbDependencyTypeName",
+  "description": "strings:#/cosmosdbDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3802
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3802
+  },
+  "displayOrder": 7000,
+  "actions": [],
+  "tags": [
+    "strings:#/database",
+    "strings:#/store"
+  ]
+}

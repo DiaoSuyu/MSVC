@@ -1,0 +1,30 @@
+{
+  "id": "signalr.function",
+  "provisioningId": "Microsoft.SignalRService/SignalR[AzureFunctions]",
+  "name": "strings:#/signalRAzureDependencyTypeName",
+  "description": "strings:#/signalRAzureDependencyTypeDescription",
+  "recomendationMessage": "strings:#/signalRDependencyTypeRecomendation",
+  "isSingleton": false,
+  "isRecommended": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3796
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3796
+  },
+  "displayOrder": 3200,
+  "learnMoreUrl": "2147028",
+  "actions": [
+    "openInPortal",
+    "restore",
+    "learnMore"
+  ],
+  "tags": [
+    "Azure",
+    "strings:#/function"
+  ]
+}

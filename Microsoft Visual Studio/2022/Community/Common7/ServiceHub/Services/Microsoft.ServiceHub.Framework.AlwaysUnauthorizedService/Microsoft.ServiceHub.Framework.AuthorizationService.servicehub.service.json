@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../schemas/servicehub.service.schema.json",
+  "host": "dotnet",
+  "hostId": "VSDetouredHost",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.ServiceHub.Framework.AlwaysUnauthorizedService.dll",
+    "fullClassName": "Microsoft.ServiceHub.Framework.AuthorizationService.AlwaysUnauthorizedService",
+  }
+}

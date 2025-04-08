@@ -1,0 +1,15 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=1.0": [
+        {
+          "Id": "Microsoft.AspNetCore.SignalR.Client",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

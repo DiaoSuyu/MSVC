@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VsixLanguagePack Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema-lp/2010">
+  <LocalizedName>Microsoft ASP.NET 和 Web 工具</LocalizedName>
+  <LocalizedDescription>提供适用于 ASP.NET 的最新 Web 开发人员工具</LocalizedDescription>
+</VsixLanguagePack>

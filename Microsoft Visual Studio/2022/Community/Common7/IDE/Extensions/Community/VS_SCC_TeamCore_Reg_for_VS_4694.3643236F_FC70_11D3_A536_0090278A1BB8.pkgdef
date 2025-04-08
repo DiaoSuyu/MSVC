@@ -1,0 +1,29 @@
+[$RootKey$\AutoLoadPackages\{53544C4D-FFD5-48A9-B04A-0700CCD31070}]
+"{53544C4D-B03D-4209-A7D0-D9DD13A4019B}"=dword:00000000
+
+[$RootKey$\Packages\{53544C4D-B03D-4209-A7D0-D9DD13A4019B}]
+@="Visual SourceSafe Provider Stub Package"
+"InprocServer32"="$ShellFolder$\Common7\IDE\VS SCC\VssProviderStub.dll"
+
+[$RootKey$\Packages\{53544C4D-B03D-4209-A7D0-D9DD13A4019B}\SatelliteDll]
+"DllName"="VssProviderStubui.dll"
+"Path"="$ShellFolder$\Common7\IDE\VS SCC\"
+
+[$RootKey$\Services\{53544C4D-0079-44FE-826C-1B04B9E1598D}]
+@="{53544C4D-B03D-4209-A7D0-D9DD13A4019B}"
+"Name"="Dont Show Dialog Again Service"
+
+[$RootKey$\Services\{53544C4D-B03D-4209-A7D0-D9DD13A4019B}]
+@="{53544C4D-B03D-4209-A7D0-D9DD13A4019B}"
+"Name"="Microsoft Scc Providers Service"
+
+[$RootKey$\SourceControlProviders\{53544C4D-FFD5-48A9-B04A-0700CCD31070}]
+@="Microsoft MSSCCI Support Provider"
+"Service"="{53544C4D-B03D-4209-A7D0-D9DD13A4019B}"
+
+[$RootKey$\SourceControlProviders\{53544C4D-FFD5-48A9-B04A-0700CCD31070}\Name]
+@="#101"
+"Package"="{53544C4D-B03D-4209-A7D0-D9DD13A4019B}"
+
+[$RootKey$\SourceControlProviders\{53544C4D-FFD5-48A9-B04A-0700CCD31070}\Packages]
+"StubPackage"="$ShellFolder$\Common7\IDE\VS SCC\VssProviderStub.dll"

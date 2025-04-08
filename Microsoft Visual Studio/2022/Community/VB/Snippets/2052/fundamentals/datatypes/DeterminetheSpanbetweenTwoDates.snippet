@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定两个日期之间的跨度 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>计算两个日期之间相差的天数，并为该天数构造一个 TimeSpan 值。</Description>
+      <Keywords>
+      </Keywords>
+      <Shortcut>typeDate</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>dateLiteral</ID>
+          <Type/>
+          <ToolTip>替换为日期文本、日期变量或返回日期的方法。</ToolTip>
+          <Default>#1/1/2002#</Default>
+        </Literal>
+        <Literal>
+          <ID>dateLiteral2</ID>
+          <Type/>
+          <ToolTip>替换为日期文本、日期变量或返回日期的方法。</ToolTip>
+          <Default>Now</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim oldDate As Date = $dateLiteral$
+Dim newDate As Date = $dateLiteral2$
+
+' You can also determine the difference in times in other units.
+Dim difference As TimeSpan = newTime - oldTime
+Dim differenceInDays As Double = difference.TotalDays]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

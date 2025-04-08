@@ -1,0 +1,25 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>dd</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>dd</Shortcut>
+    <Description>定义列表的标记段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>selected</ID>
+        <ToolTip>项</ToolTip>
+        <Default>term</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="html"><![CDATA[<dl>
+    <dt>$selected$</dt>
+    <dd>$end$</dd>
+</dl>]]></Code>
+  </Snippet>
+</CodeSnippet>

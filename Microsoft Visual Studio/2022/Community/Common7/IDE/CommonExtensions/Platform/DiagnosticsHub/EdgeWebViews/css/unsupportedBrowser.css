@@ -1,0 +1,57 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--plugin-color, black);
+    font-size: var(--plugin-font-size, 9pt);
+    font-family: var(--plugin-font-family, "Segoe UI"), Arial, sans-serif;
+    background-color: var(--plugin-background-color, transparent);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    cursor: default;
+}
+
+.overlay-div {
+    width: 100%;
+    height: 100%;
+}
+
+.center-div-top {
+    height: 50%;
+}
+
+.center-div-bottom {
+    height: 50%;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+a:link {
+    text-decoration:none;
+    color: var(--diagnostics-information-link-foreground, lightblue);
+    background-color: transparent;
+}
+
+a:visited {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground, lightblue);
+    background-color: transparent;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--diagnostics-information-link-foreground-hover, lightblue);
+    background-color: transparent;
+}
+
+a:active {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground-pressed, lightblue);
+    background-color: transparent;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定文件的大小</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>获取文件的大小值，并将该值分配给变量</Description>
+      <Shortcut>filSize</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>filename</ID>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"filename.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim fileSize As Long 
+fileSize = My.Computer.FileSystem.GetFileInfo($filename$).Length]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

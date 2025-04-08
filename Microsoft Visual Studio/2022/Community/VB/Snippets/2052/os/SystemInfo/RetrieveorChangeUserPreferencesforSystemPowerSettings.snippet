@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>检索与电池寿命有关的信息</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>检索电池剩余寿命的百分比，并在该百分比低于 5% 时向用户发出警告。</Description>
+      <Shortcut>sysPower</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim power = SystemInformation.PowerStatus
+Dim percent= power.BatteryLifePercent
+If percent < 0.05 Then
+   MsgBox("Percent battery life remaining: " & percent * 100)
+End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

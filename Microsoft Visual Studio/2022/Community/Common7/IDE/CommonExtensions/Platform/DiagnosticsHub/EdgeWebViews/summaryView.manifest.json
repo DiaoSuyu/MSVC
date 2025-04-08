@@ -1,0 +1,68 @@
+﻿{
+  "start_url": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\summaryView.html",
+  "domain": "http://microsoft.com",
+  "name": "SummaryView",
+  "browserHostVersion": "2.0",
+  "use_css_variables": true,
+  "resource_aliases": {
+  },
+  "vs": {
+    "theme_token_aliases": {
+      "Environment-CommandBarBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarBorder"
+      },
+      "Environment-CommandBarTextHover-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextHover"
+      },
+      "Environment-CommandBarSelected-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarSelected"
+      },
+      "Environment-CommandBarSelectedBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarSelectedBorder"
+      },
+      "Environment-CommandBarTextSelected-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextSelected"
+      },
+      "Environment-CommandBarTextInactive-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextInactive"
+      },
+      "Environment-CommandBarMouseOverBackgroundBegin-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMouseOverBackgroundBegin"
+      },
+      "Environment-CommandBarMouseDownBackgroundBegin-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMouseDownBackgroundBegin"
+      },
+      "Environment-CommandBarTextMouseDown-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextMouseDown"
+      },
+      "Header-Default-Background": {
+        "category": "4997f547-1379-456e-b985-2f413cdfa536",
+        "key_type": "BackgroundColor",
+        "name": "Default"
+      },
+      "Header-SeparatorLine-Background": {
+        "category": "4997f547-1379-456e-b985-2f413cdfa536",
+        "key_type": "BackgroundColor",
+        "name": "SeparatorLine"
+      }
+    }
+  }
+}

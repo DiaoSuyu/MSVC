@@ -1,0 +1,8 @@
+[$RootKey$\ShellFileAssociations\.dmp]
+"DefaultIconMoniker"="KnownMonikers.CrashDumpFile"
+
+[$RootKey$\ShellFileAssociations\.hdmp]
+"DefaultIconMoniker"="KnownMonikers.CrashDumpFile"
+
+[$RootKey$\ShellFileAssociations\.mdmp]
+"DefaultIconMoniker"="KnownMonikers.CrashDumpFile"

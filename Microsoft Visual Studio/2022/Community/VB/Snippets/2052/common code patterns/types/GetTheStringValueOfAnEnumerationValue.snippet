@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>查找枚举值的名称</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>获取枚举值的字符串名称。</Description>
+      <Shortcut>EnumStr</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>EnumerationName</ID>
+          <Type>System.Enum
+          </Type>
+          <ToolTip>替换为枚举的名称。</ToolTip>
+          <Default>DayOfWeek</Default>
+        </Object>
+        <Literal>
+          <ID>EnumValue</ID>
+          <Type>Integer</Type>
+          <ToolTip>将此项替换为枚举常量的值。</ToolTip>
+          <Default>0</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim name As String = _
+    System.Enum.GetName(GetType($EnumerationName$), $EnumValue$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

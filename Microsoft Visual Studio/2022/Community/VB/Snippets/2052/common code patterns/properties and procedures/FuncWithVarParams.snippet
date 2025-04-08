@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义使用参数数组的函数</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义参数个数可变的函数。</Description>
+      <Shortcut>FuncParArr</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>MethodName</ID>
+          <Type></Type>
+          <ToolTip>替换为函数的名称。</ToolTip>
+          <Default>MyMethod</Default>
+        </Literal>
+        <Literal>
+          <ID>ParamType</ID>
+          <Type></Type>
+          <ToolTip>替换为参数的数据类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>ParamName</ID>
+          <Type></Type>
+          <ToolTip>替换为参数的名称。</ToolTip>
+          <Default>paramOne</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Type></Type>
+          <ToolTip>替换为函数的返回类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnValue</ID>
+          <Type></Type>
+          <ToolTip>替换为函数的返回值。</ToolTip>
+          <Default>0</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Function $MethodName$(ByVal ParamArray $ParamName$() As $ParamType$) As $ReturnType$
+    For index = 0 To $paramName$.Length - 1
+
+    Next
+    Return $ReturnValue$
+End Function]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

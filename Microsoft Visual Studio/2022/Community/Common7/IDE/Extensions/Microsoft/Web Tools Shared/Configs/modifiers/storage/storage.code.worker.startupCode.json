@@ -1,0 +1,198 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addProgramCode",
+    "snippetModels": [
+      {
+        "name": "EnsureBlobClientDIConstructionForMinimalAppModelWorker",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureClients",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddBlobServiceClient",
+                    "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureClients",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddQueueServiceClient",
+                    "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureClients",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+                  }
+                }
+              ]
+            },
+            "body": "@@localConfigVar@@.AddBlobServiceClient(context.Configuration[`@@connectionId@@:blobServiceUri`]!);\r\n@@localConfigVar@@.AddQueueServiceClient(context.Configuration[`@@connectionId@@:queueServiceUri`]!);\r\n@@localConfigVar@@.AddTableServiceClient(context.Configuration[`@@connectionId@@:tableServiceUri`]!);\r\n",
+            "tokens": {
+              "localConfigVar": {
+                "name": "localConfigVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.Hosting.IHostBuilder"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection>"
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.AddAzureClients(builder =>\r\n    {\r\n    builder.AddBlobServiceClient(@@localContextVar@@.Configuration[`@@connectionId@@:blobServiceUri`]!).WithName(`@@connectionId@@`);\r\nbuilder.AddQueueServiceClient(@@localContextVar@@.Configuration[`@@connectionId@@:queueServiceUri`]!).WithName(`@@connectionId@@`);\r\nbuilder.AddTableServiceClient(@@localContextVar@@.Configuration[`@@connectionId@@:tableServiceUri`]!).WithName(`@@connectionId@@`);\r\n    });",
+            "tokens": {
+              "localContextVar": {
+                "name": "localContextVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Hosting.HostBuilderContext",
+                  "Closure": true
+                }
+              },
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "CreateDefaultBuilder"
+                  }
+                }
+              ]
+            },
+            "body": "builder\r\n    .ConfigureServices((context, services) =>\r\n    {\r\n        services.AddAzureClients(builder =>\r\n        {\r\n            builder.AddBlobServiceClient(context.Configuration[`@@connectionId@@:blobServiceUri`]!);\r\n            builder.AddQueueServiceClient(context.Configuration[`@@connectionId@@:queueServiceUri`]!);\r\n            builder.AddTableServiceClient(context.Configuration[`@@connectionId@@:tableServiceUri`]!);\r\n        });\r\n    })",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

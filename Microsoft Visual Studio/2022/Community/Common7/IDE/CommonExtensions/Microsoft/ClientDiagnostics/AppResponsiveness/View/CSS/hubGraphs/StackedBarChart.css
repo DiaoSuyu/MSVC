@@ -1,0 +1,20 @@
+﻿.stackedBarChart {
+    grid-template-columns: auto auto auto;
+    display: grid;
+}
+
+    .stackedBarChart .barGraph {
+        grid-column: 2;
+        background-color: transparent;
+        display: inline-block;
+        position: relative;
+        z-index: 5;
+    }
+
+    .stackedBarChart .bar {
+        position: absolute;
+    }
+
+    .stackedBarChart:focus {
+        border-bottom: dotted 2px;
+    }

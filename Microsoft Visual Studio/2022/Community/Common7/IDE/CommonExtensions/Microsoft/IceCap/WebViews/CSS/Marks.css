@@ -1,0 +1,12 @@
+.marks {
+    display: flex;
+}
+
+.marks > .treeGridContainer {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.marksRow > .leftAlign, .marksHeader > .leftAlign {
+    text-align: left;
+}

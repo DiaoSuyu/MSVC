@@ -1,0 +1,159 @@
+{
+  "locations": {
+    "AddAzureAppConfiguration": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddAzureAppConfiguration",
+          "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+        }
+      }
+    ],
+    "UseAzureAppConfiguration": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "UseAzureAppConfiguration"
+        }
+      }
+    ],
+    "ConfigureAppConfiguration": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureAppConfiguration",
+          "TypeName": "Microsoft.Extensions.Hosting.HostingHostBuilderExtensions"
+        }
+      }
+    ],
+    "ConfigureFunctionsWorkerDefaultsReplace": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureFunctionsWorkerDefaults",
+          "TypeName": "Microsoft.Extensions.Hosting.WorkerHostBuilderExtensions",
+          "CodeOperation": "ReplaceCode"
+        }
+      }
+    ],
+    "ConfigureFunctionsWorkerDefaults": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureFunctionsWorkerDefaults",
+          "TypeName": "Microsoft.Extensions.Hosting.WorkerHostBuilderExtensions"
+        }
+      }
+    ],
+    "WebApplicationLocalVarAfter": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "LocalVariable",
+        "properties": {
+          "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+          "CodeOperation": "InsertAfter"
+        },
+        "locationTokenName": "localWebAppVar"
+      }
+    ],
+    "ConfigureServices": [
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureServices",
+          "TypeName": "Microsoft.Extensions.Hosting.HostingHostBuilderExtensions"
+        }
+      }
+    ]
+  },
+  "tokens": {
+    "localVar_WebApplication": {
+      "name": "localVar",
+      "kind": "LocalVariable",
+      "properties": {
+        "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+        "Closure": true
+      }
+    },
+    "localVar_WebApplicationBuilder": {
+      "name": "localVar",
+      "kind": "LocalVariable",
+      "properties": {
+        "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+        "Closure": true
+      }
+    },
+    "connectionId": {
+      "name": "connectionId",
+      "kind": "ExternalValue",
+      "properties": {
+        "ModelPropertyName": "connectionId"
+      }
+    },
+    "endpoint": {
+      "name": "endpoint",
+      "kind": "ExternalValue",
+      "properties": {
+        "ModelPropertyName": "endpoint"
+      }
+    }
+  },
+  "code": {
+    "body": "if (Uri.TryCreate(azAppConfigSettings[`@@connectionId@@`], UriKind.Absolute, out var endpoint))\r\n                    {\r\n                        // Use Azure Active Directory authentication.\r\n                        // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n                        // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n                        config.AddAzureAppConfiguration(options =>\r\n                        {\r\n                            options.Connect(endpoint, new DefaultAzureCredential())\r\n                            .ConfigureRefresh(refresh =>\r\n                            {\r\n                                // All configuration values will be refreshed if the sentinel key changes.\r\n                                refresh.Register(`TestApp:Settings:Sentinel`, refreshAll: true);\r\n                            });\r\n                        });\r\n                    }\r\n                })\r\n",
+    "tokens": {
+      "connectionId": {
+        "$ref": "#/tokens/connectionId"
+      }
+    }
+  },
+  "codeMinimalAppModel": {
+    "body": "\r\nif (Uri.TryCreate(@@localVar@@.Configuration[`@@connectionId@@`], UriKind.Absolute, out var endpoint))\r\n{\r\n    // Use Azure Active Directory authentication.\r\n    // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n    // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n    @@localVar@@.Configuration.AddAzureAppConfiguration(options =>\r\n    {\r\n        options.Connect(endpoint, new DefaultAzureCredential())\r\n        .ConfigureRefresh(refresh =>\r\n        {\r\n            // All configuration values will be refreshed if the sentinel key changes.\r\n            refresh.Register(`TestApp:Settings:Sentinel`, refreshAll: true);\r\n        });\r\n    });\r\n}\r\n@@localVar@@.Services.AddAzureAppConfiguration();\r\n",
+    "tokens": {
+      "localVar": {
+        "$ref": "#/tokens/localVar_WebApplicationBuilder"
+      },
+      "connectionId": {
+        "$ref": "#/tokens/connectionId"
+      }
+    }
+  },
+  "consoleCode": {
+    "body": "\r\n\r\n// Add Azure App Configuration.\r\nvar config = new ConfigurationBuilder().AddUserSecrets(System.Reflection.Assembly.GetExecutingAssembly(), true);\r\nvar azAppConfigConnection = config.Build()[`@@connectionId@@`];\r\nIConfigurationRefresher refresher = null;\r\nvar key = `TestApp:Settings:Message`;\r\n\r\nif (Uri.TryCreate(azAppConfigConnection, UriKind.Absolute, out var endpoint)) {\r\n// Use Azure Active Directory authentication.\r\n// The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n// For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\nconfig.AddAzureAppConfiguration(options => {\r\noptions.Connect(endpoint, new DefaultAzureCredential());\r\noptions.ConfigureRefresh(refresh => {\r\n// Register for refresh operation.\r\nrefresh.Register(key);\r\n});\r\nrefresher = options.GetRefresher();\r\n});\r\n}\r\n\r\nvar azAppConfig = config.Build();\r\nConsole.WriteLine($`The current value of '{key}' is '{azAppConfig[key] ?? `Key not found`}'.`);\r\n\r\n// Wait for the value to change.\r\nConsole.WriteLine($`Now please change the value of the key '{key}' in App Configuration and then press Enter...`);\r\nConsole.ReadLine();\r\nrefresher?.TryRefreshAsync().Wait();\r\n\r\nConsole.WriteLine($`The current value of '{key}' is '{azAppConfig[key] ?? `Key not found`}'.`);",
+    "tokens": {
+      "connectionId": {
+        "$ref": "#/tokens/connectionId"
+      },
+      "endpoint": {
+        "$ref": "#/tokens/endpoint"
+      }
+    }
+  },
+  "functionCode": {
+    "IsolatedConfigureAppConfiguration": "host\r\n                .ConfigureAppConfiguration(builder =>\r\n                {\r\n                    const string SentinelKey = `TestApp:Settings:Sentinel`;\r\n\r\n                    var userSecretConfig = new ConfigurationBuilder();\r\n                    userSecretConfig.AddUserSecrets(System.Reflection.Assembly.GetExecutingAssembly(), true);\r\n                    var azAppConfigConnection = userSecretConfig.Build()[`@@connectionId@@`];\r\n\r\n                    if (Uri.TryCreate(azAppConfigConnection, UriKind.Absolute, out var endpoint))\r\n{\r\n                        // Use Azure Active Directory authentication.\r\n                        // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n                        // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n                        builder.AddAzureAppConfiguration(options =>\r\n                        {\r\n                            options.Connect(endpoint, new DefaultAzureCredential());\r\n                            // Load all keys that start with 'TestApp:' and have no label\r\n                            options.Select(`TestApp:*`);\r\n                            // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.\r\n                            // Use the default cache expiration of 30 seconds. It can be overriden via AzureAppConfigurationRefreshOptions.SetCacheExpiration.\r\n                            options.ConfigureRefresh(refresh =>\r\n                            {\r\n                                refresh.Register(SentinelKey, refreshAll: true);\r\n                            });\r\n                            // Load all feature flags with no label. To load specific feature flags and labels, set via FeatureFlagOptions.Select.\r\n                            // Use the default cache expiration of 30 seconds. It can be overriden via FeatureFlagOptions.CacheExpirationInterval.\r\n                            options.UseFeatureFlags();\r\n                        });\r\n                    }\r\n                })\r\n",
+    "IsolatedConfigureAppConfigurationMinimalAppModel": "host\r\n    .ConfigureAppConfiguration(builder =>\r\n    {\r\n        const string SentinelKey = `TestApp:Settings:Sentinel`;\r\n\r\n        var userSecretConfig = new ConfigurationBuilder();\r\n        userSecretConfig.AddUserSecrets(System.Reflection.Assembly.GetExecutingAssembly(), true);\r\n        var azAppConfigConnection = userSecretConfig.Build()[`@@connectionId@@`];\r\n\r\n        if (Uri.TryCreate(azAppConfigConnection, UriKind.Absolute, out var endpoint))\r\n{\r\n            // Use Azure Active Directory authentication.\r\n            // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n            // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n            builder.AddAzureAppConfiguration(options =>\r\n            {\r\n                options.Connect(endpoint, new DefaultAzureCredential());\r\n                // Load all keys that start with 'TestApp:' and have no label\r\n                options.Select(`TestApp:*`);\r\n                // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.\r\n                // Use the default cache expiration of 30 seconds. It can be overriden via AzureAppConfigurationRefreshOptions.SetCacheExpiration.\r\n                options.ConfigureRefresh(refresh =>\r\n                {\r\n                    refresh.Register(SentinelKey, refreshAll: true);\r\n                });\r\n                // Load all feature flags with no label. To load specific feature flags and labels, set via FeatureFlagOptions.Select.\r\n                // Use the default cache expiration of 30 seconds. It can be overriden via FeatureFlagOptions.CacheExpirationInterval.\r\n                options.UseFeatureFlags();\r\n            });\r\n        }\r\n    })\r\n",
+    "IsolatedConfigureServices": "host\r\n                .ConfigureServices(services =>\r\n                {\r\n                     // Make Azure App Configuration services and feature manager available through dependency injection\r\n                    services.AddAzureAppConfiguration()\r\n                            .AddFeatureManagement();\r\n                })\r\n",
+    "IsolatedConfigureServicesMinimalAppModel": "host\r\n    .ConfigureServices(services =>\r\n    {\r\n         // Make Azure App Configuration services and feature manager available through dependency injection\r\n        services.AddAzureAppConfiguration()\r\n                .AddFeatureManagement();\r\n    })\r\n",
+    "IsolatedConfigureFunctionsWorkerDefaults": "host\r\n                .ConfigureFunctionsWorkerDefaults(app =>\r\n                {\r\n                    // Use Azure App Configuration middleware for data refresh\r\n                    app.UseAzureAppConfiguration();\r\n                })\r\n",
+    "IsolatedConfigureFunctionsWorkerDefaultsMinimalAppModel": "host\r\n    .ConfigureFunctionsWorkerDefaults(app =>\r\n    {\r\n        // Use Azure App Configuration middleware for data refresh\r\n        app.UseAzureAppConfiguration();\r\n    })\r\n"
+  }, 
+  "functionTokens": {
+    "connectionId": {
+      "name": "connectionId",
+      "kind": "ExternalValue",
+      "properties": {
+        "ModelPropertyName": "connectionId"
+      }
+    },
+    "endpoint": {
+      "name": "endpoint",
+      "kind": "ExternalValue",
+      "properties": {
+        "ModelPropertyName": "endpoint"
+      }
+    }
+  }
+}

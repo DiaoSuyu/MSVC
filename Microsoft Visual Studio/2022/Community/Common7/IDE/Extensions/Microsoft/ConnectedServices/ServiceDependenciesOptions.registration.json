@@ -1,0 +1,103 @@
+{
+  "properties": {
+    "projectsAndSolutions.serviceDependencies.localServicesRun.autoStartLocalServices": {
+      "type": "boolean",
+      "title": "@AutoStartLocalServices;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@AutoStartLocalServicesDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\AutoStartLocalServicesSetting"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.serviceDependencies.localServicesRun.autoStopLocalServices": {
+      "type": "boolean",
+      "title": "@AutoStopLocalServices;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@AutoStopLocalServicesDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\AutoStopLocalServicesSetting"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.serviceDependencies.restore.forceArmRestore": {
+      "type": "boolean",
+      "title": "@ForceArmRestoreOption;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@ForceArmRestoreOptionDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\ForceArmRestoreSetting"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.serviceDependencies.restore.autoGenerateProfileArmTemplates": {
+      "type": "boolean",
+      "title": "@AutoGenerateProfileArmTemplatesOption;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@AutoGenerateProfileArmTemplatesOptionDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\AutoGenerateProfileArmTemplatesSetting"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.serviceDependencies.restore.restoreTimeout": {
+      "type": "integer",
+      "title": "@RestoreTimeoutOption;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@RestoreTimeoutOptionDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": 15,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\RestoreTimeoutSetting"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.serviceDependencies.restore.restoreVerbose": {
+      "type": "boolean",
+      "title": "@RestoreVerboseOption;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "description": "@RestoreVerboseOptionDescription;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "EnvironmentsOptions\\RestoreVerboseSetting"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "projectsAndSolutions.serviceDependencies": {
+      "title": "@ServiceDependencies;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "order": 1,
+      "legacyOptionPageId": "091d5bf3-a490-4dff-a508-140911c89580"
+    },
+    "projectsAndSolutions.serviceDependencies.localServicesRun": {
+      "title": "@LocalServicesRunSettings;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "order": 1
+    },
+    "projectsAndSolutions.serviceDependencies.restore": {
+      "title": "@Restore;{8e15f3da-b303-4af9-814a-1dc5c2583398}",
+      "order": 2
+    }
+  }
+}

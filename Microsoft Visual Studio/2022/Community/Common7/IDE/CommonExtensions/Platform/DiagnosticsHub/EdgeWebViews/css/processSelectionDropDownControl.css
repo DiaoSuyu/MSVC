@@ -1,0 +1,165 @@
+﻿#processSelectionControl {
+    overflow: visible;
+    display: inline-grid;
+    grid-template-rows: auto 0px;
+    position: relative;
+}
+
+#processSelectionDropDown {
+    position: relative;
+    grid-row: 1;
+    padding-left: 4px;
+}
+
+    #processSelectionDropDown.flyoutActive {
+        border: 1px solid var(--Environment-CommandBarMenuBorder-Background, magenta);
+        color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+        background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+        /* Since we are hiding the bottom border we add 1px of margin so we don't change the element height */
+        border-bottom-style: hidden;
+    }
+
+    #processSelectionDropDown > .button-image {
+        background-repeat: no-repeat;
+        height: 1.333em;
+        width: 1.333em;
+    }
+
+    #processSelectionDropDown.notDefault {
+        border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+        background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+    }
+
+        #processSelectionDropDown.notDefault:hover {
+            border-color: var(--Environment-CommandBarHoverOverSelectedIconBorder-Background, lawngreen);
+            background-color: var(--DetailsView-CommandBarHoverOverSelected-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+        }
+
+#processSelectionFlyout {
+    position: absolute;
+    grid-row: 2;
+    margin-top: -1px;
+    display: none;
+    overflow: auto;
+    border: 1px solid var(--Environment-CommandBarMenuBorder-Background, black);
+    padding: 0;
+    background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+    min-width: max-content;
+}
+
+    #processSelectionFlyout.flyoutActive {
+        display: block;
+    }
+
+    #processList > li {
+        display: block;
+    }
+
+        #processList > li > .flyoutItem {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+            background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+        }
+
+            #processList > li > .flyoutItem.hasFocus {
+                outline: none;
+                background-color: var(--Environment-CommandBarMenuItemMouseOver-Background, aqua);
+            }
+
+            #processList > li > .flyoutItem.disabled {
+                background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+            }
+
+            #processList > li > .flyoutItem > span {
+                grid-column: 2;
+                display: block;
+                padding: 3px 12px 3px 6px;
+                background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+                color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+            }
+
+            #processList > li > .flyoutItem.hasFocus > span {
+                background-color: var(--Environment-CommandBarMenuItemMouseOver-Background, lightgreen);
+                color: var(--Environment-CommandBarMenuItemMouseOver-Foreground, black);
+            }
+
+            #processList > li > .flyoutItem.disabled > span {
+                background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, lightgreen);
+                color: var(--Environment-CommandBarTextInactive-Background, black);
+            }
+
+            #processList > li > .flyoutItem > div.button-image {
+                grid-column: 1;
+                background-repeat: no-repeat;
+                height: 1.333em;
+                width: 1.333em;
+                margin-left: 8px;
+            }
+
+            #processList > li > .flyoutItem > input {
+                grid-column: 1;
+                /* Match size of checkboxes to the settings icon*/
+                width: 14px;
+                margin-left: 8px;
+            }
+
+                #processList > li > .flyoutItem > input::checked {
+                    border-width: 0px;
+                    color: var(--Environment-CommandBarCheckBox-Background, fuchsia);
+                    background-color: var(--Environment-CommandBarSelectedIcon-Background, aquamarine);
+                }
+
+            #processList > li > .flyoutItem.hasFocus > input::checked {
+                color: var(--Environment-CommandBarCheckBoxMouseOver-Background, fuchsia);
+                background-color: var(--Environment-CommandBarHoverOverSelectedIcon-Background, aquamarine);
+            }
+
+            #processList > li > .flyoutItem > input:disabled::checked {
+                color: var(--Environment-CommandBarCheckBoxDisabled-Background, fuchsia);
+                background-color: var(--Environment-CommandBarSelectedIconDisabled-Background, aquamarine);
+            }
+
+            #processList > li > .flyoutItem > input:focus {
+                outline: none;
+            }
+
+#filterFooter {
+    grid-row: 3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 9px 9px;
+}
+
+    #filterFooter > button {
+        margin-left: 3px;
+        border: 1px solid var(--CommonControls-ButtonBorder-Background, red);
+        background-color: var(--CommonControls-Button-Background, red);
+        color: var(--CommonControls-Button-Foreground, black);
+        /* Reset the injected min-width from daytona. Despite the CSS spec saying the value should be 'initial', only 'auto' works for our purposes. */
+        min-width: auto;
+    }
+
+        #filterFooter > button:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        }
+
+        #filterFooter > button:disabled {
+            border: 1px solid var(--CommonControls-ButtonBorderDisabled-Background, red);
+            background-color: var(--CommonControls-ButtonDisabled-Background, fuchsia);
+            color: var(--CommonControls-ButtonDisabled-Foreground, lawngreen);
+        }
+
+        #filterFooter > button:enabled:hover {
+            border: 1px solid var(--CommonControls-ButtonBorderHover-Background, red);
+            background-color: var(--CommonControls-ButtonHover-Background, fuchsia);
+            color: var(--CommonControls-ButtonHover-Foreground, lawngreen);
+        }
+
+    /* reset the default IE button:active animation */
+    #filterFooter button:active * {
+        position: relative;
+    }

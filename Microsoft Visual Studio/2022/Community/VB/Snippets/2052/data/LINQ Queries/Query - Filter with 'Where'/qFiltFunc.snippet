@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>按函数调用筛选</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建按函数调用筛选的查询。</Description>
+      <Shortcut>qFiltFunc</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>queryResult</ID>
+          <Type>item</Type>
+          <ToolTip>替换为查询的标识符。</ToolTip>
+          <Default>query</Default>
+        </Literal>
+        <Literal>
+          <ID>item</ID>
+          <Type>item</Type>
+          <ToolTip>替换为表示数据源项的变量的标识符。</ToolTip>
+          <Default>fruit</Default>
+        </Literal>
+        <Literal>
+          <ID>dataSource</ID>
+          <Type>String</Type>
+          <ToolTip>替换为数据源的标识符。</ToolTip>
+          <Default>New String() {"apple", "orange", "pear", "banana"}</Default>
+        </Literal>
+        <Literal>
+          <ID>field</ID>
+          <Type>String</Type>
+          <ToolTip>替换为作为筛选依据的字段名称。</ToolTip>
+          <Default>ToUpper()</Default>
+        </Literal>
+        <Literal>
+          <ID>comparisonValue</ID>
+          <Type>String</Type>
+          <ToolTip>替换为函数的第二个参数值。</ToolTip>
+          <Default>"PEAR"</Default>
+        </Literal>
+        <Literal>
+          <ID>condition1</ID>
+          <Type>String</Type>
+          <ToolTip>替换为第一个筛选条件。</ToolTip>
+          <Default>= 0</Default>
+        </Literal>
+        <Literal>
+          <ID>functionCall</ID>
+          <Type>String</Type>
+          <ToolTip>替换为作为筛选依据的函数条件名称。</ToolTip>
+          <Default>String.Compare</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim $queryResult$ = From $item$ In $dataSource$ _
+                    Where $functionCall$($item$.$field$, $comparisonValue$) $condition1$ _
+                    Select $item$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

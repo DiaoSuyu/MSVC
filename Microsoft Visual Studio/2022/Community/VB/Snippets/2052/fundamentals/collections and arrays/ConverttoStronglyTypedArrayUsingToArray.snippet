@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将 ArrayList 转换成强类型数组</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 ToArray(Type) 将 ArrayList 转换成强类型数组</Description>
+      <Shortcut>arrConv</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Datatype</ID>
+          <Type/>
+          <ToolTip>替换为要转换成的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>ExistingArray</ID>
+          <Type>ArrayList</Type>
+          <ToolTip>替换为要转换的现有 ArrayList。</ToolTip>
+          <Default>existingArrayList</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim newArray() As $Datatype$ = CType($ExistingArray$.ToArray(GetType($Datatype$)), $Datatype$())]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

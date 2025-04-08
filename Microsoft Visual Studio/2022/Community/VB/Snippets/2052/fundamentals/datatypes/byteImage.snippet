@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将 Byte() 转换为图像</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将 Byte() 转换为图像。字节数组通常是图像信息在数据库中存储的方式</Description>
+      <Shortcut>byteImage</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>inputArray</ID>
+          <Type>item</Type>
+          <ToolTip>替换为输入字节数组的名称。</ToolTip>
+          <Default>bytes</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Public Function GetImageFromByteArray(ByVal $inputArray$ As Byte()) As Bitmap
+                  Return CType(Bitmap.FromStream(New IO.MemoryStream($inputArray$)), Bitmap)
+              End Function]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

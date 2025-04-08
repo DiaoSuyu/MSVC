@@ -1,0 +1,92 @@
+{
+  "locations": {
+    "ArgumentDelegate_With_AzureClientFactoryBuilder": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddAzureClients",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+        }
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+        }
+      }
+    ],
+    "ArgumentDelegate_With_AzureClientFactoryBuilder_TopLevel": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddAzureClients",
+          "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+        }
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Microsoft.Extensions.Azure.AzureClientFactoryBuilder>"
+        }
+      }
+    ],
+    "ArgumentDelegate_With_ConfigureCtxServices_TopLevel": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureServices",
+          "TypeName": "Microsoft.Extensions.Hosting.IHostBuilder"
+        }
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection>"
+        }
+      }
+    ],
+    "ArgumentDelegate_With_CreateDefaultBuilder_TopLevel": [
+      {
+        "kind": "TopLevelMethod",
+        "properties": {
+        }
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "CreateDefaultBuilder"
+        }
+      }
+    ]
+  },
+  "tokens": {
+    "localVar_AzureClientFactoryBuilder": {
+      "name": "localConfigVar",
+      "kind": "MethodParameter",
+      "properties": {
+        "TypeName": "Microsoft.Extensions.Azure.AzureClientFactoryBuilder"
+      }
+    },
+    "localVar_HostBuilderContext": {
+      "name": "localContextVar",
+      "kind": "MethodParameter",
+      "properties": {
+        "TypeName": "Microsoft.Extensions.Hosting.HostBuilderContext",
+        "Closure": true
+      }
+    }
+  }
+}

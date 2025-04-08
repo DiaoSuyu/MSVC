@@ -1,0 +1,25 @@
+{
+  "id": "appInsights.sdk",
+  "name": "strings:#/appInsightsSdkDependencyTypeName",
+  "description": "strings:#/appInsightsSdkDependencyTypeDescription",
+  "recomendationMessage": "strings:#/appInsightsDependencyTypeRecomendation",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/instrumentationKey",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 173
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 173
+  },
+  "displayOrder": 1100,
+  "actions": [],
+  "tags": [
+    "strings:#/monitor",
+    "strings:#/webApp",
+    "SDK",
+    "strings:#/local"
+  ]
+}

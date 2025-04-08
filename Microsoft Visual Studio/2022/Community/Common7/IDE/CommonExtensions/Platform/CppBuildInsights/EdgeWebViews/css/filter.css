@@ -1,0 +1,56 @@
+﻿/* Filter control */
+input.filter,
+input.includeBar,
+input.excludeBar {
+    padding: 0px 0px 0px 3px;
+    width: 150px;
+    border: 1px solid var(--SearchControl-UnfocusedBorder-Background, lawngreen);
+    background-color: var(--SearchControl-Unfocused-Background, lawngreen);
+    color: var(--SearchControl-Unfocused-Foreground, fuchsia);
+}
+
+    input.filter:focus,
+    input.includeBar:focus,
+    input.excludeBar:focus {
+        color: var(--SearchControl-FocusedBackground-Foreground, coral);
+        background-color: var(--SearchControl-FocusedBackground-Background, lawngreen);
+        border-color: var(--SearchControl-FocusedBorder-Background, fuchsia);
+    }
+
+    input.filter:hover,
+    input.includeBar:hover,
+    input.excludeBar:hover {
+        color: var(--SearchControl-MouseOverBackground-Foreground, deeppink);
+        background-color: var(--SearchControl-MouseOverBackground-Background, lawngreen);
+        border-color: var(--SearchControl-MouseOverBorder-Background, fuchsia);
+    }
+
+    input.filter:disabled,
+    input.includeBar:disabled,
+    input.excludeBar:disabled {
+        color: var(--SearchControl-Disabled-Foreground, mediumorchid);
+        background-color: var(--SearchControl-Disabled-Background, lawngreen);
+        border-color: var(--SearchControl-DisabledBorder-Background, fuchsia);
+    }
+
+    input.filter:active,
+    input.includeBar:active,
+    input.excludeBar:active {
+        color: var(--SearchControl-SearchActive-Foreground, red);
+        background-color: var(--SearchControl-SearchActive-Background, lawngreen);
+    }
+
+    input.filter::selection,
+    input.includeBar::selection,
+    input.excludeBar::selection {
+        color: var(--SearchControl-Selection-Foreground, coral);
+        background-color: var(--SearchControl-Selection-Background, forestgreen);
+    }
+
+::-webkit-input-placeholder {
+    color: var(--vs-command-search-watermark-text, fuchsia);
+}
+
+    ::-webkit-input-placeholder:hover {
+        color: var(--SearchControl-MouseOverWatermarkText-Background, fuchsia);
+    }

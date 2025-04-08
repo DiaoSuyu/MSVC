@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定 TreeView 中的选定节点</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>确定 TreeView 控件中的选定节点，然后将该节点分配给一个变量。</Description>
+      <Shortcut>tvSelect</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>treeViewName</ID>
+          <Type>TreeView</Type>
+          <ToolTip>替换为窗体上的树视图。</ToolTip>
+          <Default>TreeView1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim selectedNode As TreeNode
+selectedNode = $treeViewName$.SelectedNode]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

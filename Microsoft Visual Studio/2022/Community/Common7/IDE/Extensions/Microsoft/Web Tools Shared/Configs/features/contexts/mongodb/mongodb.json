@@ -1,0 +1,52 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "mongodb.coreweb"
+    },
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "DotNetCoreWorker"
+      },
+      "config": "mongodb.coreweb"
+    },
+    {
+      "when": {
+        "kind": "not",
+        "operand": {
+          "kind": "and",
+          "operands": [
+            {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            },
+            {
+              "kind": "not",
+              "operand": {
+                "kind": "HasTargetFramework",
+                "tfmPrefixOrFull": ".NetStandard"
+              }
+            }
+          ]
+        }
+      },
+      "config": "mongodb"
+    }
+  ]
+}

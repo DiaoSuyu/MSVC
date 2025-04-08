@@ -1,0 +1,43 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2component</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2component</Shortcut>
+    <Description>用於新增 Angular 2 元件的程式碼片段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>myComponent</ID>
+        <ToolTip>元件名稱</ToolTip>
+        <Default>my-component</Default>
+      </Literal>
+      <Literal>
+        <ID>template</ID>
+        <ToolTip>範本</ToolTip>
+        <Default><div>您好，我的名字是 {{name}}。</div></Default>
+      </Literal>
+      <Literal>
+        <ID>ComponentName</ID>
+        <ToolTip>元件類別名稱</ToolTip>
+        <Default>Example</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+      import { Component } from 'angular/core'; 
+     
+      @Component({
+          selector: '$myComponent$',
+          template: '$template$'
+      })
+      export class $ComponentName$Component {
+          constructor() {
+              this.name = 'Sam';
+          }
+      }
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

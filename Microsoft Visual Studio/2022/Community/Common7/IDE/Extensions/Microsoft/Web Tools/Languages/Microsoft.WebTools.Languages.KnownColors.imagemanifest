@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="KnownColorResources" Value="/Microsoft.WebTools.Languages.Shared.Editor;v17.0.0.0;b03f5f7f11d50a3a;Component/Resources/KnownColors" />
+    <Guid Name="ColorSwatchesGuid" Value="{ABA0ADF0-A9F1-4328-A36A-9372C0081C59}" />
+    <ID Name="AliceBlue" Value="15792383" />
+    <ID Name="AntiqueWhite" Value="16444375" />
+    <ID Name="Aqua" Value="65535" />
+    <ID Name="Aquamarine" Value="8388564" />
+    <ID Name="Azure" Value="15794175" />
+    <ID Name="Beige" Value="16119260" />
+    <ID Name="Bisque" Value="16770244" />
+    <ID Name="Black" Value="0" />
+    <ID Name="BlanchedAlmond" Value="16772045" />
+    <ID Name="Blue" Value="255" />
+    <ID Name="BlueViolet" Value="9055202" />
+    <ID Name="Brown" Value="10824234" />
+    <ID Name="BurlyWood" Value="14596231" />
+    <ID Name="CadetBlue" Value="6266528" />
+    <ID Name="Chartreuse" Value="8388352" />
+    <ID Name="Chocolate" Value="13789470" />
+    <ID Name="Coral" Value="16744272" />
+    <ID Name="CornflowerBlue" Value="6591981" />
+    <ID Name="Cornsilk" Value="16775388" />
+    <ID Name="Crimson" Value="14423100" />
+    <ID Name="Cyan" Value="65535" />
+    <ID Name="DarkBlue" Value="139" />
+    <ID Name="DarkCyan" Value="35723" />
+    <ID Name="DarkGoldenrod" Value="12092939" />
+    <ID Name="DarkGray" Value="11119017" />
+    <ID Name="DarkGreen" Value="25600" />
+    <ID Name="DarkKhaki" Value="12433259" />
+    <ID Name="DarkMagenta" Value="9109643" />
+    <ID Name="DarkOliveGreen" Value="5597999" />
+    <ID Name="DarkOrange" Value="16747520" />
+    <ID Name="DarkOrchid" Value="10040012" />
+    <ID Name="DarkRed" Value="9109504" />
+    <ID Name="DarkSalmon" Value="15308410" />
+    <ID Name="DarkSeaGreen" Value="9419919" />
+    <ID Name="DarkSlateBlue" Value="4734347" />
+    <ID Name="DarkSlateGray" Value="3100495" />
+    <ID Name="DarkTurquoise" Value="52945" />
+    <ID Name="DarkViolet" Value="9699539" />
+    <ID Name="DeepPink" Value="16716947" />
+    <ID Name="DeepSkyBlue" Value="49151" />
+    <ID Name="DimGray" Value="6908265" />
+    <ID Name="DodgerBlue" Value="2003199" />
+    <ID Name="Firebrick" Value="11674146" />
+    <ID Name="FloralWhite" Value="16775920" />
+    <ID Name="ForestGreen" Value="2263842" />
+    <ID Name="Fuchsia" Value="16711935" />
+    <ID Name="Gainsboro" Value="14474460" />
+    <ID Name="GhostWhite" Value="16316671" />
+    <ID Name="Gold" Value="16766720" />
+    <ID Name="Goldenrod" Value="14329120" />
+    <ID Name="Gray" Value="8421504" />
+    <ID Name="Green" Value="32768" />
+    <ID Name="GreenYellow" Value="11403055" />
+    <ID Name="Honeydew" Value="15794160" />
+    <ID Name="HotPink" Value="16738740" />
+    <ID Name="IndianRed" Value="13458524" />
+    <ID Name="Indigo" Value="4915330" />
+    <ID Name="Ivory" Value="16777200" />
+    <ID Name="Khaki" Value="15787660" />
+    <ID Name="Lavender" Value="15132410" />
+    <ID Name="LavenderBlush" Value="16773365" />
+    <ID Name="LawnGreen" Value="8190976" />
+    <ID Name="LemonChiffon" Value="16775885" />
+    <ID Name="LightBlue" Value="11393254" />
+    <ID Name="LightCoral" Value="15761536" />
+    <ID Name="LightCyan" Value="14745599" />
+    <ID Name="LightGoldenrodYellow" Value="16448210" />
+    <ID Name="LightGray" Value="13882323" />
+    <ID Name="LightGreen" Value="9498256" />
+    <ID Name="LightPink" Value="16758465" />
+    <ID Name="LightSalmon" Value="16752762" />
+    <ID Name="LightSeaGreen" Value="2142890" />
+    <ID Name="LightSkyBlue" Value="8900346" />
+    <ID Name="LightSlateGray" Value="7833753" />
+    <ID Name="LightSteelBlue" Value="11584734" />
+    <ID Name="LightYellow" Value="16777184" />
+    <ID Name="Lime" Value="65280" />
+    <ID Name="LimeGreen" Value="3329330" />
+    <ID Name="Linen" Value="16445670" />
+    <ID Name="Magenta" Value="16711935" />
+    <ID Name="Maroon" Value="8388608" />
+    <ID Name="MediumAquamarine" Value="6737322" />
+    <ID Name="MediumBlue" Value="205" />
+    <ID Name="MediumOrchid" Value="12211667" />
+    <ID Name="MediumPurple" Value="9662683" />
+    <ID Name="MediumSeaGreen" Value="3978097" />
+    <ID Name="MediumSlateBlue" Value="8087790" />
+    <ID Name="MediumSpringGreen" Value="64154" />
+    <ID Name="MediumTurquoise" Value="4772300" />
+    <ID Name="MediumVioletRed" Value="13047173" />
+    <ID Name="MidnightBlue" Value="1644912" />
+    <ID Name="MintCream" Value="16121850" />
+    <ID Name="MistyRose" Value="16770273" />
+    <ID Name="Moccasin" Value="16770229" />
+    <ID Name="NavajoWhite" Value="16768685" />
+    <ID Name="Navy" Value="128" />
+    <ID Name="OldLace" Value="16643558" />
+    <ID Name="Olive" Value="8421376" />
+    <ID Name="OliveDrab" Value="7048739" />
+    <ID Name="Orange" Value="16753920" />
+    <ID Name="OrangeRed" Value="16729344" />
+    <ID Name="Orchid" Value="14315734" />
+    <ID Name="PaleGoldenrod" Value="15657130" />
+    <ID Name="PaleGreen" Value="10025880" />
+    <ID Name="PaleTurquoise" Value="11529966" />
+    <ID Name="PaleVioletRed" Value="14381203" />
+    <ID Name="PapayaWhip" Value="16773077" />
+    <ID Name="PeachPuff" Value="16767673" />
+    <ID Name="Peru" Value="13468991" />
+    <ID Name="Pink" Value="16761035" />
+    <ID Name="Plum" Value="14524637" />
+    <ID Name="PowderBlue" Value="11591910" />
+    <ID Name="Purple" Value="8388736" />
+    <ID Name="Red" Value="16711680" />
+    <ID Name="RosyBrown" Value="12357519" />
+    <ID Name="RoyalBlue" Value="4286945" />
+    <ID Name="SaddleBrown" Value="9127187" />
+    <ID Name="Salmon" Value="16416882" />
+    <ID Name="SandyBrown" Value="16032864" />
+    <ID Name="SeaGreen" Value="3050327" />
+    <ID Name="SeaShell" Value="16774638" />
+    <ID Name="Sienna" Value="10506797" />
+    <ID Name="Silver" Value="12632256" />
+    <ID Name="SkyBlue" Value="8900331" />
+    <ID Name="SlateBlue" Value="6970061" />
+    <ID Name="SlateGray" Value="7372944" />
+    <ID Name="Snow" Value="16775930" />
+    <ID Name="SpringGreen" Value="65407" />
+    <ID Name="SteelBlue" Value="4620980" />
+    <ID Name="Tan" Value="13808780" />
+    <ID Name="Teal" Value="32896" />
+    <ID Name="Thistle" Value="14204888" />
+    <ID Name="Tomato" Value="16737095" />
+    <ID Name="Turquoise" Value="4251856" />
+    <ID Name="Violet" Value="15631086" />
+    <ID Name="Wheat" Value="16113331" />
+    <ID Name="White" Value="16777215" />
+    <ID Name="WhiteSmoke" Value="16119285" />
+    <ID Name="Yellow" Value="16776960" />
+    <ID Name="YellowGreen" Value="10145074" />
+    <ID Name="RebeccaPurple" Value="6697881" />
+  </Symbols>
+
+  <Images>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15792383" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/AliceBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16444375" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/AntiqueWhite.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="65535" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Aqua.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8388564" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Aquamarine.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15794175" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Azure.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16119260" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Beige.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16770244" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Bisque.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="0" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Black.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16772045" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/BlanchedAlmond.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="255" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Blue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9055202" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/BlueViolet.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="10824234" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Brown.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14596231" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/BurlyWood.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6266528" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/CadetBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8388352" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Chartreuse.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13789470" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Chocolate.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16744272" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Coral.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6591981" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/CornflowerBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16775388" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Cornsilk.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14423100" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Crimson.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="65535" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Cyan.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="139" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="35723" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkCyan.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="12092939" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkGoldenrod.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11119017" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="25600" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="12433259" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkKhaki.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9109643" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkMagenta.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="5597999" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkOliveGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16747520" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkOrange.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="10040012" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkOrchid.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9109504" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkRed.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15308410" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkSalmon.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9419919" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkSeaGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4734347" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkSlateBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="3100495" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkSlateGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="52945" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkTurquoise.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9699539" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DarkViolet.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16716947" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DeepPink.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="49151" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DeepSkyBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6908265" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DimGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="2003199" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/DodgerBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11674146" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Firebrick.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16775920" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/FloralWhite.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="2263842" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/ForestGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16711935" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Fuchsia.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14474460" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Gainsboro.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16316671" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/GhostWhite.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16766720" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Gold.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14329120" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Goldenrod.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8421504" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Gray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="32768" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Green.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11403055" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/GreenYellow.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15794160" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Honeydew.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16738740" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/HotPink.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13458524" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/IndianRed.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4915330" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Indigo.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16777200" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Ivory.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15787660" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Khaki.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15132410" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Lavender.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16773365" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LavenderBlush.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8190976" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LawnGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16775885" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LemonChiffon.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11393254" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15761536" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightCoral.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14745599" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightCyan.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16448210" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightGoldenrodYellow.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13882323" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9498256" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16758465" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightPink.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16752762" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightSalmon.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="2142890" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightSeaGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8900346" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightSkyBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="7833753" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightSlateGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11584734" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightSteelBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16777184" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LightYellow.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="65280" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Lime.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="3329330" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/LimeGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16445670" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Linen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16711935" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Magenta.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8388608" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Maroon.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6737322" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumAquamarine.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="205" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="12211667" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumOrchid.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9662683" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumPurple.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="3978097" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumSeaGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8087790" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumSlateBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="64154" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumSpringGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4772300" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumTurquoise.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13047173" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MediumVioletRed.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="1644912" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MidnightBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16121850" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MintCream.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16770273" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/MistyRose.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16770229" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Moccasin.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16768685" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/NavajoWhite.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="128" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Navy.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16643558" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/OldLace.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8421376" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Olive.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="7048739" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/OliveDrab.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16753920" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Orange.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16729344" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/OrangeRed.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14315734" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Orchid.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15657130" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PaleGoldenrod.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="10025880" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PaleGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11529966" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PaleTurquoise.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14381203" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PaleVioletRed.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16773077" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PapayaWhip.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16767673" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PeachPuff.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13468991" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Peru.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16761035" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Pink.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14524637" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Plum.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="11591910" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/PowderBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8388736" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Purple.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16711680" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Red.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="12357519" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/RosyBrown.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4286945" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/RoyalBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="9127187" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SaddleBrown.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16416882" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Salmon.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16032864" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SandyBrown.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="3050327" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SeaGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16774638" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SeaShell.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="10506797" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Sienna.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="12632256" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Silver.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="8900331" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SkyBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6970061" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SlateBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="7372944" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SlateGray.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16775930" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Snow.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="65407" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SpringGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4620980" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/SteelBlue.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="13808780" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Tan.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="32896" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Teal.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="14204888" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Thistle.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16737095" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Tomato.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="4251856" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Turquoise.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="15631086" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Violet.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16113331" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Wheat.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16777215" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/White.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16119285" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/WhiteSmoke.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="16776960" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/Yellow.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="10145074" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/YellowGreen.xaml" />
+    </Image>
+    <Image Guid="$(ColorSwatchesGuid)" ID="6697881" AllowColorInversion="false">
+      <Source Uri="$(KnownColorResources)/RebeccaPurple.xaml" />
+    </Image>
+  </Images>
+</ImageManifest>

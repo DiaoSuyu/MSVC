@@ -1,0 +1,231 @@
+﻿[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{B81E8A4D-B60E-41A9-949C-69CC4C4128B6}]
+"Name"="Microsoft.WebTools.Languages.Extensions"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"oldVersion"="15.0.0.0-17.0.0.0"
+"newVersion"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Extensions.dll"
+
+[$RootKey$\AutomationProperties\TextEditor\LESS]
+@="#107"
+"Description"="#20138"
+"Name"="LESS"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ResourcePackage"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"ProfileSave"=dword:00000001
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\LESS Specific]
+@="#6001"
+"Description"="#6002"
+"Name"="LESS Specific"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"ResourcePackage"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Packages\{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}]
+@="LessPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Extensions.Less.Package.LessPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Extensions.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Editors\{28c69eda-edf9-4ca8-9ebe-443348b6d916}]
+@="LESS Editor"
+"DisplayName"="#203"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{28c69eda-edf9-4ca8-9ebe-443348b6d916}\Extensions]
+"*"=dword:00000013
+"less"=dword:00000032
+
+[$RootKey$\Editors\{28c69eda-edf9-4ca8-9ebe-443348b6d916}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Editors\{eb284e36-4c91-422b-8df6-4dfc2ec3d350}]
+@="LESS Editor with Encoding"
+"DisplayName"="#206"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000003
+"LinkedEditorGuid"="{28c69eda-edf9-4ca8-9ebe-443348b6d916}"
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{eb284e36-4c91-422b-8df6-4dfc2ec3d350}\Extensions]
+"*"=dword:00000012
+"less"=dword:00000031
+
+[$RootKey$\Editors\{eb284E36-4C91-422b-8df6-4DFC2EC3D350}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Languages\File Extensions\.less]
+@="{7b22909e-1b53-4cc7-8c2b-1f5c5039693a}"
+
+[$RootKey$\Languages\Language Services\LESS]
+@="{7b22909e-1b53-4cc7-8c2b-1f5c5039693a}"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"LangResID"=dword:0000006B
+"DefaultToInsertSpaces"=dword:00000001
+"RequestStockColors"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+"ShowCompletion"=dword:00000001
+"ShowDropdownBarOption"=dword:00000001
+"ShowSmartIndent"=dword:00000001
+
+[$RootKey$\UserSettings\LESS_Advanced]
+@="203"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"Category"="{1b200b66-f69e-452e-9c6f-d38f9cb0628b}"
+"ToolsOptionsPath"="LESS"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.LESS.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+[$RootKey$\Languages\Language Services\LESS\EditorToolsOptions\Advanced]
+@="#150"
+"Package"="{f4b61ec8-36d8-4155-b2a0-199587d8ddcc}"
+"Page"="{1b200b66-f69e-452e-9c6f-d38f9cb0628b}"
+
+[$RootKey$\Diff\SupportedContentTypes]
+".less"=""
+
+[$RootKey$\AutomationProperties\TextEditor\SCSS]
+@="#109"
+"Description"="#20138"
+"Name"="SCSS"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ResourcePackage"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"ProfileSave"=dword:00000001
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\AutomationProperties\TextEditor\SCSS Specific]
+@="#6003"
+"Description"="#6004"
+"Name"="SCSS Specific"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"ResourcePackage"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Packages\{60116bb0-6f13-49e2-a1ce-a185c783b68b}]
+@="ScssPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Extensions.Scss.Package.ScssPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Extensions.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Editors\{181fe41b-5a5d-479f-9f8f-bf665f4ebc2a}]
+@="SCSS Editor"
+"DisplayName"="#205"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{181fe41b-5a5d-479f-9f8f-bf665f4ebc2a}\Extensions]
+"*"=dword:00000015
+"scss"=dword:00000032
+
+[$RootKey$\Editors\{181fe41b-5a5d-479f-9f8f-bf665f4ebc2a}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Editors\{52334EAD-0711-4a03-804E-7169F077A621}]
+@="SCSS Editor with Encoding"
+"DisplayName"="#207"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000003
+"LinkedEditorGuid"="{181fe41b-5a5d-479f-9f8f-bf665f4ebc2a}"
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{52334EAD-0711-4a03-804E-7169F077A621}\Extensions]
+"*"=dword:00000014
+"scss"=dword:00000031
+
+[$RootKey$\Editors\{52334EAD-0711-4a03-804E-7169F077A621}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+[$RootKey$\Languages\File Extensions\.scss]
+@="{5fa499f6-2cec-435b-bfce-53bbe29f37f6}"
+
+[$RootKey$\Languages\Language Services\SCSS]
+@="{5fa499f6-2cec-435b-bfce-53bbe29f37f6}"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"LangResID"=dword:0000006D
+"DefaultToInsertSpaces"=dword:00000001
+"RequestStockColors"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+"ShowCompletion"=dword:00000001
+"ShowSmartIndent"=dword:00000001
+
+[$RootKey$\UserSettings\SCSS_Advanced]
+@="205"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"Category"="{cea4fb93-f562-4d14-980f-8d9cab6e0a71}"
+"ToolsOptionsPath"="SCSS"
+"AlternateParent"="AutomationProperties\TextEditor"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\Settings\TextEditor.SCSS.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000
+
+[$RootKey$\Languages\Language Services\SCSS\EditorToolsOptions\Advanced]
+@="#150"
+"Package"="{60116bb0-6f13-49e2-a1ce-a185c783b68b}"
+"Page"="{cea4fb93-f562-4d14-980f-8d9cab6e0a71}"
+
+[$RootKey$\Diff\SupportedContentTypes]
+".scss"=""
+
+// Registers the language grammar files with Visual Studio
+[$RootKey$\TextMate\Repositories]
+"yaml"="$PackageFolder$\Syntaxes"
+
+// Defines where the language configuration file for a given
+// grammar name is (value of the ScopeName tag in the tmlanguage file).
+[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.yaml"="$PackageFolder$\Syntaxes\yaml.language-configuration.json"
+
+// Defines where the language configuration file for a given
+// language name is (partial value of the content type name)
+[$RootKey$\TextMate\LanguageConfiguration\ContentTypeMapping]
+"yaml"="$PackageFolder$\Syntaxes\yaml.language-configuration.json"
+
+[$RootKey$\Packages\{9b434dbd-8747-408e-aae0-6efc1f43c75d}]
+@="#102"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Languages.Extensions.Yaml.Package.YamlPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Languages.Extensions.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\ToolsOptionsPages\Text Editor\YAML\General]
+@="#101"
+"Package"="{9b434dbd-8747-408e-aae0-6efc1f43c75d}"
+"Page"="{83c839a2-64b3-44bc-bb7a-4ced7f9fcb55}"
+
+[$RootKey$\AutomationProperties\TextEditor\Yaml General]
+@="101"
+"Name"="Yaml General"
+"Package"="{9b434dbd-8747-408e-aae0-6efc1f43c75d}"
+"ResourcePackage"="{9b434dbd-8747-408e-aae0-6efc1f43c75d}"
+"VSSettingsMigration"=dword:00000001
+
+[$RootKey$\UserSettings\Yaml_General]
+@="#100"
+"Package"="{9b434dbd-8747-408e-aae0-6efc1f43c75d}"
+"Category"="{83c839a2-64b3-44bc-bb7a-4ced7f9fcb55}"
+"ToolsOptionsPath"="YAML"
+"VSSettingsMigration"=dword:00000000
+
+[$RootKey$\Settings\TextEditor.YAML.Specific.*]
+"IsRoamed"=dword:00000001
+"IsShared"=dword:00000001
+"IsStoredOnDisk"=dword:00000000

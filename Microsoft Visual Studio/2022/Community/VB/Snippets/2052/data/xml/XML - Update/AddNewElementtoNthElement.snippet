@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将新元素添加到 XML 数据中的第 N 个元素</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将新 XElement 添加到 XML 数据中的第 N 个 XElement</Description>
+      <Shortcut>xmlAddn</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Xml.Linq.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Element</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要添加的新元素。</ToolTip>
+          <Default>&lt;newElement/&gt;</Default>
+        </Literal>
+        <Literal>
+          <ID>AxisProp</ID>
+          <Type>String</Type>
+          <ToolTip>替换为新元素应该添加到的元素的名称。</ToolTip>
+          <Default>Elem</Default>
+        </Literal>
+        <Literal>
+          <ID>val</ID>
+          <Type>String</Type>
+          <ToolTip>替换为新元素添加到的元素的实例。索引从 0 开始。</ToolTip>
+          <Default>4</Default>
+        </Literal>
+        <Object>
+          <ID>XmlEle</ID>
+          <Type>XElement</Type>
+          <ToolTip>替换为 XElement 实例。</ToolTip>
+          <Default>xmlEle</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$XmlEle$.<$AxisProp$>($val$).Add($Element$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

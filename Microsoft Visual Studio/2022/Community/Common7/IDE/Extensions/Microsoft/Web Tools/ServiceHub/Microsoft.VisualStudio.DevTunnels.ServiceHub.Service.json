@@ -1,0 +1,11 @@
+{
+  "host": "dotnet",
+  "hostId": "WebTools",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.WebTools.PortTunneling.dll",
+    "fullClassName": "Microsoft.WebTools.PortTunneling.ServiceFactory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%",
+    "assemblySearchPathsConfig": "AssemblySearchPaths.json"
+  }
+}

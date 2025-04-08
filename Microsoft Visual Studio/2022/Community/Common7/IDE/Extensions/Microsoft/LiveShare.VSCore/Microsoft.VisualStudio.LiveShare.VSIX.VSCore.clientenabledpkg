@@ -1,0 +1,4 @@
+DebuggerService.VSCore.pkgdef
+Microsoft.VisualStudio.LiveShare.VSIX.VSCore.pkgdef
+Microsoft.VisualStudio.LiveShare.VslsFileSystemProvider.VSCore.pkgdef
+Microsoft.VisualStudio.LiveShare.ServiceBrokerIntegration.VSCore.pkgdef

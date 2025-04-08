@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义加法运算符(+)</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在类中定义加法运算符(+)。</Description>
+      <Keywords>
+        <Keyword>运算符</Keyword>
+        <Keyword>重载运算符</Keyword>
+        <Keyword>重载</Keyword>
+      </Keywords>
+      <Shortcut>OpAdd</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+         <Literal>
+          <ID>ClassName</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为要实现的类的名称。</ToolTip>
+          <Default>ThisClass</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="type decl"><![CDATA[Public Shared Operator +(ByVal class1 As $ClassName$, ByVal class2 As $ClassName$) As $ClassName$
+
+End Operator]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,11 @@
+{
+  "host": "dotnet",
+  "hostId": "WebTools",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.WebTools.PowerPlatform.dll",
+    "fullClassName": "Microsoft.WebTools.PowerPlatform.ServiceFactory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%",
+    "assemblySearchPathsConfig": "AssemblySearchPaths.json"
+  }
+}

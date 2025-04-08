@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- NOTE: This file is generated from a template. Update the template instead and generate a new version of this file. -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" processorArchitecture="amd64" name="..\Packages\mswebprj.dll" version="1.0.0.0" />
+  <file name="mswebprj.dll" hashalg="SHA1">
+    <typelib tlbid="{2CE6A813-3B2A-4211-95F2-63BF6B7B424D}" resourceid="4" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+    <typelib tlbid="{9E960D38-2501-4E7F-904D-7C9F27B192F4}" resourceid="3" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+    <typelib tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" resourceid="5" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+  </file>
+  <comInterfaceExternalProxyStub name="IVsWebUrl" iid="{13895A1D-38AC-42B5-AE81-6788A467B6EF}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IDesignTimeAssemblyLoader" iid="{665F0BA5-CE72-4E87-9BA0-3C461DE74D0B}" tlbid="{2CE6A813-3B2A-4211-95F2-63BF6B7B424D}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebUrlService" iid="{706FE9A2-4884-4CCB-9132-D86CADAA9373}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebAssemblyResolveService" iid="{9D33C3A7-8483-4E73-BF07-D77B7A5CCC49}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebMultiTargetingSvc" iid="{9F2223BE-1949-47EF-8BF2-B6D5F8DB84E1}" tlbid="{2CE6A813-3B2A-4211-95F2-63BF6B7B424D}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebFile" iid="{A2BCCB0B-5B44-499C-B9D0-6B8FFC69201A}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebAdministrationService" iid="{B8252CB7-E122-425E-A3C2-1D3EEAA6490B}" tlbid="{9E960D38-2501-4E7F-904D-7C9F27B192F4}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebFolder" iid="{BB121800-A83B-4D35-A9AA-E5DB55B33A8D}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebUrls" iid="{C2CAF19F-F415-4017-A4DA-BEAF40C0FD86}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebFiles" iid="{F484133B-FCD4-470F-8737-24E0F39686DF}" tlbid="{C0DF077F-E514-4FB5-B8CE-81AAE98D583A}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IVsWebProjectItemProperties" iid="{F607F6F8-1EAC-436B-BEB9-317C7A8DCA63}" tlbid="{9E960D38-2501-4E7F-904D-7C9F27B192F4}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+</assembly>

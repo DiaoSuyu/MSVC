@@ -1,0 +1,126 @@
+﻿.base-container {
+    width: 100%;
+    height: 100%;
+}
+
+.header-float {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: var(--plugin-background-color, transparent);
+}
+
+.main-usermessage-container {
+    height: 150px;
+}
+
+.main-usermessage-container .usermessage-message {
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+}
+
+.main-information-container {
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-columns: auto auto auto 1fr;
+    grid-template-rows: 1fr;
+    display: grid;
+    background-color: var(--diagnostics-information-background, lightyellow);
+    border-top: 1px var(--diagnostics-information-border, black) solid;
+    border-bottom: 1px var(--diagnostics-information-border, black) solid;
+    padding: 5px;
+}
+
+.main-information-container-hidden {
+    display: none;
+}
+
+    .main-information-container .information-icon {
+        grid-row: 1;
+        grid-column: 1;
+        background-repeat: no-repeat;
+        background-size: 1.333em 1.333em;
+        width: 1.333em;
+        height: 1.333em;
+        background-position-x: left;
+        background-position-y: left;
+        background-color: transparent;
+    }
+
+    .main-information-container .information-message {
+        grid-row: 1;
+        grid-column: 2;
+        color: var(--diagnostics-information-foreground, black);
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: transparent;
+    }
+
+    .main-information-container .information-link {
+        grid-row: 1;
+        grid-column: 3;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: transparent;
+    }
+
+    .main-information-container .information-close-div {
+        grid-row: 1;
+        grid-column: 4;
+        background-color: transparent;
+        vertical-align: middle;
+        padding-top: 2px;
+        overflow: visible;
+    }
+
+    .main-information-container .information-close-div .information-close {
+        background-color: transparent;
+        font-family: Marlett !important;
+        color: var(--diagnostics-information-foreground, black);
+        float: right;
+    }
+
+.main-swimlane-container {
+    grid-row: 2;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.footer-container {
+    background-color: transparent;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    /* Above everything*/
+    z-index: 1001;
+}
+
+a:link {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground, lightblue);
+    background-color: transparent;
+}
+
+a:visited {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground, lightblue);
+    background-color: transparent;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground-hover, lightblue);
+    background-color: transparent;
+}
+
+a:active {
+    text-decoration: none;
+    color: var(--diagnostics-information-link-foreground-pressed, lightblue);
+    background-color: transparent;
+}

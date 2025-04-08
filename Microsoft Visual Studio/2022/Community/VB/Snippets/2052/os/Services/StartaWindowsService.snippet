@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>启动 Windows 服务</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>启动 Windows 服务应用程序。</Description>
+      <Shortcut>servStart</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.ServiceProcess.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.ServiceProcess</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>serviceName</ID>
+          <ToolTip>替换为需要继续运行的服务的名称。</ToolTip>
+          <Default>"IISAdmiin"</Default>
+        </Literal>
+        <Literal>
+          <ID>ErrorMessage</ID>
+          <Type>String</Type>
+          <ToolTip>替换为错误信息。</ToolTip>
+          <Default>"Cannot start the service."</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim controller As New ServiceController($serviceName$)
+controller.Start()]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

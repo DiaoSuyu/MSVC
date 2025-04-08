@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Personalizing your environment"
+           Description="Make Visual Studio yours through these flexible and inclusive tools."
+           Id="IdeCustomization"
+           SortOrder="50"
+           EstimatedMinutesToComplete="8"
+           IconPath="Customize_Guide.png">
+    <vst:Step Title="Welcome to the VS IDE customization guide!"
+              Id="Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn to:
+- Select a profile for settings
+- Change your Visual Studio theme
+- Configure other settings
+- Back up settings
+- Sync and sharing settings
+- Customize toolbars
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Select a profile"
+              Id="SelectProfile"
+              MenuToHighlight="Tools">
+        <vst:Step.Description>
+            <![CDATA[
+After you installed Visual Studio, you might have seen a dialog asking you to choose a profile (such as General, C#, or Web Development).
+This applies a curated collection of settings, including a default window layout and key bindings. If you were signed in and have used VS in the past, we skipped that dialog and applied the profile you used last time.  
+
+To change your profile:
+1. Select **Tools** > [**Import and Export Settings...**](vscmd://Tools.ImportandExportSettings)
+1. Select **Reset all settings** and click **Next**.
+1. If you have customizations you want to preserve, select **Yes, save my current settings**; otherwise, select **No, just reset settings, overwriting my current settings**.  Click **Next**.
+1. Select the profile you want to apply and click **Finish**.
+1. Select **Close** to exit the dialog.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Change the color theme"
+              Id="ChangeTheme"
+              MenuToHighlight="Tools">
+        <vst:Step.Description>
+            <![CDATA[
+By default, Visual Studio uses the Dark theme. Your theme will sync across machines and Visual Studio instances when you're signed in. To change your theme, select an item under **Tools** > **Theme**.
+
+To install more themes, select **Tools** > **Theme** > [**Get More Themes**](vscmd://Tools.GetMoreThemes).
+
+When you change your theme, any customizations you've made under **Tools** > **Options** > **Environment** > [**Fonts and Colors**](vscmd://Tools.Options?args=57F6B7D2-1436-11D1-883C-0000F87579D2)
+are backed up, so if you switch back to the previous theme they'll be restored.
+]]>
+
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Configure other settings"
+              Id="OtherSettings">
+        <vst:Step.Description>
+          <![CDATA[
+Most Visual Studio settings can be found under **Tools** > [**Options**](vscmd://Tools.Options). Alternatively, you can use [global search](vscmd://Window.QuickLaunch)
+{KeyboardShortcut:Window.QuickLaunch} to find settings in the Options dialog.  
+
+For example, this setting changes the Tab key to add spaces instead of tab characters in plain text files:
+1. Select **Tools** > [**Options**](vscmd://Tools.Options).
+1. In the tree view (left side), expand **Text Editor** > **Plain Text** and select on **Tabs**.
+1. In the settings view (right side), select **Insert spaces**.
+1. Select **OK**.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Back up settings"
+              Id="BackUp">
+        <vst:Step.Description>
+          <![CDATA[
+You can capture your current IDE settings in an export file. This may be useful to share with others or restore later in a new install. 
+
+To capture your current IDE settings in an export file:
+1. Select **Tools** > [**Import and Export Settings...**](vscmd://Tools.ImportandExportSettings)
+1. Select **Export selected environment settings** and click **Next**.
+1. Select the settings you want to save and click **Next**.
+1. Edit the file name and directory, or accept the defaults, and click **Finish**.
+1. Click **Close** to exit the dialog.
+
+To restore IDE settings from a file:
+1. Select **Tools** > [**Import and Export Settings...**](vscmd://Tools.ImportandExportSettings)
+1. Select **Import selected environment settings** and click **Next**.
+1. If you have customizations you want to preserve, select **Yes, save my current settings**; otherwise, select **No, just import new settings, overwriting my current settings**. Click **Next**.
+1. Select the file you want to import and click **Next**. Use the **Browse...** button to select a file that's not in the list.
+1. Select the profile you want to apply and click **Finish**.
+1. Select **Close** to exit the dialog.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Configure roaming and sharing"
+              Id="RoamingAndSharing">
+        <vst:Step.Description>
+          <![CDATA[
+By default, Visual Studio syncs some settings to the cloud if you're signed into Visual Studio. These include most settings under **Environment** and **Text Editor** in **Tools** > **Options**.
+A few settings, such as your recently used projects and solutions, are shared across installs on the same machine, but not synced in the cloud.
+
+To disable this syncing behavior:
+1. Select **Environment** > [**Accounts**](vscmd://Tools.Options?args=FCA0A84C-0C77-43DE-B026-65B8C9F57485) in **Tools** > [**Options**](vscmd://Tools.Options)
+1. Uncheck **Synchronize settings across devices and installs on this machine (enabling this may overwrite local settings)** and click **OK**
+
+This will leave your current settings unchanged, and subsequent customizations will affect only this Visual Studio install.
+If you choose to re-enable roaming and sharing later, your local customizations will be overwritten by any shared settings, just like they are when you sign in to VS.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Select toolbars"
+              Id="Toolbars">
+        <vst:Step.Description>
+            <![CDATA[
+By default, VS shows a standard toolbar at all times and adds other toolbars dynamically depending on the scenario (such as debugging or code editing).  To manually add or remove toolbars:
+1. Right-click in the toolbar area below the menu to see a list of available toolbars:
+
+    ![Toolbars](toolbar-list.png "Toolbars")
+
+1. Click any toolbar in the list to hide or show it.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+    <vst:Step Title="Next steps"
+              Id="NextSteps"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+Congratulations on completing this Guide! We hope you enjoyed learning about personalizing Visual Studio.
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=IdeCustomization)**
+
+![Congratulations](congrats_tutorial.png "Congratulations")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+</vst:Guide>

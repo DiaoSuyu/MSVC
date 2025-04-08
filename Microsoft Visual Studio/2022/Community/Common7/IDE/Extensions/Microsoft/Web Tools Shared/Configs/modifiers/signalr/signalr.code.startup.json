@@ -1,0 +1,70 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureAddAzureSignalRCallForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureSignalR"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "LocalVariable",
+                  "properties": {
+                    "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+                    "CodeOperation": "InsertBefore"
+                  },
+                  "locationTokenName": "localWebAppVar"
+                }
+              ]
+            },
+            "body": "@@localVar@@.Services.AddSignalR().AddAzureSignalR(@@localVar@@.Configuration[`@@connectionId@@`]!);\r\n",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "LocalVariable",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+                  "Closure": true
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

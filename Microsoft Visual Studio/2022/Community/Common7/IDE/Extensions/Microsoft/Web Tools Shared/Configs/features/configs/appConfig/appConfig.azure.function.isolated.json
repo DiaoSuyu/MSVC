@@ -1,0 +1,33 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "appConfig.code.generic.codeFunctionShowBetaFeature.isolated",
+        "appConfig.code.generic.codeFunctionShowMessage.isolated",
+        "appConfig.code.generic.appConfigFunctionUsingDeclaration",
+        "appConfig.code.generic.appConfigFunctionUsingDeclarationMinimalAppModel",
+        "appConfig.code.generic.appConfigFunctionConfigureAppConfiguration",
+        "appConfig.code.generic.appConfigFunctionConfigureAppConfigurationMinimalAppModel",
+        "appConfig.code.generic.appConfigFunctionConfigureServices",
+        "appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel",
+        "appConfig.code.generic.appConfigFunctionConfigureFunctionsWorkerDefaults",
+        "appConfig.code.generic.appConfigFunctionConfigureServicesMinimalModel2"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appConfig.nuget.function.isolated"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "appConfig.serviceConnector.local"
+      ]
+    }
+  }
+}

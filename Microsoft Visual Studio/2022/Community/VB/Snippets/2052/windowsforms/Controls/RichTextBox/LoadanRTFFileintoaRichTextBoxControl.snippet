@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将 RTF 文件加载到 RichTextBox 控件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将 RTF 格式的文件加载到 RichTextBox 控件。</Description>
+      <Shortcut>richLoad</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>RTFControl</ID>
+          <Type>System.Windows.Forms.RichTextBox</Type>
+          <ToolTip>替换为窗体上的 RichTextBox 控件。</ToolTip>
+          <Default>RichTextBox1</Default>
+        </Object>
+        <Literal>
+          <ID>Filename</ID>
+          <Type>String</Type>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"RichTextDocument.rtf"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$RTFControl$.LoadFile($Filename$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

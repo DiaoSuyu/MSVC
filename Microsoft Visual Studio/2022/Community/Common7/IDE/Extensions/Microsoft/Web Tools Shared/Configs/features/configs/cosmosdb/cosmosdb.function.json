@@ -1,0 +1,19 @@
+{
+  "components": {
+    "itemTemplateCreator": {
+      "modifiers": [
+        "cosmosdb.itemTemplateCreator"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "cosmosdb.serviceConnector.appService"
+      ]
+    }
+  }
+}

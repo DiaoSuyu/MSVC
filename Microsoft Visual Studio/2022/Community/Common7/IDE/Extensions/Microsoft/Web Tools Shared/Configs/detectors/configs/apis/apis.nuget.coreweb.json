@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "apis.azure",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Swashbuckle.AspNetCore": "",
+      "Microsoft.AspNetCore.OpenApi": ""
+    }
+  }
+}

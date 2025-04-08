@@ -1,0 +1,18 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>VC\Test\1033\GoogleTest</RelativePathOnDisk>
+    <TemplateFileName>GoogleTest.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{6fac3232-df1d-400a-95ac-7daeaaee74ac}" ID="115" />
+        <Description Package="{6fac3232-df1d-400a-95ac-7daeaaee74ac}" ID="113" />
+        <ProjectType>VC</ProjectType>
+        <TemplateID>Microsoft.VisualC.Item.GoogleTest</TemplateID>
+        <SortOrder>10</SortOrder>
+        <DefaultName>Test.cpp</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <Icon>Icon.ico</Icon>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

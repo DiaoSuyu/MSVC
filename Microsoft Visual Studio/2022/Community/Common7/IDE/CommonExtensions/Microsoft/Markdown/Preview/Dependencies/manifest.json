@@ -1,0 +1,18 @@
+{
+  "start_url": "daytona-md-template.html",
+  "domain": "http://microsoft.com",
+  "name": "Markdown Plugin",
+  "version": "1.0",
+  "browserHostVersion": "2.0",
+  "use_css_variables": true,
+  "resource_aliases": {
+    "Resources": {
+      "path": "..\\..\\Strings",
+      "is_default": true
+    }
+  },
+  "vs": {
+    "theme_token_aliases": {
+    }
+  }
+} 

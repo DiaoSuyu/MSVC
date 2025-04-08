@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>以编程方式发送和接收消息</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>向本地计算机上的队列发送消息，检索该消息，然后将该消息正文的格式设置为字符串。</Description>
+      <Shortcut>mqSendRec</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Messaging.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Messaging</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>QueueName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为队列名称。“.”表示本地计算机。</ToolTip>
+          <Default>".\QueueName"</Default>
+        </Literal>
+        <Literal>
+          <ID>Message</ID>
+          <Type>String</Type>
+          <ToolTip>替换为消息。消息可以是任何对象类型。</ToolTip>
+          <Default>"Message text"</Default>
+        </Literal>
+        <Literal>
+          <ID>BodyType</ID>
+          <Type>System.Type</Type>
+          <ToolTip>替换为消息的类型。此类型必须与使用 Send 命令发送的对象的类型匹配。</ToolTip>
+          <Default>GetType(String)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim queue As New System.Messaging.MessageQueue($QueueName$)
+
+' Send a message to the queue.
+queue.Send($Message$)
+
+' Wait for the message to arrive, and then remove
+' it from the queue.
+Dim msg As Message
+msg = queue.Receive(New TimeSpan(0, 0, 3))
+
+' Convert the body to a string.
+msg.Formatter = New XmlMessageFormatter(New Type() {$BodyType$})
+Dim text As String = msg.Body.ToString]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

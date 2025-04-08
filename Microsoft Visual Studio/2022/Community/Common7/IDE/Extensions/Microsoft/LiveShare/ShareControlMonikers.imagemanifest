@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ImageManifest
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.VisualStudio.LiveShare.UI;Component/Resources/" />
+    <Guid Name="ShareControlMonikers" Value="{724efc4a-805f-489b-a162-3e31e8f4d0d1}" />
+    <ID Name="imgidShare" Value="1001" />
+    <ID Name="imgidUserProfile" Value="1002" />
+    <ID Name="imgidCloudUpload" Value="1003" />
+    <ID Name="imgidCloudDownload" Value="1004" />
+    <ID Name="imgidStreamingHost" Value="1005" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(ShareControlMonikers)" ID="$(imgidShare)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Share_16x.xaml" />
+    </Image>
+    <Image Guid="$(ShareControlMonikers)" ID="$(imgidUserProfile)" AllowColorInversion="true">
+      <Source Uri="$(Resources)StreamingHost_16x.xaml" />
+    </Image>
+    <Image Guid="$(ShareControlMonikers)" ID="$(imgidCloudUpload)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CloudUpload_16x.xaml" />
+    </Image>
+    <Image Guid="$(ShareControlMonikers)" ID="$(imgidCloudDownload)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CloudDownload_16x.xaml" />
+    </Image>
+    <Image Guid="$(ShareControlMonikers)" ID="$(imgidStreamingHost)" AllowColorInversion="true">
+      <Source Uri="$(Resources)StreamingHost_16x.xaml" />
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

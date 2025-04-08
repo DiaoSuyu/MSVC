@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ngctrl</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>각도 컨트롤러 추가용 템플릿</Description>
+      <Shortcut>ngctrl</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>module</ID>
+          <ToolTip>모듈 이름으로 바꿉니다.</ToolTip>
+          <Default>app</Default>
+        </Literal>
+        <Literal>
+          <ID>controller</ID>
+          <ToolTip>컨트롤러 이름으로 바꿉니다.</ToolTip>
+          <Default>customController</Default>
+        </Literal>
+        <Literal>
+          <ID>dependency</ID>
+          <ToolTip>컨트롤러에 대한 종속성 이름으로 바꿉니다.</ToolTip>
+          <Default>$scope</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="JavaScript">
+        <![CDATA[
+(function () {
+    'use strict';
+
+    angular
+      .module('$module$')
+      .controller('$controller$', ['$dependency$', $controller$]);
+
+    function $controller$($dependency$) {
+        var vm = this;
+
+        vm.title = '';
+
+        activate();
+
+        function activate() { }
+    }
+})();
+                ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

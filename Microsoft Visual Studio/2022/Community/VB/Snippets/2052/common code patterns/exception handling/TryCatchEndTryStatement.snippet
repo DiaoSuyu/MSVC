@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Try...Catch...End Try 语句</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>插入 Try...Catch...End Try 语句。</Description>
+      <Shortcut>TryC</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+         <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>ExceptionType</ID>
+          <Type>Exception</Type>
+          <ToolTip>替换为要捕捉的特定异常类型。</ToolTip>
+          <Default>ArgumentException</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Try
+
+Catch ex As $ExceptionType$
+	
+End Try]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

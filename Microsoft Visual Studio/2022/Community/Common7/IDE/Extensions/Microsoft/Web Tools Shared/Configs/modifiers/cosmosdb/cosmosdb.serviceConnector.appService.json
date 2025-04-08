@@ -1,0 +1,16 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "SystemIdentity",
+      "sourceResourceScope": "@@containerName@@",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_COSMOS_RESOURCEENDPOINT",
+          "customizedName": "@@connectionId@@"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "rabbitmq",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "RabbitMQ.Client": "",
+      "Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ": ""
+    }
+  }
+}

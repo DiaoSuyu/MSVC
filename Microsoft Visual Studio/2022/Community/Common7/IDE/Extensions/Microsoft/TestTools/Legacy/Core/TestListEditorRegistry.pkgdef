@@ -1,0 +1,25 @@
+[$RootKey$\Editors\{a4869d51-683f-4a74-8bd2-b2ab8d9d2431}]
+@="MetaDataFileFactory"
+"CommonPhysicalViewAttributes"=dword:00000000
+"DisplayName"="#301"
+"EditorTrustLevel"=dword:00000000
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Editors\{a4869d51-683f-4a74-8bd2-b2ab8d9d2431}\Extensions]
+"vsmdi"=dword:00000064
+
+[$RootKey$\Editors\{a4869d51-683f-4a74-8bd2-b2ab8d9d2431}\LogicalViews]
+
+[$RootKey$\Menus]
+"{13BfC227-548e-4f59-aa0d-df774c2c5e9b}"=", 1001, 1"
+
+[$RootKey$\Packages\{13BfC227-548e-4f59-aa0d-df774c2c5e9b}\SatelliteDll]
+"DllName"="Microsoft.VisualStudio.QualityTools.TestCaseManagementUI.dll"
+"Path"="$ShellFolder$\Common7\IDE\PrivateAssemblies"
+
+[$RootKey$\ToolWindows\{c79b74ff-f1d7-4c94-aefa-4d22bfe1b1f9}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Float"="200, 200, 830, 700"
+"Name"="Microsoft.VisualStudio.TestTools.TestCaseManagement.TestManagerToolWindowHost"
+"Orientation"="Left"
+"Style"="MDI"

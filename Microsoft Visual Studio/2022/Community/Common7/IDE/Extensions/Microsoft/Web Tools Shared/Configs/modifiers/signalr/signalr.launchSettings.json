@@ -1,0 +1,14 @@
+{
+  "kind": "jsonProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "@@propertiesFolder@@/launchSettings.json",
+    "key": "profiles/*/environmentVariables",
+    "properties": {
+      "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": {
+        "value": "Microsoft.Azure.SignalR",
+        "action": "append"
+      }
+    }
+  }
+}

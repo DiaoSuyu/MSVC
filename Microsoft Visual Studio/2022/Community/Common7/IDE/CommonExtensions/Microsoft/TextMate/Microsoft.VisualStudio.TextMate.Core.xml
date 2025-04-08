@@ -1,0 +1,1493 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.TextMate.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.CacheManager.LanguageRootFolderTypes">
+            <summary>
+            Known repository location identifiers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.CacheManager.LanguageRootFolderTypes.StarterKit">
+            <summary>
+            The identifier for the repository containing the grammars shipping with the extension.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.CacheManager.LanguageRootFolderTypes.UserExtensions">
+            <summary>
+            The identifier for the repository containing user provided grammars.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Hosting.ICustomRepositoryService">
+            <summary>
+            Defines host specific repositories and the path where the corresponding cache should be created.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Hosting.ITMTelemetryService">
+            <summary>
+            Defines a host specific telemetry and error reporting service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.ITMScopeTag.RuleOriginGrammarScopeName">
+            <summary>
+            Gets the scope name of the grammar this span is linked to.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.LSPTMTaggerProvider">
+            <summary>
+            TextMate classifier provider for LSP. It adds the classifier to the set of classifiers
+            for those languages whose grammar is defined by tmLanguage files.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMDefinitions">
+            <summary>
+            Classification type definition export for TMClassifier
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMDefinitions.TypeDefinition">
+            <summary>
+            Defines the "TMClassifier" classification type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMDefinitions.BaseTMCodeContentTypeDefinition">
+            <summary>
+            Define the base content type for all TM supported languages
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMTagger">
+            <summary>
+            Classifier that classifies all text as an instance of the "TMClassifier" classification type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMTagger.#ctor(Microsoft.VisualStudio.Threading.JoinableTaskContext,Microsoft.VisualStudio.TextMate.Core.CacheManager.AsyncCacheManager,Microsoft.VisualStudio.Utilities.IFileExtensionRegistryService2,Microsoft.VisualStudio.Text.ITextDocumentFactoryService,Microsoft.VisualStudio.TextMate.Core.Hosting.ITMTelemetryService,Microsoft.VisualStudio.Text.ITextBuffer,System.Func{Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar,Microsoft.VisualStudio.TextMate.Core.Theming.TMTheme})">
+            <summary>
+            Initializes a new instance of the <see cref="!:TMClassifier" /> class.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMTagger.TagsChanged">
+            <summary>
+            An event that occurs when the classification of a span of text has changed.
+            </summary>
+            <remarks>
+            This event gets raised if a non-text change would affect the classification in some way,
+            for example typing /* would cause the classification to change in C# without directly
+            affecting the span.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMTagger.Microsoft#VisualStudio#Text#Tagging#ITagger{Microsoft#VisualStudio#TextMate#Core#Editor#Classification#ITMScopeTag}#GetTags(Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Gets all the <see cref="!:ClassificationSpan" /> objects that intersect with the given range of text.
+            </summary>
+            <remarks>
+            This method scans the given SnapshotSpan for potential matches for this classification.
+            In this instance, it classifies everything and returns each span as a new ClassificationSpan.
+            </remarks>
+            <param name="spans">The span currently being classified.</param>
+            <returns>A list of ClassificationSpans that represent spans identified to be of this classification.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Editor.Classification.TMTaggerProvider">
+            <summary>
+            TextMate classifier provider. It adds the classifier to the set of classifiers
+            for those languages whose grammar is defined by tmLanguage files.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.IsOpeningBlockCommentSyntax(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Detects whether the given <paramref name="value" /> corresponds to the syntax of a opening block comment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.IsClosingBlockCommentSyntax(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Detects whether the given <paramref name="value" /> corresponds to the syntax of a closing block comment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.IsSnapshotPointInComment(Microsoft.VisualStudio.Text.SnapshotPoint,System.Collections.Generic.IList{Microsoft.VisualStudio.Text.Tagging.IMappingTagSpan{Microsoft.VisualStudio.TextMate.Core.Editor.Classification.ITMScopeTag}},System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Determines whether the given snapshot point is in a comment and returns the span of the comment.
+            </summary>
+            <param name="anchorPoint">Snapshot point that we evaluate against the scopeTags</param>
+            <param name="scopeTags">A collection of TextMate tags</param>
+            <param name="commentSpan">a span containing the comment</param>
+            <param name="includeStartPoint">whether we consider the start of the span as part of the comment</param>
+            <param name="includeEndPoint">whether we consider the end of the span as part of the comment</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.TryCommentSpan(Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextEdit,System.Collections.Generic.HashSet{System.Int32},Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentType,System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@)">
+            <summary>
+            Tries to do a block or line comment based on the given span
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.TryUncommentSpan(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextEdit,Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentType,System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@)">
+            <summary>
+            Tries to uncomment a commented block or line based based on the given span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.TryUncommentSingleLineComments(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextEdit,System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@)">
+            <summary>
+            Check if the line where the given <paramref name="span" /> is has a line comment, and if so, uncomment it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.Comments.CommentHelper.TryUncommentExactlyBlockComment(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextEdit,System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@)">
+            <summary>
+            Check if the selected span matches an entire block comment.
+            If it does, uncomment it and return true.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.IndentOnTypeCharCommandHandler">
+            <summary>
+            This <see cref="T:Microsoft.VisualStudio.Commanding.IChainedCommandHandler`1" /> will try to adjust the indentation
+            of the current line where typing happens.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Commands.LanguageConfigurationBasedCommandHandlerBase`1.ApplyTextEditAsync(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.ITextBuffer,`0,Microsoft.VisualStudio.Text.ITextEdit,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Apply the required changes to the Editor through <paramref name="textEdit" />.
+            </summary>
+            <returns>Return <c>True</c> if everything gone well. Returning <c>False</c> will cancel the change to the editor.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorHelper.GetAllSelectedSpans(Microsoft.VisualStudio.Text.IMultiSelectionBroker,Microsoft.VisualStudio.Text.ITextBuffer)">
+            <summary>
+            Gets all the selected spans in the editor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorHelper.GetFirstAndLastLineFromSpan(Microsoft.VisualStudio.Text.SnapshotSpan)">
+            <summary>
+            Given a span, find the first and last line that are part of the span.  NOTE: If the 
+            span ends in column zero, we back up to the previous line, to handle the case where 
+            the user used shift + down to select a bunch of lines.  They probably don't want the 
+            last line commented in that case.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorHelper.SpanIncludesAllTextOnIncludedLines(Microsoft.VisualStudio.Text.SnapshotSpan)">
+            <summary>
+            Gets whether a given span corresponds to the entire text its first and last line contains, or if it's just a portion of it.
+            </summary>
+            <returns>Returns true if the span includes all of the non-whitespace text on the first and last line.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorHelper.IsSnapshotPointInString(Microsoft.VisualStudio.Text.SnapshotPoint,System.Collections.Generic.IList{Microsoft.VisualStudio.Text.Tagging.IMappingTagSpan{Microsoft.VisualStudio.TextMate.Core.Editor.Classification.ITMScopeTag}},System.Nullable{Microsoft.VisualStudio.Text.SnapshotSpan}@)">
+            <summary>
+            Determines whether the given snapshot point is in a string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.DetermineSmallestIndent(Microsoft.VisualStudio.Text.ITextSnapshotLine,Microsoft.VisualStudio.Text.ITextSnapshotLine)">
+            <summary>
+            Given a set of lines, find the minimum indent of all of the non-blank, non-whitespace lines.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GenerateIndentation(System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Generates a chain of white spaces and tabs corresponding to the desired length.
+            </summary>
+            <param name="desiredIndentation">The desired length of the string</param>
+            <param name="convertTabToSpaces">Defines whether tabs size string should be replaced by spaces.</param>
+            <param name="tabSize">Defines how many white space does a tab corresponds to.</param>
+            <returns>Returns a chain of white spaces and tabs corresponding to the desired length.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.RetrieveIndentationOptions(Microsoft.VisualStudio.Text.ITextBuffer,System.Boolean@,System.Int32@,System.Int32@)">
+            <summary>
+            Retrieves the indentation options of the text editor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetDesiredIndentation(Microsoft.VisualStudio.Text.ITextBuffer,Microsoft.VisualStudio.Text.ITextSnapshotLine,System.ValueTuple{Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType,System.Nullable{System.Int32}})">
+            <summary>
+            Returns the amount of spaces that should be inserted at the beginning of the given line
+            based on the result of an indentation computation.
+            Depending on <see cref="T:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType" /> and an option integer representing the indentation size,
+            this method will calculate how many white spaces should be placed at the beginning of the line.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetDesiredIndentation(Microsoft.VisualStudio.Text.ITextBuffer,Microsoft.VisualStudio.Text.ITextSnapshotLine,Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType,System.Nullable{System.Int32})">
+            <summary>
+            Returns the amount of spaces that should be inserted at the beginning of the given line
+            based on the result of an indentation computation.
+            Depending on <see cref="T:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType" /> and an option integer representing the indentation size,
+            this method will calculate how many white spaces should be placed at the beginning of the line.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationOnEnterAsync(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.SnapshotPoint,System.Threading.CancellationToken)">
+            <summary>
+            Determines the indentation to apply when a new line in the editor is typed by the user.
+            </summary>
+            <remarks>
+            This method assumes that the [Enter] key has already been pressed and that a new line has already been added in the text document.
+            </remarks>
+            <param name="textView">Text view</param>
+            <param name="anchorPoint">The point in the text document where the [Enter] key has been pressed.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationOnEnterInternalAsync(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.SnapshotPoint,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Determines the indentation to apply when a new line in the editor is typed by the user.
+            </summary>
+            <remarks>
+            This method assumes that the [Enter] key has already been pressed and that a new line has already been added in the text document.
+            </remarks>
+            <param name="textView">Text view</param>
+            <param name="anchorPoint">The point in the text document where the [Enter] key has been pressed.</param>
+            <param name="allowCheckParentNestedLanguage">Defines whether, in embedded language scenario, we should give a chance at the parent language to determine the indentation</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationOnEnterInternalAsync(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.SnapshotPoint,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationRange,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Determines the indentation to apply when a new line in the editor is typed by the user.
+            </summary>
+            <remarks>
+            This method assumes that the [Enter] key has already been pressed and that a new line has already been added in the text document.
+            </remarks>
+            <param name="textView">Text view</param>
+            <param name="anchorPoint">The point in the text document where the [Enter] key has been pressed.</param>
+            <param name="languageConfigurationRange">The language configuration and the range where it applies.</param>
+            <param name="allowCheckParentNestedLanguage">Defines whether, in embedded language scenario, we should give a chance at the parent language to determine the indentation</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationOnTypeAsync(Microsoft.VisualStudio.Text.ITextBuffer,Microsoft.VisualStudio.Text.SnapshotPoint,System.Threading.CancellationToken)">
+            <summary>
+            Determines the indentation to apply based on what character has been typed in the editor.
+            </summary>
+            <param name="textBuffer">Text buffer</param>
+            <param name="anchorPoint">The point in the text document where the key has been pressed.</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationInheritedFromAboveAsync(Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.SnapshotPoint,System.Threading.CancellationToken)">
+            <summary>
+            Determines the indentation to apply to the given line based on the indentation of the lines above.
+            </summary>
+            <param name="textView">Text view</param>
+            <param name="anchorPoint">The point in the text document where the indentation should be calculated.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.GetIndentationInheritedFromAboveInternal(Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.Editor.ITextView,Microsoft.VisualStudio.Text.SnapshotPoint)">
+            <summary>
+            Determines the indentation to apply to the given line based on the indentation of the lines above.
+            </summary>
+            <param name="languageConfigurationRange">The span where the current language configuration file applies</param>
+            <param name="languageConfiguration">The current language configuration file.</param>
+            <param name="textView">Text view</param>
+            <param name="anchorPoint">The point in the text document where the indentation should be calculated.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.SupportsIndentation(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract)">
+            <summary>
+            Determines whether the given language configuration has some indentation rules or not.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ShouldIncreaseIndentation(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Determines whether the given <paramref name="text" /> indicates that the indentation of the next line should increase
+            based on the regex from the language configuration's indentation rules.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ShouldDecreaseIndentation(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Determines whether the given <paramref name="text" /> indicates that the indentation of the next line should decrease
+            based on the regex from the language configuration's indentation rules.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ShouldIndentNextLineOnly(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Determines whether the given <paramref name="text" /> indicates that the indentation of [only] the next line should increase
+            based on the regex from the language configuration's indentation rules.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ShouldIgnoreIndentation(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)">
+            <summary>
+            Determines whether the given <paramref name="text" /> indicates that the next line should not be indented, even
+            if <see cref="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ShouldIncreaseIndentation(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.String)" /> says differently.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.TryRetrievePreviousNonEmptyLineWithinLanguageConfigurationRange(Microsoft.VisualStudio.Text.ITextSnapshotLine,Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextSnapshotLine@,System.String@)">
+            <summary>
+            Given a line in a text document, look for the first line above that:
+            1. Is not empty
+            2. Is within the range where the current language configuration applies.
+            3. Doesn't isn't the continuity of a string started on the line above.
+            If no line matches these conditions, returns <code>false</code>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationHelperService.ScopeToLanguageConfigurationRange(Microsoft.VisualStudio.Text.SnapshotSpan,Microsoft.VisualStudio.Text.ITextSnapshotLine)">
+            <summary>
+            Given the range of a language configuration file and a line in the text document,
+            truncates that line to the range of the language configuration.
+            In other words, in an embedded language scenario, if there are multiple languages
+            on one line, then this method will return a span that only contains the text
+            that corresponds to the current language configuration.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType.NoChange">
+            <summary>
+            Indicates the indentation should not change.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType.InheritsFromLineAbove">
+            <summary>
+            Indicates the indentation should be the same the line above.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType.Indent">
+            <summary>
+            Indicated the indentation should be incremented relatively to the line above.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType.Outdent">
+            <summary>
+            Indicates the indentation should be decremented relatively to the line above.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.Indentation.IndentationType.Overwrite">
+            <summary>
+            Indicates the indentation is provided as an absolute value and shouldn't take consideration of the line above to be applied.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.IndentStructureTag.GetTextWithNormalizedTabsAndIndentation(Microsoft.VisualStudio.Text.SnapshotSpan,System.Int32)">
+            <summary>
+            Renders all tabs as the specified tabSize and removes enough indentation from
+            each line to bring the first character of the least indented line in the the span into
+            column 0.
+            </summary>
+            <param name="span">Span containing the input text.</param>
+            <param name="tabSize">The number of spaces each tab should be rendered as.</param>
+            <returns>The transformed string, or empty string if unable to determine indentation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Editor.IndentStructureTag.GetIndentOfLeastIndentedLine(Microsoft.VisualStudio.Text.ITextSnapshotLine,Microsoft.VisualStudio.Text.ITextSnapshotLine,System.Int32)">
+            <summary>
+            Gets the indent of the least indented line in the range in spaces.
+            </summary>
+            <param name="startLine">The first line of the range.</param>
+            <param name="endLine">The last line of the range.</param>
+            <param name="tabSize"></param>
+            <returns>The indent of the least indented line in the range, or -1.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceCompletion.BraceCompletionDynamicSessionProvider.DetectAutoClosingPair(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotPoint,System.Char)">
+            <summary>
+            Detects whether the typed character match an opening pair and whether it fits to its constraints.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceCompletion.BraceCompletionDynamicSessionProvider.CanAutoClosingPairApply(Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.AutoClosingPairConditional,Microsoft.VisualStudio.Text.SnapshotPoint)">
+            <summary>
+            If the given <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.AutoClosingPairConditional" /> has <see cref="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.AutoClosingPairConditional.NotIn" /> set,
+            detects whether the given <paramref name="snapshotPoint" /> is in a string or comment.
+            If not, then the brace completion can happen.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.DefaultBracketPairs">
+            <summary>
+            Used to support the default indentation behavior when there is no language configuration file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.IsOpeningBrace(System.Char,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract)">
+            <summary>
+            Determines whether there is an opening brace at the given position.
+            If there is no language configuration, determines it by using pre-defined brackets pairs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.IsOpeningBrace(Microsoft.VisualStudio.Text.SnapshotPoint,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.Boolean,System.String@,System.String@)">
+            <summary>
+            Determines whether there is an opening brace at the given position.
+            If there is no language configuration, determines it by using pre-defined brackets pairs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.IsClosingBrace(Microsoft.VisualStudio.Text.SnapshotPoint,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,System.Boolean,System.String@,System.String@)">
+            <summary>
+            Determines whether there is a closing brace at the given position.
+            If there is no language configuration, determines it by using pre-defined brackets pairs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.FindClosingBracketPairToHighlight(Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorLanguageConfigurationFeatureBase,Microsoft.VisualStudio.Text.SnapshotSpan,System.Boolean,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotPoint,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Given the position of an opening brace, search for its matching closing brace forward in the document.
+            </summary>
+            <param name="editorLanguageConfigurationFeatureBase"></param>
+            <param name="matchingBracketSearchRange"></param>
+            <param name="isRangeInString"></param>
+            <param name="languageConfiguration"></param>
+            <param name="searchStartPosition">The position where an opening brace has initially been detected.
+            Usually it corresponds to the caret position.</param>
+            <param name="openingBrace"></param>
+            <param name="closingBrace"></param>
+            <param name="cancellationToken"></param>
+            <returns>A set of snapshot spans corresponding to the matching opening and closing braces to highlight.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingHelper.FindOpeningBracketPairToHighlight(Microsoft.VisualStudio.TextMate.Core.Editor.LanguageConfiguration.EditorLanguageConfigurationFeatureBase,Microsoft.VisualStudio.Text.SnapshotSpan,System.Boolean,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract,Microsoft.VisualStudio.Text.SnapshotPoint,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Given the position of a closing brace, search for its matching opening brace backward in the document.
+            </summary>
+            /// <param name="editorLanguageConfigurationFeatureBase"></param>
+            <param name="matchingBracketSearchRange"></param>
+            <param name="isRangeInString"></param>
+            <param name="languageConfiguration"></param>
+            <param name="searchStartPosition">The position where an closing brace has initially been detected.
+            Usually it corresponds to the caret position.</param>
+            <param name="openingBrace"></param>
+            <param name="closingBrace"></param>
+            <param name="cancellationToken"></param>
+            <returns>A set of snapshot spans corresponding to the matching opening and closing braces to highlight.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingTagger.UpdateTagsBasedOnCaretPositionAsync(System.Nullable{Microsoft.VisualStudio.Text.SnapshotPoint},System.Threading.CancellationToken)">
+            <summary>
+            Updates the tags to highlight based on the given <paramref name="caretPosition" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.BraceHighlighting.BraceHighlightingTagger.DetectMatchingBracketsAtCaretPositionAsync(Microsoft.VisualStudio.Text.SnapshotPoint,System.Threading.CancellationToken)">
+            <summary>
+            Detects if some matching braces should be highlighted at the given <paramref name="caretPosition" />.
+            </summary>
+            <returns>Return the new match pair. If nothing has matched, returns a default value.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.AutoClosingPair">
+            <summary>
+            Describes how auto closing pair work.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Comments">
+            <summary>
+            Describes how comments for a language work.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Comments.LineComment">
+            <summary>
+            The line comment token, like `// this is a comment`
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Comments.BlockComment">
+            <summary>
+            The block comment character pair, like `/* block comment */`
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.EnterAction">
+            <summary>
+            Describes what to do when pressing Enter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.EnterAction.Indentation">
+            <summary>
+            Describe what to do with the indentation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.EnterAction.AppendText">
+            <summary>
+            Describes text to be appended after the new line and after the indentation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.EnterAction.RemoveText">
+            <summary>
+            Describes the number of characters to remove from the new line's indentation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Folding">
+            <summary>
+            Describes folding rules for a language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Folding.OffSide">
+            <summary>
+            Used by the indentation based strategy to decide whether empty lines belong to the previous or the next block.
+            A language adheres to the off-side rule if blocks in that language are expressed by their indentation.
+            See [wikipedia](https://en.wikipedia.org/wiki/Off-side_rule) for more information.
+            If not set, `false` is used and empty lines belong to the previous block.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Folding.Markers">
+            <summary>
+            Region markers used by the language.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.FoldingMarkers">
+            <summary>
+            Describes language specific folding markers such as '#region' and '#endregion'.
+            The start and end regexes will be tested against the contents of all lines and must be designed efficiently:
+            - the regex should start with '^'
+            - regexp flags (i, g) are ignored
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService">
+            <summary>
+            Provides a service to manage language configuration files.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.GetCount">
+            <summary>
+            For Unit tests only, get the number of loaded language configuration files.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.AddLanguageConfiguration(System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}},System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Adds the given set of language configuration files.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.LoadLanguageConfigurationFromScopeName(System.String)">
+            <summary>
+            Loads the language configuration file for a given scope name, if exists.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.LoadLanguageConfigurationFromContentTypeName(System.String)">
+            <summary>
+            Loads the language configuration file for a given content type name, if exists.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.TryGetLanguageConfiguration(Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection,System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <summary>
+            Retrieves the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> matching a given source file name.
+            </summary>
+            <param name="grammarCollection">The collection of existing grammars.</param>
+            <param name="fileName">A source file name used to identify what language it is.</param>
+            <param name="languageConfiguration">out parameter which becomes the reference to <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /></param>
+            <returns>Returns <code>null</code> if no <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> is found or if the service isn't loaded yet.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.TryGetLanguageConfigurationFromScopeName(System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <summary>
+            Tries to retrieve the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> matching a given scope name.
+            </summary>
+            <param name="scopeName">The scope name.</param>
+            <param name="languageConfiguration">out parameter which becomes the reference to <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /></param>
+            <returns>Returns <code>null</code> if no <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> is found or if the service isn't loaded yet.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.TryGetLanguageConfigurationFromContentTypeName(System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <summary>
+            Tries to retrieve the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> matching a given content type name.
+            </summary>
+            <param name="contentType">The content type name.</param>
+            <param name="languageConfiguration">out parameter which becomes the reference to <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /></param>
+            <returns>Returns <code>null</code> if no <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> is found or if the service isn't loaded yet.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.GetLanguageConfigurationFromSnapshotPointAsync(Microsoft.VisualStudio.Text.SnapshotPoint,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Tries to retrieve the most appropriate <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> for a <paramref name="snapshotPoint" />.
+            </summary>
+            <remarks>
+            This member is internal because implementation uses <see cref="!:Classifier.ITMScopeTag" />
+            to map a location in <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" /> to a correct configuration of embedded languages.
+            These types are specific to the VS Editor and we'd rather keep this API editor-agnostic.
+            </remarks>
+            <param name="snapshotPoint">The snapshot point for which to look up the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" />.</param>
+            <param name="allowWaitingForTagger">Determines whether the method should give a chance to the tagger to compute tags before determining the best <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" />.
+            Setting this parameter to true may improve accuracy of the result but can also cause a UI Delay. Please use this parameter carefully.</param>
+            <param name="limitRange">Indicates whether the range of the span returned should be limited
+            to <see cref="!:LanguageConfigurationService.LanguageConfigurationRangeLimitAroundAnchorPoint" />. Limiting the span ensure good
+            performances when searching the text document, but may limit range of application of language configuration features.</param>
+            <param name="cancellationToken">A cancellation token</param>
+            <returns>Returns a language configuration and the range it applies to in the document, or null if not found.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService.GetLanguageConfigurationFromSnapshotSpanAsync(Microsoft.VisualStudio.Text.SnapshotSpan,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Tries to retrieve the most appropriate <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" /> for a <paramref name="snapshotSpan" />.
+            </summary>
+            <remarks>
+            This member is internal because implementation uses <see cref="!:Classifier.ITMScopeTag" />
+            to map a location in <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" /> to a correct configuration of embedded languages.
+            These types are specific to the VS Editor and we'd rather keep this API editor-agnostic.
+            </remarks>
+            <param name="snapshotSpan">The snapshot span for which to look up the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" />.</param>
+            <param name="allowWaitingForTagger">Determines whether the method should give a chance to the tagger to compute tags before determining the best <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract" />.
+            Setting this parameter to true may improve accuracy of the result but can also cause a UI Delay. Please use this parameter carefully.</param>
+            <param name="limitRange">Indicates whether the range of the span returned should be limited
+            to <see cref="!:LanguageConfigurationService.LanguageConfigurationRangeLimitAroundAnchorPoint" />. Limiting the span ensure good
+            performances when searching the text document, but may limit range of application of language configuration features.</param>
+            <param name="cancellationToken">A cancellation token</param>
+            <returns>Returns a language configuration and the range it applies to in the document, or null if not found.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentAction">
+            <summary>
+            Describes what to do with the indentation when pressing Enter.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentAction.None">
+            <summary>
+            Insert new line and copy the previous line's indentation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentAction.Indent">
+            <summary>
+            Insert new line and indent once (relative to the previous line's indentation).
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentAction.IndentOutdent">
+            <summary>
+            Insert two new lines:
+             - the first one indented which will hold the cursor
+             - the second one at the same indentation level
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentAction.Outdent">
+            <summary>
+            Insert new line and outdent once (relative to the previous line's indentation).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentationRules.IncreaseIndentPattern">
+            <summary>
+            If a line matches this pattern, then all the lines after it should be indented once (until another rule matches).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentationRules.DecreaseIndentPattern">
+            <summary>
+            If a line matches this pattern, then all the lines after it should be unindented once (until another rule matches).
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentationRules.IndentNextLinePattern">
+            <summary>
+            If a line matches this pattern, then **only the next line** after it should be indented once.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.IndentationRules.UnIndentedLinePattern">
+            <summary>
+            If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ITMLanguageConfigurationServiceFactory">
+            <summary>
+            Service for the creation or instantiation of the TextMate languages configuration service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ITMLanguageConfigurationServiceFactory.GetOrCreateAsync(System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}},System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Gets or creates a singleton TextMate languages configuration service.
+            </summary>
+            <remarks>
+            If the <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService" /> already exists, the existing service
+            is returned by this call.
+            </remarks>
+            <param name="languageConfigurationGrammarMappingPaths">Set of detected language configuration file path associated with a scope name.</param>
+            <param name="languageConfigurationContentTypeMappingPaths">Set of detected language configuration file path associated with a content type name.</param>
+            <returns>A new or existing <see cref="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.ILanguageConfigurationService" />.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract">
+            <summary>
+            The language configuration interface defines the contract between extensions and
+            various editor features, like automatic bracket insertion, automatic indentation etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.Comments">
+            <summary>
+            The language's comment settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.Brackets">
+            <summary>
+            The language's brackets.
+            This configuration implicitly affects pressing Enter around these brackets.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.AutoClosingPairs">
+            <summary>
+            The language's auto closing pairs. The 'close' character is automatically inserted with the
+            'open' character is typed. If not set, the configured brackets will be used.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.AutoCloseBefore">
+            <summary>
+            Defines what characters must be after the cursor for bracket or quote autoclosing to occur when using the \'languageDefined\' autoclosing setting.
+            This is typically the set of characters which can not start an expression, such as whitespace, closing brackets, non-unary operators, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.SurroundingPairs">
+             <summary>\
+             The language's surrounding pairs. When the 'open' character is typed on a selection, the
+             selected string is surrounded by the open and close characters.If not set, the autoclosing pairs
+            settings will be used.
+             </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.Folding">
+            <summary>
+            The language's folding rules.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.WordPattern">
+            <summary>
+            The language's word definition.
+            If the language supports Unicode identifiers (e.g. JavaScript), it is preferable
+            to provide a word definition that uses exclusion of known separators.
+            e.g.: A regex that matches anything except known separators (and dot is allowed to occur in a floating point number):
+              /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&amp;\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\%lt;\%gt;\/\?\s]+)/g
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.IndentationRules">
+            <summary>
+            The language's indentation settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.OnEnterRules">
+            <summary>\
+            The language's rules to be evaluated when pressing Enter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.IsOpeningBracket(System.String)">
+            <summary>
+            Checks whether the given string is an opening bracket.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract.IsClosingBracket(System.String)">
+            <summary>
+            Checks whether the given string is an closing bracket.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.OnEnterRule">
+            <summary>
+            Describes a rule to be evaluated when pressing Enter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.OnEnterRule.BeforeText">
+            <summary>
+            This rule will only execute if the text before the cursor matches this regular expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.OnEnterRule.AfterText">
+            <summary>
+            This rule will only execute if the text after the cursor matches this regular expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.OnEnterRule.PreviousLineText">
+            <summary>
+            This rule will only execute if the text above the this line matches this regular expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.OnEnterRule.Action">
+            <summary>
+            The action to execute.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationBase.TryGetAccurateScopeTagsAsync(Microsoft.VisualStudio.Text.SnapshotPoint,System.Threading.CancellationToken)">
+            <summary>
+            Gets the list of tags available. If needed, this method will wait that the tagger compute tags.
+            This method may provide a more accurate result than <see cref="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationBase.GetScopeTagsSnapshot(Microsoft.VisualStudio.Text.SnapshotPoint)" /> but still does not
+            guarantee that tags will be accurate. It is possible that the tagger is working in background and that the
+            current method timeout, which will result in returning tags doesn't reflect the best semantic state of the document.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationBase.GetScopeTagsSnapshot(Microsoft.VisualStudio.Text.SnapshotPoint)">
+            <summary>
+            Gets the list of tags available at the given position at the moment when this method is called.
+            This method does not guarantee that tags will be accurate. It is possible that the tagger is working in background
+            and that the current available tags doesn't reflect the best semantic state of the document.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.grammarMappedLanguageConfiguration">
+            <summary>
+            Key: Grammar Name (scopeName in tmlanguage file); Value: path to the Language configuration
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.contentTypeMappedLanguageConfiguration">
+            <summary>
+            Key: Content Type Name; Value: path to the Language configuration
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.loadedLanguageConfiguration">
+            <summary>
+            Key: file path of the language configuration
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.GetCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.AddLanguageConfiguration(System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}},System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.LoadLanguageConfigurationFromScopeName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.LoadLanguageConfigurationFromContentTypeName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.TryGetLanguageConfiguration(Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection,System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.TryGetLanguageConfigurationFromScopeName(System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.TryGetLanguageConfigurationFromContentTypeName(System.String,Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.LanguageConfigurationContract@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.GetLanguageConfigurationFromSnapshotSpanAsync(Microsoft.VisualStudio.Text.SnapshotSpan,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.LanguageConfiguration.Impl.LanguageConfigurationService.GetLanguageConfigurationFromSnapshotPointAsync(Microsoft.VisualStudio.Text.SnapshotPoint,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar">
+            <summary>
+            An instance of a TextMate grammar.
+            </summary>
+            <remarks>
+            <code>
+            class ScopeNameTag : ITag
+            {
+                public ScopeNameTag(string scopeName)
+                {
+                    this.ScopeName = scopeName;
+                }
+            
+                public string ScopeName { get; }
+            }
+            
+            internal class ScopeTagger : ITagger&lt;ScopeNameTag&gt;, IDisposable
+            {
+                private ISnapshotManager _snapshotManager;
+            
+                internal ScopeTagger(ITextBuffer buffer, IGrammar grammar)
+                {
+                    _snapshotManager = grammar.Attach(buffer);
+                    _snapshotManager.ScopesChanged += this.OnScopesChanged;
+                }
+            
+                public event EventHandler&lt;SnapshotSpanEventArgs&gt; TagsChanged;
+            
+                public IEnumerable&lt;ITagSpan&lt;ScopeNameTag&gt;&gt; GetTags(NormalizedSnapshotSpanCollection spans)
+                {
+                    var snapshot = _snapshotManager.Latest;
+                    if (snapshot != null)
+                    {
+                        foreach (var scopeSpan in snapshot.GetSpans(spans))
+                    {
+                        yield return new TagSpan&lt;ScopeNameTag&gt;(scopeSpan.Span, new ScopeNameTag(scopeSpan.ScopeName));
+                    }
+                }
+            
+                public void Dispose()
+                {
+                    if (_snapshotManager != null)
+                    {
+                        _snapshotManager.ScopesChanged -= this.OnScopesChanged;
+                        _snapshotManager.Dispose();
+                        _snapshotManager = null;
+                    }
+                }
+            
+                private void OnScopesChanged(object sender, SpansChangedEventArgs e)
+                {
+                    var h = this.TagsChanged;
+                    if (h != null)
+                    {
+                        foreach (var s in e.Spans)
+                        {
+                            h(this, new SnapshotSpanEventArgs(s));
+                        }
+                    }
+                }
+            }
+            </code>
+            </remarks>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.Reloaded">
+            <summary>
+            Fired when the grammar is reloaded due a change on disk.
+            </summary>
+            <remarks>
+            Will be raised from a background thread.
+            </remarks>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.Loaded">
+            <summary>
+            Fired when the grammar is loaded through <see cref="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.PinParser" />.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.Unloaded">
+            <summary>
+            Fired when the grammar is unloaded through <see cref="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.UnpinParser" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar.ParseSnapshotAsync(Microsoft.VisualStudio.Text.ITextSnapshot,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Parse some or all of the specified <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" /> using this grammar.
+            </summary>
+            <param name="textSnapshot">Snapshot to parse.</param>
+            <param name="maxCharactersToParse">Maximum number of characters to parse. Use <see cref="F:System.Int32.MaxValue" /> to parse the entire snapshot in one pass.</param>
+            <param name="cancel">Cancellation token.</param>
+            <returns>A, possibly incomplete, parsed snapshot.</returns>
+            <remarks>
+            <para>Use <see cref="P:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.IsComplete" /> to see whether <paramref name="textSnapshot" /> has been completely parsed. If it hasn't,
+            you can see <see cref="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.ReparseSnapshotAsync(Microsoft.VisualStudio.Text.ITextSnapshot,System.Int32,System.Threading.CancellationToken)" /> (passing in the same <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" />)
+            to continue parsing the snapshot.</para>
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection">
+            <summary>
+            A collection of available TextMate languages.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection.Count">
+            <summary>
+            The number of language files in this collection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection.GetGrammar(System.String,System.Boolean@)">
+            <summary>
+            Gets a grammar for the specified file name.
+            </summary>
+            <param name="fileName">The name (not path) of the source file to get a grammar for.</param>
+            <param name="associatedByFileName">False if matched by <paramref name="fileName" />'s extension only.</param>
+            <returns>The grammar, or <c>null</c> if none match.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection.GetGrammarFromScopeName(System.String)">
+            <summary>
+            Gets the grammar with the given root scope name.
+            </summary>
+            <param name="scopeName">The root scope name for the language.</param>
+            <returns>The grammar, or <c>null</c> if none match.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection.GetGrammars(System.Predicate{Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar})">
+            <summary>
+            Gets all grammars matching the specified predicate.
+            </summary>
+            <param name="grammar">A predicate matching the desired grammars.</param>
+            <returns>A collection of grammars matching <paramref name="grammar" />.</returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammarCollection.LastWriteTimeUtc">
+            <summary>
+            The last time this collection was serialized to a cache file.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.GetSpans(Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Return all <see cref="!:ScoppedSpan" />s that intersect <paramref name="spans" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.GetSpans(Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection,System.Predicate{System.String})">
+            <summary>
+            Return all <see cref="!:ScoppedSpan" />s that intersect <paramref name="spans" /> and whose ScopeName satisfies <paramref name="match" />"/&gt;.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.GetSpans(Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection,System.String)">
+            <summary>
+            Return all <see cref="!:ScoppedSpan" />s that intersect <paramref name="spans" /> and whose ScopeName is equal to <paramref name="scopeName" />"/&gt;.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.ReparseSnapshotAsync(Microsoft.VisualStudio.Text.ITextSnapshot,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Parse some or all of the specified <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" /> starting from this <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot" />.
+            </summary>
+            <param name="textSnapshot">Snapshot to parse.</param>
+            <param name="maxCharactersToParse">Maximum number of characters to parse. Use <see cref="F:System.Int32.MaxValue" /> to parse the entire snapshot in one pass.</param>
+            <param name="cancel">Cancellation token.</param>
+            <returns>A, possibly incomplete, parsed snapshot.</returns>
+            <remarks>
+            <para>Use <see cref="P:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.IsComplete" /> to see whether <paramref name="textSnapshot" /> has been completely parsed. If it hasn't,
+            you can see <see cref="M:Microsoft.VisualStudio.TextMate.Core.Parser.IParsedSnapshot.ReparseSnapshotAsync(Microsoft.VisualStudio.Text.ITextSnapshot,System.Int32,System.Threading.CancellationToken)" /> (passing in the same <see cref="T:Microsoft.VisualStudio.Text.ITextSnapshot" />)
+            to continue parsing the snapshot.</para>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ISnapshotManager.LastParsedSnapshot">
+            <summary>
+            Returns the most recent parsed snapshot. This can be null if the parse hasn't completed.
+            </summary>
+            <remarks>
+            The returned snapshot could be stale (on an old text snapshot) if this method is called soon after
+            a text change.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ISnapshotManager.PendingParsedSnapshotAsync(System.Threading.CancellationToken)">
+            <summary>
+            Return a task that will -- if 
+            </summary>
+            <param name="cancel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory">
+            <summary>
+            Factory for the loading of <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar" />s, creation of <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMScopeSelector" />s,
+            and management of parse operations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.CancellationToken">
+            <summary>
+            Gets a reference to a cancellation token indicating that the factory is shutting down.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.EmptyCollection">
+            <summary>
+            Gets an instance of an empty IGrammarCollection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.Options">
+            <summary>
+            The options with which this factory was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.TotalRulesLoaded">
+            <summary>
+            The number of TextMate rules loaded by the parser during this session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.CreateScopeSelector(System.Boolean)">
+            <summary>
+            Creates a scope selector for matching the given scope expression against scope hierarchies.
+            </summary>
+            <param name="cacheResults">
+            If <c>true</c>, caches results for quicker evaluation on subsequent calls.
+            </param>
+            <returns>A <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMScopeSelector" /> instance that can be used for comparing to scope hierarchies.</returns>
+            <remarks>
+            The cache has no size limit, so caches should only be used in short lived contexts, such
+            as a single full-document parse, and be allowed to get GC-ed after.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.RequestCollectionsAsync(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Gets the given grammar collections.
+            </summary>
+            <param name="collections">The set of paths to search for grammar files and the cache files where they should be stored.</param>
+            <returns>A single collection containing the merged contents of each of the subcollections.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.AddGrammarToCache(Microsoft.VisualStudio.TextMate.Core.Parser.IGrammar)">
+            <summary>
+            Adds a grammar to the most-recent-grammars cache, which keeps grammars
+            in memory between parses to reduce disk thrashing for parses of large numbers of files.
+            </summary>
+            <param name="grammar">The grammar to keep in memory.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory.ShutdownAsync">
+            <summary>
+            Removes all grammars from the most-recent-grammars cache and shuts down the
+            parser factory.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactoryService">
+            <summary>
+            Service for the creation or instantiation of the TextMate languages parser factory.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactoryService.GetOrCreate(Microsoft.VisualStudio.TextMate.Core.Parser.TMParserOptions)">
+            <summary>
+            Gets or creates a singleton TextMate languages parser factory.
+            </summary>
+            <remarks>
+            If the <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory" /> already exists, the existing factory
+            is returned by this call with its existing options.
+            </remarks>
+            <param name="options">Options to pass to the parser factory.</param>
+            <returns>A new or existing <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMParserFactory" />.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMScopeSelector">
+            <summary>
+            Defines the interface for a scope matching service for a particular scope expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.ITMScopeSelector.IsMatch(System.String,System.String,Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor)">
+            <summary>
+            Accepts a space delimited set of scope names and checks whether or not they match
+            the scope expression within the <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ITMScopeSelector" />.
+            </summary>
+            <param name="scopeExpression">A scope expression to match against <paramref name="scopeHierarchy" />.</param>
+            <param name="scopeHierarchy">A space delimited list of scope names.</param>
+            <param name="anchor">Describes which anchors should be allowed to match.</param>
+            <returns>True if the scope hierarchy is matched by the expression.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor">
+            <summary>
+            Describes which order a scope expression (generally the selection expression for an injection)
+            should be evaluated.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor.Left">
+            <summary>
+            Should be evaluated before other rules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor.Right">
+            <summary>
+            Should be evaluated after other rules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor.Both">
+            <summary>
+            Should be evaluated both before and after other rules.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.ParseError">
+            <summary>
+            Errors that occur during TextMate parse.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.ParseError.LineTimeout">
+            <summary>
+            Line took too long and the parse assumed we are stuck and timed out.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.ParseError.OnigurumaError">
+            <summary>
+            Oniguruma returned an error code during a parse.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException">
+            <summary>
+            Exception thrown when a parse fails.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException.GrammarName">
+            <summary>
+            The name of the grammar with which the document failed to parse.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException.Error">
+            <summary>
+            The cause of the error.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException.LineLength">
+            <summary>
+            The length of the line causing the parse to fail, if applicable.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException.DocumentLinesCount">
+            <summary>
+            The number of lines in the document, if applicable.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException.OnigurumaErrorCode">
+            <summary>
+            The Oniguruma error code, if applicable.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.ScopedSpan.RuleOriginGrammarScopeName">
+            <summary>
+            Gets the scope name of the grammar this span is coming from.
+            If this is an included grammar to a parent one, the name here will be the one of the included grammar.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.TMParserOptions">
+            <summary>
+            Options for the TextMate languages parser.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.TMParserOptions.None">
+            <summary>
+            No optional features are enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.TMParserOptions.EnableAbortThresholds">
+            <summary>
+            Parsers should skip a line if it is too long or throw <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.ParseException" />
+            and abort the parse if a line takes too long to parse.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.BeginWhileSegmentState">
+            <summary>
+            Indicates the segment state of a BeginWhileRule.
+            </summary>
+            <remarks>
+            Begin While rules are composed
+            of a series of segments such as: Begin -&gt; None -&gt; While -&gt; None -&gt; While -&gt; None...
+            This series always begins with Begin and then alternates While and End until the rule
+            terminates. For more info on how BeginWhileRule operates, look at the baseline feature
+            tests.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.BeginWhileSegmentState.None">
+            <summary>
+            Indicates that the BeginWhileRuleState containing this SegmentState is
+            currently between segments. This happens when the parser has moved on to
+            the line following a Begin or While, and has not yet found a Begin or While
+            match.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.BeginWhileSegmentState.Begin">
+            <summary>
+            Indicates that the BeginWhileRuleState containing this SegmentState is currently
+            within a Begin segment. This means that we are on the first line of the begin/while
+            rule and have not yet reached the end of the current line.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.BeginWhileSegmentState.While">
+            <summary>
+            Indicates that the BeginWhileRuleState containing this SegmentState is currently
+            within a While segment. This means that we are not on the first line of the begin/while
+            rule and have not yet reached the end of the current line.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.LineState.ShortScopesAndSpans">
+            <summary>
+            List of all scopes that start and end on this line. All spans are on the line's snapshot.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.MatchElement.Captures">
+            <summary>
+            A list of the scopes for the captures associated with the scope.
+            </summary>
+            <remarks>
+            <para>This array is 0-index so [0] == scope for (0), etc.</para>
+            <para>This array may contain nulls.</para>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.NativeMethods.Utf8RegExToUtf16RegEx(System.String)">
+            <summary>
+            Converts regex designed for the UTF-8 version of Oniguruma
+            to work with the UTF-16 API so we don't have to waste cycles
+            converting the text of every document.
+            </summary>
+            <remarks>
+            Internal for testing.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.OpenRuleSpanNode.FindNodeIndex(System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.OpenRuleSpanNode},System.Int32,System.Int32)">
+            <summary>
+            Find the index of the first span in spans[start...] that ends at or after position.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ParsedSnapshot.LineStates">
+            <summary>
+            LineStates[i] == the LineState at the end of Line i.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ParsedSnapshot.FindSpanIndex(System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Text.Span},System.Int32,System.Int32)">
+            <summary>
+            Find the index of the first span in spans[start...] that ends at or after position.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions">
+            <summary>
+            Extension methods for manipulating plist files. For the format of a plist file, refer to http://www.apple.com/DTDs/PropertyList-1.0.dtd.
+            </summary>
+            <remarks>
+            Although the TextMate editor uses PLIST files to store the grammars, the actual PLIST parsing that is
+            performed in the community implementation must not completely respect the Apple standard because
+            TextMate preserves leading and trailing whitespace in PLIST values. This is particularly important
+            in regular expressions where the absence of a space can cause a scope to not match.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.TryGetKeyValue(System.Xml.Linq.XElement,System.String,System.String,System.String@)">
+            <summary>
+            Gets the <paramref name="value" /> associated with the <paramref name="key" /> from the specified <paramref name="dict" />.
+            </summary>
+            <param name="dict">The dict where the key/value pair is defined.</param>
+            <param name="key">The key of the value to get.</param>
+            <param name="valueType">The type of the value.</param>
+            <param name="value">The value associated with the key.</param>
+            <returns>A <see cref="T:System.Boolean" /> value indicating whether or not successfully gets the value.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.TryGetKeyValue(System.Xml.Linq.XElement,System.String,System.String@)">
+            <summary>
+            Gets the <paramref name="value" /> of <paramref name="valueType" /> following the specified <paramref name="key" /> in a plist dict.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="valueType">The type of the value.</param>
+            <param name="value">The value associated with the key.</param>
+            <returns>a <see cref="T:System.Boolean" /> value indicating whether or not successfully gets the value.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.GetValueElement(System.Xml.Linq.XElement,System.String,System.String)">
+            <summary>
+            Gets the value associated with the <paramref name="key" /> as an <see cref="T:System.Xml.Linq.XElement" /> object in the specified <paramref name="dict" />.
+            </summary>
+            <param name="dict">The dict where the key/vaue pair is defined.</param>
+            <param name="key">The key of the value to get.</param>
+            <param name="valueType">The type of the value.</param>
+            <returns>The value element as an <see cref="T:System.Xml.Linq.XElement" /> object.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.GetValueElement(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Gets the value associated with the <paramref name="key" /> as an <see cref="T:System.Xml.Linq.XElement" /> object in a plist dict.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="valueType">The type of the value.</param>
+            <returns>
+            <para>The value element as an <see cref="T:System.Xml.Linq.XElement" /> object.</para>
+            <para>
+            <see cref="!:null" /> if the key does not have a value element (bad plist format) 
+            or the value element does not match the value type (unexpected value type).
+            </para>
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.GetArrayValues(System.Xml.Linq.XElement)">
+            <summary>
+            Gets all elements in a plist array.
+            </summary>
+            <param name="array">The plist array.</param>
+            <returns>An enumerable collection of all elements in the array.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.PlistExtensions.GetDictValues(System.Xml.Linq.XElement)">
+            <summary>
+            Gets all key/value pairs in a plist dict as a read-only collection.
+            </summary>
+            <param name="dict">The plist dict.</param>
+            <returns>An read-only dictionary which contains all the kye/vaue pairs from the plist dict.</returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.RuleState.RuleOriginGrammarScopeName">
+            <summary>
+            Gets the scope name of the grammar this rule is coming from.
+            If this is an included grammar to a parent one, the name here will be the one of the included grammar.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.IsMatch(System.String,System.String,Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor)">
+            <summary>
+            Tests if a <paramref name="scopeHierarchy" /> matches a specified <paramref name="scopeExpression" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector" /> class for the specified <paramref name="scopeExpression" />.
+            Once initialized, scope selectors are immutable.
+            </summary>
+            <param name="scopeExpression">The scope expression for this selector to match against tested scopes.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.IsMatch(System.String,Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor)">
+            <summary>
+            Tests if a <paramref name="scopeHierarchy" /> matches this scope selector.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.HasPrecedence(System.Char,System.Char)">
+            <summary>
+            Returns <see cref="!:true" /> if <paramref name="op1" /> has same or greater precedence than <paramref name="op2" />.
+            This is used to make sure operators in stack have lower precedence than current operator.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.ApplyOperator(System.Char)">
+            <summary>
+            Applies specified operator <see cref="!:op" /> to appropriate items on top of the expression and result stack,
+            evaluating the operation results and push back to the stack.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.EvaluateAtomicExpression(System.String,System.String,Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor)">
+            <summary>
+            Evaluates an atomic scope expression against specified <paramref name="scopeHierarchy" />.
+            An atomic expression is an expression that does not contain scope operators and grouping parentheses.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Parser.Implementation.ScopeSelector.TMIndividualScopeSelector.IsPatternMatch(System.String,System.String,Microsoft.VisualStudio.TextMate.Core.Parser.MatchAnchor)">
+            <summary>
+            Tests if a scope name matches a pattern.
+            </summary>
+            <param name="pattern">A single scope pattern to match. </param>
+            <param name="scope">A single scope name, with parts seperated by dot</param>
+            <param name="anchor"></param>
+            <remarks>
+            A pattern here is a partial scope name with prefix to denote how match should be anchored to the scope being tested.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.CommentSelection">
+            <summary>
+              Looks up a localized string similar to Common Editor Comment Selection Command Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.IndentOnTypeChar">
+            <summary>
+              Looks up a localized string similar to Common Editor Autoindentation Command Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.ToggleBlockComment">
+            <summary>
+              Looks up a localized string similar to Common Editor Toggle Block Comment Command Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.ToggleLineComment">
+            <summary>
+              Looks up a localized string similar to Common Editor Toggle Line Comment Command Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TextMate.Core.Strings.UncommentSelection">
+            <summary>
+              Looks up a localized string similar to Common Editor Uncomment Selection Command Handler.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Theming.ComplexScopeMap">
+            <summary>
+            Map all scopes that end with SimpleScopeName to a Settings (and from there to a ClassificationTag).
+            </summary>
+            <remarks>
+            <para>A ComplexScopeMap contains the information to map something like:
+            <code>
+            foo.bar =&gt; blue
+            baz foo.bar =&gt; red
+            foobar foo.bar =&gt; green
+            </code>
+            (in this case, _simpleSettings would be blue and _complexSettings would contain two elements.</para>
+            <para>The GetClassificationTag() method first checks to see if there's a match in _complexScopes.
+            If that fails, _simpleSettings is used if non-null.
+            If that fails, then we check to see if there's a ComplexScopeMap for the truncated SimpleScopeName (in this case, "foo").
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TextMate.Core.Theming.ComplexScopeMap.IsAncestorOF(Microsoft.VisualStudio.TextMate.Core.Theming.ComplexScopeMap)">
+            <summary>
+            Is <paramref name="other" /> an ancestor of this. "foo.bar" would be considered an ancestor of "foo.bar.baz".
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TextMate.Core.Theming.TMTheme">
+            <summary>
+            This classes the theme associated with a specific grammar. Most grammars will not have a theme so we fallback to the base theme
+            (which is picked based on the VSTheme (light, dark, blue, etc.).
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.PerformanceSensitiveAttribute">
+            <summary>
+            Indicates that a code element is performance sensitive under a known scenario.
+            </summary>
+            <remarks>
+            <para>When applying this attribute, only explicitly set the values for properties specifically indicated by the
+            test/measurement technique described in the associated <see cref="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri" />.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri">
+            <summary>
+            Gets the location where the original problem is documented, likely with steps to reproduce the issue and/or
+            validate performance related to a change in the method.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Constraint">
+            <summary>
+            Gets or sets a description of the constraint imposed by the original performance issue.
+            </summary>
+            <remarks>
+            <para>Constraints are normally specified by other specific properties that allow automated validation of the
+            constraint. This property supports documenting constraints which cannot be described in terms of other
+            constraint properties.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowCaptures">
+            <summary>
+            Gets or sets a value indicating whether captures are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowImplicitBoxing">
+            <summary>
+            Gets or sets a value indicating whether implicit boxing of value types is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowGenericEnumeration">
+            <summary>
+            Gets or sets a value indicating whether enumeration of a generic
+            <see cref="T:System.Collections.Generic.IEnumerable`1" /> is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowLocks">
+            <summary>
+            Gets or sets a value indicating whether locks are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.OftenCompletesSynchronously">
+            <summary>
+            Gets or sets a value indicating whether the asynchronous state machine typically completes synchronously.
+            </summary>
+            <remarks>
+            <para>When <see langword="true" />, validation of this performance constraint typically involves analyzing
+            the method to ensure synchronous completion of the state machine does not require the allocation of a
+            <see cref="T:System.Threading.Tasks.Task" />, either through caching the result or by using
+            <see cref="T:System.Threading.Tasks.ValueTask`1" />.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.IsParallelEntry">
+            <summary>
+            Gets or sets a value indicating whether this is an entry point to a parallel algorithm.
+            </summary>
+            <remarks>
+            <para>Parallelization APIs and algorithms, e.g. <c>Parallel.ForEach</c>, may be efficient for parallel entry
+            points (few direct calls but large amounts of iterative work), but are problematic when called inside the
+            iterations themselves. Performance-sensitive code should avoid the use of heavy parallelization APIs except
+            for known entry points to the parallel portion of code.</para>
+            </remarks>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>n36aTWgu/FjNBOQs+VV8SNTeLAfeIUjKErf6d06k7ns=</DigestValue></Reference></SignedInfo><SignatureValue>g1yWz0eTR/uGK/YO2oKetpkpUxI+irksBYeq3+HHcuGDVF8mHli4MtcDRQnltOxYEagm+J4NfLRRcnfKab9DFhKgKJIebePkXoTqvJx7gw63MgNpF9sRJxPxHUnBbKvbZiTf5tnYlClPD10jLHguX8hDQHywScuPuMsZEkRFCMHASoceG+TWBUqcQs8vJMB4pRTw4N4v2OJuzleyHxOva1sEudlz/yLs4VqRla27J/7CiqRauBm/oGIsnIeBk63AthxI5AMxchw99TlnJz73Aagd4PC4pHFMELhk25FAtBZl0mAC4IC1HV1BuoUnaV3ca/OowPKSujBukagFgFyO+Q==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>MIIF7TCCA9WgAwIBAgIQP4vItfyfspZDtWnWbELhRDANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEyMDAGA1UEAxMpTWljcm9zb2Z0IFJvb3QgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IDIwMTEwHhcNMTEwMzIyMjIwNTI4WhcNMzYwMzIyMjIxMzA0WjCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEyMDAGA1UEAxMpTWljcm9zb2Z0IFJvb3QgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IDIwMTEwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCygEGqNThNE3IyaCJNuLLx/9VSvGzH9dJKjDbu0cJcfoyKrq8TKG/Ac+M6ztAlqFo6be+ouFmrEyNozQwph9FvgFyPRH9dkAFSWKxRxV8qh9zc2AodwQO5e7BW6KPeZGHCnvjzfLnsDbVU/ky2ZU+I8JxImQxCCwl8MVkXeQZ4KI2JOkwDJb5xalwL54RgpJki49KvhKSn+9GY7Qyp3pSJ4Q6g3MDOmT3qCFK7VnnkH4S6Hri0xElcTzFLh93dBWcmmYDgcRGjuKVB4qRTufcyKYMME782XgSzS0NHL2vikR7TmE/dQgfI6B0S/Jmpaz6SfsjWaTr8ZL22CZ3K/QwLopt3YEsDlKQwaRLWQi3BQUzK3Kr9j1uDRprZ/LHR47PJf0h6zSTwQY9cdNCssBAgBkm3xy0hyFfj0IbzA2j70M5xwYmZSmQBbP3sMJHPQTySx+W6hh1hhMdfgzlirrSSL0fzC/hV66AfWdC7dJse0Hbm8ukG1xDo+mTeacY1logC8Ea4PyeZb8txiSk190gWAjWP1Xl8TQLPX+uKg09FcYj5qQ1OcunCnAfPSRtOBA5jUYxe2ADBVSy2xuDCZU7JNDn1nLPEfuhhbhNfFcRf2X7tHc7uROzLLoax7Dj2cO2rXBPB2Q8Nx4CyVe0096yb5MPa50c8prWPMd/FS6/r8QIDAQABo1EwTzALBgNVHQ8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUci06AjGQQ7kUBU7h6qfHMdEjiTQwEAYJKwYBBAGCNxUBBAMCAQAwDQYJKoZIhvcNAQELBQADggIBAH9yzw+3xRXbm8BJyiZb/p4T5tPw0tuXX/JLP02zrhmu7deXoKzvqTqjwkGw5biRnhOBJAPmCf0/V0A5ISRW0RAvS0CpNoZLtFNXmvvxfomPEf4YbFGq6O0JlbXlccmh6Yd1phV/yX43VF50k8XDZ8wNT2uoFwxtCJJ+i92Bqi1wIcM9BhS7vyRep4TXPw8hIr1LAAbblxzYXtTFC1yHblCk6MM4pPvLLMWSZpuFXst6bJN8gClYW1e1QGm6CHmmZGIVnYeWRbVmIyADixxzoNOieTPgUFmG2y/lAiXqcyqfABTINseSO+lOAOzYVgm5M0kS0lQLAausR7aRKX1MtHWAUgHoyoL2n8ysnI8X6i8msKtyrAv+nlEex0NVZ09Rs1fWtuzuUrc66U7h14GIvE+OdbtLqPA1qibUZ2dJsnBMO5PcHd94kIZysjik0dySTclY6ysSXNQ7roxrsIPlAT/4CTL2kzU0Iq/dNw13CYArzUgA8YyZGUcFAenRv9FO0OYoQzeZpApKCNmacXPSqs0xE2N2oTdvkjgefRI8ZjLny23h/FKJ3crWZgWalmG+oijHHKOnNlA8OqTfSm7mhzvO6/DggTedEzxSjr25HTTGHdUKaj2YKXCMiSrRq4IQSB/c9O+lxbtVGjhjhE63bK2VVOxlIhBJF7jAHscPrFRH</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

@@ -1,0 +1,127 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "or",
+            "operands": [
+              {
+                "kind": "EnvironmentProperty",
+                "property": "PublishProvider",
+                "value": "AzureWebSite"
+              },
+              {
+                "kind": "EnvironmentProperty",
+                "property": "PublishProvider",
+                "value": "AppServiceContainer"
+              },
+              {
+                "kind": "EnvironmentProperty",
+                "property": "PublishProvider",
+                "value": "FunctionsContainer"
+              },
+              {
+                "kind": "EnvironmentProperty",
+                "property": "PublishProvider",
+                "value": "GitHubWorkflow"
+              },
+              {
+                "kind": "EnvironmentProperty",
+                "property": "TargetId",
+                "value": "AzDevAppService"
+              }
+            ]
+          },
+          {
+            "kind": "or",
+            "operands": [
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "TfmVersionComparison",
+                    "tfmType": "netcore",
+                    "version": "3.1",
+                    "comparison": "GreaterThanOrEqualTo"
+                  },
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "DotNetCoreWeb"
+                  },
+                  {
+                    "kind": "or",
+                    "operands": [
+                      {
+                        "kind": "IsPackageInstalledAtLeastVersion",
+                        "minVersion": "5.0",
+                        "packageName": "Swashbuckle.AspNetCore"
+                      },
+                      {
+                        "kind": "IsPackageInstalledAtLeastVersion",
+                        "minVersion": "9.0.0-preview.6.24272.7",
+                        "packageName": "Microsoft.AspNetCore.OpenApi"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "not",
+                    "operand": {
+                      "kind": "ProjectProperty",
+                      "propertyName": "AzureFunctionsVersion",
+                      "expectedValue": "v1"
+                    }
+                  },
+                  {
+                    "kind": "or",
+                    "operands": [
+                      {
+                        "kind": "HasProjectCapability",
+                        "capability": "AzureFunctions"
+                      },
+                      {
+                        "kind": "and",
+                        "operands": [
+                          {
+                            "kind": "HasProjectItem",
+                            "projectItem": "local.settings.json"
+                          },
+                          {
+                            "kind": "HasProjectItem",
+                            "projectItem": "host.json"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "or",
+                    "operands": [
+                      {
+                        "kind": "IsPackageInstalledAtLeastVersion",
+                        "minVersion": "0.8.1-preview",
+                        "packageName": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi"
+                      },
+                      {
+                        "kind": "IsPackageInstalledAtLeastVersion",
+                        "minVersion": "0.5.1-preview",
+                        "packageName": "Microsoft.Azure.WebJobs.Extensions.OpenApi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "config": "apis.azure"
+    }
+  ]
+}

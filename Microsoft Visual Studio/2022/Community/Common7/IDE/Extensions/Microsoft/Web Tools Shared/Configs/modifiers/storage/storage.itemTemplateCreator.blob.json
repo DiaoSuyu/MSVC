@@ -1,0 +1,12 @@
+{
+  "kind": "itemTemplates.itemTemplateCreator",
+  "order": 40,
+  "model": {
+    "itemTemplate": "Azure.Function.BlobTrigger",
+    "parameters": {
+      "IncludeLaunchSettings": "False",
+      "Connection": "@@connectionId@@",
+      "Path": "@@Path@@"
+    }
+  }
+}

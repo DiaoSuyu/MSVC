@@ -1,0 +1,150 @@
+{
+  "properties": {
+    "projectsAndSolutions.aspNetCore.general.autoRefreshOption": {
+      "type": "string",
+      "title": "@AutoRefreshOption;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@AutoRefreshOptionDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": "autoRebuildAndRefreshBrowser",
+      "enum": [
+        "none",
+        "autoRebuildOnHttpRequest",
+        "refreshBrowserAfterBuild",
+        "autoRebuildAndRefreshBrowser"
+      ],
+      "enumItemLabels": [
+        "@None;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+        "@AutoRebuildOnHttpRequest;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+        "@RefreshBrowserAfterBuild;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+        "@AutoRebuildAndRefreshBrowser;{b3ab9e94-3da2-4cfe-8837-b794b2968195}"
+      ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\AutoRefreshOption"
+          },
+          "map": [
+            {
+              "result": "none",
+              "match": 0
+            },
+            {
+              "result": "autoRebuildOnHttpRequest",
+              "match": 1
+            },
+            {
+              "result": "refreshBrowserAfterBuild",
+              "match": 2
+            },
+            {
+              "result": "autoRebuildAndRefreshBrowser",
+              "match": 3
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.general.restartAspNetServerAfterBuild": {
+      "type": "boolean",
+      "title": "@RestartAspNetServerAfterBuild;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@RestartAspNetServerAfterBuildDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\RestartAspNetServerAfterBuild"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.general.hotReloadCssChanges": {
+      "type": "boolean",
+      "title": "@HotReloadCSSChanges;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@HotReloadCSSChangesDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\HotReloadCSSChanges"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.general.useAdvancedApiEndpointDiscovery": {
+      "type": "boolean",
+      "title": "@UseAdvancedApiEndpointDiscovery;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@UseAdvancedApiEndpointDiscoveryDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\UseAdvancedApiEndpointDiscovery"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.outputOptions.launchConsoleMinimized": {
+      "type": "boolean",
+      "title": "@LaunchConsoleMinimized;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@LaunchConsoleMinimizedDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\LaunchConsoleMinimized"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.outputOptions.useIntegratedTerminal": {
+      "type": "boolean",
+      "title": "@UseIntegratedTerminalTitle;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@UseIntegratedTerminalDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\UseIntegratedTerminal"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.aspNetCore.outputOptions.useSharedWebServerOutputWindow": {
+      "type": "boolean",
+      "title": "@UseSharedWebServerOutputWindow;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "description": "@UseSharedWebServerOutputWindowDescription;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "default": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "AspNetCoreOptions\\UseSharedWebServerOutputWindow"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "projectsAndSolutions": {
+      "title": "@ProjectsAndSolutions;{b3ab9e94-3da2-4cfe-8837-b794b2968195}"
+    },
+    "projectsAndSolutions.aspNetCore": {
+      "title": "@100;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "order": 1,
+      "legacyOptionPageId": "9293439C-3004-411F-80CD-078BE230DF3B"
+    },
+    "projectsAndSolutions.aspNetCore.general": {
+      "title": "@AspNetCoreSettingsGeneralCategory;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "order": 1
+    },
+    "projectsAndSolutions.aspNetCore.outputOptions": {
+      "title": "@AspNetCoreSettingsOutputOptionsCategory;{b3ab9e94-3da2-4cfe-8837-b794b2968195}",
+      "order": 2
+    }
+  }
+}

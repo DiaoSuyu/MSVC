@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将光标置于 RichTextBox 中</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将光标置于 RichTextBox 中。</Description>
+      <Shortcut>richCursor</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>text</ID>
+          <Type>RichTextBox</Type>
+          <ToolTip>替换为窗体上的 RichTextBox 控件。</ToolTip>
+          <Default>RichTextBox1</Default>
+        </Object>
+        <Literal>
+          <ID>Location</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为要放置光标的位置。</ToolTip>
+          <Default>5</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$text$.Focus()
+$text$.Select($Location$, 0)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

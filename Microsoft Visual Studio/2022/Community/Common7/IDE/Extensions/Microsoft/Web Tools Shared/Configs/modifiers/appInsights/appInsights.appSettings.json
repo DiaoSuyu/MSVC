@@ -1,0 +1,14 @@
+{
+  "kind": "jsonProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "appsettings.json",
+    "key": "ApplicationInsights",
+    "properties": {
+      "ConnectionString": {
+        "value": "@@connectionString@@",
+        "action": "replace"
+      }
+    }
+  }
+}

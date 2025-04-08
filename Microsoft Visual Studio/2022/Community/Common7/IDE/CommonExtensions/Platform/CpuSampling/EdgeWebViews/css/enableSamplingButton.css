@@ -1,0 +1,59 @@
+﻿.toggle-button {
+    padding: 1px 5px;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+    .toggle-button.enabled:hover {
+        background-color: var(--DetailsView-CommandBarMouseOverBackground-Background, fuchsia);
+        color: var(--Environment-CommandBarTextHover-Background, lawngreen);
+        border: 1px solid var(--Environment-CommandBarBorder-Background, lawngreen);
+    }
+
+    .toggle-button.enabled:active {
+        background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+        color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+        border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+    }
+
+    .toggle-button.toggled {
+        background-color: var(--Environment-CommandBarSelected-Background, fuchsia);
+        color: var(--Environment-CommandBarTextSelected-Background, lawngreen);
+        border-color: var(--Environment-CommandBarSelectedBorder-Background, lawngreen);
+    }
+
+    .toggle-button.toggled:not(.enabled) {
+        color: lawngreen; /*[{Environment-CommandBarTextInactive-Background}]*/
+        color: var(--Environment-CommandBarTextInactive-Background, lawngreen);
+    }
+
+        .toggle-button.toggled.enabled:hover {
+            background-color: var(--DetailsView-CommandBarHoverOverSelected-Background, fuchsia);
+            color: var(--Environment-CommandBarTextHoverOverSelected-Background, lawngreen);
+            border: 1px solid var(--Environment-CommandBarHoverOverSelectedIconBorder-Background, lawngreen);
+        }
+
+        .toggle-button.toggled.enabled:active {
+            background-color: var(--Environment-CommandBarMouseDownBackgroundBegin-Background, fuchsia);
+            color: var(--Environment-CommandBarTextMouseDown-Background, lawngreen);
+            border-color: var(--Environment-CommandBarBorder-Background, fuchsia);
+        }
+
+.toggle-button > .button-text {
+    margin-left: 4px;
+}
+
+    .toggle-button:not(.enabled) > .button-image svg .icon-vs-bg {
+        fill: var(--Environment-CommandBarTextInactive-Background, fuchsia);
+    }
+
+    .toggle-button:not(.enabled) > .button-image svg .icon-vs-out {
+        fill: transparent;
+    }
+
+    /* reset the default IE button:active animation */
+    .toggle-button:active * {
+        position: relative;
+    }

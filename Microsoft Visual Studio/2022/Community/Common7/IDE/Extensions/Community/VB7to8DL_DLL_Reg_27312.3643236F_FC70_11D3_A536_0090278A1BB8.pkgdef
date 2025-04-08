@@ -1,0 +1,4 @@
+[$RootKey$\CLSID\{A90516D5-0C0D-4576-92B5-7BF4BE075590}]
+@="Microsoft Visual Basic File Upgrade"
+"InprocServer32"="$ShellFolder$\Common7\IDE\vb7to8DL.dll"
+"ThreadingModel"="Apartment"

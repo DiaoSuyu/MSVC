@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>分析电子邮件地址</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从电子邮件地址返回用户名和提供程序名称。</Description>
+      <Shortcut>typeParseEmail</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object>
+          <ID>email</ID>
+          <Type>String</Type>
+          <ToolTip>替换为表示电子邮件地址的字符串或文本</ToolTip>
+          <Default>"SomeName@SomeCompany.com"</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim emailParts() As String
+Dim user As String
+Dim provider As String
+emailParts = $email$.Split("@".ToCharArray, 2)
+If emailParts.Length = 2 Then
+    user = emailParts(0)
+    provider = emailParts(1)
+Else
+    ' Email address is not valid. The expected format is user@provider.*
+    user = String.Empty
+    provider = String.Empty
+End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

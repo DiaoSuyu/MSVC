@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../schemas/servicehub.host.schema.json",
+  "hostExecutable": "./ServiceHub.IdentityHost.exe",
+  "hostArgs": [ "$HOSTID", "$PIPE", "$TELEMETRYSESSION" ],
+  "additionalEnvironmentVariables": { "DOTNET_TC_CallCountThreshold": "1000" }
+}

@@ -1,0 +1,705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Copilot.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:Conversations.Shared.BroadcastObservable`1">
+            <summary>
+            Implements <see cref="T:System.IObservable`1" /> in a simple way so that an owner can simply broadcast a current state to all observers.
+            </summary>
+            <typeparam name="T">The type of value to be made observable. This type <em>should</em> be immutable because all subscribers will get a reference to the same value.</typeparam>
+        </member>
+        <member name="M:Conversations.Shared.BroadcastObservable`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Conversations.Shared.BroadcastObservable`1" /> class.
+            </summary>
+            <param name="initialValue">The first value for the observable, which will propagate to any observer that subscribes before the value is updated.</param>
+        </member>
+        <member name="P:Conversations.Shared.BroadcastObservable`1.Value">
+            <summary>
+            Gets or sets the observable value.
+            Changes to this property are automatically propagated to all subscribers.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.BroadcastObservable`1.Complete(System.Exception)">
+            <summary>
+            Broadcasts to observers that no more value updates will come.
+            </summary>
+            <param name="exception">An explanation of any fault that may have led to early completion of this observable.</param>
+        </member>
+        <member name="M:Conversations.Shared.BroadcastObservable`1.Subscribe(System.IObserver{`0})">
+            <summary>
+            Adds an observer to this observable value.
+            </summary>
+            <param name="observer">The observer.</param>
+            <returns>A value that may be disposed of to cancel the subscription.</returns>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.CodeContext">
+            <summary>
+            Represents a code context in the debugged process.
+            </summary>
+            <param name="CodeSnippet">The actual lines of code of interest.</param>
+            <param name="ActiveStatementLine">The index of the active statement within <paramref name="CodeSnippet" />.</param>
+            <param name="FilePath">Path to file where CodeSnippet was sourced from.</param>
+        </member>
+        <member name="M:Conversations.Shared.DebuggerContext.CodeContext.#ctor(System.String[],System.Int32,System.String)">
+            <summary>
+            Represents a code context in the debugged process.
+            </summary>
+            <param name="CodeSnippet">The actual lines of code of interest.</param>
+            <param name="ActiveStatementLine">The index of the active statement within <paramref name="CodeSnippet" />.</param>
+            <param name="FilePath">Path to file where CodeSnippet was sourced from.</param>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.CodeContext.CodeSnippet">
+            <summary>The actual lines of code of interest.</summary>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.CodeContext.ActiveStatementLine">
+            <summary>The index of the active statement within <paramref name="CodeSnippet" />.</summary>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.CodeContext.FilePath">
+            <summary>Path to file where CodeSnippet was sourced from.</summary>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.DeadlockedThreadContext">
+            <summary>
+            Contains relevant information about a deadlocked thread in the debugged process.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.DebuggerContext.DeadlockedThreadContext.#ctor(Conversations.Shared.DebuggerContext.ThreadContext,System.Collections.Generic.IList{Conversations.Shared.DebuggerContext.SynchronizationObjectContext},Conversations.Shared.DebuggerContext.CodeContext,System.Collections.Generic.IList{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Contains relevant information about a deadlocked thread in the debugged process.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.StackFrameContextStats">
+            <summary>
+            Provides token counts for the various reducible components of a <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" />
+            </summary>
+            <param name="BaseTokens">
+            The tokens required to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> without any code content
+            </param>
+            <param name="ActiveStatementTokens">
+            The tokens required in addition to <paramref name="BaseTokens" /> to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" />
+            with only the active statement from the code context
+            </param>
+            <param name="CodeSnippetTokens">
+            The tokens required in addition to <paramref name="BaseTokens" /> and <paramref name="ActiveStatementTokens" />
+            to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> with its entire code context
+            </param>
+        </member>
+        <member name="M:Conversations.Shared.DebuggerContext.StackFrameContextStats.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Provides token counts for the various reducible components of a <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" />
+            </summary>
+            <param name="BaseTokens">
+            The tokens required to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> without any code content
+            </param>
+            <param name="ActiveStatementTokens">
+            The tokens required in addition to <paramref name="BaseTokens" /> to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" />
+            with only the active statement from the code context
+            </param>
+            <param name="CodeSnippetTokens">
+            The tokens required in addition to <paramref name="BaseTokens" /> and <paramref name="ActiveStatementTokens" />
+            to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> with its entire code context
+            </param>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.StackFrameContextStats.BaseTokens">
+            <summary>
+            The tokens required to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> without any code content
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.StackFrameContextStats.ActiveStatementTokens">
+            <summary>
+            The tokens required in addition to <paramref name="BaseTokens" /> to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" />
+            with only the active statement from the code context
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.DebuggerContext.StackFrameContextStats.CodeSnippetTokens">
+            <summary>
+            The tokens required in addition to <paramref name="BaseTokens" /> and <paramref name="ActiveStatementTokens" />
+            to promptify the <see cref="T:Conversations.Shared.DebuggerContext.StackFrameContext" /> with its entire code context
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.SynchronizationObjectContext">
+            <summary>
+            Represents a synchronization object (associated with blocking/blocked relations between threads/tasks)
+            in the debugged process.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.DebuggerContext.SynchronizationObjectContext.#ctor(System.String,System.String,System.Nullable{System.UInt32})">
+            <summary>
+            Represents a synchronization object (associated with blocking/blocked relations between threads/tasks)
+            in the debugged process.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.ThreadContext">
+            <summary>
+            Represents a thread in the debugged process.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.DebuggerContext.ThreadContext.#ctor(System.UInt32,System.String)">
+            <summary>
+            Represents a thread in the debugged process.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.DebuggerContext.ThreadIdComparer">
+            <summary>
+            Helper class to compare threads by thread id.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.GitHubTokenAuthenticatingMessageHandler">
+            <summary>
+            Add the GitHub OAuth token to the request
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.RetryMessageHandler">
+            <summary>
+            Add a retry policy to the request
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.RetryMessageHandler.#ctor(System.String,System.Diagnostics.TraceSource,System.Int32)">
+            <summary>
+            The RetryMessageHandler constructor
+            </summary>
+            <param name="connectionName">Name for the HttpConnection</param>
+            <param name="traceSource">A trace source for log feedback</param>
+            <param name="maxRetries">Max number of retries, 6 is default</param>
+        </member>
+        <member name="T:Conversations.Shared.MainThreadDispatchingObservable`1">
+            <summary>
+            Wrapper around <see cref="T:Conversations.Shared.BroadcastObservable`1" /> which switches to the main thread before setting the value.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.MainThreadDispatchingObservable`1.#ctor(`0,Microsoft.VisualStudio.Threading.JoinableTaskFactory)">
+            <summary>
+            Wrapper around <see cref="T:Conversations.Shared.BroadcastObservable`1" /> which switches to the main thread before setting the value.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.MainThreadDispatchingObservable`1.SetValueAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Switch to the main thread using <see cref="T:Microsoft.VisualStudio.Threading.JoinableTaskFactory" /> and then update the <see cref="T:Conversations.Shared.BroadcastObservable`1" />.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.Observer">
+            <summary>
+            Utility methods for the <see cref="T:System.IObserver`1" /> interface.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.Observer.Create``1(System.Action{``0},System.Action{System.Exception})">
+            <summary>
+            Creates an <see cref="T:System.IObserver`1" /> instance that passes all calls to one or two delegates provided by the caller.
+            </summary>
+            <typeparam name="T">The type of value to be observed.</typeparam>
+            <param name="listener">A callback that receives each observed value.</param>
+            <param name="completed">A callback that is invoked when the observable object reports that it will no longer send out notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Shared.Observer.Create``2(System.Action{``0,``1},``1,System.Action{System.Exception})">
+            <summary>
+            Creates an <see cref="T:System.IObserver`1" /> instance that passes all calls to one or two delegates and an additional data provided by the caller.
+            </summary>
+            <typeparam name="T1">The type of value to be observed.</typeparam>
+            <typeparam name="T2">The type of the additional data.</typeparam>
+            <param name="listener">A callback that receives each observed value and the <paramref name="additionalData" />.</param>
+            <param name="additionalData">The data pass to <paramref name="listener" /> callback.</param>
+            <param name="completed">A callback that is invoked when the observable object reports that it will no longer send out notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Conversations.Shared.Options.IMarshaledCopilotOptions">
+            <summary>
+            This interface exposes options to the copilot service.
+            </summary>
+        </member>
+        <member name="F:Conversations.Shared.Options.SupportedCopilotModels.SupportedModelIds">
+            <summary>
+            The set of model IDs that the client currently supports.
+            </summary>
+        </member>
+        <member name="F:Conversations.Shared.Options.SupportedCopilotModels.ModelPickerFamilies">
+            <summary>
+            The ordered list of model families that can be used in the model picker (comma separated).
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.Telemetry.MeterInstrumentBag`2">
+            <summary>
+            Collection of metrics associated with a meter that will be posted using a common base event when disposed.
+            Suggested for use with an enum key, and switch expression for an instrument factory.
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.Meter">
+            <summary>
+            Meter that will be used to create instruments.
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.InstrumentFactory">
+            <summary>
+            Factory for creating instruments from <see cref="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.Meter" /> based on a key.
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.BaseEventFactory">
+            <summary>
+            Factory for creating base events for use when posting metric events.
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.TelemetrySession">
+            <summary>
+            Telemetry session to use for posting events.
+            </summary>
+        </member>
+        <member name="P:Conversations.Shared.Telemetry.MeterInstrumentBag`2.SeenPartitions">
+            <summary>
+            Partitions which have had instruments created.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.GetInstrumentSum``1(`1,`0)">
+            <summary>
+            Attempt to get the sum of an instrument.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="partition"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.PostMetricsInPartition(`1)">
+            <summary>
+            Post all accumulated instruments belonging to a partition.
+            </summary>
+            <param name="partition"></param>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.PostAllMetrics">
+            <summary>
+            Post all accumulated instruments. This is also called by <see cref="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.Dispose" />.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.Dispose">
+            <summary>
+            End the lifetime of this meter instrument bag, disposing and sending accumulated instruments as events.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.PostMetricEvents(System.Func{`1,`0,Microsoft.VisualStudio.Telemetry.Metrics.IInstrument,System.Boolean})">
+            <summary>
+            Send events for collected instruments.
+            Instruments that have had sent events will be removed.
+            </summary>
+            <param name="condition">Optional condition, if specified must be true for the event to be created and sent.</param>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.AssertUnhandledInstrument(System.Object)">
+            <summary>
+            Helper for asserting on an unhandled instrument type and returning null. Needed because switch expressions don't allow inline blocks.
+            </summary>
+        </member>
+        <member name="M:Conversations.Shared.Telemetry.MeterInstrumentBag`2.GetGenericTypeName(System.Type)">
+            <summary>
+            Helper to get a subset of more specific generic type names that include type parameters. Mostly for use with IHistogram/ICounter if we need to print an exception that refers to those.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.Telemetry.Processors.CopilotSharedContextProcessor">
+            <summary>
+            This processor adds tags that should be shared across all events and from the current baggage.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.Telemetry.Processors.LegacyTelemetryEventProcessor">
+            <summary>
+            A processor that replaces a <see cref="T:Microsoft.VisualStudio.Telemetry.TelemetryEvent" /> tag with its correlation id.
+            </summary>
+        </member>
+        <member name="T:Conversations.Shared.Telemetry.Processors.TraceLogProcessor">
+            <summary>
+            A processor that logs the start and end of an activity.
+            </summary>
+        </member>
+        <member name="F:Conversations.Shared.Telemetry.TelemetryHelpers.IgnoredTags">
+            <summary>
+            These tags should get propagated through baggage.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Debugging.DeadlockContext">
+            <summary>
+            Contains information about a deadlock in the debugged process.
+            </summary>
+            <param name="StartingThreadId">The "current" or starting thread id in the deadlock chain.</param>
+            <param name="DeadlockedThreads">Map of thread ids to the <see cref="T:Conversations.Shared.DebuggerContext.DeadlockedThreadContext" /> in the deadlock chain.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Debugging.DeadlockContext.#ctor(System.Nullable{System.UInt32},System.Collections.Generic.Dictionary{System.UInt32,Conversations.Shared.DebuggerContext.DeadlockedThreadContext})">
+            <summary>
+            Contains information about a deadlock in the debugged process.
+            </summary>
+            <param name="StartingThreadId">The "current" or starting thread id in the deadlock chain.</param>
+            <param name="DeadlockedThreads">Map of thread ids to the <see cref="T:Conversations.Shared.DebuggerContext.DeadlockedThreadContext" /> in the deadlock chain.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Debugging.DeadlockContext.StartingThreadId">
+            <summary>The "current" or starting thread id in the deadlock chain.</summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Debugging.DeadlockContext.DeadlockedThreads">
+            <summary>Map of thread ids to the <see cref="T:Conversations.Shared.DebuggerContext.DeadlockedThreadContext" /> in the deadlock chain.</summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.BucketizedMeasures">
+            <summary>
+            Bucketized recorder for common performance events
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.BucketizedMeasures.RecordCancel">
+            <summary>
+            Record a failed instance of the event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.BucketizedMeasures.RecordFailed">
+            <summary>
+            Record a failed instance of the event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.BucketizedMeasures.RecordTime(System.TimeSpan,System.Nullable{System.TimeSpan})">
+            <summary>
+            Records a duration into averages and buckets.
+            </summary>
+            <param name="timeSpan">Duration to record.</param>
+            <param name="uiDelay">An isolated duration to isolate event loop delays.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.BucketizedMeasures.AttachToEvent(Microsoft.VisualStudio.Telemetry.TelemetryEvent,System.String)">
+            <summary>
+            Attach the bucketized data to the given <see cref="T:Microsoft.VisualStudio.Telemetry.TelemetryEvent" /> <paramref name="ev" /> with optional prefix <paramref name="prefix" />
+            </summary>
+            <param name="ev">Telemetry event to attach to.</param>
+            <param name="prefix"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.ConversationsTelemetry.CombineBagsWithContext(Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag[])">
+            <summary>
+            Create a new property bag that has all of the properties from <see cref="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.ConversationsTelemetry.ContextBag" /> and other bags.
+            If other bags define a property that exists in ContextBag, the value from the other bag will be used.
+            Other bags are applied left-to-right, so the last bag in the list will have the highest priority.
+            Input bags are not modified.
+            </summary>
+            <param name="otherBags">Bags to copy properties from on top of ContextBag</param>
+            <returns>A new property bag with all the properties of the context and otherBags applied to it</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources">
+            <summary>
+            A static class that serves as a container for objects that are used to send telemetry through Open Telemetry.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.Default">
+            <summary>
+            Gets an <see cref="T:System.Diagnostics.ActivitySource" /> that is configured to create <see cref="T:System.Diagnostics.Activity" /> objects
+            that can get reported as a VS telemetry event when disposed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.BaggageContainer">
+            <summary>
+            Gets the baggage that will get add to all activities.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.Enable">
+            <summary>
+            Configures the <see cref="P:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.Default" /> to send telemetry through the Open Telemetry pipeline.
+            </summary>
+            <remarks>
+            This should get called once at the start of the process. Subsequent calls are no-ops.
+            If this is not called, then <see cref="T:System.Diagnostics.Activity" /> objects created from <see cref="P:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.Default" /> will always be <see langword="null" />.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.ActivitySourceWrapper.StartActivity(System.String,System.Diagnostics.ActivityKind)">
+            <inheritdoc cref="M:System.Diagnostics.ActivitySource.StartActivity(System.String,System.Diagnostics.ActivityKind)" />/&gt;
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.CopilotActivitySources.BaggageWrapper">
+            <summary>
+            A wrapper for the OTel baggage API.
+            This is mainly being used to avoid loading OTel assemblies when OTel telemetry is disabled.
+            We can remove this class and directly use the OTel baggage API once OTel telemetry is enabled by default.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.IdentifierTelemetryExtensions">
+            <summary>
+            Extensions for converting identifier record structs to appropriately named telemetry properties.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.OpenTelemetryDistributedContextPropagator">
+            <summary>
+            A distributed context propagator that uses OpenTelemetry to propagate telemetry-related context, such as activities and baggage.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.OpenTelemetryDistributedContextPropagator.State">
+            <summary>
+            Represents the state of the activity and baggage before the new activity was started.
+            This class is disposable and will restore the previous activity and baggage when disposed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.OpenTelemetryDistributedContextPropagator.CarrierFieldAccessors.JsonRpc.FieldPrefix">
+             <summary>
+             The prefix to use for fields in the carrier to avoid conflicts with properties reserved by JsonRpcRequest (e.g. tracestate, traceparent)
+             and conflicts with other trace strategies (e.g. CorrelationManagerTracingStrategy).
+            
+             We won't need this once we've confirmed that we don't need to keep using other tracing strategies.
+             To get around the issue with reserved properties, we can hardcode those to access the specific property they're mapped to (e.g. "tracestate" maps to <see cref="P:StreamJsonRpc.Protocol.JsonRpcRequest.TraceParent" />).
+             </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.MeterNamePrefix">
+            <summary>
+            Prefix for meters. A meter name is rejected (causing an exception to be thrown) if it is longer than 63 characters, so use a shorter prefix.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.EventNames.CopilotExclusionRulesResponseFault">
+            <summary>
+            Faults encountered when retrieving rules from the endpoint.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.EventNames.CopilotExclusionRuleEvaluationFault">
+            <summary>
+            Faults encountered when evaluating whether a file path matches a rule. This fault resulted in an associated file being excluded. Only reported once per distinct exception kind.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.EventNames.CopilotExclusionServiceRequestFault">
+            <summary>
+            Unhandled faults that bubble up to the exclusion service &amp; result in the exclusion of all files in the current request. Only reported once per distinct exception kind.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames">
+            <summary>
+            All telemetry property names should be defined here, with the exception of AsProperty extension methods in <see cref="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.IdentifierTelemetryExtensions" />
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.ExceptionDetails">
+            <summary>
+            Some exceptions (those which contain other exceptions, or are from a remote process)
+            may attach an object that contains additional details.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.ServiceName">
+            <summary>
+            Package initialization service name.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.ServiceMoniker">
+            <summary>
+            TelemetryComplexProperty containing the moniker of a brokered service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.RequestedType">
+            <summary>
+            A type that was requested at runtime, including the assembly's name and version.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.Reason">
+            <summary>
+            The reason for an editing state change.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.Accepted">
+            <summary>
+            The count of accepted edits.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.Rejected">
+            <summary>
+            The count of rejected edits.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.IsNewFile">
+            <summary>
+            Whether a new file was created.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.PreviousState">
+            <summary>
+            The name of the previous editing state before this one.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.ReviewId">
+            <summary>
+            An ID differentiating file diff review actions initiated by a user.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.Undecided">
+            <summary>
+            The count of edits that were proposed during review, but the user did not make an explicit individual decision about.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CopilotEdits.PathShortHash">
+            <summary>
+            A portion of the related file's path hash, allowing differentiation between different files with edits in the same message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.Indexing.OperationId">
+            <summary>
+            Single operation id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.Indexing.OperationIds">
+            <summary>
+            Array of of operation ids
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.StreamEdits">
+            <summary>
+            Indicates that streamed edits were used as they arrived.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.CopilotResponseStatus">
+            <summary>
+            Response status from Copilot or from the speculation service for a mapping request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.LanguageModel">
+            <summary>
+            Language model used for code mapping request sent to Copilot.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.PromptTokenCount">
+            <summary>
+            Number of tokens in the prompt sent to Copilot to generate the code mapping.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.TargetTokenCount">
+            <summary>
+            Number of tokens in the original target file where the code mapping will be applied.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.ResponseTokenCount">
+            <summary>
+            Number of tokens in the response generated by Copilot for the code mapping.
+            </summary>
+            <remarks>
+            The speculation endpoint does not return token usage so we measure the response content for both
+            Copilot and speculation to get a count that is similar for both. Note that the Copilot code mapping
+            response includes the code language markdown whilst the speculation response does not.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyNames.CodeMapping.MaxPromptTokenCount">
+            <summary>
+            The maximum number of tokens supported in the prompt for the code mapper.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.MeasureNames.CodeMapping.CopilotMapCode">
+            <summary>
+            Used in the timed section where the code mapping request is sent to Copilot and the response processed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.MeasureNames.CodeMapping.SpeculationMapCode">
+            <summary>
+            Used in the timed section where the code mapping request took is sent to the speculation endpoint and the response processed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyValues.FailureReason.CodeMapping.StreamedTextDiffControllerError">
+            <summary>
+            Indicates an error occurred in the StreamedTextDiffController when code mapping.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyValues.FailureReason.CodeMapping.ResponseStatus">
+            <summary>
+            Indicates the code mapping failed due to an error response or missing response.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyValues.FailureReason.CodeMapping.UnexpectedException">
+            <summary>
+            Indicates the code mapping due to an unexpected exception.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyValues.FailureReason.CodeMapping.PromptTooLarge">
+            <summary>
+            Indicates the prompt was too large for the current code mapper.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.PropertyValues.SuggestionNames">
+            <summary>
+            Names reported in <see cref="F:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryConstants.EventNames.FeedbackSuggestions" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExceptionExtensions.AddExtraDetails(System.Collections.Generic.IDictionary{System.String,System.Object},System.Exception)">
+            <summary>
+            Attach an exception's extra capturable details, if any, to a property dictionary.
+            Takes no action if the exception doesn't contain capturable details.
+            </summary>
+            <param name="self">The property dictionary to attach the extra details to.</param>
+            <param name="exception">Exception to attempt capturing details from.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExceptionExtensions.ToDetailsPropertyBag(System.Exception)">
+            <summary>
+            Construct property bag and attach an exception's extra capturable details, if any
+            Returns an empty property bag if the exception doesn't contain capturable details.
+            </summary>
+            <param name="exception">Exception that may contain extra details to capture.</param>
+            <returns>Property dictionary that may contain extra details about the exception.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExceptionExtensions.CaptureDetails(System.Exception)">
+            <summary>
+            Captures extra details from an exception.
+            This includes remote exceptions, aggregate exceptions, and exceptions that contain other exceptions.
+            This will not throw, if it counters an exception then that exception will be attached as an extra exception detail.
+            </summary>
+            <param name="exception">Exception to capture details from.</param>
+            <returns>Any details that were captured from the exception.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.TimeSection``1(Microsoft.VisualStudio.Telemetry.TelemetryScope{``0},System.String)">
+            <summary>
+            Times a region between the call to this and the disposal of the return and adds a the <paramref name="name" /> property to the scope as a metric.
+            </summary>
+            <param name="self">The telemetry scope.</param>
+            <param name="name">The full property name of the metric.</param>
+            <returns>An <see cref="T:System.IDisposable" /> that, when disposed, stops the timer and adds the measure to the scope.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.EnsureEnd``1(Microsoft.VisualStudio.Telemetry.TelemetryScope{``0})">
+            <summary>
+            Ensures the telemetry scope is ended and sent if not already.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.TryEnd``1(Microsoft.VisualStudio.Telemetry.TelemetryScope{``0},Microsoft.VisualStudio.Telemetry.TelemetryResult)">
+            <summary>
+            Ends the scope if it has not already ended.
+            </summary>
+            <remarks>
+            Avoid using this in for every case. <see cref="T:Microsoft.VisualStudio.Telemetry.TelemetryScope`1" /> will throw if you attempt to end multiple times
+            which is a good bug indicator. Sometimes it's neccessary to end the scope when its state is unknown, for that use this.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.StartOperation(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation})">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.StartOperation(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.StartOperation(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation},System.Boolean)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.StartOperation(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String)" />
+            <param name="self"></param>
+            <param name="name"></param>
+            <param name="properties"></param>
+            <param name="sharedBag"></param>
+            <param name="correlation"></param>
+            <param name="singleEvent">Whether or not to make this a single event instead of a start/stop pair.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.StartUserTask(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.Boolean)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.StartUserTask(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.StartUserTask(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.Nullable{Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation},System.Boolean)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.StartUserTask(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,Microsoft.VisualStudio.Telemetry.TelemetrySeverity,System.Collections.Generic.IDictionary{System.String,System.Object})" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostEvent(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySession.PostEvent(System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostEvent(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySession.PostEvent(System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostEvent(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySession.PostEvent(System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostEvent(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}})">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySession.PostEvent(System.String)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Exception,Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation,System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.String,System.Exception)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Exception,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.String,System.Exception)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.Exception,Microsoft.VisualStudio.Telemetry.TelemetryEventCorrelation,Microsoft.VisualStudio.Telemetry.TelemetryPropertyBag,System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.String,System.Exception)" />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Conversations.Internal.Telemetry.TelemetryExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}})">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetrySessionExtensions.PostFault(Microsoft.VisualStudio.Telemetry.TelemetrySession,System.String,System.String)" />
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>ct/hw3OS0XTxFVwWxENCpyPJrHQVZScwO7gRwvXIxoU=</DigestValue></Reference></SignedInfo><SignatureValue>IueWiCOO6KWTLw/GbqTV59DdEUXIFJQ8sy6sxY+JAr3GrLjeRc40C25ACxDeI5Y/BdHB70YVKJhaeEHzEn9Kc5P6Cp9fuakhXY68DU+Yd905/vR4PSQYZvUvJGl+QjJikreIHgfybijQX2EGZZYnhprQr8Du0pDS4sUZfJhg2ZnZ2mu3BHnSmiY0Me5qEBKQqFvyFmcTiZZib4fTOIqSCtScs1UX5nKcRZH3LO9vxdpJ5L0XHe17XnkYTZgibEG6dLCnqvkUbOgNtla0K3sfGebP8MpIPSi4JYw4Sf440vh/aEiHKcST6EKR+PqPcYd5loBmZF8OdaSmEA8xFm4Fmw==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

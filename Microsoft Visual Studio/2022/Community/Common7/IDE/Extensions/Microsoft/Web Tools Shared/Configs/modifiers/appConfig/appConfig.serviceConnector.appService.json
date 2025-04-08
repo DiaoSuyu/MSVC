@@ -1,0 +1,15 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "SystemIdentity",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_APPCONFIGURATION_ENDPOINT",
+          "customizedName": "@@connectionId@@"
+        }
+      ]
+    }
+  ]
+}

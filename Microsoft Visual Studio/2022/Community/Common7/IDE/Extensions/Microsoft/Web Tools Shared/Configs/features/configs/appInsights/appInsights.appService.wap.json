@@ -1,0 +1,19 @@
+{
+  "components": {
+    "appInsightsConfig": {
+      "modifiers": [
+        "appInsights.appInsightsConfig"
+      ]
+    },
+    "appServiceSettings": {
+      "modifiers": [
+        "appInsights.appServiceSettings"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appInsights.nuget"
+      ]
+    }
+  }
+}

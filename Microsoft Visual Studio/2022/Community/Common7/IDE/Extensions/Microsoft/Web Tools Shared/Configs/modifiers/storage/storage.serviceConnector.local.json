@@ -1,0 +1,50 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "AccessKey",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_STORAGEACCOUNT_CONNECTIONSTRING",
+          "customizedName": "@@connectionId@@"
+        }
+      ],
+      "additionalConfigs": [
+        {
+          "configName": "@@connectionId@@:blobServiceUri",
+          "configValue": "@@BlobEndpoint@@"
+        },
+        {
+          "configName": "@@connectionId@@:queueServiceUri",
+          "configValue": "@@QueueEndpoint@@"
+        },
+        {
+          "configName": "@@connectionId@@:tableServiceUri",
+          "configValue": "@@TableEndpoint@@"
+        }
+      ]
+    },
+    {
+      "connectorAuthType": "UserAccount",
+      "configNameCustomizations": [
+        {
+          "originalName": "AZURE_STORAGEACCOUNT_BLOBENDPOINT",
+          "customizedName": "@@connectionId@@__blob_user"
+        },
+        {
+          "originalName": "AZURE_STORAGEACCOUNT_QUEUEENDPOINT",
+          "customizedName": "@@connectionId@@__queue_user"
+        },
+        {
+          "originalName": "AZURE_STORAGEACCOUNT_FILEENDPOINT",
+          "customizedName": "@@connectionId@@__file_user"
+        },
+        {
+          "originalName": "AZURE_STORAGEACCOUNT_TABLEENDPOINT",
+          "customizedName": "@@connectionId@@__table_user"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>ufunction</Title>
+			<Shortcut>ufunction</Shortcut>
+			<Description>Unreal Engine UFunction 宏</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<Default>MyFunction</Default>
+					<ToolTip>UFUNCTION 名称</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>type</ID>
+					<Default>void</Default>
+					<ToolTip>返回类型</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[UFUNCTION()
+				$type$ $name$($end$);]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

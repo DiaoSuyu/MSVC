@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/servicehub.config.schema.json",
+  "controller": {
+    "args": [ "$PIPE" ],
+    "executable": "./ServiceHub/controller/Microsoft.ServiceHub.Controller.exe",
+    "contextEnvironmentVariables": [ "VSAPPIDDIR", "VSAPPIDNAME", "VSROOTSUFFIX" ],
+    "additionalEnvironmentVariables": {
+      "NODE_OPTIONS": "",
+      "COMPLUS_FusionEnableForcedFullClosureWalk": "1",
+      "DOTNET_STARTUP_HOOKS": "",
+      "COMPlus_ThreadPool_UsePortableThreadPool": "0",
+      "DOTNET_TC_CallCountThreshold":  "1000"
+    },
+    "dotnetRoot": "../dotnet/net8.0/runtime"
+  },
+  "hosts": {
+    "rootDir": "./ServiceHub/Hosts",
+    "appConfigFallback": "devenv.exe.config"
+  },
+  "services": {
+    "rootDir": "./ServiceHub/Services",
+    "discoveryServices": [ "VsixServiceDiscovery" ],
+    "serviceHostRestrictions": 
+    [  
+      {
+        "hostAliases": [ "netfx", "netfx.anycpu", "netfx.x64", "netfx.x86", "netfx.arm64", "desktopClr", "desktopClr.x64", "desktopClr.x86" ],
+        "allowedServices": [
+          "CodeLens",
+          "vs-intellicode-models64",
+          "vs-intellicode-models32",
+          "vs-intellicode-models-arm64",
+          "LiveUnitTesting",
+          "Microsoft.VisualStudio.LiveUnitTesting.BuildV2",
+          "Microsoft.Cosmos.ScopeStudio.ServiceHub.LanguageService",
+          "Microsoft.VisualStudio.Kubernetes.Debugging.Connect",
+          "Microsoft.VisualStudio.Kubernetes.Debugging.KubernetesManagement"
+        ]
+      }
+    ]
+  }
+}

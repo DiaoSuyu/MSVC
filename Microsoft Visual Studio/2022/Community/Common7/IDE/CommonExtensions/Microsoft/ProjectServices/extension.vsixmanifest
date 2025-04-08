@@ -1,0 +1,20 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.ProjectServices" Version="17.12.9.20817" Language="en-US" Publisher="Microsoft Corporation" />
+    <DisplayName>Microsoft Visual Studio ProjectServices</DisplayName>
+    <Description xml:space="preserve">Microsoft Visual Studio Project Services</Description>
+  </Metadata>
+  <Installation SystemComponent="true" AllUsers="true" Experimental="false">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <!-- What we put here doesn't really matter (amd64 works for arm64) because this is a system component, and the real arch is set elsewhere. -->
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.ProjectServices.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.ProjectServices.dll" />
+  </Assets>
+</PackageManifest>

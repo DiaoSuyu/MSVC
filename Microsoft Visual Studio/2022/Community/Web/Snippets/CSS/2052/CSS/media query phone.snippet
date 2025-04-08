@@ -1,0 +1,37 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>对电话的媒体查询</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>@media-phone</Shortcut>
+    <Description>对典型电话分辨率的媒体查询</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>minwidth</ID>
+        <ToolTip>最小宽度值</ToolTip>
+        <Default>375px</Default>
+      </Literal>
+      <Literal>
+        <ID>maxwidth</ID>
+        <ToolTip>最大宽度值</ToolTip>
+        <Default>667px</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="css" Kind="AtDirectiveName">
+        <![CDATA[/* typical phone screen resolution */
+@media only screen and (max-width : $maxwidth$) {
+  $selected$$end$
+}
+/* landscape orientation */
+@media only screen and (min-width : $minwidth$) and (max-width : $maxwidth$) and (orientation : landscape) {
+}
+/* portrait orientation */
+@media only screen and (min-width : $minwidth$) and (max-width : $maxwidth$) and (orientation : portrait) {
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

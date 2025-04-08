@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Getting started with GitHub"
+           Description="Basics of GitHub and using Git in Visual Studio. Back up your code, view revision history, and much more."
+           RequiredPackageNames="Microsoft.VisualStudio.Workload.NetWeb|Microsoft.VisualStudio.Workload.ManagedDesktop,Microsoft.NetCore.Component.DevelopmentTools"
+           Id="GitHub"
+           SortOrder="600"
+           EstimatedMinutesToComplete="10"
+           IconPath="GitHub_Guide.png">
+    <vst:Guide.Solution>
+        <vst:NewSolution Name="GitHubApp">
+            <vst:NewSolution.Projects>
+                <vst:NewProjectFromDotNetTemplate Name="GitHubApp"
+                                                  CreateInSolutionFolder="true"
+                                                  TemplateName="console"
+                                                  TemplateLanguage="C#"
+                                                  ProjectFileExtension="csproj"/>
+            </vst:NewSolution.Projects>
+        </vst:NewSolution>
+    </vst:Guide.Solution>
+    <vst:Step Title="Welcome to GitHub"
+              Id="Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn to:
+- back up your code to the cloud remotely
+- view your revision history
+- collaborate with others
+- sync code across your devices
+- so much more!
+
+**GitHub** is a version control platform for hosting development projects. You can interact with GitHub directly without leaving Visual Studio.
+
+**Git** is an open-source version control system. GitHub is a Git provider.
+
+The following image describes a high level overview for GitHub and Visual Studio. We'll explore these concepts in more detail during this guide.
+
+![GitHub and Visual Studio](ghtutorial1.png "GitHub and Visual Studio")
+
+We've created and opened a new test project for you to follow along.
+
+Select **Continue** to proceed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="What is a Repository?"
+              Id="AboutProject"
+              ToolWindowToOpen="1C64B9C2-E352-428E-A56D-0ACE190B99A6"
+              MenuToHighlight="View">
+        <vst:Step.Description>
+            <![CDATA[
+When using GitHub with a project, the first step is to create a repository. 
+
+A **repository** is a database that Git uses to track changes made to your code over time.
+
+There are two types of repositories: 
+- **remote**, which exists on the cloud and is provided by GitHub 
+- **local**, which exists on your local machine. The local repository can be considered a **"clone"** of the remote repository because it is a copy of the content that exists in the remote repository
+
+As you develop, you can update the local repository by 'committing' your work, which updates the database with your changes. You can then 'push' your local changes to the remote repository, which updates the cloud database.
+
+![Local and Remote Repositories](ghtutorial2.png "Local and Remote Repositories")
+
+**YOUR TURN: Open the Git Changes window**
+
+We have automatically opened the **Git Changes** window for you which should look like the image below:
+
+![Git Changes Window](ghtutorial13.png "Git Changes Window")
+
+In the future, you can open the **Git Changes** window by selecting **View** > **Git Changes** from the top menu bar
+
+Select **Continue** to learn how to create a repository.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Creating a Repository"
+              Id="AboutProject">
+        <vst:Step.Description>
+            <![CDATA[
+Follow the following steps to create your local and remote repositories.
+
+**YOUR TURN: Create a Git repository**
+1. From the **Git Changes** window, Click on **Create Git Repository...**
+2. You should now be on the **Create a Git Repository** window. If you're not signed into GitHub in Visual Studio, you can do so by clicking the Account dropdown which will take you to the GitHub website to sign in or to create an account.
+
+The default settings are recommended. Your repository will be defaulted to **Private** meaning that only you can see the repository hosted on GitHub. 
+
+3. Finally, click **Create and Push**.
+
+Select **Continue** to learn how to commit your changes.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    
+    <vst:Step Title="Committing Changes"
+              Id="RunApp"
+              FileToOpen="Program.cs"
+              >
+        <vst:Step.Description>
+            <![CDATA[
+Now, we will update your local repository with your most recent changes. This process is called "committing".
+
+We have opened a source code file to edit. If it did not open, [select this link to open the Program.cs file](file://project/program.cs).
+
+**YOUR TURN: Make changes and then commit**
+1. Write a new line of code on line 3. For example,
+```
+Console.WriteLine("New Change Added!");
+```
+2. Save the file {KeyboardShortcut:File.SaveSelectedItems}.
+3. In the Git Changes window, check that the file has an **M** next to it, meaning it has been **modified**.
+4. Write a descriptive message in the text box. 
+5. A notification bar will prompt you to configure your user name and email address if you haven't already, click "Configure" to do so.
+6. Finally, click **Commit All** in the Git Changes window to commit your changes to your local repository.
+
+    ![Commit All](ghtutorial7.png "Commit All")
+
+As a good practice, when you develop, you should make commits frequently. 
+
+Select **Continue** to learn to push.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Pushing Changes"
+              Id="TryCounter">
+        <vst:Step.Description>
+            <![CDATA[
+Changes we have committed are now saved to our local repository, but the remote repository has not been updated. We will **push** these changes to keep it up to date.
+
+**YOUR TURN: Push your changes**
+1. Verify your committed change by noting the link that says "1 outgoing / 0 incoming" in the Git Changes window above the "Enter a message" textbox.
+The 1 outgoing means there is change that is ready to be pushed 'out' to the remote repository.
+2. Click the **Push** button that is shown below.
+
+    ![Push Button](ghtutorial10.png "Push Button")
+
+3. Verify that the push was successful. A yellow banner should pop up and the link should now say "0 outgoing / 0 incoming" to reflect that there are no more un-pushed changes.
+
+Congratulations! Your changes are now backed up to the cloud in your GitHub account.
+
+**Reminder: you can only push changes that have been committed to your local repository first**
+
+It is recommended that you push your changes at the end of every working session in order to back up your code to the cloud.
+
+Select **Continue** to learn how to access your repository.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Accessing the Remote Repository"
+              Id="AddComponent">
+        <vst:Step.Description>
+            <![CDATA[
+Now that the changes are pushed to your remote repository, you can access your code using the GitHub website.
+
+You can get to the URL for your repository by using the selecting the three dots in **Git Changes** window:
+
+![View In Browser](ghtutorial14.png "View In Browser")
+
+Alternatively, you can visit the [GitHub website](https://github.com/), log in, and navigate to the left panel as shown below:
+
+![GitHub Website](ghtutorial12.png "GitHub Website")
+
+Once you are on your repository page, you can view your source code, clone a local repository on another device, add collaborators, and much more.
+
+Select **Continue** to review best practices.
+]]>
+        
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="GitHub Best Practices"
+              Id="BestPractices"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+You have reached the end of the guide and can now answer the following questions:
+- What is GitHub?
+- What is a repository?
+- How do I create a repository when using Visual Studio?
+- How do I commit changes in Visual Studio?
+- How do I push changes in Visual Studio?
+- How do I access my GitHub repository through the web?
+
+As you develop, here are some best practices to keep in mind:
+- When you start a new project, create a repository to back up your code and start tracking changes.
+- Commit your changes frequently.
+- Commit your changes before you push because you can only push changes you have committed.
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=GitHub)**
+
+![Octocat Teacher](ghtutorial15.png "Octocat Teacher")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+</vst:Guide>

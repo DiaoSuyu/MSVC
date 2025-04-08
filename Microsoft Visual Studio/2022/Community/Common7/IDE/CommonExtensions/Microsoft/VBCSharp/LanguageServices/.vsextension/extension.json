@@ -1,0 +1,133 @@
+{
+  "controlPlacements": [
+    {
+      "controlName": "Microsoft.VisualStudio.LanguageServices.CSharpExtension.ProjectCommandGroupWithPlacement",
+      "parent": {
+        "legacyParentId": {
+          "guid": "d309f791-903f-11d0-9efc-00a0c911004f",
+          "id": 1026
+        },
+        "priority": 1024
+      }
+    },
+    {
+      "controlName": "Microsoft.VisualStudio.LanguageServices.CSharp.Interactive.ResetInteractiveWindowFromProjectCommand",
+      "parent": {
+        "parentName": "Microsoft.VisualStudio.LanguageServices.CSharpExtension.ProjectCommandGroupWithPlacement",
+        "relativeDisplayOrder": 100
+      }
+    },
+    {
+      "controlName": "Microsoft.VisualStudio.LanguageServices.CSharp.Interactive.OpenInteractiveWindowCommand",
+      "parent": {
+        "legacyParentId": {
+          "guid": "d309f791-903f-11d0-9efc-00a0c911004f",
+          "id": 415
+        },
+        "priority": 32768
+      }
+    },
+    {
+      "controlName": "Microsoft.VisualStudio.LanguageServices.CSharp.OpenSemanticSearchWindowCommand",
+      "parent": {
+        "legacyParentId": {
+          "guid": "d309f791-903f-11d0-9efc-00a0c911004f",
+          "id": 415
+        },
+        "priority": 32784
+      }
+    }
+  ],
+  "controlGroups": [
+    {
+      "name": "Microsoft.VisualStudio.LanguageServices.CSharpExtension.ProjectCommandGroupWithPlacement"
+    }
+  ],
+  "toolWindows": [
+    {
+      "identifier": "Microsoft.VisualStudio.LanguageServices.CSharp.SemanticSearchToolWindow",
+      "placement": "Floating",
+      "dockDirection": "Bottom",
+      "allowAutoCreation": true,
+      "serviceMoniker": "Microsoft.VisualStudio.LanguageServices.CSharp.GeneratedToolWindowProvider;4.13"
+    }
+  ],
+  "commandSets": [
+    {
+      "name": "Microsoft.VisualStudio.LanguageServices.CSharpExtension",
+      "serviceMoniker": {
+        "name": "Microsoft.VisualStudio.LanguageServices.CSharpExtensionCommandSet",
+        "version": "4.13"
+      },
+      "commands": [
+        {
+          "tooltipText": "%CSharpLanguageServiceExtension.OpenInteractiveWindow.DisplayName%",
+          "flags": "None",
+          "name": "Microsoft.VisualStudio.LanguageServices.CSharp.Interactive.OpenInteractiveWindowCommand",
+          "displayName": "%CSharpLanguageServiceExtension.OpenInteractiveWindow.DisplayName%",
+          "contextProviderName": "Editor,Shell"
+        },
+        {
+          "tooltipText": "%CSharpLanguageServiceExtension.ResetInteractiveWindowFromProject.DisplayName%",
+          "flags": "None",
+          "visibleWhen": {
+            "identifier": "99c7f08cf0ec441f889daa5ee6ed1ad5",
+            "expression": "c0 & c1",
+            "terms": {
+              "c0": "ActiveProjectCapability:CSharp",
+              "c1": "ActiveProjectBuildProperty:TargetFrameworkMoniker=[.]NETFramework.*"
+            }
+          },
+          "name": "Microsoft.VisualStudio.LanguageServices.CSharp.Interactive.ResetInteractiveWindowFromProjectCommand",
+          "displayName": "%CSharpLanguageServiceExtension.ResetInteractiveWindowFromProject.DisplayName%",
+          "contextProviderName": "Editor,Shell"
+        },
+        {
+          "tooltipText": "%CSharpLanguageServiceExtension.OpenSemanticSearchWindow.DisplayName%",
+          "flags": "None",
+          "visibleWhen": {
+            "identifier": "5e1d28c9574d44e38d5f6df4f502416d",
+            "expression": "c0",
+            "terms": {
+              "c0": "ClientUIContext:d5801818-6009-40be-9204-8897c23d2856"
+            }
+          },
+          "icon": {
+            "IconName": "KnownMonikers.FindSymbol",
+            "iconSettings": "IconAndText"
+          },
+          "name": "Microsoft.VisualStudio.LanguageServices.CSharp.OpenSemanticSearchWindowCommand",
+          "displayName": "%CSharpLanguageServiceExtension.OpenSemanticSearchWindow.DisplayName%",
+          "contextProviderName": "Editor,Shell"
+        }
+      ],
+      "dynamicCommandAnchors": []
+    }
+  ],
+  "services": [
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.VisualStudio.LanguageServices.CSharpExtensionCommandSet",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "4.13",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.VisualStudio.LanguageServices.CSharp.dll",
+        "fullClassName": "Microsoft.VisualStudio.LanguageServices.CSharpExtension"
+      },
+      "allowHostingInProcess": true
+    },
+    {
+      "host": "dotnetExtensibility",
+      "name": "Microsoft.VisualStudio.LanguageServices.CSharp.GeneratedToolWindowProvider",
+      "serviceBaseDirectory": ".",
+      "serviceAudience": "Local | RemoteExclusiveClient",
+      "version": "4.13",
+      "entryPoint": {
+        "assemblyPath": "Microsoft.VisualStudio.LanguageServices.CSharp.dll",
+        "fullClassName": "Microsoft.VisualStudio.LanguageServices.CSharpExtension"
+      },
+      "allowHostingInProcess": true
+    }
+  ]
+}

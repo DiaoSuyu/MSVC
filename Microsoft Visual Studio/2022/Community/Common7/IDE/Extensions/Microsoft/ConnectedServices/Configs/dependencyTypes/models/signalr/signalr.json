@@ -1,0 +1,21 @@
+{
+  "id": "signalr",
+  "isBase": true,
+  "name": "strings:#/signalRDependencyTypeName",
+  "description": "strings:#/signalRDependencyTypeDescription",
+  "isRecommended": true,
+  "recomendationMessage": "strings:#/signalRDependencyTypeRecomendation",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionSettingName",
+  "connectionSettingValueDisplayName": "strings:#/endpoint",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3796
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3796
+  },
+  "displayOrder": 3000,
+  "actions": [],
+  "tags": []
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "itemTemplates.itemTemplateCreator",
+  "order": 40,
+  "model": {
+    "itemTemplate": "Azure.Function.RabbitMQTrigger",
+    "parameters": {
+      "ConnectionStringSetting": "@@connectionId@@",
+      "IncludeLaunchSettings": "False"
+    }
+  }
+}

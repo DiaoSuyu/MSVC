@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将 BindingSource.Current 转换成 DataTable 中的特定行</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>获取绑定源中的当前行，然后将其转换成特定行。  使用建议的方法捕获当前行，而不要使用 BindingSource.Position，因为它可能根据 DataView 的排序返回不同的行</Description>
+      <Shortcut>dtBindingSourceCurrent</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Data</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.XML</Assembly>
+        </Reference>
+      </References>
+      <Declarations>
+        <Object>
+          <ID>rowType</ID>
+          <Type>DataRow</Type>
+          <ToolTip>替换为数据集中 DataRow 的类型</ToolTip>
+          <Default>NorthwindDataSet.CustomersRow</Default>
+        </Object>
+        <Object>
+          <ID>bindingSource</ID>
+          <Type>BindingSource</Type>
+          <ToolTip>替换为要从中捕获行的 BindingSource</ToolTip>
+          <Default>CustomersBindingSource</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB"><![CDATA[Dim row As $rowType$
+row = CType(CType(Me.$bindingSource$.Current, DataRowView).Row, $rowType$)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

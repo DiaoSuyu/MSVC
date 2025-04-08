@@ -1,0 +1,36 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.Package.TypeScript.TSServer.b6fe773c-24c4-428e-9557-0883d0cbe5b4" Version="5.2.30824.1" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>TypeScript Language Server</DisplayName>
+    <Description>Visual Studio package for the TypeScript language server</Description>
+    <PackageId>Microsoft.VisualStudio.Package.TypeScript.TSServer</PackageId>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Pro">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Pro">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,]" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies></Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,]" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Package.TypeScript.TSServer.pkgdef" />
+  </Assets>
+</PackageManifest>

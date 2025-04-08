@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>运行时创建位图</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建并填充 Bitmap 对象，然后在现有的 Windows 窗体 PictureBox 控件中显示该对象。</Description>
+      <Shortcut>drawBitmap</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Width</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为位图的宽度(以像素为单位)。</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>Height</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为位图的高度(以像素为单位)。</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>pixelColor</ID>
+          <Type>System.Drawing.Color</Type>
+          <ToolTip>替换为位图的背景色。</ToolTip>
+          <Default>Color.White</Default>
+        </Literal>
+        <Object>
+          <ID>control</ID>
+          <Type>PictureBox</Type>
+          <ToolTip>替换为控件。</ToolTip>
+          <Default>PictureBox1</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim flag As New Bitmap($Width$, $Height$)
+Dim x As Integer
+Dim y As Integer
+' Make the entire bitmap white.
+For x = 0 To flag.Height - 1
+    For y = 0 To flag.Width - 1
+        flag.SetPixel(x, y, $pixelColor$)
+    Next
+Next
+
+' Draw a diagonal red stripe.
+For x = 0 To flag.Height - 1
+    flag.SetPixel(x, x, Color.Red)
+Next
+$control$.Image = flag
+
+
+            ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

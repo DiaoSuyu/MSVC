@@ -1,0 +1,130 @@
+{
+  "restore": {
+    "order": 10,
+    "group": "0_edit"
+  },
+  "connect": {
+    "order": 20,
+    "group": "0_edit"
+  },
+  "edit": {
+    "order": 20,
+    "group": "0_edit"
+  },
+  "remove": {
+    "order": 30,
+    "group": "0_edit"
+  },
+  "ignore": {
+    "order": 40,
+    "group": "0_edit"
+  },
+  "ignoreInAllProfiles": {
+    "order": 50,
+    "group": "0_edit"
+  },
+  "appServiceSettings": {
+    "order": 8,
+    "group": "10_navigate"
+  },
+  "openInPortal": {
+    "order": 10,
+    "group": "10_navigate"
+  },
+  "openDeveloperHub": {
+    "order": 10,
+    "group": "10_navigate"
+  },
+  "openPowerApps": {
+    "order": 11,
+    "group": "10_navigate"
+  },
+  "openPowerPlatformAdminCenter": {
+    "order": 12,
+    "group": "10_navigate"
+  },
+  "openStorageExplorer": {
+    "order": 15,
+    "group": "10_navigate"
+  },
+  "importSSLCertificate": {
+    "order": 10,
+    "group": "10_navigate"
+  },
+  "openInAppInsights": {
+    "order": 17,
+    "group": "10_navigate"
+  },
+  "openInContainerTools": {
+    "order": 17,
+    "group": "10_navigate"
+  },
+  "openInManagementPortal": {
+    "order": 18,
+    "group": "10_navigate"
+  },
+  "openInSQLServerExplorer": {
+    "order": 18,
+    "group": "10_navigate"
+  },
+  "appConfigConfigurationExplorer": {
+    "order": 20,
+    "group": "10_navigate"
+  },
+  "appConfigFeatureManager": {
+    "order": 30,
+    "group": "10_navigate"
+  },
+  "appConfigImportExport": {
+    "order": 40,
+    "group": "10_navigate"
+  },
+  "attachDebugger": {
+    "order": 50,
+    "group": "10_navigate"
+  },
+  "startProfiling": {
+    "order": 60,
+    "group": "10_navigate"
+  },
+  "stopProfiling": {
+    "order": 70,
+    "group": "10_navigate"
+  },
+  "viewStreamingLogs": {
+    "order": 80,
+    "group": "10_navigate"
+  },
+  "startApplication": {
+    "order": 90,
+    "group": "10_navigate"
+  },
+  "stopApplication": {
+    "order": 92,
+    "group": "10_navigate"
+  },
+  "downloadPublishProfile": {
+    "order": 100,
+    "group": "10_navigate"
+  },
+  "learnMore": {
+    "order": 10,
+    "group": "20_help"
+  },
+  "manageLocalSecrets": {
+    "order": 10,
+    "group": "0_edit"
+  },
+  "addMigration": {
+    "order": 10,
+    "group": "10_navigate"
+  },
+  "updateDatabase": {
+    "order": 10,
+    "group": "10_navigate"
+  },
+  "createSQLScript": {
+    "order": 11,
+    "group": "10_navigate"
+  }
+}

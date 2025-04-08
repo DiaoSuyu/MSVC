@@ -1,0 +1,7 @@
+[$RootKey$\RuntimeConfiguration\dependentAssembly\bindingRedirection\{70B89C5F-515C-6C59-7F34-08D1715573D0}]
+"name"="ServiceHub.Host.Extensibility.Contracts"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"oldVersion"="0.0.0.0-17.12.0.0"
+"newVersion"="17.0.0.0"
+"codeBase"="$PackageFolder$\ServiceHub.Host.Extensibility.Contracts.dll"

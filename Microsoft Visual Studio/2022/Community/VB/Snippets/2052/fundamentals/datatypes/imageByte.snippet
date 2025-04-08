@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将图像转换为 Byte()</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将图像转换为 Byte()。字节数组通常是图像信息在数据库中存储的方式</Description>
+      <Shortcut>imageByte</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>inputImage</ID>
+          <Type>item</Type>
+          <ToolTip>替换为输入图像的名称。</ToolTip>
+          <Default>img</Default>
+        </Literal>
+        <Literal>
+          <ID>outputByteArray</ID>
+          <Type>item</Type>
+          <ToolTip>替换为输出字节数组的名称。</ToolTip>
+          <Default>outBytes</Default>
+        </Literal>
+        <Literal>
+          <ID>tempStream</ID>
+          <Type>item</Type>
+          <ToolTip>替换为用于读取图像数据的临时流的名称。</ToolTip>
+          <Default>ms</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Public Function GetByteArrayFromImage(ByVal $inputImage$ As Bitmap) As Byte()
+        Dim $tempStream$ As New System.IO.MemoryStream
+        $inputImage$.Save($tempStream$, Imaging.ImageFormat.Bmp)
+        Dim $outputByteArray$(CInt($tempStream$.Length - 1)) As Byte
+        $tempStream$.Seek(0, System.IO.SeekOrigin.Begin)
+        $tempStream$.Read($outputByteArray$, 0, CInt($tempStream$.Length))
+        Return $outputByteArray$
+    End Function]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,3 @@
+[$RootKey$\Microsoft.VisualStudio.Package.TypeScript.TSServer]
+"TSServerVsixVersion"="5.2"
+"TSServerVsixDirectory"="$PackageFolder$"

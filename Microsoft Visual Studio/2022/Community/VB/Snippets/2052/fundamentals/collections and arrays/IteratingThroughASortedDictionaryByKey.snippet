@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>按键对已排序字典进行循环访问。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>根据键的已排序列表循环访问字典中的所有项。</Description>
+      <Shortcut>colIterSort</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>itemVar</ID>
+          <ToolTip>替换为集合中的项的标识符。</ToolTip>
+          <Default>student</Default>
+        </Literal>
+        <Literal>
+          <ID>keyVar</ID>
+          <ToolTip>替换为集合中键的标识符。</ToolTip>
+          <Default>rank</Default>
+        </Literal>
+        <Literal>
+          <ID>keyType</ID>
+          <ToolTip>替换为集合中的键的类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>itemType</ID>
+          <ToolTip>替换为集合中的项的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>dicVar</ID>
+          <Type>IDictionary(Of TKey, TValue)</Type>
+          <ToolTip>替换为要循环访问的已排序字典。</ToolTip>
+          <Default>sortedStudents</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[ ' Loop through the items based on key
+        For Each $keyVar$ As $keyType$ In $dicVar$.Keys
+            Dim $itemVar$ As $itemType$ = $dicVar$.Item($keyVar$)
+
+        Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

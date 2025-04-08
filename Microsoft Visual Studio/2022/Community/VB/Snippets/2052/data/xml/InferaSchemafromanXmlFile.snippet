@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从 XML 文件推断和创建架构</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从现有的 XML 文件推断架构，并将其另存为单独的架构文件。</Description>
+      <Shortcut>xmlInfer</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Xml.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Xml</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Xml.Schema</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+	<Literal>
+	  <ID>XmlFile</ID>
+	  <Type>String</Type>
+	  <ToolTip>替换为要从中推断架构的 XML 文件。</ToolTip>
+	  <Default>"sample.xml"</Default>
+	</Literal>
+	<Literal>
+	  <ID>XsdFile</ID>
+	  <Type>String</Type>
+	  <ToolTip>替换为要将架构保存到的 XSD 文件名。</ToolTip>
+	  <Default>"sampleSchema.xsd"</Default>
+	</Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim infer = New XmlSchemaInference()
+Dim sc = New XmlSchemaSet()
+sc = infer.InferSchema(New XmlTextReader($xmlFile$))
+
+Dim w = XmlWriter.Create(New StreamWriter($XsdFile$))
+For Each schemafile As XmlSchema In sc.Schemas()
+    schemafile.Write(w)
+Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,34 @@
+﻿.treeGridContainer .text-cell {
+    text-align: left;
+}
+
+    .treeGridContainer .text-cell > span {
+        text-overflow: ellipsis;
+    }
+
+.duration-container {
+    position: relative;
+}
+
+.percentage-bar {
+    border: 1px solid var(--CpuUsageTool-FlatFunctionsUsageBarBackground-Background, hotpink);
+    background-color: var(--CpuUsageTool-FlatFunctionsUsageBarBackground-Background, hotpink);
+    margin-left: auto;
+    border-radius: .25em;
+    right: 0px;
+    top: 0px;
+    height: 16px;
+}
+
+.treeGridRow.selected .percentage-bar {
+    background-color: transparent;
+}
+
+.duration-metrics {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    text-overflow: ellipsis;
+    display: block;
+}

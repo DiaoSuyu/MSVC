@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+    xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal" 
+    Title="Welcome to Visual Studio: Part 2 (Python)"
+    Description="Learn the basics of Python programming in Visual Studio." 
+    RequiredPackageNames="Microsoft.VisualStudio.Component.CoreEditor,Microsoft.Component.PythonTools"
+    Id="Welcome.Python" 
+    SortOrder="013" 
+    EstimatedMinutesToComplete="6" 
+    ShowInStartPage="false"
+    IconPath="Welcome.Python.png">
+
+    <vst:Guide.Solution>
+        <vst:NewSolution Name="Welcome.Python">
+            <vst:NewSolution.Projects>
+                <vst:NewProjectFromSourceProject Name="Welcome.Python"
+                                                 CreateInSolutionFolder="true"
+                                                 ProjectFileExtension="pyproj"/>
+            </vst:NewSolution.Projects>
+        </vst:NewSolution>
+    </vst:Guide.Solution>
+
+    <vst:Step Title="Welcome to Visual Studio: Part 2" 
+        Id="Welcome.Python.Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll get a brief introduction to editing and debugging with the Visual Studio IDE with **Python**. 
+
+This is Part 2 of the *Welcome to Visual Studio* guide. If you haven't already, you should complete [Part 1](vscmd://Help.StartGuide?args=Welcome), which introduces you to the Visual Studio IDE.
+
+In this guide, you'll learn how to edit and debug a simple Python console application, including:
+
+- Running the application.
+- Using IntelliSense to write code faster.
+- Using the Quick Actions window to find and apply code fixes.
+- Debugging the application at run time.
+- Setting breakpoints and stepping through code.
+- Inspecting variables and the call stack.
+
+Ready to start? Select **Continue** to begin!
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Running your app" 
+        Id="Welcome.Python.Run"
+        FileToOpen="Welcome.Python.py"
+        CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+We've created a Python project for you. You should see **Welcome.Python.py** open in the editor. This is the file you'll be working with in this guide.
+
+To run the application, select [**Debug** > **Start Debugging**](vscmd://Debug.Start) {KeyboardShortcut:Debug.Start} from the menu bar. You can also use this button on the toolbar:
+
+![Screenshot of the Start Debugging button in the toolbar](Welcome.Python.Run.StartDebugging.png)
+
+The application will run and prompt you to enter a name. Enter a name and press `Enter`. The application will then display a greeting.
+
+![A screenshot of the application running in the console window. The user has been prompted for their name. The user has responded, and the output message is displayed. The program loops and the user entered their name the second time.](Welcome.Python.Run.png)
+
+The program is written to loop forever. End the program by selecting [**Debug** > **Stop Debugging**](vscmd://Debug.StopDebugging) {KeyboardShortcut:Debug.StopDebugging} from the menu bar or clicking this button on the toolbar:
+
+![Screenshot of the Stop Debugging button in the toolbar](Welcome.Python.Run.StopDebugging.png)
+
+Next we're going to make some changes to the code. Select **Continue** to proceed.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Using IntelliSense to write code faster" 
+        Id="Welcome.Python.Editing"
+        FileToOpen="Welcome.Python.py"
+        CenterLineNumber="11">
+        <vst:Step.Description>
+            <![CDATA[
+The console output from the app is a little crowded. Let's add a space between each iteration of the loop to make it easier to read.
+
+Place the text caret at the end of the last line. Press `Enter` to create a new line and then type the following characters: `p` `r`. As you're typing, notice the window that appears. This is **IntelliSense** offering suggestions, and it's a great way to write code faster. It shows you the most likely completions for the text you're typing. The `print` function should be selected, and you can press `Tab` or `Enter` to accept it. 
+
+Type `(` `'` `\` `n`. Your caret should be between the `n` and the closing `')`. Press `Ctrl+Shift+Enter` to move the caret to a new line without changing the position of the closing `')`. The complete line should look like this:
+
+```python
+    print('\n')
+```
+
+![An animation showing IntelliSense. The caret is at the end of the last line of code. The user types `p` and `r`. IntelliSense appears and the user presses `Tab` to accept the `print` function. The user types `(` `'` `\` `n`. The user presses `Ctrl+Shift+Enter` to move the caret to a new line.](Welcome.Python.Editing.IntelliSense.mp4)
+
+If you have **IntelliCode** enabled (it's enabled by default), in many contexts the most common IntelliSense completions will be at the top of the list of suggestions. These suggestions are denoted with a ⭐ (star) character.
+
+- [Learn more about editing Python code in Visual Studio](https://learn.microsoft.com/visualstudio/python/editing-python-code-in-visual-studio)
+- [Learn more about editing with IntelliSense](https://learn.microsoft.com/visualstudio/ide/using-intellisense)
+- [Learn more about IntelliCode suggestions](https://learn.microsoft.com/visualstudio/intellicode/overview)
+
+Select **Continue** to learn how to use Quick Actions to speed up your editing and refactoring.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Quick Actions and Refactoring"
+        Id="Welcome.Python.QuickActions"
+        FileToOpen="Welcome.Python.py"
+        CenterLineNumber="11">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio uses Quick Actions to make suggestions for code changes. You can use these suggestions to apply code fixes and refactorings.
+
+Place your text caret anywhere on line 11 (the line that prints the message starting with "Hello"). Note the screwdriver icon that appears in the margin: 
+
+![A screenshot of the screwdriver icon next to line 11](Welcome.Python.QuickActions.png)
+
+This is a **Quick Action** suggestion. There are different types of Quick Action suggestions, denoted by lightbulb and screwdriver icons. Click on the icon or press `Ctrl+.` to see the suggestions. In this case, the screwdriver indicates the Quick Action is a code fix. It's suggesting that you extract this line into a method or a variable.
+
+Select the **Extract method** Quick Action to apply the code fix. Visual Studio will extract the code into a new method named `new_func` and call it from the original location. 
+
+`new_func` isn't a very useful method name. Let's rename it. Select the text `new_func`, right-click (or otherwise invoke the context menu), and select **Rename** {KeyboardShortcut:Refactor.Rename}. Enter `greet` as the new name and press `Enter`.
+
+![An animation showing the Quick Actions and Refactoring. The caret is on line 11. The screwdriver icon appears in the margin. The user clicks on the icon or presses `Ctrl+.`. The Quick Actions menu appears. The user selects **Extract method**. The code is extracted into a new method named `new_func`. The user selects the text `new_func`, right-clicks, and selects **Rename**. The user enters `greet` as the new name and presses `Enter`.](Welcome.Python.QuickActions.Refactoring.mp4)
+
+- [Learn more about Quick Actions](https://learn.microsoft.com/visualstudio/ide/quick-actions)
+- [Learn more about refactoring in Visual Studio](https://learn.microsoft.com/visualstudio/ide/refactoring-in-visual-studio)
+
+Select **Continue** to learn how to debug using breakpoints.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Debugging with breakpoints"
+        Id="Welcome.Python.Debugging"
+        FileToOpen="Welcome.Python.py"
+        CenterLineNumber="14">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio supports a number of debugger tools to help you understand what your code is doing at runtime. Let's start by adding a breakpoint that will pause the execution of the program when it's reached.
+
+Place the text caret anywhere on line 14 (the line that calls the `greet` method) and select [**Debug** > **Toggle Breakpoint**](vscmd://Debug.ToggleBreakpoint) {KeyboardShortcut:Debug.ToggleBreakpoint} from the menu bar to add a breakpoint. The breakpoint will appear in the left margin as a red dot. You can also add a breakpoint by clicking in the margin.
+
+![A screenshot of the breakpoint in the left margin next to line 14](Welcome.Python.Debugging.png)
+
+Now let's run the program in debug mode again. Select [**Debug** > **Start Debugging**](vscmd://Debug.Start) {KeyboardShortcut:Debug.Start} from the menu bar or click the button on the toolbar. In the app, type your name and press `Enter`. The program will run and stop at the breakpoint before the `greet` method is called.
+
+Take a moment to examine the debugger tools.
+
+The [**Autos**](vscmd://Debug.Autos) window shows all variables close to the current statement. In this case, the list is empty.
+
+![A screenshot of the Autos window showing the `name` and `iteration` variables](Welcome.Python.Debugging.Autos.png)
+
+The [**Locals**](vscmd://Debug.Locals) window shows all variables in scope. In this case, that includes `name`, `iteration`, and a few standard Python variables.
+
+![A screenshot of the Locals window showing the `name` and `iteration` variables.](Welcome.Python.Debugging.Locals.png)
+
+The [**Call Stack**](vscmd://Debug.CallStack) window shows the call stack for the current thread. In this case, the call stack shows that the program is currently paused in the `__main__` method.
+
+![A screenshot of the Call Stack window showing the `__main__` method.](Welcome.Python.Debugging.CallStack.png)
+
+The [**Immediate**](vscmd://Debug.Immediate) window is a REPL (read-eval-print loop) that allows you to execute code at runtime. In this case, you can type *name* and press `Enter` to see the value of the `name` variable. You can also type *iteration* and press `Enter` to see the value of the `iteration` variable.
+
+![A screenshot of the Immediate window showing the `name` and `iteration` variables.](Welcome.Python.Debugging.Immediate.png)
+
+The [**Watch**](vscmd://Debug.Watch1) window allows you to define variables and expressions you want to track at run time. The window starts out empty, but you can add variables and expressions by clicking **Add item to watch**. In this screenshot, we're watching the `name` variable and the `name.upper()` expression.
+
+![A screenshot of the Watch window showing the `name` variable and the `name.upper()` expression.](Welcome.Python.Debugging.Watch.png)
+
+Select **Continue** to learn how to step through your code.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Stepping through code"
+        Id="Welcome.Python.Stepping">
+        <vst:Step.Description>
+            <![CDATA[
+While stopped at a breakpoint, you can step through your code to see how it executes. There are three ways to step through your code:
+
+- **Step into** {KeyboardShortcut:Debug.StepInto}: Step into the next statement, stepping into any method calls.
+- **Step over** {KeyboardShortcut:Debug.StepOver}: Step over the next statement, stepping over any method calls.
+- **Step out** {KeyboardShortcut:Debug.StepOut}: Step out of the current method.
+
+Since you're already stopped on line 14, press {KeyboardShortcut:Debug.StepOver} to step over the `greet` method call. The program will execute the `greet` method on line 14. Then it will stop on line 15.
+
+If you revist the **Locals** window, you'll see that the `name` variable is assigned a value. The `iteration` variable is still `1` because the loop hasn't completely executed yet.
+
+You can continue stepping through the code line-by-line with {KeyboardShortcut:Debug.StepOver}. Remember to enter your name and press `Enter` when the program prompts you for input. Watch the variable values change in the **Locals** window.
+
+![A screenshot of the Locals window showing the `name` and `iteration` variables.](Welcome.Python.Stepping.Locals.png)
+
+After stepping through the loop a few times, press {KeyboardShortcut:Debug.Start} to **Continue** running the program. The program will run until it hits the breakpoint on line 14 again.
+
+This time, instead of pressing {KeyboardShortcut:Debug.StepOver} to step over the `greet` method call, press {KeyboardShortcut:Debug.StepInto} to **Step into** the method. Notice this time execution will stop inside the `greet` method. Notice that the **Call Stack** window now shows that the program is stopped in the `GetName` method. 
+
+![A screenshot of the Call Stack window showing the `GetName` method.](Welcome.Python.Stepping.CallStack.png)
+
+Continue stepping through the code with {KeyboardShortcut:Debug.StepInto} and notice how the execution returns to the main program. Continue stepping with {KeyboardShortcut:Debug.StepInto} until you enter the `greet` method again. This time, use {KeyboardShortcut:Debug.StepOut} to immediately step out of the `greet` method.
+
+End the program by selecting [**Debug** > **Stop Debugging**](vscmd://Debug.StopDebugging) {KeyboardShortcut:Debug.StopDebugging} from the menu bar or clicking the button on the toolbar.
+
+- [Learn more about debugging](https://learn.microsoft.com/visualstudio/debugger/what-is-debugging)
+- [Get a more in-depth look at debugging tools in Visual Studio](https://learn.microsoft.com/visualstudio/debugger/debugger-feature-tour)
+
+Select **Continue** to take the next steps.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Summary"
+        Id="Welcome.Python.Summary">
+        <vst:Step.Description>
+            <![CDATA[
+That's a brief introduction to editing and debugging C++ with Visual Studio! We've only scratched the surface of what Visual Studio can do. Here are some resources to help you learn more:
+
+- [Visual Studio documentation](https://learn.microsoft.com/visualstudio/windows/)
+- [Visual Studio | Python documentation](https://learn.microsoft.com/visualstudio/python/)
+- [How-to guide: Debug your Python code](https://learn.microsoft.com/visualstudio/python/debugging-python-in-visual-studio)
+- [Visual Studio on YouTube](https://www.youtube.com/visualstudio)
+- [Microsoft C++, C, and Assembler documentation](https://learn.microsoft.com/cpp/)
+
+Comments or suggestions for this guide? [Send us feedback](vscmd://Help.MyFeedback)!
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+</vst:Guide>

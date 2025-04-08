@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>foreach</Title>
+			<Shortcut>foreach</Shortcut>
+			<Description>foreach 语句的代码片段</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>要循环访问的集合中对象的类型</ToolTip>
+					<Default>var</Default>
+				</Literal>
+				<Literal>
+					<ID>identifier</ID>
+					<ToolTip>表示集合中的元素的标识符</ToolTip>
+					<Default>item</Default>
+				</Literal>
+				<Literal>
+					<ID>collection</ID>
+					<ToolTip>要循环访问的集合或数组的名称</ToolTip>
+					<Default>collection</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[foreach ($type$ $identifier$ in $collection$)
+	{
+		$selected$ $end$
+	}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

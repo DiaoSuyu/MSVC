@@ -1,0 +1,26 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "redis.code.startup",
+        "redis.code.usings",
+        "redis.code.usings.Azure.Identity"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "redis.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "redis.serviceConnector.appService"
+      ]
+    }
+  }
+}

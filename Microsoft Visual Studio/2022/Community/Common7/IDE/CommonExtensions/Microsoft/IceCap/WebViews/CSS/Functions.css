@@ -1,0 +1,12 @@
+.functions {
+    display: flex;
+}
+
+.functions > .treeGridContainer {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.functionRow > .leftAlign, .functionHeader > .leftAlign {
+    text-align: left;
+}

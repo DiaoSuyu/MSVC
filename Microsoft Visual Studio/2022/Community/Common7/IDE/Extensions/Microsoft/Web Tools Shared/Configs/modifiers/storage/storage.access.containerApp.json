@@ -1,0 +1,9 @@
+{
+  "kind": "access.containerApp",
+  "order": 10,
+  "model": {
+    "targetResourceId": "@@resourceId@@",
+    "containerAppResourceId": "@@ProfileResourceId@@",
+    "roleDefinitionId": "17d1049b-9a84-46fb-8f53-869881c3d3ab"
+  }
+}

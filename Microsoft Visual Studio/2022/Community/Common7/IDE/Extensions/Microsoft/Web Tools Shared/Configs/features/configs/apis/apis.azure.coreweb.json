@@ -1,0 +1,15 @@
+{
+  "components": {
+    "code": {
+      "modifiers": []
+    },
+    "msbuildProperty": {
+      "modifiers": [
+        "apis.msbuildProperty.coreweb"
+      ]
+    },
+    "nuget": {
+      "modifiers": []
+    }
+  }
+}

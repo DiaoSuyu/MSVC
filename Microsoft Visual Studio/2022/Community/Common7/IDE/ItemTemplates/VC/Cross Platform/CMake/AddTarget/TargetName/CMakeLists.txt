@@ -1,0 +1,1 @@
+$addtargetcommandname$($cmaketargetname$ $librarytype$"$cmaketargetname$.cpp" "$cmaketargetname$.h")

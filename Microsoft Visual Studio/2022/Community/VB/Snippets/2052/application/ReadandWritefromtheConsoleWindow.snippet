@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在控制台窗口中进行读和写</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>写入一个提示，然后在用户请求中读取该提示。此操作在控制台应用程序中运行。</Description>
+      <Shortcut>appConRW</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>prompt</ID>
+          <Type>String</Type>
+          <ToolTip>替换为输入提示。</ToolTip>
+          <Default>"Type in a sentence and hit Enter:"</Default>
+        </Literal>
+        <Object>
+          <ID>inputFromConsole</ID>
+          <Type>String</Type>
+          <ToolTip>存储输入的字符串变量，该输入来自控制台窗口。</ToolTip>
+          <Default>inputFromConsole</Default>
+        </Object>
+        <Object>
+          <ID>outputToConsole</ID>
+          <Type>String</Type>
+          <ToolTip>存储输出的字符串变量，该输出以控制台窗口为目标。</ToolTip>
+          <Default>outputToConsole</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Console.WriteLine($prompt$)
+$inputFromConsole$ = Console.ReadLine()
+Console.WriteLine($outputToConsole$)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

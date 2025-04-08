@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Language.NavigateTo.Implementation</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.DisposeAction">
+            <summary>
+            What to do when an ActiveObject is disposed
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.DisposeAction.AbortThread">
+            <summary>
+            Dangerous, will cause the ActiveObject to abort it's background thread.  No guarantee
+            of the state the remaining actions will be in
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ActiveObject">
+            <summary>
+            ActiveObject base class.  Lives on a separate thread
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ActiveOperation">
+            <summary>
+            Meant to be a light weight event in the sense that it does not 
+            require a dispose
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ActiveOperation.HasCompleted">
+            <summary>
+            Whether or not the operation has completed
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ActiveOperation.Wait">
+            <summary>
+            Wait for the operation to complete
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ActiveOperation.Completed">
+            <summary>
+            Called when the operation complete
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.ContractException">
+            <summary>
+            Raised when a Contract violation occurs
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract">
+            <summary>
+            Used for internal contract checking
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.InUnitTest">
+            <summary>
+            This is a hack but a useful one.  I like to have a Debug.Fail whenever there is a 
+            contract violation so I immediately see the error when running Cugger.  However
+            during UnitTesting it prevents me from running them since I have to hang around and
+            dismiss the assert dialog.  So this is a compromise. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.Violation(System.String)">
+            <summary>
+            Report a violation
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.Violation(System.String,System.Object[])">
+            <summary>
+            Report a violation
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfNotNull(System.Object)">
+            <summary>
+            Ensure value is null
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfNotNull(System.Object,System.String)">
+            <summary>
+            Ensure value is null
+            </summary>
+            <param name="value"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfNull(System.Object)">
+            <summary>
+            Ensure value is not null
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfNull(System.Object,System.String)">
+            <summary>
+            Ensure value is not null
+            </summary>
+            <param name="value"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfFalse(System.Boolean)">
+            <summary>
+            Ensure value is not false
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfFalse(System.Boolean,System.String)">
+            <summary>
+            Ensure value is not false
+            </summary>
+            <param name="value"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfTrue(System.Boolean)">
+            <summary>
+            Ensure the value is true
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.ThrowIfTrue(System.Boolean,System.String)">
+            <summary>
+            Ensure the value is true
+            </summary>
+            <param name="value"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.EnsureOnThread(System.Int32)">
+            <summary>
+            Ensure we are on the specified thread
+            </summary>
+            <param name="threadId"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.EnsureOnThread(System.Int32,System.String)">
+            <summary>
+            Ensure we are on the specified thread
+            </summary>
+            <param name="threadId"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.EnsureNotOnThread(System.Int32)">
+            <summary>
+            Ensure we are not on the specified thread
+            </summary>
+            <param name="threadId"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.EnsureNotOnThread(System.Int32,System.String)">
+            <summary>
+            Ensure we are not on the specified thread
+            </summary>
+            <param name="threadId"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.CheckForBadThreadCall(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>
+            Check for a bad thread call
+            </summary>
+            <param name="invoke"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.CheckForBadThreadCall(System.ComponentModel.ISynchronizeInvoke,System.String)">
+            <summary>
+            Check for a bad thread call
+            </summary>
+            <param name="invoke"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Contract.InvalidEnumValue``1(``0)">
+            <summary>
+            Throw because we have an invalid enumeration value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future">
+            <summary>
+            Represents an operation executing concurrently
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.HasStarted">
+            <summary>
+            Has the Future started running 
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.HasCompleted">
+            <summary>
+            Whether or not the future has completed
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.RunInThreadPool">
+            <summary>
+            Run this future in the thread pool
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.Run">
+            <summary>
+            Run the future immediately
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.RunAborted">
+            <summary>
+            Called when the running of a Future is aborted for whatever reason
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.WaitEmpty">
+            <summary>
+            Waits for the ActiveOperation to complete and throws as necessary
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.RunFuture">
+            <summary>
+            Used in a derived class to actually run a Future
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.OnFutureCompleted">
+            <summary>
+            Called when the future finishes running
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future.Create(System.Action)">
+            <summary>
+            Create a future for the specified delegate
+            </summary>
+            <param name="del"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.EmptyFuture">
+            <summary>
+            Future operation that has no return value
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future`1">
+            <summary>
+            Future operation that returns a value
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future`1.m_value">
+            <summary>
+            Not typed to object so we can make it volatile.  Adds boxing overhead but it allows us
+            to avoid a lock
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future`1.Value">
+            <summary>
+            Result of the future
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.Future`1.Wait">
+            <summary>
+            Wait for the operation to complete and return the result.  Throws if an
+            error is encountered
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.IFuture.HasCompleted">
+            <summary>
+            Whether or not the future has completed
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.IFuture.WaitEmpty">
+            <summary>
+            Wait for the future to complete
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Language.NavigateTo.Implementation.Threading.IFuture`1.Wait">
+            <summary>
+            Wait for the future to complete and return the value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.NativeMethods.RECT">
+            <summary>
+            A rect structure to match the Win32 RECT
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Language.NavigateTo.Implementation.NativeMethods.MONITORINFO">
+            <summary>
+            Win32 MONITORINFO Struct
+            </summary>
+        </member>
+        <member name="T:Roslyn.Utilities.PerformanceSensitiveAttribute">
+            <summary>
+            Indicates that a code element is performance sensitive under a known scenario.
+            </summary>
+            <remarks>
+            <para>When applying this attribute, only explicitly set the values for properties specifically indicated by the
+            test/measurement technique described in the associated <see cref="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri" />.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Uri">
+            <summary>
+            Gets the location where the original problem is documented, likely with steps to reproduce the issue and/or
+            validate performance related to a change in the method.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.Constraint">
+            <summary>
+            Gets or sets a description of the constraint imposed by the original performance issue.
+            </summary>
+            <remarks>
+            <para>Constraints are normally specified by other specific properties that allow automated validation of the
+            constraint. This property supports documenting constraints which cannot be described in terms of other
+            constraint properties.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowCaptures">
+            <summary>
+            Gets or sets a value indicating whether captures are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowImplicitBoxing">
+            <summary>
+            Gets or sets a value indicating whether implicit boxing of value types is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowGenericEnumeration">
+            <summary>
+            Gets or sets a value indicating whether enumeration of a generic
+            <see cref="T:System.Collections.Generic.IEnumerable`1" /> is allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.AllowLocks">
+            <summary>
+            Gets or sets a value indicating whether locks are allowed.
+            </summary>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.OftenCompletesSynchronously">
+            <summary>
+            Gets or sets a value indicating whether the asynchronous state machine typically completes synchronously.
+            </summary>
+            <remarks>
+            <para>When <see langword="true" />, validation of this performance constraint typically involves analyzing
+            the method to ensure synchronous completion of the state machine does not require the allocation of a
+            <see cref="T:System.Threading.Tasks.Task" />, either through caching the result or by using
+            <see cref="T:System.Threading.Tasks.ValueTask`1" />.</para>
+            </remarks>
+        </member>
+        <member name="P:Roslyn.Utilities.PerformanceSensitiveAttribute.IsParallelEntry">
+            <summary>
+            Gets or sets a value indicating whether this is an entry point to a parallel algorithm.
+            </summary>
+            <remarks>
+            <para>Parallelization APIs and algorithms, e.g. <c>Parallel.ForEach</c>, may be efficient for parallel entry
+            points (few direct calls but large amounts of iterative work), but are problematic when called inside the
+            iterations themselves. Performance-sensitive code should avoid the use of heavy parallelization APIs except
+            for known entry points to the parallel portion of code.</para>
+            </remarks>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>Ji3pajkraCNwEvzx/GxW4AUvuN2tuj0XII8gvfByjV8=</DigestValue></Reference></SignedInfo><SignatureValue>AHUhBJiBjB5saQ1a5ZZdfN7zdMXKSztObdZmetXmQjgC8OX8Q7ltBIPlpWedtdYQBB9A2gV+H8EuQkBfRPncEhXCvaRB0u6qNSGFH58DbCmPgcfn0ijSm4XZL8XoasSCGwPvMMgpWq2qWKPesXBsmjEVKQ8L/XQ7OXVwLq62HXrLt1ZNsF5iKyaOVlSpGdRced9QyK/gRaNddWcrC9xvLwg+D8I0QZD/X8fUYtYUbJo/LOXbMN1qLIuKatYdX1ruOp4z0bd7jv2n+cCLf5H3D0tazPvQ+25AT3/GC3XIVEn62TEhblmVeT+5i1Eb/DBkOBGWxY1sabv0W4KTfj0B/A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

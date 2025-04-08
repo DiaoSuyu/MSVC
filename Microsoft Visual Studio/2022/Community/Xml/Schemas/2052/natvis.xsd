@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://schemas.microsoft.com/vstudio/debugger/natvis/2010" xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definition of complex named types-->
+
+  <xs:simpleType name="GuidType">
+    <xs:annotation>
+      <xs:documentation>此类型的值如下所示: “01234567-89AB-CDEF-0123-456789ABCDEF”或“{01234567-89AB-CDEF-0123-456789ABCDEF}”。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[{(]?[0-9A-Fa-f]{8}\-?[0-9A-Fa-f]{4}\-?[0-9A-Fa-f]{4}\-?[0-9A-Fa-f]{4}\-?[0-9A-Fa-f]{12}[})]?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CppIdType">
+    <xs:annotation>
+      <xs:documentation>有效的 C++ 标识符。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z$_][a-zA-Z$_0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaxItemsPerViewType">
+    <xs:annotation>
+      <xs:documentation>
+        指定可一次显示的集合项的最大数目。如果集合中的项数
+        超出限值，最终会创建特殊节点，该节点会扩展以显示其他项。
+
+        在视图中显示的最大项数的精确中断值为调整参数。数目越大，允许一次可见
+        的项越多，而较小的数目会改善自定义列表对象在扩展时 Visual Studio 的性能。总之，
+        遍历逻辑越复杂，每个视图所需的项数越小，以保持 IDE 的相应速度。
+
+        每个视图的最大项数必须介于 1 到 50,000 之间。若未指定属性，可使用默认的 5,000 项数。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="50000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ConditionType">
+    <xs:annotation>
+      <xs:documentation>指定此元素处于活动状态的条件。计算时，表达式应生成一个布尔值。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OptionalType">
+    <xs:annotation>
+      <xs:documentation>
+        指定元素是否为可选。无法解析的可选元素允许使用封闭 &lt;Type&gt; 条目中的
+        剩余元素。无法解析的必选元素将导致整个封闭 &lt;Type&gt; 元素无效。默认情况下，所有元素被认为是必选，
+        除非指定可选="true"。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:boolean">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ViewIncludeType">
+    <xs:annotation>
+      <xs:documentation>
+        指定应在其中显示该元素的以分号分隔的视图列表。对象视图由
+        视图(&lt;name&gt;)格式说明符控制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ViewExcludeType">
+    <xs:annotation>
+      <xs:documentation>
+        指定应在其中隐藏该元素的以分号分隔的视图列表。对象视图由
+        视图(&lt;name&gt;)格式说明符控制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TypeNameType">
+    <xs:annotation>
+      <xs:documentation>指定要可视化的类型的完全限定名。如果类型为模板类，则可能包含“*”作为模板参数的通配符。基元数据类型名称只允许用于 UIVisualizer 定义。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ModuleNameStringType">
+    <xs:annotation>
+      <xs:documentation>指定模块的名称。它只应包含模块名称，不应包含绝对路径或相对路径。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:pattern value="([^\\^//])+"/>
+      <!-- Prevent absolute or relative pathing, just the module name only-->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VersionStringType">
+    <xs:annotation>
+      <xs:documentation>1.2.3.4 或 1.2 都是可接受的。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9])+\.([0-9])+(\.([0-9])+\.([0-9])+)?"/>
+      <!--1.2.3.4 or 1.2 are acceptable -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="AlternativeHResultType">
+    <xs:annotation>
+      <xs:documentation>指定一个替代 HRESULT，它将共享同一个可视化工具。</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="TypeNameType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="IntrinsicParameterType">
+    <xs:annotation>
+      <xs:documentation>指定给定内部函数的参数的类型。</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Type" type="StringType" use="required"/>
+    <xs:attribute name="Name" type="CppIdType" use="optional">
+      <xs:annotation>
+        <xs:documentation>若已提供表达式，请指定表达式可引用参数的名称。若函数是通过调试程序扩展执行的，
+        可能会省略此属性。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="IntrinsicType">
+    <xs:annotation>
+      <xs:documentation>描述可从表达式调用的自定义内部函数。 &lt;Intrinsic&gt; 元素
+        附有一个通过 IDkmIntrinsicFunctionEvaluator140 接口实现该函数的调试器组件。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="IntrinsicParameterType"></xs:element>
+    </xs:choice>
+    <xs:attributeGroup ref="CommonAttributes_NoCondition_NoView"/>
+    <xs:attribute name="Name" type="CppIdType" use="required">
+      <xs:annotation>
+        <xs:documentation>内部函数的名称。它必须是有效的 C++ 标识符。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Category" type="IconType" use="optional">
+      <xs:annotation>
+        <xs:documentation>指定应分配到调用此函数的表达式结果的类别图标。这将决定用于
+        监视窗口中调用此函数的表达式的图标。默认的类别值为 "Method"。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ReturnType" type="StringType" use="optional">
+      <xs:annotation>
+        <xs:documentation>内部函数的返回类型。若提供了表达式，可能会省略返回类型(表达式类型将表示返回类型)。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Expression" type="StringType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          用于计算函数返回值的表达式。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SourceId" type="GuidType" use="optional">
+      <xs:annotation>
+        <xs:documentation>指定源 ID，用于标识实现函数的调试器组件。它必须与 IDkmIntrinsicFunctionEvaluator140 实现的筛选约束匹配。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="LanguageId" type="GuidType" use="optional">
+      <xs:annotation>
+        <xs:documentation>指定语言 ID，用于标识实现函数的调试器组件。它必须与 IDkmIntrinsicFunctionEvaluator140 实现的筛选约束匹配。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Id" type="xs:unsignedInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>在有源 ID 和语言 ID 的情况下，指定此函数的唯一 ID。该 ID 由实现组件用于在实现多个内部函数的情况下
+        确定已调用的函数。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SideEffect" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>如果为 true，则指示此函数可能会导致副作用。如果为 true，则在意外副作用可能会
+        对用户造成混淆的情况下，会禁用对此函数的调用。修改状态(在调试对象内或 Visual Studio 中)的函数应将此设置为 true。
+        默认情况下，此值为 false。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Varargs" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          如果为 true，则指示此函数是 varargs 函数，并且可以在显式列出的参数之后传递附加参数。默认值为 false。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="AlternativeTypeType">
+    <xs:annotation>
+      <xs:documentation>指定将共享同一可视化工具的备用类型。</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="TypeNameType" use="required"/>
+    <xs:attribute name="Priority" type="PriorityType" use="optional"/>
+    <xs:attribute name="Inheritable" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          如果该可视化工具可由派生于给定类型的类的对象使用，则为 true，如果对象必须直接拥有该类型以便可视化工具生效，则为 false。
+          默认为 true。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="VersionType">
+    <xs:annotation>
+      <xs:documentation>指定此可视化工具的匹配的模块名称和版本。</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="ModuleNameStringType" use="required"/>
+    <xs:attribute name="Min" type="VersionStringType" use="optional">
+      <xs:annotation>
+        <xs:documentation>指定最小版本号(含)。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Max" type="VersionStringType" use="optional">
+      <xs:annotation>
+        <xs:documentation>指定最大版本号(含)。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <!-- Attributes for elements that support filtering by view-->
+  <xs:attributeGroup name="ViewConstraints">
+    <xs:attribute name="IncludeView" type="ViewIncludeType" use="optional"/>
+    <xs:attribute name="ExcludeView" type="ViewExcludeType" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="CommonAttributes_NoCondition_NoView">
+    <xs:attribute name="ModuleName" type="ModuleNameStringType" use="optional"/>
+    <xs:attribute name="ModuleVersionMin" type="VersionStringType" use="optional"/>
+    <xs:attribute name="ModuleVersionMax" type="VersionStringType" use="optional"/>
+    <xs:attribute name="Optional" type="OptionalType" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="CommonAttributes_NoCondition">
+    <xs:attributeGroup ref="CommonAttributes_NoCondition_NoView"/>
+    <xs:attributeGroup ref="ViewConstraints"/>
+  </xs:attributeGroup>
+
+  <!-- These attributes are shared by all top-level natvis elements (DisplayString/StringView/top-level children of Expand)-->
+  <xs:attributeGroup name="CommonAttributes">
+    <xs:attributeGroup ref="CommonAttributes_NoCondition"/>
+    <xs:attribute name="Condition" type="ConditionType" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="DisplayStringType">
+    <xs:annotation>
+      <xs:documentation>指定要显示为可视化类型的对象值的字符串。它接受与表达式混合使用的任意字符串。大括号(即 { 和 })中的所有内容将解释为表达式并进行计算。若要对大括号进行转义，可键入两个大括号(即 {{ 或 }})。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="CommonAttributes"/>
+        <xs:attribute name="LegacyAddin" type="StringType" use="optional">
+          <xs:annotation>
+            <xs:documentation>如果旧版加载项存在，请指定旧版加载项的 dll。如果未指定完整路径，则 Visual Studio 将查看指定加载项的 .natvis 文件旁边的可视化工具目录。仍允许常规显示字符串与加载项结合使用，并且在加载项 dll 无法加载时将使用常规显示字符串作为回退。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Export" type="StringType" use="optional">
+          <xs:annotation>
+            <xs:documentation>如果存在旧的外界程序，则为旧外接程序实现指定导出名称。此特性仅在 "LegacyAddin" 也被指定时才有效。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Encoding" type="EncodingType" use="optional">
+          <xs:annotation>
+            <xs:documentation>指定旧外接程序所返回字符串的编码。默认值为 Utf8。此特性仅在 "LegacyAddin" 也被指定的情况下有效。
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="EncodingType">
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="Ansi"/>
+      <xs:enumeration value="Utf8"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CustomVisualizerType">
+    <xs:annotation>
+      <xs:documentation>指定自定义此对象的调试器视图的可视化工具加载项。</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="VisualizerId" type="GuidType" use="required"/>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="StringViewType">
+    <xs:annotation>
+      <xs:documentation>指定其值将发送给内置文本可视化工具的表达式。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CommonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="IndexNodeType">
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attribute name="Condition" type="ConditionType" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:attributeGroup name="NameAttribute">
+  <xs:attribute type="xs:string" name="Name" use="optional">
+    <xs:annotation>
+      <xs:documentation>
+        在 &lt;DisplayString&gt; 语法中为此节点指定一个可选名称。如果省略，节点的名称
+        将仅为树遍历中的项的索引。在节点上下文中
+        计算大括号中的表达式。
+      </xs:documentation>
+    </xs:annotation>
+  </xs:attribute>    
+  </xs:attributeGroup>
+  
+  <xs:complexType name="ListItemsNodeType">
+    <xs:annotation>
+      <xs:documentation>指向链接列表节点的值的表达式。该值可保留为空或包含“this”以引用链接列表节点本身。在链接列表节点而不是父链接列表类型的上下文中计算此表达式。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="NameAttribute"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="TreeItemsNodeType">
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attribute name="Condition" type="ConditionType" use="optional"/>
+        <xs:attributeGroup ref="NameAttribute"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ItemType">
+    <xs:annotation>
+      <xs:documentation>指定一个子元素。它只接受表达式，不接受任意字符串。如果表达式生成复杂类型值，则该子节点本身可由用户展开。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attribute name="Name" type="StringType" use="required">
+          <xs:annotation>
+            <xs:documentation>子元素的名称，该名称将显示在调试器变量窗口中的名称列下。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attributeGroup ref="CommonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ExpandedItemType">
+    <xs:annotation>
+      <xs:documentation>指定其子级将显示为当前节点的子级的子元素。在扩展时需要生成某个类型的平面视图的情况下使用。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CommonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ArrayDirectionType">
+    <xs:annotation>
+      <xs:documentation>指定应如何展开多维数组索引。对行优先数组使用“Forward”，对列优先数组使用“Backward”。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="Forward"/>
+      <xs:enumeration value="Backward"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IconType">
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="Data">
+        <xs:annotation>
+          <xs:documentation>
+            表示该项应使用与常规数据相关联的图标。
+          </xs:documentation>
+        </xs:annotation>        
+      </xs:enumeration>
+      <xs:enumeration value="Method">
+        <xs:annotation>
+          <xs:documentation>
+            表示该项应使用与方法调用相关联的图标。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Property">
+        <xs:annotation>
+          <xs:documentation>
+            表示该项应使用与属性相关联的图标。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ExpandType">
+    <xs:annotation>
+      <xs:documentation>指定在调试器窗口中展开可视化类型的变量时要显示的子元素的列表。</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Item" minOccurs="0" maxOccurs="unbounded" type="ItemType"/>
+      <xs:element name="ArrayItems" minOccurs="0" maxOccurs="unbounded" type="ArrayItemsType"/>
+      <xs:element name="IndexListItems" minOccurs="0" maxOccurs="unbounded" type="IndexListItemsType"/>
+      <xs:element name="LinkedListItems" minOccurs="0" maxOccurs="unbounded" type="LinkedListItemsType"/>
+      <xs:element name="TreeItems" minOccurs="0" maxOccurs="unbounded" type="TreeItemsType"/>
+      <xs:element name="ExpandedItem" minOccurs="0" maxOccurs="unbounded" type="ExpandedItemType"/>
+      <xs:element name="Synthetic" minOccurs="0" maxOccurs="unbounded" type="SyntheticItemType"/>
+      <xs:element name="CustomListItems" minOccurs="0" maxOccurs="unbounded" type="CustomListItemsType"/>
+    </xs:choice>
+    <xs:attribute name="HideRawView" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>指定是否应隐藏此对象的 "[Raw View]" 节点。此属性的默认设置为 "false"，
+        这将导致当前对象的原始视图节点对用户可视。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="CustomListItemsType">
+    <xs:annotation>
+      <xs:documentation>指定自定义逻辑用于循环访问无法用其他方法可视化的集合。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Variable" minOccurs="0" maxOccurs="unbounded" type="VariableType"></xs:element>
+      </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Size" minOccurs="1" maxOccurs="1" type="CustomListSizeType">
+        </xs:element>
+      </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element name="Skip" minOccurs="1" maxOccurs="1" type="SkipType"></xs:element>
+      </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="CustomListCode"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attributeGroup ref="CommonAttributes"/>
+    <xs:attribute name="MaxItemsPerView" type="MaxItemsPerViewType" use="optional">
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="SkipType">
+    <xs:annotation>
+      <xs:documentation>
+        指定用于跳过集合中指定数量的项目的逻辑。当用户在监视窗口中滚动
+        以便快速导航集合遍历至所需点时，调用此跳过逻辑。跳过逻辑后，
+        控制将返回至执行的开始，但迭代变量会根据需要修改以反映更新的状态。
+
+        &lt;Skip&gt; 元素作为一种可选性能优化存在，允许集合遍历快速跳过大量
+        项目。如果未指定 &lt;Skip&gt; 元素，表达式计算器将在需要执行跳过时运行
+        遍历逻辑，直到执行了所需数量的 &lt;Item&gt; 元素。根据基础集合的数据结构，
+        这可能会涉及到大量不必要的计算。
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode_NoItem"/>
+    </xs:choice>
+
+    <xs:attribute name="Value" type="CppIdType" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          指定要跳过的项数的变量名称为未签名的 32 位整型。如果指定了 &lt;Size&gt; 元素，
+          则表达式计算器不会传递将导致遍历的当前索引超过集合界限的 skip 值。
+          如果没有指定 &lt;Size&gt; 元素，则 skip 值可能为任何随机整数，&lt;Skip&gt; 逻辑有责任
+          执行必要的界限检查。如果无法跳过请求的全部数量的项，则&lt;Skip&gt; 逻辑
+          应该修改跳过变量的值，使其在执行完成时包含已跳过项的实际数目。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="CustomListSizeType">
+    <xs:annotation>
+      <xs:documentation>指定集合中项的总数。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attribute name="Condition" type="ConditionType" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:group name="CustomListCode_NoItem">
+    <xs:choice>
+      <!-- For the sake of simplifying implementation, I am not implementing declaring variables inside of an 'loop' block
+           until I encounter a scenario that requires it.-->
+      <!--<xs:element name="Variable" minOccurs="0" maxOccurs="unbounded" type="VariableType"></xs:element>-->
+      <xs:element name="Loop" minOccurs="0" maxOccurs="unbounded" type="LoopType_NoItem"></xs:element>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="If" minOccurs="1" maxOccurs="1" type="IfType_NoItem"></xs:element>
+        <xs:element name="Elseif" minOccurs="0" maxOccurs="unbounded" type="IfType_NoItem"></xs:element>
+        <xs:element name="Else" minOccurs="0" maxOccurs="1" type="ElseType_NoItem"></xs:element>
+      </xs:sequence>
+      <xs:element name="Exec" minOccurs="0" maxOccurs="unbounded" type="ExecType"></xs:element>
+      <xs:element name="Break" minOccurs="0" maxOccurs="unbounded" type="BreakType"></xs:element>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="CustomListCode">
+    <xs:choice>
+      <!-- For the sake of simplifying implementation, I am not implementing declaring variables inside of an 'loop' block
+          until I encounter a scenario that requires it.-->
+      <!--<xs:element name="Variable" minOccurs="0" maxOccurs="unbounded" type="VariableType"></xs:element>-->
+      <xs:element name="Loop" minOccurs="0" maxOccurs="unbounded" type="LoopType"></xs:element>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="If" minOccurs="1" maxOccurs="1" type="IfType"></xs:element>
+        <xs:element name="Elseif" minOccurs="0" maxOccurs="unbounded" type="IfType"></xs:element>
+        <xs:element name="Else" minOccurs="0" maxOccurs="1" type="ElseType"></xs:element>
+      </xs:sequence>
+      <xs:element name="Exec" minOccurs="0" maxOccurs="unbounded" type="ExecType"></xs:element>
+      <xs:element name="Break" minOccurs="0" maxOccurs="unbounded" type="BreakType"></xs:element>
+      <xs:element name="Item" minOccurs="0" maxOccurs="unbounded" type="CustomListItemType"></xs:element>
+    </xs:choice>
+  </xs:group>
+
+  <xs:attributeGroup name="CustomListCode_Attributes">
+    <xs:attribute name="Condition" type="ConditionType" use="optional">
+      <xs:annotation>
+        <xs:documentation>控制此元素和内部元素是否应执行的条件</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="CustomListCode_Attributes_NoCondition"/>
+  </xs:attributeGroup>
+
+  <!-- Defines attributes that do on custom list code elements besides the condition.  Currently, this is empty, but maintaining the group
+  as a placeholder in case we decide to add something to it later. -->
+  <xs:attributeGroup name="CustomListCode_Attributes_NoCondition">
+  </xs:attributeGroup>
+
+  <xs:complexType name="LoopType_NoItem">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指定块仅执行多次，直到遇到 &lt;Break&gt; 元素或表达式无法计算。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode_NoItem"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="LoopType">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指定块仅执行多次，直到遇到 &lt;Break&gt; 元素或表达式无法计算。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="IfType_NoItem">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指令块在条件为真时才会执行。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode_NoItem"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="IfType">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指令块在条件为真时才会执行。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="ElseType_NoItem">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指令块在条件为真时才会执行。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode_NoItem"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes_NoCondition"/>
+  </xs:complexType>
+
+  <xs:complexType name="ElseType">
+    <xs:annotation>
+      <xs:documentation>指定一个指令块，此指令块在条件为真时才会执行。</xs:documentation>
+    </xs:annotation>
+
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="CustomListCode"/>
+    </xs:choice>
+
+    <xs:attributeGroup ref="CustomListCode_Attributes_NoCondition"/>
+  </xs:complexType>
+
+  <xs:complexType name="VariableType">
+    <xs:annotation>
+      <xs:documentation>
+        声明与 &lt;CustomListItems&gt; 块一起在未来的表达式中使用的变量。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="CppIdType" use="required">
+      <xs:annotation>
+        <xs:documentation>变量的名称。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="InitialValue" type="StringType" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          计算为变量初始值的表达式。
+          该表达式也指定了变量的类型。初始值表达式可能会利用已定义的其他变量。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ExecType">
+    <xs:annotation>
+      <xs:documentation>
+        执行单个表达式。表达式在对象的上下文中执行，但可能使用迭代变量。
+        表达式也可能修改迭代变量，但不允许产生其他副作用。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="CustomListCode_Attributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CustomListItemType">
+    <xs:annotation>
+      <xs:documentation>生成通过给定表达式获得的子项。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CustomListCode_Attributes"/>
+        <xs:attribute name="Name" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              指定要用于该项的可选名称。该名称在 &lt;DisplayString&gt; 语法中提供，可能包含嵌入的表达式。
+              如果未提供名称，则将以”[i]“形式使用默认名称，其中”i“是表示返回项的顺序的索引。
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="BreakType">
+    <xs:annotation>
+      <xs:documentation>跳出最里层 &lt;Loop&gt; 元素。循环外的 &lt;Break&gt; 元素将终止该集合的迭代。</xs:documentation>
+    </xs:annotation>
+    <xs:attributeGroup ref="CustomListCode_Attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="SyntheticItemType">
+    <xs:annotation>
+      <xs:documentation>指定值不受表达式支持的子元素。通过使用”DisplayString“元素可指定项的值。通过使用“Expand”元素可指定项的子项。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomVisualizer" type="CustomVisualizerType"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DisplayString" type="DisplayStringType"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringView" type="StringViewType"/>
+      <xs:element minOccurs="0" name="Expand" type="ExpandType"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="StringType" use="required">
+      <xs:annotation>
+        <xs:documentation>子元素的名称，该名称将显示在调试器窗口中的名称列下。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Expression" type="StringType" use="optional">
+      <xs:annotation>
+        <xs:documentation>当用户想要对项使用”添加监视“命令以单独跟踪项的值时，用于检索项的值的表达式</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="ValuePointerType">
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attribute name="Condition" type="ConditionType" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="SizeType">
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CommonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ArrayItemsType">
+    <xs:annotation>
+      <xs:documentation>指定变量内容的数组视图。它假定数据元素在内存中是连续的。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Direction" type="ArrayDirectionType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Rank" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指定数组的秩。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Size" type="SizeType">
+        <xs:annotation>
+          <xs:documentation>指定数组的每个维度的大小。对于多维数组，您可指定使用隐式 $i 参数的表达式。该参数将被替换为维度索引以查找相应维度的数组的大小。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LowerBound" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指定数组的每个维度的下限。对于多维数组，您可指定使用隐式 $i 参数的表达式。该参数将被替换为维度索引以查找相应维度的数组的下限。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="ValuePointer" type="ValuePointerType">
+        <xs:annotation>
+          <xs:documentation>指定指向数组的第一个元素的表达式。该表达式必须是一个元素类型的指针并且该元素类型不是 void*。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="IndexListItemsType">
+    <xs:annotation>
+      <xs:documentation>指定变量的更通用形式的数组视图。当数据元素在内存中不连续并且您需要计算数据元素的索引时使用。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Size" type="SizeType">
+        <xs:annotation>
+          <xs:documentation>指定索引列表的大小。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="ValueNode" type="IndexNodeType">
+        <xs:annotation>
+          <xs:documentation>指定使用指向 ith 元素的隐式 $i 参数的表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="LinkedListItemsType">
+    <xs:annotation>
+      <xs:documentation>指定变量内容的链接列表视图。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Size" type="SizeType">
+        <xs:annotation>
+          <xs:documentation>指定链接的列表中的元素数量。  如果指定了多个大小元素，则具有 true 条件(或无条件)的第一个大小元素将
+          确定大小。  如果未指定大小(或所有大小元素均具有 false 条件)，则调试程序将遍历列表以算出大小。  建议 natvis 项
+          在可能时为链接的列表指定大小，因为提供大小将提高调试程序的性能。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="HeadPointer" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指向链接列表的第一个节点的表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="NextPointer" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指向下一个元素的表达式。在链接列表节点而不是父链接列表类型的上下文中计算此表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="ValueNode" type="ListItemsNodeType">
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="TreeItemsType">
+    <xs:annotation>
+      <xs:documentation>指定变量内容的树视图。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Size" type="StringType">
+        <xs:annotation>
+          <xs:documentation>树的大小。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="HeadPointer" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指向树头的表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="LeftPointer" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指向树节点的左侧子级的表达式。在树节点而不是父类型的上下文中计算此表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="RightPointer" type="StringType">
+        <xs:annotation>
+          <xs:documentation>指向树节点的右侧子级的表达式。在树节点而不是父类型的上下文中计算此表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" name="ValueNode" type="TreeItemsNodeType">
+        <xs:annotation>
+          <xs:documentation>指向树节点值的表达式。该值可保留为空或包含“this”以引用树节点本身。在树节点而不是父类型的上下文中计算此表达式。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attributeGroup ref="CommonAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="UIVisualizerItemType">
+    <xs:annotation>
+      <xs:documentation>指定可处理此类型对象的 UI 可视化工具。此 UI 可视化工具必须是之前在 natvis 文件中定义的。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="ServiceId" type="GuidType" use="required">
+          <xs:annotation>
+            <xs:documentation>可视化工具的服务 GUID。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Id" type="xs:int" use="required">
+          <xs:annotation>
+            <xs:documentation>指定可视化工具 ID。用于区分可视化工具服务提供的多个查看器。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="FavoritesItemType">
+    <xs:annotation>
+      <xs:documentation>为此类型指定一系列收藏项。这些值显示为项的第一个子级，并在默认显示字符串中显示。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Favorite" type="FavoriteItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FavoriteItemType">
+    <xs:annotation>
+      <xs:documentation>指定此类型的收藏项。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MostDerivedObjectType">
+    <xs:annotation>
+      <xs:documentation>
+        指定评估为当前对象的表达式，映射到其最底层派生类型。
+        
+        在许多情况下，调试器可自动确定对象的最底层派生类型，在这种情况下，不必使用 &lt;MostDerivedType&gt; 
+        元素。对象最底层派生类型的自动确定需要对象是 C++ 类的实例，带有
+        编译器生成的虚拟函数表。这对于大多数类层次结构是足够的；但是，对于后面的这两种情况，偶尔可能需要自定义逻辑:
+        当处理不包含虚拟函数的类层次结构，或由应用程序代码手动构造虚拟函数表时。
+        
+      </xs:documentation>
+    </xs:annotation>
+    
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CommonAttributes"/>
+        <xs:attribute name="IgnoreVTable" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              如果为 true，表示对象的大多数派生类型将始终是提供的表达式的静态类型。默认情况下，
+              调试器将使用 vtable 计算提供的最底层派生类型表达式的最底层派生类型。仅当应用程序代码使用调试器不理解的自定义逻辑生成 vtable 时使用此选项。
+              
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="SmartPointerUsage">
+    <xs:annotation>
+      <xs:documentation>指定如何在语法上使用智能指针。</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:enumeration value="Minimal">
+        <xs:annotation>
+          <xs:documentation>
+            表示仅针对取消引用和比较在语法上使用智能指针。
+            它定义了以下重载操作符:
+            - operator*()    (取消引用)
+            - operator-&gt;()   (访问取消引用的字段值)
+            - operator==()   (与原始指针或相同类型的其他智能指针进行比较)
+            - operator!=()   (与原始指针或相同类型的其他智能指针进行比较)
+  </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Indexable">
+        <xs:annotation>
+          <xs:documentation>
+            表示可针对取消引用、比较和索引在语法上使用智能指针。
+            它定义了以下重载操作符:
+            - operator+()  (添加类型 size_t 的偏移量)
+            - operator-()  (减去类型 size_t 的偏移量)
+            - operator[]   (添加类型 size_t 的偏移量并取消引用)
+            - SmartPointerUsage="Minimal" 支持的所有操作符
+</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Full">
+        <xs:annotation>
+          <xs:documentation>
+            表示智能指针将包含向基础指针转换的转换操作符。
+          通过转换操作符来有效使用语言中的所有基础指针。向智能指针直接赋值仍是禁止的；
+            要修改表达式中的内部指针，必须对指针显式赋值。
+   </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="SmartPointerType">
+    <xs:annotation>
+      <xs:documentation>
+        表示给定的类型为一个智能指针。此元素内部的文本指定了计算基础指针的表达式。
+        
+        &lt;SmartPointer&gt; 元素具有以下作用:
+          - 如果没有提供可供选择的 &lt;DisplayString&gt; 元素 (或者所有 &lt;DisplayString&gt; 元素的条件不达标)，那么基础指针将成为显示字符串。
+          - 如果没有提供可供选择的 &lt;StringView&gt; 元素 (或者所有 &lt;StringView&gt; 元素的条件不达标)，那么基础指针将成为字符串视图 (如果有)。
+          - 如果没有提供可供选择的 &lt;Expand&gt; 元素，那么智能指针的扩展为基础指针的扩展。
+          -  由 &lt;Usage&gt; 属性确定的，智能指针类还将支持重载操作符。您可以选择制止这种行为，方法是
+指定 DefaultExpansion="false"
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="StringType">
+        <xs:attributeGroup ref="CommonAttributes_NoCondition"/>
+        <xs:attribute name="Usage" type="SmartPointerUsage" use="required">
+          <xs:annotation>
+            <xs:documentation>表示此智能指针对象支持操作符的哪些组合。              
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="DefaultExpansion" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>
+              如果为 true，并且未提供扩展元素，那么将基于
+基础指针的扩展提供默认扩展。  如果为 false，那么不会基于
+智能指针自动创建 &lt;Expand&gt; 元素。如果该属性未显示，那么默认值为 "true"。
+   </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="VisualizerType">
+    <xs:annotation>
+      <xs:documentation>指定自定义类型的调试器视图的可视化工具项。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternativeType" type="AlternativeTypeType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="VersionType"/>
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Intrinsic" type="IntrinsicType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MostDerivedType" type="MostDerivedObjectType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomVisualizer" type="CustomVisualizerType"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="SmartPointer" type="SmartPointerType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DisplayString" type="DisplayStringType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="StringView" type="StringViewType"/>
+          <xs:element minOccurs="0" name="Expand" type="ExpandType"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Favorites" type="FavoritesItemType"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="UIVisualizer" type="UIVisualizerItemType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="Name" type="TypeNameType" use="required"/>
+    <xs:attributeGroup ref="ViewConstraints"/>
+    <xs:attribute name="Priority" type="PriorityType"/>
+    <xs:attribute name="Inheritable" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          如果该可视化工具可由派生于给定类型的类的对象使用，则为 true，如果对象必须直接拥有该类型以便可视化工具生效，则为 false。
+          默认为 true。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="PriorityType">
+    <xs:annotation>
+      <xs:documentation>指定可选优先级分配到此条目用于类型匹配。首先检查特定文件或词典中的较高优先级条目。
+      不指定优先级的  &lt;Type&gt; 条目收到默认优先级“中”。不指定优先级的 &lt;AlternativeType&gt; 条目
+      将继承封闭 &lt;Type&gt; 元素的优先级。当消除歧义的所有其他方法不可用时，优先级仅用于消除类型匹配的歧义。 
+      例如，具有较多特定模板实例化、模块约束或视图约束的条目将具有优先级，无论指定的优先级值是什么，均是如此。
+      类似地，无论优先级是什么，属于已加载项目一部分的本地文件均具有高于用户本地目录中的文件优先级，
+     而后者具有高于系统范围内本地目录中文件的优先级。 
+      
+      如果两个条目具有相同优先级且无法消除歧义，则不会指定将使用哪一个条目。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Low"/>
+          <xs:enumeration value="MediumLow"/>
+          <xs:enumeration value="Medium"/>
+          <xs:enumeration value="MediumHigh"/>
+          <xs:enumeration value="High"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:complexType name="UIVisualizerType">
+    <xs:annotation>
+      <xs:documentation>指定创建自己的接口以显示对象的 UI 可视化工具的详细信息。一个类型的可视化工具项需要引用 UI 可视化工具才能将该类型与 UI 可视化工具相关联。</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="ServiceId" type="GuidType" use="required">
+          <xs:annotation>
+            <xs:documentation>指定可视化工具服务 GUID。该服务必须由还会实现 IVsCppDebugUIVisualizer 接口的 Visual Studio 包提供。调试器仅在用户请求此可视化服务时才加载此包。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Id" type="xs:int" use="required">
+          <xs:annotation>
+            <xs:documentation>指定可视化工具 ID。用于区分此可视化工具服务提供的多个查看器。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MenuName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>指定将在一个变量的 UI 可视化工具列表中显示的名称。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Description" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>指定此 UI 可视化工具的说明。</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="HResultType">
+    <xs:annotation>
+      <xs:documentation>指定自定义 HRESULT 的调试器视图的可视化工具项。</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternativeHResult" type="AlternativeHResultType">
+        <xs:annotation>
+          <xs:documentation>将共享同一可视化工具的其他 HResult 类型。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="HRValue" type="StringType">
+        <xs:annotation>
+          <xs:documentation>要自定义的 32 位 HRESULT 值。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="HRDescription" type="StringType">
+        <xs:annotation>
+          <xs:documentation>要在调试器窗口中显示的此 HRESULT 值的说明。</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Name" type="StringType" use="required">
+      <xs:annotation>
+        <xs:documentation>要在调试器窗口中显示的 HRESULT 值的名称。</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="LocalizedStringType">
+    <xs:annotation>
+      <xs:documentation>
+        定义可由接受字符串(如 DisplayString、项元素的名称属性)的 natvis 元素引用的本地化字符串资源。
+        使用 @&lt;id&gt;; 格式引用本地化字符串(例如 @1001;)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Id" use="required">
+          <xs:annotation>
+            <xs:documentation>本地化字符串的 ID。使用 @&lt;id&gt;; 格式引用此本地化字符串。</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:unsignedInt">
+              <xs:minInclusive value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="LocalizedStringsType">
+    <xs:annotation>
+      <xs:documentation>
+        指定可以由 natvis 元素引用的本地化字符串列表。在名称与主文件相同的附属 natvis 文件中定义本地化字符串
+        并将其部署至主 natvis 文件旁边的区域特定的文件夹。调试器会从相应的附属文件加载本地化资源。
+        在主 natvis 文件中定义本地化字符串在没有区域附属文件时按默认设置保存。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="LocalizedString" type="LocalizedStringType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Definition of complex elements-->
+
+  <xs:element name="AutoVisualizer">
+    <xs:annotation>
+      <xs:documentation>natvis 文件的根元素。</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Version" type="VersionType">
+          <xs:annotation>
+            <xs:documentation>指定在此文件中未显式指定模块名称和版本的所有可视化工具的匹配的模块名称和版本。</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="LocalizedStrings" type="LocalizedStringsType"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="UIVisualizer" type="UIVisualizerType"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Type" type="VisualizerType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HResult" type="HResultType"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Intrinsic" type="IntrinsicType"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

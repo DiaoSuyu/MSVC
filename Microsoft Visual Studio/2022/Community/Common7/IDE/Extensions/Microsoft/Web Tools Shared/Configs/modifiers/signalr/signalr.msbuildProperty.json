@@ -1,0 +1,13 @@
+{
+  "kind": "msbuildProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "@@ProfilePath@@",
+    "properties": {
+      "WebConfigEnvironmentVariables": {
+        "value": "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.Azure.SignalR",
+        "action": "replace"
+      }
+    }
+  }
+}

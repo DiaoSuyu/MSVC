@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ImageManifest
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.VisualStudio.LiveShare.ToolWindow.UI;Component/Resources/" />
+    <Guid Name="ViewletMonikers" Value="{A5B07141-EB52-46FB-90BE-9C247770A60D}" />
+    <ID Name="imgidCopyLink" Value="1001" />
+    <ID Name="imgidFocusParticipants" Value="1002" />
+    <ID Name="imgidShareServer" Value="1003" />
+    <ID Name="imgidShareTerminal" Value="1004" />
+    <ID Name="imgidShareReadOnlyTerminal" Value="1005" />
+    <ID Name="imgidLeaveSession" Value="1006" />
+    <ID Name="imgidParticipants" Value="1007" />
+    <ID Name="imgidSharedServerHeader" Value="1008" />
+    <ID Name="imgidSharedServerEntry" Value="1009" />
+    <ID Name="imgidSharedTerminalHeader" Value="1010" />
+    <ID Name="imgidSharedTerminalEntry" Value="1011" />
+    <ID Name="imgidShareReadWriteTerminal" Value="1012"/>
+    <ID Name="imgidStartSession" Value="1013"/>
+    <ID Name="imgidJoinSession" Value="1014"/>
+    <ID Name="imgidStartReadOnlySession" Value="1015"/>
+    <ID Name="imgidAudioCallStart" Value="1016"/>
+    <ID Name="imgidAudioCallEnd" Value="1017"/>
+    <ID Name="imgidAudioCallEntryUnmuted" Value="1018"/>
+    <ID Name="imgidAudioCallEntryMuted" Value="1019"/>
+    <ID Name="imgidAudioCallEntryTalking" Value="1020"/>
+    <ID Name="imgidAudioCallSettings" Value="1021"/>
+    <ID Name="imgidSessionChat" Value="1023"/>
+    <ID Name="imgidSendMessage" Value="1024"/>
+  </Symbols>
+  <Images>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidCopyLink)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CopyUrlLink_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidFocusParticipants)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Focus_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidShareServer)" AllowColorInversion="true">
+      <Source Uri="$(Resources)ShareServer_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidShareTerminal)" AllowColorInversion="true">
+      <Source Uri="$(Resources)ShareReadOnlyTerminal_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidShareReadOnlyTerminal)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CopyUrlLink_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidLeaveSession)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Stop_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidParticipants)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Participants.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSharedServerHeader)" AllowColorInversion="true">
+      <Source Uri="$(Resources)SharedServersHeader.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSharedServerEntry)" AllowColorInversion="true">
+      <Source Uri="$(Resources)ServerEntry.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSharedTerminalHeader)" AllowColorInversion="true">
+      <Source Uri="$(Resources)SharedTerminalsHeader.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSharedTerminalEntry)" AllowColorInversion="true">
+      <Source Uri="$(Resources)TerminalEntry.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidShareReadWriteTerminal)" AllowColorInversion="true">
+      <Source Uri="$(Resources)ShareReadWriteTerminal_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidStartSession)" AllowColorInversion="true">
+      <Source Uri="$(Resources)StartLiveShareSession_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidJoinSession)" AllowColorInversion="true">
+      <Source Uri="$(Resources)JoinSessionViaLink_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidStartReadOnlySession)" AllowColorInversion="true">
+      <Source Uri="$(Resources)StartReadOnlyLiveShare_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallStart)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CallTo_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallEnd)" AllowColorInversion="true">
+      <Source Uri="$(Resources)EndCall_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallEntryUnmuted)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Microphone_16x.xaml" />
+    </Image>
+     <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallEntryMuted)" AllowColorInversion="true">
+      <Source Uri="$(Resources)MicrophoneMute_16x.xaml" />
+    </Image>
+     <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallEntryTalking)" AllowColorInversion="true">
+      <Source Uri="$(Resources)MicrophoneTalking_16x.xaml" />
+    </Image>
+     <Image Guid="$(ViewletMonikers)" ID="$(imgidAudioCallSettings)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CallBrowserSettings.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSessionChat)" AllowColorInversion="true">
+      <Source Uri="$(Resources)CommentGroup_16x.xaml" />
+    </Image>
+    <Image Guid="$(ViewletMonikers)" ID="$(imgidSendMessage)" AllowColorInversion="true">
+      <Source Uri="$(Resources)Send_16x.xaml" />
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

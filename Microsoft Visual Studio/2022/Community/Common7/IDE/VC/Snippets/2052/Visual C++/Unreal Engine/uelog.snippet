@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>uelog</Title>
+			<Shortcut>uelog</Shortcut>
+			<Description>UE_LOG 宏的 Unreal Engine</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>categoryname</ID>
+					<Default>LogTemp</Default>
+					<ToolTip>UE_LOG 类别名称</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>verbosity</ID>
+					<Default>Display</Default>
+					<ToolTip>UE_LOG 详细程度</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp"><![CDATA[UE_LOG($categoryname$, $verbosity$, TEXT("$end$"));]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

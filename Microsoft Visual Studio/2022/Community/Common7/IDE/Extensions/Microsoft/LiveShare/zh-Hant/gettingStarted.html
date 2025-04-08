@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="html-body" lang="en" id="document">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <!--Getting Started Page Content Start--DO NOT TRANSLATE THIS COMMENT-->
+    <div id="simple-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">即時共同開發</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4 id="simple-page-welcome-title">歡迎使用 Visual Studio Live Share!</h4>
+        </div>
+        <div id="simple-page-sections">
+            <div id="user-guide" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--BookAnswers"></span>
+                </div>
+                <p>想知道如何使用 Live Share 嗎?</p>
+                <a class="simple-page-button" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vs" target="_blank">使用者指南</a>
+            </div>
+
+            <div id="join-yourself" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--Touch"></span>
+                </div>
+                <p>了解如何使用 Live Share</p>
+                <button class="simple-page-button" id="simple-page-join-yourself-button">加入自己</button>
+            </div>
+
+            <div id="copy-link" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--PageLink"></span>
+                </div>
+                <p>透過電子郵件或聊天邀請他人加入您的工作階段</p>
+                <button id="simple-page-url-copy-button" class="simple-page-button">複製連結</button>
+            </div>
+        </div>
+    </div>
+    <div id="control-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">即時共同開發</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4>歡迎使用 Visual Studio Live Share!</h4>
+        </div>
+        <p> 只要幾個簡單步驟，就能讓小組開始共同編輯與偵錯:</p>
+
+        <div id="step-sign-in" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button">啟動登入</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">為什麼要登入?</h3>
+                        <p>
+                            在共同作業時，請確保其他人可以識別您的身分，這樣他們才能放心
+                            共用自己的程式碼與開發環境存取權。登入後，您就會擁有讀寫權限，以便與主持人共同編輯程式碼。
+                        </p>
+                        <p>
+                            為方便您開始使用，
+                            您可使用現有的 GitHub 或 Microsoft 帳戶登入。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-sign-in-before-share" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button-before-share">啟動登入</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">為什麼要登入?</h3>
+                        <p>
+                            在共同作業時，請確保其他人可以識別您的身分，這樣他們才能放心
+                            共用自己的程式碼與開發環境存取權。登入後，您就可以共用工作區，與其他人共同作業。
+                        </p>
+                        <p>
+                            為方便您開始使用，
+                            您可使用現有的 GitHub 或 Microsoft 帳戶登入。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-share" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Share"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">共用</h3>
+                    <p>按一下右上角的 [Live Share]<i></i> 按鈕，這會共用您的專案，並將唯一的工作階段 URL 複製到剪貼簿。</p>
+                    <!--<img src="https://aka.ms/vsls/quickstart/share" width="136px" alt="Visual Studio Code 共用狀態列項目" />-->
+                    <p>系統會在您初次共用時要求登入 (使用 GitHub 或 Microsoft 帳戶)，讓其他人在共同作業時知道您的身分。</p>
+                    <img  class="signin-image" src="https://aka.ms/vsls/vs-signin" />
+                    <blockquote>
+                        <p>在 Windows 上，系統可能會要求您允許 Live Share 開啟防火牆連接埠，以使用對等連線。</p>
+                    </blockquote>
+                    <p>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Edit" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Edit"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">編輯</h3>
+                    <p>您現已加入共同作業工作階段，您可在其中移動游標、進行編輯以及將文字醒目提示。您可以看到其他參與者執行上述動作。</p>
+                    <p>按一下 [已加入] 下拉式功能表或右上方的參與者圖示，即可存取所有 Live Share 功能。</p>
+                    <p>您可以從這裡看到工作階段中的參與者，以及已共用的伺服器與終端機。</p>
+                    <ul class="list">
+                        <li><p>移至程式碼中的其他檔案。您可以在專案中巡覽。</p></li>
+                        <li><p>聚焦參與者，並請他注意您目前所查看程式碼的一部份。</p></li>
+                        <li><p>在右上方按一下工作階段中任何參與者的名稱，即可追蹤參與者。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Debug" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Bug"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">偵錯</h3>
+                    <p>使用為數眾多的共同偵錯功能，來和您的小組一同解決問題/工作。</p>
+                    <ul class="list">
+                        <li><p> 即時在偵錯工作階段中共同偵錯，以及共同設定中斷點及執行步驟。</p></li>
+                        <li><p>☁️ 檢視共用伺服器，方法是按一下 [已加入] 下拉式功能表，來檢視主持人在本機執行的 Web 應用程式、資料庫等。</p></li>
+                        <li><p> 顯示共用終端機，方法是按一下 [已加入] 下拉式功能表，來檢視或執行主持人終端機內的命令。</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-invite" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--ChatInviteFriend"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">邀請</h3>
+                    <p>使用電子郵件、Skype、Slack 等，將工作階段 URL 傳送給您想要共同作業的開發人員 (最多 5 人!)。<a id="security-info-link" href="https://aka.ms/vsls-security" target="_blank">檢視安全性資訊</a>以深入了解安全的共用。</p>
+                    <p id="join-uri">共同作業工作階段 URL: <div id="join-uri-box" class="box">${this.joinUri}</div></p><button id="join-uri-copy-button">複製邀請連結</button>
+                    <!--<img src="https://aka.ms/vsls/quickstart/invite" width="450px" />-->
+                    <blockquote>
+                        <p>要評估 VS Live Share，但沒有其他人可以共同作業嗎? 不用擔心! 您其實可以從 VS 的另一個執行個體與自己共用。<a id="share-with-yourself-link" href="${this.joinUri}" target="_blank">按一下這裡即可試用。</a></p>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-collaborate" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--People"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">共同作業</h3>
+                    <p>這樣就行了! 只要受邀的「來賓」加入，您就會收到通知，並會看到他們的游標出現在您目前開啟的檔案中。所有來賓都會開始<a id="following-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">跟隨</a>您，這表示當您捲動或在檔案之間瀏覽時，他們也會追蹤這些動作。如此即可輕鬆將他們導向您即將開始共同作業的問題/工作。</p>
+                    <img class="notification-image" src="https://aka.ms/vsls/vs-join-notification" />
+                    <p>此外，若要充分運用 Live Share，可嘗試進行下列作業:</p>
+                    <ul class="list">
+                        <li>移動您的游標、編輯及醒目提示文字，然後看來賓執行相同動作</li>
+                        <li><a id="follow-guest-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">追蹤來賓</a>，並將它們捲動及 (或) 瀏覽至其他檔案</li>
+                        <li><a id="share-debug-session-link" href="https://aka.ms/vsls-docs/vs#co-debugging" target="_blank">共用偵錯工作階段</a>，方法是按 F5，然後即時一起逐步執行</li>
+                        <li><a id="share-server-link" href="https://aka.ms/vsls-docs/vs#share-a-server" target="_blank">共用伺服器</a>，以便來賓可檢視在本機執行的 Web 應用程式、資料庫等</li>
+                        <li><a id="share-terminal-link" href="https://aka.ms/vsls-docs/vs#share-a-terminal" target="_blank">共用終端機</a>及共同執行命令</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <p class=" bottom-text">如果您遇到任何問題，請參閱我們的<a id="troubleshooting-link" href="http://aka.ms/vsls-troubleshooting" target="_blank">疑難排解文件</a>，以取得可行的因應措施。此外，如果您有任何問題及 (或) 意見反應，請不吝使用 [說明]<i></i> 功能表中的 [傳送意見反應]<i></i> 選項與我們的小組連絡。</p>
+        <!--Getting Started Page Content End--DO NOT TRANSLATE THIS COMMENT-->
+    </div>
+    </body>
+    </html>

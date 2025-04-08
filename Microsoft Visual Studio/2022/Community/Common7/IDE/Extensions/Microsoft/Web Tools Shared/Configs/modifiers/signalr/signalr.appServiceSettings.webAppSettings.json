@@ -1,0 +1,22 @@
+{
+  "kind": "appServiceSettings.generic",
+  "restorable": true,
+  "model": {
+    "appServiceResourceId": "@@ProfileResourceId@@",
+    "settingType": "WebAppProperty",
+    "properties": {
+      "clientAffinityEnabled": {
+        "value": "true",
+        "action": "replace"
+      },
+      "siteConfig.http20Enabled": {
+        "value": "true",
+        "action": "replace"
+      },
+      "siteConfig.webSocketsEnabled": {
+        "value": "true",
+        "action": "replace"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+﻿.sourceInfoTooltip {
+    grid-template-columns: auto 5px auto;
+    grid-template-rows: 4;
+    display: grid;
+    width: 237px;
+}
+
+    .sourceInfoTooltip .sourceInfoNameLabel {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .sourceInfoTooltip .sourceInfoName {
+        grid-column: 3;
+        grid-row: 1;
+        word-break: break-all;
+    }
+
+    .sourceInfoTooltip .sourceInfoFileLabel {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .sourceInfoTooltip .sourceInfoFile {
+        grid-column: 3;
+        grid-row: 2;
+        word-break: break-all;
+    }
+
+    .sourceInfoTooltip .sourceInfoLineLabel {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .sourceInfoTooltip .sourceInfoLine {
+        grid-column: 3;
+        grid-row: 3;
+        word-break: break-all;
+    }
+
+    .sourceInfoTooltip .sourceInfoColumnLabel {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .sourceInfoTooltip .sourceInfoColumn {
+        grid-column: 3;
+        grid-row: 4;
+        word-break: break-all;
+    }

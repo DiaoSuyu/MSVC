@@ -1,0 +1,48 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addUsingStatement",
+    "condition": "MinimalAppModel",
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsAzureNamespaceForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Azure;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Azure;",
+            "tokens": {}
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+[$RootKey$\VisualStudio.Extensibility\Commands\Override\Microsoft.Developer.IdentityServiceGS.RegisterVisualStudio]
+"Guid"="{1496A755-94DE-11D0-8C3F-00C04FC2AAE2}"
+"Id"=dword:000008a6
+"FeatureFlag"="Identity\EnableNewRegisterVS"

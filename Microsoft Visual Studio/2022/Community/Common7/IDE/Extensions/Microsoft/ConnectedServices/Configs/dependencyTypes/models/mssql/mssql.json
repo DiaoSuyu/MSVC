@@ -1,0 +1,27 @@
+{
+  "id": "mssql",
+  "isBase": true,
+  "name": "strings:#/mssqlDependencyTypeName",
+  "description": "strings:#/mssqlDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "displayOrder": 5000,
+  "actions": [
+    "openInSQLServerExplorer",
+    "addMigration",
+    "updateDatabase",
+    "createSQLScript"
+  ],
+  "tags": [
+    "SQL",
+    "strings:#/database"
+  ]
+}

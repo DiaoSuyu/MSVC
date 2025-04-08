@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用一个项类型创建键控集合。</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建包含特定类型的项的字典，这些项按键进行索引。</Description>
+      <Shortcut>colCreateKey</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>storageVar</ID>
+          <ToolTip>替换为后备存储器的标识符。</ToolTip>
+          <Default>stateCaps</Default>
+        </Literal>
+        <Literal>
+          <ID>keyType</ID>
+          <ToolTip>替换为集合中的键的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+		<Literal>
+			<ID>itemType</ID>
+			<ToolTip>替换为集合包含的项的类型。</ToolTip>
+			<Default>String</Default>
+		</Literal>
+	<Literal>
+          <ID>keyValue1</ID>
+          <ToolTip>替换为第一个项的键。</ToolTip>
+          <Default>"WA"</Default>
+        </Literal>
+        <Literal>
+          <ID>keyValue2</ID>
+          <ToolTip>替换为第二个项的键。</ToolTip>
+          <Default>"NM"</Default>
+        </Literal>
+	<Literal>
+          <ID>value1</ID>
+          <ToolTip>替换为第一个项的值。</ToolTip>
+          <Default>"Olympia"</Default>
+        </Literal>
+	<Literal>
+          <ID>value2</ID>
+          <ToolTip>替换为第二个项的值。</ToolTip>
+          <Default>"Santa Fe"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[' Backing storage -- a generic dictionary
+Dim $storageVar$ As New Dictionary(Of $keyType$, $itemType$)
+
+' Add items to the dictionary
+$storageVar$.Add( $keyValue1$ , $value1$)
+$storageVar$.Add( $keyValue2$ , $value2$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

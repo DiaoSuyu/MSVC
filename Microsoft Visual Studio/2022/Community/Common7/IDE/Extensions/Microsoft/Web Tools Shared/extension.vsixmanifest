@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="E8105105-1014-4688-9F62-52186FEBF19B" Version="17.13.124.35287" Language="en-US" Publisher="Microsoft" />
+    <Icon>WebConfiguration.png</Icon>
+    <PreviewImage>WebConfigurationPreview.png</PreviewImage>
+    <DisplayName>Microsoft ASP.NET and Web Tools</DisplayName>
+    <Description xml:space="preserve">Provides common utilities for Web Developer Tools for ASP.NET</Description>
+    <Tags>Visual Studio Web Developer Tools</Tags>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation InstalledByMsi="true" AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[15.0,]" />
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Shared.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.Shared.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.Shared.VS.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.Shared.CPS.VS.dll" />
+  </Assets>
+</PackageManifest>

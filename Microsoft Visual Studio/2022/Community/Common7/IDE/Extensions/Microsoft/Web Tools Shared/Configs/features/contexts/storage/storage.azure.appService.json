@@ -1,0 +1,45 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "DotNetCoreWeb"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          }
+        ]
+      },
+      "config": "storage.azure.appService.coreweb"
+    },
+    {
+      "when": {
+        "kind": "not",
+        "operand": {
+          "kind": "and",
+          "operands": [
+            {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            },
+            {
+              "kind": "not",
+              "operand": {
+                "kind": "HasTargetFramework",
+                "tfmPrefixOrFull": ".NetStandard"
+              }
+            }
+          ]
+        }
+      },
+      "config": "storage.azure.appService"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ImageManifest
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.VisualStudio.IntelliCode;Component/Resources/" />
+    <Guid Name="IntelliCodeImageMonikers" Value="{a6368077-4c22-4623-b6b8-8a2977780eaf}" />
+    <ID Name="imgidCompletionList" Value="1001" />
+    <ID Name="imgidSmallIcon" Value="1002" />
+    <ID Name="imgIdEditorConfigSmallIcon" Value="1003" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(IntelliCodeImageMonikers)" ID="$(imgidCompletionList)" AllowColorInversion="true">
+      <Source Uri="$(Resources)IntelliCodeCompletionList_170x.xaml" />
+    </Image>
+    <Image Guid="$(IntelliCodeImageMonikers)" ID="$(imgidSmallIcon)" AllowColorInversion="false">
+      <Source Uri="$(Resources)BrandIntelliCode_16x.xaml">
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(IntelliCodeImageMonikers)" ID="$(imgIdEditorConfigSmallIcon)">
+      <Source Uri="$(Resources)SmartConfigFile_16x.xaml">
+        <Size Value="16" />
+      </Source>
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

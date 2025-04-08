@@ -1,0 +1,42 @@
+.modules {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.modules > .treeGridContainer {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.moduleRow > .leftAlign, .moduleHeader > .leftAlign {
+    text-align: left;
+}
+
+.usage-container {
+    position: relative;
+}
+
+.modules-usageBar {
+    border: 1px solid var(--InstrumentationTool-FlatFunctionsUsageBarBackground-Background, hotpink);
+    background-color: var(--InstrumentationTool-FlatFunctionsUsageBarBackground-Background, hotpink);
+    margin-left: auto;
+    border-radius: .25em;
+    right: 0px;
+    top: 0px;
+    height: 16px;
+}
+
+    .treeGridRow.selected .modules-usageBar {
+        background-color: transparent;
+    }
+
+.modules-usage {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+}

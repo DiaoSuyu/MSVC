@@ -1,0 +1,26 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>scripts</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>scripts</Shortcut>
+    <Description>脚本管理器的脚本集合的标记段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <FileExtensions>
+      aspx;master;ascx
+    </FileExtensions>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>path</ID>
+        <ToolTip>路径</ToolTip>
+        <Default>#</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="html"><![CDATA[<scripts>
+    <asp:scriptreference path="$path$" />$end$
+</scripts>]]></Code>
+  </Snippet>
+</CodeSnippet>

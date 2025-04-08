@@ -1,0 +1,79 @@
+{
+  "feature": {
+    "id": "cosmosdb.azure.appService"
+  },
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    "PickInstance",
+    "RemoteConnection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "AzureAppSettings",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:CosmosDBConnection"
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "group": {
+      "isBase": true
+    }
+  },
+  "arm": {
+    "apiVersion": "2015-04-08",
+    "templateGenerator": {
+      "id": "export",
+      "model": {
+        "templatePreprocessors": [
+          {
+            "id": "removeUnnecessaryProperties",
+            "model": {
+              "properties": [
+                "etag",
+                "id",
+                "identity",
+                "properties/*",
+                "tags"
+              ],
+              "except": [
+                "properties/databaseAccountOfferType"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

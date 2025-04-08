@@ -1,0 +1,15 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "storage.azure",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Azure.Storage.Blobs": "",
+      "Azure.Storage.Files": "",
+      "Azure.Storage.Files.Shares": "",
+      "Azure.Storage.Queues": "",
+      "WindowsAzure.Storage": ""
+    }
+  }
+}

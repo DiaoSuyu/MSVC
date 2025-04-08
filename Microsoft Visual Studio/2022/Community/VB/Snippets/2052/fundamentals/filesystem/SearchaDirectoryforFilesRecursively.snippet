@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>递归搜索目录中的文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>递归搜索目录中的文件。</Description>
+      <Shortcut>filSearchDir</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections.ObjectModel</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>directory</ID>
+          <ToolTip>替换为要搜索的目录。</ToolTip>
+          <Default>"C:\"</Default>
+        </Literal>
+        <Literal>
+          <ID>str</ID>
+          <ToolTip>替换为要用于搜索的通配符字符串。</ToolTip>
+          <Default>"*.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim files As ReadOnlyCollection(Of String)
+files = My.Computer.FileSystem.GetFiles($directory$, FileIO.SearchOption.SearchAllSubDirectories, $str$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

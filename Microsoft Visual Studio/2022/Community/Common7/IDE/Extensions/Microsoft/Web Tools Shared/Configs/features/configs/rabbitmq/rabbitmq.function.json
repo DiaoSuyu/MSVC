@@ -1,0 +1,14 @@
+{
+  "components": {
+    "itemTemplateCreator": {
+      "modifiers": [
+        "rabbitmq.itemTemplateCreator"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId"
+      ]
+    }
+  }
+}

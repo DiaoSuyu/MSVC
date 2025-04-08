@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "sqlite",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.EntityFrameworkCore.Sqlite": ""
+    }
+  }
+}

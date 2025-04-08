@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将相对 URI 转换成绝对 URI</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将相对 URI 转换成绝对 URI。</Description>
+      <Shortcut>conConv</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>uri1</ID>
+          <Type/>
+          <ToolTip>替换为基 URI。</ToolTip>
+          <Default>"http://www.contoso.com/"</Default>
+          <Function/>
+        </Literal>
+        <Literal>
+          <ID>uri2</ID>
+          <Type/>
+          <ToolTip>替换为相对 URI。</ToolTip>
+          <Default>"images/index.htm?id=null"</Default>
+          <Function/>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim baseUri As New Uri($uri1$)
+Dim relativeUri As New Uri($uri2$)
+
+' Compose absolute Uri using the base and the relative Uri.
+Dim absoluteUri As New Uri(baseUri, relativeUri)
+
+Dim absolute = absoluteUri.AbsolutePath]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,103 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "grpc",
+  "componentId": "code",
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseEndpoints",
+              "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Microsoft.AspNetCore.Routing.IEndpointRouteBuilder>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapGrpcService",
+              "TypeName": "Microsoft.AspNetCore.Routing.IEndpointRouteBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "Method",
+            "properties": {
+              "Method": "ConfigureServices",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddGrpc",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.GrpcServicesExtensions"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "UseEndpoints",
+              "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder"
+            }
+          },
+          {
+            "kind": "ArgumentDelegate",
+            "properties": {
+              "TypeName": "System.Action<Microsoft.AspNetCore.Routing.IEndpointRouteBuilder>"
+            }
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "MapGrpcService",
+              "TypeName": "Microsoft.AspNetCore.Routing.IEndpointRouteBuilder"
+            }
+          }
+        ]
+      },
+      {
+        "parts": [
+          {
+            "kind": "TopLevelMethod",
+            "properties": {}
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddGrpc",
+              "TypeName": "Microsoft.Extensions.DependencyInjection.GrpcServicesExtensions"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ngservice</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>Vorlage zum Hinzufügen eines Angular-Diensts</Description>
+      <Shortcut>ngservice</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>module</ID>
+          <ToolTip>Durch einen Modulnamen ersetzen</ToolTip>
+          <Default>app</Default>
+        </Literal>
+        <Literal>
+          <ID>service</ID>
+          <ToolTip>Durch den Namen des Diensts ersetzen</ToolTip>
+          <Default>customService</Default>
+        </Literal>
+        <Literal>
+          <ID>dependency</ID>
+          <ToolTip>Durch die Abhängigkeit für den Dienst ersetzen</ToolTip>
+          <Default>config</Default>
+        </Literal>
+        <Literal>
+          <ID>member1</ID>
+          <ToolTip>Durch den Namen eines Elements des Diensts ersetzen</ToolTip>
+          <Default>getData</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="JavaScript">
+        <![CDATA[
+(function () {
+    'use strict';
+
+    angular
+      .module('$module$')
+      .factory('$service$', ['$dependency$', $service$]);
+
+    function $service$($dependency$) {
+        var service = {
+            $member1$: $member1$
+        };
+
+        function $member1$() {
+
+        }
+        
+        return service;
+    }
+})();
+                ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

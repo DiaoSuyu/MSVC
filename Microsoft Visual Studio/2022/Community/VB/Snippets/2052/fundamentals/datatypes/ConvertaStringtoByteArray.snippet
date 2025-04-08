@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>将字符串转换成字节数组</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将字符串转换成字节数组。</Description>
+      <Shortcut>typeStrByte</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Text</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>SampleString</ID>
+          <Type>String</Type>
+          <ToolTip>替换为字符串。</ToolTip>
+          <Default>"StringToConvert"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[dim bytes as Byte() = Encoding.Unicode.GetBytes($SampleString$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,64 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="VisualStudio.GitHub.Copilot" Version="17.13.441.19478" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>GitHub Copilot</DisplayName>
+    <Description>GitHub Copilot brings fully integrated AI-powered Copilot Chat and Completions experiences to Visual Studio. Requires a GitHub ID which has been admitted for access to the private preview.</Description>
+    <MoreInfo>https://aka.ms/VisualStudio.GitHub.Copilot/moreinfo</MoreInfo>
+    <License>LICENSE.md</License>
+    <Icon>Copilot.png</Icon>
+  </Metadata>
+  <Installation SystemComponent="true" Experimental="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.10, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.10, 18.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.IntelliCode" Version="[17.0,18.0)" DisplayName="Visual Studio IntelliCode" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Copilot.Vsix.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="FeatureFlags.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Copilot.Vsix.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Vsix.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Abstractions.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Abstractions.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Migrations.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Contracts.Internal.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Contracts.Internal.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Completions.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Completions.Package.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Completions.Package.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Copilot.UI.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.UI.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.UI.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.UI.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.ML.Tokenizers.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="CommunityToolkit.Mvvm.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.CodeMappers.CSharp.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.CodeMappers.CSharp.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Roslyn.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Roslyn.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Copilot.Common.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Copilot.Common.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.Service.Vsix.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.Service.Vsix.pkgdef" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.Service.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.ChunkIndexing.CodeChunkTranslator.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.ChunkIndexing.CppChunkSource.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.ChunkIndexing.FallbackChunkSource.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.ChunkIndexing.MarkdownChunkSource.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.ChunkIndexing.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="Conversations.Service\Microsoft.VisualStudio.Copilot.SemanticContext.servicehub.service.json" />
+  </Assets>
+</PackageManifest>

@@ -1,0 +1,4 @@
+[$RootKey$\CLSID\{6856262F-19D4-4090-A0CD-A486A148709C}]
+@="VSEE Versioning Enlistment Manager Proxy Data Source"
+"InprocServer32"="$ShellFolder$\Common7\IDE\VS SCC\msemp.dll"
+"ThreadingModel"="Both"

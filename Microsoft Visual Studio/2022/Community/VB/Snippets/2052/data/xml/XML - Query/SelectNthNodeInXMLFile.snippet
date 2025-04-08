@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 XML 文件中查找某个元素的第 N 个实例</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在 XML 文件中查找某个元素的第 N 个实例。</Description>
+      <Shortcut>xmlNElem</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+     <Literal>
+          <ID>FileName</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为文件名。</ToolTip>
+          <Default>"data.xml"</Default>
+        </Literal>
+        <Literal>
+          <ID>NodePath</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为轴属性表达式。</ToolTip>
+          <Default>&lt;parent&gt;</Default>
+        </Literal>
+        <Literal>
+          <ID>Indexer</ID>
+          <Type>String</Type>
+          <ToolTip>将此项替换为要检索的索引号。结果索引从 0 开始。</ToolTip>
+          <Default>(5)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim element = XElement.Load($FileName$)
+      Dim result = element.$NodePath$$Indexer$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

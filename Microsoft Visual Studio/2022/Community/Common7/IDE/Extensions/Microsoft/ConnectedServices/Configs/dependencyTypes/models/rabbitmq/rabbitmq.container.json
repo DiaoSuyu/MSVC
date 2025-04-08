@@ -1,0 +1,27 @@
+{
+  "id": "rabbitmq.container",
+  "name": "strings:#/rabbitmqContainerDependencyTypeName",
+  "description": "strings:#/rabbitmqContainerDependencyTypeDescription",
+  "isSingleton": true,
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1866
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1866
+  },
+  "displayOrder": 6910,
+  "ManagementPortalUrl": "http://localhost:15672",
+  "actions": [
+    "openInContainerTools",
+    "openInManagementPortal"
+  ],
+  "runnerKinds": "container",
+  "tags": [
+    "strings:#/container",
+    "strings:#/local"
+  ]
+}

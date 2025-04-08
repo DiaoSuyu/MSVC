@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定 Windows 窗体上的选定控件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>查找窗体上的选定控件。</Description>
+      <Shortcut>formSelect</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>formName</ID>
+          <Type>Form</Type>
+          <ToolTip>替换为窗体对象。</ToolTip>
+          <Default>Me</Default>
+        </Object>
+        <Object>
+          <ID>selectedControl</ID>
+          <Type>Control</Type>
+          <ToolTip>存储窗体上当前选定的控件。</ToolTip>
+          <Default>selectedControl</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$selectedControl$ = $formName$.ActiveControl]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

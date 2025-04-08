@@ -1,0 +1,29 @@
+{
+  "feature": {
+    "id": "identityapp.wap.remote"
+  },
+  "requirements": [
+    "dotnetMsIdentity"
+  ],
+  "persistenceProperties": {
+    "connectionInfo": {},
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    }
+  },
+  "editSteps": [
+    "IdentityPickInstance",
+    "DependencySummary"
+  ],
+  "persistencePreprocessors": [
+    "RemoteIdentity",
+    "SusiPolicyId"
+  ]
+}

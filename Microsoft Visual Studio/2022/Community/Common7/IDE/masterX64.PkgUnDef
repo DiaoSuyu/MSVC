@@ -1,0 +1,5 @@
+// Not all packages are 64bit compatible yet, but may be included with other package bundles.
+// They can be disabled here as a workaround.
+
+// Remove the "Team Foundation Server Provider Stub Package"
+[$RootKey$\Packages\{D79B7E0A-F994-4D4D-8FAE-CAE147279E21}]

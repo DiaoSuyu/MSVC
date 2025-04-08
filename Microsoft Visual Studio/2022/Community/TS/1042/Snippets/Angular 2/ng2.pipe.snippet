@@ -1,0 +1,36 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2pipe</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2pipe</Shortcut>
+    <Description>각도 2 파이프 추가용 코드 조각</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <ToolTip>이름</ToolTip>
+        <Default>'mypipe'</Default>
+      </Literal>
+      <Literal>
+        <ID>classname</ID>
+        <ToolTip>클래스 이름</ToolTip>
+        <Default>MyPipe</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+     import { Pipe, PipeTransform } from 'angular/core'; 
+     
+     @Pipe({
+         name: $name$  
+     })
+     export class $classname$Pipe implements PipeTransform {
+         transform(value: any, args: any[]): any {
+         }
+     }
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

@@ -1,0 +1,123 @@
+﻿.dataParsing {
+    background: #E647E6;
+    stroke: #E647E6;
+    fill: none;
+    opacity: 1;
+}
+
+.dataGC {
+    background: #f1ad00;
+    stroke: #f1ad00;
+    fill: none;
+    opacity: 1;
+}
+
+.dataXamlOther {
+    background: #8C8C8C;
+    stroke: #8C8C8C;
+    fill: none;
+    opacity: 1;
+}
+
+.dataNetwork {
+    background: #1295C4;
+    stroke: #1295C4;
+    fill: none;
+    opacity: 1;
+}
+
+.dataDiskIO {
+    background: #1295C4;
+    stroke: #1295C4;
+    fill: none;
+    opacity: 1;
+}
+
+.dataIO {
+    background: #1295C4;
+    stroke: #1295C4;
+    fill: none;
+    opacity: 1;
+}
+
+.dataAppCode {
+    background: #839900;
+    stroke: #839900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataUIElementCost {
+    background: #839900;
+    stroke: #839900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataFrameNavigation {
+    background: #839900;
+    stroke: #839900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataLayout {
+    background: #dd5900;
+    stroke: #dd5900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataPlaceholder {
+    background: #ee0bfb;
+    stroke: #ee0bfb;
+    fill: none;
+    opacity: 1;
+}
+
+.dataOther {
+    background: #8C8C8C;
+    stroke: #8C8C8C;
+    fill: none;
+    opacity: 1;
+}
+
+.dataRendering {
+    background: #9b4f96;
+    stroke: #9b4f96;
+    fill: none;
+    opacity: 1;
+}
+
+.dataWindowResized {
+    background: #839900;
+    stroke: #839900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataAppStartup {
+    background: #839900;
+    stroke: #839900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataVisualStateChanged {
+    background: #dd5900;
+    stroke: #dd5900;
+    fill: none;
+    opacity: 1;
+}
+
+.dataUIThreadFrame {
+    background: #dd5900;
+    stroke: #dd5900;
+    fill: none;
+    opacity: 1;
+}
+
+.barGraph .dataOther {
+    stroke: none;
+    fill: #8C8C8C;
+}

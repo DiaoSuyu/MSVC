@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建公共消息队列</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在本地计算机上创建公共消息队列。</Description>
+      <Shortcut>mqCreate</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Messaging.dll</Assembly>
+          <Url/>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Messaging</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>PublicQueue</ID>
+          <Type>String</Type>
+          <ToolTip>替换为队列路径。</ToolTip>
+          <Default>".\NewQueue"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[' Public queue
+MessageQueue.Create($PublicQueue$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

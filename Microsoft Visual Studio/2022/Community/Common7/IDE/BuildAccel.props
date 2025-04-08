@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup>
+    <ProjectCachePlugin Include="$(MSBuildThisFileDirectory)\BuildAccelerationExtension.dll" Visible="false" Condition="$(AccelerateBuildsInVisualStudio)=='true'"/>
+  </ItemGroup>
+</Project>

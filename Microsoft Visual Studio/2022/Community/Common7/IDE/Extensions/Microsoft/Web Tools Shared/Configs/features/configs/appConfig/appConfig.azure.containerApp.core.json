@@ -1,0 +1,19 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "appConfig.nuget"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "appConfig.serviceConnector.containerApp"
+      ]
+    }
+  }
+}

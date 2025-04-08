@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从串行端口读取数据</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>从串行端口读取数据。</Description>
+      <Shortcut>conReadPort</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+	<Import>
+	  <Namespace>System.Text</Namespace>
+	</Import>
+	<Import>
+	  <Namespace>System.IO.Ports</Namespace>
+	</Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>COM</ID>
+          <ToolTip>替换为 COM 端口的名称。</ToolTip>
+          <Default>"COM1"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim buffer As New StringBuilder
+Using comPort = My.Computer.Ports.OpenSerialPort($COM$)
+    Do
+        Dim line = comPort.ReadLine()
+        If line Is Nothing Then
+            Exit Do
+        Else
+            buffer.AppendLine(line)
+        End If
+    Loop
+End Using]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,26 @@
+{
+  "kind": "appServiceSettings.generic",
+  "restorable": true,
+  "model": {
+    "appServiceResourceId": "@@ProfileResourceId@@",
+    "settingType": "Setting",
+    "properties": {
+      "APPLICATIONINSIGHTS_CONNECTION_STRING": {
+        "value": "@@connectionString@@",
+        "action": "replace"
+      },
+      "ApplicationInsightsAgent_EXTENSION_VERSION": {
+        "value": "~2",
+        "action": "replace"
+      },
+      "DiagnosticServices_EXTENSION_VERSION": {
+        "value": "~3",
+        "action": "replace"
+      },
+      "APPINSIGHTS_PROFILERFEATURE_VERSION": {
+        "value": "1.0.0",
+        "action": "replace"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "springCloud.azure",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Azure.SpringCloud.Client": ""
+    }
+  }
+}

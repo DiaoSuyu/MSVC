@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="html-body" lang="en" id="document">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <!--Getting Started Page Content Start--DO NOT TRANSLATE THIS COMMENT-->
+    <div id="simple-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">실시간 협업 개발</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4 id="simple-page-welcome-title">Visual Studio Live Share를 시작합니다.</h4>
+        </div>
+        <div id="simple-page-sections">
+            <div id="user-guide" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--BookAnswers"></span>
+                </div>
+                <p>Live Share 사용 방법이 궁금하세요?</p>
+                <a class="simple-page-button" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vs" target="_blank">사용자 가이드</a>
+            </div>
+
+            <div id="join-yourself" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--Touch"></span>
+                </div>
+                <p>Live Share 사용 방법 알아보기</p>
+                <button class="simple-page-button" id="simple-page-join-yourself-button">직접 참가</button>
+            </div>
+
+            <div id="copy-link" class="simple-page-section">
+                <div class="simple-page-icon">
+                    <span class="ms-Icon ms-Icon--PageLink"></span>
+                </div>
+                <p>메일 또는 채팅을 통해 다른 사용자를 세션에 초대</p>
+                <button id="simple-page-url-copy-button" class="simple-page-button">링크 복사</button>
+            </div>
+        </div>
+    </div>
+    <div id="control-page">
+        <div id="header">
+            <header>
+                <img class="vsls-icon" src="https://aka.ms/vsls-icon" />
+                <div class="header-text">
+                    <h1 class="vsls-header">Visual Studio Live Share</h1>
+                    <h2 class="real-time-header">실시간 협업 개발</h2>
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <h4>Visual Studio Live Share를 시작합니다.</h4>
+        </div>
+        <p> 팀이 몇 가지 간단한 단계로 협업 편집 및 디버깅을 시작하도록 하세요.</p>
+
+        <div id="step-sign-in" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button">로그인 시작</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">왜 로그인하나요?</h3>
+                        <p>
+                            협업할 때 다른 사용자가 해당 코드 및 개발 환경에 대한 공유 액세스를 안심하고
+                        이용하려면 사용자의 신원을 확인할 수 있어야 합니다. 로그인한 후에는 읽기-쓰기 권한을 갖게 되므로 호스트와 함께 코드를 편집할 수 있습니다.
+                        </p>
+                        <p>
+                            간단히 시작하기 위해
+                        기존 GitHub 또는 Microsoft 계정을 사용하여 로그인할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-sign-in-before-share" class="step">
+            <section class="features-section">
+                <div class="liveshare-action-signin clearfix">
+                    <button id="sign-in-button-before-share">로그인 시작</button>
+                    <div class="why-details">
+                        <h3 id="why-sign-in">왜 로그인하나요?</h3>
+                        <p>
+                            협업할 때 다른 사용자가 해당 코드 및 개발 환경에 대한 공유 액세스를 안심하고
+                        이용하려면 사용자의 신원을 확인할 수 있어야 합니다. 로그인한 후에는 작업 영역을 공유하고 다른 사용자와 협업할 수 있습니다.
+                        </p>
+                        <p>
+                            간단히 시작하기 위해
+                        기존 GitHub 또는 Microsoft 계정을 사용하여 로그인할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-share" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Share"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">공유</h3>
+                    <p>오른쪽 위 모서리의 <i>Live Share</i> 단추를 클릭하여 프로젝트를 공유하고 고유한 세션 URL을 클립보드로 복사하세요.</p>
+                    <!--<img src="https://aka.ms/vsls/quickstart/share" width="136px" alt="Visual Studio Code 공유 상태 표시줄 항목" />-->
+                    <p>협업할 때 다른 사람이 식별할 수 있도록 처음으로 공유할 때 GitHub 또는 Microsoft 계정을 사용하여 로그인하라는 메시지가 표시됩니다.</p>
+                    <img  class="signin-image" src="https://aka.ms/vsls/vs-signin" />
+                    <blockquote>
+                        <p>Windows에서는 피어 투 피어 연결을 사용하기 위해 Live Share에서 방화벽 포트를 열도록 허용할지 묻는 메시지가 표시될 수 있습니다.</p>
+                    </blockquote>
+                    <p>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Edit" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Edit"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">편집</h3>
+                    <p>협업 세션에 있다면 커서를 움직여 텍스트를 편집 및 강조할 수 있습니다. 다른 참가자가 같은 작업을 하는 모습을 볼 수 있습니다.</p>
+                    <p>"참가함" 드롭다운 메뉴를 클릭하거나 오른쪽 위에 있는 참가자 아이콘을 클릭하여 모든 Live Share 기능에 액세스할 수 있습니다.</p>
+                    <p>여기에서 세션의 참가자뿐 아니라 공유한 서버 및 터미널도 확인할 수 있습니다.</p>
+                    <ul class="list">
+                        <li><p>코드에서 다른 파일로 이동합니다. 프로젝트를 둘러볼 수 있습니다.</p></li>
+                        <li><p>참가자에 집중하고 보고 있는 코드 부분에 주목하게 하세요.</p></li>
+                        <li><p>오른쪽 위에 있는 이름을 클릭하여 세션의 모든 참가자를 팔로우합니다.</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-joined-Debug" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--Bug"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">디버그</h3>
+                    <p>다양한 공동 작업 디버깅 기능을 이용하여 실시간으로 팀과 과제/문제/작업을 수행합니다.</p>
+                    <ul class="list">
+                        <li><p> 디버깅 세션에 있을 때 함께 디버그하고, 중단점을 설정하고, 실시간으로 단계를 함께 진행하세요.</p></li>
+                        <li><p>☁️ 호스트의 로컬에서 실행되는 웹앱, 데이터베이스 등을 보려면 "참가함" 드롭다운 메뉴를 클릭하여 공유 서버를 확인하세요.</p></li>
+                        <li><p> 호스트의 터미널에서 명령을 보거나 실행하려면 "참가함" 드롭다운 메뉴를 클릭하여 공유 터미널을 표시하세요.</p></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-invite" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--ChatInviteFriend"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">초대</h3>
+                    <p>메일, Skype, Slack 등을 사용하여 세션 URL을 협업할 개발자(최대 5명)에게 보내세요. 보안 공유를 자세히 알아보려면 <a id="security-info-link" href="https://aka.ms/vsls-security" target="_blank">보안 정보를 참조</a>하세요.</p>
+                    <p id="join-uri">협업 세션 URL: <div id="join-uri-box" class="box">${this.joinUri}</div></p><button id="join-uri-copy-button">초대 링크 복사</button>
+                    <!--<img src="https://aka.ms/vsls/quickstart/invite" width="450px" />-->
+                    <blockquote>
+                        <p>누구와도 협업하지 않고 VS Live Share를 평가하고 싶으십니까? 문제없습니다! VS의 다른 인스턴스에서 자신과 실제로 공유할 수 있습니다. <a id="share-with-yourself-link" href="${this.joinUri}" target="_blank">사용해 보려면 여기를 클릭하세요.</a></p>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+
+        <div id="step-collaborate" class="step">
+            <section class="features-section">
+                <div class="features-section__icon">
+                    <span class="ms-Icon ms-Icon--People"></span>
+                </div>
+                <div class="features-section__body">
+                    <h3 class="section-heads">협업</h3>
+                    <p>완료되었습니다! 초대된 "게스트"가 참가하면 알림을 받고 현재 연 파일에 커서가 표시됩니다. 모든 게스트가 사용자를 <a id="following-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">팔로우</a>하게 되므로 사용자가 파일을 스크롤하거나 파일 간에 이동하면 게스트도 이러한 동작을 추적합니다. 따라서 협업을 시작할 문제/질문/작업을 쉽게 파악할 수 있습니다.</p>
+                    <img class="notification-image" src="https://aka.ms/vsls/vs-join-notification" />
+                    <p>또한 Live Share를 최대한 활용하려면 다음 몇 가지 작업을 시도해 보세요.</p>
+                    <ul class="list">
+                        <li>커서를 이동하고, 텍스트를 편집 및 강조 표시하며, 같은 작업을 수행하는 게스트를 확인합니다.</li>
+                        <li><a id="follow-guest-link" href="https://aka.ms/vsls-docs/vs#following" target="_blank">게스트를 팔로우</a>하고 게스트가 스크롤하거나 다른 파일로 이동하게 합니다.</li>
+                        <li>F5 키를 눌러 <a id="share-debug-session-link" href="https://aka.ms/vsls-docs/vs#co-debugging" target="_blank">디버깅 세션을 공유</a>한 다음, 실시간으로 함께 단계를 진행합니다.</li>
+                        <li><a id="share-server-link" href="https://aka.ms/vsls-docs/vs#share-a-server" target="_blank">서버를 공유</a>하므로 게스트가 로컬에서 실행 중인 웹앱, 데이터베이스 등을 볼 수 있습니다.</li>
+                        <li><a id="share-terminal-link" href="https://aka.ms/vsls-docs/vs#share-a-terminal" target="_blank">터미널을 공유</a>하고 협업을 통해 명령을 실행합니다.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <p class=" bottom-text">문제가 발생하면 <a id="troubleshooting-link" href="http://aka.ms/vsls-troubleshooting" target="_blank">문제 해결 문서</a>에서 가능한 해결 방법을 확인하세요. 또한 질문 및/또는 피드백이 있으면 <i>도움말</i> 메뉴의 <i>사용자 의견 보내기</i> 옵션을 사용하여 팀에 문의하세요.</p>
+        <!--Getting Started Page Content End--DO NOT TRANSLATE THIS COMMENT-->
+    </div>
+    </body>
+    </html>

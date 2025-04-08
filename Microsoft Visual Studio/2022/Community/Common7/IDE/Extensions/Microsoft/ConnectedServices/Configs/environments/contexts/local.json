@@ -1,0 +1,102 @@
+{
+  "appliesTo": {
+    "when": {
+      "kind": "and",
+      "operands": [
+        {
+          "kind": "EnvironmentId",
+          "id": "local"
+        },
+        {
+          "kind": "or",
+          "operands": [
+            {
+              "kind": "and",
+              "operands": [
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "CPS"
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": ".NET"
+                }
+              ]
+            },
+            {
+              "kind": "or",
+              "operands": [
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "Web"
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "WebsiteProject"
+                }
+              ]
+            },
+            {
+              "kind": "or",
+              "operands": [
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "AzureFunctions"
+                },
+                {
+                  "kind": "and",
+                  "operands": [
+                    {
+                      "kind": "HasProjectItem",
+                      "projectItem": "local.settings.json"
+                    },
+                    {
+                      "kind": "HasProjectItem",
+                      "projectItem": "host.json"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "and",
+              "operands": [
+                {
+                  "kind": "and",
+                  "operands": [
+                    {
+                      "kind": "not",
+                      "operand": {
+                        "kind": "HasProjectCapability",
+                        "capability": "Web"
+                      }
+                    },
+                    {
+                      "kind": "not",
+                      "operand": {
+                        "kind": "HasProjectCapability",
+                        "capability": "WebsiteProject"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "AppServicePublish"
+                },
+                {
+                  "kind": "not",
+                  "operand": {
+                    "kind": "ProjectProperty",
+                    "propertyName": "OutputType",
+                    "expectedValue": "library"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

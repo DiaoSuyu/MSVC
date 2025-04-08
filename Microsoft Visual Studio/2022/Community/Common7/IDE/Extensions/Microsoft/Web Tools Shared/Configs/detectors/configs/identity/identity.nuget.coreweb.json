@@ -1,0 +1,18 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "identityapp",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Identity.Web": "",
+      "Microsoft.Identity.Web.UI": "",
+      "Microsoft.AspNetCore.Authentication.JwtBearer": "",
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect": "",
+      "Microsoft.AspNetCore.Authentication.AzureAD.UI": "",
+      "Microsoft.AspNetCore.Authentication": "",
+      "Microsoft.AspNetCore.Authorization": "",
+      "Microsoft.AspNetCore.Mvc.Authorization": ""
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[$RootKey$\EnterpriseTools\QualityTools\Servicing\KeyPath\QT.TestCaseManagement.dll_26328_FileExts_x86.3643236F_FC70_11D3_A536_0090278A1BB8]
+
+[$RootKey$\ShellFileAssociations\.coverage]
+"DefaultIconMoniker"="KnownMonikers.RawCodeCoverageDataFile"
+
+[$RootKey$\ShellFileAssociations\.coveragexml]
+"DefaultIconMoniker"="KnownMonikers.RawCodeCoverageDataFile"
+
+[$RootKey$\ShellFileAssociations\.vsmdi]
+"DefaultIconMoniker"="KnownMonikers.Test"

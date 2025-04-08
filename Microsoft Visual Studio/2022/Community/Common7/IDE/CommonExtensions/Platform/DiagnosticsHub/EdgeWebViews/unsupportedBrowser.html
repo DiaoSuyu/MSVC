@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html style="overflow-y:auto;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unsupported Browser</title>
+    <link href="css/unsupportedBrowser.css" type="text/css" rel="stylesheet" data-plugin-theme="true" />
+    <script src="scripts/diagnosticsHub.js"></script>
+    <script>
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                const centerDiv = document.getElementById("centerDiv");
+                if (centerDiv) {
+                    centerDiv.innerHTML = plugin.Resources.getString("/DiagnosticsHubSwimlaneResources/UnsupportedBrowser");
+                    const link = document.getElementsByTagName("a")[0];
+                    if (link) {
+                        link.href = "https://go.microsoft.com/fwlink/?LinkId=331160";
+                        link.target = "blank";
+                        link.setAttribute("role", "link");
+                        link.setAttribute("aria-label", plugin.Resources.getString("/DiagnosticsHubSwimlaneResources/UnsupportedBrowserLabel"));
+                    }
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="overlay-div">
+        <div class="center-div-top"></div>
+        <div id="centerDiv" class="center-div-bottom"></div>
+    </div>
+</body>
+</html>

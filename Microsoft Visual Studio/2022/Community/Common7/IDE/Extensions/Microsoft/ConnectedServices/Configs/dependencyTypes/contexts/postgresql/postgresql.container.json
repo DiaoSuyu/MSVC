@@ -1,0 +1,69 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "EnvironmentId",
+                "id": "local"
+              },
+              {
+                "kind": "HasProjectCapability",
+                "capability": "DotNetCoreWeb"
+              }
+            ]
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "EnvironmentId",
+                "id": "local"
+              },
+              {
+                "kind": "HasProjectCapability",
+                "capability": "DotNetCoreWorker"
+              }
+            ]
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "EnvironmentId",
+                "id": "local"
+              },
+              {
+                "kind": "or",
+                "operands": [
+                  {
+                    "kind": "HasProjectCapability",
+                    "capability": "AzureFunctions"
+                  },
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "local.settings.json"
+                      },
+                      {
+                        "kind": "HasProjectItem",
+                        "projectItem": "host.json"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "config": "postgresql.container"
+    }
+  ]
+}

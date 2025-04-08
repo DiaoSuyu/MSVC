@@ -1,0 +1,117 @@
+﻿.treeGridContainer .name {
+    text-align: left;
+}
+
+    .treeGridContainer .name.showTrackAdd {
+        padding-right: calc(1em + 4px);
+    }
+
+    .treeGridContainer .name > span {
+        text-overflow: ellipsis;
+    }
+
+
+#stackViews {
+    border-left: 1px solid var(--Environment-CommandBarOptionsBackground-Background, chartreuse);
+}
+
+.stackView {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+    .stackView > .title {
+        flex: 0 0 auto;
+        line-height: 26px; /* TODO [BlockedTime] Match this to the tree grid next to it */
+        text-align: center;
+        background-color: var(--vs-command-bar-gradient-begin-color, chartreuse);
+        white-space: nowrap;
+    }
+
+    .stackView > *:not(.title) {
+        flex: 1 1 auto;
+    }
+
+    .stackView > ul {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        white-space: nowrap;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .stackView .message {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+.stackFrameLabel {
+    color: var(--TreeGridCellLabelText, var(--CpuUsageTool-TreeGridCellLabelText, chartreuse));
+}
+
+    .stackFrame:hover .stackFrameLabel, .stackFrame:focus .stackFrameLabel {
+        color: inherit;
+    }
+
+.stackFrame {
+    border-bottom: 1px solid var(--Environment-GridLine-Background, red);
+    padding: 2px 4px;
+}
+
+    .stackFrame:hover {
+        color: var(--plugin-treeview-content-inactive-selected-color, chartreuse);
+        background-color: var(--plugin-treeview-content-inactive-selected-background-color, chartreuse);
+    }
+
+    .stackFrame:focus {
+        outline: none;
+        color: var(--plugin-treeview-content-selected-color, chartreuse);
+        background-color: var(--plugin-treeview-content-selected-background-color, chartreuse);
+    }
+
+.stackFrame > .goToSource {
+    cursor: pointer;
+    color: var(--DiagnosticsHub-Hyperlink, fuchsia);
+}
+
+    .stackFrame > .goToSource:hover, .stackFrame > .goToSource:focus {
+        color: var(--DiagnosticsHub-HyperlinkHover, fuchsia);
+        text-decoration: underline;
+    }
+
+    .stackFrame:focus > .goToSource {
+        color: var(--plugin-treeview-content-selected-color, chartreuse);
+        text-decoration: underline;
+    }
+
+.blockedEventRow > .name > .indent {
+    /* 
+     This is the same width and height of the grid expander so 
+     that the blocked event rows line up with their associated thread rows
+    */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.blockedThread-addTrack {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    bottom: 0px;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    background: var(--addBlockedTrack, url("../images/addTrack.png")) no-repeat 0px 0px;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100%;
+}

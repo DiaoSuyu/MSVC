@@ -1,0 +1,11 @@
+[$RootKey$\Projects\{39d444fd-b490-1554-5274-2d612a165298}]
+@="CSharp Test Project"
+"Language(VsTemplate)"="CSharp"
+"Package"="{52CBD135-1F97-2580-011F-C7CD052E44DE}"
+"ShowOnlySpecifiedTemplates(VsTemplate)"=dword:00000000
+"TemplateGroupIDs(VsTemplate)"="TestProject-V1"
+
+[$RootKey$\Projects\{39d444fd-b490-1554-5274-2d612a165298}\AddItemTemplates\TemplateDirs\{FAE04EC1-301F-11D3-BF4B-00C04F79EFBC}\/1]
+@="#2346"
+"SortPriority"=dword:00000050
+"TemplatesDir"="$ShellFolder$\VC#\CSharpProjectItems"

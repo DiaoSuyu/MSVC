@@ -1,0 +1,283 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addProgramCode",
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConfigurationProperty",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ClassProperty",
+                  "properties": {
+                    "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassProperty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "public IConfiguration Configuration { get; }",
+            "tokens": {},
+            "resultTokenName": "configurationClassProperty"
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConstructorWithConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ClassConstructor",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassConstructor",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "public @@containingClassName@@(IConfiguration configuration)\r\n    {\r\n    @@configurationClassProperty@@ = configuration;\r\n    }",
+            "tokens": {
+              "containingClassName": {
+                "name": "containingClassName",
+                "kind": "ClassName",
+                "properties": {}
+              },
+              "configurationClassProperty": {
+                "name": "configurationClassProperty",
+                "kind": "ClassProperty",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddApplicationInsightsTelemetryCall",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddApplicationInsightsTelemetry",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.ApplicationInsightsExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions\r\n{    ConnectionString = @@configurationClassProperty@@[`@@connectionId@@`]\r\n});",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                }
+              },
+              "configurationClassProperty": {
+                "name": "configurationClassProperty",
+                "kind": "ClassProperty",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddApplicationInsightsTelemetryCallForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddApplicationInsightsTelemetry",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.ApplicationInsightsExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "LocalVariable",
+                  "properties": {
+                    "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+                    "CodeOperation": "InsertBefore"
+                  },
+                  "locationTokenName": "localWebAppVar"
+                }
+              ]
+            },
+            "body": "@@localVar@@.Services.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions\r\n{    ConnectionString = @@localVar@@.Configuration[`@@connectionId@@`]\r\n});",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "LocalVariable",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+                  "Closure": true
+                }
+              },
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

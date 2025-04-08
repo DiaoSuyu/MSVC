@@ -1,0 +1,9 @@
+{
+  "components": {
+    "customConnector": {
+      "modifiers": [
+        "powerplatform.connector"
+      ]
+    }
+  }
+}

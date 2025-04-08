@@ -1,0 +1,594 @@
+/* 
+ * IMPORTANT NOTE: When you change this file and commit new changes you must update
+ * TeamExplorer.pkgdef and TeamExplorer.arm.pkgdef by incrementing the CacheTag under SettingsManifest.
+ *
+ * This is because of the following guidance from Unified Settings team: "The first time a given Manifest 
+ * Path is discovered, the manifest is parsed and the contents cached. The value of the cache tag is recorded. 
+ * On subsequent runs of VS the value of "CacheTag" is compared to the one recorded. If the values do not match, 
+ * then the associated entries in the cache are invalidated, and the manifest is re-processed."
+ *
+ * For other teams that do not manually update their pkgdef files, the CacheTag is updated automatically
+ * to DateTime.Now. But for us, we need to manually update the CacheTag in the pkgdef. During testing of 
+ * changes to this file, you can use /resetUnifiedSettingsCache to force the cache to be updated. But 
+ * ensure the CacheTag is incremented in the pkgdef before committing changes.
+ */
+{
+  "$schema": "registration.schema.json",
+  "properties": {
+    "sourceControl.gitSettings.defaultRepositoryPath": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%USERPROFILE%\\source\\repos",
+      "title": "@Settings_DefaultRepoPath;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "TeamFoundation\\GitSourceControl\\General\\DefaultRepositoryPath"
+          }
+        }
+      }
+    },
+    "sourceControl.gitSettings.multiManagement": {
+      "type": "string",
+      "title": "@Settings_MultiRepo;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "description": "@Settings_MultiRepo_Description;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": "yes",
+      "requiresRestart": true,
+      "enum": [
+        "yes",
+        "no"
+      ],
+      "enumItemLabels": [
+        "@Settings_Yes;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+        "@Settings_No;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+      ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "TeamFoundation\\GitSourceControl\\Repositories\\MultiManagement"
+          },
+          "map": [
+            {
+              // MultiRepositoriesOptions.MultiRepo
+              "result": "yes",
+              "match": 1
+            },
+            {
+              // MultiRepositoriesOptions.Single
+              "result": "no",
+              "match": 2
+            },
+            {
+              // MultiRepositoriesOptions.None (user can't set this), this is intentionally last to go in order. 
+              // So if a user changes the setting to "yes", we want the first migration match of 1 to take precedence. 
+              // But the other direction of mapping the registry to unified settings
+              // we might still have a 0 value in the registry and we will want that to reflect the "yes" value.
+              "result": "yes",
+              "match": 0
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.openRepoCloseSolutionAction": {
+      "type": "string",
+      "title": "@Settings_OpenRepoCloseSolution;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "description": "@Settings_OpenRepoCloseSolution_Description;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": "yes",
+      "enum": [
+        "yes",
+        "no",
+        "always"
+      ],
+      "enumItemLabels": [
+        "@Settings_Yes;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+        "@Settings_No;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+        "@Settings_AlwaysAsk;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+      ],
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "TeamFoundation\\GitSourceControl\\General\\OpenRepoCloseSolutionAction"
+          },
+          "map": [
+            {
+              "result": "always",
+              "match": 0
+            },
+            {
+              "result": "no",
+              "match": 1
+            },
+            {
+              "result": "yes",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.enableThirdPartyImages": {
+      "type": "boolean",
+      "title": "@Settings_AuthorImageEnabled;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": false,
+      "commands": [
+        {
+          "vsct": {
+            "id": 4243, // 0x1093 command, ClearImageCacheCommand
+            "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+            "text": "@Settings_ClearImageCache;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+          }
+        }
+      ],
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\Avatars\\EnableThirdPartyImages"
+            }
+          ],
+          "map": [
+            {
+              "result": false,
+              "matches": [ 0 ]
+            },
+            {
+              "result": true,
+              "matches": [ 1 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.commitChangesAfterMerge": {
+      "type": "boolean",
+      "title": "@Settings_CommitChanges;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\Merge\\CommitChangesAfterMerge"
+            }
+          ],
+          "map": [
+            // GitMergeOptionsCommit.CommitAfterMerge (1)
+            {
+              "result": true,
+              "matches": [ 1 ]
+            },
+            // GitMergeOptionsCommit.NoCommitAfterMerge (2)
+            {
+              "result": false,
+              "matches": [ 2 ]
+            },
+            // Historically, GitSettingsPageViewModel used to set this flag to GitMergeOptionsCommit.None (0) instead of
+            // GitMergeOptionsCommit.NoCommitAfterMerge (2). This match is to handle that case. This is placed at the end
+            // to ensure that when matching from false to numbers we assign GitMergeOptionsCommit.NoCommitAfterMerge (2) instead of 0.
+            {
+              "result": false,
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.enablePushForce": {
+      "type": "boolean",
+      "title": "@Settings_PushForce;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": false,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\General\\EnablePushForce"
+            }
+          ],
+          "map": [
+            {
+              "result": false,
+              "matches": [ 0 ]
+            },
+            {
+              "result": true,
+              "matches": [ 1 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.openRepoAction": {
+      "type": "boolean",
+      "title": "@Settings_OpenRepoAction;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\General\\OpenRepoAction"
+            }
+          ],
+          "map": [
+            {
+              "result": false,
+              "matches": [ 0 ]
+            },
+            {
+              "result": true,
+              "matches": [ 1 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.automaticallyLoadSingleViewPickerItem": {
+      "type": "boolean",
+      "title": "@Settings_AutoLoadSingleView;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\General\\AutoLoadSingleViewPickerItem"
+            }
+          ],
+          "map": [
+            {
+              "result": false,
+              "matches": [ 0 ]
+            },
+            {
+              "result": true,
+              "matches": [ 1 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.checkOutBranchOnActivation": {
+      "type": "boolean",
+      "title": "@Settings_CheckOutBranchOnActivation;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "default": false,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "TeamFoundation\\GitSourceControl\\Branches\\CheckoutBranchOnActivationNameV2"
+            }
+          ],
+          "map": [
+            {
+              // user opted unchecked
+              "result": false,
+              "matches": [ 1 ]
+            },
+            {
+              // user opted checked
+              "result": true,
+              "matches": [ 2 ]
+            },
+            {
+              // unseen/unchecked (user can't set this), this is intentionally last to go in order. So if a user changes the setting to false,
+              // we want the first migration match of 1 to take precedence. But the other direction of mapping the registry to unified settings
+              // we might still have a 0 value in the registry and we will want that to reflect the false value.
+              "result": false,
+              "matches": [ 0 ]
+            }
+          ]
+        }
+      }
+    },
+    "sourceControl.gitSettings.globalConfig.externalRegion": {
+      "type": "external",
+      "title": "@Settings_GitGlobalConfig_Title;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "realtimeNotifications": false,
+      "backingStoreDescription": "@Settings_GitGlobalConfig_Description;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "dynamicMessageIds": [ "mingitVersion" ],
+      "callback": {
+        "serviceId": "759C72E1-F1F4-457E-AB75-111E1DD475B3" // ISccGlobalExternalSettingsService
+      },
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "@Settings_GitConfig_UserName;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": ""
+        },
+        "emailAddress": {
+          "type": "string",
+          "title": "@Settings_GitConfig_Email;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": ""
+        },
+        "fetchPrune": {
+          "type": "string",
+          "title": "@Settings_GitConfig_PruneOnFetch;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "true",
+            "false",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "True",
+            "False",
+            "Unset"
+          ]
+        },
+        "pullRebase": {
+          "type": "string",
+          "title": "@Settings_GitConfig_RebaseOnPull;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "true",
+            "false",
+            "merges",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "True",
+            "False",
+            "Merges",
+            "Unset"
+          ]
+        },
+        "sslBackend": {
+          "type": "string",
+          "title": "@Settings_GitConfig_SslBackend;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "Unset",
+          "enum": [
+            "openssl",
+            "schannel",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "OpenSSL",
+            "Secure Channel",
+            "Unset"
+          ]
+        },
+        "credentialHelper": {
+          "type": "string",
+          "title": "@Settings_GitConfig_CredentialHelper;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "manager",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "GCM",
+            "Unset"
+          ]
+        },
+        "diffTool": {
+          "type": "string",
+          "title": "Diff Tool",
+          "default": "unset",
+          "enum": [
+            "visual studio",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "Visual Studio",
+            "Unset"
+          ]
+        },
+        "mergeTool": {
+          "type": "string",
+          "title": "Merge Tool",
+          "default": "unset",
+          "enum": [
+            "visual studio",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "Visual Studio",
+            "Unset"
+          ]
+        }
+       }
+     },
+    "sourceControl.gitSettings.repositoryConfig.externalRegion": {
+      "type": "external",
+      "title": "@Settings_GitRepositoryConfig_Title;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "realtimeNotifications": false,
+      "backingStoreDescription": "@Settings_GitRepositoryConfig_Description;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "callback": {
+        "serviceId": "8BED304D-F3EE-4DE3-B172-04B1750E9853" // ISccRepositiryExternalSettingsService
+      },
+      "properties": {
+        "selectedRepository": {
+          "type": "string",
+          "title": "@Settings_GitRepositoryConfig_SelectedRepository;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            // the enums should be the repository path and populated by SccExternalSettingsService
+          ],
+          "enumItemLabels": [
+            // the enum labels should be the repository name associated with the repository path and populated by SccExternalSettingsService
+          ],
+          "commands": [
+            {
+              "vsct": {
+                "id": 4114, // 0x1012 command, OpenFileExplorerCommand
+                "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+                "text": "@Settings_GitRepositoryConfig_SelectedRepository_Link;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+                "parameter": true // invokedFromSettings = true
+              }
+            }
+          ]
+        },
+        "userName": {
+          "type": "string",
+          "title": "@Settings_GitConfig_UserName;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": ""
+        },
+        "emailAddress": {
+          "type": "string",
+          "title": "@Settings_GitConfig_Email;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": ""
+        },
+        "fetchPrune": {
+          "type": "string",
+          "title": "@Settings_GitConfig_PruneOnFetch;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "true",
+            "false",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "True",
+            "False",
+            "Unset"
+          ]
+        },
+        "pullRebase": {
+          "type": "string",
+          "title": "@Settings_GitConfig_RebaseOnPull;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "true",
+            "false",
+            "merges",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "True",
+            "False",
+            "Merges",
+            "Unset"
+          ]
+        },
+        "commitGraph": {
+          "type": "string",
+          "title": "@Settings_GitConfig_CommitGraph;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "default": "unset",
+          "enum": [
+            "true",
+            "false",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "True",
+            "False",
+            "Unset"
+          ],
+          "commands": [
+            {
+              "vsct": {
+                "id": 4249, // 0x1099 command, SettingsMoreInfoCommand
+                "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+                "text": "@Settings_GitConfig_CommitGraph_MoreInfo;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+                "parameter": "https://aka.ms/CommitGraph"
+              }
+            }
+          ]
+        },
+        "diffTool": {
+          "type": "string",
+          "title": "Diff Tool",
+          "default": "unset",
+          "enum": [
+            "visual studio",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "Visual Studio",
+            "Unset"
+          ]
+        },
+        "mergeTool": {
+          "type": "string",
+          "title": "Merge Tool",
+          "default": "unset",
+          "enum": [
+            "visual studio",
+            "unset"
+          ],
+          "enumItemLabels": [
+            "Visual Studio",
+            "Unset"
+          ]
+        },
+        "remotesTable": {
+          "type": "array",
+          "title": "@Settings_GitConfig_Remotes;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "title": "@Settings_GitConfig_Remotes_Name;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+              },
+              "fetch": {
+                "type": "string",
+                "title": "@Settings_GitConfig_Remotes_Fetch;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+              },
+              "push": {
+                "type": "string",
+                "title": "@Settings_GitConfig_Remotes_Push;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+              }
+            }
+          }
+        }
+      },
+      "commands": [
+        {
+          "vsct": {
+            "id": 4245, // 0x1095 command, CreateGitIgnoreFile
+            "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+            "text": "@Settings_GitConfig_Path_AddGitIgnore;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+          }
+        },
+        {
+          "vsct": {
+            "id": 4246, // 0x1096 command, CreateGitAttributesFile
+            "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+            "text": "@Settings_GitConfig_Path_AddAttributes;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+          }
+        },
+        {
+          "vsct": {
+            "id": 4247, // 0x1097 command, EditGitIgnoreFile
+            "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+            "text": "@Settings_GitConfig_Path_EditGitIgnore;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+          }
+        },
+        {
+          "vsct": {
+            "id": 4248, // 0x1098 command, EditGitAttributesFile
+            "set": "57735D06-C920-4415-A2E0-7D6E6FBDFA99", // PackageCommandSetGuid
+            "text": "@Settings_GitConfig_Path_EditAttributes;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+          }
+        }
+      ]
+    }
+  },
+  "categories": {
+    "sourceControl": {
+      "title": "#5005;{53544C4D-E3F8-4AA0-8195-8A8D16019423}"
+    },
+    "sourceControl.gitSettings": {
+      "title": "@Settings_Git_Title;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "legacyOptionPageId": "498AF26D-055C-4D74-A44D-359344ED0E9B",
+      "visibleWhen": "${uiContext:11B8E6D7-C08B-4385-B321-321078CDD1F8} == 'true'"
+    },
+    "sourceControl.gitSettings.globalConfig": {
+      "title": "@Settings_GitGlobalConfig_Title;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}"
+    },
+    "sourceControl.gitSettings.repositoryConfig": {
+      "title": "@Settings_GitRepositoryConfig_Title;{7FE30A77-37F9-4CF2-83DD-96B207028E1B}",
+      "legacyOptionPageId": "73291C5D-5709-47BD-80E4-F78AE5EBA453",
+      "visibleWhen": "${uiContext:RepositoryOpen} == 'true'"
+    }
+  }
+}

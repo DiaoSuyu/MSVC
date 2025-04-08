@@ -1,0 +1,10 @@
+{
+  "host": "dotnet",
+  "hostId": "RoslynCodeAnalysisServiceS",
+  "hostGroupAllowed": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.IntelliCode.CSharp.Extraction.dll",
+    "fullClassName": "Microsoft.VisualStudio.IntelliCode.CSharp.Extraction.RemoteModelExtractorService+Factory"
+  },
+  "friendServices": [ "Microsoft.VisualStudio.LanguageServices.DiagnosticAnalyzerCore64S" ]
+} 

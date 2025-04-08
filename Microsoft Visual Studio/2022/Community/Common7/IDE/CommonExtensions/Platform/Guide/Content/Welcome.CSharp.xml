@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2001/xaml/presentation"
+    xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal" 
+    Title="Welcome to Visual Studio: Part 2 (C#)"
+    Description="Learn the basics of C# programming in Visual Studio." 
+    RequiredPackageNames="Microsoft.VisualStudio.Component.CoreEditor,Microsoft.NetCore.Component.DevelopmentTools,Microsoft.NetCore.Component.SDK"
+    Id="Welcome.CSharp" 
+    SortOrder="011" 
+    EstimatedMinutesToComplete="6" 
+    ShowInStartPage="false"
+    IconPath="Welcome.CSharp.ico">
+
+    <vst:Guide.Solution>
+        <vst:NewSolution Name="Welcome.CSharp">
+            <vst:NewSolution.Projects>
+                <vst:NewProjectFromSourceProject Name="Welcome.CSharp"
+                                                 CreateInSolutionFolder="true"
+                                                 ProjectFileExtension="csproj"/>
+            </vst:NewSolution.Projects>
+        </vst:NewSolution>
+    </vst:Guide.Solution>
+
+    <vst:Step Title="Welcome to Visual Studio: Part 2" 
+        Id="Welcome.CSharp.Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll get a brief introduction to editing and debugging with the Visual Studio IDE with **C#**. 
+
+This is Part 2 of the *Welcome to Visual Studio* guide. If you haven't already, you should complete [Part 1](vscmd://Help.StartGuide?args=Welcome), which introduces you to the Visual Studio IDE.
+
+In this guide, you'll learn how to edit and debug a simple C# console application, including:
+
+- Running the application.
+- Using IntelliSense to write code faster.
+- Using the Quick Actions window to find and apply code fixes.
+- Debugging the application at run time.
+- Setting breakpoints and stepping through code.
+- Inspecting variables and the call stack.
+
+Ready to start? Select **Continue** to begin!
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Running your app" 
+        Id="Welcome.CSharp.Run"
+        FileToOpen="Program.cs"
+        CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+We've created a C# project for you. You should see **Program.cs** open in the editor. This is the file you'll be working with in this guide.
+
+To run the application, select [**Debug** > **Start Debugging**](vscmd://Debug.Start) {KeyboardShortcut:Debug.Start} from the menu bar. You can also use this button on the toolbar:
+
+![Screenshot of the Start Debugging button in the toolbar](Welcome.CSharp.Run.StartDebugging.png)
+
+The application will run and prompt you to enter a name. Enter a name and press `Enter`. The application will then display a greeting.
+
+![A screenshot of the application running in the console window. The user has been prompted for their name. The user has responded, and the output message is displayed. The program loops and the user entered their name the second time.](Welcome.CSharp.Run.png)
+
+The program is written to loop forever. End the program by selecting [**Debug** > **Stop Debugging**](vscmd://Debug.StopDebugging) {KeyboardShortcut:Debug.StopDebugging} from the menu bar or clicking this button on the toolbar:
+
+![Screenshot of the Stop Debugging button in the toolbar](Welcome.CSharp.Run.StopDebugging.png)
+
+Next we're going to make some changes to the code. Select **Continue** to proceed.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Using IntelliSense to write code faster" 
+        Id="Welcome.CSharp.Editing"
+        FileToOpen="Program.cs"
+        CenterLineNumber="14">
+        <vst:Step.Description>
+            <![CDATA[
+The console output from the app is a little crowded. Let's add a space between each iteration of the loop to make it easier to read.
+
+Place the text caret at the beginning of line 14, before the `}` character. Type the following characters: `c` `o` `n` `s` `o`. As you're typing, notice the window that appears. This is **IntelliSense** offering suggestions, and it's a great way to write code faster. It shows you the most likely completions for the text you're typing. 
+
+Press `.` (period) to accept the completion for the `Console` class name and list the class members in the suggestions window.
+
+If you have **IntelliCode** enabled (it's enabled by default), the most common completions will be at the top of the list of suggestions, depending on context. These suggestions are denoted with a ⭐ (star) character. If this is the case, you can press `Tab` to accept the completion for the `WriteLine` method. If not, you can use the arrow keys to select the `WriteLine` method and press `Tab` or `Enter` to accept it.
+
+Finally, to end the line, type `();`. Visual Studio will automatically reposition the `}` character to the next line.
+
+![An animation showing IntelliSense. The cursor is at the beginning of line 14. The user types the characters `c` `o` `n` `s` `o` `.` `tab` `(` `)` `;`. Visual Studio automatically repositions the } character to the next line.](Welcome.CSharp.Editing.mp4)
+
+- [Learn more about editing with IntelliSense](https://learn.microsoft.com/visualstudio/ide/using-intellisense)
+- [Learn more about IntelliCode suggestions](https://learn.microsoft.com/visualstudio/intellicode/overview)
+
+Select **Continue** to learn how to use Quick Actions to speed up your editing and refactoring.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Quick Actions and Refactoring"
+        Id="Welcome.CSharp.QuickActions"
+        FileToOpen="Program.cs"
+        CenterLineNumber="6">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio uses Quick Actions to make suggestions for code changes. You can use these suggestions to apply code fixes and refactorings.
+
+Select all of lines 6 and 7. Note the screwdriver icon that appears in the margin: 
+
+![A screenshot of the screwdriver icon next to lines 6 and 7](Welcome.CSharp.QuickActions.png)
+
+This is a **Quick Action** suggestion. There are different types of Quick Action suggestions, denoted by lightbulb and screwdriver icons. Click on the icon or press `Ctrl+.` to see the suggestions. In this case, the screwdriver indicates the Quick Action is a code fix. It's suggesting that you extract these lines into either a method or a local function. 
+
+Select the **Extract local function** Quick Action to apply the code fix. Visual Studio will extract the code into a new method and call it from the original location. You're then prompted to name the method. Type *GetName* and press `Enter`.
+
+![An animation showing the Quick Action. The user selects all of lines 6 and 7. The screwdriver icon appears in the gutter. The selects the screwdriver icon, and then selects **Extract local function**. Visual Studio extracts the code into a new method and calls it from the original location. The user is prompted to name the method. The user enters `GetName` and presses `Enter`.](Welcome.CSharp.QuickActions.mp4)
+
+- [Learn more about Quick Actions](https://learn.microsoft.com/visualstudio/ide/quick-actions)
+- [Learn more about refactoring in Visual Studio](https://learn.microsoft.com/visualstudio/ide/refactoring-in-visual-studio)
+
+Select **Continue** to learn how to debug using breakpoints.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Debugging with breakpoints"
+        Id="Welcome.CSharp.Debugging"
+        FileToOpen="Program.cs"
+        CenterLineNumber="6"
+        CommandToHighlight="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C,0x0100">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio supports a number of debugger tools to help you understand what your code is doing at runtime. Let's start by adding a breakpoint that will pause the execution of the program when it's reached.
+
+Place the text caret anywhere on line 6 and select [**Debug** > **Toggle Breakpoint**](vscmd://Debug.ToggleBreakpoint) {KeyboardShortcut:Debug.ToggleBreakpoint} from the menu bar to add a breakpoint. The breakpoint will appear in the left margin as a red dot. You can also add a breakpoint by clicking in the margin.
+
+![A screenshot of the breakpoint in the left margin next to line 6](Welcome.CSharp.Debugging.Breakpoint.png)
+
+Now let's run the program in debug mode again. Select [**Debug** > **Start Debugging**](vscmd://Debug.Start) {KeyboardShortcut:Debug.Start} from the menu bar or click the button on the toolbar. The program will run and stop at the breakpoint before the `GetName` method is called. Accordingly, there is no prompt for input yet.
+
+Take a moment to examine the debugger tools.
+
+The [**Autos**](vscmd://Debug.Autos) window shows all variables used on the current line or the preceding line. In this case, the `name` variable is `null` because it hasn't been assigned a value yet. `iteration` is `1` because the loop is on its first iteration.
+
+![A screenshot of the Autos window showing the `name` and `iteration` variables](Welcome.CSharp.Debugging.Autos.png)
+
+The [**Locals**](vscmd://Debug.Locals) window shows all variables in scope. In this case, that includes the variables mentioned earlier, as well as the implicit `args` string array created by the .NET compiler.
+
+![A screenshot of the Locals window showing the `name`, `iteration`, and `args` variables.](Welcome.CSharp.Debugging.Locals.png)
+
+The [**Call Stack**](vscmd://Debug.CallStack) window shows the call stack for the current thread. In this case, the call stack shows that the program is currently paused in the `Main` method, which is an implicit method created by the .NET compiler.
+
+![A screenshot of the Call Stack window showing the `Main` method.](Welcome.CSharp.Debugging.CallStack.png)
+
+The [**Immediate**](vscmd://Debug.Immediate) window is a REPL (read-eval-print loop) that allows you to execute code at runtime. In this case, you can type *name* and press `Enter` to see the value of the `name` variable. You can also type *iteration* and press `Enter` to see the value of the `iteration` variable.
+
+![A screenshot of the Immediate window showing the `name` and `iteration` variables.](Welcome.CSharp.Debugging.Immediate.png)
+
+The [**Watch**](vscmd://Debug.Watch1) window allows you to define variables and expressions you want to track at run time. The window starts out empty, but you can add variables and expressions by clicking **Add item to watch**. In this screenshot, we're watching the `name` variable and the `name.ToUpper()` expression. Note that the `ToUpper` method throws an exception because the `name` variable is `null`.
+
+![A screenshot of the Watch window showing the `name` variable and the `name.ToUpper()` expression.](Welcome.CSharp.Debugging.Watch.png)
+
+Select **Continue** to learn how to step through your code.
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Stepping through code"
+        Id="Welcome.CSharp.Stepping"
+        FileToOpen="Program.cs"
+        CenterLineNumber="6">
+        <vst:Step.Description>
+            <![CDATA[
+While stopped at a breakpoint, you can step through your code to see how it executes. There are three ways to step through your code:
+
+- **Step into** {KeyboardShortcut:Debug.StepInto}: Step into the next statement, stepping into any method calls.
+- **Step over** {KeyboardShortcut:Debug.StepOver}: Step over the next statement, stepping over any method calls.
+- **Step out** {KeyboardShortcut:Debug.StepOut}: Step out of the current method.
+
+Since you're already stopped on line 6, press {KeyboardShortcut:Debug.StepOver} to step over the `GetName` method call. The program will execute the `GetName` method on line 6, which blocks for user input. In the console app, enter your name and press `Enter` to continue.  Notice the execution then stops on line 7. 
+
+If you revist the **Locals** window, you'll see that the `name` variable is now assigned a value. The `iteration` variable is still `1` because the loop hasn't completely executed yet.
+
+You can continue stepping through the code line-by-line with {KeyboardShortcut:Debug.StepOver}. Remember to enter your name and press `Enter` when the program prompts you for input. Watch the variable values change in the **Locals** window.
+
+![A screenshot of the Locals window showing the `name` and `iteration` variables.](Welcome.CSharp.Stepping.Locals.png)
+
+After stepping through the loop a few times, press {KeyboardShortcut:Debug.Start} to **Continue** running the program. The program will run until it hits the breakpoint on line 6 again.
+
+This time, instead of pressing {KeyboardShortcut:Debug.StepOver} to step over the `GetName` method call, press {KeyboardShortcut:Debug.StepInto} to **Step into** the method. Notice this time execution will stop inside the `GetName` method. Notice that the **Call Stack** window now shows that the program is stopped in the `GetName` method. 
+
+![A screenshot of the Call Stack window showing the `GetName` method.](Welcome.CSharp.Stepping.CallStack.png)
+
+Continue stepping through the code with {KeyboardShortcut:Debug.StepInto} and notice how the execution returns to the main program. Continue stepping with {KeyboardShortcut:Debug.StepInto} until you enter the `GetName` method again. This time, use {KeyboardShortcut:Debug.StepOut} to immediately step out of the `GetName` method.
+
+End the program by selecting [**Debug** > **Stop Debugging**](vscmd://Debug.StopDebugging) {KeyboardShortcut:Debug.StopDebugging} from the menu bar or clicking the button on the toolbar.
+
+- [Learn more about debugging](https://learn.microsoft.com/visualstudio/debugger/what-is-debugging)
+- [Get a more in-depth look at debugging tools in Visual Studio](https://learn.microsoft.com/visualstudio/debugger/debugger-feature-tour)
+
+Select **Continue** to take the next steps.
+
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Summary"
+        Id="Welcome.CSharp.Summary">
+        <vst:Step.Description>
+            <![CDATA[
+That's a brief introduction to editing and debugging C# with Visual Studio! We've only scratched the surface of what Visual Studio can do. Here are some resources to help you learn more:
+
+- [Visual Studio documentation](https://learn.microsoft.com/visualstudio/windows/)
+- [Interactively debug .NET apps with the Visual Studio debugger](https://learn.microsoft.com/training/modules/dotnet-debug-visual-studio/) (Microsoft Learn Training)
+- [Visual Studio on YouTube](https://www.youtube.com/visualstudio)
+- [.NET documentation](https://learn.microsoft.com/dotnet/)
+- [C# documentation](https://learn.microsoft.com/dotnet/csharp/)
+
+Comments or suggestions for this guide? [Send us feedback](vscmd://Help.MyFeedback)!
+            ]]>
+        </vst:Step.Description>
+    </vst:Step>
+</vst:Guide>

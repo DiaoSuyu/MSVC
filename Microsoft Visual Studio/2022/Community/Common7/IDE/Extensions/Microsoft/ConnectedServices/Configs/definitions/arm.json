@@ -1,0 +1,5 @@
+{
+  "rootUrl": "https://management.azure.com",
+  "deploymentApiVersion": "2019-10-01",
+  "resourceGroupApiVersion": "2019-10-01"
+}

@@ -1,0 +1,10 @@
+﻿{
+	"host": "netfx.x86",
+	"entryPoint":
+	{
+	  "assemblyPath": "Microsoft.VisualStudio.IntelliCode.ModelService.dll",
+    "fullClassName": "Microsoft.VisualStudio.IntelliCode.ModelService.ServiceModule",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%"
+	}
+}

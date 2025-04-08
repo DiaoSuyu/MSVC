@@ -1,0 +1,10 @@
+﻿{
+	"host": "netfx.arm64",
+	"hostId": "IntellicodeModelService",
+	"entryPoint": {
+		"assemblyPath": "Microsoft.VisualStudio.IntelliCode.ModelService.dll",
+		"fullClassName": "Microsoft.VisualStudio.IntelliCode.ModelService.ServiceModule",
+		"appBasePath": "%VSAPPIDDIR%",
+		"configPath": "%PkgDefApplicationConfigFile%"
+	}
+}

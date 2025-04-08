@@ -1,0 +1,16 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "SystemIdentity",
+      "sourceResourceScope": "@@containerName@@",
+      "additionalConfigs": [
+        {
+          "configName": "@@connectionSimpleName@@",
+          "configValue": "@@ConnectionValue@@"
+        }
+      ]
+    }
+  ]
+}

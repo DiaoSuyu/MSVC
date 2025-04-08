@@ -1,0 +1,13 @@
+{
+  "kind": "jsonProperty.generic",
+  "restorable": true,
+  "model": {
+    "filePath": "appsettings.json",
+    "properties": {
+      "@@connectionId@@": {
+        "value": "@@endpoint@@",
+        "action": "replace"
+      }
+    }
+  }
+}

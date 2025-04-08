@@ -1,0 +1,36 @@
+{
+  "id": "mssql.azure",
+  "provisioningId": "Microsoft.Sql/servers/databases",
+  "name": "strings:#/mssqlAzureDependencyTypeName",
+  "description": "strings:#/mssqlAzureDependencyTypeDescription",
+  "connectionSettingPropertyDisplayName": "strings:#/connectionStringName",
+  "connectionSettingValueDisplayName": "strings:#/connectionStringValue",
+  "localConnectionMessage": "strings:#/sqlAzureLocalConnectionWarning",
+  "localConnectionMessageUrl": "https://go.microsoft.com/fwlink/?linkid=2290109",
+  "remoteConnectionMessage": "strings:#/sqlAzureRemoteConnectionWarning",
+  "remoteConnectionMessageUrl": "https://go.microsoft.com/fwlink/?linkid=2289864",
+  "smallImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3797
+  },
+  "resizableImage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3797
+  },
+  "displayOrder": 5700,
+  "learnMoreUrl": "2146753",
+  "actions": [
+    "openInPortal",
+    "restore",
+    "learnMore",
+    "openInSQLServerExplorer",
+    "addMigration",
+    "updateDatabase",
+    "createSQLScript"
+  ],
+  "tags": [
+    "SQL",
+    "strings:#/database",
+    "Azure"
+  ]
+}

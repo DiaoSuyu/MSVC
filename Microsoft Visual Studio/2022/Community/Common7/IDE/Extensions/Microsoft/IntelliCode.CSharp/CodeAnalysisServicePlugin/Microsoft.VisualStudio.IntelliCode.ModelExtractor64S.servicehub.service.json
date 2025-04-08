@@ -1,0 +1,11 @@
+{
+  "host": "netfx.anycpu",
+  "hostId": "RoslynCodeAnalysisServiceS",
+  "hostGroupAllowed": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.IntelliCode.CSharp.Extraction.dll",
+    "fullClassName": "Microsoft.VisualStudio.IntelliCode.CSharp.Extraction.RemoteModelExtractorService+Factory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "HasProjectCapability",
+                "capability": "DotNetCoreWeb"
+              },
+              {
+                "kind": "not",
+                "operand": {
+                  "kind": "HasTargetFramework",
+                  "tfmPrefixOrFull": ".NetStandard"
+                }
+              }
+            ]
+          },
+          {
+            "kind": "TfmVersionComparison",
+            "tfmType": "netcore",
+            "version": "3.1",
+            "comparison": "GreaterThanOrEqualTo"
+          }
+        ]
+      },
+      "config": "appConfig.azure.containerApp.coreweb"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectCapability",
+            "capability": "CPS"
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": "CSharp"
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": ".NET"
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasTargetFramework",
+              "tfmPrefixOrFull": ".NetStandard"
+            }
+          },
+          {
+            "kind": "or",
+            "operands": [
+              {
+                "kind": "ProjectProperty",
+                "propertyName": "OutputType",
+                "expectedValue": "Exe"
+              },
+              {
+                "kind": "ProjectProperty",
+                "propertyName": "OutputType",
+                "expectedValue": "WinExe"
+              }
+            ]
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "or",
+              "operands": [
+                {
+                  "kind": "HasProjectCapability",
+                  "capability": "AzureFunctions"
+                },
+                {
+                  "kind": "and",
+                  "operands": [
+                    {
+                      "kind": "HasProjectItem",
+                      "projectItem": "local.settings.json"
+                    },
+                    {
+                      "kind": "HasProjectItem",
+                      "projectItem": "host.json"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "not",
+            "operand": {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWorker"
+            }
+          },
+          {
+            "kind": "TfmVersionComparison",
+            "tfmType": "netcore",
+            "version": "2.0",
+            "comparison": "GreaterThanOrEqualTo"
+          }
+        ]
+      },
+      "config": "appConfig.azure.containerApp.core"
+    },
+    {
+      "when": {
+        "kind": "not",
+        "operand": {
+          "kind": "and",
+          "operands": [
+            {
+              "kind": "HasProjectCapability",
+              "capability": "DotNetCoreWeb"
+            },
+            {
+              "kind": "not",
+              "operand": {
+                "kind": "HasTargetFramework",
+                "tfmPrefixOrFull": ".NetStandard"
+              }
+            }
+          ]
+        }
+      },
+      "config": "appConfig.azure.containerApp"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 ProgressBar 跟踪迭代</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>每迭代一次，ProgressBar 就递增一个固定量。</Description>
+      <Shortcut>pbIterate</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>progressBar</ID>
+          <Type>ProgressBar</Type>
+          <ToolTip>替换为窗体上的 ProgressBar。</ToolTip>
+          <Default>ProgressBar1</Default>
+        </Object>
+        <Literal>
+          <ID>minProgress</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为 ProgressBar 范围内的最小整数值。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>maxProgress</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为 ProgressBar 范围内的最大整数值。</ToolTip>
+          <Default>100000</Default>
+        </Literal>
+        <Literal>
+          <ID>initValue</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为表示 ProgressBar 初始位置的整数。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>step</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为一个整数，每调用一次 PerformStep，ProgressBar 就递增该整数指定的量。</ToolTip>
+          <Default>1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[With $progressBar$
+    .Minimum = $minProgress$
+    .Maximum = $maxProgress$
+    .Value = $initValue$
+    .Step = $step$
+
+    For i As Integer = .Minimum To .Maximum
+        ' Perform one step of the action being tracked.
+        .PerformStep()
+    Next i
+
+End With]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

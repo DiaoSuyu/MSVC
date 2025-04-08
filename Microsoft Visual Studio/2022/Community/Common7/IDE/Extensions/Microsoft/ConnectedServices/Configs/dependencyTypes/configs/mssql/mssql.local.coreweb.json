@@ -1,0 +1,57 @@
+{
+  "feature": {
+    "id": "ef.sqlServer.local"
+  },
+  "externalComponents": [
+    "vsSqlLocalDbComponent"
+  ],
+  "editSteps": [
+    "Connection",
+    "DependencySummary"
+  ],
+  "secretStores": [
+    "secrets.user",
+    "secrets.keyVault",
+    "none"
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:DatabaseConnection"
+    },
+    "ConnectionValue": {
+      "value": "Server=(localdb)\\mssqllocaldb;Database=aspnet-53bc9b9d-9d6a-45d4-8429-2a2761773502;Trusted_Connection=True;MultipleActiveResultSets=true",
+      "builder": "sql"
+    }
+  },
+  "persistencePreprocessors": [
+    "SecretStoreResourceId"
+  ],
+  "persistenceProperties": {
+    "connectionId": {
+      "isBase": true
+    },
+    "dynamicId": {
+      "isBase": true
+    },
+    "ignored": {
+      "isBase": true
+    },
+    "resourceId": {
+      "parametrizer": "resourceId"
+    },
+    "secretStore": {},
+    "serviceConnectorResourceId": {
+      "parametrizer": "resourceId",
+      "parametrizerArguments": "resourceGroupName=serviceConnectorResourceGroupName"
+    },
+    "suggestion": {
+      "isBase": true
+    },
+    "type": {
+      "isBase": true
+    },
+    "group": {
+      "isBase": true
+    }
+  }
+}

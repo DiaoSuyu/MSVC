@@ -1,0 +1,102 @@
+{
+  "appConfig": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3925
+  },
+  "appInsights": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 173
+  },
+  "appService": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3793
+  },
+  "aspWebsite": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 195
+  },
+  "azureActiveDirectory": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3810
+  },
+  "azureApiManagementSvc": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3855
+  },
+  "azureCosmosDB": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3802
+  },
+  "azureCosmosDBEmulator": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3811
+  },
+  "azureCosmosDBContainer": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3811
+  },
+  "azureFunction": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3795
+  },
+  "azureRedisCache": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3813
+  },
+  "azureRedisCacheContainer": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3814
+  },
+  "azureSignalR": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3796
+  },
+  "azureSqlDatabase": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3797
+  },
+  "azureStorage": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3798
+  },
+  "azureStorageEmulator": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3816
+  },
+  "dockerContainerRegistry": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3689
+  },
+  "keyVault": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3824
+  },
+  "mongodb": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 826
+  },
+  "postgresql": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "powerPlatform": {
+    "guid": "ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B",
+    "id": 4
+  },
+  "rabbitmq": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1866
+  },
+  "sqlDatabase": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "sqlite": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3818
+  },
+  "unknown": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 2476
+  }
+}

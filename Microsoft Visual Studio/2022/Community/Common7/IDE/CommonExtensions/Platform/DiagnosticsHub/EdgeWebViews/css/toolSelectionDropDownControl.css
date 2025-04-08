@@ -1,0 +1,130 @@
+#toolSelectionControl {
+    overflow: visible;
+    display: inline-grid;
+    grid-template-rows: auto 0px;
+    position: relative;
+}
+
+#toolSelectionDropdown {
+    position: relative;
+    grid-row: 1;
+    padding-left: 4px;
+}
+
+    #toolSelectionDropdown.flyoutActive {
+        border: 1px solid var(--Environment-CommandBarMenuBorder-Background, magenta);
+        color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+        background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+        /* Since we are hiding the bottom border we add 1px of margin so we don't change the element height */
+        border-bottom-style: hidden;
+    }
+
+    #toolSelectionDropdown > .button-image {
+        background-repeat: no-repeat;
+        height: 1.333em;
+        width: 1.333em;
+    }
+
+#toolSelectionFlyout {
+    position: absolute;
+    grid-row: 2;
+    margin-top: -1px;
+    display: none;
+    overflow: auto;
+    border: 1px solid var(--Environment-CommandBarMenuBorder-Background, black);
+    padding: 0;
+    background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+    min-width: max-content;
+}
+
+    #toolSelectionFlyout.flyoutActive {
+        display: block;
+    }
+
+    #toolSelectionFlyout > li {
+        display: block;
+    }
+
+        #toolSelectionFlyout > li > .flyoutItem {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+            background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+        }
+
+            #toolSelectionFlyout > li > .flyoutItem.hasFocus {
+                outline: none;
+                background-color: var(--Environment-CommandBarMenuItemMouseOver-Background, aqua);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem.disabled {
+                background-color: var(--Environment-CommandBarMenuIconBackground-Background, aqua);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem > span {
+                grid-column: 2;
+                display: block;
+                padding: 3px 12px 3px 6px;
+                background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, aquamarine);
+                color: var(--Environment-CommandBarTextActive-Background, fuchsia);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem.hasFocus > span {
+                background-color: var(--Environment-CommandBarMenuItemMouseOver-Background, lightgreen);
+                color: var(--Environment-CommandBarMenuItemMouseOver-Foreground, black);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem.disabled > span {
+                background-color: var(--Environment-CommandBarMenuBackgroundGradientBegin-Background, lightgreen);
+                color: var(--Environment-CommandBarTextInactive-Background, black);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem > div.button-image {
+                grid-column: 1;
+                background-repeat: no-repeat;
+                height: 1.333em;
+                width: 1.333em;
+                margin-left: 8px;
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem > input {
+                grid-column: 1;
+                /* Match size of checkboxes to the settings icon*/
+                width: 14px;
+                margin-left: 8px;
+            }
+
+                #toolSelectionFlyout > li > .flyoutItem > input::checked {
+                    border-width: 0px;
+                    color: var(--Environment-CommandBarCheckBox-Background, fuchsia);
+                    background-color: var(--Environment-CommandBarSelectedIcon-Background, aquamarine);
+                }
+
+            #toolSelectionFlyout > li > .flyoutItem.hasFocus > input::checked {
+                color: var(--Environment-CommandBarCheckBoxMouseOver-Background, fuchsia);
+                background-color: var(--Environment-CommandBarHoverOverSelectedIcon-Background, aquamarine);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem > input:disabled::checked {
+                color: var(--Environment-CommandBarCheckBoxDisabled-Background, fuchsia);
+                background-color: var(--Environment-CommandBarSelectedIconDisabled-Background, aquamarine);
+            }
+
+            #toolSelectionFlyout > li > .flyoutItem > input:focus {
+                outline: none;
+            }
+
+            #toolSelectionFlyout > #toolSettingsItem > .flyoutItem > #settingsText {
+                position: relative;
+            }
+
+            #toolSelectionFlyout > #toolSettingsItem > .flyoutItem > #settingsText::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 3px;
+                width: calc(100% - 6px);
+                height: 1px;
+                border-top: 1px solid var(--Environment-CommandBarMenuSeparator-Background, aquamarine)
+            }

@@ -1,0 +1,11 @@
+{
+  "host": "dotnet",
+  "hostId": "WebTools",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.WebTools.HttpService.dll",
+    "fullClassName": "Microsoft.WebTools.HttpService.ServiceFactory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%",
+    "assemblySearchPathsConfig": "AssemblySearchPaths.json"
+  }
+}

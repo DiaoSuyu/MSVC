@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>计算指定角度的正切值</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将角度转换成弧度，然后计算正切值</Description>
+      <Shortcut>mathTan</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Degrees</ID>
+          <Type>Double</Type>
+          <ToolTip>替换为以度数为单位的度量值。</ToolTip>
+          <Default>120</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim radians As Double = $Degrees$ * Math.PI / 180
+Dim tan As Double = Math.Tan(radians)
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

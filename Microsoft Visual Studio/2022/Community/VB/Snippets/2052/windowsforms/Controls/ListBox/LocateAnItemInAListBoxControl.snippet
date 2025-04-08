@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在 Windows 窗体 ListBox 控件中查找项</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>查找 ListBox 控件中某个字符串的第一个匹配项。</Description>
+      <Shortcut>lbLocate</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>listBoxName</ID>
+          <Type>ListBox</Type>
+          <ToolTip>替换为窗体上的 ListBox 控件。</ToolTip>
+          <Default>ListBox1</Default>
+        </Object>
+        <Literal>
+          <ID>searchString</ID>
+          <Type>String</Type>
+          <ToolTip>替换为您要查找其位置的字符串。</ToolTip>
+          <Default>"Maria"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim index As Integer
+index = $listBoxName$.FindString($searchString$)
+If index <> ListBox.NoMatches Then
+    ' Item found.
+Else
+    ' Item not found.
+End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>复制目录</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>复制目录及其所有文件和子目录。</Description>
+      <Shortcut>filCopyDir</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>sourceDir</ID>
+          <ToolTip>替换为要复制的目录。</ToolTip>
+          <Default>"C:\SourceDirectory"</Default>
+        </Literal>
+        <Literal>
+          <ID>destDirectory</ID>
+          <ToolTip>替换为要复制到的目录。</ToolTip>
+          <Default>"D:\DestinationDirectory"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.FileSystem.CopyDirectory($sourceDir$, $destDirectory$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

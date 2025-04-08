@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>通过拖动窗体的工作区来移动窗口</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用鼠标拖动窗体的任何部分，从而移动该窗体。当窗体没有标题栏时，此功能特别有用。</Description>
+      <Shortcut>formDrag</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.Drawing.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.Windows.Forms.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Drawing</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Windows.Forms</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>mouseOffset</ID>
+          <Type>Point</Type>
+          <ToolTip>鼠标光标的偏移量。</ToolTip>
+          <Default>mouseOffset</Default>
+        </Object>
+        <Object>
+          <ID>formName</ID>
+          <Type>Form</Type>
+          <ToolTip>在其中插入片段的窗体。</ToolTip>
+          <Default>Me</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Dim mouseOffset As Point
+
+Private Sub $formName$_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseDown
+    $mouseOffset$ = New Point(-e.X, -e.Y)
+End Sub
+
+Private Sub $formName$_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseMove
+
+    If e.Button = MouseButtons.Left Then
+        Dim mousePos = Control.MousePosition
+        mousePos.Offset($mouseOffset$.X, $mouseOffset$.Y)
+        Location = mousePos
+    End If
+End Sub]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,12 @@
+{
+  "kind": "itemTemplates.itemTemplateCreator",
+  "order": 40,
+  "model": {
+    "itemTemplate": "Azure.Function.QueueTrigger",
+    "parameters": {
+      "IncludeLaunchSettings": "False",
+      "Connection": "@@connectionId@@",
+      "QueueName": "@@QueueName@@"
+    }
+  }
+}

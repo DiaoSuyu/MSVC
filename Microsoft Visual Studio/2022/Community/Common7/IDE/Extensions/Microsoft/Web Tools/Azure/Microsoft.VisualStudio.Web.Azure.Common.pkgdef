@@ -1,0 +1,41 @@
+﻿[$RootKey$\InstalledProducts\AzureAppServiceToolsPackage]
+@="#1"
+"Package"="{842377a1-ba0e-49be-ba8a-61f6101ce0da}"
+"PID"="17.13.124.35287"
+"ProductDetails"="#1"
+
+[$RootKey$\Packages\{842377a1-ba0e-49be-ba8a-61f6101ce0da}]
+@="Microsoft.WebTools.Azure.VS.WebToolsAzurePackage, Microsoft.WebTools.Azure.VS"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Azure.VS.WebToolsAzurePackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Azure.VS.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Menus]
+"{842377a1-ba0e-49be-ba8a-61f6101ce0da}"=", Menus.ctmenu, 1"
+
+[$RootKey$\Services\{3087A02C-EF8A-41EC-B6DB-91EE961D4A3F}]
+@="{842377A1-BA0E-49BE-BA8A-61F6101CE0DA}"
+"Name"="Azure Command Service"
+"IsAsyncQueryable"=dword:00000001
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{FDC58194-F786-4C2F-93D2-6BECDB4BB895}]
+"name"="Microsoft.WebTools.Azure.Client"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.Client.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{6754023F-2A6B-4140-8435-3F3F0A3CD554}]
+"name"="Microsoft.WebTools.Azure.Contracts"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.Contracts.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{5BB84293-2F72-4CE8-B089-F31BCFE60A2D}]
+"name"="Microsoft.WebTools.Azure.VS"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.VS.dll"

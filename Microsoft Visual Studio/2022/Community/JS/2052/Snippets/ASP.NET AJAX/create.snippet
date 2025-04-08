@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>创建</Title>
+    <Author>Microsoft Corporation</Author>
+    <Description>$create() 的代码片段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>type</ID>
+        <ToolTip>要创建的组件类型</ToolTip>
+        <Default>Sys.Component</Default>
+      </Literal>
+      <Literal>
+        <ID>element</ID>
+        <ToolTip>组件必须附加到的 DOM 元素</ToolTip>
+        <Default>null</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[$$create($type$, {}, {}, {}, $element$)$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

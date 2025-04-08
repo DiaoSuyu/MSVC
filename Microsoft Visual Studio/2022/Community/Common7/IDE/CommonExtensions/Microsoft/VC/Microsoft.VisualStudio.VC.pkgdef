@@ -1,0 +1,98 @@
+[$RootKey$]
+
+[$RootKey$\AutoLoadPackages\{4646B819-1AE0-4E79-97F4-8A8176FDD664}]
+"{74612282-E4C8-46B4-A774-C4AA32D54446}"=dword:00000002
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.VC.ManagedPackageService]
+@="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+; AllowTransitiveGuestClients = true
+"allowguestclients"=dword:00000001
+; ServiceAudience = AllClientsIncludingGuests
+"audience"=dword:00000503
+
+[$RootKey$\BrokeredServices\Microsoft.VisualStudio.VC.VCPkgTestBrokeredService]
+@="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+; AllowTransitiveGuestClients = false
+"allowguestclients"=dword:00000000
+; ServiceAudience = RemoteExclusiveClient | Local
+"audience"=dword:00000103
+
+[$RootKey$\Editors\{1B67B63A-3014-4CD9-8C05-E301DCDF746C}]
+@="MemoryViewerFactory"
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"DisplayName"="#215"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000000
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{1B67B63A-3014-4CD9-8C05-E301DCDF746C}\Extensions]
+"VCMemoryLayout"=dword:00000032
+
+[$RootKey$\Languages]
+
+[$RootKey$\Languages\Language Services]
+
+[$RootKey$\Languages\Language Services\C/C++]
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions]
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\CodeCleanup]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{EE1B41CD-8F2E-4B93-B72D-A9754F71004F}"
+"Keywords"="@101;@210;@212;@213;@600;@602;@604;@606;@608,@610;@616;@618;@620"
+@="#210"
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\CodeStyle]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+@="#202"
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\CodeStyle\General]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{AE886C79-55B3-4866-B4EF-6AD7B9D8665B}"
+"Keywords"="@101;@201;@203;@1001;@1002;@1003"
+@="#200"
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\CodeStyle\Linter]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{E823FAC2-5C31-4D17-8653-F857E75D62EE}"
+"Keywords"="@101;@209;@1203;@1205;@1207;@1209;@1211;@1213;@1215"
+@="#209"
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\Experimental]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{A260C487-C0DD-4A22-AAAA-9140FCA78742}"
+"Keywords"="@101;@206;@208;@1064"
+@="#208"
+
+[$RootKey$\Languages\Language Services\C/C++\EditorToolsOptions\IntelliSense]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{28A2CB1C-438F-427F-B164-150E44EA723E}"
+"Keywords"="@101;@206;@211;216;@300;@301;@303;@305;@307;@309;@311;@314;@316;@400;@401;@403;@404;@406;@408;@410;@412;@414;@416;@1060;1062;@1219"
+@="#206"
+
+[$RootKey$\ToolsOptionsPages\VcpkgPackageManager]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+@="#501"
+
+[$RootKey$\ToolsOptionsPages\VcpkgPackageManager\General]
+"Package"="{74612282-E4C8-46B4-A774-C4AA32D54446}"
+"Page"="{2962FD38-141E-4D47-A2A9-A7B37572EA9D}"
+"Keywords"="@503"
+@="#502"
+
+[$RootKey$\Menus]
+"{74612282-E4C8-46B4-A774-C4AA32D54446}"=", Menus.ctmenu, 1"
+
+[$RootKey$\Packages\{74612282-E4C8-46B4-A774-C4AA32D54446}]
+@="VCManagedPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.VC.Pkg.ManagedPackage"
+"CodeBase"="$ShellFolder$\Common7\IDE\Microsoft.VisualStudio.VC.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\ToolWindows]
+
+[$RootKey$\ToolWindows\{D3750D8A-574B-4FB3-B7E2-AA8AF40E8231}]
+"Name"="Problem Details"
+"DontForceCreate"=dword:00000001
+@="{74612282-E4C8-46B4-A774-C4AA32D54446}"

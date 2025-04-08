@@ -1,0 +1,25 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>figure</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>figure</Shortcut>
+    <Description>包含 figcaption 的图形的标记段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+      <Declarations>
+          <Literal>
+              <ID>text</ID>
+              <ToolTip>text</ToolTip>
+              <Default>text</Default>
+          </Literal>
+      </Declarations>
+    <Code Language="html"><![CDATA[<figure>$end$
+        $selected$
+        <figcaption>$text$</figcaption>        
+   </figure>]]></Code>
+  </Snippet>
+</CodeSnippet>

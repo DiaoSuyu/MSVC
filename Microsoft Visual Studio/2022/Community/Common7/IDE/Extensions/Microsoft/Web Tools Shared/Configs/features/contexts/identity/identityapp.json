@@ -1,0 +1,86 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "FeatureContextProperty",
+            "property": "CallsMicrosoftGraph",
+            "value": "True"
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": "WebAssembly"
+          }
+        ]
+      },
+      "config": "identityapp.blazor.callsgraph"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "FeatureContextProperty",
+            "property": "CallsDownstreamApi",
+            "value": "True"
+          },
+          {
+            "kind": "HasProjectCapability",
+            "capability": "WebAssembly"
+          }
+        ]
+      },
+      "config": "identityapp.blazor.downstreamapi"
+    },
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "WebAssembly"
+      },
+      "config": "identityapp.blazor"
+    },
+    {
+      "when": {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "FeatureContextProperty",
+            "property": "CallsMicrosoftGraph",
+            "value": "True"
+          },
+          {
+            "kind": "FeatureContextProperty",
+            "property": "CallsDownstreamApi",
+            "value": "True"
+          }
+        ]
+      },
+      "config": "identityapp.callsgraph_api"
+    },
+    {
+      "when": {
+        "kind": "FeatureContextProperty",
+        "property": "CallsMicrosoftGraph",
+        "value": "True"
+      },
+      "config": "identityapp.callsgraph"
+    },
+    {
+      "when": {
+        "kind": "FeatureContextProperty",
+        "property": "CallsDownstreamApi",
+        "value": "True"
+      },
+      "config": "identityapp.downstreamapi"
+    },
+    {
+      "when": {
+        "kind": "HasProjectCapability",
+        "capability": "DotNetCoreWeb"
+      },
+      "config": "identityapp"
+    }
+  ]
+}

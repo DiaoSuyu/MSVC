@@ -1,0 +1,19 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "redis.code.startup"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "redis.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    }
+  }
+}

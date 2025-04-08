@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>创建环境变量</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>创建在程序的两次执行之间保留的用户环境变量。</Description>
+      <Shortcut>sysCreateVar</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+          <Type>String</Type>
+          <ToolTip>替换为变量名称。</ToolTip>
+          <Default>"Variable"</Default>
+        </Literal>
+        <Literal>
+          <ID>Value</ID>
+          <Type>String</Type>
+          <ToolTip>替换为变量值。</ToolTip>
+          <Default>"Value"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Environment.SetEnvironmentVariable($Variable$, $Value$, EnvironmentVariableTarget.User)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

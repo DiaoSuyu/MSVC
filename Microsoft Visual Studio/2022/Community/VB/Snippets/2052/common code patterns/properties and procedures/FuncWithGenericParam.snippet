@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义使用泛型参数的函数</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义使用泛型参数的函数。</Description>
+      <Shortcut>FuncGeneric</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>FunctionName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为函数名称。</ToolTip>
+          <Default>MyFunction</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Type></Type>
+          <ToolTip>替换为返回类型。</ToolTip>
+          <Default>Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnValue</ID>
+          <Type></Type>
+          <ToolTip>替换为返回值。</ToolTip>
+          <Default>0</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Function $FunctionName$(Of T)() As $ReturnType$
+    Return $ReturnValue$
+End Function]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

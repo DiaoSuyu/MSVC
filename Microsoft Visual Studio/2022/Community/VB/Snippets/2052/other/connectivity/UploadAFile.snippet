@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 My.Computer.Network 上载文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将本地文件上载到 Internet。</Description>
+      <Shortcut>conUpload</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>address</ID>
+          <Type>String</Type>
+          <ToolTip>上载脚本的地址或目标文件名</ToolTip>
+          <Default>"http://www.someserver.com/upload.aspx"</Default>
+        </Literal>
+        <Literal>
+          <ID>localFile</ID>
+          <Type>String</Type>
+          <ToolTip>要上载的文件的路径。</ToolTip>
+          <Default>"c:\File.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[My.Computer.Network.UploadFile($localFile$, $address$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

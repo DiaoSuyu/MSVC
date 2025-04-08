@@ -1,0 +1,763 @@
+[$RootKey$\FeatureFlags\ProjectSystem\ProjectFlavors\SharedProjectReferences]
+"Description"="Determines whether Shared Project Reference feature including showing the Add Shared Project References tab in the Reference Manager dialog is enabled for all ProjectFlavors."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\DiagnosticsHub\DownSkuBreakEventsEnabled]
+"Description"="Determines if the Performance Debugger break events track is enabled in non-Ultimate Visual Studio SKUs."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\DiagnosticDataDownSkuDetailsView]
+"Description"="Determines if the Performance Debugger details view is enabled in non-Ultimate Visual Studio SKUs."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\DiagnosticsHub\IntelliTraceFilter]
+"Description"="Filter/Search Events"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\IntelliTrace\DiagnosticSourceSideload]
+"Description"="If true then IntelliTrace will attempt to sideload a collector for System.Diagnostics.DiagnosticSource events."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\IntelliTrace\ProcessSnapshotAD7ALIntegration]
+"Description"="If true then we'll use the AD7AL integration in IntelliTrace snapshot mode. Otherwise, it'll use concord snapshot APIs directly."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\Debugger\V3CdpDebugAdapter]
+"Description"="If checked, we'll use the JavaScript multi-target debugger to debug JavaScript for various targets, including progressive web applications and web workers (but excluding Node applications)."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\Debugger\V3CdpNodeDebugAdapter]
+"Description"="If checked, we'll use the JavaScript multi-target debugger to debug JavaScript for Node targets."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\Debugger\UseServerMode]
+"Description"="If true, use the server-based mode instead of flat-session mode for the JavaScript debug adapter (v3)"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\PullDiagnostics2]
+"Description"="#1058"
+"Value"=dword:00000001
+"Title"="#1057"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="2ffe45c4-5c73-493c-b187-f2e955ff875e"
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\Rename]
+"Description"="#1060"
+"Value"=dword:00000001
+"Title"="#1059"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="2ffe45c4-5c73-493c-b187-f2e955ff875e"
+[$RootKey$\FeatureFlags\CPS\SharedProject\OnlyLoadActiveHeadProject]
+"Description"="Controls whether all head user projects of a shared project should be loaded when a shared item is opened. If set to 'true', we only load the active/preferred head project."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CPS\AsyncProjectLoad]
+"Description"="Controls whether CPS is allowed to claim that project load has completed before it has fully populated the project tree, and other data models."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\CodeCoverage\UXExperienceV2]
+"Description"="#1003"
+"Value"=dword:00000001
+"Title"="#1002"
+"PreviewPaneChannels"="*"
+"PackageGuid"="f47a268a-bba9-442d-ac61-eef97f906458"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\HotReload3]
+"Description"="Determines whether Hot Reload capabilities will be used to speed up test execution for C# projects targeting .NET 6 or later versions. "
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\ShowTestAfterTestRun3]
+"Description"="Determines whether "Show Test in Test Explorer" will happen automatically after Test Run is finished."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\EarlyTestHostsStart]
+"Description"="#201"
+"Value"=dword:00000000
+"Title"="#200"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="BFC24BF4-B994-4757-BCDC-1D5D2768BF29"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\UseTestingPlatformProtocol]
+"Description"="#203"
+"Value"=dword:00000001
+"Title"="#202"
+"PreviewPaneChannels"="Preview,IntPreview,int.main"
+"RequiredAction"="restart"
+"PackageGuid"="BFC24BF4-B994-4757-BCDC-1D5D2768BF29"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\Intellitest\Z3v4]
+"Description"="#114"
+"Value"=dword:00000000
+"Title"="#113"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="5C6B696A-FF72-4D26-B8E4-09BB7C9A8EB2"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\Enable\Copilot]
+"Description"="Remote switchable feature flag to enable and disable the Copilot Diagnostic feature in Test Explorer"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\Enable\AltAskCopilotText]
+"Description"="Targeted notification flag to A/B test Ask Copilot command text"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\Copilot\ConversationAnalysis]
+"Description"="Remote switchable feature flag to enable and disable the Copilot conversation analysis telemetry in Test Explorer"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\UseNewProfiler]
+"Description"="Determines whether profiling from the Test window will use the new Diagnostics Hub profiler"
+"Value"=dword:00000001
+"Title"="Use the Diagnostics Hub profiler from Test Explorer"
+"PreviewPaneChannels"="IntPreview,int.main"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\DebugFailedTestWithCopilot]
+"Description"="#301"
+"Value"=dword:00000001
+"Title"="#300"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="BFC24BF4-B994-4757-BCDC-1D5D2768BF29"
+[$RootKey$\FeatureFlags\TestingTools\UnitTesting\RemoteTestingWindowsContainerSupport]
+"Description"="Determines if support is enabled for remote testing in Windows containers hosted in Docker"
+"Value"=dword:00000000
+"Title"="Remote Testing support for Windows Containers"
+"RequiredAction"="restart"
+"PackageGuid"="BFC24BF4-B994-4757-BCDC-1D5D2768BF29"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Solution\Telemetry]
+"Description"="Controls whether Solution telemetry package is loaded."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\Configurations\AnyCPUBuildableForAll]
+"Description"="Controls whether "Any CPU" managed platform will be selected for build for any solution platform."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\Configurations\CreateNewPlatformsOnAddNewProjectLegacy]
+"Description"="Controls whether a new platform is created using legacy logic."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\StartupProjectsList\LegacyFiltering]
+"Description"="Determines if the Startup Projects combobox should use the legacy filtering "
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\Explorer\AddNewProject\UseSelectedFolder]
+"Description"="Determines if adding a new project should use the selected solution folder (if any)"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\Loading\Deferred]
+"Description"="Determines if the solution load is deferred"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\Prefetch\LoadFactoryAssemblyDependencies]
+"Description"="Determines whether solution load prefetch will pre-load the assembly dependencies of participating prefetch factories."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\LegacyIgnoreDir]
+"Description"="Turns on legacy calls to filewatcher's IgnoreDir."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\Services\UseJTF]
+"Description"="Determines if solution and build services should use the JTF to marshal calls from the background thread to the main thread."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\Services\UseAsync]
+"Description"="#1530"
+"Value"=dword:00000000
+"Title"="#1531"
+"PreviewPaneChannels"="IntPreview,int.main"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Solution\Services\CancelSolutionLoad]
+"Description"="#1545"
+"Value"=dword:00000001
+"Title"="#1546"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\Solution\FilePersistence]
+"Description"="#1547"
+"Value"=dword:00000000
+"Title"="#1548"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\Solution\ParallelBatchBuild]
+"Description"="Enables parallel batch build."
+"Value"=dword:00000000
+"Title"="Allow parallel project builds during batch build"
+"PreviewPaneChannels"="IntPreview,int.main"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\NewProjectDialog\AllowSurrogatesInPath]
+"Description"="Determines if the project location path should allow surrogate characters or not"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\TableControl\ProgressBar]
+"Description"="Determines if the table control shows progress bar for its dirty data under processing"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\CodeLens\FLIForTFVC]
+"Description"="Determines if CodeLens File Indicators should be enabled TFVC"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Templates\ItemTemplates\EnableLegacyProjectTypeFiltering]
+"Description"="Enables legacy filtering for project item templates that uses language and template ID for the initial project type filtering."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Extensions\AutoUpdate]
+"Description"="Determines if extensions should be auto-updated"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Extensions\UseRestAPIForMarketPlace]
+"Description"="Determines if new Rest api should be used for Marketplace"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Setup\HideIPADialog]
+"Description"="Whether to hide the IPA dialog on first solution load."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Setup\UseSetupCompositionForComponentInstall]
+"Description"="Whether to use the setup composition service to install components."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Setup\EnableUpdateNotificationCustomizations]
+"Description"="Whether to allow for update notification customizations."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Setup\EnableCodespacesInstallOnDemand]
+"Description"="Whether to allow for installing the Codespaces workload "on demand" when a user attempts to connect."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Setup\EnableAlwaysUpdateOnClose]
+"Description"="Whether to allow for a setting to always update on close."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Setup\EnableAlwaysUpdateOnCloseToast]
+"Description"="Whether to show a toast indicating that VS will update on close."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Setup\EnableAlwaysUpdateOnCloseSettingToast]
+"Description"="Whether to show a toast with a button to disable/enable update on close."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\OpenFolder\FastToggle]
+"Description"="Determines whether workspace views can be switched without switching solutions"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CMake\TestExplorerIntegration]
+"Description"="Determines whether CMake based tests show up in the Test Explorer window."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CMake\ShowNoCacheBar]
+"Description"="Determines whether CMake will show an info bar when it detects that the CMake Cache may be out of date."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CMake\EnableCMakePresets]
+"Description"="Determines whether CMakePresets.json and CMakeUserPresets.json are recognized as configuration files."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\FreeThreadedServiceProvider\UseSendPriority]
+"Description"="Determines whether the free threaded global service provider should use send priority for scheduling tasks to run on the UI thread."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\RDT\UseFreeThreadedRDT]
+"Description"="Determines whether to use the free threaded RDT."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\RDT\AsyncSave]
+"Description"="#13549"
+"Value"=dword:00000001
+"Title"="#13548"
+"PreviewPaneChannels"="IntPreview,int.main"
+"PackageGuid"="DA9FB551-C724-11D0-AE1F-00A0C90FFFC3"
+[$RootKey$\FeatureFlags\VS\Core\SaveDocumentLayoutAsJson]
+"Description"="Determines whether the set of open documents that are restored with a solution are saved in JSON format."
+"Value"=dword:00000001
+"Title"="Save open documents in JSON format"
+"PreviewPaneChannels"="*"
+[$RootKey$\FeatureFlags\Git\Checkout\UseBulkFileOperation]
+"Description"="Determines whether Git source control integration should use the BulkFileOperation API during checkout operations."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\ShowSolutionTransitionInfoBar]
+"Description"="Detect and offer to switch to solutions when editing C++ code in folder mode"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\UpdateProjectOnImportsChange]
+"Description"="Enable VC projects to detect imported file changes and update automatically."
+"Value"=dword:00000000
+"Title"="Enable VC project update on imports change."
+"PreviewPaneChannels"="*"
+[$RootKey$\FeatureFlags\GetToCode\WindowEnabled]
+"Description"="Determines whether GetToCode Window is enabled or not."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\SnapshotDebugger\SupportTimeTravelTracing]
+"Description"="If true then Snapshot Debugger supports Time Travel tracing."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\TimeTravelDebugging\FileOpen]
+"Description"="If true then VS can load TTD .run files."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\ManagedCoreDumpDebugging\FileOpen]
+"Description"="If true then VS can open Linux Core Dump files."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\ShowExternalSourcesNode]
+"Description"="If true, the 'External Sources' node will be shown in Solution Explorer."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\EnableBreakpointGroups]
+"Description"="If true, the breakpoint groups feature will be enabled."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\EnableHotReloadForVsdbg]
+"Description"="If true then Hot Reload for Vsdbg is enabled."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\SymbolLocatorPersistentMissCache]
+"Description"="If true, the in memory symbol server miss cache will be written to disk and persisted across sessions."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\PreLoadDiagnosticsHub]
+"Description"="If true, the debugger will pre-load the Diagnostics Hub before starting debugging."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\OutOfProcessVisualizers]
+"Description"="If true Out-of-Process Visualizer support will be enabled."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\TraceEnterBreak]
+"Description"="If true, the debugger will emit telemetry events to help trace enter break state."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\TraceStoppingDebugging]
+"Description"="If true, the debugger will emit telemetry events to help trace stopping debugging."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\EnableCopilotBreakpointExplain]
+"Description"="Enable Copilot breakpoint troubleshooting in the Breakpoint Popup."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\TreeGridCopilotColumn]
+"Description"="Enable Copilot button column in Expression Evaluator windows such as Locals, Watch, etc."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Debugger\EECopilotContextMenu]
+"Description"="Show Ask Copilot button in context menus for treegrid and data tips."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CSProj\PartialLoadMode]
+"Description"="#1503"
+"Value"=dword:00000001
+"Title"="#1504"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\CPS\UseOperationProgress]
+"Description"="If true then CPS-based projects notify the Operation Progress service about intellisense progress."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CPS\LoadProjectFromCache]
+"Description"="#1528"
+"Value"=dword:00000001
+"Title"="#1529"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\CPS\AutoSaveProjectUserFile]
+"Description"="If true then CPS-based projects will automatically save changes to project user file (csproj.user) to avoid slower design time builds."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\BFO\SolutionFileReloadOptimizer]
+"Description"="Solution file changed handling key for branch switch. This when enabled will use the new solution reload optimizations to minimize solution reloads when the IDE git is used for branch switches"
+"Value"=dword:00000001
+"Title"="Use the solution file change optimizations to reduce solution reloads in branch switch"
+"PreviewPaneChannels"="*"
+[$RootKey$\FeatureFlags\Roslyn\PartialLoadMode]
+"Description"="If true then Roslyn initialization is delayed until intellisense operation stage completes."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Completion\PartialLoadMode]
+"Description"="If true then Editor’s completion window shows a message to the user that the result set could be incomplete when intellisense is in progress."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Designer\PartialLoadMode]
+"Description"="If true then Shell platform shows a wait view for participating editor types when intellisense is in progress."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\PartialLoadMode\ProjectOperationProgress]
+"Description"="If true then Partial Load Mode will use the project operation progress instead of the global operation progress."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Winforms\UsePreviewDesigner]
+"Description"="#5000"
+"Value"=dword:00000001
+"Title"="#5001"
+"PreviewPaneChannels"="*"
+"PackageGuid"="c78ca057-cc29-421f-ad6d-3b0943debdfc"
+[$RootKey$\FeatureFlags\Winforms\DesignerSelectionForNetFrameworkProjects]
+"Description"="#5002"
+"Value"=dword:00000001
+"Title"="#5003"
+"PreviewPaneChannels"="*"
+"PackageGuid"="c78ca057-cc29-421f-ad6d-3b0943debdfc"
+[$RootKey$\FeatureFlags\Solution\EnableWindowsPrefetcher]
+"Description"="If true then loading first solution in a VS session would call Windows Prefetcher API to speed up solution load."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Identity\SingleSignIn]
+"Description"="Enables using MSAL in the identity service. Removed from the PreviewFeatures pane."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Identity\WAMDisabled2]
+"Description"="Disable WAM"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Identity\GitHubOnboarding]
+"Description"="Allows signing in with GitHub.com accounts as main account in Visual Studio."
+"Value"=dword:00000001
+"Title"="GitHub Onboarding"
+"RequiredAction"="restart"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Identity\NativeGithubSignIn]
+"Description"="Add, manage and use GitHub accounts inside Visual Studio."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Identity\UserInformationGitHubSSO]
+"Description"="Enables GitHub SSO."
+"Value"=dword:00000000
+"Title"="GitHub SSO"
+"PreviewPaneChannels"="IntPreview,int.main"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\Identity\MultiGitHub]
+"Description"="Allows signing in with multiple GitHub.com accounts simultaneously."
+"Value"=dword:00000001
+"Title"="Multiple GitHub accounts"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\Trust\ServiceEnabled]
+"Description"="Enables the Trust feature by default."
+"Value"=dword:00000000
+"Title"="Trust Service"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Trust\EnableCRLValidation]
+"Description"="Turns on the Certificate Revocation check feature."
+"Value"=dword:00000001
+"Title"="CRL Validation"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\ManagedProjectSystem\EnableIncrementalBuildFailureOutputLogging]
+"Description"="#1517"
+"Value"=dword:00000000
+"Title"="#1516"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\ManagedProjectSystem\EnableIncrementalBuildFailureTelemetry]
+"Description"="Enables publishing telemetry about incremental build failures."
+"Value"=dword:00000000
+"Title"="Send incremental build failure problems via telemetry"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\ManagedProjectSystem\EnableBuildAccelerationByDefault]
+"Description"="#1537"
+"Value"=dword:00000001
+"Title"="#1536"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\ManagedProjectSystem\UsePreviewSdk]
+"Description"="#1500"
+"Value"=dword:00000000
+"Title"="#1501"
+"PreviewPaneChannels"="Release"
+"RequiredAction"="#1502"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\Shell\MRUProjectSearch]
+"Description"="Enables the recent project search box located on the start window."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\CSProj\OutOfProcEvaluation]
+"Description"="Load and evaluation of projects are offloaded to external processes."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\CSProj\ParallelEvaluation]
+"Description"="Load and evaluation of legacy managed projects are done on multiple threads when opening a solution."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Editor\ErrorListCopyDescription]
+"Description"="#113"
+"Value"=dword:00000001
+"Title"="#114"
+"PreviewPaneChannels"="*"
+"PackageGuid"="4A9B7E50-AA16-11d0-A8C5-00A0C921A4D2"
+[$RootKey$\FeatureFlags\Editor\EnableSpellChecker]
+"Description"="Enables dictionary based spell checker for editor text"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\ShowCMakeVcxprojNotificationInfoBar]
+"Description"="Detect CMake-generated vcxproj and show notification"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\EnableCMakeSettingsEditorInCodespaces]
+"Description"="Enable the custom CMakeSettings.json editor in Codespaces and Live Share."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Codespaces\UsePersistentRootMode]
+"Description"="Defines whether to use persistent root mode (specifying drive roots rather than the shared directory) for vsls URIs when working with codespaces, to enable access to the entire file system"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\Debugger\Chrome\UseChromeSuppliedPort]
+"Description"="Whether or not the Chrome debug adapter should use a debug port supplied by Chrome"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\AllInOneSearchScopes]
+"Description"="#1054"
+"Value"=dword:00000001
+"Title"="#1053"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"FeedbackUrl"="https://aka.ms/all-in-one-search-scoping"
+"PackageGuid"="E3DD8DCD-EB2A-4ECE-A282-661E1EFA6335"
+[$RootKey$\FeatureFlags\Editor\UseAdvancedLogging]
+"Description"="Enables advanced non-PII telemetry logging on hot paths of code like HrSave"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\Workspace\ExcludeScanners]
+"Description"="Determines whether certain file scanners can be excluded from AnyCode indexing."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Solution\Workspace\UseViewPicker]
+"Description"="#1035"
+"Value"=dword:00000001
+"Title"="#1034"
+"PreviewPaneChannels"="IntPreview,int.main,int.d16.7,int.d16.8,Preview"
+"RequiredAction"="#1036"
+"PackageGuid"="F384B236-B4A9-401b-BC58-3106E3ACA3EC"
+[$RootKey$\FeatureFlags\WebTools\BrowserLink\WebLivePreviewRollout]
+"Description"="Determines if Web Live Preview should be enabled for the user"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Extensions\EnableCompliant]
+"Description"="If true then only register extensions which are client compliant on client environment."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\ProjectSystem\DoNotLoadProjects]
+"Description"="#1534"
+"Value"=dword:00000000
+"Title"="#1535"
+"PreviewPaneChannels"="IntPreview,int.main"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\ProjectSystem\ProvideTipsWhenAllProjectsUnloaded]
+"Description"="#1532"
+"Value"=dword:00000000
+"Title"="#1533"
+"PreviewPaneChannels"="IntPreview,int.main"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\ProjectSystem\EnableMultiProjectLaunchProfiles]
+"Description"="#1544"
+"Value"=dword:00000001
+"Title"="#1543"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\VS\EnableGithubFeatureFlagOnCodespacesHttpCalls]
+"Description"="Use the GitHub API for codespace operations so VS can access codespaces created by other clients"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\LSPPullModelDiagnostics]
+"Description"="Enable LSP Pull Model Diagnostics in the C++ server."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Xaml\EnableLspIntelliSense]
+"Description"="#2024"
+"Value"=dword:00000000
+"Title"="#2023"
+"PreviewPaneChannels"="IntPreview,int.main"
+"PackageGuid"="2EF1EC52-C8BF-4FE0-8ECE-BA9C0D5D1603"
+[$RootKey$\FeatureFlags\Xaml\LivePreview\AlwasyOnSelection]
+"Description"="#1006"
+"Value"=dword:00000001
+"Title"="#1005"
+"PreviewPaneChannels"="Preview,IntPreview,int.main"
+"PackageGuid"="8291C340-36B8-4C91-8C40-CCE75398FF75"
+[$RootKey$\FeatureFlags\VC\LSPForceDocumentVersioning]
+"Description"="Force document versioning in the C++ server."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\EnableCodeStoreCache]
+"Description"="Enable cloud based C/C++ browsing information cache."
+"Value"=dword:00000000
+"Title"="Cloud based C/C++ cache"
+"PreviewPaneChannels"="IntPreview,int.main"
+[$RootKey$\FeatureFlags\VC\EnableIntelliCodePoirot]
+"Description"="Enable C++ IntelliCode Poirot code analysis."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\ContextFilteringForEnums]
+"Description"="Enables C++ context base filtering for enum types on the Member List (requires restart)."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\IntelliCodeWLC]
+"Description"="Enables the IntelliCode Whole Line Completion option for C++."
+"Value"=dword:00000000
+"Title"="C++ IntelliCode Whole Line Completion"
+"PreviewPaneChannels"="IntPreview,int.main"
+[$RootKey$\FeatureFlags\Shell\ImageService\UseBlackAndWhiteForEnhancedContrast]
+"Description"="Render icons in black and white when necessary to meet contrast requirements."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VSPerf\GCSetting\EnableServerGC]
+"Description"="#1038"
+"Value"=dword:00000000
+"Title"="#1039"
+"PreviewPaneChannels"="*"
+"RequiredAction"="#1040"
+"PackageGuid"="7D1A598C-4F97-4A83-A178-6B1BFCC7061E"
+[$RootKey$\FeatureFlags\Shell\SolutionExplorer\ShowSearchDefaultsChangedWarning]
+"Description"="When the user searches in Solution Explorer, inform them that the default search settings have changed."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Shell\SolutionExplorer\EnableHierarchySearchDiskCache]
+"Description"="Enable using a disk cache for solution explorer file search."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Shell\CacheFontsOnStartup]
+"Description"="Pre-load commonly used fonts on startup to avoid UI delays."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Shell\EnableWhatsNew]
+"Description"="Show the what's new window that describes features available in the latest update."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\ResourceDesigner\UseImprovedTypeResolution]
+"Description"="#1521"
+"Value"=dword:00000001
+"Title"="#1520"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\AppSettingsDesigner\UseImprovedTypeResolution]
+"Description"="#1523"
+"Value"=dword:00000000
+"Title"="#1522"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\VS\UseDesignersRegistryKey]
+"Description"="Make an attempt to resolve types using information discovered in the Designers registry key."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\SaveDocuments\LogSyncSave]
+"Description"="Toggles logging of every non-async document save."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\NewProjectDialogTreeView]
+"Description"="This New Project Dialog uses a 2-tier tree view along with multi-selectable language filters to allow you to find the template you want faster and easier."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\EnableQuickAddItemDialog]
+"Description"="Add new items faster without going through the New Item Dialog."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\NuGet\BulkRestoreCoordination]
+"Description"="Enable NuGet restore change that improves performance during branch switching and solution load."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\Tutorial]
+"Description"="Enables commands to start built-in VS guides."
+"Value"=dword:00000000
+"Title"="Enable Guides"
+"RequiredAction"="restart"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\VC\CopilotCompletionHeaders]
+"Description"="Enable Copilot Completion with context from the included header files."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\EnableUnrealEngineLogWindow]
+"Description"="Enable UE Log tool window."
+"Value"=dword:00000001
+"Title"="Enables UE Log ToolWindow"
+"PreviewPaneChannels"="int.main, IntPreview, Preview"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\VC\AIRenameSuggestions]
+"Description"="Enable Copilot suggestions in the C++ Rename functionality."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\AIRenameSuggestionsWithDefinition]
+"Description"="Enable C++ definitions to Copilot suggestions in the C++ Rename functionality."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\QuickInfoAIDocs\AutomaticAllowed]
+"Description"="Show checkbox in Copilot Chat Tools Options to enable automatic generation of OTF Docs."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\QuickInfoAIDocs\Allowed]
+"Description"="Show checkbox in Copilot Chat Tools Options to enable on-demand generation of OTF Docs."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\QuickInfoAIDocs\ShowContinueInChatLink]
+"Description"="Show a "Continue conversation in chat window" link in OTF docs responses."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\SharedDoxygenDocumentation]
+"Description"="Show doxygen documentation from another overload in ToolTip."
+"Value"=dword:00000001
+"Title"="Shared doxygen documentation"
+"PreviewPaneChannels"="int.main, IntPreview, Preview"
+"RequiredAction"="restart"
+[$RootKey$\FeatureFlags\VC\EnableCMakeCopilotTraits]
+"Description"="Include traits like CMake generator and C++ language standard in Copilot requests."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VC\EnableTestFrameworksCopilotTraits]
+"Description"="Include traits like the detected C++ test frameworks in Copilot requests."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\ExtensionManager\UseMessagePackMetadata]
+"Description"="Enable MessagePack protocol for Extension Manager extension metadata management."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\NuGet\SolutionCacheInitialization]
+"Description"="Enable NuGet using the IVsHierarchy APIs for solution initialization instead of the DTE.Project APIs."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\WelcomePage]
+"Description"="#1048"
+"Value"=dword:00000000
+"Title"="#1047"
+"PackageGuid"="7AC58323-1325-44DB-A4D5-2823A1426A13"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Shell\WindowManagementImprovementsFeatures]
+"Description"="Opt-in to collapsible tool windows, toggle visibility of all tool windows and restore recently closed tool window features."
+"Value"=dword:00000000
+"Title"="Window Management Improvements"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Shell\ExperimentalStyles]
+"Description"="Enables the Fluent styles"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Shell\ClassicStyles]
+"Description"="#1046"
+"Value"=dword:00000001
+"Title"="#1045"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="7AC58323-1325-44DB-A4D5-2823A1426A13"
+[$RootKey$\FeatureFlags\Shell\ThemeAgnosticFontSettings]
+"Description"="#1063"
+"Value"=dword:00000000
+"Title"="#1062"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="7AC58323-1325-44DB-A4D5-2823A1426A13"
+[$RootKey$\FeatureFlags\VS\Core\PreferShellOpenDocument]
+"Description"="Routes calls from SVsUIShellOpenDocument (native) to SVsShellOpenDocument (managed), when available."
+"Value"=dword:00000000
+"Title"="Prefer ShellOpenDocument Implementation"
+"VisibleToInternalUsersOnlyChannels"="int.main,IntPreview"
+[$RootKey$\FeatureFlags\VS\Core\PreferShellOpenDocument\SolutionLoad]
+"Description"="Routes calls from SVsUIShellOpenDocument (native) to SVsShellOpenDocument (managed), during Solution Load for documents owned by a CPS project."
+"Value"=dword:00000001
+"Title"="Asynchronously Load Documents During Solution Load"
+"VisibleToInternalUsersOnlyChannels"="int.main,IntPreview"
+[$RootKey$\FeatureFlags\VS\Core\PreferShellOpenDocument\SolutionLoad\AllProjectSystems]
+"Description"="Routes calls from SVsUIShellOpenDocument (native) to SVsShellOpenDocument (managed), during Solution Load for all project systems."
+"Value"=dword:00000000
+"Title"="Asynchronously Load Documents During Solution Load (All Project Systems)"
+"VisibleToInternalUsersOnlyChannels"="int.main,IntPreview"
+[$RootKey$\FeatureFlags\Solution\OutputBuildElapsedTime]
+"Description"="Determines if build output window should show elapsed time"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\NewSettingsExperience]
+"Description"="#1051"
+"Value"=dword:00000000
+"Title"="#1052"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="cb9107b5-6429-4c8a-b20b-1258255e59d0"
+[$RootKey$\FeatureFlags\Identity\EnableNewRegisterVS]
+"Description"="Enable New Extensibility flavor of Register VS command."
+"Value"=dword:00000001
+"Title"="Register Visual Studio Using New Extensibility Model"
+"RequiredAction"="restart"
+"VisibleToInternalUsersOnlyChannels"="*"
+[$RootKey$\FeatureFlags\Identity\EnableXPlatIdentity]
+"Description"="Configures Visual Studio to use an experimental sign in mechanism for GitHub accounts."
+"Value"=dword:00000001
+"Title"="Use A New Strategy for GitHub Sign In Operations"
+"PreviewPaneChannels"="*"
+[$RootKey$\FeatureFlags\Microsoft\VisualStudio\Interactive\APIWorkbench]
+"Description"="An interactive code exploration experience that supports multiple languages (C#, F# etc.)."
+"Value"=dword:00000000
+"Title"="API Workbench"
+"PreviewPaneChannels"="int.main,IntPreview"
+"VisibleToInternalUsersOnlyChannels"="int.main,IntPreview"
+[$RootKey$\FeatureFlags\ExtensionManager\UI\Refresh\17\12P1]
+"Description"="Try out the new extension manager design!"
+"Value"=dword:00000001
+"Title"="Extension Manager UI Refresh"
+"PreviewPaneChannels"="*"
+[$RootKey$\FeatureFlags\ExtensionManager\TimestampOptimization]
+"Description"="Enable the TimestampOptimization in the Extension Engine."
+"Value"=dword:00000000
+"Title"="Extension Engine timestamp optimization"
+"PreviewPaneChannels"="*"
+"OverrideDefaultValueChannels"="int.main"
+[$RootKey$\FeatureFlags\ExtensionManager\MessagepackChanges]
+"Description"="Enable the Messagepack changes in the Extension Engine."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VSSubscriptions\Benefits\Diamond]
+"Description"="Determines if the VS Subscriptions diamond benefits button should be displayed."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\Core\SystemResourceNotifyWindow]
+"Description"="Enables a fix for an issue related to tool windows showing error UI in some circumstances."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\DpiRestorationWindow]
+"Description"="Enables a fix for an issue related to tool windows getting stuck with the incorrect DPI."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Core\SupportDevDrive]
+"Description"="Allows VS interop with Dev Drive."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\PerfWatson\RunAsPeerProcess]
+"Description"="Run the PerfWatson process as a peer rather than as a child"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Solution\Workspace\EnableMultiRoot]
+"Description"="#1538"
+"Value"=dword:00000001
+"Title"="#1539"
+"PreviewPaneChannels"="*"
+"PackageGuid"="6E87CFAD-6C05-4adf-9CD7-3B7943875B7C"
+[$RootKey$\FeatureFlags\VS\Bugs\IntelOptane]
+"Description"="Controls whether we detour ETW event registration/unregistration to work around an Intel Optane bug"
+"Value"=dword:00000000
+"Title"="Enable Intel Optane ETW Bug Mitigation"
+"PreviewPaneChannels"="IntPreview,int.main"
+"OverrideDefaultValueChannels"="IntPreview,int.main"
+[$RootKey$\FeatureFlags\VS\Copilot\BadgeTip]
+"Description"="Enable Copilot Badge"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Shell\SyncFrameControls]
+"Description"="Turn on synchronous load of the main window frame controls"
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\Shell\CCWHandleXClick]
+"Description"="Enabled special handling for X button mouse clicks in the CustomChromeWindow"
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Copilot\Guide\Enabled]
+"Description"="Determines whether the copilot walkthrough command is visible and enabled."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VS\Copilot\Guide\EnglishOnly]
+"Description"="Determines whether the copilot walkthrough, when enabled, should be shown for locales other than english."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\Debugger\CopilotVisualizers]
+"Description"="If true, the debugger will show the "Ask Copilot" button in compatible visualizers."
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\VS\Copilot\InternalUser]
+"Description"="Determines whether the copilot internal user is enabled."
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\VC\EnableSymbolIndex]
+"Description"="Enable indexing symbol references in the entire codebase."
+"Value"=dword:00000000
+"Title"="C/C++ Whole Codebase Symbol Index"
+"PreviewPaneChannels"="IntPreview,int.main"
+[$RootKey$\FeatureFlags\Xaml\LivePreview\LaunchPreviewer]
+"Description"="#1014"
+"Value"=dword:00000000
+"Title"="#1015"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"
+"PackageGuid"="8291C340-36B8-4C91-8C40-CCE75398FF75"
+[$RootKey$\FeatureFlags\VC\EnableMoveToFile]
+"Description"="Enable Move to file command on function selections, select where to move the function definition and declaration indivitually, depending on different cases UI will only show allowed actions."
+"Value"=dword:00000000
+"Title"="C++ Move to file refactoring"
+"PreviewPaneChannels"="IntPreview,int.main"
+[$RootKey$\FeatureFlags\ClientTools\Platform\NewMonoDebugEngineMobile]
+"Description"="Use the new Mono debugger engine for MAUI apps. .NET 8.0.202 or higher is required."
+"Value"=dword:00000000
+"Title"="Enable new .NET Mono debugger for MAUI apps"
+"PreviewPaneChannels"="*"
+"RequiredAction"="restart"

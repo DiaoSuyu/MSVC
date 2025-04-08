@@ -1,0 +1,214 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addProgramCode",
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespaces",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAzureIdentityNamespaces",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Azure.Identity;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                }
+              ]
+            },
+            "body": "using Azure.Identity;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureConfigureAppConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureAppConfiguration"
+                  }
+                }
+              ]
+            },
+            "body": "if (Uri.TryCreate(azAppConfigSettings[`@@connectionId@@`], UriKind.Absolute, out var endpoint))\r\n                    {\r\n                        // Use Azure Active Directory authentication.\r\n                        // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n                        // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n                        config.AddAzureAppConfiguration(options =>\r\n                        {\r\n                            options.Connect(endpoint, new DefaultAzureCredential())\r\n                            .ConfigureRefresh(refresh =>\r\n                            {\r\n                                // All configuration values will be refreshed if the sentinel key changes.\r\n                                refresh.Register(`TestApp:Settings:Sentinel`, refreshAll: true);\r\n                            });\r\n                        });\r\n                    }\r\n                })\r\n",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "CreateDefaultBuilder"
+                  }
+                }
+              ]
+            },
+            "body": "if (Uri.TryCreate(azAppConfigSettings[`@@connectionId@@`], UriKind.Absolute, out var endpoint))\r\n                    {\r\n                        // Use Azure Active Directory authentication.\r\n                        // The identity of this app should be assigned 'App Configuration Data Reader' or 'App Configuration Data Owner' role in App Configuration.\r\n                        // For more information, please visit https://aka.ms/vs/azure-app-configuration/concept-enable-rbac\r\n                        config.AddAzureAppConfiguration(options =>\r\n                        {\r\n                            options.Connect(endpoint, new DefaultAzureCredential())\r\n                            .ConfigureRefresh(refresh =>\r\n                            {\r\n                                // All configuration values will be refreshed if the sentinel key changes.\r\n                                refresh.Register(`TestApp:Settings:Sentinel`, refreshAll: true);\r\n                            });\r\n                        });\r\n                    }\r\n                })\r\n",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

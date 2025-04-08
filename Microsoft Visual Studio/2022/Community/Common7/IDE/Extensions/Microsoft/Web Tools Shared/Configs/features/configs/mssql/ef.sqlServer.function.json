@@ -1,0 +1,24 @@
+{
+  "components": {
+    "itemTemplateCreator": {
+      "modifiers": [
+        "ef.sqlServer.functionSqlItemTemplateCreator"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "ef.sqlServer.nuget.coreweb"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "ef.sqlServer.serviceConnector.local"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../schemas/servicehub.service.schema.json",
+  "host": "dotnet",
+  "hostId": "IndexingService",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.Text.Indexing.Service.dll",
+    "fullClassName": "Microsoft.VisualStudio.Text.Indexing.Service.IndexEngineServiceFactory"
+  }
+}

@@ -1,0 +1,14 @@
+[$RootKey$\Languages\CodeExpansions\Basic]
+@="{3A12D0B8-C26C-11D0-B442-00A0244A1DD2}"
+"DisplayName"="1533"
+"IndexPath"="%InstallRoot%\VB\Snippets\%LCID%\SnippetIndex.xml"
+"LangStringID"="VB"
+"MultipleSnippetsPerFile"=dword:00000000
+"Package"="{019971D6-4685-11D2-B48A-0000F87572EB}"
+"ShowRoots"=dword:00000001
+
+[$RootKey$\Languages\CodeExpansions\Basic\ForceCreateDirs]
+"Microsoft Visual Basic"="%MyDocs%\Code Snippets\Visual Basic\My Code Snippets\"
+
+[$RootKey$\Languages\CodeExpansions\Basic\Paths]
+"Microsoft Visual Basic"="%InstallRoot%\VB\Snippets\%LCID%\application\;%InstallRoot%\VB\Snippets\%LCID%\common code patterns\;%InstallRoot%\VB\Snippets\%LCID%\data\;%InstallRoot%\VB\Snippets\%LCID%\fundamentals\;%InstallRoot%\VB\Snippets\%LCID%\os\;%InstallRoot%\VB\Snippets\%LCID%\other\;%InstallRoot%\VB\Snippets\%LCID%\windowsforms\;%MyDocs%\Code Snippets\Visual Basic\My Code Snippets\"

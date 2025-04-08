@@ -1,0 +1,485 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.TestPlatform.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.ClientUtilities">
+            <summary>
+            Utilities used by the client to understand the environment of the current run.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.ClientUtilities.FixRelativePathsInRunSettings(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Converts the relative paths in a runsetting file to absolute ones.
+            </summary>
+            <param name="xmlDocument">Xml Document containing Runsettings xml</param>
+            <param name="path">Path of the .runsettings xml file</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor">
+            <summary>
+            Represents the run settings processor for code coverage data collectors.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor._defaultSettingsRootNode">
+            <summary>
+            Represents the default settings loaded as an <see cref="T:System.Xml.XmlNode"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.#ctor(System.Xml.XmlNode)">
+             <summary>
+             Constructs an <see cref="T:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor"/> object.
+             </summary>
+            
+             <param name="defaultSettingsRootNode">The default settings root node.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.Process(System.String)">
+             <summary>
+             Processes the current settings for the code coverage data collector.
+             </summary>
+            
+             <param name="currentSettings">The code coverage settings.</param>
+            
+             <returns>An updated version of the current run settings.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.Process(System.Xml.XmlDocument)">
+             <summary>
+             Processes the current settings for the code coverage data collector.
+             </summary>
+            
+             <param name="currentSettingsDocument">
+             The code coverage settings document.
+             </param>
+            
+             <returns>An updated version of the current run settings.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.Process(System.Xml.XmlNode)">
+             <summary>
+             Processes the current settings for the code coverage data collector.
+             </summary>
+            
+             <param name="currentSettingsRootNode">The code coverage root element.</param>
+            
+             <returns>An updated version of the current run settings.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.SelectNodeOrAddDefaults(System.Xml.XmlNode,System.Xml.XmlNode,System.Collections.Generic.IList{System.String})">
+             <summary>
+             Selects the node from the current settings node using the given
+             <see cref="T:System.Xml.XPath.XPathNavigator"/> style path. If unable to select the requested node it adds
+             default settings along the path.
+             </summary>
+            
+             <param name="currentRootNode">
+             The root node from the current settings document for the extraction.
+             </param>
+             <param name="defaultRootNode">
+             The corresponding root node from the default settings document.
+             </param>
+             <param name="pathComponents">The path components.</param>
+            
+             <returns>The requested node if successful, <see langword="null"/> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.ShouldProcessCurrentExclusion(System.Xml.XmlNode)">
+             <summary>
+             Checks if we should process the current exclusion node.
+             </summary>
+            
+             <param name="node">The current exclusion node.</param>
+            
+             <returns>
+             <see langword="true"/> if the node should be processed, <see langword="false"/> otherwise.
+             </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.BuildPath(System.Collections.Generic.IList{System.String})">
+             <summary>
+             Assembles a relative path from the path given as components.
+             </summary>
+            
+             <returns>A relative path built from path components.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.ExtractNode(System.Xml.XmlNode,System.String)">
+             <summary>
+             Extracts the node specified by the current path using the provided node as root.
+             </summary>
+            
+             <param name="node">The root to be used for extraction.</param>
+             <param name="path">The path used to specify the requested node.</param>
+            
+             <returns>The extracted node if successful, <see langword="null"/> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.CodeCoverageRunSettingsProcessor.MergeNodes(System.Xml.XmlNode,System.Xml.XmlNode)">
+             <summary>
+             Merges the current settings rules with the default settings rules.
+             </summary>
+            
+             <param name="currentNode">The current settings root node.</param>
+             <param name="defaultNode">The default settings root node.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper">
+            <summary>
+            Utility class for Inferring the runsettings from the current environment and the user specified command line switches.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.MakeRunsettingsCompatible(System.String)">
+            <summary>
+            Make runsettings compatible with testhost of version 15.0.0-preview
+            Due to bug https://github.com/Microsoft/vstest/issues/970 we need this function
+            </summary>
+            <param name="runsettingsXml">string content of runsettings </param>
+            <returns>compatible runsettings</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateRunSettingsWithUserProvidedSwitches(System.Xml.XmlDocument,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework,System.String)">
+            <summary>
+            Updates the run settings XML with the specified values.
+            </summary>
+            <param name="runSettingsDocument"> The XmlDocument of the XML. </param>
+            <param name="architecture"> The architecture. </param>
+            <param name="framework"> The framework. </param>
+            <param name="resultsDirectory"> The results directory. </param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateDesignMode(System.Xml.XmlDocument,System.Boolean)">
+            <summary>
+            Updates the <c>RunConfiguration.DesignMode</c> value for a run settings. Doesn't do anything if the value is already set.
+            </summary>
+            <param name="runSettingsDocument">Document for runsettings xml</param>
+            <param name="designModeValue">Value to set</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateBatchSize(System.Xml.XmlDocument,System.Int64)">
+            <summary>
+            Updates the <c>RunConfiguration.BatchSize</c> value for a run settings. Doesn't do anything if the value is already set.
+            </summary>
+            <param name="runSettingsDocument">Document for runsettings xml</param>
+            <param name="batchSizeValue">Value to set</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateCollectSourceInformation(System.Xml.XmlDocument,System.Boolean)">
+            <summary>
+            Updates the <c>RunConfiguration.CollectSourceInformation</c> value for a run settings. Doesn't do anything if the value is already set.
+            </summary>
+            <param name="runSettingsDocument">Navigator for runsettings xml</param>
+            <param name="collectSourceInformationValue">Value to set</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateTargetDevice(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Updates the <c>RunConfiguration.TargetDevice</c> value for a run settings. Doesn't do anything if the value is already set.
+            </summary>
+            <param name="runSettingsDocument">XmlDocument for runsettings xml</param>
+            <param name="targetDevice">Value to set</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateTargetFramework(System.Xml.XmlDocument,System.String,System.Boolean)">
+            <summary>
+            Updates the <c>RunConfiguration.TargetFrameworkVersion</c> value for a run settings. if the value is already set, behavior depends on overwrite.
+            </summary>
+            <param name="runSettingsDocument">XmlDocument for runsettings xml</param>
+            <param name="framework">Value to set</param>
+            <param name="overwrite">Overwrite option.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.AreRunSettingsCollectorsIncompatibleWithTestSettings(System.String)">
+            <summary>
+            Validates the collectors in runsettings when an in-lined testsettings is specified
+            </summary>
+            <param name="runsettings">RunSettings used for the run</param>
+            <returns>True if an incompatible collector is found</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.TryGetLegacySettingElements(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Returns true if legacy settings node is present in runsettings
+            </summary>
+            <param name="runsettingsXml">The run settings xml string</param>
+            <param name="legacySettingsTelemetry">The telemetry data that needs to be captured</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.GetEnvironmentVariables(System.String)">
+            <summary>
+            Returns a dictionary of environment variables given in run settings
+            </summary>
+            <param name="runSettings">The run settings xml string</param>
+            <returns>Environment Variables Dictionary</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateTargetPlatform(System.Xml.XmlDocument,System.String,System.Boolean)">
+            <summary>
+            Updates the <c>RunConfiguration.TargetPlatform</c> value for a run settings. if the value is already set, behavior depends on overwrite.
+            </summary>
+            <param name="runSettingsDocument">Navigator for runsettings xml</param>
+            <param name="platform">Value to set</param>
+            <param name="overwrite">Overwrite option.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.IsTestSettingsEnabled(System.String)">
+            <summary>
+            Check if testsettings in configured using runsettings.
+            </summary>
+            <param name="runsettingsXml">xml string of runsetting</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.AddNodeIfNotPresent``1(System.Xml.XmlDocument,System.String,System.String,``0,System.Boolean)">
+            <summary>
+            Adds node under RunConfiguration setting. No op if node is already present.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.ValidateRunConfiguration(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Validates the RunConfiguration setting in run settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.UpdateRunConfiguration(System.Xml.XmlDocument,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework,System.String)">
+            <summary>
+            Regenerates the RunConfiguration node with new values under runsettings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.TryGetFrameworkXml(System.Xml.XPath.XPathNavigator,System.String@)">
+            <summary>
+            Validate if TargetFrameworkVersion in run settings has valid value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.FilterCompatibleSources(Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework,System.Collections.Generic.IDictionary{System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture},System.Collections.Generic.IDictionary{System.String,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework},System.String@)">
+            <summary>
+            Returns the sources matching the specified platform and framework settings.
+            For incompatible sources, warning is added to incompatibleSettingWarning.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.IsSettingIncompatible(Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework)">
+            <summary>
+            Returns true if source settings are incompatible with target settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.IsPlatformIncompatible(Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture,Microsoft.VisualStudio.TestPlatform.ObjectModel.Architecture)">
+            <summary>
+            Returns true if source Platform is incompatible with target platform.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.InferRunSettingsHelper.IsFrameworkIncompatible(Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework,Microsoft.VisualStudio.TestPlatform.ObjectModel.Framework)">
+            <summary>
+            Returns true if source FrameworkVersion is incompatible with target FrameworkVersion.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.MSTestSettingsUtilities">
+            <summary>
+            The legacy mstest.exe settings utilities.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.MSTestSettingsUtilities.Import(System.String,System.Xml.XmlDocument)">
+            <summary>
+            Imports the parameter settings file in the default runsettings.
+            </summary>
+            <param name="settingsFile">
+            Settings file which need to be imported. The file extension of the settings file will be specified by <c>SettingsFileExtension</c> property.
+            </param>
+            <param name="defaultRunSettings"> Input RunSettings document to which settings file need to be imported. </param>
+            <returns> Updated RunSetting Xml document with imported settings. </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.StringUtils.IsNullOrEmpty(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrEmpty(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.StringUtils.IsNullOrWhiteSpace(System.String)">
+            <inheritdoc cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.TPDebug.Assert(System.Boolean)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean)"/>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.TPDebug.Assert(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.Diagnostics.Debug.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.ParallelRunSettingsUtilities">
+            <summary>
+            Utility class for MaxCpuCount element of RunSetting
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.ParallelRunSettingsUtilities.MaxCpuCountSettingTemplate">
+            <summary>
+            The MaxCpuCount setting template.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestPlatform.Utilities.ParallelRunSettingsUtilities.RunConfigurationWithMaxCpuCountSettingTemplate">
+            <summary>
+            The RunConfiguration with MaxCpuCount setting template.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.ParallelRunSettingsUtilities.UpdateRunSettingsWithParallelSettingIfNotConfigured(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            This will update the RunSetting with MaxCpuCount 0 if RunSetting doesn't configured with this setting.
+            </summary>
+            <param name="navigator">XPATH navigator.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.InvalidRunSettingsXml">
+            <summary>
+              Looks up a localized string similar to Run settings XML does not contain &quot;RunSettings&quot; node..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.InvalidSettingsIncorrectValue">
+            <summary>
+              Looks up a localized string similar to Invalid setting &apos;{0}&apos;. Invalid value &apos;{1}&apos; specified for &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.MissingRunSettingsNode">
+            <summary>
+              Looks up a localized string similar to Could not find &apos;RunSettings&apos; node..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.NoRunSettingsNodeFound">
+            <summary>
+              Looks up a localized string similar to Could not find &apos;RunSettings&apos; node..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.RunSettingsParseError">
+            <summary>
+              Looks up a localized string similar to An error occurred while loading the settings.  Error: {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestPlatform.Utilities.Resources.Resources.UnExpectedSettingsFile">
+            <summary>
+              Looks up a localized string similar to Unexpected settings file specified..
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestPlatform.Utilities.XmlUtilities">
+            <summary>
+            Utilities class to read and operate on Xml content.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.XmlUtilities.GetNodeXml(System.Xml.XPath.XPathNavigator,System.String)">
+            <summary>
+            Gets the Inner XML of the specified node.
+            </summary>
+            <param name="runSettingsNavigator"> The xml navigator. </param>
+            <param name="nodeXPath"> The xPath of the node. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.XmlUtilities.IsValidNodeXmlValue(System.String,System.Func{System.String,System.Boolean})">
+            <summary>
+            Validates if the Node value is correct according to the provided validator.
+            </summary>
+            <param name="xmlNodeValue"> The node value. </param>
+            <param name="validator"> The validator. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestPlatform.Utilities.XmlUtilities.AppendOrModifyChild(System.Xml.XmlDocument,System.String,System.String,System.String)">
+            <summary>
+            If xml node exists with given path, its value is set to innerXml, otherwise a new node is created.
+            </summary>
+            <remarks> Ensure that the navigator is set to right parent.</remarks>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

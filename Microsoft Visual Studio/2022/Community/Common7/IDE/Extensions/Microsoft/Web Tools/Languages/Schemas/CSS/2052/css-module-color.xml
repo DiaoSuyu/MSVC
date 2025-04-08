@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Visual Studio 2022: http://microsoft.com/visualstudio
+Some portions are "Copyright© 2020 World Wide Web Consortium, (MIT, ERCIM, Keio, Beihang),
+All Rights Reserved" and are included "AS IS" under the W3C® Software License [https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document].
+-->
+<CssModule name="Color" standard-reference="https://www.w3.org/TR/css-color-4/" status="WD" pub-date="2021-06-01">
+
+  <CssPropertyValue type="color-functions">
+    <entry value="rgb()" retrigger="true" />
+    <entry value="rgba()" retrigger="true" />
+    <entry value="hsl()" retrigger="true" />
+    <entry value="hsla()" retrigger="true" />
+    <entry value="hwb()" />
+    <entry value="lab()" />
+    <entry value="lch()" />
+    <entry value="color()" />
+  </CssPropertyValue>
+
+  <CssPropertyValue type="color" extends="color-functions">
+    <entry _locID="color_transparent" _locAttrData="description" version="1.0" value="transparent" description="完全透明。可将此关键字视为作为其计算值的 rgba(0,0,0,0)的速记。" standard-reference="https://www.w3.org/TR/css-color-4/#transparent-color" />
+
+    <entry _locID="color_currentColor" _locAttrData="description" version="3.0" value="currentColor" description="“color”属性的值。“currentColor”关键字的计算值为“color”属性的计算值。如果对“color”属性本身设置“currentColor”关键字，则它在分析时将被视为“color:inherit”。" standard-reference="https://www.w3.org/TR/css-color-4/#currentcolor-color" />
+
+    <entry version="2.0" value="none" />
+
+    <!-- X11/SVG color keywords -->
+    <!-- Includes HTML4 / CSS1/2 color names marked as version="1.0" -->
+    <entry version="3.0" value="aliceblue" />
+    <entry version="3.0" value="antiquewhite" />
+    <entry version="1.0" value="aqua" />
+    <entry version="3.0" value="aquamarine" />
+    <entry version="3.0" value="azure" />
+    <entry version="3.0" value="beige" />
+    <entry version="3.0" value="bisque" />
+    <entry version="1.0" value="black" />
+    <entry version="3.0" value="blanchedalmond" />
+    <entry version="1.0" value="blue" />
+    <entry version="3.0" value="blueviolet" />
+    <entry version="3.0" value="brown" />
+    <entry version="3.0" value="burlywood" />
+    <entry version="3.0" value="cadetblue" />
+    <entry version="3.0" value="chartreuse" />
+    <entry version="3.0" value="chocolate" />
+    <entry version="3.0" value="coral" />
+    <entry version="3.0" value="cornflowerblue" />
+    <entry version="3.0" value="cornsilk" />
+    <entry version="3.0" value="crimson" />
+    <entry version="3.0" value="cyan" />
+    <entry version="3.0" value="darkblue" />
+    <entry version="3.0" value="darkcyan" />
+    <entry version="3.0" value="darkgoldenrod" />
+    <entry version="3.0" value="darkgray" />
+    <entry version="3.0" value="darkgreen" />
+    <entry version="3.0" value="darkgrey" />
+    <entry version="3.0" value="darkkhaki" />
+    <entry version="3.0" value="darkmagenta" />
+    <entry version="3.0" value="darkolivegreen" />
+    <entry version="3.0" value="darkorange" />
+    <entry version="3.0" value="darkorchid" />
+    <entry version="3.0" value="darkred" />
+    <entry version="3.0" value="darksalmon" />
+    <entry version="3.0" value="darkseagreen" />
+    <entry version="3.0" value="darkslateblue" />
+    <entry version="3.0" value="darkslategray" />
+    <entry version="3.0" value="darkslategrey" />
+    <entry version="3.0" value="darkturquoise" />
+    <entry version="3.0" value="darkviolet" />
+    <entry version="3.0" value="deeppink" />
+    <entry version="3.0" value="deepskyblue" />
+    <entry version="3.0" value="dimgray" />
+    <entry version="3.0" value="dimgrey" />
+    <entry version="3.0" value="dodgerblue" />
+    <entry version="3.0" value="firebrick" />
+    <entry version="3.0" value="floralwhite" />
+    <entry version="3.0" value="forestgreen" />
+    <entry version="1.0" value="fuchsia" />
+    <entry version="3.0" value="gainsboro" />
+    <entry version="3.0" value="ghostwhite" />
+    <entry version="3.0" value="gold" />
+    <entry version="3.0" value="goldenrod" />
+    <entry version="1.0" value="gray" />
+    <entry version="1.0" value="green" />
+    <entry version="3.0" value="greenyellow" />
+    <entry version="3.0" value="grey" />
+    <entry version="3.0" value="honeydew" />
+    <entry version="3.0" value="hotpink" />
+    <entry version="3.0" value="indianred" />
+    <entry version="3.0" value="indigo" />
+    <entry version="3.0" value="ivory" />
+    <entry version="3.0" value="khaki" />
+    <entry version="3.0" value="lavender" />
+    <entry version="3.0" value="lavenderblush" />
+    <entry version="3.0" value="lawngreen" />
+    <entry version="3.0" value="lemonchiffon" />
+    <entry version="3.0" value="lightblue" />
+    <entry version="3.0" value="lightcoral" />
+    <entry version="3.0" value="lightcyan" />
+    <entry version="3.0" value="lightgoldenrodyellow" />
+    <entry version="3.0" value="lightgray" />
+    <entry version="3.0" value="lightgreen" />
+    <entry version="3.0" value="lightgrey" />
+    <entry version="3.0" value="lightpink" />
+    <entry version="3.0" value="lightsalmon" />
+    <entry version="3.0" value="lightseagreen" />
+    <entry version="3.0" value="lightskyblue" />
+    <entry version="3.0" value="lightslategray" />
+    <entry version="3.0" value="lightslategrey" />
+    <entry version="3.0" value="lightsteelblue" />
+    <entry version="3.0" value="lightyellow" />
+    <entry version="1.0" value="lime" />
+    <entry version="3.0" value="limegreen" />
+    <entry version="3.0" value="linen" />
+    <entry version="3.0" value="magenta" />
+    <entry version="1.0" value="maroon" />
+    <entry version="3.0" value="mediumaquamarine" />
+    <entry version="3.0" value="mediumblue" />
+    <entry version="3.0" value="mediumorchid" />
+    <entry version="3.0" value="mediumpurple" />
+    <entry version="3.0" value="mediumseagreen" />
+    <entry version="3.0" value="mediumslateblue" />
+    <entry version="3.0" value="mediumspringgreen" />
+    <entry version="3.0" value="mediumturquoise" />
+    <entry version="3.0" value="mediumvioletred" />
+    <entry version="3.0" value="midnightblue" />
+    <entry version="3.0" value="mintcream" />
+    <entry version="3.0" value="mistyrose" />
+    <entry version="3.0" value="moccasin" />
+    <entry version="3.0" value="navajowhite" />
+    <entry version="3.0" value="navy" />
+    <entry version="3.0" value="oldlace" />
+    <entry version="1.0" value="olive" />
+    <entry version="3.0" value="olivedrab" />
+    <entry version="1.0" value="orange" />
+    <entry version="3.0" value="orangered" />
+    <entry version="3.0" value="orchid" />
+    <entry version="3.0" value="palegoldenrod" />
+    <entry version="3.0" value="palegreen" />
+    <entry version="3.0" value="paleturquoise" />
+    <entry version="3.0" value="palevioletred" />
+    <entry version="3.0" value="papayawhip" />
+    <entry version="3.0" value="peachpuff" />
+    <entry version="3.0" value="peru" />
+    <entry version="3.0" value="pink" />
+    <entry version="3.0" value="plum" />
+    <entry version="3.0" value="powderblue" />
+    <entry version="1.0" value="purple" />
+    <entry version="1.0" value="rebeccapurple" />
+    <entry version="1.0" value="red" />
+    <entry version="3.0" value="rosybrown" />
+    <entry version="3.0" value="royalblue" />
+    <entry version="3.0" value="saddlebrown" />
+    <entry version="3.0" value="salmon" />
+    <entry version="3.0" value="sandybrown" />
+    <entry version="3.0" value="seagreen" />
+    <entry version="3.0" value="seashell" />
+    <entry version="3.0" value="sienna" />
+    <entry version="1.0" value="silver" />
+    <entry version="3.0" value="skyblue" />
+    <entry version="3.0" value="slateblue" />
+    <entry version="3.0" value="slategray" />
+    <entry version="3.0" value="slategrey" />
+    <entry version="3.0" value="snow" />
+    <entry version="3.0" value="springgreen" />
+    <entry version="3.0" value="steelblue" />
+    <entry version="3.0" value="tan" />
+    <entry version="1.0" value="teal" />
+    <entry version="3.0" value="thistle" />
+    <entry version="3.0" value="tomato" />
+    <entry version="3.0" value="turquoise" />
+    <entry version="3.0" value="violet" />
+    <entry version="3.0" value="wheat" />
+    <entry version="1.0" value="white" />
+    <entry version="3.0" value="whitesmoke" />
+    <entry version="1.0" value="yellow" />
+    <entry version="3.0" value="yellowgreen" />
+
+    <!-- CSS2 user preference colors -->
+    <entry _locID="color_ActiveBorder" _locAttrData="description" version="2.0" value="ActiveBorder" description="活动窗口边框。" />
+    <entry _locID="color_ActiveCaption" _locAttrData="description" version="2.0" value="ActiveCaption" description="活动窗口标题。" />
+    <entry _locID="color_AppWorkspace" _locAttrData="description" version="2.0" value="AppWorkspace" description="多文档界面的背景色。" />
+    <entry _locID="color_Background" _locAttrData="description" version="2.0" value="Background" description="桌面背景。" />
+    <entry _locID="color_ButtonFace" _locAttrData="description" version="2.0" value="ButtonFace" description="显示三维效果的三维元素的表面背景色，因为有一个周围边框图层。" />
+    <entry _locID="color_ButtonHighlight" _locAttrData="description" version="2.0" value="ButtonHighlight" description="面向显示三维效果的三维元素的光源的边框的颜色，因为有一个周围边框图层。" />
+    <entry _locID="color_ButtonShadow" _locAttrData="description" version="2.0" value="ButtonShadow" description="远离显示三维效果的三维元素的光源的边框的颜色，因为有一个周围边框图层。" />
+    <entry _locID="color_" _locAttrData="description" version="2.0" value="ButtonText" description="按钮上的文本。" />
+    <entry _locID="color_CaptionText" _locAttrData="description" version="2.0" value="CaptionText" description="标题、大小框和滚动条箭头框中的文本。" />
+    <entry _locID="color_GrayText" _locAttrData="description" version="2.0" value="GrayText" description="变灰(无效)文本。如果当前显示器驱动程序不支持纯灰颜色，则该颜色设为 #000。" />
+    <entry _locID="color_Highlight" _locAttrData="description" version="2.0" value="Highlight" description="在控件中选择的项目。" />
+    <entry _locID="color_HighlightText" _locAttrData="description" version="2.0" value="HighlightText" description="在控件中选择的项目的文本。" />
+    <entry _locID="color_InactiveBorder" _locAttrData="description" version="2.0" value="InactiveBorder" description="非活动窗口边框。" />
+    <entry _locID="color_InactiveCaption" _locAttrData="description" version="2.0" value="InactiveCaption" description="非活动窗口标题。" />
+    <entry _locID="color_InactiveCaptionText" _locAttrData="description" version="2.0" value="InactiveCaptionText" description="非活动标题中的文本的颜色。" />
+    <entry _locID="color_InfoBackground" _locAttrData="description" version="2.0" value="InfoBackground" description="工具提示控件的背景色。" />
+    <entry _locID="color_InfoText" _locAttrData="description" version="2.0" value="InfoText" description="工具提示控件的文本颜色。" />
+    <entry _locID="color_Menu" _locAttrData="description" version="2.0" value="Menu" description="菜单背景。" />
+    <entry _locID="color_MenuText" _locAttrData="description" version="2.0" value="MenuText" description="菜单中的文本。" />
+    <entry _locID="color_Scrollbar" _locAttrData="description" version="2.0" value="Scrollbar" description="滚动条灰色区。" />
+    <entry _locID="color_ThreeDDarkShadow" _locAttrData="description" version="2.0" value="ThreeDDarkShadow" description="远离显示三维效果的三维元素的光源的两个边框(通常为外边框)的更深的颜色，因为有两个同心的周围边框图层。" />
+    <entry _locID="color_ThreeDFace" _locAttrData="description" version="2.0" value="ThreeDFace" description="显示三维效果的三维元素的表面背景色，因为有两个同心的周围边框图层。" />
+    <entry _locID="color_ThreeDHighlight" _locAttrData="description" version="2.0" value="ThreeDHighlight" description="面向显示三维效果的三维元素的光源的两个边框(通常为外边框)的更淡的颜色，因为有两个同心的周围边框图层。" />
+    <entry _locID="color_ThreeDLightShadow" _locAttrData="description" version="2.0" value="ThreeDLightShadow" description="面向显示三维效果的三维元素的光源的两个边框(通常为内边框)的更深的颜色，因为有两个同心的周围边框图层。" />
+    <entry _locID="color_ThreeDShadow" _locAttrData="description" version="2.0" value="ThreeDShadow" description="远离显示三维效果的三维元素的光源的两个边框(通常为内边框)的更淡的颜色，因为有两个同心的周围边框图层。" />
+    <entry _locID="color_Window" _locAttrData="description" version="2.0" value="Window" description="窗口背景。" />
+    <entry _locID="color_WindowFrame" _locAttrData="description" version="2.0" value="WindowFrame" description="窗口框架。" />
+    <entry _locID="color_WindowText" _locAttrData="description" version="2.0" value="WindowText" description="窗口中的文本。" />
+  </CssPropertyValue>
+
+  <CssProperty _locID="color" version="1.0" _locAttrData="description" type="color" restriction="color" description="元素的文本的颜色" syntax="body { $(name): red; }" standard-reference="https://www.w3.org/TR/css-color-4/#the-color-property" />
+
+  <CssProperty _locID="opacity" version="3.0" browsers="C,FF3.6,IE9,O9,S1.2" _locAttrData="description" restriction="number(0-1), percentage" description="元素的文本的不透明度，其中 1 表示不透明，0 表示完全透明。" syntax="article { $(name): opacity: 0.4; }" standard-reference="https://www.w3.org/TR/css-color-4/#transparency" />
+
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>vA8Zvv3KftikBD6xQ/9dkHD3WYX0WGUyGmFyi+d27qQ=</DigestValue></Reference></SignedInfo><SignatureValue>gSV7BqaYOKuWlyT7Dluk276RxVZWsZBfXqiG1JMaiM1KWBGkH6LUeDRuo8VqI/KPJc5XIcaWTZTb0PSqc6GZXkvoz0+LAcSayEPWOI64dQNL9TgRPWZNC8AvvI/VYMh+wRXo5BuMnKXatmBy+GUZvPLUmzpQM22Z5ZJVMqT0RxMMFCpAUfhfzrcatU2w3HcB7OA4bACVfvFcUDUhELSxlKV3q53zErm0g6cQczM3S2f91Y1D3SZ01NFNujGFe392vN2Srq+rk1YIuMiDeK449LlWWCtDBFxA3z3VIjKhZTpYu5IDroM7ixGL44+jBC0MkM6ckpUWYp4Tfn8UA13B9A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>n3RnXcCDp20WFMoNNzt4s9fV12T5roRJlv+bshDfvJoMZfhyRnixgUfGAbrRlS1St/EcXFXD2MhRkF3CnMYIoeMOMuMyYtxr2sC2B5bDRMUMM/r9I4GP2nowUthCWKFIS1RPlM0YoVfKKMaH7bJii29sW+waBUulAKN2c+Gn5znaiOxRqIu4OL8f9DCHYpME5+Teek3SL95sH5GQhZq7CqTdM0fBw/FmLLx98SpBu7v8XapoTz6jJpyNozhcP/59mi/Fu4tT2rI2vD50Vx/0GlR9DNZ2py/iyPU7DG/3p1n1zluuRp3uXKjDfVKH7xDbXcMBJid22a3CPbuC2QJLow==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></CssModule>

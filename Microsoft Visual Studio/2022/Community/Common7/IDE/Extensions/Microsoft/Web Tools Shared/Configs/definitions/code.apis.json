@@ -1,0 +1,136 @@
+{
+  "locations": {
+    "AddSwaggerGen": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddSwaggerGen"
+        }
+      }
+    ],
+    "AddSwaggerGenMain": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/EntryPoint"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddSwaggerGen"
+        }
+      }
+    ],
+    "ConfigureSwaggerGen": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureSwaggerGen"
+        }
+      }
+    ],
+    "AddSwaggerGen_With_SwaggerGenOptions": [
+      {
+        "$refmerge": "#/locations/AddSwaggerGen"
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+        }
+      }
+    ],
+    "ConfigureSwaggerGen_With_SwaggerGenOptions": [
+      {
+        "$refmerge": "#/locations/ConfigureSwaggerGen"
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+        }
+      }
+    ],
+    "AddSwaggerGenMinimalAppModel": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/TopLevelMainMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddSwaggerGen"
+        }
+      }
+    ],
+    "ConfigureSwaggerGenMinimalAppModel": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/TopLevelMainMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "ConfigureSwaggerGen"
+        }
+      }
+    ],
+    "AddSwaggerGenMinimalAppModel_With_SwaggerGenOptions": [
+      {
+        "$refmerge": "#/locations/AddSwaggerGenMinimalAppModel"
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+        }
+      }
+    ],
+    "ConfigureSwaggerGenMinimalAppModel_With_SwaggerGenOptions": [
+      {
+        "$refmerge": "#/locations/ConfigureSwaggerGenMinimalAppModel"
+      },
+      {
+        "kind": "ArgumentDelegate",
+        "properties": {
+          "TypeName": "System.Action<Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions>"
+        }
+      }
+    ],
+    "AddOpenApiMinimalAppModel": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/TopLevelMainMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddOpenApi"
+        }
+      }
+    ],
+    "AddOpenApi": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/ConfigureServicesMethod"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddOpenApi"
+        }
+      }
+    ],
+    "AddOpenApiMain": [
+      {
+        "$refmerge": "/definitions/code.json#/locations/EntryPoint"
+      },
+      {
+        "kind": "Invocation",
+        "properties": {
+          "Invocation": "AddOpenApi"
+        }
+      }
+    ]
+  }
+}

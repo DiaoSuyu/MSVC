@@ -1,0 +1,20 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="CppBuildInsights.Microsoft Corp..8332E269-72A4-4020-B678-0AAA2A6562F5" Version="1.0" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Cpp Build Insights Tool</DisplayName>
+    <Description xml:space="preserve">Tool to collect and visualize C++ compilation performance data.</Description>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.DiagnosticTools" Version="[16.0,17.0)" DisplayName="Visual Studio Diagnostic Tools" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.CppBuildInsightsTool.dll" />
+  </Assets>
+</PackageManifest>

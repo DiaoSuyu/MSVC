@@ -1,0 +1,76 @@
+{
+  "kind": "code.generic",
+  "order": 36,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureConfigureServicesMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.Hosting.HostingHostBuilderExtensions"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Hosting.HostingHostBuilderExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "host\r\n    .ConfigureServices(services =>\r\n    {\r\n         // Make Azure App Configuration services and feature manager available through dependency injection\r\n        services.AddAzureAppConfiguration()\r\n                .AddFeatureManagement();\r\n    })\r\n",
+            "tokens": {
+              "connectionId": {
+                "name": "connectionId",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "connectionId"
+                }
+              },
+              "endpoint": {
+                "name": "endpoint",
+                "kind": "ExternalValue",
+                "properties": {
+                  "ModelPropertyName": "endpoint"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

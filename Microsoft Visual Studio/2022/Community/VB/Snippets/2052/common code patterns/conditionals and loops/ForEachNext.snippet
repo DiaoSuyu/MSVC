@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>For Each...Next 语句</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>循环访问项的集合</Description>
+      <Shortcut>ForEach</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为项的变量名。</ToolTip>
+          <Default>item</Default>
+        </Literal>
+        <Literal>
+          <ID>ObjectType</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为组内项的类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Object>
+          <ID>CollectionObject</ID>
+          <Type>Object</Type>
+          <ToolTip>替换为要循环访问其各个项的对象</ToolTip>
+          <Default>collectionObject</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[For Each $Variable$ As $ObjectType$ In $CollectionObject$
+
+Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

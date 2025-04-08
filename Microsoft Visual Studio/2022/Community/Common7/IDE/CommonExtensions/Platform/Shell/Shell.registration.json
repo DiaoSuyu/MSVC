@@ -1,0 +1,1211 @@
+/***
+ * Unified Settings Registration for shell settings.
+ */
+{
+  "properties": {
+    "environment.general.windowListItems": {
+      "type": "integer",
+      "title": "@Environment_General_WindowListItems;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 10,
+      "maximum": 24,
+      "minimum": 1,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\WindowMenuItemCount"
+          }
+        }
+      }
+    },
+    "environment.general.mruListItems": {
+      "type": "integer",
+      "title": "@Environment_General_MruListItems;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 10,
+      "maximum": 24,
+      "minimum": 1,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\MRUListItemCount"
+          }
+        }
+      }
+    },
+    "environment.general.showStatusBar": {
+      "type": "boolean",
+      "title": "@Environment_General_StatusBar;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "requiresRestart": true,
+      "description": "@Environment_General_StatusBar_Description;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\StatusBar",
+            "bitmask": 1
+          }
+        }
+      }
+    },
+    "environment.general.dockedWinClose": {
+      "type": "boolean",
+      "title": "@Environment_General_CloseButton;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DockedWinClose"
+          }
+        }
+      }
+    },
+    "environment.general.dockedWinAuto": {
+      "type": "boolean",
+      "title": "@Environment_General_AutoHideButton;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DockedWinAuto"
+          }
+        }
+      }
+    },
+    "environment.general.disableTouch": {
+      "type": "boolean",
+      "title": "@Environment_General_DisableTouch;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DisableTouch",
+            "bitmask": 1
+          }
+        }
+      }
+    },
+    "environment.general.environmentStart": {
+      "type": "string",
+      "title": "@Environment_General_Startup;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "start-window",
+      "enum": [
+        "start-window",
+        "last-solution",
+        "empty"
+      ],
+      "enumItemLabels": [
+        "@Environment_General_Startup_StartWindow;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_General_Startup_LastSolution;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_General_Startup_Empty;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "transientScopesSupported": false,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.IDE.OnEnvironmentStartup_Dev16"
+          },
+          "map": [
+            {
+              "result": "start-window",
+              "match": 13
+            },
+            {
+              "result": "last-solution",
+              "match": 11
+            },
+            {
+              "result": "empty",
+              "match": 10
+            }
+          ]
+        }
+      }
+    },
+    "environment.autoRecover.backUpUnsavedChanges": {
+      "type": "boolean",
+      "title": "@Environment_AutoRecover_backUpUnsavedChanges;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Enabled"
+          }
+        }
+      }
+    },
+    "environment.autoRecover.backupIntervalMinutes": {
+      "type": "integer",
+      "title": "@Environment_AutoRecover_BackupIntervalMinutes;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 5,
+      "enableWhen": "${config:environment.autoRecover.backUpUnsavedChanges}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Save Interval"
+          }
+        }
+      }
+    },
+    "environment.autoRecover.informationLifetimeDays": {
+      "type": "integer",
+      "title": "@Environment_AutoRecover_InformationLifetimeDays;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 7,
+      "enableWhen": "${config:environment.autoRecover.backUpUnsavedChanges}==\u0027true\u0027",
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Keep Interval"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.colorTheme": {
+      "type": "string",
+      "title": "@Environment_Visual_ColorTheme;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "dark",
+      "enum": [
+        "dark",
+        "light",
+        "blue",
+        "blue-extra-contrast",
+        "system"
+      ],
+      "enumItemLabels": [
+        "@ThemeName_Dark;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Light;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Blue;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_AdditionalContrast;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_System;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}"
+      ],
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.ColorThemeNew"
+            }
+          ],
+          "map": [
+            {
+              "result": "dark",
+              "matches": [
+                "{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+              ]
+            },
+            {
+              "result": "light",
+              "matches": [
+                "{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+              ]
+            },
+            {
+              "result": "blue",
+              "matches": [
+                "{a4d6a176-b948-4b29-8c66-53c97a1ed7d0}"
+              ]
+            },
+            {
+              "result": "blue-extra-contrast",
+              "matches": [
+                "{ce94d289-8481-498b-8ca9-9b6191a315b9}"
+              ]
+            },
+            {
+              "result": "system",
+              "matches": [
+                "{619dac1e-8220-4bd9-96fb-75ceb61a6107}"
+              ]
+            },
+            {
+              "result": "@=0",
+              "matches": [
+                "@any"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.visualExperience.editorAppearance": {
+      "type": "string",
+      "title": "@EditorAppearance;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+      "default": "matchTheme",
+      "visibleWhen": "${feature:Shell.ExperimentalStyles} == 'true'",
+      "enum": [
+        "matchTheme",
+        "light",
+        "dark"
+      ],
+      "enumItemLabels": [
+        "@MatchTheme;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Light;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Dark;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}"
+      ],
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.EditorAppearance"
+            }
+          ],
+          "map": [
+            {
+              "result": "light",
+              "matches": [
+                "{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+              ]
+            },
+            {
+              "result": "dark",
+              "matches": [
+                "{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+              ]
+            },
+            {
+              "result": "matchTheme",
+              "matches": [
+                "matchTheme"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.visualExperience.forceWindowsTheme": {
+      "type": "boolean",
+      "title": "@Environment_Visual_HighContrast;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ForceWindowsTheme"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.titleCaseMenus": {
+      "type": "boolean",
+      "title": "@Environment_Visual_TitleCaseMenus;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": false,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Platform.TitleCaseMenus"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.useMinimalMode": {
+      "type": "boolean",
+      "title": "@Environment_Visual_CompactMenus;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "EnvironmentOptions.UseMinimalMode"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.enablePerMonitorAwareness": {
+      "type": "boolean",
+      "title": "@Environment_Visual_OptimizeRendering;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.EnablePerMonitorAwareness"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.hideCopilotBadge": {
+      "type": "boolean",
+      "title": "@Environment_Visual_HideCopilot;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "requiresRestart": true,
+      "transientScopesSupported": false,
+      "visibleWhen": "${feature:VS.Copilot.HideCopilotBadgeSetting} != 'true'",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\HideCopilotBadge"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.effects.hardwareAcceleration": {
+      "type": "string",
+      "title": "@Environment_Visual_HardwareAcceleration;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "prefer",
+        "never"
+      ],
+      "enumItemLabels": [
+        "@Environment_Visual_HardwareAcceleration_Auto;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Visual_HardwareAcceleration_Prefer;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Visual_HardwareAcceleration_Never;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "tags": [
+        "performance"
+      ]
+    },
+    "environment.visualExperience.effects.richVisuals": {
+      "type": "string",
+      "title": "@Environment_Visual_RichClient;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "always",
+        "never"
+      ],
+      "enumItemLabels": [
+        "@Environment_Visual_RichClient_Auto;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Visual_RichClient_Always;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Visual_RichClient_Never;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "requiresRestart": true,
+      "description": "@Environment_Visual_RichClient_Description;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "transientScopesSupported": true,
+      "tags": [
+        "performance"
+      ]
+    },
+    "environment.documents.detectFileChangesOutsideIde": {
+      "type": "boolean",
+      "title": "@Environment_Documents_DetectFileChanges;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "tags": [
+        "performance"
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DetectFileChange"
+          }
+        }
+      }
+    },
+    "environment.documents.autoLoadExternalChanges": {
+      "type": "boolean",
+      "title": "@Environment_Documents_ReloadModified;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.documents.detectFileChangesOutsideIde}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\FileAutoReloadOption"
+          }
+        }
+      }
+    },
+    "environment.documents.allowEditingReadOnlyFiles": {
+      "type": "boolean",
+      "title": "@Environment_Documents_AllowEditingReadOnly;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "SourceControl\\AllowUncontrolledInMemoryEditing"
+          }
+        }
+      }
+    },
+    "environment.documents.initializeOpenFileFromCurrentDocument": {
+      "type": "boolean",
+      "title": "@Environment_Documents_ActiveDocumentDirectory;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\OpenFromCurrentDocDir"
+          }
+        }
+      }
+    },
+    "environment.documents.checkForConsistentLineEndings": {
+      "type": "boolean",
+      "title": "@Environment_Documents_CheckLineEndings;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\CheckLineEndingsOnLoad"
+          }
+        }
+      }
+    },
+    "environment.documents.showGlobalUndoChangeLossDialog": {
+      "type": "boolean",
+      "title": "@Environment_Documents_UndoChangeLossDialog;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowGlobalUndoChangeLossDialog"
+          }
+        }
+      }
+    },
+    "environment.documents.showMiscFileProject": {
+      "type": "boolean",
+      "title": "@Environment_Documents_ShowMiscFiles;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowMiscellaneousFilesProject"
+          }
+        }
+      }
+    },
+    "environment.documents.miscFileProjectSavesLastNItems": {
+      "type": "integer",
+      "title": "@Environment_Documents_MiscFilesItems;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 0,
+      "maximum": 99,
+      "minimum": 0,
+      "enableWhen": "${config:environment.documents.showMiscFileProject}==\u0027true\u0027",
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\MiscellaneousProjFiles"
+          }
+        }
+      }
+    },
+    "environment.documents.saveDocsAsUnicodeWhenDataLoss": {
+      "type": "boolean",
+      "title": "@Environment_Documents_UnicodeWhenDataLoss;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\SaveDocsAsUnicodeInDataLoss"
+          }
+        }
+      }
+    },
+    "environment.documents.autoSave": {
+      "type": "boolean",
+      "title": "@Environment_Documents_AutoSave;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Environment.Documents.Autosave"
+          }
+        }
+      }
+    },
+    "environment.documents.saveWithSpecificEncoding": {
+      "type": "boolean",
+      "title": "@Environment_Documents_SaveWithSpecificEncoding;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Environment.Documents.SaveWithSpecificEncoding"
+          }
+        }
+      }
+    },
+    "environment.documents.saveEncoding": {
+      "type": "string",
+      "title": "@Environment_Documents_SaveEncoding;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "utf-8",
+      "enableWhen": "${config:environment.documents.saveWithSpecificEncoding}==\u0027true\u0027",
+      "enum": [
+        "utf-8",
+        "utf-16",
+        "utf-16BE",
+        "utf-8-nobom"
+      ],
+      "enumItemLabels": [
+        "@Environment_Documents_SaveEncoding_UTF8;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Documents_SaveEncoding_Unicode;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Documents_SaveEncoding_UnicodeBigEndian;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Documents_SaveEncoding_UTF8NoBom;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Environment.Documents.SaveEncoding"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.layout": {
+      "type": "string",
+      "title": "@Environment_Tabs_DocumentTabs_TabLayout;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "top",
+      "enum": [
+        "top",
+        "left",
+        "right"
+      ],
+      "enumItemLabels": [
+        "@Environment_Tabs_DocumentTabs_TabLayout_Top;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Tabs_DocumentTabs_TabLayout_Left;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Tabs_DocumentTabs_TabLayout_Right;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.DocumentTabPanelDockLocation"
+          },
+          "map": [
+            {
+              "result": "top",
+              "match": 1
+            },
+            {
+              "result": "left",
+              "match": 0
+            },
+            {
+              "result": "right",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.tabSortOrder": {
+      "type": "string",
+      "title": "@Environment_Tabs_DocumentTabs_TabSorting;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "alphabetical",
+      "enum": [
+        "alphabetical",
+        "most-recent-first",
+        "most-recent-last"
+      ],
+      "enumItemLabels": [
+        "@Environment_Tabs_DocumentTabs_TabSorting_Alpha;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Tabs_DocumentTabs_TabSorting_RecentFirst;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Tabs_DocumentTabs_TabSorting_RecentLast;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}!=\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.TabSortOrder"
+          },
+          "map": [
+            {
+              "result": "alphabetical",
+              "match": 0
+            },
+            {
+              "result": "most-recent-first",
+              "match": 1
+            },
+            {
+              "result": "most-recent-last",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.groupByProject": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_GroupTabs;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}!=\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.GroupTabsByProject"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.insertRight": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_InsertRight;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "VsUserSettingsRegistry",
+              "path": "General\\DocumentDockPreference"
+            }
+          ],
+          "map": [
+            {
+              "result": false,
+              "matches": [ 0 ]
+            },
+            {
+              "result": true,
+              "matches": [ 1 ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.multiRowTabs": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_MultipleRows;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.IsMultiRowTabsEnabled"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.multiRowScrollToggle": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_MultipleRowScrollToggle;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.IsMultiRowScrollToggleEnabled"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showInvisibleTabsInItalic": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_ItalicInvisible;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowInvisibleTabsInItalic"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.boldSelectedTabs": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_BoldSelected;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.BoldSelectedTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.minimumTabWidth": {
+      "type": "integer",
+      "title": "@Environment_Tabs_DocumentTabs_MinimumTabWidth;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 60,
+      "maximum": 999,
+      "minimum": 50,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MinimumTabWidth"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.maximumTabWidth": {
+      "type": "integer",
+      "title": "@Environment_Tabs_DocumentTabs_MaximumTabWidth;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": 215,
+      "maximum": 999,
+      "minimum": 50,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MaximumTabWidth"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showHideButtonInTabs": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_CloseButtonTabs;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowHideButtonInTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showHideButtonInWell": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_DocumentTabs_CloseButtonWell;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowHideButtonInWell"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.dirtyIndicator": {
+      "type": "string",
+      "title": "@Environment_Tabs_DocumentTabs_DirtyIndicator;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "star",
+      "enum": [
+        "star",
+        "dot"
+      ],
+      "enumItemLabels": [
+        "@Environment_Tabs_DocumentTabs_DirtyIndicator_Default;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Tabs_DocumentTabs_DirtyIndicator_Dot;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.DirtyIndicatorPreference"
+          },
+          "map": [
+            {
+              "result": "star",
+              "match": 0
+            },
+            {
+              "result": "dot",
+              "match": 1
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.colorization": {
+      "type": "string",
+      "title": "@Environment_Tabs_DocumentTabs_FileGroupProvider;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "none",
+      "enum": [
+        "none",
+        "project",
+        "extension",
+        "regex"
+      ],
+      "enumItemLabels": [
+        "@None;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}",
+        "@ProjectFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}",
+        "@FileExtensionFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}",
+        "@RegexFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+
+            // A bool that controls whether tabs are colorized
+            {
+              "store": "SettingsManager",
+              "path": "WindowManagement.Options.ColorizeDocumentTabs"
+            },
+
+            // A GUID string that selects the colorization method
+            {
+              "store": "SettingsManager",
+              "path": "WindowManagement.Options.CurrentFileGroupProvider"
+            }
+          ],
+          "map": [
+            {
+              "result": "none",
+              "matches": [ false, "@any" ]
+            },
+            {
+              "result": "project",
+              "matches": [ true, "{15146f07-d8dd-40a1-8b10-dd4ba62587cb}" ]
+            },
+            {
+              "result": "extension",
+              "matches": [ true, "{5f703f8e-4b10-4c69-9b24-90640a112ac1}" ]
+            },
+            {
+              "result": "regex",
+              "matches": [ true, "{f282ea13-0551-44cf-8646-b8083627ac40}" ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showPinnedTabsInSeparateRow": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PinnedTabs_SeparateRow;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowPinnedTabsInSeparateRow"
+          }
+        }
+      }
+    },
+    "environment.tabs.pinnedTabs.showPinButtonInUnpinnedTabs": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PinnedTabs_PinButton;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowPinButtonInUnpinnedTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.pinnedTabs.maintainPinStatus": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PinnedTabs_PinStatus;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MaintainPinStatus"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.enable": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PreviewTab_Enable;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnablePreviewTab"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInSolutionExplorer": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PreviewTab_SolutionExplorer;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInSolutionExplorer"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInFindResults": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PreviewTab_FindResults;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInFindResults"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInNavigateTo": {
+      "type": "boolean",
+      "title": "@Environment_Tabs_PreviewTab_NavigateTo;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInNavigateTo"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.showAutoHiddenWindowsOnHover": {
+      "type": "boolean",
+      "title": "@Environment_Windows_ToolWindows_ShowHiddenOnHover;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowAutoHiddenWindowsOnHover"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.showAutoHideChannelsOnChanges": {
+      "type": "boolean",
+      "title": "@Environment_Windows_ToolWindows_ShowSidebarAfterChange;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowAutoHideChannelsOnChanges"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.windowLayoutSkipApplyConfirmation": {
+      "type": "boolean",
+      "title": "@Environment_Windows_ToolWindows_SkipApplyConfirmation;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Platform.WindowManagement.Layouts.WindowLayoutSkipApplyConfirmation"
+          }
+        }
+      }
+    },
+    "environment.windows.floatingWindows.dependentWindows": {
+      "type": "string",
+      "title": "@Environment_Windows_FloatingWindows_DependentWindows;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "description": "@Environment_Windows_FloatingWindows_DependentWindows_Description;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "default": "tool-windows",
+      "enum": [
+        "none",
+        "tool-windows",
+        "documents-and-tool-windows"
+      ],
+      "enumItemLabels": [
+        "@None;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Windows_FloatingWindows_DependentWindows_ToolWindows;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+        "@Environment_Windows_FloatingWindows_DependentWindows_DocumentsAndToolWindows;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            // A bool that controls whether floating tab wells are independent
+            {
+              "store": "SettingsManager",
+              "path": "WindowManagement.Options.EnableIndependentTabWell"
+            },
+
+            // A bool that controls whether floating tool windows are independent
+            {
+              "store": "SettingsManager",
+              "path": "WindowManagement.Options.EnableIndependentToolWindows"
+            }
+          ],
+          "map": [
+            {
+              "result": "none",
+              "matches": [ true, true ]
+            },
+            {
+              "result": "tool-windows",
+              "matches": [ true, false ]
+            },
+            {
+              "result": "documents-and-tool-windows",
+              "matches": [ false, true ]
+            },
+            {
+              "result": "documents-and-tool-windows",
+              "matches": [ false, false ]
+            },
+            {
+              "result": "@default",
+              "matches": [ "@missing", "@any" ]
+            },
+            {
+              "result": "@default",
+              "matches": [ "@any", "@missing" ]
+            },
+            {
+              "result": "@default",
+              "matches": [ "@missing", "@missing" ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "categories": {
+    "environment": {
+      "title": "@Environment_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 0
+    },
+    "environment.general": {
+      "title": "@Environment_General_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 0,
+      "helpUri": "https://learn.microsoft.com/visualstudio/ide/reference/general-environment-options-dialog-box?view=vs-2022",
+      "legacyOptionPageId": "13a86627-ba5b-4a61-933b-3c278d22d941"
+    },
+    "environment.visualExperience": {
+      "title": "@Environment_Visual_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 1
+    },
+    "environment.visualExperience.effects": {
+      "title": "@Environment_Visual_Effects_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.autoRecover": {
+      "title": "@Environment_AutoRecover_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "legacyOptionPageId": "c1e09982-0050-4912-bcdc-866d8e1aee27"
+    },
+    "environment.documents": {
+      "title": "@Environment_Documents_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "legacyOptionPageId": "8b524402-022c-20ab-1925-94e7fa284eee"
+    },
+    "previewFeatures": {
+      "title": "@PreviewFeatures_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "description": "@PreviewFeatures_Description;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 1000,
+      "legacyOptionPageId": "fca50351-5e03-4e31-9cc0-ab59a9c6b829"
+    },
+    "environment.tabs": {
+      "title": "@Environment_Tabs_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "legacyOptionPageId": "ccf27946-63d9-4806-91ba-eebf5f3dfa4a"
+    },
+    "environment.tabs.documentTabs": {
+      "title": "@Environment_Tabs_DocumentTabs_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.tabs.pinnedTabs": {
+      "title": "@Environment_Tabs_PinnedTabs_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.tabs.previewTab": {
+      "title": "@Environment_Tabs_PreviewTab_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.windows": {
+      "title": "@Environment_Windows_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.windows.toolWindows": {
+      "title": "@Environment_Windows_ToolWindows_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "environment.windows.floatingWindows": {
+      "title": "@Environment_Windows_FloatingWindows_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}"
+    },
+    "languages": {
+      "title": "@Languages_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "order": 3,
+      "canBeVisibleWhenEmpty": true
+    },
+    "textEditor.languageSettingsPlaceholder": {
+      "title": "@Language_Settings_Placeholder_Category;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "description": "@Language_Settings_Placeholder_Description;{cb9107b5-6429-4c8a-b20b-1258255e59d0}",
+      "canBeVisibleWhenEmpty": true
+    }
+  }
+}

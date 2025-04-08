@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>在默认浏览器中打开网页</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在默认浏览器中打开网页。</Description>
+      <Shortcut>procBrowser</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>url</ID>
+          <Type/>
+          <ToolTip>替换为要在浏览器中打开的 URL。</ToolTip>
+          <Default>"about:blank"</Default>
+          <Function/>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Process.Start($url$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

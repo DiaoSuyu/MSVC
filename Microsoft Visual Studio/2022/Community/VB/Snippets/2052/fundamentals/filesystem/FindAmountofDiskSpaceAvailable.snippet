@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>查找可用磁盘空间量</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>获取可用磁盘空间量。</Description>
+      <Shortcut>filSpace</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Drive</ID>
+          <ToolTip>替换为驱动器名称。</ToolTip>
+          <Default>"C:\"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim freeSpace As Long 
+freeSpace = My.Computer.FileSystem.GetDriveInfo($Drive$).TotalFreeSpace]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

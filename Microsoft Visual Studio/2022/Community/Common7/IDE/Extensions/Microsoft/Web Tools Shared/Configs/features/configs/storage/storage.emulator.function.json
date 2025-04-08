@@ -1,0 +1,23 @@
+{
+  "components": {
+    "itemTemplateCreator": {
+      "modifiers": [
+        "storage.itemTemplateCreator.blob",
+        "storage.itemTemplateCreator.queue"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "storage.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.local.connectionId",
+        "storage.secretStore.local.connectionId.blob",
+        "storage.secretStore.local.connectionId.queue",
+        "storage.secretStore.local.connectionId.table"
+      ]
+    }
+  }
+}

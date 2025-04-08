@@ -1,0 +1,335 @@
+{
+  "version": "1.0.0",
+  "dependencyTypes": {
+    "apis": {
+      "model": "/dependencyTypes/models/apis/apis.json"
+    },
+    "apis.azure": {
+      "model": "/dependencyTypes/models/apis/apis.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/apis/apis.azure.json"
+    },
+    "appConfig": {
+      "model": "/dependencyTypes/models/appConfig/appConfig.json"
+    },
+    "appConfig.azure": {
+      "model": "/dependencyTypes/models/appConfig/appConfig.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/appConfig/appConfig.azure.json"
+    },
+    "appInsights": {
+      "model": "/dependencyTypes/models/appInsights/appInsights.json"
+    },
+    "appInsights.azure": {
+      "model": "/dependencyTypes/models/appInsights/appInsights.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/appInsights/appInsights.azure.json"
+    },
+    "appInsights.sdk": {
+      "model": "/dependencyTypes/models/appInsights/appInsights.sdk.json",
+      "appliesTo": "/dependencyTypes/contexts/appInsights/appInsights.sdk.json"
+    },
+    "cosmosdb": {
+      "model": "/dependencyTypes/models/cosmosdb/cosmosdb.json"
+    },
+    "cosmosdb.azure": {
+      "model": "/dependencyTypes/models/cosmosdb/cosmosdb.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/cosmosdb/cosmosdb.azure.json"
+    },
+    "cosmosdb.container": {
+      "model": "/dependencyTypes/models/cosmosdb/cosmosdb.container.json",
+      "appliesTo": "/dependencyTypes/contexts/cosmosdb/cosmosdb.container.json"
+    },
+    "compute": {
+      "model": "/dependencyTypes/models/compute/compute.json"
+    },
+    "compute.appService": {
+      "model": "/dependencyTypes/models/compute/appService/appService.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/appService/appService.json"
+    },
+    "compute.appService.container": {
+      "model": "/dependencyTypes/models/compute/appService/appService.container.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/appService/appService.container.json"
+    },
+    "compute.appService.linux": {
+      "model": "/dependencyTypes/models/compute/appService/appService.linux.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/appService/appService.linux.json"
+    },
+    "compute.appService.windows": {
+      "model": "/dependencyTypes/models/compute/appService/appService.windows.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/appService/appService.windows.json"
+    },
+    "compute.function": {
+      "model": "/dependencyTypes/models/compute/function/function.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.json"
+    },
+    "compute.function.container": {
+      "model": "/dependencyTypes/models/compute/function/function.container.json"
+    },
+    "compute.function.container.appService": {
+      "model": "/dependencyTypes/models/compute/function/function.container.appService.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.container.appService.json"
+    },
+    "compute.function.container.premium": {
+      "model": "/dependencyTypes/models/compute/function/function.container.premium.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.container.premium.json"
+    },
+    "compute.function.linux": {
+      "model": "/dependencyTypes/models/compute/function/function.linux.json"
+    },
+    "compute.function.linux.appService": {
+      "model": "/dependencyTypes/models/compute/function/function.linux.appService.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.linux.appService.json"
+    },
+    "compute.function.linux.consumption": {
+      "model": "/dependencyTypes/models/compute/function/function.linux.consumption.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.linux.consumption.json"
+    },
+    "compute.function.linux.premium": {
+      "model": "/dependencyTypes/models/compute/function/function.linux.premium.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.linux.premium.json"
+    },
+    "compute.function.windows": {
+      "model": "/dependencyTypes/models/compute/function/function.windows.json"
+    },
+    "compute.function.windows.appService": {
+      "model": "/dependencyTypes/models/compute/function/function.windows.appService.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.windows.appService.json"
+    },
+    "compute.function.windows.consumption": {
+      "model": "/dependencyTypes/models/compute/function/function.windows.consumption.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.windows.consumption.json"
+    },
+    "compute.function.windows.premium": {
+      "model": "/dependencyTypes/models/compute/function/function.windows.premium.json",
+      "appliesTo": "/dependencyTypes/contexts/compute/function/function.windows.premium.json"
+    },
+    "identityapp": {
+      "model": "/dependencyTypes/models/identity/identityapp.json"
+    },
+    "identityapp.default": {
+      "model": "/dependencyTypes/models/identity/identityapp.default.json",
+      "appliesTo": "/dependencyTypes/contexts/identity/identityapp.default.json"
+    },
+    "identityapp.secretStore": {
+      "model": "/dependencyTypes/models/identity/identityapp.secretStore.json",
+      "appliesTo": "/dependencyTypes/contexts/identity/identityapp.secretStore.json"
+    },
+    "mongodb": {
+      "model": "/dependencyTypes/models/mongodb/mongodb.json"
+    },
+    "mongodb.container": {
+      "model": "/dependencyTypes/models/mongodb/mongodb.container.json",
+      "appliesTo": "/dependencyTypes/contexts/mongodb/mongodb.container.json"
+    },
+    "mssql": {
+      "model": "/dependencyTypes/models/mssql/mssql.json"
+    },
+    "mssql.azure": {
+      "model": "/dependencyTypes/models/mssql/mssql.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/mssql/mssql.azure.json"
+    },
+    "mssql.container": {
+      "model": "/dependencyTypes/models/mssql/mssql.container.json",
+      "appliesTo": "/dependencyTypes/contexts/mssql/mssql.container.json"
+    },
+    "mssql.local": {
+      "model": "/dependencyTypes/models/mssql/mssql.local.json",
+      "appliesTo": "/dependencyTypes/contexts/mssql/mssql.local.json"
+    },
+    "mssql.onprem": {
+      "model": "/dependencyTypes/models/mssql/mssql.onprem.json",
+      "appliesTo": "/dependencyTypes/contexts/mssql/mssql.onprem.json"
+    },
+    "postgresql": {
+      "model": "/dependencyTypes/models/postgresql/postgresql.json"
+    },
+    "postgresql.container": {
+      "model": "/dependencyTypes/models/postgresql/postgresql.container.json",
+      "appliesTo": "/dependencyTypes/contexts/postgresql/postgresql.container.json"
+    },
+    "powerplatform": {
+      "model": "/dependencyTypes/models/powerplatform/powerplatform.json"
+    },
+    "powerplatform.local": {
+      "model": "/dependencyTypes/models/powerplatform/powerplatform.local.json",
+      "appliesTo": "/dependencyTypes/contexts/powerplatform/powerplatform.local.json"
+    },
+    "rabbitmq": {
+      "model": "/dependencyTypes/models/rabbitmq/rabbitmq.json"
+    },
+    "rabbitmq.container": {
+      "model": "/dependencyTypes/models/rabbitmq/rabbitmq.container.json",
+      "appliesTo": "/dependencyTypes/contexts/rabbitmq/rabbitmq.container.json"
+    },
+    "redis": {
+      "model": "/dependencyTypes/models/redis/redis.json"
+    },
+    "redis.azure": {
+      "model": "/dependencyTypes/models/redis/redis.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/redis/redis.azure.json"
+    },
+    "redis.container": {
+      "model": "/dependencyTypes/models/redis/redis.container.json",
+      "appliesTo": "/dependencyTypes/contexts/redis/redis.container.json"
+    },
+    "secrets": {
+      "model": "/dependencyTypes/models/secrets/secrets.json"
+    },
+    "secrets.keyVault": {
+      "model": "/dependencyTypes/models/secrets/secrets.keyVault.json",
+      "appliesTo": "/dependencyTypes/contexts/secrets/secrets.keyVault.json"
+    },
+    "secrets.user": {
+      "model": "/dependencyTypes/models/secrets/secrets.user.json",
+      "appliesTo": "/dependencyTypes/contexts/secrets/secrets.user.json"
+    },
+    "signalr": {
+      "model": "/dependencyTypes/models/signalr/signalr.json"
+    },
+    "signalr.azure": {
+      "model": "/dependencyTypes/models/signalr/signalr.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/signalr/signalr.azure.json"
+    },
+    "signalr.function": {
+      "model": "/dependencyTypes/models/signalr/signalr.function.json",
+      "appliesTo": "/dependencyTypes/contexts/signalr/signalr.function.json"
+    },
+    "sqlite": {
+      "model": "/dependencyTypes/models/sqlite/sqlite.json"
+    },
+    "sqlite.local": {
+      "model": "/dependencyTypes/models/sqlite/sqlite.local.json",
+      "appliesTo": "/dependencyTypes/contexts/sqlite/sqlite.local.json"
+    },
+    "storage": {
+      "model": "/dependencyTypes/models/storage/storage.json"
+    },
+    "storage.azure": {
+      "model": "/dependencyTypes/models/storage/storage.azure.json",
+      "appliesTo": "/dependencyTypes/contexts/storage/storage.azure.json"
+    },
+    "storage.container": {
+      "model": "/dependencyTypes/models/storage/storage.container.json",
+      "appliesTo": "/dependencyTypes/contexts/storage/storage.container.json"
+    },
+    "storage.emulator": {
+      "model": "/dependencyTypes/models/storage/storage.emulator.json",
+      "appliesTo": "/dependencyTypes/contexts/storage/storage.emulator.json"
+    },
+    "unknown": {
+      "model": "/dependencyTypes/models/unknown.json"
+    }
+  },
+  "dependencyTypeConfigs": {
+    "apis.azure": "/dependencyTypes/configs/apis/apis.azure.json",
+    "appConfig.azure.local": "/dependencyTypes/configs/appConfig/appConfig.azure.local.json",
+    "appConfig.azure.local.core": "/dependencyTypes/configs/appConfig/appConfig.azure.local.core.json",
+    "appConfig.azure.local.coreweb": "/dependencyTypes/configs/appConfig/appConfig.azure.local.coreweb.json",
+    "appConfig.azure.local.coreweb30": "/dependencyTypes/configs/appConfig/appConfig.azure.local.coreweb30.json",
+    "appConfig.azure.appService": "/dependencyTypes/configs/appConfig/appConfig.azure.appService.json",
+    "appConfig.azure.appService.core": "/dependencyTypes/configs/appConfig/appConfig.azure.appService.core.json",
+    "appConfig.azure.appService.coreweb": "/dependencyTypes/configs/appConfig/appConfig.azure.appService.coreweb.json",
+    "appConfig.azure.appService.coreweb30": "/dependencyTypes/configs/appConfig/appConfig.azure.appService.coreweb30.json",
+    "appConfig.azure.containerApp.core": "/dependencyTypes/configs/appConfig/appConfig.azure.containerApp.core.json",
+    "appInsights.azure.local": "/dependencyTypes/configs/appInsights/appInsights.azure.local.json",
+    "appInsights.azure.appService": "/dependencyTypes/configs/appInsights/appInsights.azure.appService.json",
+    "appInsights.azure.containerApp": "/dependencyTypes/configs/appInsights/appInsights.azure.containerApp.json",
+    "appInsights.sdk": "/dependencyTypes/configs/appInsights/appInsights.sdk.json",
+    "compute.appService": "/dependencyTypes/configs/compute/appService/appService.json",
+    "compute.appService.container": "/dependencyTypes/configs/compute/appService/appService.container.json",
+    "compute.appService.linux": "/dependencyTypes/configs/compute/appService/appService.linux.json",
+    "compute.appService.windows": "/dependencyTypes/configs/compute/appService/appService.windows.json",
+    "compute.function": "/dependencyTypes/configs/compute/function/function.json",
+    "compute.function.container.appService": "/dependencyTypes/configs/compute/function/function.container.appService.json",
+    "compute.function.container.premium": "/dependencyTypes/configs/compute/function/function.container.premium.json",
+    "compute.function.linux.appService": "/dependencyTypes/configs/compute/function/function.linux.appService.json",
+    "compute.function.linux.consumption": "/dependencyTypes/configs/compute/function/function.linux.consumption.json",
+    "compute.function.linux.premium": "/dependencyTypes/configs/compute/function/function.linux.premium.json",
+    "compute.function.windows.appService": "/dependencyTypes/configs/compute/function/function.windows.appService.json",
+    "compute.function.windows.consumption": "/dependencyTypes/configs/compute/function/function.windows.consumption.json",
+    "compute.function.windows.premium": "/dependencyTypes/configs/compute/function/function.windows.premium.json",
+    "cosmosdb.azure.local": "/dependencyTypes/configs/cosmosdb/cosmosdb.azure.local.json",
+    "cosmosdb.azure.local.coreweb": "/dependencyTypes/configs/cosmosdb/cosmosdb.azure.local.coreweb.json",
+    "cosmosdb.azure.appService": "/dependencyTypes/configs/cosmosdb/cosmosdb.azure.appService.json",
+    "cosmosdb.azure.appService.coreweb": "/dependencyTypes/configs/cosmosdb/cosmosdb.azure.appService.coreweb.json",
+    "cosmosdb.azure.containerApp.core": "/dependencyTypes/configs/cosmosdb/cosmosdb.azure.containerApp.core.json",
+    "cosmosdb.container": "/dependencyTypes/configs/cosmosdb/cosmosdb.container.json",
+    "identityapp.default.appService": "/dependencytypes/configs/identity/default/identityapp.default.appService.json",
+    "identityapp.default.local": "/dependencytypes/configs/identity/default/identityapp.default.local.json",
+    "identityapp.options.appService": "/dependencytypes/configs/identity/options/identityapp.options.appService.json",
+    "identityapp.options.local": "/dependencytypes/configs/identity/options/identityapp.options.local.json",
+    "identityapp.secretStore.local": "/dependencytypes/configs/identity/secretStore/identityapp.secretStore.local.json",
+    "identityapp.secretStore.appService": "/dependencytypes/configs/identity/secretStore/identityapp.secretStore.appService.json",
+    "identityapp.wap.local": "/dependencytypes/configs/identity/wap/identityapp.wap.local.json",
+    "identityapp.wap.appService": "/dependencytypes/configs/identity/wap/identityapp.wap.appService.json",
+    "mongodb.container": "/dependencyTypes/configs/mongodb/mongodb.container.json",
+    "mssql.azure.local": "/dependencyTypes/configs/mssql/mssql.azure.local.json",
+    "mssql.azure.local.coreweb": "/dependencyTypes/configs/mssql/mssql.azure.local.coreweb.json",
+    "mssql.azure.appService": "/dependencyTypes/configs/mssql/mssql.azure.appService.json",
+    "mssql.azure.appService.coreweb": "/dependencyTypes/configs/mssql/mssql.azure.appService.coreweb.json",
+    "mssql.azure.containerApp.core": "/dependencyTypes/configs/mssql/mssql.azure.containerApp.core.json",
+    "mssql.container": "/dependencyTypes/configs/mssql/mssql.container.json",
+    "mssql.local": "/dependencyTypes/configs/mssql/mssql.local.json",
+    "mssql.local.coreweb": "/dependencyTypes/configs/mssql/mssql.local.coreweb.json",
+    "mssql.onprem.local": "/dependencyTypes/configs/mssql/mssql.onprem.local.json",
+    "mssql.onprem.local.coreweb": "/dependencyTypes/configs/mssql/mssql.onprem.local.coreweb.json",
+    "mssql.onprem.appService": "/dependencyTypes/configs/mssql/mssql.onprem.appService.json",
+    "mssql.onprem.appService.coreweb": "/dependencyTypes/configs/mssql/mssql.onprem.appService.coreweb.json",
+    "mssql.onprem.containerApp.core": "/dependencyTypes/configs/mssql/mssql.onprem.containerApp.core.json",
+    "postgresql.container": "/dependencyTypes/configs/postgresql/postgresql.container.json",
+    "powerplatform.local": "/dependencyTypes/configs/powerplatform/powerplatform.local.json",
+    "rabbitmq.container": "/dependencyTypes/configs/rabbitmq/rabbitmq.container.json",
+    "redis.azure.local": "/dependencyTypes/configs/redis/redis.azure.local.json",
+    "redis.azure.local.coreweb": "/dependencyTypes/configs/redis/redis.azure.local.coreweb.json",
+    "redis.azure.appService": "/dependencyTypes/configs/redis/redis.azure.appService.json",
+    "redis.azure.appService.coreweb": "/dependencyTypes/configs/redis/redis.azure.appService.coreweb.json",
+    "redis.container": "/dependencyTypes/configs/redis/redis.container.json",
+    "secrets.keyVault.corev1v30.local": "/dependencyTypes/configs/secrets/secrets.keyVault.corev1v30.local.json",
+    "secrets.keyVault.corev1v30.appService": "/dependencyTypes/configs/secrets/secrets.keyVault.corev1v30.appService.json",
+    "secrets.keyVault.local": "/dependencyTypes/configs/secrets/secrets.keyVault.local.json",
+    "secrets.keyVault.appService": "/dependencyTypes/configs/secrets/secrets.keyVault.appService.json",
+    "secrets.keyVault.containerApp.core": "/dependencyTypes/configs/secrets/secrets.keyVault.containerApp.core.json",
+    "secrets.user": "/dependencyTypes/configs/secrets/secrets.user.json",
+    "signalr.azure.local": "/dependencyTypes/configs/signalr/signalr.azure.local.json",
+    "signalr.azure.local.coreweb": "/dependencyTypes/configs/signalr/signalr.azure.local.coreweb.json",
+    "signalr.azure.appService": "/dependencyTypes/configs/signalr/signalr.azure.appService.json",
+    "signalr.azure.appService.coreweb": "/dependencyTypes/configs/signalr/signalr.azure.appService.coreweb.json",
+    "sqlite.local": "/dependencyTypes/configs/sqlite/sqlite.local.json",
+    "storage.azure.local": "/dependencyTypes/configs/storage/storage.azure.local.json",
+    "storage.azure.local.coreweb": "/dependencyTypes/configs/storage/storage.azure.local.coreweb.json",
+    "storage.azure.appService": "/dependencyTypes/configs/storage/storage.azure.appService.json",
+    "storage.azure.appService.coreweb": "/dependencyTypes/configs/storage/storage.azure.appService.coreweb.json",
+    "storage.azure.containerApp.core": "/dependencyTypes/configs/storage/storage.azure.containerApp.core.json",
+    "storage.container": "/dependencyTypes/configs/storage/storage.container.json",
+    "storage.emulator": "/dependencyTypes/configs/storage/storage.emulator.json"
+  },
+  "environments": {
+    "local": {
+      "model": "/environments/models/local.json",
+      "appliesTo": "/environments/contexts/local.json"
+    },
+    "appService": {
+      "model": "/environments/models/appService.json",
+      "appliesTo": "/environments/contexts/appService.json"
+    },
+    "containerApp": {
+      "model": "/environments/models/containerApp.json",
+      "appliesTo": "/environments/contexts/containerApp.json"
+    },
+    "office365": {
+      "model": "/environments/models/office365.json",
+      "appliesTo": "/environments/contexts/office365.json"
+    }
+  },
+  "externalComponents": {
+    "dotnetMsIdentity": "/externalComponents/dotnetMsIdentity.json",
+    "dockerDesktop": "/externalComponents/dockerDesktop.json",
+    "vsAzureStorageEmulatorComponent": "/externalComponents/vsAzureStorageEmulatorComponent.json",
+    "vsSqlLocalDbComponent": "/externalComponents/vsSqlLocalDbComponent.json",
+    "vsWebWorkload": "/externalComponents/vsWebWorkload.json"
+  },
+  "detection": {
+    "featureToDependencyType": "/detection/featureToDependencyType.json",
+    "dependencyTypeToFeature": "/detection/dependencyTypeToFeature.json",
+    "provisioningIdToDependencyType": "/detection/provisioningIdToDependencyType.json"
+  },
+  "actions": "/definitions/actions.json"
+}

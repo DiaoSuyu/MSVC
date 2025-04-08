@@ -1,0 +1,24 @@
+{
+  "kind": "code.generic",
+  "confidence": "High",
+  "featureId": "appConfig.azure",
+  "componentId": "code",  
+  "model": {
+    "kind": "Generic",
+    "detectionLocations": [
+      {
+        "parts": [
+          {
+            "$refmerge": "/definitions/code.json#/locations/CreateWebHostBuilder"
+          },
+          {
+            "kind": "Invocation",
+            "properties": {
+              "Invocation": "AddAzureAppConfiguration"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

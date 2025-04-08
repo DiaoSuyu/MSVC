@@ -1,0 +1,18 @@
+{
+  "properties" : {
+    "debugging.general.enableDiagnosticToolsWindow": {
+      "type": "boolean",
+      "default": true,
+      "title": "@EnableDiagnosticToolsWindow;{22512d50-40bc-4dea-89b1-21d70bb4218e}",
+      "order" : 499,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "debugger\\EnableDiagnosticToolsWindow"
+          }
+        }
+      }
+    }
+  }
+}

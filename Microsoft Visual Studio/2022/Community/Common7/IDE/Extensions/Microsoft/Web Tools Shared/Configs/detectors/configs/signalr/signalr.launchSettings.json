@@ -1,0 +1,16 @@
+{
+  "kind": "jsonProperty.generic",
+  "confidence": "Low",
+  "featureId": "signalr",
+  "componentId": "launchSettings",
+  "model": {
+    "filePath": "@@propertiesFolder@@/launchSettings.json",
+    "key": "profiles/*/environmentVariables",
+    "properties": {
+      "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": {
+        "value": "Microsoft.Azure.SignalR",
+        "action": "append"
+      }
+    }
+  }
+}

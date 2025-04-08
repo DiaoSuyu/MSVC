@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义 CType 运算符</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>在类中定义 CType 运算符。</Description>
+      <Keywords>
+        <Keyword>重载运算符</Keyword>
+        <Keyword>CType</Keyword>
+        <Keyword>DirectCast</Keyword>
+        <Keyword>转换运算符</Keyword>
+        <Keyword>收缩</Keyword>
+        <Keyword>运算符关键字</Keyword>
+      </Keywords>
+      <Shortcut>OpCType</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>DataType</ID>
+          <Type/>
+          <ToolTip>替换为要转换成自定义类的数据类型。</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Literal>
+          <ID>ClassName</ID>
+          <Type/>
+          <ToolTip>替换为要实现的类的名称。</ToolTip>
+          <Default>ThisClass</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnValue</ID>
+          <Type/>
+          <ToolTip>替换为返回值。</ToolTip>
+          <Default>"Replace Me"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="type decl"><![CDATA[Public Shared Narrowing Operator CType(ByVal initialData As $DataType$) As $ClassName$
+          Return New $ClassName$()
+        End Operator
+        
+        Public Shared Widening Operator CType(ByVal initialData As $ClassName$) As $DataType$
+          Return $ReturnValue$
+        End Operator]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

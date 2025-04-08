@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="InstrumentationTreeGrid_CallCountHeader" xml:space="preserve">
+    <value>调用计数</value>
+  </data>
+  <data name="InstrumentationTreeGrid_CallCountHeaderTooltip" xml:space="preserve">
+    <value>调用此函数的次数</value>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgTotalHeader" xml:space="preserve">
+    <value>平均总计</value>
+    <comment>This is for a table header. Avg is short for average and total represents the data for this row and rows grouped underneath it</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgTotalHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgSelfHeader" xml:space="preserve">
+    <value>自身平均值</value>
+    <comment>This is for a table header. Avg is short for average and self represents the data for just a single row</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgSelfHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MinTotalHeader" xml:space="preserve">
+    <value>最小总计</value>
+    <comment>This is for a table header. Min is short for minimum and total represents the data for this row and rows grouped underneath it</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_MinTotalHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxTotalHeader" xml:space="preserve">
+    <value>最大总计</value>
+    <comment>This is for a table header. Max is short for maximum and total represents the data for this row and rows grouped underneath it</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxTotalHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MinSelfHeader" xml:space="preserve">
+    <value>自身最小值</value>
+    <comment>This is for a table header. Min is short for minimum and self represents the data for just a single row</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_MinSelfHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxSelfHeader" xml:space="preserve">
+    <value>自身最大值</value>
+    <comment>This is for a table header. Max is short for maximum and self represents the data for just a single row</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxSelfHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_SelfHeader" xml:space="preserve">
+    <value>自 [单位，%]</value>
+  </data>
+  <data name="InstrumentationTreeGrid_SelfHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的代码所花费的 CPU 时间，不包括此函数所调用的函数中的时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_FunctionNameHeader" xml:space="preserve">
+    <value>函数名</value>
+  </data>
+  <data name="InstrumentationTreeGrid_FunctionNameTooltip" xml:space="preserve">
+    <value>函数名</value>
+  </data>
+  <data name="InstrumentationTreeGrid_TotalHeader" xml:space="preserve">
+    <value>总计 [单位，%]</value>
+  </data>
+  <data name="InstrumentationTreeGrid_TotalHeaderTooltip" xml:space="preserve">
+    <value>执行此函数中的和此函数调用的函数中的代码所花费的 CPU 时间</value>
+  </data>
+  <data name="InstrumentationTreeGrid_ContextMenu_ViewSource" xml:space="preserve">
+    <value>查看源</value>
+  </data>
+  <data name="Label_Filter" xml:space="preserve">
+    <value>筛选器:</value>
+  </data>
+  <data name="Label_ThreadsSelection" xml:space="preserve">
+    <value>线程:</value>
+  </data>
+  <data name="Message_SearchNoMatches" xml:space="preserve">
+    <value>未找到任何匹配项。</value>
+  </data>
+  <data name="Message_SearchStartFromTop" xml:space="preserve">
+    <value>已到达文档结尾。是否要从头开始重新搜索?</value>
+  </data>
+  <data name="ThreadsSelection_All" xml:space="preserve">
+    <value>[选择]</value>
+  </data>
+  <data name="ThreadsSelection" xml:space="preserve">
+    <value>线程 #{0} : {1}</value>
+    <comment>Thread #6321 : 10.3%</comment>
+  </data>
+  <data name="ClassSelection" xml:space="preserve">
+    <value>{0} : {1}</value>
+    <comment>UI : 10.3%</comment>
+  </data>
+  <data name="ThreadsSelection_Role" xml:space="preserve">
+    <value>线程 #{0} : {1} ({2})</value>
+    <comment>Thread #6321 : 10.3% (UI thread)</comment>
+  </data>
+  <data name="ThreadsSelection_Thread" xml:space="preserve">
+    <value>线程 #{0}</value>
+    <comment>Thread #6321</comment>
+  </data>
+  <data name="CategoriesSelection_Category" xml:space="preserve">
+    <value>类别 {0}</value>
+    <comment>Category UI</comment>
+  </data>
+  <data name="InstrumentationViewFilterView" xml:space="preserve">
+    <value>筛选器</value>
+  </data>
+  <data name="InstrumentationViewClassView" xml:space="preserve">
+    <value>类</value>
+  </data>
+  <data name="InstrumentationViewSelectAll" xml:space="preserve">
+    <value>(全选)</value>
+  </data>
+  <data name="InstrumentationViewSelectAllAriaText" xml:space="preserve">
+    <value>选择所有复选框</value>
+  </data>
+  <data name="InstrumentationViewThreadListboxLabel" xml:space="preserve">
+    <value>线程:</value>
+  </data>
+  <data name="InstrumentationViewThreadListboxTooltip" xml:space="preserve">
+    <value>线程</value>
+  </data>
+  <data name="Button_OpenDetails" xml:space="preserve">
+    <value>打开详细信息...</value>
+  </data>
+  <data name="Button_RefreshView" xml:space="preserve">
+    <value>刷新视图</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Button_InstrumentationProfiling" xml:space="preserve">
+    <value>记录检测配置文件</value>
+  </data>
+  <data name="ButtonTooltip_InstrumentationProfilingToggled" xml:space="preserve">
+    <value>禁用检测分析</value>
+  </data>
+  <data name="ButtonTooltip_InstrumentationProfilingNotToggled" xml:space="preserve">
+    <value>启用检测分析</value>
+  </data>
+  <data name="ButtonAriaLabel_InstrumentationProfiling" xml:space="preserve">
+    <value>启用检测分析</value>
+  </data>
+  <data name="TimeSpentInCategoryLabel" xml:space="preserve">
+    <value>类中所用的时间: {0}</value>
+  </data>
+  <data name="UIThreadRole" xml:space="preserve">
+    <value>UI 线程</value>
+  </data>
+  <data name="StartupThreadRole" xml:space="preserve">
+    <value>启动线程</value>
+  </data>
+  <data name="PercentTimeInCategoryLabel" xml:space="preserve">
+    <value>类中的时间百分比: {0}</value>
+  </data>
+  <data name="Button_InstrumentationViewCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Button_InstrumentationViewApply" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="InstrumentationViewShowThreadsLabel" xml:space="preserve">
+    <value>显示线程帧</value>
+    <comment>Shows thread frames in the call tree, otherwise group all children of threads under process frame</comment>
+  </data>
+  <data name="InstrumentationViewStitchAsyncStacksLabel" xml:space="preserve">
+    <value>拼结异步堆栈</value>
+    <comment>Stitch async calls together so async methods appear as nodes under methods that await them.</comment>
+  </data>
+  <data name="InstrumentationViewShowJustMyCodeLabel" xml:space="preserve">
+    <value>显示“仅我的代码”</value>
+    <comment>Shows only user code to filter Instrumentation Tool</comment>
+  </data>
+  <data name="InstrumentationViewStitchAsyncCodeLabel" xml:space="preserve">
+    <value>拼结异步代码</value>
+  </data>
+  <data name="InstrumentationViewShowNativeCodeLabel" xml:space="preserve">
+    <value>显示本机代码</value>
+  </data>
+  <data name="InstrumentationTreeGrid_TotalPercentHeader" xml:space="preserve">
+    <value>总计(%)</value>
+  </data>
+  <data name="ExternalCallLabel" xml:space="preserve">
+    <value>[外部调用]</value>
+  </data>
+  <data name="SystemCallLabel" xml:space="preserve">
+    <value>[系统调用]</value>
+  </data>
+  <data name="ExternalCodeLabel" xml:space="preserve">
+    <value>[外部代码]</value>
+  </data>
+  <data name="SystemCodeLabel" xml:space="preserve">
+    <value>[系统代码]</value>
+  </data>
+  <data name="AsyncMethodLabel" xml:space="preserve">
+    <value>[异步]</value>
+  </data>
+  <data name="UnwalkableStackLabel" xml:space="preserve">
+    <value>[不可走]</value>
+  </data>
+  <data name="UnwalkableStackTooltip" xml:space="preserve">
+    <value>无法确定这些调用的位置，因为在收集这些堆栈期间，无法完成 StackWalk。</value>
+  </data>
+  <data name="OtherLabel" xml:space="preserve">
+    <value>[其他]</value>
+  </data>
+  <data name="NativeCodeLabel" xml:space="preserve">
+    <value>[本机]</value>
+  </data>
+  <data name="SingleLevelExternalCodePrefix" xml:space="preserve">
+    <value>[外部: {0}]</value>
+    <comment>"[External: X]" The X is replaced during application with the function name in user program. Example: [External: MyFunc]</comment>
+  </data>
+  <data name="SingleLevelSystemCodePrefix" xml:space="preserve">
+    <value>[系统: {0}]</value>
+    <comment>See comment for SingleLevelExternalCodePrefix entry.</comment>
+  </data>
+  <data name="InstrumentationTreeGrid_ModuleHeader" xml:space="preserve">
+    <value>模块</value>
+  </data>
+  <data name="InstrumentationTreeGrid_ModuleTooltip" xml:space="preserve">
+    <value>堆栈帧所在的模块</value>
+  </data>
+  <data name="MultipleModuleLabel" xml:space="preserve">
+    <value>多个模块</value>
+  </data>
+  <data name="PreparingThreadsProgressTaskName" xml:space="preserve">
+    <value>正在准备线程...</value>
+  </data>
+  <data name="PreparingInstrumentationDataProgressTaskName" xml:space="preserve">
+    <value>正在准备数据。</value>
+  </data>
+  <data name="ErrMsg_InvalidRegularExpression" xml:space="preserve">
+    <value>所提供的用于搜索的正则表达式无效。</value>
+  </data>
+  <data name="InstrumentationTreeGrid_WallTimeTooltip" xml:space="preserve">
+    <value>{0} 墙上时间</value>
+  </data>
+  <data name="CollectionTimeSelectionUserPrompt" xml:space="preserve">
+    <value>在上图中选择一个时间范围以查看详细的 CPU 使用率信息</value>
+  </data>
+  <data name="Overlay_UnableShowData" xml:space="preserve">
+    <value>无法显示数据</value>
+  </data>
+  <data name="Overlay_OperationIncomplete" xml:space="preserve">
+    <value>选择不同时间范围以查看数据</value>
+  </data>
+  <data name="InstrumentationDetailsViewCannotEnableInstrumentationProfiling" xml:space="preserve">
+    <value>无法启用检测分析。{0}。</value>
+    <comment>"Cannot enable Instrumentation profiling. X" The X is replaced with error message explaining the reason why Instrumentation profiling cannot be enabled.</comment>
+  </data>
+  <data name="InstrumentationDetailsViewCannotDisableInstrumentationProfiling" xml:space="preserve">
+    <value>无法禁用检测分析。{0}。</value>
+    <comment>"Cannot disable Instrumentation profiling. X" The X is replaced with error message explaining the reason why Instrumentation profiling cannot be disabled.</comment>
+  </data>
+  <data name="DotNetNativeBuildTimeAndRuntimeModuleFormat" xml:space="preserve">
+    <value>{0} [.NET 本机二进制文件: {1}]</value>
+  </data>
+  <data name="BreakAllRunning" xml:space="preserve">
+    <value>正在中断...</value>
+  </data>
+  <data name="ProcessRowNameFormat" xml:space="preserve">
+    <value>{0} (PID: {1})</value>
+    <comment>The first element element is the process name and the second is the PID, similar to "Notepad.exe (PID: 12134)"</comment>
+  </data>
+  <data name="ProcessRowTooltipFormat" xml:space="preserve">
+    <value>{0} 拥有 {1} 个子级</value>
+  </data>
+  <data name="CalledFromNFunctionsInUserCode" xml:space="preserve">
+    <value>已从用户代码中的 {0} 个函数调用</value>
+  </data>
+  <data name="SelfAggregatedFromCallees" xml:space="preserve">
+    <value>自节拍值聚合了外部被调用方的独占节拍</value>
+  </data>
+  <data name="CurrentViewDropDownLabel" xml:space="preserve">
+    <value>当前视图:</value>
+  </data>
+  <data name="CallTreeViewName" xml:space="preserve">
+    <value>调用树</value>
+  </data>
+  <data name="CallerCalleeViewName" xml:space="preserve">
+    <value>调用方/被调用方</value>
+  </data>
+  <data name="ModulesViewName" xml:space="preserve">
+    <value>模块</value>
+  </data>
+  <data name="InstrumentationDetailsViewSelectionDebugRun_BreakAll" xml:space="preserve">
+    <value>全部中断 </value>
+    <comment>This text will be a clickable hyperlink concatenated with InstrumentationDetailsViewSelectionDebugRun_Posthyperlink. Note the space after the word as the text is concatenated without adding additional spaces</comment>
+  </data>
+  <data name="InstrumentationDetailsViewSelectionDebugRun_Posthyperlink" xml:space="preserve">
+    <value>或设置并点击断点以查看检测使用情况数据。</value>
+    <comment>See comment in InstrumentationDetailsViewSelectionDebugRun_BreakAll</comment>
+  </data>
+  <data name="NoUserCodeMessage" xml:space="preserve">
+    <value>在所选时间范围内没有用户代码运行</value>
+  </data>
+  <data name="NoCodeRunningMessage" xml:space="preserve">
+    <value>在所选时间范围内没有代码运行</value>
+  </data>
+  <data name="CallerCalleeViewFunctionBody" xml:space="preserve">
+    <value>函数体</value>
+  </data>
+  <data name="CallingFunctionsTitle" xml:space="preserve">
+    <value>正在调用函数</value>
+  </data>
+  <data name="CallingFunctionsAriaLabel" xml:space="preserve">
+    <value>调用当前函数的函数列表。使用箭头键可浏览列表</value>
+  </data>
+  <data name="CurrentFunctionTitle" xml:space="preserve">
+    <value>当前函数</value>
+  </data>
+  <data name="CurrentFunctionAriaLabel" xml:space="preserve">
+    <value>当前函数。使用箭头键可浏览列表个项</value>
+  </data>
+  <data name="CalledFunctionsTitle" xml:space="preserve">
+    <value>调用的函数</value>
+  </data>
+  <data name="CalledFunctionsAriaLabel" xml:space="preserve">
+    <value>由当前函数调用的函数列表。使用箭头键可浏览列表</value>
+  </data>
+  <data name="CallerCalleeFunctionTimeAriaLabel" xml:space="preserve">
+    <value>{0} 自我时间 {1} 毫秒({2})</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds, {2} element is the time as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionBodyTimeAriaLabel" xml:space="preserve">
+    <value>函数体 {0} 毫秒({1})</value>
+    <comment>{0} is the time in milliseconds, {1} is the time as a percentage</comment>
+  </data>
+  <data name="CallerCalleeFunctionTimeTooltip" xml:space="preserve">
+    <value>{0} 及其子级使用了 {1} 毫秒墙上时间</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds</comment>
+  </data>
+  <data name="CallerCalleeCurrentFunctionBodyTimeTooltip" xml:space="preserve">
+    <value>{0} 在函数体中执行代码时使用了 {1} 毫秒墙上时间</value>
+    <comment>{0} is the function name, {1} is the time in milliseconds</comment>
+  </data>
+  <data name="UnknownModuleLabel" xml:space="preserve">
+    <value>[外部代码]</value>
+  </data>
+  <data name="UnknownFunctionLabel" xml:space="preserve">
+    <value>未知函数</value>
+  </data>
+  <data name="CallerCalleeTopOfCallStackMessage" xml:space="preserve">
+    <value>调用堆栈的顶部</value>
+  </data>
+  <data name="CallerCalleeBottomOfCallStackMessage" xml:space="preserve">
+    <value>调用堆栈的底部</value>
+  </data>
+  <data name="MetricsAndPercent" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>{0} is the unit accounted for (i.e. time in ms) and {1} is the percentage of total usage</comment>
+  </data>
+  <data name="CallerCalleeNoDataAvailableForSelection" xml:space="preserve">
+    <value>在所选时间内没有代码运行</value>
+  </data>
+  <data name="CallTreeSearchControlAriaLabel" xml:space="preserve">
+    <value>搜索检测调用树</value>
+  </data>
+  <data name="CallTreeAriaLabel" xml:space="preserve">
+    <value>调用树</value>
+  </data>
+  <data name="FlatFunctionsSearchControlAriaLabel" xml:space="preserve">
+    <value>搜索检测调用树函数列表</value>
+  </data>
+  <data name="FlatFunctionsAriaLabel" xml:space="preserve">
+    <value>CPU 使用情况(按功能)</value>
+  </data>
+  <data name="ModulesAriaLabel" xml:space="preserve">
+    <value>按模块分组的 CPU 使用率</value>
+  </data>
+  <data name="ModulesSearchControlAriaLabel" xml:space="preserve">
+    <value>搜索检测调用树模块列表</value>
+  </data>
+  <data name="Modules_NameHeader" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Modules_NameTooltip" xml:space="preserve">
+    <value>模块名称或函数名称</value>
+  </data>
+  <data name="ProcessNameFormat" xml:space="preserve">
+    <value>{0} (PID: {1})</value>
+    <comment>{0} will be the name of the process and {1} will be the ID of the process</comment>
+  </data>
+  <data name="ProcessIdFormat" xml:space="preserve">
+    <value>PID: {0}</value>
+    <comment>{0} will be the ID of the process</comment>
+  </data>
+  <data name="BlockedTimeSummary_AriaLabel" xml:space="preserve">
+    <value>阻止时间(按线程)</value>
+  </data>
+  <data name="BlockedTimeSummary_NameHeader" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="BlockedTimeSummary_DurationHeader" xml:space="preserve">
+    <value>持续时间(毫秒)</value>
+  </data>
+  <data name="BlockedTimeBlockedStack_Header" xml:space="preserve">
+    <value>阻止的堆栈</value>
+  </data>
+  <data name="BlockedTimeReadyStack_Header" xml:space="preserve">
+    <value>就绪堆栈</value>
+  </data>
+  <data name="BlockedTimeSummary_MaxHeader" xml:space="preserve">
+    <value>最大值(毫秒)</value>
+  </data>
+  <data name="SearchIconAriaLabel" xml:space="preserve">
+    <value>执行搜索</value>
+  </data>
+  <data name="ContextMenu_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="ContextMenu_ExpandHotPath" xml:space="preserve">
+    <value>展开热路径</value>
+  </data>
+  <data name="CallTree_ExpandHotPathAriaLabel" xml:space="preserve">
+    <value>展开热路径</value>
+  </data>
+  <data name="CallTree_ShowHotPathAriaLabel" xml:space="preserve">
+    <value>显示热路径</value>
+  </data>
+  <data name="CallTree_ExpandHotPathButtonText" xml:space="preserve">
+    <value>展开热路径</value>
+  </data>
+  <data name="CallTree_ShowPathButtonText" xml:space="preserve">
+    <value>显示热路径</value>
+  </data>
+  <data name="ContextMenu_ShowInCallerCallee" xml:space="preserve">
+    <value>调用方/被调用方中的视图</value>
+  </data>
+  <data name="ContextMenu_ShowInCallTree" xml:space="preserve">
+    <value>调用树中的视图</value>
+  </data>
+  <data name="ContextMenu_ShowInModulesView" xml:space="preserve">
+    <value>在模块中查看</value>
+  </data>
+  <data name="AdditionalOutputInfo" xml:space="preserve">
+    <value>输出窗口(“查看”&gt;“输出”&gt;“诊断中心”)可能包含其他信息。</value>
+    <comment>(View &gt; Output &gt; Diagnostics Hub) corresponds to the menus the user needs to navigate through to see the output</comment>
+  </data>
+  <data name="SearchCaseSensitive" xml:space="preserve">
+    <value>区分大小写</value>
+  </data>
+  <data name="SearchIconAriaLabel1" xml:space="preserve">
+    <value>执行搜索</value>
+  </data>
+  <data name="SearchOptionsTitle" xml:space="preserve">
+    <value>搜索选项</value>
+  </data>
+  <data name="SearchRegularExpression" xml:space="preserve">
+    <value>使用正则表达式</value>
+  </data>
+  <data name="SearchWatermark" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="ContextMenu_LoadSymbols" xml:space="preserve">
+    <value>加载模块符号</value>
+  </data>
+  <data name="ContextMenu_LoadAllSymbols" xml:space="preserve">
+    <value>加载所有符号</value>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgSelfTooltip" xml:space="preserve">
+    <value>自身平均值</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxSelfTooltip" xml:space="preserve">
+    <value>自身最大值</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MinSelfTooltip" xml:space="preserve">
+    <value>自身最小值</value>
+  </data>
+  <data name="InstrumentationTreeGrid_AvgTotalTooltip" xml:space="preserve">
+    <value>平均总计</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MaxTotalTooltip" xml:space="preserve">
+    <value>最大总计</value>
+  </data>
+  <data name="InstrumentationTreeGrid_MinTotalTooltip" xml:space="preserve">
+    <value>最小总计</value>
+  </data>
+  <data name="InstrumentationTreeGrid_CategoryHeader" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="MultipleCategoriesLabel" xml:space="preserve">
+    <value>多个类别</value>
+  </data>
+  <data name="FlatFunctionsViewName" xml:space="preserve">
+    <value>函数</value>
+  </data>
+  <data name="PieChartItemAriaLabel" xml:space="preserve">
+    <value>{0} - {1}</value>
+    <comment>{0} will be the value displayed in a pie chart, and {1} will be the corresponding legend text</comment>
+  </data>
+  <data name="HotPathAriaLabel" xml:space="preserve">
+    <value>进程根的热路径</value>
+  </data>
+  <data name="TopFunctionsAriaLabel" xml:space="preserve">
+    <value>函数(按节拍总计)</value>
+  </data>
+  <data name="InstrumentationViewTopClassView" xml:space="preserve">
+    <value>前五个类</value>
+  </data>
+  <data name="DetailsView_HotPathHeader" xml:space="preserve">
+    <value>热路径</value>
+  </data>
+  <data name="DetailsView_TopFunctionsHeader" xml:space="preserve">
+    <value>排名靠前的函数</value>
+  </data>
+  <data name="DetailsView_HotPathNameHeader" xml:space="preserve">
+    <value>函数名</value>
+  </data>
+  <data name="DetailsView_HotPathSelfHeader" xml:space="preserve">
+    <value>自 [单位，%]</value>
+  </data>
+  <data name="DetailsView_HotPathTotalHeader" xml:space="preserve">
+    <value>总计 [单位，%]</value>
+  </data>
+  <data name="DetailsView_TopFunctionsNameHeader" xml:space="preserve">
+    <value>函数名</value>
+  </data>
+  <data name="DetailsView_TopFunctionsSelfHeader" xml:space="preserve">
+    <value>自 [单位，%]</value>
+  </data>
+  <data name="DetailsView_TopFunctionsTotalHeader" xml:space="preserve">
+    <value>总计 [单位，%]</value>
+  </data>
+  <data name="Overlay_NoData" xml:space="preserve">
+    <value>当前筛选器集中没有数据。</value>
+  </data>
+  <data name="ContextMenu_ShowInFunctions" xml:space="preserve">
+    <value>在函数中查看</value>
+  </data>
+  <data name="VerticalSplitterAriaLabel" xml:space="preserve">
+    <value>拆分器</value>
+  </data>
+  <data name="InstrumentationViewClassPieChartLegend" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>This text shows in the Instrumentation class pie chart legend next to the colors representing each slice of the chart. Ex. Kernel : 54.2% (424). {0} is class name and percent, {1} is class count. Note, {0} comes from the formatted "ClassSelection" string</comment>
+  </data>
+  <data name="ContextMenu_CopyAsMarkdown" xml:space="preserve">
+    <value>复制为 Markdown</value>
+    <comment>Context menu item for copying the selected text to the clipboard as Markdown</comment>
+  </data>
+  <data name="FlameGraphViewName" xml:space="preserve">
+    <value>火焰图</value>
+    <comment>This is a specific type of visualization and is the name of the view</comment>
+  </data>
+  <data name="FlameGraph_TooltipName" xml:space="preserve">
+    <value>名称: {0}</value>
+    <comment>The name part for flame graph tooltip</comment>
+  </data>
+  <data name="FlameGraph_TooltipValue" xml:space="preserve">
+    <value>值: {0}</value>
+    <comment>The value part for flame graph tooltip</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomAriaLabel" xml:space="preserve">
+    <value>重置缩放</value>
+    <comment>Aria label for reset zoom button in Flame Graph view toolbar.</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomButtonText" xml:space="preserve">
+    <value>重置缩放</value>
+    <comment>Text on reset zoom button in Flame Graph view toolbar</comment>
+  </data>
+  <data name="FlameGraph_FlipAriaLabel" xml:space="preserve">
+    <value>翻转火焰图</value>
+    <comment>Aria label for flip flame graph button in Flame Graph view toolbar.</comment>
+  </data>
+  <data name="FlameGraph_FlipButtonText" xml:space="preserve">
+    <value>翻转火焰图</value>
+    <comment>Text on flip flame graph button in Flame Graph view toolbar</comment>
+  </data>
+  <data name="StackTagCategory_Compression" xml:space="preserve">
+    <value>压缩</value>
+  </data>
+  <data name="StackTagCategory_AspNet" xml:space="preserve">
+    <value>ASP.NET</value>
+  </data>
+  <data name="StackTagCategory_Cryptography" xml:space="preserve">
+    <value>加密</value>
+  </data>
+  <data name="StackTagCategory_Database" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="StackTagCategory_Driver" xml:space="preserve">
+    <value>驱动程序</value>
+  </data>
+  <data name="StackTagCategory_FileSystem" xml:space="preserve">
+    <value>文件系统</value>
+  </data>
+  <data name="StackTagCategory_Graphics" xml:space="preserve">
+    <value>图形</value>
+  </data>
+  <data name="StackTagCategory_IO" xml:space="preserve">
+    <value>IO</value>
+  </data>
+  <data name="StackTagCategory_JIT" xml:space="preserve">
+    <value>JIT</value>
+  </data>
+  <data name="StackTagCategory_Json" xml:space="preserve">
+    <value>Json</value>
+  </data>
+  <data name="StackTagCategory_Kernel" xml:space="preserve">
+    <value>内核</value>
+  </data>
+  <data name="StackTagCategory_Logging" xml:space="preserve">
+    <value>日志记录</value>
+  </data>
+  <data name="StackTagCategory_Networking" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="StackTagCategory_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="StackTagCategory_Protobuf" xml:space="preserve">
+    <value>Protobuf</value>
+  </data>
+  <data name="StackTagCategory_Reflection" xml:space="preserve">
+    <value>反射</value>
+  </data>
+  <data name="StackTagCategory_Regex" xml:space="preserve">
+    <value>正则表达式</value>
+  </data>
+  <data name="StackTagCategory_Runtime" xml:space="preserve">
+    <value>运行时</value>
+  </data>
+  <data name="StackTagCategory_Security" xml:space="preserve">
+    <value>安全</value>
+  </data>
+  <data name="StackTagCategory_Serialization" xml:space="preserve">
+    <value>序列化</value>
+  </data>
+  <data name="StackTagCategory_Threading" xml:space="preserve">
+    <value>线程</value>
+  </data>
+  <data name="StackTagCategory_UI" xml:space="preserve">
+    <value>UI</value>
+  </data>
+  <data name="StackTagCategory_WPF" xml:space="preserve">
+    <value>WPF</value>
+  </data>
+  <data name="StackTagCategory_XML" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="Overlay_ProgressAriaLabel" xml:space="preserve">
+    <value>完成百分比</value>
+    <comment>Aria label for progress bar in Instrumentation tool after data collection</comment>
+  </data>
+  <data name="Overlay_ProgressIndeterminateAriaLabel" xml:space="preserve">
+    <value>正在加载数据…</value>
+    <comment>Aria label for indeterminate progress bar in Instrumentation tool after data collection</comment>
+  </data>
+  <data name="FlameGraph_FlipStatus" xml:space="preserve">
+    <value>火焰图形已翻转</value>
+    <comment>Message reported to screen readers when flame graph is flipped</comment>
+  </data>
+  <data name="FlameGraph_ResetZoomStatus" xml:space="preserve">
+    <value>缩放重置</value>
+    <comment>Message reported to screen readers when zoom is reset</comment>
+  </data>
+  <data name="AutoCompleteLists" xml:space="preserve">
+    <value>自动完成列表</value>
+  </data>
+  <data name="DetailsView_TopInsightsDescriptionHeader" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="DetailsView_TopInsightsHeader" xml:space="preserve">
+    <value>顶级见解</value>
+    <comment>"Top Insights" here refers to the most important issues found when running analysis.</comment>
+  </data>
+  <data name="DetailsView_TopInsightsTitleHeader" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="TopInsightsAriaLabel" xml:space="preserve">
+    <value>找不到顶级见解</value>
+  </data>
+  <data name="DetailsView_ViewSourceCode" xml:space="preserve">
+    <value>查看源代码</value>
+  </data>
+  <data name="ContextMenu_ShowInFlameGraph" xml:space="preserve">
+    <value>在火焰图中查看</value>
+    <comment>This is a specific type of visualization and is the name of the page the data is being shown in</comment>
+  </data>
+  <data name="DetailsView_NoInsights" xml:space="preserve">
+    <value>未找到任何见解。</value>
+    <comment>Message displayed when no insights were found.</comment>
+  </data>
+  <data name="DetailsView_UpdateDotNET" xml:space="preserve">
+    <value>如何更新 .NET</value>
+  </data>
+  <data name="DetailsView_RequestAiHelp" xml:space="preserve">
+    <value>询问 Copilot</value>
+  </data>
+  <data name="DetailsView_LearnMore" xml:space="preserve">
+    <value>了解详细信息</value>
+    <comment>Text that links to documentation about top insights issue</comment>
+  </data>
+  <data name="FlameGraph_TooltipPercent" xml:space="preserve">
+    <value>总百分比: {0}</value>
+    <comment>Percentage part for the flame graph tooltip. {0} is the total sample percentage. E.g., "Total percent: 5%"</comment>
+  </data>
+  <data name="CopilotInsightButtonTooltip" xml:space="preserve">
+    <value>让 Copilot 分析此会话并提出优化建议</value>
+    <comment>The tooltip shown on the Ask Copilot button which will ask Copilot to generate optimization improvements for the current diagsession</comment>
+  </data>
+  <data name="CopilotInsightTooltip" xml:space="preserve">
+    <value>此见解来自 AI，可能不准确</value>
+    <comment>The tooltip shown when the insight was generated by the Copilot artificial intelligence (AI) and as such it may not be fully accurate</comment>
+  </data>
+  <data name="TopInsightTooltip" xml:space="preserve">
+    <value>热门见解建议</value>
+    <comment>The tooltip shown to the user when they hover over the information icon next to a top insight</comment>
+  </data>
+  <data name="DetailsView_RequestingAIInsights" xml:space="preserve">
+    <value>正在请求见解...</value>
+    <comment>Message shown to the user while Copilot is generating top insights for a trace. It is combined with a progress spinner icon.</comment>
+  </data>
+  <data name="DetailsView_AiInsightsExcluded" xml:space="preserve">
+    <value>由于内容排除，Copilot 辅助见解已禁用。</value>
+  </data>
+  <data name="DetailsView_AutoInsightsAiHelpExcluded" xml:space="preserve">
+    <value>由于内容排除，询问 Copilot 不可用。</value>
+  </data>
+  <data name="DetailsView_WhatIsExclusion" xml:space="preserve">
+    <value>什么是内容排除？</value>
+  </data>
+  <data name="DisabledCopilotInsightButtonTooltip" xml:space="preserve">
+    <value>可用信息不足，无法生成 AI 辅助的优化</value>
+    <comment>The tooltip shown on the disabled Ask Copilot button</comment>
+  </data>
+  <data name="AllProcessesLabel" xml:space="preserve">
+    <value>所有进程</value>
+    <comment>The title shown in the UI when we are listing all the processes in the trace</comment>
+  </data>
+  <data name="CopilotNotAvailable" xml:space="preserve">
+    <value>GitHub Copilot不可用</value>
+  </data>
+</root>

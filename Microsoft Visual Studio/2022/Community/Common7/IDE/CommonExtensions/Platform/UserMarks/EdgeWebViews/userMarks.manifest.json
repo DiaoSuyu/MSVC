@@ -1,0 +1,299 @@
+{
+    "start_url": "userMarksView.html",
+    "domain": "http://microsoft.com",
+    "name": "userMarks",
+    "browserHostVersion": "2.0",
+    "use_css_variables": true,
+    "resource_aliases": {
+      "Resources": {
+        "path": "userMarks.ScriptResources",
+        "is_default": true
+      },
+      "DiagnosticsHubResources": {
+        "path": "..\\..\\DiagnosticsHub\\EdgeWebViews\\DiagnosticsHub.TypeScript.ScriptResources",
+        "is_default": false
+      }
+    },
+    "vs": {
+      "theme_token_aliases": {
+        "CommonControls-CheckBoxBackground-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBackground"
+        },
+        "CommonControls-CheckBoxBorder-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBorder"
+        },
+        "CommonControls-CheckBoxText-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxText"
+        },
+        "CommonControls-CheckBoxGlyph-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxGlyph"
+        },
+        "CommonControls-CheckBoxBackgroundHover-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBackgroundHover"
+        },
+        "CommonControls-CheckBoxBorderHover-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBorderHover"
+        },
+        "CommonControls-CheckBoxTextHover-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxTextHover"
+        },
+        "CommonControls-CheckBoxGlyphHover-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxTextHover"
+        },
+        "CommonControls-CheckBoxBackgroundPressed-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBackgroundPressed"
+        },
+        "CommonControls-CheckBoxBorderPressed-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBorderPressed"
+        },
+        "CommonControls-CheckBoxTextPressed-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxTextPressed"
+        },
+        "CommonControls-CheckBoxGlyphPressed-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxGlyphPressed"
+        },
+        "CommonControls-CheckBoxBackgroundFocused-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBackgroundFocused"
+        },
+        "CommonControls-CheckBoxBorderFocused-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBorderFocused"
+        },
+        "CommonControls-CheckBoxTextFocused-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxTextFocused"
+        },
+        "CommonControls-CheckBoxGlyphFocused-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxGlyphFocused"
+        },
+        "CommonControls-CheckBoxBackgroundDisabled-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBackgroundDisabled"
+        },
+        "CommonControls-CheckBoxTextDisabled-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxTextDisabled"
+        },
+        "CommonControls-CheckBoxBorderDisabled-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxBorderDisabled"
+        },
+        "CommonControls-CheckBoxGlyphDisabled-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "CheckBoxGlyphDisabled"
+        },
+        "CommonControls-FocusVisual-Foreground": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "ForegroundColor",
+          "name": "FocusVisual"
+        },
+        "CommonControls-InnerTabActiveBackground-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "InnerTabActiveBackground"
+        },
+        "TreeGridCellLabelText": {
+          "category": "02071ec8-0cf0-4822-af30-9f001537e7eb",
+          "key_type": "BackgroundColor",
+          "name": "TreeGridCellLabelText"
+        },
+        "Environment-GridLine-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "GridLine"
+        },
+        "Environment-CommandBarBorder-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarBorder"
+        },
+        "Environment-CommandBarGradientBegin-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarGradientBegin"
+        },
+        "Environment-CommandBarHoverOverSelectedIconBorder-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarHoverOverSelectedIconBorder"
+        },
+        "Environment-CommandBarTextHoverOverSelected-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextHoverOverSelected"
+        },
+        "Environment-CommandBarMenuBackgroundGradientBegin-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarMenuBackgroundGradientBegin"
+        },
+        "Environment-CommandBarMenuBorder-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarMenuBorder"
+        },
+        "Environment-CommandBarMouseDownBackgroundBegin-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarMouseDownBackgroundBegin"
+        },
+        "Environment-CommandBarSelected-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarSelected"
+        },
+        "Environment-CommandBarSelectedBorder-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarSelectedBorder"
+        },
+        "Environment-CommandBarTextActive-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextActive"
+        },
+        "Environment-CommandBarTextMouseDown-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextMouseDown"
+        },
+        "Environment-CommandBarTextHover-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextHover"
+        },
+        "Environment-CommandBarTextInactive-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextInactive"
+        },
+        "Environment-CommandBarOptionsBackground-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarOptionsBackground"
+        },
+        "DetailsView-CommandBarMouseOverBackground-Background": {
+          "category": "a128c60e-947c-4f26-95c9-fb4b3d53547f",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarMouseOverBackground"
+        },
+        "DetailsView-CommandBarHoverOverSelected-Background": {
+          "category": "a128c60e-947c-4f26-95c9-fb4b3d53547f",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarHoverOverSelected"
+        },
+        "Header-Default-Background": {
+          "category": "4997f547-1379-456e-b985-2f413cdfa536",
+          "key_type": "BackgroundColor",
+          "name": "Default"
+        },
+        "Header-MouseOver-Background": {
+          "category": "4997f547-1379-456e-b985-2f413cdfa536",
+          "key_type": "BackgroundColor",
+          "name": "MouseOver"
+        },
+        "Header-SeparatorLine-Background": {
+          "category": "4997f547-1379-456e-b985-2f413cdfa536",
+          "key_type": "BackgroundColor",
+          "name": "SeparatorLine"
+        },
+        "ProgressBar-IndicatorFill-Background": {
+          "category": "94acf70f-a81d-4512-a31d-8196616751ee",
+          "key_type": "BackgroundColor",
+          "name": "IndicatorFill"
+        },
+        "ProgressBar-Background-Background": {
+          "category": "94acf70f-a81d-4512-a31d-8196616751ee",
+          "key_type": "BackgroundColor",
+          "name": "Background"
+        },
+        "SearchControl-PopupCheckboxMouseDownText-Background": {
+          "category": "f1095fad-881f-45f1-8580-589e10325eb8",
+          "key_type": "BackgroundColor",
+          "name": "PopupCheckboxMouseDownText"
+        },
+        "SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background": {
+          "category": "f1095fad-881f-45f1-8580-589e10325eb8",
+          "key_type": "BackgroundColor",
+          "name": "PopupControlMouseOverBackgroundGradientBegin"
+        },
+        "diagnostics-information-background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "InfoBackground"
+        },
+        "diagnostics-information-border": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "ToolWindowBorder"
+        },
+        "diagnostics-information-foreground": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "InfoText"
+        },
+        "Environment-CommandBarMouseOverBackgroundBegin-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarMouseOverBackgroundBegin"
+        },
+        "Environment-CommandBarTextSelected-Background": {
+          "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+          "key_type": "BackgroundColor",
+          "name": "CommandBarTextSelected"
+        }
+      },
+      "themed_images": {
+        "diagnosticsHub-filter": {
+          "svg_source": "images\\Filter.svg",
+          "background_color": "plugin-background-color"
+        },
+        "itemCollapsed": {
+          "bitmap_source": "images\\itemCollapsed.png",
+          "background_color": "plugin-background-color"
+        },
+        "itemExpanded": {
+          "bitmap_source": "images\\itemExpanded.png",
+          "background_color": "plugin-background-color"
+        },
+        "vs-image-information-icon": {
+          "svg_source": "images\\Information_blue.svg",
+          "background_color": "plugin-background-color"
+        }
+      }
+    }
+  }

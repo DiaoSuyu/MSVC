@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>读取“我的文档”文件夹中的文件</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将“我的文档”文件夹中文本文件的内容读入单个字符串中。</Description>
+      <Shortcut>filReadMy</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>filename</ID>
+          <ToolTip>替换为文件名。</ToolTip>
+          <Default>"test.txt"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim fullFilePath As String
+Dim fileContents As String
+With My.Computer.FileSystem
+    fullFilePath = .CombinePath(.SpecialDirectories.MyDocuments, $filename$)
+    fileContents = .ReadAllText(fullFilePath)
+End With]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

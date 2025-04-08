@@ -1,0 +1,142 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=2.1": [
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+          "Version": "2.1.1",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=3.1": [
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.AzureAD.UI",
+          "Version": "3.1.13",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "1.24.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "1.16.0",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=5.0": [
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "1.24.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "1.16.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Version": "5.0.11",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+          "Version": "5.0.11",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=6.0": [
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Version": "6.0.31",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+          "Version": "6.0.31",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=7.0": [
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Version": "7.0.20",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+          "Version": "7.0.20",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=8.0": [
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Version": "8.0.10",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+          "Version": "8.0.10",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=9.0": [
+        {
+          "Id": "Microsoft.Identity.Web",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Identity.Web.UI",
+          "Version": "3.2.2",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

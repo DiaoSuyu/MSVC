@@ -1,0 +1,27 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.Identity" Version="17.13.81.59196" Language="en-US" Publisher="Microsoft Corporation" />
+    <DisplayName>Microsoft Visual Studio Identity Service</DisplayName>
+    <Description>Microsoft Visual Studio Identity Service</Description>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation Experimental="false" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\IdentityService\AadAccountProviderService.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\IdentityService\ErrorStorageService.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\IdentityService\GithubCredentialStoreService.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\IdentityService\IdentityStorageService.servicehub.service.json" />
+    <Asset Type="Microsoft.ServiceHub.Service" Path="ServiceHub\AccountManagement\Microsoft.Developer.AccountManagement.servicehub.service.json" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Identity.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

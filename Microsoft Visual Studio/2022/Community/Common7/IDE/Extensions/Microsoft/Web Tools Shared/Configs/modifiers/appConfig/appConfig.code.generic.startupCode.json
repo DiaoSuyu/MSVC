@@ -1,0 +1,327 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "description": "strings:#/addProgramCode",
+    "snippetModels": [
+      {
+        "name": "EnsureMicrosoftExtensionsConfigurationNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Extensions.Configuration;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Extensions.Configuration;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConfigurationProperty",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                  }
+                },
+                {
+                  "kind": "ClassProperty",
+                  "properties": {
+                    "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassProperty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                }
+              ]
+            },
+            "body": "public IConfiguration Configuration { get; }",
+            "tokens": {},
+            "resultTokenName": "configurationClassProperty"
+          }
+        ]
+      },
+      {
+        "name": "EnsureStartupClassConstructorWithConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "ClassConstructor",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "ClassConstructor",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                }
+              ]
+            },
+            "body": "public @@containingClassName@@(IConfiguration configuration)\r\n    {\r\n    @@configurationClassProperty@@ = configuration;\r\n    }",
+            "tokens": {
+              "containingClassName": {
+                "name": "containingClassName",
+                "kind": "ClassName",
+                "properties": {}
+              },
+              "configurationClassProperty": {
+                "name": "configurationClassProperty",
+                "kind": "ClassProperty",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Configuration.IConfiguration"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddAzureAppConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "AddAzureAppConfiguration",
+                    "TypeName": "Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "ConfigureServices",
+                    "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.AddAzureAppConfiguration();\r\n",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.DependencyInjection.IServiceCollection"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "EnsureUseAzureAppConfiguration",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "Configure",
+                    "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "UseAzureAppConfiguration",
+                    "TypeName": "Microsoft.AspNetCore.Builder.AzureAppConfigurationExtensions"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "Configure",
+                    "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "Statement",
+                  "properties": {
+                    "Statement": "app.UseRouting();",
+                    "CodeOperation": "InsertBefore"
+                  }
+                }
+              ]
+            },
+            "body": "app.UseAzureAppConfiguration();",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "Configure",
+                    "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                },
+                {
+                  "kind": "Statement",
+                  "properties": {
+                    "Statement": "app.UseHttpsRedirection();",
+                    "CodeOperation": "InsertBefore"
+                  }
+                }
+              ]
+            },
+            "body": "app.UseAzureAppConfiguration();",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "Configure",
+                    "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder",
+                    "MethodParameterAnyPosition": true,
+                    "MethodParameterAnyNumberOfParameters": true
+                  }
+                }
+              ]
+            },
+            "body": "@@localVar@@.UseAzureAppConfiguration();\r\n",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.IApplicationBuilder"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

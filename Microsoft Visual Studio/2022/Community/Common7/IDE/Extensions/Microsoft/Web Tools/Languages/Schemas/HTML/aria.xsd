@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<xsd:schema xmlns='http://schemas.microsoft.com/intellisense/aria'
+      xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+      targetNamespace='http://schemas.microsoft.com/intellisense/aria'
+      xmlns:vs='http://schemas.microsoft.com/Visual-Studio-Intellisense'
+      vs:ishtmlschema="true"
+      vs:issupplemental="true"
+      vs:icon="aria16.png"
+      vs:customattrprefix="aria-">
+
+  <xsd:annotation>
+    <xsd:documentation>
+      Microsoft Visual Studio schema for WIA-ARIA
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="___all___">
+    <xsd:complexType>
+      <xsd:attribute name="aria-invalid">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="grammar" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="spelling" />
+            <xsd:enumeration value="true" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-activedescendant" />
+      <xsd:attribute name="aria-atomic" type="xsd:boolean"/>
+      <xsd:attribute name="aria-autocomplete">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="inline" />
+            <xsd:enumeration value="list" />
+            <xsd:enumeration value="both" />
+            <xsd:enumeration value="none" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-busy" type="xsd:boolean" />
+      <xsd:attribute name="aria-checked">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="mixed" />
+            <xsd:enumeration value="undefined" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-controls" />
+      <xsd:attribute name="aria-describedby" />
+      <xsd:attribute name="aria-disabled" type="xsd:boolean" />
+      <xsd:attribute name="aria-dropeffect">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="copy" />
+            <xsd:enumeration value="move" />
+            <xsd:enumeration value="link" />
+            <xsd:enumeration value="execute" />
+            <xsd:enumeration value="popup" />
+            <xsd:enumeration value="none" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-expanded">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="undefined" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-flowto" />
+      <xsd:attribute name="aria-grabbed">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="undefined" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-haspopup">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="menu" />
+            <xsd:enumeration value="listbox" />
+            <xsd:enumeration value="tree" />
+            <xsd:enumeration value="grid" />
+            <xsd:enumeration value="dialog" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-hidden" type="xsd:boolean" />
+      <xsd:attribute name="aria-label" />
+      <xsd:attribute name="aria-labelledby" />
+      <xsd:attribute name="aria-level" type="xsd:integer" />
+      <xsd:attribute name="aria-live">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="off" />
+            <xsd:enumeration value="polite" />
+            <xsd:enumeration value="assertive" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-multiline" type="xsd:boolean" />
+      <xsd:attribute name="aria-multiselectable" type="xsd:boolean" />
+      <xsd:attribute name="aria-orientation">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="vertical" />
+            <xsd:enumeration value="horizontal" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-owns" />
+      <xsd:attribute name="aria-posinset" type="xsd:integer" />
+      <xsd:attribute name="aria-pressed">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="mixed" />
+            <xsd:enumeration value="undefined" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-readonly" type="xsd:boolean" />
+      <xsd:attribute name="aria-relevant" vs:multivalue="true">
+        <xsd:simpleType>
+          <xsd:union>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:NMTOKEN">
+                <xsd:enumeration value="additions" />
+                <xsd:enumeration value="removals" />
+                <xsd:enumeration value="text" />
+                <xsd:enumeration value="all" />
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string" />
+            </xsd:simpleType>
+          </xsd:union>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-required" type="xsd:boolean" />
+      <xsd:attribute name="aria-selected">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="true" />
+            <xsd:enumeration value="false" />
+            <xsd:enumeration value="undefined" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-setsize" type="xsd:integer" />
+      <xsd:attribute name="aria-sort">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="ascending" />
+            <xsd:enumeration value="descending" />
+            <xsd:enumeration value="none" />
+            <xsd:enumeration value="other" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="aria-valuemax" type="xsd:float" />
+      <xsd:attribute name="aria-valuemin" type="xsd:float" />
+      <xsd:attribute name="aria-valuenow" type="xsd:float" />
+      <xsd:attribute name="aria-valuetext" />
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>

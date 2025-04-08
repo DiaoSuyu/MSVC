@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>确定两个时间之间的跨度 </Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>计算同一天中两个时间之间相差的秒数，并为该秒数构造一个 TimeSpan 值。</Description>
+      <Keywords>
+      </Keywords>
+      <Shortcut>typeTime</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>timeValue</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为日期文本、日期变量或返回日期的方法。</ToolTip>
+          <Default>Today</Default>
+        </Literal>
+        <Literal>
+          <ID>timeValue2</ID>
+          <Type>
+          </Type>
+          <ToolTip>替换为日期文本、日期变量或返回日期的方法。</ToolTip>
+          <Default>Now</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim oldTime As Date = $timeValue$
+Dim newTime As Date = $timeValue2$
+
+' You can also determine the difference in times in other units.
+Dim difference As TimeSpan = newTime - oldTime
+Dim differenceInSeconds As Double = difference.TotalSeconds
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

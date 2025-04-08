@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从控制台应用程序捕获输出</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将命令控制台应用程序的输出保存到字符串。</Description>
+      <Shortcut>appOutCap</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>consoleExeFile</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要执行的控制台应用程序的文件名。</ToolTip>
+          <Default>"ConsoleApplication.exe"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim consoleApp As New Process
+With consoleApp
+    .StartInfo.UseShellExecute = False
+    .StartInfo.RedirectStandardOutput = True
+    .StartInfo.FileName = $consoleExeFile$
+    .Start()
+    .WaitForExit()
+End With
+
+Dim output As String = consoleApp.StandardOutput.ReadToEnd()
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

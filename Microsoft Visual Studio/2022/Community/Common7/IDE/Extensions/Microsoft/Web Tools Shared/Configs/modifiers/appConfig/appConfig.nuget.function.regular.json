@@ -1,0 +1,197 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=2.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "4.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "2.1.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "2.5.1",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=3.1": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "5.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "3.1.21",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "2.5.1",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=5.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.6.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "5.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "5.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "2.5.1",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=6.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "6.1.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "6.0.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "4.0.0-preview4",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=7.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "7.2.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "7.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "4.0.0-preview4",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=8.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "8.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "8.0.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "4.0.0-preview4",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=9.0": [
+        {
+          "Id": "Azure.Identity",
+          "Version": "1.13.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Azure.Functions.Extensions",
+          "Version": "1.1.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+          "Version": "8.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.Extensions.Configuration.UserSecrets",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.FeatureManagement",
+          "Version": "4.0.0-preview4",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

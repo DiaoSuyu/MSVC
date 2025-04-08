@@ -1,0 +1,56 @@
+{
+  "kind": "nuget.generic",
+  "order": 10,
+  "model": {
+    "jobs": {
+      ".NETCoreApp,Version=2.1": [
+        {
+          "Id": "Microsoft.Azure.Cosmos",
+          "Version": "3.21.0",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+          "Version": "6.0.24",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=7.0": [
+        {
+          "Id": "Microsoft.Azure.Cosmos",
+          "Version": "3.44.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+          "Version": "7.0.20",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=8.0": [
+        {
+          "Id": "Microsoft.Azure.Cosmos",
+          "Version": "3.44.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+          "Version": "8.0.10",
+          "Operation": "Install"
+        }
+      ],
+      ".NETCoreApp,Version=9.0": [
+        {
+          "Id": "Microsoft.Azure.Cosmos",
+          "Version": "3.44.1",
+          "Operation": "Install"
+        },
+        {
+          "Id": "Microsoft.EntityFrameworkCore.Cosmos",
+          "Version": "9.0.0",
+          "Operation": "Install"
+        }
+      ]
+    }
+  }
+}

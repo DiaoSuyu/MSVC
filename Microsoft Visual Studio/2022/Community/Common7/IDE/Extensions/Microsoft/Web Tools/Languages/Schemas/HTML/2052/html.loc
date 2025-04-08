@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <element _locid="0" url="http://www.w3.org/TR/html5/semantics.html#the-html-element">
+    html 元素表示 HTML 文档的根。
+  </element>
+  <element _locid="1" url="http://www.w3.org/TR/html5/semantics.html#the-head-element">
+    head 元素表示文档的元数据集合。head 元素必须是 html 元素中的第一个元素。
+  </element>
+  <element _locid="2" url="http://www.w3.org/TR/html5/semantics.html#the-title-element">
+    title 元素表示文档的标题或名称。作者应使用标题以标识其文档，即使它们不在上下文中使用，例如在用户的历史记录或书签或搜索结果中使用。该文档的标题通常不同于其第一个标题，因为第一个标题在移出上下文时未必是孤立的。
+  </element>
+  <element _locid="3" url="http://www.w3.org/TR/html5/document-metadata.html#the-base-element">
+    base 元素允许作者指定文档基 URL 以便解析相对 URL，以及指定默认浏览上下文的名称以便打开超链接。该元素不表示此信息以外的任何内容。
+  </element>
+  <element _locid="4" url="http://www.w3.org/TR/html5/document-metadata.html#the-link-element">
+    link 元素允许作者将其文档链接到其他资源。
+  </element>
+  <element _locid="5" url="http://www.w3.org/TR/html5/document-metadata.html#the-meta-element">
+    meta 元素表示不能使用
+    title、base、link、style 和 script 元素表示的各种元数据。
+  </element>
+  <element _locid="6" url="http://www.w3.org/TR/html5/document-metadata.html#the-style-element">
+    style 元素允许作者将样式信息嵌入在其文档中。该 style 元素是样式化处理模型的多个输入之一。该元素不表示用户的内容。
+  </element>
+  <element _locid="7" url="http://www.w3.org/TR/html5/sections.html#the-body-element">
+    body 元素表示文档的内容。
+  </element>
+  <element _locid="8" url="http://www.w3.org/TR/html5/sections.html#the-article-element">
+    article 元素表示文档、页面、应用程序或站点中的完整或自包含组合，从原则上讲，该元素可独立分发或重使用，例如以联合形式。此元素可能是论坛帖子、杂志或报纸文章、博客条目、用户提交的评论、交互式小工具，或其他任何无关的内容项。
+  </element>
+  <element _locid="9" url="http://www.w3.org/TR/html5/sections.html#the-section-element">
+    section 元素表示文档或应用程序的通用部分。在此上下文中，部分是内容的主题分组。应标识每个部分的标题，方法通常是将标题(h1-h6 元素)作为 section 元素的子级包括在内。
+  </element>
+  <element _locid="10" url="http://www.w3.org/TR/html5/sections.html#the-nav-element">
+    nav 元素表示页面中链接到其他页面或该页面中的部分的某个部分: 包含导航链接的部分。
+  </element>
+  <element _locid="11" url="http://www.w3.org/TR/html5/sections.html#the-aside-element">
+    aside 元素表示页面的某个部分，该部分包含与 aside 元素周围的内容略微相关的内容，以及可能被认为与该内容分隔开的内容。这些部分在打印版式中通常表示为边栏。
+  </element>
+  <element _locid="12" url="http://www.w3.org/TR/html5/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">
+    这些元素表示其所在部分的标题。
+  </element>
+  <element _locid="13" url="http://www.w3.org/TR/html5/sections.html#the-header-element">
+    header 元素表示最近的上级分区内容或分区根元素的介绍性内容。标题通常包含一组介绍性或导航帮助。
+  </element>
+  <element _locid="14" url="http://www.w3.org/TR/html5/sections.html#the-footer-element">
+    footer 元素表示最近的上级分区内容或分区根元素的脚注。脚注通常包含与其所在部分相关的信息，例如编写者、指向相关文档的链接、版权数据等等。
+  </element>
+  <element _locid="15" url="http://www.w3.org/TR/html5/sections.html#the-address-element">
+    address 元素表示最近的 article 或 body 元素上级的联系信息。如果该元素是 body 元素，则该联系信息全部都适用于文档。
+  </element>
+  <element _locid="16" url="http://www.w3.org/TR/html5/grouping-content.html#the-p-element">
+    p 元素表示段落。
+  </element>
+  <element _locid="17" url="http://www.w3.org/TR/html5/grouping-content.html#the-hr-element">
+    hr 元素表示段落级别主题间隔，例如故事中的场景变化或向参考书的某个章节中的另一个主题转换。
+  </element>
+  <element _locid="18" url="http://www.w3.org/TR/html5/grouping-content.html#the-pre-element">
+    pre 元素表示预设了格式的文本块，在该块中，结构由排字约定而非元素来表示。
+  </element>
+  <element _locid="19" url="http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element">
+    blockquote 元素表示从其他源中引用的内容，可以带有必须位于 footer 或 cite 元素中的引文，也可以带有批注和缩写等行内更改。
+  </element>
+  <element _locid="20" url="http://www.w3.org/TR/html5/grouping-content.html#the-ol-element">
+    ol 元素表示项目列表，其中项目已特意经过排序，以致更改顺序会更改文档的含义。
+  </element>
+  <element _locid="21" url="http://www.w3.org/TR/html5/grouping-content.html#the-ul-element">
+    ul 元素表示项目列表，其中项目的顺序不重要，即在其中更改顺序其实不会更改文档的含义。
+  </element>
+  <element _locid="22" url="http://www.w3.org/TR/html5/grouping-content.html#the-li-element">
+    li 元素表示项目列表。如果其父元素是 ol 或 ul，则该元素是为那些元素定义的父元素列表的项目。否则，该列表项目与其他任何 li 元素没有已定义的列表相关关系。
+  </element>
+  <element _locid="23" url="http://www.w3.org/TR/html5/grouping-content.html#the-dl-element">
+    dl 元素表示包含零个或多个名称/值组的关联列表(描述列表)。名称/值组包含一个或多个名称(dt 元素)，后跟一个或多个值(dd 元素)，从而忽略 dt 和 dd 元素之外的任何节点。在单个 dl 元素中，每个名称都不能有多个 dt 元素。
+  </element>
+  <element _locid="24" url="http://www.w3.org/TR/html5/grouping-content.html#the-dt-element">
+    dt 元素表示术语或名称，即描述列表(dl 元素)中术语描述组的一部分。
+  </element>
+  <element _locid="25" url="http://www.w3.org/TR/html5/grouping-content.html#the-dd-element">
+    dd 元素表示描述、定义或值，即描述列表(dl 元素)中术语描述组的一部分。
+  </element>
+  <element _locid="26" url="http://www.w3.org/TR/html5/grouping-content.html#the-figure-element">
+    figure 元素表示一些可以带有标题的自包含流内容(例如完整句子)，通常在文档的主要流中引用为单个单元。
+  </element>
+  <element _locid="27" url="http://www.w3.org/TR/html5/grouping-content.html#the-figcaption-element">
+    figcaption 元素表示 figcaption 元素的父 figure 元素(如果有)的其余内容的标题或图例。
+  </element>
+  <element _locid="28" url="http://www.w3.org/TR/html5/grouping-content.html#the-div-element">
+    div 元素根本没有特殊含义。该元素表示其子级。它可与 class、lang 和 title 属性一起用于标记一组连续元素通用的语义。
+  </element>
+  <element _locid="29" url="http://www.w3.org/TR/html5/grouping-content.html#the-main-element">
+    main 元素表示文档或应用程序正文的主要内容。主要内容区域中的内容与文档的中心主题或应用程序的中心功能直接相关，或根据该中心主题或中心功能进行扩展。
+  </element>
+  <element _locid="30" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-a-element">
+    如果 a 元素具有 href 属性，则该元素表示由其内容标记的超链接(超文本定位)。
+  </element>
+  <element _locid="31" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-em-element">
+    em 元素表示对其内容的强调。
+  </element>
+  <element _locid="32" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-strong-element">
+    strong 元素表示其内容很强的重要性、严重性或紧急性。
+  </element>
+  <element _locid="33" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-small-element">
+    small 元素表示边注，例如小号字体。
+  </element>
+  <element _locid="34" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-s-element">
+    s 元素表示不再准确或不再相关的内容。
+  </element>
+  <element _locid="35" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-cite-element">
+    cite 元素表示对创意作品的引用。该元素必须包括作品的标题或作者(个人、一群人或组织)的名称或 URL 引用(根据用于添加引文元数据的约定，可以采用缩写形式)。
+  </element>
+  <element _locid="36" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-q-element">
+    q 元素表示一些从其他源中引用的分段内容。
+  </element>
+  <element _locid="37" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-dfn-element">
+    dfn 元素表示术语的定义实例。作为 dfn 元素最近上级的段落、描述列表组或部分还必须包含由该 dfn 元素提供的术语的定义。
+  </element>
+  <element _locid="38" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-abbr-element">
+    abbr 元素表示缩写(可带有其扩展)。可使用 title 属性提供该缩写的扩展。如果指定，则该属性必须包含该缩写的扩展，而不包含其他任何内容。
+  </element>
+  <element _locid="39" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-time-element">
+    time 元素表示其内容，以及这些内容在 datetime 属性中的计算机可读形式。此类内容限于各种类型的日期、时间、时区偏移量和持续时间，如下所述。
+  </element>
+  <element _locid="40" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">
+    code 元素表示计算机代码的片段。这可以是 XML 元素名称、文件名、计算机程序，或计算机可识别的其他任何字符串。
+  </element>
+  <element _locid="41" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-var-element">
+    var 元素表示变量。这可以是数学表达式或程序上下文中的实际变量、表示常量的标识符、标识物理数量的符号、函数参数，或只是在文本中用作占位符的词。
+  </element>
+  <element _locid="42" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-samp-element">
+    samp 元素表示程序或计算系统的(示例)输出。
+  </element>
+  <element _locid="43" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-kbd-element">
+    kbd 元素表示用户输入(通常是键盘输入，尽管该元素可能还用于表示语音命令等其他输入)。
+  </element>
+  <element _locid="44" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">
+    sup 元素表示上标，sub 元素表示下标。
+  </element>
+  <element _locid="45" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-i-element">
+    i 元素表示采用备选语态或语气的一段文本，或以指示不同文本质量的方式表示的与常规文本的偏移量，例如分类指定、技术术语、其他语言的惯用短语、音译、想法或采用西方文本的船舶名称。
+  </element>
+  <element _locid="46" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-b-element">
+    b 元素表示一段文本，该文本出于实用目的受到关注，不必传达任何额外的重要性，并且不指示备选语态或语气，例如文档摘要中的关键字、接受检查的产品名称、交互式的文本驱动软件中的可操作单词或文章导语。
+  </element>
+  <element _locid="47" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-u-element">
+    u 元素表示带有未阐明但明确呈现的非文本批注的一段文本，例如使用中文文本(中文的正确名称标记)将文本标记为正确名称，或将文本标记为拼写有误。
+  </element>
+  <element _locid="48" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-mark-element">
+    mark 元素表示一个文档中的一连串文本，这些文本由于其在另一个上下文中的相关性而进行了标记或突出显示，以实现引用目的。如果在从文本中引用的引文或其他文本块中使用，则该元素指示突出显示，该突出显示原先并不存在，但已添加以将读者的注意力吸引到原作者在最初编写块时可能未被视为重要而现在正在接受以前未预料到的仔细查阅的文本部分。如果在文档的主要文本中使用，该元素指示由于其可能与用户的当前活动相关而已突出显示的文档部分。
+  </element>
+  <element _locid="49" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-ruby-element">
+    ruby 元素允许一个或多个跨度的短语内容使用 Ruby 注音批注进行标记。Ruby 注音批注是在基本文本旁边呈现的简短文本，主要在东亚排版中用作发音指南，或者用于包括其他批注。
+  </element>
+  <element _locid="50" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-rt-element">
+    rt 元素标记 Ruby 注音批注的 Ruby 注音文本组件。当它是 ruby 元素或 rtc 元素(本身是 ruby 元素的子级)的子级时，它本身不表示任何内容，但其上级 ruby 元素在确定它所表示的内容时使用它。
+  </element>
+  <element _locid="51" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-rtc-element">
+    rtc 元素标记 Ruby 注音标注中 Ruby 注音文本组件的 Ruby 注音文本容器。当它是 ruby 元素的子级时，它本身不表示任何内容，但它的父级 ruby 元素在确定它所表示的内容时使用它。
+  </element>
+  <element _locid="52" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-rp-element">
+    rp 元素用于提供备用文本，这些文本将由不支持 Ruby 注音批注的用户代理显示。一种广泛使用的惯例是在 Ruby 注音批注的 Ruby 注音文本组件周围加上圆括号。
+  </element>
+  <element _locid="53" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-bdi-element">
+    bdi 元素表示一段文本，该文本要与其周围内容隔离，以用于双向文本格式化。
+  </element>
+  <element _locid="54" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-bdo-element">
+    bdo 元素表示其子级的显式文本方向性格式化控件。该元素允许作者通过明确指定方向重写来重写 Unicode 双向算法。
+  </element>
+  <element _locid="55" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-span-element">
+    span 元素本身不表示任何内容，但与全局属性(例如 class、lang 或 dir)一起使用时可能很有用。该元素表示其子级。
+  </element>
+  <element _locid="56" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-br-element">
+    br 元素表示换行符。
+  </element>
+  <element _locid="57" url="http://www.w3.org/TR/html5/text-level-semantics.html#the-wbr-element">
+    wbr 元素表示换行符机会。
+  </element>
+  <element _locid="58" url="http://www.w3.org/TR/html5/edits.html#the-ins-element">
+    ins 元素表示添加到文档中。
+  </element>
+  <element _locid="59" url="http://www.w3.org/TR/html5/edits.html#the-del-element">
+    del 元素表示从文档中删除。
+  </element>
+  <element _locid="60" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-img-element">
+    img 元素表示图像。
+  </element>
+  <element _locid="61" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element">
+    iframe 元素表示嵌套的浏览上下文。
+  </element>
+  <element _locid="62" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-embed-element">
+    embed 元素为外部(通常是非 HTML)应用程序或交互式内容提供集成点。
+  </element>
+  <element _locid="63" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-object-element">
+    object 元素可表示外部资源，根据资源类型，该资源将被视为图像、嵌套的浏览上下文，或要由插件处理的外部资源。
+  </element>
+  <element _locid="64" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-param-element">
+    param 元素为 object 元素所调用的插件定义参数。它本身不表示任何内容。
+  </element>
+  <element _locid="65" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-video-element">
+    video 元素用于播放视频或电影，以及带有字幕的音频文件。
+  </element>
+  <element _locid="66" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-audio-element">
+    audio 元素表示声音或音频流。
+  </element>
+  <element _locid="67" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-source-element">
+    source 元素允许作者为媒体元素指定多个备选媒体资源。该元素本身不表示任何内容。
+  </element>
+  <element _locid="68" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-track-element">
+    track 元素允许作者为媒体元素指定明确的外部计时文本轨道。该元素本身不表示任何内容。
+  </element>
+  <element _locid="69" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-map-element">
+    map 元素，与 img 元素和任何 area 元素后代一起用于定义图像地图。该元素表示其子级。
+  </element>
+  <element _locid="70" url="http://www.w3.org/TR/html5/embedded-content-0.html#the-area-element">
+    area 元素表示图像地图上一个带有某些文本的超链接和相应区域，或图像地图上的死区域。
+  </element>
+  <element _locid="71" url="http://www.w3.org/TR/html5/tabular-data.html#the-table-element">
+    table 元素以表的形式表示具有多个维度的数据。
+  </element>
+  <element _locid="72" url="http://www.w3.org/TR/html5/tabular-data.html#the-caption-element">
+    caption 元素表示作为其父级的表的标题(如果它有父级，并且该父级是 table 元素)。
+  </element>
+  <element _locid="73" url="http://www.w3.org/TR/html5/tabular-data.html#the-colgroup-element">
+    colgroup 元素表示作为其父级的表中的一个或多个列组(如果它有父级，并且该父级是 table 元素)。
+  </element>
+  <element _locid="74" url="http://www.w3.org/TR/html5/tabular-data.html#the-col-element">
+    如果 col 元素有父级，并且该父级是 colgroup 元素且自身有作为 table 元素的父级，则该 col 元素表示由该 colgroup 表示的列组中的一个或多个列。
+  </element>
+  <element _locid="75" url="http://www.w3.org/TR/html5/tabular-data.html#the-tbody-element">
+    tbody 元素表示行块，这些行包含父 table 元素的数据正文(如果 tbody 元素有父级，并且该父级是表)。
+  </element>
+  <element _locid="76" url="http://www.w3.org/TR/html5/tabular-data.html#the-thead-element">
+    thead 元素表示行块，这些行包含父 table 元素的列标签(标题)，前提是 thead 元素有父级，并且该父级是表。
+  </element>
+  <element _locid="77" url="http://www.w3.org/TR/html5/tabular-data.html#the-tfoot-element">
+    tfoot 元素表示行块，这些行包含父 table 元素的列摘要(脚注)，前提是 tfoot 元素有父级，并且该父级是表。
+  </element>
+  <element _locid="78" url="http://www.w3.org/TR/html5/tabular-data.html#the-tr-element">
+    tr 元素表示表中的一行单元格。
+  </element>
+  <element _locid="79" url="http://www.w3.org/TR/html5/tabular-data.html#the-td-element">
+    td 元素表示表中的数据单元格。
+  </element>
+  <element _locid="80" url="http://www.w3.org/TR/html5/tabular-data.html#the-th-element">
+    th 元素表示表中的标题单元格。
+  </element>
+  <element _locid="81" url="http://www.w3.org/TR/html5/forms.html#the-form-element">
+    form 元素表示与表单关联的元素的集合，其中一些元素可以表示可编辑
+    值，这些值可提交到服务器进行处理。
+  </element>
+  <element _locid="82" url="http://www.w3.org/TR/html5/forms.html#the-label-element">
+    label 元素表示用户界面中的标题。该标题可与特定表单控件(称为 label 元素的标记控件)关联，方法是使用 for 属性，或将表单控件放在 label 元素自身内。
+  </element>
+  <element _locid="83" url="http://www.w3.org/TR/html5/forms.html#the-input-element">
+    input 元素表示类型化数据字段，通常带有允许用户编辑数据的表单控件。
+  </element>
+  <element _locid="84" url="http://www.w3.org/TR/html5/forms.html#the-button-element">
+    button 元素表示由其内容标记的按钮。
+  </element>
+  <element _locid="85" url="http://www.w3.org/TR/html5/forms.html#the-select-element">
+    select 元素表示用于在一组选项中进行选择的控件。
+  </element>
+  <element _locid="86" url="http://www.w3.org/TR/html5/forms.html#the-datalist-element">
+    datalist 元素表示一组 option 元素，这些元素表示其他控件的预定义选项。在呈现时，datalist 元素不表示任何内容，该元素及其子级应被隐藏。
+  </element>
+  <element _locid="87" url="http://www.w3.org/TR/html5/forms.html#the-optgroup-element">
+    optgroup 元素表示带有常见标签的一组 option 元素。
+  </element>
+  <element _locid="88" url="http://www.w3.org/TR/html5/forms.html#the-option-element">
+    option 元素表示 select 元素中的选项，或 datalist 元素中的建议列表的一部分。
+  </element>
+  <element _locid="89" url="http://www.w3.org/TR/html5/forms.html#the-textarea-element">
+    textarea 元素表示该元素的原始值的多个纯文本编辑控件。该控件的内容表示该控件的默认值。
+  </element>
+  <element _locid="90" url="http://www.w3.org/TR/html5/forms.html#the-keygen-element">
+    keygen 元素表示密钥对生成器控件。在提交该控件的表单后，私钥存储在本地密钥存储区中，而公钥将被打包并发送到服务器。
+  </element>
+  <element _locid="91" url="http://www.w3.org/TR/html5/forms.html#the-output-element">
+    output 元素表示计算或用户操作的结果。
+  </element>
+  <element _locid="92" url="http://www.w3.org/TR/html5/forms.html#the-progress-element">
+    progress 元素表示任务的完成进度。该进度要么不确定，即指示任务正在进行，但不清楚在任务完成前还有多少工作要做(例如因为该任务正在等待远程主机响应)，要么该进度是零到最大值范围内的一个数字，这提供了迄今为止已完成的工作的分数。
+  </element>
+  <element _locid="93" url="http://www.w3.org/TR/html5/forms.html#the-meter-element">
+    meter 元素表示已知范围内的标量度量或分数值; 例如磁盘使用量、查询结果的相关性，或已选择特定候选人的投票人的分数。
+  </element>
+  <element _locid="94" url="http://www.w3.org/TR/html5/forms.html#the-fieldset-element">
+    fieldset 元素表示一组可以按常见名称分组的表单控件。
+  </element>
+  <element _locid="95" url="http://www.w3.org/TR/html5/forms.html#the-legend-element">
+    legend 元素表示该 legend 元素的父 fieldset 元素(如果有)的其余内容的标题。
+  </element>
+  <element _locid="96" url="http://www.w3.org/TR/html5/scripting-1.html#the-script-element">
+    script 元素允许作者在其文档中包括动态脚本和数据块。该元素不表示用户的内容。
+  </element>
+  <element _locid="97" url="http://www.w3.org/TR/html5/scripting-1.html#the-noscript-element">
+    noscript 元素不表示任何内容(如果启用脚本编写)，或表示其子级(如果禁用脚本编写)。该元素用于通过影响文档的分析方式来为支持脚本编写和不支持脚本编写的用户代理提供不同标记。
+  </element>
+  <element _locid="98" url="http://www.w3.org/TR/html5/scripting-1.html#the-template-element">
+    template 元素用于声明可由脚本克隆并插入文档中的 HTML 片段。
+  </element>
+  <element _locid="99" url="http://www.w3.org/TR/html5/scripting-1.html#the-canvas-element">
+    canvas 元素为脚本提供与分辨率有关的位图画布，该画布可用于动态呈现图形、游戏图形、艺术或其他可视图像。
+  </element>
+  <element _locid="100" url="http://www.w3.org/TR/html5/embedded-content-0.html#mathml">
+    MathML 命名空间中的 math 元素归入嵌入内容、分段内容和流内容类别，以用于此规范中的内容模型。
+  </element>
+  <element _locid="101" url="http://www.w3.org/TR/html5/embedded-content-0.html#svg">
+    SVG 命名空间中的 svg 元素归入嵌入内容、分段内容和流内容类别，以用于此规范中的内容模型。
+  </element>
+  <element _locid="102" url="http://www.w3.org/TR/shadow-dom/#the-content-element">
+    content 元素表示阴影树中的插入点。
+  </element>
+  <element _locid="103" url="http://www.w3.org/TR/shadow-dom/#the-shadow-element">
+    shadow 元素表示阴影树中的阴影插入点。
+  </element>
+  <element _locid="104" url="http://www.w3.org/wiki/HTML/Elements/hgroup">
+    hgroup 元素已引入 HTML 5 中，并用于在标题有多个级别时将一组 h1–h6 元素分组。该元素现已弃用。
+  </element>
+  <element _locid="105" url="http://msdn.microsoft.com/en-us/library/windows/apps/dn301831.aspx">
+    在应用中显示 HTML 内容。
+  </element>
+  <element _locid="106" url="http://www.w3.org/wiki/HTML/Elements/command">
+    command 元素表示用户可调用的命令。
+  </element>
+  <element _locid="107" url="http://www.polymer-project.org/docs/start/creatingelements.html">
+    聚合元素用于使用 Polymer JavaScript 库创建新的 HTML 元素。
+  </element>
+  <element _locid="108" url="https://angularjs.org/">
+    由 AngularJS JavaScript 库使用的元素。
+  </element>
+  <element _locid="109" url="http://www.w3.org/TR/html51/interactive-elements.html#the-dialog-element">
+    dialog 元素表示用户为了执行任务而与之交互的应用程序的一部分，例如，对话框、检查器或窗口。
+  </element>
+  <element _locid="110" url="http://www.w3.org/TR/html51/interactive-elements.html#the-details-element">
+    details 元素表示用户可以从中获取其他信息或控件的公开小组件。
+  </element>
+  <element _locid="111" url="http://www.w3.org/TR/html51/interactive-elements.html#the-summary-element">
+    summary 元素表示 summary 元素的父 details 元素(如果有)的其余内容的摘要、标题或图例。
+  </element>
+  <element _locid="112" url="http://www.w3.org/TR/html51/interactive-elements.html#the-menu-element">
+    menu 元素表示一组命令。
+  </element>
+  <element _locid="113" url="http://www.w3.org/TR/html51/interactive-elements.html#the-menuitem-element">
+    menuitem 元素表示用户可从弹出菜单(上下文菜单或菜单按钮的菜单)中调用的命令。
+  </element>
+  <element _locid="114" url="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#the-picture-element">
+    picture 元素是一个容器，它为其包含的 img 元素提供多个源，从而允许作者以声明方式，基于屏幕像素密度、视区大小、图像格式和其他因素控制要使用的图像资源或为用户代理提供其相关提示。它表示其子级。
+  </element>
+  <element _locid="115" url="http://www.w3.org/wiki/HTML/Elements/acronym">
+    acronym 元素是非标准元素。HTML5 将其分类为不相容功能。请改用 abbr
+  </element>
+  <element _locid="116" url="http://www.w3.org/wiki/HTML/Elements/center">
+    center 元素已引入 HTML 3.2 中。自 HTML 4 起，它已弃用。HTML5 将其分类为不相容功能。
+  </element>
+  <element _locid="117" url="http://www.w3.org/wiki/HTML/Elements/font">
+    font 元素是非标准元素。HTML5 将其分类为不相容功能。
+  </element>
+  <element _locid="118" url="http://www.w3.org/wiki/HTML/Elements/nobr">
+    nobr 元素是非标准元素。HTML5 将其分类为不相容功能。
+  </element>
+  <element _locid="119" url="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#attr-picture-source-srcset">
+    要在不同情况下使用的图像(例如高分辨率显示器、小型监视器等)。
+  </element>
+  <element _locid="120" url="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#attr-picture-source-sizes">
+    介于断点之间的图像大小。
+  </element>
+  <element _locid="121" url="http://www.w3.org/TR/html51/scripting-1.html#the-script-element">
+    脚本一旦可用，就将异步执行。
+  </element>
+  <element _locid="122" url="http://www.w3.org/TR/html51/scripting-1.html#the-script-element">
+    在该页完成分析后，将执行脚本。
+  </element>
+  <element _locid="123" url="http://www.w3.org/TR/html51/scripting-1.html#the-script-element">
+    对于从其他来源获得的脚本，它用于控制是否要公开错误信息。
+  </element>
+  <element _locid="124" url="http://www.w3.org/TR/html51/editing.html#the-accesskey-attribute">
+    用户代理使用 accesskey 属性的值作为指导，以便创建激活或聚焦元素的键盘快捷键。
+  </element>
+  <element _locid="125" url="http://www.w3.org/TR/html51/editing.html#the-draggable-attribute">
+    具有可拖动属性的元素还应具有对该元素命名的 title 属性，以便实现非视觉交互目的。
+  </element>
+  <element _locid="126" url="http://www.w3.org/TR/SRI/#the-integrity-attribute">
+    integrity 属性表示元素的完整性元数据。
+  </element>
+  <element _locid="127" url="https://html.spec.whatwg.org/multipage/interactive-elements.html#attr-dialog-open">
+    指定后，它指示对话元素处于活动状态，用户可以与其进行交互。
+  </element>
+</root>

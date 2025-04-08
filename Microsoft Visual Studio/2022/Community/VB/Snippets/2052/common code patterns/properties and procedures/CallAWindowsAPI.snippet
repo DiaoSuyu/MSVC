@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>定义一个调用 Windows API 的函数</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>定义一个调用 Windows API 的函数。</Description>
+      <Keywords>
+		  <Keyword>pinvoke</Keyword>
+		  <Keyword>声明</Keyword>
+		  <Keyword>win32</Keyword>
+      </Keywords>
+      <Shortcut>WinApi</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>dllName</ID>
+          <Type/>
+          <ToolTip>替换为包含 API 方法的 .dll 文件的名称。</ToolTip>
+          <Default>"user32.dll"</Default>
+        </Literal>
+        <Literal>
+          <ID>apiName</ID>
+          <Type/>
+          <ToolTip>替换为 .dll 文件中的方法的名称。</ToolTip>
+          <Default>"MessageBox"</Default>
+        </Literal>
+        <Literal>
+          <ID>parameters</ID>
+          <Type/>
+          <ToolTip>替换为 .dll 文件中声明的参数。</ToolTip>
+          <Default>ByVal hWnd As Integer, ByVal txt As String, ByVal caption As String, ByVal type As Integer</Default>
+        </Literal>
+        <Literal>
+          <ID>matchingCall</ID>
+          <Type/>
+          <ToolTip>替换为要从项目调用的名称。</ToolTip>
+          <Default>Win32MessageBox</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method decl"><![CDATA[Declare Function $matchingCall$ Lib $dllName$ Alias $apiName$ ($parameters$) As Integer]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

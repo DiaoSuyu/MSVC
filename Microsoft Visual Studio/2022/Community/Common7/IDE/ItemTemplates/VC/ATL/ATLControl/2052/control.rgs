@@ -1,0 +1,62 @@
+HKCR
+{
+[!if PROGID_VALID]
+	$progid$ = s '$type_name$'
+	{
+		CLSID = s '{$guid_clsid$}'
+[!if INSERTABLE]
+		Insertable
+[!endif]
+	}
+	$version_independent_progid$ = s '$type_name$'
+	{		
+		CurVer = s '$progid$'
+	}
+[!endif]
+	NoRemove CLSID
+	{
+		ForceRemove {$guid_clsid$} = s '$type_name$'
+		{
+[!if PROGID_VALID]
+			ProgID = s '$progid$'
+			VersionIndependentProgID = s '$version_independent_progid$'
+[!endif]
+[!if INTERFACE_DUAL]
+			ForceRemove Programmable
+[!endif]
+[!if DLL_APP]
+			InprocServer32 = s '%MODULE%'
+			{
+[!if !DEVICE || SUPPORT_DCOM]
+[!if THREADING_APARTMENT]
+				val ThreadingModel = s 'Apartment'
+[!endif]
+[!else]
+				val ThreadingModel = s 'Free'
+[!endif]
+			}
+[!else]
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+[!endif]
+[!if APPID_EXIST]
+			val AppID = s '$appid_registry_format$'
+[!endif]
+			ForceRemove Control
+[!if INSERTABLE]
+			ForceRemove Insertable
+[!endif]
+[!if !DEVICE]
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, $idr_bmpid_value$'
+[!endif]
+			MiscStatus = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			TypeLib = s '{$libid_registry_format$}'
+			Version = s '$typelib_version_major$.$typelib_version_minor$'
+		}
+	}
+}

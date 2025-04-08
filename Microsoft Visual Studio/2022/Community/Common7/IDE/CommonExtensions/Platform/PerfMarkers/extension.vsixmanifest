@@ -1,0 +1,19 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="PerfMarkers.Microsoft Corporation.5f945160-e23d-49c5-8997-e05932baa944" Version="1.0" Language="en-US" Publisher="Microsoft Corporation" />
+    <DisplayName>Perf Markers</DisplayName>
+    <Description xml:space="preserve">Perf Markers Tool</Description>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,16.0)" />
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.DiagnosticsHub.PerfMarkers.dll" />
+  </Assets>
+</PackageManifest>

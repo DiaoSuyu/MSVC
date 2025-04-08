@@ -1,0 +1,11 @@
+{
+  "kind": "code.generic",
+  "order": 30,
+  "model": {
+    "kind": "File",
+    "properties": {
+      "FileName": "AzureAppConfigShowBetaFeature.cs",
+      "TemplatePath": "path:#/modifiers/appConfig/isolated/AzureAppConfigShowBetaFeature.cs"
+    }
+  }
+}

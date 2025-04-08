@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>General TextMate Theme</string>
+    <key>settings</key>
+    <array>
+
+      <dict>
+        <key>scope</key>
+        <string>
+          string - meta.attribute,
+          punctuation.definition.string - meta.attribute,
+          punctuation.definition.template-expression,
+          constant.character.escape,
+          constant.regexp,
+          markup.heading,
+          string.quoted.double.cs
+        </string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>string</string>
+        </dict>
+      </dict>
+
+      <dict>
+        <key>scope</key>
+        <string>comment</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>Comment</string>
+        </dict>
+      </dict>
+
+    </array>
+    <key>uuid</key>
+    <string>90305E11-05B2-49F0-8381-30661EFA6A2A</string>
+  </dict>
+</plist>

@@ -1,0 +1,9 @@
+[$RootKey$\ClrHost]
+"Class"="Microsoft.VisualStudio.Platform.VsAppDomainManager"
+"Assembly"="Microsoft.VisualStudio.Platform.AppDomainManager,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+[$RootKey$\CLSID\{B5E8E694-6FCD-4F4A-A2A2-A30AD7B1881E}]
+@="VS HostExecutionContext Service"
+"Assembly"="Microsoft.VisualStudio.Platform.AppDomainManager,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"Class"="Microsoft.VisualStudio.Platform.VsHostExecutionContextService"
+"InprocServer32"="$WinDir$\system32\mscoree.dll"
+"ThreadingModel"="Free"

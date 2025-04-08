@@ -1,0 +1,356 @@
+﻿{
+  "start_url": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\swimLanesView.html",
+  "domain": "http://microsoft.com",
+  "name": "SwimLanesView",
+  "browserHostVersion": "2.0",
+  "use_css_variables": true,
+  "resource_aliases": {
+    "DiagnosticsHubResources": {
+      "path": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\DiagnosticsHub.TypeScript.ScriptResources",
+      "is_default": false
+    },
+    "DiagnosticsHubSwimlaneResources": {
+      "path": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\DiagnosticsHub.TypeScript.Swimlanes.ScriptResources",
+      "is_default": true
+    }
+  },
+  "vs": {
+    "theme_token_aliases": {
+      "CommonControls-FocusVisual-Foreground": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "ForegroundColor",
+        "name": "FocusVisual"
+      },
+      "CommonControls-Button-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "Button"
+      },
+      "CommonControls-Button-Foreground": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "ForegroundColor",
+        "name": "Button"
+      },
+      "CommonControls-ButtonBorder-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "ButtonBorder"
+      },
+      "CommonControls-ButtonHover-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "ButtonHover"
+      },
+      "CommonControls-ButtonHover-Foreground": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "ForegroundColor",
+        "name": "ButtonHover"
+      },
+      "CommonControls-ButtonBorderHover-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "ButtonBorderHover"
+      },
+      "CommonControls-ButtonDisabled-Background": {
+        "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+        "key_type": "BackgroundColor",
+        "name": "ButtonDisabled"
+      },
+      "CommonControls-ButtonDisabled-Foreground": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "ForegroundColor",
+          "name": "ButtonDisabled"
+      },
+      "CommonControls-ButtonBorderDisabled-Background": {
+          "category": "c01072a1-a915-4abf-89b7-e2f9e8ec4c7f",
+          "key_type": "BackgroundColor",
+          "name": "ButtonBorderDisabled"
+      },
+      "Environment-CommandBarBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarBorder"
+      },
+      "Environment-CommandBarSelectedBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarSelectedBorder"
+      },
+      "Environment-CommandBarSelected-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarSelected"
+      },
+      "Environment-CommandBarHoverOverSelectedIconBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarHoverOverSelectedIconBorder"
+      },
+      "Environment-CommandBarTextHoverOverSelected-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextHoverOverSelected"
+      },
+      "DetailsView-CommandBarHoverOverSelected-Background": {
+        "category": "a128c60e-947c-4f26-95c9-fb4b3d53547f",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarHoverOverSelected"
+      },
+      "Environment-CommandBarMouseOverBackgroundBegin-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMouseOverBackgroundBegin"
+      },
+      "Environment-CommandBarMenuBorder-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMenuBorder"
+      },
+      "Environment-CommandBarMenuIconBackground-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMenuIconBackground"
+      },
+      "Environment-CommandBarMenuItemMouseOver-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMenuItemMouseOver"
+      },
+      "Environment-CommandBarMenuItemMouseOver-Foreground": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "ForegroundColor",
+        "name": "CommandBarMenuItemMouseOver"
+      },
+      "Environment-CommandBarMenuBackgroundGradientBegin-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMenuBackgroundGradientBegin"
+      },
+      "Environment-CommandBarTextHover-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextHover"
+      },
+      "Environment-CommandBarMouseDownBackgroundBegin-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarMouseDownBackgroundBegin"
+      },
+      "Environment-CommandBarTextMouseDown-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextMouseDown"
+      },
+      "Environment-CommandBarTextActive-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarTextActive"
+      },
+      "diagnostics-host-border": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "Border"
+      },
+      "diagnostics-host-graph-line": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "GraphLine"
+      },
+      "diagnostics-host-ruler-slider": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "RulerSlider"
+      },
+      "diagnostics-host-ruler-slider-active": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "RulerSliderActive"
+      },
+      "diagnostics-host-ruler-tickmark": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "RulerTickmark"
+      },
+      "diagnostics-host-swimlane-border": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "SwimlaneBorder"
+      },
+      "Environment-CommandBarToolBarSeparator-Background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarToolBarSeparator"
+      },
+      "diagnostics-host-toolbar-text-disabled": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "ToolbarTextDisabled"
+      },
+      "vs-command-bar-gradient-begin-color": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "CommandBarGradientBegin"
+      },
+      "diagnostics-information-background": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "InfoBackground"
+      },
+      "diagnostics-information-border": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "ToolWindowBorder"
+      },
+      "diagnostics-information-foreground": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "InfoText"
+      },
+      "diagnostics-information-link-foreground": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "PanelHyperlink"
+      },
+      "diagnostics-information-link-foreground-hover": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "PanelHyperlinkHover"
+      },
+      "diagnostics-information-link-foreground-pressed": {
+        "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+        "key_type": "BackgroundColor",
+        "name": "PanelHyperlinkPressed"
+      },
+      "diagnostics-swimlane-bar-strong-blue": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfaceStrongBlue"
+      },
+      "diagnostics-swimlane-bar-red": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfaceRed"
+      },
+      "diagnostics-swimlane-bar-plum": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfacePlum"
+      },
+      "diagnostics-swimlane-bar-green": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfaceGreen"
+      },
+      "diagnostics-swimlane-bar-gold": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfaceGold"
+      },
+      "diagnostics-swimlane-bar-brown": {
+        "category": "f8a8b2a5-dd35-43f6-a382-fd6a61325c22",
+        "key_type": "BackgroundColor",
+        "name": "VizSurfaceBrown"
+      },
+      "ProgressBar-Background-Background": {
+        "category": "94acf70f-a81d-4512-a31d-8196616751ee",
+        "key_type": "BackgroundColor",
+        "name": "Background"
+      },
+      "ProgressBar-IndicatorFill-Background": {
+        "category": "94acf70f-a81d-4512-a31d-8196616751ee",
+        "key_type": "BackgroundColor",
+        "name": "IndicatorFill"
+      }
+    },
+    "themed_images": {
+      "vs-image-icon-tree-expanded": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\itemExpandedIcon.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-icon-tree-collapsed": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\itemCollapsedIcon.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartzoom-in": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartzoom_in.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartzoom-in-disabled": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartzoom_in_disabled.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartzoom-reset": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartzoom_reset.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartzoom-reset-disabled": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartzoom_reset_disabled.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartselection-clear": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartselection_clear.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-chartselection-clear-disabled": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_chartselection_clear_disabled.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-user-mark": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_usermark.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-app-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_appevent.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-aggregated-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\customMark5_18x.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-third-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\customMark1_18x.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-fourth-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\customMark2_18x.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-fifth-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\customMark3_18x.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-graph-sixth-event": {
+        "bitmap_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\customMark4_18x.png",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-stopcollection": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_stopcollection.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-stopcollection-disabled": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\i_stopcollection_disabled.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-information-icon": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\information_blue.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-reset-view-disabled": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\resetTimelineViewDisabled_16x.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-reset-view": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\resetTimelineView_16x.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-show-output": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\showOutput_16x.svg",
+        "background_color": "plugin-background-color"
+      },
+      "vs-image-toolbar-processes": {
+        "svg_source": "CommonExtensions\\Platform\\DiagnosticsHub\\EdgeWebViews\\Images\\process.svg",
+        "background_color": "plugin-background-color"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>create</Title>
+    <Author>Microsoft Corporation</Author>
+    <Description>Fragment kódu pro $create()</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>type</ID>
+        <ToolTip>Typ součásti, která se má vytvořit</ToolTip>
+        <Default>Sys.Component</Default>
+      </Literal>
+      <Literal>
+        <ID>element</ID>
+        <ToolTip>Element DOM, ke kterému musí být součást připojená</ToolTip>
+        <Default>null</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[$$create($type$, {}, {}, {}, $element$)$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

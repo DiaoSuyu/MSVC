@@ -1,0 +1,19 @@
+[$RootKey$\CLSID\{26FA29E5-8A81-45E0-AEEB-0B1D6E5DD977}]
+@="Web Application Migration Class"
+"InprocServer32"="$ShellFolder$\Common7\Packages\WebAppUpgrade.dll"
+
+[$RootKey$\CLSID\{C402364C-5474-47E7-AE72-BF5418780221}]
+@="Visual Studio Web Application ProjectAggregator2 Class"
+"InprocServer32"="$ShellFolder$\Common7\Packages\WebAppUpgrade.dll"
+
+[$RootKey$\Packages\{DC7F691A-91FC-4F7b-923E-FE829C3A18DC}]
+@="Visual Web Developer Web Application Upgrade Package"
+"InprocServer32"="$ShellFolder$\Common7\Packages\WebAppUpgrade.dll"
+
+[$RootKey$\Packages\{DC7F691A-91FC-4F7b-923E-FE829C3A18DC}\SatelliteDll]
+"DllName"="webappupgradeui.dll"
+"Path"="$ShellFolder$\Common7\Packages\"
+
+[$RootKey$\Services\{97422BAE-2144-4207-AB16-B4C3B7A2D9A3}]
+@="{DC7F691A-91FC-4f7B-923E-FE829C3A18DC}"
+"Name"="WebAppUpgradeService"

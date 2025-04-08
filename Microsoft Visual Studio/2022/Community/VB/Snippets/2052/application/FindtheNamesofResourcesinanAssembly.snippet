@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>查找程序集中资源的名称</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>返回程序集中所有资源的列表。</Description>
+      <Shortcut>appRes</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Reflection</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>executingAssembly</ID>
+          <Type>Assembly</Type>
+          <ToolTip>存储当前正在执行的程序集的对象。</ToolTip>
+          <Default>executingAssembly</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[$executingAssembly$ = Assembly.GetExecutingAssembly()
+Dim resources() As string = $executingAssembly$.GetManifestResourceNames
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,46 @@
+{
+  "kind": "xmlelement.generic",
+  "order": 20,
+  "restorable": true,
+  "model": {
+    "filePath": "Web.config",
+    "key": "appSettings",
+    "elements": [
+      {
+        "name": "add",
+        "attributes": {
+          "key": "ida:ClientId",
+          "value": "@@ClientId@@"
+        }
+      },
+      {
+        "name": "add",
+        "attributes": {
+          "key": "ida:AADInstance",
+          "value": "https://login.microsoftonline.com/"
+        }
+      },
+      {
+        "name": "add",
+        "attributes": {
+          "key": "ida:Domain",
+          "value": "@@Domain@@"
+        }
+      },
+      {
+        "name": "add",
+        "attributes": {
+          "key": "ida:TenantId",
+          "value": "@@TenantId@@"
+        }
+      },
+      {
+        "name": "add",
+        "attributes": {
+          "key": "ida:PostLogoutRedirectUri",
+          "value": "@@RedirectUri@@"
+        }
+      }
+    ]
+  }
+}

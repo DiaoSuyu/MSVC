@@ -1,0 +1,43 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2component</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2component</Shortcut>
+    <Description>Snippet de código para adicionar um componente Angular 2</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>myComponent</ID>
+        <ToolTip>Nome do Componente</ToolTip>
+        <Default>my-component</Default>
+      </Literal>
+      <Literal>
+        <ID>template</ID>
+        <ToolTip>Modelo</ToolTip>
+        <Default><div>Olá, meu nome é {{name}}.</div></Default>
+      </Literal>
+      <Literal>
+        <ID>ComponentName</ID>
+        <ToolTip>Nome da Classe do Componente</ToolTip>
+        <Default>Example</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+      import { Component } from 'angular/core'; 
+     
+      @Component({
+          selector: '$myComponent$',
+          template: '$template$'
+      })
+      export class $ComponentName$Component {
+          constructor() {
+              this.name = 'Sam';
+          }
+      }
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

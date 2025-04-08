@@ -1,0 +1,11 @@
+[$RootKey$\CLSID\{8B217746-717D-11CE-AB5B-D41203C10000}]
+@="CLSID_TypeLibInfo"
+"InprocServer32"="$ShellFolder$\Common7\IDE\vstlbinf.dll"
+
+[$RootKey$\CLSID\{8B217752-717D-11CE-AB5B-D41203C10000}]
+@="CLSID_SearchHelper"
+"InprocServer32"="$ShellFolder$\Common7\IDE\vstlbinf.dll"
+
+[$RootKey$\CLSID\{8B21775E-717D-11CE-AB5B-D41203C10000}]
+@="CLSID_TLIApplication"
+"InprocServer32"="$ShellFolder$\Common7\IDE\vstlbinf.dll"

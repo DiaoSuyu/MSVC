@@ -1,0 +1,178 @@
+﻿.search-control {
+    border: 1px solid var(--SearchControl-UnfocusedBorder-Background, lawngreen);
+    display: inline-flex;
+    background-color: var(--SearchControl-Unfocused-Background, lawngreen);
+}
+
+div.search-container {
+    overflow: visible;
+}
+
+.search-container.controlDisabled {
+    background-color: var(--SearchControl-Disabled-Background, lawngreen);
+    border-color: var(--SearchControl-DisabledBorder-Background, fuchsia);
+}
+
+    .search-container.controlEnabled > .search-control.hasFocus {
+        background-color: var(--SearchControl-FocusedBackground-Background, lawngreen);
+        border-color: var(--SearchControl-FocusedBorder-Background, fuchsia);
+    }
+
+    .search-container.controlEnabled > .search-control:hover {
+        background-color: var(--SearchControl-MouseOverBackground-Background, lawngreen);
+        border-color: var(--SearchControl-MouseOverBorder-Background, fuchsia);
+    }
+
+/*****
+    INPUT CONTROL
+*/
+
+.search-control > input[type="search"] {
+    padding: 0px 0px 0px 3px;
+    background-color: transparent;
+    border: none;
+    width: 150px;
+    color: var(--SearchControl-Unfocused-Foreground, fuchsia);
+}
+
+    .search-control.hasFocus > input[type="search"] {
+        color: var(--SearchControl-FocusedBackground-Foreground, coral);
+    }
+
+    .search-control:hover > input[type="search"] {
+        color: var(--SearchControl-MouseOverBackground-Foreground, deeppink);
+    }
+
+    .search-control > input[type="search"]:disabled {
+        color: var(--SearchControl-Disabled-Foreground, mediumorchid);
+    }
+
+    .search-control > input[type="search"]:active {
+        color: var(--SearchControl-SearchActive-Foreground, red);
+        background-color: var(--SearchControl-SearchActive-Background, lawngreen);
+    }
+
+    .search-control > input[type="search"]::selection {
+        color: var(--SearchControl-Selection-Foreground, coral);
+        background-color: var(--SearchControl-Selection-Background, forestgreen);
+    }
+
+/*****
+    ACTION BUTTON
+*/
+
+    .search-control .search-submit-button > svg {
+        vertical-align: middle;
+        margin-right: 2px;
+    }
+
+    .search-container.controlEnabled .search-submit-button:hover {
+        background-color: var(--SearchControl-ActionButtonMouseOver-Background, lawngreen);
+    }
+
+    .search-container.controlDisabled .search-submit-button {
+        background-color: transparent;
+    }
+
+    .search-container.controlDisabled .search-submit-button > svg .icon-vs-bg {
+        fill: var(--SearchControl-ActionButtonDisabledGlyph-Background, fuchsia);
+    }
+
+    .search-container.controlDisabled .search-submit-button > svg .icon-vs-fg,
+    .search-container.controlDisabled .search-submit-button > svg .icon-vs-out {
+        fill: transparent;
+    }
+
+/*****
+    DROP-DOWN BUTTON
+*/
+
+.dropdown-button {
+    display: inline-block;
+}
+
+    .dropdown-button:after {
+        font-family: Marlett !important;
+        content: " 6"; /* 6 in Marlett font is down arrow */
+        vertical-align: bottom;
+    }
+
+.search-control > .dropdown-button {
+    border-width: 0px 0px 0px 1px;
+    background-color: var(--SearchControl-UnfocusedDropDownButton-Background, lawngreen);
+    color: var(--SearchControl-UnfocusedDropDownButtonGlyph-Background, fuchsia);
+    border-style: solid;
+    border-color: var(--SearchControl-UnfocusedDropDownButtonBorder-Background, fuchsia);
+}
+
+.search-container.controlEnabled > .hasFocus > .dropdown-button {
+    background-color: var(--SearchControl-FocusedDropDownButton-Background, lawngreen);
+    color: var(--SearchControl-FocusedDropDownButtonGlyph-Background, fuchsia);
+    border-color: var(--SearchControl-FocusedDropDownButtonBorder-Background, fuchsia);
+}
+
+.search-container.controlEnabled .dropdown-button:hover {
+    background-color: var(--SearchControl-MouseOverDropDownButton-Background, lawngreen);
+    color: var(--SearchControl-MouseOverDropDownButtonGlyph-Background, fuchsia);
+    border-color: var(--SearchControl-MouseOverDropDownButtonBorder-Background, fuchsia);
+}
+
+.search-container.controlEnabled .dropdown-button:active {
+    background-color: var(--SearchControl-MouseDownDropDownButton-Background, lawngreen);
+    color: var(--SearchControl-MouseDownDropDownButtonGlyph-Background, fuchsia);
+    border-color: var(--SearchControl-MouseDownDropDownButtonBorder-Background, fuchsia);
+}
+
+.search-container.controlDisabled .dropdown-button {
+    background-color: transparent;
+    color: var(--SearchControl-DisabledDownButtonGlyph-Background, fuchsia);
+    border-color: var(--SearchControl-UnfocusedDropDownButtonBorder-Background, fuchsia);
+}
+
+/*****
+    OPTIONS FLYOUT
+*/
+
+#searchOptionsFlyout {
+    position: absolute;
+    overflow: auto;
+    display: none;
+    z-index: 9999;
+    border: 1px solid var(--SearchControl-PopupBorder-Background, red);
+    background-color: var(--SearchControl-PopupItemsListBackgroundGradientBegin-Background, aquamarine);
+    color: var(--SearchControl-PopupItemText-Background, fuchsia);
+    right: 0px;
+}
+
+    #searchOptionsFlyout.flyoutActive {
+        display: grid;
+    }
+
+    #searchOptionsFlyout > * {
+        display: block;
+        padding: 2px 8px 2px 2px;
+    }
+
+    #searchOptionsFlyout > .flyoutHeader {
+        grid-row: 1;
+        padding-left: 4px;
+        color: var(--SearchControl-PopupSectionHeaderText-Background, fuchsia);
+    }
+
+    #searchOptionsFlyout > .regExSetting {
+        grid-row: 2;
+    }
+
+        #searchOptionsFlyout > .regExSetting.hasFocus {
+            background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, aquamarine);
+            color: var(--plugin-highlight-color, red);
+        }
+
+    #searchOptionsFlyout > .caseSensitiveSetting {
+        grid-row: 3;
+    }
+
+        #searchOptionsFlyout > .caseSensitiveSetting.hasFocus {
+            background-color: var(--SearchControl-PopupControlMouseOverBackgroundGradientBegin-Background, aquamarine);
+            color: var(--plugin-highlight-color, red);
+        }

@@ -1,0 +1,46 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    color: var(--plugin-color, black);
+    font-size: var(--plugin-font-size, 9pt);
+    font-family: var(--plugin-font-family, "Segoe UI"), Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--plugin-background-color, transparent);
+}
+
+html, body {
+    -ms-high-contrast-adjust: none;
+    cursor: default;
+}
+
+.fullsizeOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Common styles and controls */
+.dropdown-button:after {
+    font-family: Marlett !important;
+    content: " 6"; /* 6 in Marlett font is down arrow */
+    vertical-align: bottom;
+}
+
+/* reset the default IE button:active animation */
+button:active * {
+    position: relative;
+}
+
+/* reset the injected min-width from daytona. Despite the CSS spec saying the value should be 'initial', only 'auto' works for our purposes. */
+button {
+    min-width: auto;
+    box-sizing: border-box;
+    border-radius: 0;
+}

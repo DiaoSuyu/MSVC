@@ -1,0 +1,2259 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Terminal.Implementation</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.Terminal.ClearConsoleCommand">
+            <summary>
+            Class that initializes the "Clear console" command.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ClearConsoleCommand.InitializeCommandAsync(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the "Clear console" command. This should only be called once.
+            </summary>
+            <param name="package">The terminal VS package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> that completes once the command has been initialized.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.DynamicMenu">
+            <summary>
+            Class that instantiates the dynamic split button command for the terminal tool window.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.DynamicMenu.InitializeCommandAsync(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the commands used by the terminal tool window.
+            </summary>
+            <param name="package">Terminal package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.DynamicMenu.OnBeforeQueryStatusDefaultItem(Microsoft.VisualStudio.Terminal.TerminalWindowPackage,System.Object)">
+            <summary>
+            Used to set the tooltip text for the terminal toolbar split button since the actual text is hidden behind a menu controller.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.DynamicMenuCommand">
+            <summary>
+            Class that instanciates the dynamic menu command for the terminal tool window new instance dropdown list.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.DynamicMenuCommand.#ctor(System.ComponentModel.Design.CommandID,System.Predicate{System.Int32},System.EventHandler,System.EventHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.DynamicMenuCommand" /> class.
+            </summary>
+            <param name="rootId">ID of the command.</param>
+            <param name="matches">Predicate used to identify a matching terminal profile.</param>
+            <param name="invokeHandler">The event handler called to execute the command.</param>
+            <param name="beforeQueryStatusHandler">Event handler called when a lient asks for the command status.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.DynamicMenuCommand.DynamicItemMatch(System.Int32)">
+            <summary>
+            Verifies if there is a matching command for the provided cmdId.
+            </summary>
+            <param name="cmdId">ID of the command.</param>
+            <returns>True if a match, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.OpenInTerminalCommandHandler">
+            <summary>
+            Class used to instantiate the "Open in Terminal" command.
+            This command is implemented using the legacy VSCT for folder, project, and solution nodes in Solution View in a local context.
+            Folder View implementation can be found under the AnyCode repo.
+            Codespace Solution View implementation can be found in the VS repo under the UIInternal solution.
+            Codespace Folder View implementation can be found in the LiveShare repo.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OpenInTerminalCommandHandler.InitializeCommandAsync(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the solution view "Open in Terminal" command.
+            </summary>
+            <param name="termPackage">Terminal package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OpenInTerminalCommandHandler.Execute(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Executes this command using the legacy VSCT implementation. This acquires the selected item in the Solution Explorer using the DTE,
+            acquires the file path of the item, and opens a new terminal using the terminal service.
+            </summary>
+            <param name="package">Terminal package used to acquire profiles and JTF.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OpenInTerminalCommandHandler.OnBeforeQueryStatus(System.Object)">
+            <summary>
+            Event handler that gets called when a context menu is opened in the Solution Explorer.
+            Currently this command should only show up under:
+            - Solution nodes
+            - Project nodes
+            - Physical folder nodes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.OpenSettingsCommand">
+            <summary>
+            Class that initializes the "Open Terminal Settings" command.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OpenSettingsCommand.InitializeCommandAsync(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the "Open Terminal Settings" command. This should only be called once.
+            </summary>
+            <param name="package">The terminal VS package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> that completes once the command has been initialized.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ShowTerminalCommand">
+            <summary>
+            Static class that is used to initialize the Visual Studio command for showing the terminal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ShowTerminalCommand.InitializeCommandAsync(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the "Show Terminal" command. This should only be called once.
+            </summary>
+            <param name="package">The terminal VS package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> that completes once the command has been initialized.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ExtensionMethods.StringExtensions">
+            <summary>
+            Extension methods for strings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ExtensionMethods.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Contains with comparison type support.
+            </summary>
+            <param name="source">source string.</param>
+            <param name="targetString">string to find.</param>
+            <param name="stringComparison">comparison type.</param>
+            <returns>If the string is found.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.CategoryGuids">
+            <summary>
+            Guids used for the terminal fonts and colors service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.CategoryGuids.SVsFontAndColorDefaultsProvider">
+            <summary>
+            Service guid string for the <see cref="F:Microsoft.VisualStudio.Terminal.CategoryGuids.SVsFontAndColorDefaultsProvider" /> service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.CategoryGuids.TerminalGroup">
+            <summary>
+            Guid string for the <see cref="F:Microsoft.VisualStudio.Terminal.CategoryGuids.TerminalGroup" /> font category.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.CategoryGuids.GuidSVsFontAndColorDefaultsProvider">
+            <summary>
+            Service guid for the <see cref="F:Microsoft.VisualStudio.Terminal.CategoryGuids.SVsFontAndColorDefaultsProvider" /> service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.CategoryGuids.GuidTerminalGroup">
+            <summary>
+            Guid for the <see cref="F:Microsoft.VisualStudio.Terminal.CategoryGuids.TerminalGroup" /> font category.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.FontsAndColors.FontChangedEventArgs">
+            <summary>
+            Event arguments for the <see cref="E:Microsoft.VisualStudio.Terminal.TerminalGroup.FontChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.FontsAndColors.FontChangedEventArgs.#ctor(System.String,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.FontsAndColors.FontChangedEventArgs" /> class.
+            </summary>
+            <param name="newFontFace">The new font face.</param>
+            <param name="newPointSize">The new font size.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.FontsAndColors.FontChangedEventArgs.NewFontFace">
+            <summary>
+            Gets the new font face.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.FontsAndColors.FontChangedEventArgs.NewPointSize">
+            <summary>
+            Gets the new font size.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.SVsFontAndColorDefaultsProvider">
+            <summary>
+            Class implementing the <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsFontAndColorDefaultsProvider" /> interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.SVsFontAndColorDefaultsProvider.#ctor(Microsoft.VisualStudio.Terminal.TerminalGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.SVsFontAndColorDefaultsProvider" /> class.
+            </summary>
+            <param name="terminalGroup">The instance of <see cref="T:Microsoft.VisualStudio.Terminal.TerminalGroup" /> to use for the terminal category.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.SVsFontAndColorDefaultsProvider.GetObject(System.Guid@,System.Object@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalGroup">
+            <summary>
+            Terminal font group class. Defines the default font face and font size.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.#ctor(Microsoft.VisualStudio.Shell.Interop.IVsFontAndColorStorage,Microsoft.VisualStudio.Shell.Interop.IVsFontAndColorUtilities)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalGroup" /> class.
+            </summary>
+            <param name="fontAndColorStorage">Instance of the <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsFontAndColorStorage" /> service.</param>
+            <param name="fontAndColorUtilities">Instance of the <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsFontAndColorUtilities" /> service.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalGroup.FontChanged">
+            <summary>
+            Event that fires when the terminal font has changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetFlags(System.UInt32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetCategoryName(System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetBaseCategory(System.Guid@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetFont(Microsoft.VisualStudio.Shell.Interop.FontInfo[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetItemCount(System.Int32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetItem(System.Int32,Microsoft.VisualStudio.Shell.Interop.AllColorableItemInfo[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetItemByName(System.String,Microsoft.VisualStudio.Shell.Interop.AllColorableItemInfo[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.GetPriority(System.UInt16@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.OnFontChanged(System.Guid@,Microsoft.VisualStudio.Shell.Interop.FontInfo[],Microsoft.VisualStudio.Shell.Interop.LOGFONTW[],System.IntPtr)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.OnItemChanged(System.Guid@,System.String,System.Int32,Microsoft.VisualStudio.Shell.Interop.ColorableItemInfo[],System.UInt32,System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.OnReset(System.Guid@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.OnResetToBaseCategory(System.Guid@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalGroup.OnApply">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ITerminalRenderer">
+            <summary>
+            Interface for controlling a terminal renderer window.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ITerminalRenderer.Closed">
+            <summary>
+            Event that is fired when the terminal window is resized by the user. The arguments contain the new number of rows and columns in the terminal window.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ITerminalRenderer.TerminalControlResized">
+            <summary>
+            Event that is fired when the terminal window is resized by the user. The arguments contain the new number of rows and columns in the terminal window.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ITerminalRenderer.UserInputReceived">
+            <summary>
+            Event that is fired when user data has been received by the terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalRenderer.Columns">
+            <summary>
+            Gets current cols of the terminal window.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalRenderer.Rows">
+            <summary>
+            Gets current rows of the terminal window.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalRenderer.Show">
+            <summary>
+            Shows the terminal renderer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalRenderer.Close">
+            <summary>
+            Closes the terminal renderer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalRenderer.ResizeAsync(System.UInt32,System.UInt32,System.Threading.CancellationToken)">
+            <summary>
+            Terminal renderer resize called from the terminal service API.
+            </summary>
+            <param name="rows">Number of rows.</param>
+            <param name="columns">Number of columns.</param>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalRenderer.PtyData(System.String)">
+            <summary>
+            Send data from the pty backend to the terminal window.
+            </summary>
+            <param name="data">Data from the pty.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.PtyHelpers">
+            <summary>
+            Helper methods for the terminal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.PtyHelpers.GetPtyProxyAsync(Microsoft.ServiceHub.Framework.IServiceBroker,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Acquires the Pty ServiceHub service from the provided service broker.
+            </summary>
+            <param name="sb">ServiceBroker used to acquire the PTY service.</param>
+            <param name="isToolWindowPTY">Flag that denotes if this pty is part of the main telemetry scenario during tool window initialization.</param>
+            <param name="cancellationToken">Cancellation token for this asynchronous task.</param>
+            <returns>The PTY Proxy service if found, otherwise null.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.Services.EnvironmentVariableObserver">
+            <summary>
+            Observes changes in environment variables and fires an event when
+            variables change.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.Services.EnvironmentVariableObserver.Changed">
+            <summary>
+            Event that fires when environment variables are changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.Services.EnvironmentVariableObserver.OnCompleted">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.Services.EnvironmentVariableObserver.OnError(System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.Services.EnvironmentVariableObserver.OnNext(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.IRemoteTerminalSolutionService">
+            <summary>
+            Interface for the terminal solution service broker service.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.IRemoteTerminalSolutionService.SolutionChanged">
+            <summary>
+            Event fired when the solution is changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IRemoteTerminalSolutionService.GetSolutionDirectoryAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the current active solution or workspace path. Should be called from the UI thread.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>Path of the solution as a <see cref="T:System.String" />.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService">
+            <summary>
+            Internal class that instanciates the terminal solution service broker service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.SSolutionServiceMoniker">
+            <summary>
+            Solution service moniker for ISB acquisition.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.SSolutionService">
+            <summary>
+            ServiceRpcDescriptor for the terminal solution service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.#ctor(Microsoft.VisualStudio.Shell.Interop.IVsSolution,Microsoft.VisualStudio.Workspace.VSIntegration.IVsWorkspaceFactory,Microsoft.VisualStudio.Settings.SettingsStore,Microsoft.VisualStudio.Threading.JoinableTaskFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService" /> class.
+            </summary>
+            <param name="solutionService"><see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsSolution" /> service to acquire the solution information from.</param>
+            <param name="workspaceService"><see cref="T:Microsoft.VisualStudio.Workspace.VSIntegration.IVsWorkspaceFactory" /> service to acquire the workspace service from.</param>
+            <param name="store">The VS settings store.</param>
+            <param name="jtf">Joinable task factory to syncronize with.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.SolutionChanged">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.GetSolutionDirectoryAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnAfterOpenProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnQueryCloseProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Int32,System.Int32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnBeforeCloseProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnAfterLoadProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnQueryUnloadProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Int32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnBeforeUnloadProject(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnAfterOpenSolution(System.Object,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnQueryCloseSolution(System.Object,System.Int32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnBeforeCloseSolution(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.OnAfterCloseSolution(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.RemoteTerminalSolutionService.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalService">
+            <summary>
+            Terminal service to create, manage, and close terminal instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.#ctor(Microsoft.VisualStudio.Terminal.TerminalManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalService" /> class.
+            </summary>
+            <param name="terminalMgr">Terminal manager.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalService.TerminalResized">
+            <inheritdoc />
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalService.TerminalClosed">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalRendererAsync(System.IO.Stream,System.Threading.CancellationToken,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalRendererAsync(System.String,System.Threading.CancellationToken,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalRendererWithCommandsAsync(System.IO.Stream,System.Threading.CancellationToken,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget,System.Collections.Generic.List{System.ValueTuple{System.Guid,System.UInt32}},System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.GetTerminalGuidsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.AttachTerminalStreamAsync(System.Guid,System.IO.Stream,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.ResizeAsync(System.Guid,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.GetSizeAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.AddCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.AddCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.RemoveCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.RemoveCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CloseAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CloseAllInstancesAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.ShowAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.GetProfilesAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.GetDefaultProfileAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.EnableDebugModeSwitchPersistanceAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalService.UserAuthenticatedAsync(System.Threading.CancellationToken,Microsoft.VisualStudio.Threading.JoinableTaskFactory)">
+            <summary>
+            Verifies that the service request source is authorized to use this service.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <param name="joinableTaskFactory">Joinable task factory to syncronize with.</param>
+            <returns>True if authorized, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.IVsTerminalSettingService">
+            <summary>
+            Interface used to specify the type of <see cref="T:Microsoft.VisualStudio.Terminal.SVsTerminalSettingService" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.SVsTerminalSettingService">
+            <summary>
+            Type used to proffer <see cref="T:Microsoft.VisualStudio.Terminal.IVsTerminalSettingService" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalSettingsService">
+            <summary>
+            Service used to allow communication between the old registry settings and the new unified settings. This is proffered by the
+            terminal package.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalSettingsService.TerminalSettingsServiceGuid">
+            <summary>
+            Guid used to identify this service.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalSettingsService.LegacyTerminalSettingsMoniker">
+            <summary>
+            Moniker used to access the saved settings in the legacy registry-based settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalSettingsService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalSettingsService" /> class used to migrate between unified settings and old
+            registry settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalSettingsService.MigrateFromUnifiedSettingsAsync(System.String,Microsoft.VisualStudio.Utilities.UnifiedSettings.ArraySettingContent,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalSettingsService.MigrateToUnifiedSettingsAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalSettingsService.SupportsIncompleteItems(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TelemetryConstants">
+            <summary>
+            Static class that contains all the terminal telemetry endpoints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.PtyServiceReconnectSuccessful">
+            <summary>
+            Telemetry endpoint used to record when the PTY client service succeeds in reconnecting.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.PtyServiceReconnectFailure">
+            <summary>
+            Telemetry endpoint used to record when the PTY client service fails in reconnecting.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.ToolWindowCreation">
+            <summary>
+            Telemetry endpoint that logs and measures the terminal tool window creation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.RendererCreation">
+            <summary>
+            Telemetry endpoint that logs and measures the terminal renderer creation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.PtyCreationFault">
+            <summary>
+            Telemetry endpoint that logs and measures the terminal PTY creation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.ExternalShellConnection">
+            <summary>
+            Telemetry endpoint that logs and measures the PTY SH connection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.ExternalShellConnectionFault">
+            <summary>
+            Telemetry endpoint that logs and measures the PTY SH connection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.InitialReadWrite">
+            <summary>
+            Telemetry endpoint that logs and measures the initial PTY read/write.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.InitialReadWriteFault">
+            <summary>
+            Telemetry endpoint that logs and measures the initial PTY read/write.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.TerminalCommandInvokedEventName">
+            <summary>
+            Telemetry endpoint that logs when the terminal command is invoked.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.PrimaryMenuItemInvokedEventName">
+            <summary>
+            Telemetry endpoint that logs when a new terminal instance is started using the button in the terminal toolbar.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.SecondaryMenuItemInvokedEventName">
+            <summary>
+            Telemetry endpoint that logs when a new terminal instance is started using the dropdown buttons in the terminal toolbar.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.OpenInTerminalCommandInvokedEventName">
+            <summary>
+            Telemetry endpoint that logs when a new terminal instance is started using the "Open in terminal" command in the
+            solution explorer context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.OpenInTerminalCommandInvokedEventNameFault">
+            <summary>
+            Telemetry endpoint that logs when a new terminal instance is started using the "Open in terminal" command in the
+            solution explorer context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.CloseTerminalCommandFault">
+            <summary>
+            Telemetry endpoint that logs when a new terminal instance is started using the "Open in terminal" command in the
+            solution explorer context menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.TelemetryFailure">
+            <summary>
+            Generic fault bucket for terminal failures that are outside the P0 telemetry scopes above.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.TelemetryPrefix">
+            <summary>
+            Telemetry prefix for all terminal endpoints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.TelemetryCommandPrefix">
+            <summary>
+            Telemetry prefix for all terminal commands.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TelemetryConstants.Properties">
+            <summary>
+            Telemetry properties.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.Properties.CloudEnvironment">
+            <summary>
+            Property for specifying if the user is in a cloud environment.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.Properties.DebuggingContext">
+            <summary>
+            Property for specifying if the user is currently debugging.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.Properties.ToolWindowPty">
+            <summary>
+            Property for specifying if the created PTY is for a terminal tool window.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TelemetryConstants.Properties.NodeType">
+            <summary>
+            Property for specifying the node type for the "Open in terminal" command.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalControl">
+            <summary>
+            Interaction logic for TerminalControl.xaml.
+            </summary>
+            <summary>
+            TerminalControl
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalControl.WPFLoadStarted">
+            <summary>
+            Task source that gets set when WPF starts loading and TermControl_Loaded is raised.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalControl.TerminalServiceGuid">
+            <summary>
+            Terminal guid that gets populated if it was initialized by the terminal manager.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalControl.initCompletion">
+            <summary>
+            Task Completion object used to denote when the terminal has completed initialization.
+            </summary>
+            <remarks>
+            Use "WithCompletion()" when awaiting this object, otherwise VS will stop responding on dispose when the terminal fails to initialize or hangs.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.#ctor(Microsoft.VisualStudio.Terminal.TerminalWindowState)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalControl" /> class.
+            Control that hosts the terminal renderer.
+            </summary>
+            <param name="state">Package and pipe to be used to communicate with the terminal.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalControl.TerminalOutput">
+            <summary>
+            Event fired when the Pty backend sends a data to the terminal control.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalControl.TerminalControlResized">
+            <inheritdoc />
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalControl.UserInputReceived">
+            <summary>
+            Event fired when the user provides input to the terminal.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalControl.Closed">
+            <summary>
+            Event raised when the terminal renderer is closed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalControl.Columns">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalControl.Rows">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalControl.AutoResize">
+            <summary>
+            Gets or sets a value indicating whether if the renderer should automatically resize the text buffer
+            when the control size is changed. Does not affect the draw space.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.PtyData(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.Microsoft#Terminal#Wpf#ITerminalConnection#Resize(System.UInt32,System.UInt32)">
+            <summary>
+            Method that gets called when the WPF control has resized.
+            </summary>
+            <param name="rows">Number of rows.</param>
+            <param name="columns">Number of column.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.ResizeAsync(System.UInt32,System.UInt32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.Start">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.WriteInput(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.Show">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.Microsoft#VisualStudio#Terminal#ITerminalRenderer#Close">
+            <inheritdoc />
+            <remarks>This comes from the ITerminalConnection.</remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.Microsoft#Terminal#Wpf#ITerminalConnection#Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.WaitForInitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Task used to notify when the terminal has been initialized.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.WaitForTermControlLoadedAsync(System.Threading.CancellationToken)">
+            <summary>
+            Task used to notify when the control finishes loading.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.GetSelectedText">
+            <summary>
+            Gets the selected text from the terminal. Returns an empty string if no text is currently selected.
+            </summary>
+            <returns>The selected text, otherwise an empty string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.TermControl_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when the control finishes loading. This will set the size and theming on first initialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.TermControl_Unloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when the control is unloaded by user action. This will complete the telemetry scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.OnThemeChanged(Microsoft.VisualStudio.PlatformUI.ThemeChangedEventArgs)">
+            <summary>
+            Event for when VS changes theme.
+            </summary>
+            <param name="e">Unused.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalManager">
+            <summary>
+            Terminal Manager class that handles all instances of the terminal hosted in this machine.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalManager.TerminalResized">
+            <inheritdoc />
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalManager.TerminalClosed">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalManager.Instance">
+            <summary>
+            Gets the singleton instance that guarantees that only one terminal manager exists.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalManager.JoinableTaskFactory">
+            <summary>
+            Gets the JoinableTaskFactory instance used to synchronize async operations.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalRendererAsync(System.IO.Stream,System.Threading.CancellationToken,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalRendererWithCommandsAsync(System.IO.Stream,System.Threading.CancellationToken,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget,System.Collections.Generic.List{System.ValueTuple{System.Guid,System.UInt32}},System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalRendererAsync(System.String,System.Threading.CancellationToken,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.GetTerminalGuidsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.AttachTerminalStreamAsync(System.Guid,System.IO.Stream,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.ResizeAsync(System.Guid,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.GetSizeAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CloseAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CloseAllInstancesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes all terminal instances in the VS client.
+            </summary>
+            <param name="cancellationToken">Cancellation token use to manage this async task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.ShowAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.GetProfilesAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.GetDefaultProfileAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.EnableDebugModeSwitchPersistanceAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.AddCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Add profiles to list of cached profiles in Terminal package.
+            </summary>
+            <param name="profile">Profile to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.AddCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Add profiles to list of cached profiles in Terminal package.
+            </summary>
+            <param name="profiles">Profiles to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.RemoveCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Remove profile from list of cached profiles in Terminal pakcage.
+            </summary>
+            <param name="profile">Profile to remove.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.RemoveCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Remove profiles from list of cached profiles in Terminal package.
+            </summary>
+            <param name="profiles">Profiles to remove.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.IsKnownCommand(System.Guid,System.UInt32)">
+            <summary>
+            Checks if the terminal manager knows who handles the command.
+            </summary>
+            <param name="guid">Command set guid.</param>
+            <param name="commandID">Command ID.</param>
+            <returns>True if any of the terminal windows knows about this specific command. False otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.InitializeSingleton(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Initializes the terminal manager singleton. Running this method twice will replace the current
+            terminal manager if it already exists.
+            </summary>
+            <param name="pack">Terminal package used to instantiate terminals.</param>
+            <returns>Terminal manager instance.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.CreateRendererToolWindowAsync(System.String,System.Threading.CancellationToken,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget,System.Collections.Generic.List{System.ValueTuple{System.Guid,System.UInt32}},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Registers and creates a terminal renderer tool window with no stream attached.
+            </summary>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal renderer.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.OnTerminalClose(System.Object,Microsoft.VisualStudio.Terminal.TerminalClosedEventArgs)">
+            <summary>
+            Event raised when a terminal window has been closed.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="args">Terminal Closed Event that contains the terminal that closed.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalManager.OnTerminalResized(System.Object,Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs)">
+            <summary>
+            Event raised when a terminal window has been resized.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="args">Terminal Resize Event that contains the terminal that resized and it's size.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources._115">
+            <summary>
+              Looks up a localized string similar to Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ExceptionTerminalFailedToStart">
+            <summary>
+              Looks up a localized string similar to The terminal failed to start..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ExceptionTerminalNotFound">
+            <summary>
+              Looks up a localized string similar to The provided Guid {0} doesn't match with any registered terminals.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ExceptionTerminalPTYConnectionIssue">
+            <summary>
+              Looks up a localized string similar to Connection has timed out. If connected to a remote environment, please try reconnecting to the remote environment. Otherwise, you might need to suspend and resume the remote environment to resolve the problem..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ExceptionText">
+            <summary>
+              Looks up a localized string similar to Exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ExeptionTerminalPTYStreamFailure">
+            <summary>
+              Looks up a localized string similar to Unable to create a multiplexing stream for the terminal PTY..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.FontCategoryName">
+            <summary>
+              Looks up a localized string similar to Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.FontTextType">
+            <summary>
+              Looks up a localized string similar to Text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.InnerExceptionText">
+            <summary>
+              Looks up a localized string similar to Inner exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.OpenInTerminalCommand">
+            <summary>
+              Looks up a localized string similar to Open in Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.PackageName">
+            <summary>
+              Looks up a localized string similar to Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsArgsLabel">
+            <summary>
+              Looks up a localized string similar to Arguments.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsLocationLabel">
+            <summary>
+              Looks up a localized string similar to Shell Location.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsNameLabel">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsProfileLabel">
+            <summary>
+              Looks up a localized string similar to Profiles.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsSaved">
+            <summary>
+              Looks up a localized string similar to Saved terminal profiles.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.SettingsTitle">
+            <summary>
+              Looks up a localized string similar to Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ShellDisconnected">
+            <summary>
+              Looks up a localized string similar to Terminal disconnected..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.ShellReconnecting">
+            <summary>
+              Looks up a localized string similar to Terminal attempting to reconnect..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.StacktraceText">
+            <summary>
+              Looks up a localized string similar to Stacktrace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResources.WindowName">
+            <summary>
+              Looks up a localized string similar to Terminal.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalWindow">
+            <summary>
+            Class that instantiates a new terminal window. This includes the PTY and renderer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindow.TermWindowGuid">
+            <summary>
+            Terminal tool window guid.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.#ctor(Microsoft.VisualStudio.Terminal.TerminalWindowState)">
+             <summary>
+             Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalWindow" /> class.
+            
+             This constructor connects up the terminal renderer with the pty backend.
+             </summary>
+             <param name="state">The specific state (profile etc) to be used in this window.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindow.TerminalWindowGuid">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.AttachStreamAsync(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Attaches a stream to the terminal PTY. Attached streams will act as remote renderers where
+            input will be treated as user input and output comes from the PTY.
+            </summary>
+            <param name="stream">Stream to attach to the PTY.</param>
+            <param name="cancellationToken">Cancellation token for this asynchronous task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.CloseAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes the terminal tool window, it's PTY backend, and raises an event for the terminal manager.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.ResizePty(System.Int32,System.Int32)">
+            <summary>
+            Resizes the terminal PTY to the specified columns and rows.
+            </summary>
+            <param name="columns">Number of columns to render.</param>
+            <param name="rows">Number of rows to render.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.UnHookProxies">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindow.HookProxiesAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalWindowBase">
+            <summary>
+            Base clase for terminal tool windows.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.CustomCommandTargetHandlers">
+            <summary>
+            List of IOleCommandTarget interfaces this window will forward events to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.EnableDefaultTerminalDropdown">
+            <summary>
+            Flag that sets if the new terminal dropdown button should be displayed for terminal renderers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.SPtyServiceMoniker">
+            <summary>
+            Terminal PTY ServiceHub service moniker.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.TerminalServiceGuid">
+            <summary>
+            Guid used to indentify this terminal if it was initialized by the terminal manager.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.AllowUserInput">
+            <summary>
+            Gets or sets a value indicating whether to allow user input. Can be switched after terminal creation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.PtyProxy">
+            <summary>
+            PTY proxy used by this terminal window. The value can be null.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.initCompletion">
+            <summary>
+            Task completion object used to identify when the tool window has been initialized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.profile">
+            <summary>
+            The terminal target profile.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.shellWindowFrameEventsCookie">
+            <summary>
+            The window frame event cookie used to register for window frame events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.package">
+            <summary>
+            The terminal package.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.id">
+            <summary>
+            This tool window's window state ID.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.uiShell">
+            <summary>
+            The UiShell used to register for window frame events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.serviceBroker">
+            <summary>
+            The service broker service used to acquire ISB services.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.serviceHookSemaphore">
+            <summary>
+            JoinableTaskFactory aware semaphore that prevents the terminal intitialization if a solution is being loaded or
+            a remote connection is being created.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.userInputSemaphore">
+            <summary>
+            JoinableTaskFactory aware semaphore that limits writing to the rendererWriterStream.
+            This prevents missed keystrokes when the user types faster than the stream can flush.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.renderWriterStream">
+            <summary>
+            Tool window Renderer writing stream.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.terminalServiceStreamWriters">
+            <summary>
+            StreamWriters that this tool window should write to in order to forward terminal content to other terminal tool windows.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.debuggerService">
+            <summary>
+            Debugger service interface used to register when the debug mode changes. Null if EnableDebugModeSwitchPersistanceAsync
+            was never called.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.debuggerEventCookie">
+            <summary>
+            Cookie returned from IVsDebugger.AdviseDebuggerEvents. Zero if EnableDebugModeSwitchPersistanceAsync
+            was never called.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowBase.wasDebuggingLast">
+            <summary>
+            True if the IDE was debugging the last time the debugger queried.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.#ctor(Microsoft.VisualStudio.Terminal.TerminalWindowState)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalWindowBase" /> class.
+            </summary>
+            <param name="state">The specific state (profile etc) to be used in this window.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalWindowBase.TerminalClosed">
+            <summary>
+            Event raised when this tool window or the PTY is closed.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.TerminalWindowBase.TerminalResized">
+            <summary>
+            Event raised when the tool window is resized.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowBase.AutoResize">
+            <summary>
+            Gets or sets a value indicating whether if the renderer should automatically resize when the control size is changed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowBase.TerminalWindowGuid">
+            <summary>
+            Gets the Terminal tool window guid, used solely for base-class methods.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowBase.PendingFocus">
+            <summary>
+            Gets or sets the control pending focus. This is needed because the current VS focus system
+            does not meet the terminal's requirements. A static window pending focus needs to be set
+            so that focus does not flash between two windows as a result of the active frame changed
+            event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.Microsoft#VisualStudio#OLE#Interop#IOleCommandTarget#Exec(System.Guid@,System.UInt32,System.UInt32,System.IntPtr,System.IntPtr)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.Microsoft#VisualStudio#OLE#Interop#IOleCommandTarget#QueryStatus(System.Guid@,System.UInt32,Microsoft.VisualStudio.OLE.Interop.OLECMD[],System.IntPtr)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnFrameCreated(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnFrameDestroyed(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnFrameIsVisibleChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnFrameIsOnScreenChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnActiveFrameChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.Microsoft#VisualStudio#Shell#Interop#IVsDebuggerEvents#OnModeChange(Microsoft.VisualStudio.Shell.Interop.DBGMODE)">
+            <summary>
+            Implementation of IVsDebuggerEvents.OnModeChange.
+            </summary>
+            <param name="dbgmodeNew">The new debug mode.</param>
+            <returns>HRESULT value.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.EnableDebugModeSwitchPersistanceAsync(System.Threading.CancellationToken)">
+            <summary>
+            Updates this terminal so that it will not be automatically hidden when switching between debug and design mode.
+            This also shows the terminal if it is currently hidden to guard against the case that the shell hid the window between
+            creation and when EnableDebugModeSwitchPersistanceAsync completes.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>Task to indicate when this operation completes.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.WaitForInitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Task used to notify when the terminal has been initialized.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing when the terminal has finished initializing.</returns>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.CloseAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes the terminal tool window, it's PTY backend, and raises an event for the terminal manager.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.ShowAsync(System.Threading.CancellationToken)">
+            <summary>
+            Brings this tool window to the front and grabs focus.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.AttachStreamAsync(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Attaches a stream to the terminal PTY. Attached streams will act as remote renderers where
+            input will be treated as user input and output comes from the PTY.
+            </summary>
+            <param name="stream">Stream to attach to the PTY.</param>
+            <param name="cancellationToken">Cancellation token for this async task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnClose">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>
+            Override PreProcessMessage specifically so that we can consume the escape key when the
+            focus is on the terminal tool window. This prevents the editor from gaining focus since
+            it's a reserved global hotkey.
+            </summary>
+            <param name="winMsg">Windows message.</param>
+            <returns>True if handled, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.UnHookProxies">
+            <summary>
+            Disposes of our acquired services and terminal proxies hooked to this tool window.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.HookProxiesAsync">
+            <summary>
+            Creates and attaches the terminal proxies to this tool window.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.ServiceBroker_AvailabilityChanged(System.Object,Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs)">
+            <summary>
+            Event method called when service broker changes the available services and requres the terminal to
+            unhook and hook the proxies again.
+            </summary>
+            <param name="sender">Sender object.</param>
+            <param name="args">Brokered services that changed.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnUserInputReceived(System.Object,Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs)">
+            <summary>
+            Event method called when the user types into the tool window.
+            </summary>
+            <param name="sender">Sender object.</param>
+            <param name="args">User input recieved.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.OnTerminalResized(System.Object,Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs)">
+            <summary>
+            Event method called when the terminal control is resized.
+            </summary>
+            <param name="sender">Sender object.</param>
+            <param name="args">New control rendering size.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.BeginProcessingPtyData(System.IO.StreamReader)">
+            <summary>
+            Starts processing input from the pty backend or external stream and forwards it to
+            the tool window terminal renderer and any terminal service streams registered with this tool window.
+            </summary>
+            <param name="reader">Stream to read PTY output from and write user input into.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowBase.WriteUserInputAsync(Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs)">
+            <summary>
+            Writes to the rendererWriterStream.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalWindowPackage">
+            <summary>
+            This is the class that implements the integrated terminal package.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.PackageGuidString">
+            <summary>
+            TerminalWindowPackage GUID string.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.TerminalOutputWindowGuid">
+            <summary>
+            Guid of the terminal output window; the default mounting point of the terminal.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.OpenInTerminalCmdUIContext">
+            <summary>
+            UIContext Guid used to limit the terminal SE command visibility.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.CommandSet">
+            <summary>
+            Guid for the terminal commands.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.terminalManager">
+            <summary>
+            Terminal manager object that handles all terminal instances created via the terminal service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.Profiles">
+            <summary>
+            Gets a list of available <see cref="T:Microsoft.VisualStudio.Terminal.ITerminalProfile" />s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.WindowStateStorage">
+            <summary>
+            Gets the storage object for window state.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.EnvironmentVariables">
+            <summary>
+            Gets the active environment variables to use for new terminal processes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.GetProfile(System.String)">
+            <summary>
+            Gets the <see cref="T:Microsoft.VisualStudio.Terminal.ITerminalProfile" /> associated with the given <see cref="T:System.Guid" />.
+            </summary>
+            <param name="id">id of the profile.</param>
+            <returns>The <see cref="T:Microsoft.VisualStudio.Terminal.ITerminalProfile" /> associated with the given <see cref="T:System.Guid" />, or the default profile if the guid was not found.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.GetDefaultProfile">
+            <summary>
+            Gets the default profile or the first one if none are marked as default.
+            </summary>
+            <returns>The default profile.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.AddCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Add profile from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profile">Profile to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.AddCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Add profiles from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profiles">Profiles to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.RemoveCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Remove profile from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profile">Profile to remove.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.RemoveCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Remove profiles from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profiles">Collection of profiles to remove from cached profiles list.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.GetAsyncToolWindowFactory(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.RegisterAndCreateToolWindowAsync(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Registers and creates a new terminal tool window using the profile ID.
+            </summary>
+            <param name="profile">The terminal profile.</param>
+            <returns>Terminal toolwindow.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.FocusTerminalAsync(System.Int32)">
+            <summary>
+            Focuses on the terminal tool window that matches the provided ID.
+            </summary>
+            <param name="id">Id of the terminal to focus on.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.CreateToolWindowAsync(System.Int32,System.Boolean)">
+            <summary>
+            Creates the terminal tool window using FindToolWindowAsync.
+            </summary>
+            <param name="id">Terminal window state id.</param>
+            <param name="createPTY">Flag that denotes if a PTY SH service should be created for the toolwindow.</param>
+            <returns>Terminal Window object of the tool window.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.InitializeAsync(System.Threading.CancellationToken,System.IProgress{Microsoft.VisualStudio.Shell.ServiceProgressData})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.GetToolWindowTitle(System.Type,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowPackage.InitializeToolWindowAsync(System.Type,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer">
+            <summary>
+            Terminal renderer toolwindow used for LiveShare. This implementation doesn't start the PTY process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.TermWindowGuid">
+            <summary>
+            Terminal renderer tool window Guid used to register this tool window.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.#ctor(Microsoft.VisualStudio.Terminal.TerminalWindowState)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer" /> class.
+            </summary>
+            <param name="state">The specific state (profile etc) to be used in this window.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.TerminalWindowGuid">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.AttachStreamAsync(System.IO.Stream,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.CreatePtyProxyAsync(System.IO.Stream,Microsoft.VisualStudio.Terminal.ITerminalProfile,System.Int32,System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a PTY proxy for this terminal renderer. Used by the TerminalManager when it requires creating a
+            PTY proxy with specific settings.
+            </summary>
+            <param name="ptyHalf">Pty stream which provides user input to the PTY.</param>
+            <param name="profile">The terminal profile.</param>
+            <param name="columns">Columns available to the PTY.</param>
+            <param name="rows">Rows available to the PTY.</param>
+            <param name="workingDir">Shell working directory.</param>
+            <param name="cancellationToken">Cancellation token used for the asynchronous task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.UnHookProxies">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalWindowRenderer.HookProxiesAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalWindowState">
+            <summary>
+            Class that instanciates a new terminal window state.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.Package">
+            <summary>
+            Gets or sets the terminal package.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.ServiceBroker">
+            <summary>
+            Gets or sets the serviceBroker service provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.FontAndColorStorage">
+            <summary>
+            Gets or sets the font and color storage service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.FontGroup">
+            <summary>
+            Gets or sets the terminal font and color group for the tools-&gt;options dialog.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.Profile">
+            <summary>
+            Gets or sets the terminal profile this terminal uses.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.Id">
+            <summary>
+            Gets or sets the tool window Id for this terminal instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalWindowState.UiShell">
+            <summary>
+            Gets or sets the UiShell service used to register for window frame events.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalThemer">
+            <summary>
+            Class that creates the terminal theme depending on the VS theme.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalThemer.GetTheme(Microsoft.VisualStudio.Terminal.TerminalWindowPackage)">
+            <summary>
+            Checks the VS theme and provides a JSON of the colors.
+            </summary>
+            <param name="package">The Terminal package.</param>
+            <returns>Serialized JSON string with the terminal colors.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager">
+            <summary>
+            Legacy static class used to get the profile settings or create the default profiles if non exist.
+            Should only be used when Unified Settings isn't available.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.ProfileSettingsMoniker">
+            <summary>
+            The name of the terminal profile settings entry.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.AdditionalSettingsMoniker">
+            <summary>
+            The name of the additional terminal settings entry.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.ProfilesCache">
+            <summary>
+            Gets or sets the profiles cache located in <seealso cref="T:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.Dispose">
+            <summary>
+            Disposes of the stored ISB proxies.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.InitializeSettingsCacheAsync(Microsoft.VisualStudio.Shell.AsyncPackage,System.Threading.CancellationToken)">
+            <summary>
+            Initializes the profiles cache, requests events for settings change, and registers the event handler.
+            </summary>
+            <param name="terminalPackage">The terminal package used to initialize this static class.</param>
+            <param name="packageDisposalToken">Cancellation token used to signal the disposal of the terminal package.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.LoadSettingsAndProfilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Acquires the profiles from the settings registry and serializes them into the profile cache.
+            Should only be done when loading the profiles for the first time, when the settings change (see <see cref="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.BrokeredSettingsManager_OnSettingChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)" />),
+            or when you want to force a load.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this async method.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> with the loaded profile settings.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.SaveSettingsAndProfilesAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.OptionsProfileConfig},System.Threading.CancellationToken)">
+            <summary>
+            Saves the provided profiles into the user's settings.
+            </summary>
+            <param name="profiles">Profile enumerable to be saved in the registry.</param>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.BrokeredSettingsManager_OnSettingChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Async event handler called when the terminal profiles are changed and loads them from the settings cache.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.LegacyTerminalSettingsManager.ServiceBrokerAvailabilityChanged(System.Object,Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs)">
+            <summary>
+            Event raised when service broker switches between local and online contexts.
+            We reload the terminal profiles in order to replace the old context profiles.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControl">
+            <summary>
+            Interaction logic for TerminalOptionsControl.xaml.
+            </summary>
+            <summary>
+            OptionsControl
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControl.#ctor(Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControl" /> class.
+            </summary>
+            <param name="viewModel"><see cref="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel" /> to hook up to.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel">
+            <summary>
+            Viewmodel class for the Terminal options page under tools-&gt;options.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel" /> class for the terminal options page.
+            </summary>
+            <param name="loadSettings">boolean to denote if we should load settings on first initalization.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.ProfilesCollectionChanged">
+            <summary>
+            Event handler for when the Profiles collection is changed
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.PropertyChanged">
+            <summary>
+            Property changed event for updating the UI on user changes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.RemoveButtonToolTipText">
+            <summary>
+            Gets the tooltip shown when remove button is disabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.SetAsDefaultButtonToolTipText">
+            <summary>
+            Gets the tooltip shown when set as default button is disabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.Error">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.Profiles">
+            <summary>
+            Gets or Sets the collection of Profiles and updates the UI when set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.RemoveButtonEnabled">
+            <summary>
+            Gets a value indicating whether if the default button should be enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.SetAsDefaultButtonEnabled">
+            <summary>
+            Gets a value indicating whether if the "Remove" button should be enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.ApplyButtonEnabled">
+            <summary>
+            Gets a value indicating whether profile name and location are valid, and something has been selected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.TextFieldsEnabled">
+            <summary>
+            Gets a value indicating whether the text fields should be enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.SelectedItem">
+            <summary>
+            Gets or sets the selected item and raises the events for default button and saving.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.NameText">
+            <summary>
+            Gets or sets the name textbox.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.LocationText">
+            <summary>
+            Gets or sets the location textbox.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.ArgumentsText">
+            <summary>
+            Gets or sets the arguments textbox.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.DefaultProfile">
+            <summary>
+            Gets the default terminal profile.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.Item(System.String)">
+            <summary>
+            Validates that the provided column has valid content.
+            </summary>
+            <param name="columnName">column name for value to validate.</param>
+            <returns>Error message if any.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.LoadDataAsync(System.Threading.CancellationToken)">
+            <summary>
+            Loads all the profiles and their settings. If none exists, this creates the default profile and saves it.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.SaveDataAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all profiles into the settings store.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.AddNewProfile">
+            <summary>
+            Creates and adds a developer powershell profile to the profiles list.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.RemoveSelectedProfile">
+            <summary>
+            Deletes the selected profile. Unkown behaivior if item is default.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.SetSelectedAsDefaultProfile">
+            <summary>
+            Sets the selected profile as the default and flips all other profiles as not default.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.RestoreProfilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Removes all custom profiles and and adds the default profile.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.BrowseLocation">
+            <summary>
+            Opens a file explorer window in order to get a specified location.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.ApplyChanges">
+            <summary>
+            Applies the changes to the listview.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsControlViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            PropertyChanged handler used to react to UI changes.
+            </summary>
+            <param name="propertyName">Property name to invoke.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.AddButtonText">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ApplyButtonText">
+            <summary>
+              Looks up a localized string similar to Apply.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ArgumentsHelpText">
+            <summary>
+              Looks up a localized string similar to Profile Arguments.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ArgumentsLabel">
+            <summary>
+              Looks up a localized string similar to Arguments:.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ClipboardOptInText">
+            <summary>
+              Looks up a localized string similar to Synchronize local and remote clipboards when using codespaces..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.DefaultCommandPromptProfileName">
+            <summary>
+              Looks up a localized string similar to Developer Command Prompt.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.DefaultPowershell7ProfileName">
+            <summary>
+              Looks up a localized string similar to Developer Powershell 7.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.DefaultPowershellProfileName">
+            <summary>
+              Looks up a localized string similar to Developer PowerShell.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.DefaultWSLProfileName">
+            <summary>
+              Looks up a localized string similar to WSL.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.DuplicateProfileName">
+            <summary>
+              Looks up a localized string similar to Name must be unique..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.InvalidLocation">
+            <summary>
+              Looks up a localized string similar to Location cannot be found..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.InvalidName">
+            <summary>
+              Looks up a localized string similar to Name must be non-empty..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.NameHelpText">
+            <summary>
+              Looks up a localized string similar to Profile Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.NameLabel">
+            <summary>
+              Looks up a localized string similar to Name:.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ProfilesLabel">
+            <summary>
+              Looks up a localized string similar to Profiles:.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.RemoveButtonDisabledToolTipText">
+            <summary>
+              Looks up a localized string similar to Cannot remove the default profile..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.RemoveButtonText">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.RestoreButtonText">
+            <summary>
+              Looks up a localized string similar to Restore.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.RestoreTextboxCaption">
+            <summary>
+              Looks up a localized string similar to Restore Profiles.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.RestoreTextboxMessage">
+             <summary>
+               Looks up a localized string similar to Terminal default profile will be restored. All custom profiles will be removed.
+            
+            Continue?.
+             </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.SetAsDefaultButtonText">
+            <summary>
+              Looks up a localized string similar to Set as Default.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.SetDefaultButtonDisabledToolTipText">
+            <summary>
+              Looks up a localized string similar to Profile is already set as default..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ShellLocationHelpText">
+            <summary>
+              Looks up a localized string similar to Profile Shell Location.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.OptionsResources.ShellLocationLabel">
+            <summary>
+              Looks up a localized string similar to Shell Location:.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager">
+            <summary>
+            Static class used to get the profile settings or create the default profiles if non exist.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.ProfileSettingsMoniker">
+            <summary>
+            Settings moniker used to load/save from Unified Settings. Must be in sync with terminal.registration.json for
+            profile settings.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.InstallPathVariable">
+            <summary>
+            environment variable used to get the vs install folder.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.UnifiedSettingsFlagDisabled">
+            <summary>
+            Gets or sets a value indicating whether the Unified Settings feature flag is disabled.
+            </summary>
+            <remarks>When enabled reroutes load/save calls to the legacy settings store.</remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.ProfilesCache">
+            <summary>
+            Gets or sets a volatile profiles collection cache. Used by service subscribers to add custom profiles.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.Dispose">
+            <summary>
+            Disposes of the stored ISB proxies.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.GetCachedProfilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the cached profiles.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this async task.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> with the cached profiles.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.SetCachedProfiles(System.Collections.Generic.ICollection{Microsoft.VisualStudio.Terminal.OptionsProfileConfig},System.Threading.CancellationToken)">
+            <summary>
+            Gets the cached profiles.
+            </summary>
+            <param name="profiles">Collection of <see cref="T:Microsoft.VisualStudio.Terminal.OptionsProfileConfig" /> that should be cached.</param>
+            <param name="cancellationToken">Cancellation token for this async task.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.LoadSettingsAndProfilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Acquires the profiles from the settings registry and serializes them into the profile cache.
+            Should only be done when loading the profiles for the first time, when the settings change,
+            or when you want to force a load.
+            </summary>
+            <param name="cancellationToken">Cancellation token for this async method.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1" /> with the loaded profile settings.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.SaveSettingsAndProfilesAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.OptionsProfileConfig},System.Threading.CancellationToken)">
+            <summary>
+            Saves the provided profiles into the user's settings.
+            </summary>
+            <param name="profiles">Profile enumerable to be saved in the registry.</param>
+            <param name="cancellationToken">Cancellation token for this task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.CreateDefaultProfiles">
+            <summary>
+            Creates the developer command prompt and developer powershell profiles and adds them to the profile list.
+            </summary>
+            <returns>Collection of default <see cref="T:Microsoft.VisualStudio.Terminal.ProfileConfig" />.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.CreatePowershellProfile(System.String)">
+            <summary>
+            Creates a powershell profile for windows 7, windows server 2016, or windows 10.
+            </summary>
+            <returns>Options Profile Configuration object with the created profile.</returns>
+            <param name="displayName">The optional display name.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ToolsOptions.TerminalSettingsManager.GetWslDistros">
+            <summary>
+            Gets all the installed WSL distros that are installed int his machine.
+            </summary>
+            <returns>IEnumerable strings of all the distro names.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.OptionItemAttribute">
+            <summary>
+            Option Item Attribute for specifying option items for the options page.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.OptionsPage">
+            <summary>
+            Class that implements the options page for the Terminal under Tools-&gt;Options-&gt;Environment.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsPage.Child">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsPage.LoadSettingsFromStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsPage.SaveSettingsToStorage">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.OptionsProfileConfig">
+            <summary>
+            Configuration data for terminal profiles.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.OptionsProfileConfig" /> class and used to instanciate a new terminal window.
+            </summary>
+            <param name="displayName">Display name for the profile.</param>
+            <param name="location">Path to the executable.</param>
+            <param name="arguments">Arguments to pass along to the executable.</param>
+            <param name="isDefault">Flag to mark this item as the default profile.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.PropertyChanged">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.Id">
+            <summary>
+            Gets or sets the unique ID for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.DisplayName">
+            <summary>
+            Gets or sets the display name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.Location">
+            <summary>
+            Gets or sets the shell location name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.Arguments">
+            <summary>
+            Gets or sets the arguments name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.IsDefault">
+            <summary>
+            Gets or sets a value indicating whether this item is the default.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.ValidateName(System.String)">
+            <summary>
+            Validates the provided name.
+            </summary>
+            <returns>InvalidName resource string if failed, null otherwise.</returns>
+            <param name="name">Name to validate.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.ValidateLocation(System.String)">
+            <summary>
+            Validates the provided location.
+            </summary>
+            <returns>InvalidLocation resource string if failed, null otherwise.</returns>
+            <param name="location">Location to validate.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.OptionsProfileConfig.GetOptionProperties">
+            <summary>
+            Gets the option items within the <see cref="T:Microsoft.VisualStudio.Terminal.OptionsProfileConfig" /> class.
+            </summary>
+            <returns>Ienumerable of the properties that are marked as option items.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.WindowStateStorage">
+            <summary>
+            Class use to instanciate access to the window state for all terminal tool windows and link profiles to
+            instanciated terminal tool windows.
+            This only recovers tool windows locally instanciated since we cannot link profiles to non-existing tool windows.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.#ctor(Microsoft.VisualStudio.Shell.Interop.IVsSettingsManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.WindowStateStorage" /> class.
+            </summary>
+            <param name="localSettingsManager">Settings manager used to load and save window states.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.GetNewID">
+            <summary>
+            Gets a new terminal window ID.
+            </summary>
+            <returns>The new terminal window ID.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.ActiveWindows">
+            <summary>
+            Gets the current amount of terminal window IDs stored.
+            </summary>
+            <returns>The count of window IDs.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.AddWindowToProfileMap(System.Int32,System.String)">
+            <summary>
+            Adds a new entry for the given window ID to the list of saved windows.
+            </summary>
+            <param name="id">Tool window ID.</param>
+            <param name="profileId">Profile ID to link this window to.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.AddWindowToSizeMap(System.Int32,System.ValueTuple{System.Int32,System.Int32})">
+            <summary>
+            Adds a new entry for the given window ID to the list of saved sizes.
+            </summary>
+            <param name="id">Tool window ID.</param>
+            <param name="size">Renderer size.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.RemoveWindow(System.Int32)">
+            <summary>
+            Removes the given window ID from the list of saved windows.
+            </summary>
+            <param name="id">Tool window ID.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.GetProfileFromWindowId(System.Int32)">
+            <summary>
+            Acquires the terminal profile hash ID using the window ID.
+            </summary>
+            <param name="windowId">Tool window ID.</param>
+            <returns>Hashed ID of the profile.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.GetSizeFromWindowId(System.Int32)">
+            <summary>
+            Acquires the terminal size using the window ID.
+            </summary>
+            <param name="windowId">Tool window ID.</param>
+            <returns>Tuple with total rows and columns. Returns (0,0) if not found.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.LoadData">
+            <summary>
+            Loads the settings for the multi-instance windows. Loads default if they don't exist.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.WindowStateStorage.SaveData">
+            <summary>
+            Saves the terminal profile map and id locally.
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.Foundation.PCWSTR">
+            <summary>
+            A pointer to a constant character string.
+            </summary>
+        </member>
+        <member name="F:Windows.Win32.Foundation.PCWSTR.Value">
+            <summary>
+            A pointer to the first character in the string. The content should be considered readonly, as it was typed as constant in the SDK.
+            </summary>
+        </member>
+        <member name="P:Windows.Win32.Foundation.PCWSTR.Length">
+            <summary>
+            Gets the number of characters up to the first null character (exclusive).
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.ToString">
+            <summary>
+            Returns a <see langword="string" /> with a copy of this character array.
+            </summary>
+            <returns>A <see langword="string" />, or <see langword="null" /> if <see cref="F:Windows.Win32.Foundation.PCWSTR.Value" /> is <see langword="null" />.</returns>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PCWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="M:Windows.Win32.Foundation.PWSTR.AsSpan">
+            <summary>
+            Returns a span of the characters in this string.
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.FreeLibrarySafeHandle">
+            <summary>
+            Represents a Win32 handle that can be closed with <see cref="M:Windows.Win32.PInvoke.FreeLibrary(Windows.Win32.Foundation.HINSTANCE)" />.
+            </summary>
+        </member>
+        <member name="T:Windows.Win32.PInvoke">
+            <content>
+            Contains extern methods from "Kernel32.dll".
+            </content>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.FreeLibrary(Windows.Win32.Foundation.HINSTANCE)">
+            <summary>Frees the loaded dynamic-link library (DLL) module and, if necessary, decrements its reference count.</summary>
+            <param name="hLibModule">
+            <para>A handle to the loaded library module. The <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-loadlibrarya">LoadLibrary</a>, <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-loadlibraryexa">LoadLibraryEx</a>, <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-getmodulehandlea">GetModuleHandle</a>, or <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-getmodulehandleexa">GetModuleHandleEx</a> function returns this handle.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//libloaderapi/nf-libloaderapi-freelibrary#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero. To get extended error information, call the <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a> function.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//libloaderapi/nf-libloaderapi-freelibrary">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:Windows.Win32.PInvoke.LoadLibrary(System.String)">
+            <inheritdoc cref="M:Windows.Win32.PInvoke.LoadLibrary(Windows.Win32.Foundation.PCWSTR)" />
+        </member>
+        <member name="M:Windows.Win32.PInvoke.LoadLibrary(Windows.Win32.Foundation.PCWSTR)">
+            <summary>Loads the specified module into the address space of the calling process.</summary>
+            <param name="lpLibFileName">
+            <para>The name of the module. This can be either a library module (a .dll file) or an executable module (an .exe file). The name specified is the file name of the module and is not related to the name stored in the library module itself, as specified by the <b>LIBRARY</b> keyword in the module-definition (.def) file. If the string specifies a full path, the function searches only that path for the module. If the string specifies a relative path or a module name without a path, the function uses a standard search strategy to find the module; for more information, see the Remarks. If the function cannot find the  module, the function fails. When specifying a path, be sure to use backslashes (\\), not forward slashes (/). For more information about paths, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming a File or Directory</a>. If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension .dll to the module name. To prevent the function from appending .dll to the module name, include a trailing point character (.) in the module name string.</para>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//libloaderapi/nf-libloaderapi-loadlibraryw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the module. If the function fails, the return value is NULL. To get extended error information, call <a href="/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para><see href="https://docs.microsoft.com/windows/win32/api//libloaderapi/nf-libloaderapi-loadlibraryw">Learn more about this API from docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>EFvu6AH6aHTIxTUDg0nCfgjkQKnG7nXtgHaEKYo6Yp4=</DigestValue></Reference></SignedInfo><SignatureValue>Tv/jfYH3C1bksA4KMM7BPMiHdS/4ED6qoopxJ7/ARusetmSt/uUY1sGyZlchzib34ReQqak+q+exwPeOSy5yHcLaMWBS605z2yTZWJHmy1PV1NBaoxjmhQkZLNXqw34VqEpMj5A6SdH9TvYGX3OkzirW1s16kFlKEGBnamsqQlwhkSGuYAbwucqsUGlLkkJw35TkyoJ1Gp7//rXQzyiw0gv9Oiolja2rQA2Sn6VKg33p78lWdRw65MksfYVbpfossrRYJpfxCrop5L4yXPACvYOIwzDlDxcp95PL7J9mQLRyX0m6Ec/V6sjKjm25iQdPr92hNEL/J52WqA2z3oVl6A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

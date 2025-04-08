@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>从指定源写入应用程序事件日志</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>将消息写入应用程序事件日志。</Description>
+      <Shortcut>evWriteApp</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>EntryType</ID>
+          <Type>EventLogEntryType</Type>
+          <ToolTip>替换为枚举值。</ToolTip>
+          <Default>EventLogEntryType.Warning</Default>
+        </Literal>
+        <Literal>
+          <ID>SourceName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为源名称。写入事件时，该源名称与特定应用程序关联。</ToolTip>
+          <Default>"SourceName"</Default>
+        </Literal>
+        <Literal>
+          <ID>message</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要写入的消息。</ToolTip>
+          <Default>"Message text"</Default>
+        </Literal>
+        <Literal>
+          <ID>LogName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为日志名称。此时将读取本地计算机上的应用程序日志。</ToolTip>
+          <Default>"Application"</Default>
+        </Literal>
+        <Literal>
+          <ID>Machine</ID>
+          <Type>String</Type>
+          <ToolTip>替换为计算机名称。“.”表示本地计算机。</ToolTip>
+          <Default>"Machine Name"</Default>
+        </Literal>
+        <Literal>
+          <ID>EventID</ID>
+          <Type>Integer</Type>
+          <ToolTip>替换为整数值。应用程序定义了这些值及其含义。</ToolTip>
+          <Default>123</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim log As New EventLog($LogName$, $Machine$, $SourceName$)
+log.WriteEntry($message$, $EntryType$, $EventID$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

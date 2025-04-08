@@ -1,0 +1,24 @@
+{
+  "components": {
+    "appInsightsConfig": {
+      "modifiers": [
+        "appInsights.appInsightsConfig"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "appInsights.nuget"
+      ]
+    },
+    "projectProperty": {
+      "modifiers": [
+        "appInsights.projectProperty"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "appInsights.secretStore.local.connectionId"
+      ]
+    }
+  }
+}

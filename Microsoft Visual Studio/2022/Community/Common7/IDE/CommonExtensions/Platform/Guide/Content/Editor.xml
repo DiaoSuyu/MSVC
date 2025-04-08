@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<vst:Guide xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:vst="clr-namespace:Microsoft.VisualStudio.Guide;assembly=Microsoft.VisualStudio.Shell.UI.Internal"
+           Title="Getting the most out of Visual Studio C# Editor"
+           Description="Learn how to use several editor features for C# development."
+           RequiredPackageNames="Microsoft.VisualStudio.Workload.NetWeb|Microsoft.VisualStudio.Workload.ManagedDesktop,Microsoft.NetCore.Component.DevelopmentTools"
+           Id="Editor"
+           SortOrder="100"
+           EstimatedMinutesToComplete="9"
+           IconPath="Editor_Guide.png">
+    <vst:Guide.Solution>
+        <vst:NewSolution Name="EditorGuide">
+            <vst:NewSolution.Projects>
+                <vst:NewProjectFromSourceProject Name="EditorGuide"
+                                                 CreateInSolutionFolder="true"
+                                                 ProjectFileExtension="csproj"/>
+            </vst:NewSolution.Projects>
+        </vst:NewSolution>
+    </vst:Guide.Solution>
+    <vst:Step Title="Introduction"
+              Id="Editor.Intro">
+        <vst:Step.Description>
+            <![CDATA[
+In this guide, you'll learn to use the following Editor features:
+- IntelliSense basics
+- Code snippets to save time
+- Find and replace
+- Refactoring automations
+- Quick actions
+- Error list for quick debugging
+- Code navigation for efficiency
+- Basics for customizing the editor
+- Advanced commands for power users
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="IntelliSense - List Members"
+              Id="Editor.ListMembers"
+              FileToOpen="Program.cs"
+              CommandToHighlight="Edit.ListMembers">
+        <vst:Step.Description>
+            <![CDATA[
+1. On a new line of code, start typing `Cons`, and wait for a completion list to appear.
+
+1. You can also manually invoke the completion list via **Edit** -> **IntelliSense** -> **List Members** {KeyboardShortcut:Edit.ListMembers, TextEditor}, or by choosing the **List Members** button on the editor toolbar.
+
+    ![Member list](IntelliSenseListMembers.png "Member list")
+
+1. As you type characters, the list is filtered to include only the members that begin with those characters or where the beginning of any word starts with those characters.
+
+1. Press `.` to accept the selection, which will insert `Console.` in the code.
+
+1. Select `WriteLine` and press `(` to insert it.
+
+1. Complete the statement by typing `);`.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="IntelliSense - Parameter Info"
+              Id="Editor.ParameterInfo"
+              FileToOpen="Program.cs"
+              CommandToHighlight="Edit.ParameterInfo">
+        <vst:Step.Description>
+            <![CDATA[
+1. On a new line of code, type the following:
+
+    ```
+    "hello".EndsWith
+    ```
+
+1. Type an open parenthese `(`.
+
+1. Parameter information appears in a tooltip. It includes the number, names, and types of parameters required.
+
+    ![Parameter info tooltip](IntelliSenseParamInfo1.png "Parameter info tooltip")
+
+1. Type `"o",`.
+
+1. The information in Parameter Info updates with the new signature, and the parameter in bold indicates the next required parameter.
+
+    ![Next required parameter info tooltip](IntelliSenseParamInfo2.png "Next required parameter info tooltip")
+
+1. Press **Up** and **Down** arrow keys to view alternative parameter information for the function overloads.
+
+1. You can manually invoke **Parameter Info** via **Edit** -> **IntelliSense** -> **Parameter Info** {KeyboardShortcut:Edit.ParameterInfo, TextEditor}, or by choosing the **Parameter Info** button on the editor toolbar.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="IntelliSense - Quick Info"
+              Id="Editor.QuickInfo"
+              FileToOpen="QuickInfo.cs"
+              CenterLineNumber="7"
+              CommandToHighlight="Edit.QuickInfo">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [QuickInfo.cs](file://project/quickinfo.cs), click on `WriteLine` and invoke **Quick Info** via **Edit** -> **IntelliSense** -> **Quick Info** {KeyboardShortcut:Edit.QuickInfo, TextEditor} or by choosing the **Quick Info** button on the editor toolbar. **Quick Info** will also appear automatically after a short pause when the mouse cursor is placed on an identifier.
+
+1. The complete declaration for the method appears.
+
+    ![Parameter info tooltip](IntelliSenseParamInfo1.png "Parameter info tooltip")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="IntelliSense - Complete Word"
+              Id="Editor.CompleteWord"
+              FileToOpen="CompleteWord.cs"
+              CenterLineNumber="1"
+              CommandToHighlight="Edit.CompleteWord">
+        <vst:Step.Description>
+            <![CDATA[
+**Complete Word** completes the rest of an identifer after you have entered enough characters to disambiguate the term.
+
+1. In [CompleteWord.cs](file://project/completeword.cs), place the caret between the `using System.Component` and `;`.
+
+1. Invoke **Complete Word** via **Edit** -> **IntelliSense** -> **Complete Word** {KeyboardShortcut:Edit.CompleteWord, 8B382828-6202-11D1-8870-0000F87579D2} or by choosing the **Complete Word** button on the editor toolbar.
+
+1. Visual Studio auto-completes the identifer.
+
+    ```
+    using System.ComponentModel;
+    ```
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Code Snippets Part 1"
+              Id="Editor.CodeSnippets"
+              FileToOpen="SnippetsPartOne.cs"
+              CenterLineNumber="6"
+              CommandToHighlight="Edit.InsertSnippet">
+        <vst:Step.Description>
+            <![CDATA[
+Code snippets are small blocks of reusable code that can be inserted in a code file.
+
+1. In [SnippetsPartOne.cs](file://project/snippetspartone.cs), insert a snippet in the `DoWork` method by selecting **Edit** -> **IntelliSense** -> **Insert Snippet** {KeyboardShortcut:Edit.InsertSnippet, Global}.
+
+1. A snippet selection list appears.
+
+1. Select `Visual C#`, then `tryf` from the list.
+
+    ![Insert snippet](CodeSnippets1.png "Insert snippet")
+
+1. A try-finally block is inserted.
+
+    ```
+    try
+    {
+
+    }
+    finally
+    {
+
+    }
+    ```
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Code Snippets Part 2"
+              Id="Editor.CodeSnippets"
+              FileToOpen="SnippetsPartTwo.cs"
+              CenterLineNumber="6">
+        <vst:Step.Description>
+            <![CDATA[
+Snippets may also appear in the IntelliSense completion list. The name of the item in the completion list is the snippet shortcut.
+
+1. In [SnippetsPartTwo.cs](file://project/snippetsparttwo.cs), invoke the switch snippet in the `DoWork` method by typing `switch` and pressing **TAB** twice on the completion list item.
+
+    ![Completion list](CodeSnippets2.png "Completion list")
+
+1. This snippet includes a replacement parameter named `switch_on`. This is a placeholder that you must replace to fit the precise code you are writing.
+
+1. Type `dateTime.DayOfWeek` and press **ENTER** to expand the snippet. This expression evaluates to an enum type, so the expansion creates a case statement for every member of the enum.
+
+    ```
+    switch (dateTime.DayOfWeek)
+    {
+        case DayOfWeek.Sunday:
+            break;
+        case DayOfWeek.Monday:
+            break;
+        case DayOfWeek.Tuesday:
+            break;
+        case DayOfWeek.Wednesday:
+            break;
+        case DayOfWeek.Thursday:
+            break;
+        case DayOfWeek.Friday:
+            break;
+        case DayOfWeek.Saturday:
+            break;
+        default:
+            break;
+    }
+    ```
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Quick Find and Replace"
+              Id="Editor.QuickFindReplace"
+              FileToOpen="QuickFind.cs"
+              MenuToHighlight="Edit">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [QuickFind.cs](file://project/quickfind.cs), find a string in the current file via **Edit** -> **Find and Replace** -> **Quick Find** {KeyboardShortcut:Edit.Find}.
+
+1. Type `val` in the find control in the upper right corner of the code editor window.
+
+1. It immediately highlights every occurrence of the given search string in the document.
+
+    ![Find control](QuickFindReplace1.png "Find control")
+
+1. Replace the string via **Edit** -> **Find and Replace** -> **Quick Replace** {KeyboardShortcut:Edit.Replace}. You can also switch between find and replace mode by pressing the toggle button on the left of the search term box.
+
+1. In the replacement term field, type `firstVal`.
+
+1. Check the **Match whole word** button to stop matching to `anotherVal`.
+
+1. To make one replacement at a time, choose the **Replace next** button next to the replace text box. To replace all matches, choose the **Replace all** button.
+
+    ![Replace control](QuickFindReplace2.png "Replace control")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Refactor - Rename"
+              Id="Editor.RefactorRename"
+              FileToOpen="RefactorRename.cs">
+        <vst:Step.Description>
+            <![CDATA[
+To safely rename an identifier without having to find all instances, you can use **Refactor Rename** to rename a code symbol, such as fields, variables, parameters, methods, namespaces, properties and types.
+
+1. In [RefactorRename.cs](file://project/refactorrename.cs), select one of the two `anotherVal` identifiers.
+
+1. Rename the identifier via **Edit** -> **Refactor** -> **Rename** {KeyboardShortcut:Refactor.Rename}.
+
+    ![Rename parameter](RefactorRename.png "Rename parameter")
+
+1. Type `secondVal` and press **ENTER** to accept the rename. If you wish to cancel, press **ESC**.
+
+1. All instances of the `anotherVal` parameters are renamed.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Refactor - Extract Method"
+              Id="Editor.RefactorExtractMethod"
+              FileToOpen="RefactorExtractMethod.cs"
+              CenterLineNumber="13">
+        <vst:Step.Description>
+            <![CDATA[
+To turn a fragment of code into its own method, you can use **Refactor Extract Method** to create the new method definition and call it.
+
+1. In [RefactorExtractMethod.cs](file://project/refactorextractmethod.cs), select the whole line of code that initializes the `area` variable. You can do so using triple-click with the left mouse button. You can also left click on the left margin to select lines.
+
+    ![Select line to extract](RefactorExtractMethod1.png "Select line to extract")
+
+1. Create a new method via **Edit** -> **Refactor** -> **Extract Method** {KeyboardShortcut:Refactor.ExtractMethod}.
+
+1. You will be prompted for a method name. Type `GetArea` and press **ENTER** to accept.
+
+    ![Rename new method](RefactorExtractMethod2.png "Rename new method")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Quick Action - Implement an interface"
+              Id="Editor.QuickActionImplementInterface"
+              FileToOpen="ImplementInterface.cs"
+              CenterLineNumber="3">
+        <vst:Step.Description>
+            <![CDATA[
+Visual Studio can generate the code required to implement an interface.
+
+1. In [ImplementInterface.cs](file://project/implementinterface.cs), you should see a red squiggle under `IComparable<Temperature>` because the class declares that it implements the interface, but none of the interface members are implemented.
+
+1. Click on the `class` line. After a brief moment, a lightbulb will appear in the editor margin.
+
+1. Click on the lightbulb or select **Quick Actions and Refactorings** {KeyboardShortcut:View.QuickActions} from the context menu.
+
+1. Select **Implement interface**.
+
+    ![Quick action menu](QuickActionImplementInterface.png "Quick action menu")
+
+1. A default implementation of `CompareTo` is added to the class.
+
+    ```
+    public int CompareTo(Temperature? other)
+    {
+        throw new NotImplementedException();
+    }
+    ```
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="IntelliSense - Generate override"
+              Id="Editor.IntelliSenseGenerateOverride"
+              FileToOpen="GenerateOverride.cs"
+              CenterLineNumber="6">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [GenerateOverride.cs](file://project/generateoverride.cs), go to the empty line below the `Name` declaration, inside the class scope.
+
+1. Type `override` followed by a space.
+
+1. The completion list contains potential overrides for this class. Select `ToString` and press **TAB**.
+
+    ![Completion list](IntelliSenseGenerateOverride.png "Completion list")
+
+1. A default implementation of `ToString` is added to the class.  
+
+    ```
+    public override string ToString()
+    {
+        return base.ToString();
+    }
+    ```
+
+1. You can now customize it to return a more appropriate value, such as the `Name`.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Error List"
+              Id="Editor.ErrorList"
+              FileToOpen="ErrorList.cs">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [ErrorList.cs](file://project/errorlist.cs), you will see green and red squiggles appear for warnings and errors.
+
+    ![Code with squiggles](ErrorListCode.png "Code with squiggles")
+
+1. Icons on the editor status bar indicate that the current document has errors or warnings.
+
+    ![Error icons on status bar](ErrorListStatusBar.png "Error icons on status bar")
+
+1. Open the **Error List** window via **View** -> **Error List** {KeyboardShortcut:View.ErrorList}, or click on the editor status bar icons.
+
+1. Select both **Errors** and **Warnings** buttons from the **Error List** toolbar to see all errors and warnings.
+
+    ![Error list window](ErrorListWindow.png "Error list window")
+
+1. You can navigate to the code location of the next error by selecting **Next Error** {KeyboardShortcut:View.NextError}.
+
+1. Some errors or warnings can be fixed by Visual Studio. Select the entry for `unusedVar` and press **ENTER** or double-click to navigate to the code.
+
+1. A Quick Action lightbulb appears in the editor margin.
+
+1. Click on the lightbulb or select **Quick Actions and Refactorings** {KeyboardShortcut:View.QuickActions} from the context menu.
+
+1. Select **Remove unused variable** to delete the unnecessary variable declaration/initialization.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Code Navigation Part 1"
+              Id="Editor.NavigationPart1"
+              FileToOpen="Navigation.cs"
+              CenterLineNumber="28">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [Navigation.cs](file://project/navigation.cs), click on the `Deposit` identifier on the `account.Deposit(100)` statement.
+
+1. From the context menu, select **Go To Definition** {KeyboardShortcut:Edit.GoToDefinition}.
+
+1. The caret moves to the `public void Deposit(Decimal amount)` line.
+
+1. Select `Withdraw(decimal amount)` from the navigation bar list of members. You can place focus on the navigation bar using {KeyboardShortcut:Window.MovetoNavigationBar}, and move between boxes in the navigation bar using **TAB**.
+
+    ![Navigation bar](NavigationNavBar.png "Navigation bar")
+
+1. The caret moves to the `public void Withdraw(Decimal amount)` line.
+
+1. Navigate to a previous location using **Navigate Backward** {KeyboardShortcut:View.NavigateBackward}.
+
+1. Return to a more recent location using **Navigate Forward** {KeyboardShortcut:View.NavigateForward}.
+
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Code Navigation Part 2"
+              Id="Editor.NavigationPart2"
+              FileToOpen="Navigation.cs"
+              CenterLineNumber="5">
+        <vst:Step.Description>
+            <![CDATA[
+1. In [Navigation.cs](file://project/navigation.cs), click on the `Balance` identifier on the `public Decimal Balance` line.
+
+1. From the context menu, select **Find All References** {KeyboardShortcut:Edit.FindAllReferences}.
+
+1. A tool window containing a list of all references to the identifier appears. Click on the references to navigate to the code.
+
+    ![References window](NavigationReferences.png "References window")
+
+1. To go directly to a specific line of code, select **Edit** -> **Go To** -> **Go To Line** {KeyboardShortcut:Edit.GoTo} and enter the line number.
+
+1. To quickly find a type in your solution, select **Edit** -> **Go To** -> **Go To Type** {KeyboardShortcut:Edit.GoToType} and enter the name, such as `Account`.
+
+1. To find a symbol, select **Edit** -> **Go To** -> **Go To Symbol** {KeyboardShortcut:Edit.GoToSymbol} and enter the name, such as `Balance`.
+
+1. To preview a definition without navigating to it, click on the identifier, such as `Deposit` on the `account.Deposit(100);` statement and select **Peek Definition** {KeyboardShortcut:Edit.PeekDefinition, TextEditor} from the context menu.
+
+1. The definition will appear inline below.
+
+    ![Peek window](NavigationPeekDefinition.png "Peek window")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Customize the Editor - Line Numbers"
+              Id="Editor.LineNumbers">
+        <vst:Step.Description>
+            <![CDATA[
+1. Select **Tools** -> **Options**.
+
+1. Expand the **Text Editor** node.
+
+1. Select either the language you're using, **C#**, or **All Languages** to configure line numbers in all supported programming languages.
+
+1. Select the **Line numbers** checkbox to show line numbers or clear the checkbox to hide line numbers.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Advanced Commands"
+              Id="Editor.AdvancedCommands">
+        <vst:Step.Description>
+            <![CDATA[
+There are several commands available under **Edit** -> **Advanced menu** to make editing more productive.
+
+Let's look at a few of them.
+
+1. Convert the currently selected text to uppercase via **Edit** -> **Advanced** -> **Make Uppercase** {KeyboardShortcut:Edit.MakeUppercase, TextEditor}. To convert to lowercase, select **Make Lowercase** {KeyboardShortcut:Edit.MakeLowercase, TextEditor}.
+
+1. Add comment characters to the selection or the current line via **Edit** -> **Advanced** -> **Comment Selection** {KeyboardShortcut:Edit.CommentSelection, TextEditor}. To remove the comment characters, select **Uncomment Selection** {KeyboardShortcut:Edit.UncommentSelection, TextEditor}.
+
+1. Move the selected line(s) up one line at a time via **Edit** -> **Advanced** -> **Move Selected Lines Up** {KeyboardShortcut:Edit.MoveSelectedLinesUp, TextEditor}. To move them down, select **Move Selected Lines Down** {KeyboardShortcut:Edit.MoveSelectedLinesDown, TextEditor}.
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+    <vst:Step Title="Next steps"
+              Id="Editor.NextSteps"
+              IsScreenshot="false">
+        <vst:Step.Description>
+            <![CDATA[
+Congratulations on completing this Guide! We hope you enjoyed learning about the Visual Studio editor features.
+
+**This is the end of the guide. Thank you for learning! [Please help us improve this Guide by sharing feedback here.](https://www.surveymonkey.com/r/DBNB57F?TutorialId=Editor)**
+
+![Congratulation](congrats_tutorial.png "Congratulation")
+]]>
+        </vst:Step.Description>
+    </vst:Step>
+
+</vst:Guide>

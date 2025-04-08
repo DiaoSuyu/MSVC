@@ -1,0 +1,8 @@
+{
+    "IEnumerableVisualizer.DisplayName": "IEnumerable Visualizer",
+    "DataSetVisualizer.DisplayName": "DataSet Visualizer",
+    "DataTableVisualizer.DisplayName": "DataTable Visualizer",
+    "DataViewVisualizer.DisplayName": "DataView Visualizer",
+    "DataViewManagerVisualizer.DisplayName": "DataViewManager Visualizer"
+  }
+  

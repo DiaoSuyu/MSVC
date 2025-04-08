@@ -1,0 +1,28 @@
+﻿body > .mainArea {
+    flex-direction: row;
+    display: flex;
+}
+
+#blockedEventSummary {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.treeGridContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#stackViews {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#blockingStack {
+    flex: 1;
+}
+
+#releasingStack {
+    flex: 1;
+}

@@ -1,0 +1,35 @@
+{
+  "components": {
+    "code": {
+      "modifiers": [
+        "signalr.code.usings",
+        "signalr.code.startup"
+      ]
+    },
+    "appSettings": {
+      "modifiers": [
+        "signalr.appSettings"
+      ]
+    },
+    "launchSettings": {
+      "modifiers": [
+        "signalr.launchSettings"
+      ]
+    },
+    "nuget": {
+      "modifiers": [
+        "signalr.nuget.coreweb"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "signalr.serviceConnector.local"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="UserMarksTool.Microsoft Corp..27656D46-B6EC-4B37-85FA-32C6C90ADCE5" Version="1.0" Language="en-US" Publisher="Microsoft Corp." />
+    <DisplayName>UserMarks Tool</DisplayName>
+    <Description xml:space="preserve">Tool to emit custom events in the diagnostic trace file.</Description>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0,17.0)" />
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.DiagnosticTools" Version="[16.0,17.0)" DisplayName="Visual Studio Diagnostic Tools" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.DiagnosticsHub.UserMarks.dll" />
+  </Assets>
+</PackageManifest>

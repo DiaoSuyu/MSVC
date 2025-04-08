@@ -1,0 +1,28 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>ng2service</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>ng2service</Shortcut>
+    <Description>Angular 2 サービス追加用のコード スニペット</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ServiceName</ID>
+        <ToolTip>サービス名</ToolTip>
+        <Default>HelloWorld</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript"><![CDATA[
+     import { Injectable } from 'angular/core'; 
+     
+     @Injectable()
+     export class $ServiceName$Service {
+     
+     }
+    ]]></Code>
+  </Snippet>
+</CodeSnippet>

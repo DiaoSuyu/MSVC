@@ -1,0 +1,54 @@
+{
+  "azureFunction": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3795
+  },
+  "code": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 518
+  },
+  "console": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 614
+  },
+  "csFile": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 739
+  },
+  "localAccess": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 2302
+  },
+  "nuget": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3150
+  },
+  "powerPlatform": {
+    "guid": "ACFE44B5-B1C2-4033-A1A3-5BF20E80F77B",
+    "id": 4
+  },
+  "projectFile": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 165
+  },
+  "remoteAccess": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 2032
+  },
+  "settingsFile": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 2768
+  },
+  "secrets": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 1750
+  },
+  "serviceConnector": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 4031
+  },
+  "xmlFile": {
+    "guid": "AE27A6B0-E345-4288-96DF-5EAF394EE369",
+    "id": 3576
+  }
+}

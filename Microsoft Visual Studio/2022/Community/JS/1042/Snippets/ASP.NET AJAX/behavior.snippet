@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>동작</Title>
+    <Author>Microsoft Corporation</Author>
+    <Description>ASP.NET AJAX 클라이언트 컨트롤용 코드 조각</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>namespace</ID>
+        <ToolTip>네임스페이스</ToolTip>
+        <Default>mynamespace</Default>
+      </Literal>
+      <Literal>
+        <ID>controlname</ID>
+        <ToolTip>컨트롤 이름</ToolTip>
+        <Default>mycontrol</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[Type.registerNamespace("$namespace$");
+
+$namespace$.$controlname$ = function(element) {
+    $namespace$.$controlname$.initializeBase(this, [element]);
+}
+
+$namespace$.$controlname$.prototype = {
+    initialize: function() {
+        $namespace$.$controlname$.callBaseMethod(this, 'initialize');
+    },
+    dispose: function() {
+        $namespace$.$controlname$.callBaseMethod(this, 'dispose');
+    }
+}
+
+$namespace$.$controlname$.registerClass('$namespace$.$controlname$', Sys.UI.Behavior);$end$
+]]></Code>
+  </Snippet>
+</CodeSnippet>

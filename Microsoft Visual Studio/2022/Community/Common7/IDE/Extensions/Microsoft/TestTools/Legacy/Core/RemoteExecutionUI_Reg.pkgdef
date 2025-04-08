@@ -1,0 +1,6 @@
+[$RootKey$\Menus]
+"{13bfc60e-3c70-47cc-bfa2-fb70c9754e2f}"=", 1004, 1"
+
+[$RootKey$\Packages\{13bfc60e-3c70-47cc-bfa2-fb70c9754e2f}\SatelliteDll]
+"DllName"="Microsoft.VisualStudio.QualityTools.TestCaseManagementUI.dll"
+"Path"="$ShellFolder$\Common7\IDE\PrivateAssemblies\"

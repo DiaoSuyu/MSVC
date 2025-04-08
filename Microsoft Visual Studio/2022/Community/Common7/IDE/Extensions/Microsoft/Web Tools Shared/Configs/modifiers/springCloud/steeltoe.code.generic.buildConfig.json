@@ -1,0 +1,268 @@
+{
+  "kind": "code.generic",
+  "order": 20,
+  "model": {
+    "snippetModels": [
+      {
+        "name": "EnsureAzureSpringCloudClientNamespace",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Azure.SpringCloud.Client;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                }
+              ]
+            },
+            "body": "using Microsoft.Azure.SpringCloud.Client;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddKeyVault",
+        "condition": "ClassicConfigureServices",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "UseAzureSpringCloudService"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureWebHostDefaults"
+                  }
+                }
+              ]
+            },
+            "body": "\r\nbuilder.UseAzureSpringCloudService();"
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "EntryPoint",
+                  "properties": {}
+                },
+                {
+                  "kind": "Method",
+                  "properties": {
+                    "Method": "CreateWebHostBuilder",
+                    "TypeName": "System.String[]"
+                  }
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "UseStartup"
+                  }
+                }
+              ]
+            },
+            "body": "\r\nbuilder.UseAzureSpringCloudService();"
+          }
+        ]
+      },
+      {
+        "name": "EnsureAzureSpringCloudClientNamespaceForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "UsingDeclaration",
+                  "properties": {
+                    "UsingDeclaration": "using Microsoft.Azure.SpringCloud.Client;"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "UsingDeclaration",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                }
+              ]
+            },
+            "body": "using Microsoft.Azure.SpringCloud.Client;",
+            "tokens": {}
+          }
+        ]
+      },
+      {
+        "name": "EnsureAddKeyVaultForMinimalAppModel",
+        "condition": "MinimalAppModel",
+        "snippets": [
+          {
+            "kind": "Empty",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "UseAzureSpringCloudService"
+                  }
+                }
+              ]
+            },
+            "body": "",
+            "tokens": {}
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "Invocation",
+                  "properties": {
+                    "Invocation": "ConfigureWebHostDefaults"
+                  }
+                },
+                {
+                  "kind": "ArgumentDelegate",
+                  "properties": {
+                    "TypeName": "System.Action<Microsoft.Extensions.Hosting.IWebHostBuilder>"
+                  }
+                }
+              ]
+            },
+            "body": "\r\n@@localBuilderVar@@.UseAzureSpringCloudService();",
+            "tokens": {
+              "localBuilderVar": {
+                "name": "localBuilderVar",
+                "kind": "MethodParameter",
+                "properties": {
+                  "TypeName": "Microsoft.Extensions.Hosting.IWebHostBuilder"
+                }
+              }
+            }
+          },
+          {
+            "kind": "Expression",
+            "location": {
+              "parts": [
+                {
+                  "kind": "TopLevelMethod",
+                  "properties": {}
+                },
+                {
+                  "kind": "LocalVariable",
+                  "properties": {
+                    "TypeName": "Microsoft.AspNetCore.Builder.WebApplication?",
+                    "CodeOperation": "InsertBefore"
+                  },
+                  "locationTokenName": "localWebAppVar"
+                }
+              ]
+            },
+            "body": "\r\n@@localVar@@.Host.ConfigureWebHostDefaults(webHostBuilder => {\r\nwebHostBuilder.UseAzureSpringCloudService();\r\n});\r\n",
+            "tokens": {
+              "localVar": {
+                "name": "localVar",
+                "kind": "LocalVariable",
+                "properties": {
+                  "TypeName": "Microsoft.AspNetCore.Builder.WebApplicationBuilder?",
+                  "Closure": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用分部类扩展 TableAdapter</Title>
+      <Author>Microsoft</Author>
+      <Description>使用分部类扩展 TableAdapter。  包括引用现有 TableAdapter 所需的命名空间</Description>
+      <Shortcut>dtTableAdaptPartial</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Namespace</ID>
+          <Type>String</Type>
+          <ToolTip>数据集的名称，TableAdapter 作用于该数据集</ToolTip>
+          <Default>NorthwindDataSet</Default>
+        </Literal>
+        <Literal>
+          <ID>TableAdapter</ID>
+          <Type>String</Type>
+          <ToolTip>要扩展的 TableAdapter 的名称</ToolTip>
+          <Default>CustomersTableAdapter</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB"><![CDATA[Namespace $Namespace$TableAdapters
+    Partial Public Class $TableAdapter$
+
+    End Class
+End Namespace
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

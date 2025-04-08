@@ -1,0 +1,277 @@
+* {
+    /* TODO for Dev15 - Remove this. Since the old tree grid set this all of the styles
+    assume it. We should remove this and use standard content-box sizing */
+    box-sizing: border-box;
+}
+
+#plugin-contextmenu-container {
+    /**
+     * This puts the plugin context menu element behind all of our view
+     * so that it does not intercept any events. This element is only used
+     * to generate HTML passed to the context menu ScriptedSandbox instance
+     * and is never shown on this DOM.
+     */
+    z-index: -1;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    -ms-high-contrast-adjust: none;
+    cursor: default;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--plugin-font-family, "Segoe Script"), Arial, sans-serif;
+    font-size: var(--plugin-font-size, 12px);
+    color: var(--plugin-color, rgb(0, 0, 0));
+    /* This will set the toolbar as the top row and the grid using the remaining space */
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr;
+}
+
+.icon {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+}
+
+    .icon svg {
+        width: auto;
+        height: 100%;
+        vertical-align: baseline;
+    }
+
+.container {
+    position: relative;
+}
+
+.hideOverflow {
+    overflow: hidden;
+}
+
+.mainArea {
+    display: flex;
+    grid-row: 3;
+    position: relative;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.treeGridContainer {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#analyzeMessage {
+    background: none;
+    border: none;
+    color: var(--DiagnosticsHub-Hyperlink, fuchsia);
+    cursor: pointer;
+}
+
+    #analyzeMessage:hover, #analyzeMessage:focus {
+        color: var(--DiagnosticsHub-HyperlinkHover, chartreuse);
+    }
+
+/* Toolbar element styles */
+.toolbar-container {
+    grid-row: 1;
+}
+
+#message-overlay .toolbar-button {
+    float: none;
+}
+
+.dropdown-button {
+    display: inline-block;
+}
+
+    .dropdown-button:after {
+        font-family: Marlett !important;
+        content: " 6"; /* 6 in Marlett font is down arrow */
+        vertical-align: bottom;
+    }
+
+#breakMessage {
+    display: block;
+}
+
+.breakPending > #breakMessage {
+    display: none;
+}
+
+#breakPendingMessage {
+    display: none;
+}
+
+.breakPending > #breakPendingMessage {
+    display: block;
+}
+
+/* Default element styles */
+a {
+    cursor: pointer;
+}
+
+.checkboxLabel {
+    color: var(--CommonControls-CheckBoxText-Background, fuchsia);
+    display: inline-block;
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input[type=checkbox] {
+    outline: none;
+}
+
+input[type=checkbox]:checked {
+    color: var(--CommonControls-CheckBoxGlyph-Background, fuchsia);
+    background-color: var(--CommonControls-CheckBoxBackground-Background, aquamarine);
+    border: 1px solid var(--CommonControls-CheckBoxBorder-Background, red);
+}
+
+input[type=checkbox]:active:checked {
+    color: var(--CommonControls-CheckBoxGlyphPressed-Background, fuchsia);
+    border-color: var(--CommonControls-CheckBoxBorderPressed-Background, red);
+    background-color: var(--CommonControls-CheckBoxBackgroundPressed-Background, red);
+}
+
+input[type=checkbox]:focus:checked {
+    color: var(--CommonControls-CheckBoxGlyphFocused-Background, fuchsia);
+    border-color: var(--CommonControls-CheckBoxBorderFocused-Background, red);
+    background-color: var(--CommonControls-CheckBoxBackgroundFocused-Background, red);
+}
+
+input[type=checkbox]:disabled:checked {
+    color: var(--CommonControls-CheckBoxGlyphDisabled-Background, fuchsia);
+    border-color: var(--CommonControls-CheckBoxBorderDisabled-Background, red);
+    background-color: var(--CommonControls-CheckBoxBackgroundDisabled-Background, transparent);
+}
+
+button {
+    border: 1px solid var(--CommonControls-ButtonBorder-Background, red);
+    background-color: var(--CommonControls-Button-Background, red);
+    color: var(--CommonControls-Button-Foreground, black);
+    /* Reset the injected min-width from daytona. Despite the CSS spec saying the value should be 'initial', only 'auto' works for our purposes. */
+    min-width: auto;
+}
+
+    button, button:active, button:hover, button:focus, button:disabled {
+        background-image: none; /*This overrides a background image injected by Plugin.css*/
+    }
+
+        button:hover {
+            border: 1px solid var(--CommonControls-ButtonBorderHover-Background, red);
+            background-color: var(--CommonControls-ButtonHover-Background, fuchsia);
+            color: var(--CommonControls-ButtonHover-Foreground, lawngreen);
+        }
+
+        button:active {
+            border: 1px solid var(--CommonControls-ButtonBorder-Background, red);
+            background-color: var(--CommonControls-ButtonPressed-Foreground, fuchsia);
+            color: var(--CommonControls-ButtonBorderPressed-Background, lawngreen);
+        }
+
+        button:focus {
+            border: 1px solid var(--CommonControls-ButtonBorderFocused-Background, red);
+            background-color: var(--CommonControls-ButtonFocused-Background, fuchsia);
+            color: var(--CommonControls-ButtonFocused-Foreground, lawngreen);
+        }
+
+        button:disabled {
+            border: 1px solid var(--CommonControls-ButtonBorderDisabled-Background, red);
+            background-color: var(--CommonControls-ButtonDisabled-Background, fuchsia);
+            color: var(--CommonControls-ButtonDisabled-Foreground, lawngreen);
+        }
+
+        /* reset the default IE button:active animation */
+        button:active * {
+            position: relative;
+        }
+
+::-webkit-input-placeholder {
+    color: var(--vs-command-search-watermark-text, fuchsia);
+}
+
+    ::-webkit-input-placeholder:hover {
+        color: var(--SearchControl-MouseOverWatermarkText-Background, fuchsia);
+    }
+
+.main-information-container {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    background-color: lightyellow; /*[{diagnostics-information-background}]*/
+    background-color: var(--diagnostics-information-background, lightyellow);
+    border-top: 1px var(--diagnostics-information-border, black) solid;
+    border-bottom: 1px var(--diagnostics-information-border, black) solid;
+    padding: 5px;
+}
+
+.main-information-container-hidden {
+    display: none;
+}
+
+.main-information-container .information-icon {
+    grid-row: 1;
+    grid-column: 1;
+    background-repeat: no-repeat;
+    background-size: 1.333em 1.333em;
+    width: 1.333em;
+    height: 1.333em;
+    background-position-x: left;
+    background-color: transparent;
+}
+
+.main-information-container .information-message {
+    grid-row: 1;
+    grid-column: 2;
+    color: var(--diagnostics-information-foreground, black);
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+}
+
+.main-information-container .information-link {
+    grid-row: 1;
+    grid-column: 3;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+    color: var(--diagnostics-information-foreground, black);
+}
+
+.main-information-container .information-close-div {
+    grid-row: 1;
+    grid-column: 4;
+    background-color: transparent;
+    vertical-align: middle;
+    padding-top: 2px;
+    overflow: visible;
+}
+
+    .main-information-container .information-close-div .information-close {
+        background-color: transparent;
+        font-family: Marlett !important;
+        color: var(--diagnostics-information-foreground, black);
+        float: right;
+    }
+
+    tr.selected > td > button.hyperlink-button, tr.selected > td > button.toolbar-button.hyperlink-button {
+        color: var(--DiagnosticsHub-TreeContent-Selected-Hyperlink, chartreuse);
+    }
+
+    tr.selected > td > button.hyperlink-button, tr.selected > td > button.toolbar-button.hyperlink-button:hover {
+        color: var(--DiagnosticsHub-TreeContent-Selected-HyperlinkHover, chartreuse);
+    }
+
+    tr.selected > td > button.hyperlink-button, tr.selected > td > button.toolbar-button.hyperlink-button:focus {
+        color: var(--DiagnosticsHub-TreeContent-Selected-HyperlinkHover, chartreuse);
+    }

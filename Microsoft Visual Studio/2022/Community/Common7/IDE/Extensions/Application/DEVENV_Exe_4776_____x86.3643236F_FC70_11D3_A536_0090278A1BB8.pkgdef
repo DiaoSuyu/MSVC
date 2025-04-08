@@ -1,0 +1,4 @@
+[$RootKey$\Setup\VS]
+"EnvironmentDirectory"="$RootFolder$\Common7\IDE\"
+"EnvironmentPath"="$RootFolder$\Common7\IDE\devenv.exe"
+"VS7EnvironmentLocation"="$RootFolder$\Common7\IDE\devenv.exe"

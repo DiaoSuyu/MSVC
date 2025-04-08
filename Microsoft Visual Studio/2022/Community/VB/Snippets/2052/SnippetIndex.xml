@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SnippetCollection>
+	<Language Lang="VB" Guid="{3A12D0B8-C26C-11D0-B442-00A0244A1DD2}">
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%MyDocs%\Code Snippets\Visual Basic\My Code Snippets\</DirPath>
+			<LocalizedName>我的代码片段</LocalizedName>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\</DirPath>
+			<LocalizedName>Office 开发</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\excel\</DirPath>
+				<LocalizedName>Excel</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\excel\controls\</DirPath>
+					<LocalizedName>控件</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\excel\importing\</DirPath>
+					<LocalizedName>导入</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\excel\Formatting\</DirPath>
+					<LocalizedName>格式设置</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\excel\Environment\</DirPath>
+					<LocalizedName>环境</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\Word\</DirPath>
+				<LocalizedName>Word</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\word\controls\</DirPath>
+					<LocalizedName>控件</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\word\environment\</DirPath>
+					<LocalizedName>环境 - 文档变量</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\word\formatting\</DirPath>
+					<LocalizedName>格式设置</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\office\</DirPath>
+				<LocalizedName>Office</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\office\environment\</DirPath>
+					<LocalizedName>环境 - 菜单，操作窗格</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\officedevelopment\office\server\</DirPath>
+					<LocalizedName>服务器 - 缓存数据，服务器文档</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\application\</DirPath>
+			<LocalizedName>应用程序 - 编译、资源和设置</LocalizedName>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\fundamentals\</DirPath>
+			<LocalizedName>基本元素 - 集合、数据类型、文件系统和数学</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\fundamentals\collections and arrays\</DirPath>
+				<LocalizedName>集合和数组</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\fundamentals\datatypes\</DirPath>
+				<LocalizedName>数据类型</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\fundamentals\filesystem\</DirPath>
+				<LocalizedName>文件系统 - 处理驱动器、文件夹和文件</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\fundamentals\math\</DirPath>
+				<LocalizedName>数学</LocalizedName>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\</DirPath>
+			<LocalizedName>数据 - LINQ、XML、设计器和 ADO.NET</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\database\</DirPath>
+				<LocalizedName>设计器功能和 ADO.NET</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\</DirPath>
+				<LocalizedName>LINQ 查询</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Query - Filter with 'Where'\</DirPath>
+					<LocalizedName>查询 - 使用“Where”筛选</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Query - Grouping\</DirPath>
+					<LocalizedName>查询 - 分组</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Query - Joining\</DirPath>
+					<LocalizedName>查询 - 联接</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Query - Sort with 'Order By'\</DirPath>
+					<LocalizedName>查询 - 使用“Order By”排序</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Query - Take and Skip\</DirPath>
+					<LocalizedName>查询 - Take 和 Skip</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Using Different Sources\</DirPath>
+					<LocalizedName>查询 - 使用不同的源</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\LINQ Queries\Using Query Results\</DirPath>
+					<LocalizedName>查询 - 使用查询结果</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\</DirPath>
+				<LocalizedName>Xml</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\XML - Write</DirPath>
+					<LocalizedName>Xml - 写入</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\XML - Update</DirPath>
+					<LocalizedName>Xml - 更新</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\XML - Read</DirPath>
+					<LocalizedName>Xml - 读取</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\XML - Query</DirPath>
+					<LocalizedName>Xml - 查询</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\data\xml\XML - Create</DirPath>
+					<LocalizedName>Xml - 创建</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\other\</DirPath>
+			<LocalizedName>其他 - 连接、安全、工作流</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\other\connectivity\</DirPath>
+				<LocalizedName>连接和网络</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\other\security\</DirPath>
+				<LocalizedName>安全性</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\other\Workflow\</DirPath>
+				<LocalizedName>工作流</LocalizedName>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\</DirPath>
+			<LocalizedName>Windows 窗体应用程序</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\forms\</DirPath>
+				<LocalizedName>窗体</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\clipboard\</DirPath>
+				<LocalizedName>剪贴板</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\</DirPath>
+				<LocalizedName>控件和组件</LocalizedName>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\button\</DirPath>
+					<LocalizedName>按钮</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\textbox\</DirPath>
+					<LocalizedName>TextBox</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\richtextbox\</DirPath>
+					<LocalizedName>RTF 文本框</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\menu\</DirPath>
+					<LocalizedName>菜单</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\listview\</DirPath>
+					<LocalizedName>列表视图</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\treeview\</DirPath>
+					<LocalizedName>树视图</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\datagridview\</DirPath>
+					<LocalizedName>数据网格视图</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\listbox\</DirPath>
+					<LocalizedName>列表框</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\calendar\</DirPath>
+					<LocalizedName>日历</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\combobox\</DirPath>
+					<LocalizedName>组合框</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\progressbar\</DirPath>
+					<LocalizedName>进度条</LocalizedName>
+				</SnippetSubDir>
+				<SnippetSubDir>
+					<OnOff>on</OnOff>
+					<Installed>true</Installed>
+					<Locale>2052</Locale>
+					<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\controls\radiobutton\</DirPath>
+					<LocalizedName>单选按钮</LocalizedName>
+				</SnippetSubDir>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\drawing\</DirPath>
+				<LocalizedName>绘图</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\fonts\</DirPath>
+				<LocalizedName>字体</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\windowsforms\sound\</DirPath>
+				<LocalizedName>声音</LocalizedName>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\common code patterns\</DirPath>
+			<LocalizedName>代码模式 - If、For Each、Try Catch、Property 等</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\common code patterns\conditionals and loops\</DirPath>
+				<LocalizedName>条件语句和循环</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\common code patterns\exception handling\</DirPath>
+				<LocalizedName>错误处理(异常)</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\common code patterns\properties and procedures\</DirPath>
+				<LocalizedName>属性、过程和事件</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\common code patterns\types\</DirPath>
+				<LocalizedName>枚举、泛型、接口和结构</LocalizedName>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\</DirPath>
+			<LocalizedName>Windows 系统 - 日志记录、进程、注册表和服务</LocalizedName>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\eventlog\</DirPath>
+				<LocalizedName>Windows - 事件日志</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\messaging\</DirPath>
+				<LocalizedName>Windows - 消息队列</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\process\</DirPath>
+				<LocalizedName>Windows - 进程</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\registry\</DirPath>
+				<LocalizedName>Windows - 注册表</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\systeminfo\</DirPath>
+				<LocalizedName>Windows - 系统信息</LocalizedName>
+			</SnippetSubDir>
+			<SnippetSubDir>
+				<OnOff>on</OnOff>
+				<Installed>true</Installed>
+				<Locale>2052</Locale>
+				<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\os\services\</DirPath>
+				<LocalizedName>Windows - 服务</LocalizedName>
+			</SnippetSubDir>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\WPF\</DirPath>
+			<LocalizedName>WPF</LocalizedName>
+		</SnippetDir>
+		<SnippetDir>
+			<OnOff>on</OnOff>
+			<Installed>true</Installed>
+			<Locale>2052</Locale>
+			<DirPath>%InstallRoot%\Vb\Snippets\%LCID%\Test\</DirPath>
+			<LocalizedName>测试</LocalizedName>
+		</SnippetDir>
+	</Language>
+</SnippetCollection>

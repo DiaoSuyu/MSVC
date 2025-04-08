@@ -1,0 +1,24 @@
+{
+  "feature": {
+    "id": "ef.sqlServer.azure.appService"
+  },
+  "requirements": [
+    "vsWebWorkload"
+  ],
+  "editSteps": [
+    {
+      "$refmerge": "/definitions/common.json#/remoteInstanceEditSteps"
+    }
+  ],
+  "properties": {
+    "connectionId": {
+      "value": "ConnectionStrings:DatabaseConnection"
+    }
+  },
+  "persistenceProperties": {
+    "$ref": "/definitions/common.json#/persistenceProperties"
+  },
+  "arm": {
+    "$ref": "/dependencyTypes/configs/mssql/arm.json"
+  }
+}

@@ -1,0 +1,76 @@
+﻿[$RootKey$\Packages\{cb03d63d-47be-437d-b26b-1ad8aa7ff394}]
+@="PackageManagementPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.PackageManagement.PackageManagementPackage"
+"Assembly"="Microsoft.WebTools.PackageManagement,Version=17.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{4F6D1E77-A8C3-4923-8C5D-35FFAE242721}]
+"name"="Microsoft.WebTools.PackageManagement"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.PackageManagement.dll"
+
+[$RootKey$\Editors\{69f6236b-192d-3725-b119-1c2ce44e2a5c}]
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+
+[$RootKey$\Editors\{69f6236b-192d-3725-b119-1c2ce44e2a5c}\Extensions]
+"BowerDocumentWindow"=dword:00000032
+
+[$RootKey$\Menus]
+"{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"=", Menus.ctmenu, 1"
+
+[$RootKey$\ToolsOptionsPages\Projects]
+
+[$RootKey$\ToolsOptionsPages\Projects\Web Package Management]
+@="#105"
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+
+[$RootKey$\ToolsOptionsPages\Projects\Web Package Management\External Web Tools]
+@="#102"
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Page"="{b521100c-f698-4018-b1cf-6421fc59fa9b}"
+"Keywords"="#104"
+
+[$RootKey$\ToolsOptionsPages\Projects\Web Package Management\Package Restore]
+@="#107"
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Page"="{03D27F49-12E4-4282-94F3-03A8AEF90B8F}"
+"Keywords"="#106"
+
+[$RootKey$\UserSettings\Projects_Web Package Management_External Web Tools]
+@="102"
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Category"="{b521100c-f698-4018-b1cf-6421fc59fa9b}"
+"ToolsOptionsPath"="Web Package Management"
+"Description"="103"
+"VSSettingsMigration"=dword:00000000
+
+[$RootKey$\UserSettings\Projects_Web Package Management_Package Restore]
+@="107"
+"Package"="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Category"="{03D27F49-12E4-4282-94F3-03A8AEF90B8F}"
+"ToolsOptionsPath"="Web Package Management"
+"Description"="106"
+"VSSettingsMigration"=dword:00000000
+
+[$RootKey$\Services\{c7d9d5c8-65d4-4ecb-a904-0ddc4e0327ad}]
+@="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Name"="IExternalToolsOptionsService"
+
+[$RootKey$\Services\{3F9E4D93-E241-4756-AE15-05ABA58587E2}]
+@="{cb03d63d-47be-437d-b26b-1ad8aa7ff394}"
+"Name"="IPackageRestoreOptionsService"
+
+[$RootKey$\UIContextRules\{9c1a4c33-0ecc-4ec7-9f81-75bd534c4825}]
+@="PackageManagerUIContext"
+"Expression"="( WAP | WebSite | DotNetCoreWeb | Cordova ) & !Node "
+"WAP"="ActiveProjectFlavor:{349C5851-65DF-11DA-9384-00065B846F21}"
+"WebSite"="ActiveProjectFlavor:{E24C65DC-7377-472B-9ABA-BC803B73C61A}"
+"DotNetCoreWeb"="ActiveProjectCapability:DotNetCoreWeb"
+"Cordova"="ActiveProjectCapability:DependencyPackageManagement"
+"Node"="ActiveProjectFlavor:{3AF33F2E-1136-4D97-BBB7-1795711AC8B8}"
+
+[$RootKey$\UIContextRules\{038331f0-d1e8-4e82-ae9e-1c3a53303ce6}]
+"Expression"="IsNewNpmExperienceEnabled"
+"IsNewNpmExperienceEnabled"="FeatureFlag:WebTools.PackageManagement.IsNewNpmExperienceEnabled"

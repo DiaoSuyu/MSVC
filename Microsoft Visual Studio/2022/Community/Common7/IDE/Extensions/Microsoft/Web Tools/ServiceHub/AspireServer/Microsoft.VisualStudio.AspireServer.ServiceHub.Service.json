@@ -1,0 +1,11 @@
+{
+  "host": "dotnet",
+  "hostId": "WebTools",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.WebTools.AspireServer.dll",
+    "fullClassName": "Microsoft.WebTools.AspireServer.ServiceFactory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%",
+    "assemblySearchPathsConfig": "AssemblySearchPaths.json"
+  }
+}

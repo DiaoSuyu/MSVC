@@ -1,0 +1,34 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>register</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>register</Shortcut>
+    <Description>自定义控件注册指令的标记段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <FileExtensions>
+      aspx;master;ascx
+    </FileExtensions>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>tagprefix</ID>
+        <ToolTip>tagprefix</ToolTip>
+        <Default>tagprefix</Default>
+      </Literal>
+      <Literal>
+        <ID>namespace</ID>
+        <ToolTip>命名空间</ToolTip>
+        <Default>namespace</Default>
+      </Literal>
+      <Literal>
+        <ID>assembly</ID>
+        <ToolTip>程序集</ToolTip>
+        <Default>assembly</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="html"><![CDATA[<%@ Register tagprefix="$tagprefix$" namespace="$namespace$" assembly="$assembly$" %>$end$]]></Code>
+  </Snippet>
+</CodeSnippet>

@@ -1,0 +1,32 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>getter</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>getter</Shortcut>
+    <Description>getter 的程式碼片段</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>type</ID>
+        <Default>string</Default>
+      </Literal>
+      <Literal>
+        <ID>property</ID>
+        <Default>fullName</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="TypeScript">
+  <![CDATA[
+     private _$property$: $type$;
+
+     get $property$(): $type$ {
+         return this._$property$;
+     }
+
+     ]]></Code>
+  </Snippet>
+</CodeSnippet>

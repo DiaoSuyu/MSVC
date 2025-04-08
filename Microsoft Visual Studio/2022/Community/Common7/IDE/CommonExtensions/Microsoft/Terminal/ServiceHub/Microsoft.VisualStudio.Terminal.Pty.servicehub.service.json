@@ -1,0 +1,8 @@
+{
+  "host": "dotnet.x64",
+  "hostId": "TerminalPTYService",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.Terminal.ServiceHub.dll",
+    "fullClassName": "Microsoft.VisualStudio.Terminal.ServiceHub.PtyServiceFactory"
+  }
+}

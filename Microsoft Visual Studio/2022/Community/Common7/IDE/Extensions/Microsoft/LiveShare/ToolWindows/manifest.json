@@ -1,0 +1,7 @@
+{
+  "start_url": "ToolWindows\\Content\\HTML\\gettingStartedWrapper.html",
+  "domain": "http://microsoft.com",
+  "name": "LiveShareGettingStartedPlugin",
+  "version": 1.0,
+  "browserHostVersion": "2.0"
+}

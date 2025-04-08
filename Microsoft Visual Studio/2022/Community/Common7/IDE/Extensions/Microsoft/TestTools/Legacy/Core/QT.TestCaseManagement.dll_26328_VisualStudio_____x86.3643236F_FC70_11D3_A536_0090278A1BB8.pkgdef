@@ -1,0 +1,546 @@
+[$RootKey$\AutomationProperties\Test Tools\Test Execution]
+"Name"="Test Tools.Test Execution"
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Editors\{4148a2b8-5c75-4b14-b414-529e07ff40e7}]
+@="CoverageFileEditorFactory"
+"CommonPhysicalViewAttributes"=dword:00000003
+"DisplayName"="#302"
+"EditorTrustLevel"=dword:00000000
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Editors\{4148a2b8-5c75-4b14-b414-529e07ff40e7}\Extensions]
+"coverage"=dword:00000064
+"coveragexml"=dword:000000C8
+
+[$RootKey$\Editors\{4148a2b8-5c75-4b14-b414-529e07ff40e7}\LogicalViews]
+
+[$RootKey$\Editors\{790e25e7-2f7f-4f0b-a9bc-ab2321de1e08}]
+@="TestResultsEditorFactory"
+"CommonPhysicalViewAttributes"=dword:00000003
+"DisplayName"="#300"
+"EditorTrustLevel"=dword:00000000
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Editors\{790e25e7-2f7f-4f0b-a9bc-ab2321de1e08}\Extensions]
+"trx"=dword:00000064
+
+[$RootKey$\Editors\{790e25e7-2f7f-4f0b-a9bc-ab2321de1e08}\LogicalViews]
+
+[$RootKey$\Editors\{c14bd170-3ebb-dace-8c07-dd9dbf72940e}]
+@="RunConfigEditorFactory"
+"CommonPhysicalViewAttributes"=dword:00000000
+"DisplayName"="#303"
+"EditorTrustLevel"=dword:00000000
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Editors\{c14bd170-3ebb-dace-8c07-dd9dbf72940e}\Extensions]
+"testrunconfig"=dword:00000064
+"testsettings"=dword:00000064
+
+[$RootKey$\Editors\{c14bd170-3ebb-dace-8c07-dd9dbf72940e}\LogicalViews]
+
+[$RootKey$\EnterpriseTools\QualityTools\DefaultSettings\TestManager\Columns]
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FCB7}"=dword:00000001
+"{E2EF333A-8029-4dbe-9BDE-434B1CF17A01}"=dword:00000002
+
+[$RootKey$\EnterpriseTools\QualityTools\DefaultSettings\TestPicker\Columns]
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FCB7}"=dword:00000001
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FDB7}"=dword:00000003
+"{E2EF333A-8029-4dbe-9BDE-434B1CF17A01}"=dword:00000002
+
+[$RootKey$\EnterpriseTools\QualityTools\DefaultSettings\TestResults\Columns]
+"{64600D7C-7361-4048-B6EF-5BF48D60D6F3}"=dword:00000004
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FCB7}"=dword:00000002
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FDB7}"=dword:00000003
+"{B27F4E1B-4DF4-41bd-8B86-671BAE2D7067}"=dword:00000001
+
+[$RootKey$\EnterpriseTools\QualityTools\DefaultSettings\TestView\Columns]
+"{A9405AE6-9AC6-4f0e-A03F-7AFE45F6FCB7}"=dword:00000001
+"{E2EF333A-8029-4dbe-9BDE-434B1CF17A01}"=dword:00000002
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{16226335-d1ec-44dd-87ae-44201779570b}\Name]
+"Priority"=dword:000001FE
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestIdCollisionDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{16226335-d1ec-44dd-87ae-44201779570b}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestIdCollisionDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{16226335-d1ec-44dd-87ae-44201779570b}\Options\3]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestIdCollisionDialog_Option_Abort"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{16226335-d1ec-44dd-87ae-44201779570b}\Options\4]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestIdCollisionDialog_Option_Retry"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{26930B7B-294C-44e4-8C2C-ECEBDAEF963A}\Name]
+"Priority"=dword:00000384
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestsDirty_DontAskDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{26930B7B-294C-44e4-8C2C-ECEBDAEF963A}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{26930B7B-294C-44e4-8C2C-ECEBDAEF963A}\Options\7]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestsDirty_DontAskDialog_DontRefresh"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Name]
+"Priority"=dword:00000136
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Options\3]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Option_Abort"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Options\4]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Option_Retry"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Options\5]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Option_Ignore"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2b60d53f-7f36-404d-95d1-39549f51c0cd}\Options\6]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CatIdCollisionDialog_Option_Yes"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2E10F4A7-2908-4971-B38B-527A5C7488E3}\Name]
+"Priority"=dword:000000E3
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="DeleteOldRunsDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2E10F4A7-2908-4971-B38B-527A5C7488E3}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="DeleteOldRunsDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{2E10F4A7-2908-4971-B38B-527A5C7488E3}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="DeleteOldRunsDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{34fdd444-b4af-02b7-575c-2e17255c59d0}\Name]
+"Priority"=dword:000002BC
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RemoteTestRunNotSupportedDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{34fdd444-b4af-02b7-575c-2e17255c59d0}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{34fdd444-b4af-02b7-575c-2e17255c59d0}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RemoteTestRunNotSupportedDialog_Option_OK"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{48375307-e6f2-41de-a734-c38b2e9f8c0b}\Name]
+"Priority"=dword:000000E1
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteMultipleRunsDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{48375307-e6f2-41de-a734-c38b2e9f8c0b}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteMultipleRunsDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{48375307-e6f2-41de-a734-c38b2e9f8c0b}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteMultipleRunsDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{5cf56dab-6cd9-45f3-be6a-e5735082d08a}\Name]
+"Priority"=dword:0000010E
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmRemovePublishedRunDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{5cf56dab-6cd9-45f3-be6a-e5735082d08a}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmRemovePublishedRunDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{5cf56dab-6cd9-45f3-be6a-e5735082d08a}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmRemovePublishedRunDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{62c1f469-9a0c-4b98-86e9-604e2fbf45ae}\Name]
+"Priority"=dword:000001FE
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="IdCollisionDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{62c1f469-9a0c-4b98-86e9-604e2fbf45ae}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="IdCollisionDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{62c1f469-9a0c-4b98-86e9-604e2fbf45ae}\Options\3]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="IdCollisionDialog_Option_Abort"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{62c1f469-9a0c-4b98-86e9-604e2fbf45ae}\Options\4]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="IdCollisionDialog_Option_Retry"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{62c1f469-9a0c-4b98-86e9-604e2fbf45ae}\Options\5]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="IdCollisionDialog_Option_Ignore"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{6ec44f57-0fd1-4948-8351-59c257eaf8b1}\Name]
+"Priority"=dword:00000118
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmCancelPublishRunDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{6ec44f57-0fd1-4948-8351-59c257eaf8b1}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmCancelPublishRunDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{6ec44f57-0fd1-4948-8351-59c257eaf8b1}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmCancelPublishRunDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{94cfbb9f-a71c-4503-bdb7-4cfc1f696713}\Name]
+"Priority"=dword:00000104
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateTestRun_ContinueRunWithoutMissingTests_Option_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{94cfbb9f-a71c-4503-bdb7-4cfc1f696713}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{94cfbb9f-a71c-4503-bdb7-4cfc1f696713}\Options\6]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateTestRun_ContinueRunWithoutMissingTests_Option_Yes"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{94cfbb9f-a71c-4503-bdb7-4cfc1f696713}\Options\7]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateTestRun_ContinueRunWithoutMissingTests_Option_No"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{9cb1d3af-6575-47f3-b5ac-5b20b7c0dce8}]
+"PropId"="4294958252"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{9cb1d3af-6575-47f3-b5ac-5b20b7c0dce8}\Options\0]
+"PropVal"=dword:00000002
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{9cb1d3af-6575-47f3-b5ac-5b20b7c0dce8}\Options\6]
+"PropVal"=dword:00000000
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{9cb1d3af-6575-47f3-b5ac-5b20b7c0dce8}\Options\7]
+"PropVal"=dword:00000001
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a05871af-9061-735a-c714-d8e3c82af0aa}\Name]
+"Priority"=dword:00000078
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RemoveManualTestDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a05871af-9061-735a-c714-d8e3c82af0aa}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a05871af-9061-735a-c714-d8e3c82af0aa}\Options\6]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RemoveManualTestDialog_Option_Yes"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a05871af-9061-735a-c714-d8e3c82af0aa}\Options\7]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RemoveManualTestDialog_Option_No"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a6c6003a-8952-8a59-4159-79cf943a782e}\Name]
+"Priority"=dword:0000006E
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="StartTestRunWithManualTestsDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a6c6003a-8952-8a59-4159-79cf943a782e}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a6c6003a-8952-8a59-4159-79cf943a782e}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_DontPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a80f7859-51a5-41c7-aa54-f65e03c43b2f}\Name]
+"Priority"=dword:00000262
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateWorkItem_PublishResultDialog_Option_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a80f7859-51a5-41c7-aa54-f65e03c43b2f}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateWorkItem_PublishResultDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a80f7859-51a5-41c7-aa54-f65e03c43b2f}\Options\6]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateWorkItem_PublishResultDialog_Option_Yes"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{a80f7859-51a5-41c7-aa54-f65e03c43b2f}\Options\7]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="CreateWorkItem_PublishResultDialog_Option_No"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c43591df-5d1b-44fb-95cf-74850ca32b6a}\Name]
+"Priority"=dword:00000122
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmOldFormatConversion_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c43591df-5d1b-44fb-95cf-74850ca32b6a}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmOldFormatConversion_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c43591df-5d1b-44fb-95cf-74850ca32b6a}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmOldFormatConversion_NeverPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c7a45ec6-1bab-43b1-891d-17f4db010db3}\Name]
+"Priority"=dword:000000DC
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteRunDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c7a45ec6-1bab-43b1-891d-17f4db010db3}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteRunDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{c7a45ec6-1bab-43b1-891d-17f4db010db3}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmDeleteRunDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{d65c6318-11f8-5b82-cc58-3416aa8af89c}\Name]
+"Priority"=dword:000000E6
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="AbortEmptyTestRunDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{d65c6318-11f8-5b82-cc58-3416aa8af89c}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{d65c6318-11f8-5b82-cc58-3416aa8af89c}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_DontPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{DEFBF90D-B9B1-45d8-82CB-D3461B8A8797}\Name]
+"Priority"=dword:00000321
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.UIResources, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestGeneration_InternalsVisibleToPrompt_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{DEFBF90D-B9B1-45d8-82CB-D3461B8A8797}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.UIResources, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestGeneration_InternalsVisibleToPrompt_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{DEFBF90D-B9B1-45d8-82CB-D3461B8A8797}\Options\6]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.UIResources, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestGeneration_InternalsVisibleToPrompt_Yes"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{DEFBF90D-B9B1-45d8-82CB-D3461B8A8797}\Options\7]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.UIResources, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="TestGeneration_InternalsVisibleToPrompt_No"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e1b87004-3b91-4e88-8b62-ee77e4320512}\Name]
+"Priority"=dword:000001A4
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ImportTestListDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e1b87004-3b91-4e88-8b62-ee77e4320512}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ImportTestListDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e1b87004-3b91-4e88-8b62-ee77e4320512}\Options\3]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ImportTestListDialog_Option_Abort"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e1b87004-3b91-4e88-8b62-ee77e4320512}\Options\4]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ImportTestListDialog_Option_Retry"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e1b87004-3b91-4e88-8b62-ee77e4320512}\Options\5]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ImportTestListDialog_Option_Ignore"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e215e3c1-974f-4baf-9d2b-65c6a51041b0}\Name]
+"Priority"=dword:0000019A
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="FindLinkHelperDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e215e3c1-974f-4baf-9d2b-65c6a51041b0}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="FindLinkHelperDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e215e3c1-974f-4baf-9d2b-65c6a51041b0}\Options\3]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="FindLinkHelperDialog_Option_Abort"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e215e3c1-974f-4baf-9d2b-65c6a51041b0}\Options\4]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="FindLinkHelperDialog_Option_Retry"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{e215e3c1-974f-4baf-9d2b-65c6a51041b0}\Options\5]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="FindLinkHelperDialog_Option_Ignore"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce2}\Name]
+"Priority"=dword:000000D2
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmExcludeFromGroupDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce2}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmExcludeFromGroupDialog_Option_None"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce2}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="ConfirmExcludeFromGroupDialog_Option_Ok"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce7}\Name]
+"Priority"=dword:000000F0
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="DeploymentItemOutsideSolutionRootDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce7}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce7}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_DontPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce9}\Name]
+"Priority"=dword:000000FA
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="RunConfig_DebuggingRemoteAndCodeCoverageNotSupportedDialog_Name"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce9}\Options\0]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_AlwaysPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\Dialogs\{f7362216-2817-42fd-8dca-1a2c18af0ce9}\Options\1]
+"Resource"="Microsoft.VisualStudio.TestTools.Resources.Messages, Microsoft.VisualStudio.QualityTools.Resource, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"ResourceId"="Common_DontPrompt"
+
+[$RootKey$\EnterpriseTools\QualityTools\RunConfig]
+"EnableRemoteExecution"=dword:00000001
+
+[$RootKey$\Menus]
+"{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"=", 1000, 1"
+
+[$RootKey$\OutputWindow\{b85579aa-8BE0-4c4f-A850-90902B317581}]
+@="#1000"
+"ClearWithSolution"=dword:00000000
+"ContentType"="TestsOutput"
+"InitiallyInvisible"=dword:00000001
+"Name"="Tests"
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\Packages\{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}]
+@="Microsoft.VisualStudio.TestTools.TestCaseManagement.QualityToolsPackage"
+"Assembly"="Microsoft.VisualStudio.QualityTools.TestCaseManagement, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Class"="Microsoft.VisualStudio.TestTools.TestCaseManagement.QualityToolsPackage"
+"InprocServer32"="$System$\mscoree.dll"
+
+[$RootKey$\Packages\{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}\Automation]
+"VSEQTTestDriver"=""
+"VSEQTUITest"=""
+
+[$RootKey$\Packages\{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}\SatelliteDll]
+"DllName"="Microsoft.VisualStudio.QualityTools.TestCaseManagementUI.dll"
+"Path"="$ShellFolder$\Common7\IDE\PrivateAssemblies"
+
+[$RootKey$\Services\{0332f748-fe1d-4262-bd57-bca171b1c1f9}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestExecutionService"
+
+[$RootKey$\Services\{2c1a2001-c833-45a7-8f97-f225d9bfd3c6}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestGenerationService"
+
+[$RootKey$\Services\{32a32760-1d5c-4ea9-99f7-fc9d4251c2d0}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="ITestGenerationControllerFactory"
+
+[$RootKey$\Services\{426265fb-619f-4316-b1d7-d3d0152c6b22}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="SSolutionIntegrationManager"
+
+[$RootKey$\Services\{4bbbb933-fe4f-49c8-a798-175158d52d2d}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="SUIThreadInvoker"
+
+[$RootKey$\Services\{705890bd-a2af-3e37-96f4-ceef2075b14c}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="IRunConfigService"
+
+[$RootKey$\Services\{7a1b6659-3b5c-48b3-b3b7-750b8171af4e}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestResultsService"
+
+[$RootKey$\Services\{97074231-8d24-4b79-8854-c7ebd0a9a83a}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestOutputPane"
+
+[$RootKey$\Services\{c28a4881-dc96-4914-9f18-0dd9fa74a200}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="SIdleProcessorManager"
+
+[$RootKey$\Services\{ce54ebcc-e6aa-45ce-ba16-51cb0f057f5c}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="SDontAskStateManager"
+
+[$RootKey$\Services\{da16d8ba-792c-44cd-be8e-672b558d1bf9}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestPickerFactory"
+
+[$RootKey$\Services\{e4fb3c8a-c89f-4ebc-8025-c478b0530e25}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestResultArtifactLinkingService"
+
+[$RootKey$\Services\{e71b8506-acdc-4f1c-a0ed-b3ae7e6551d3}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestManagement"
+
+[$RootKey$\Services\{e8304ecb-0bd3-4453-240d-b937fbae8af9}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Name"="STestToolSettingsManager"
+
+[$RootKey$\SolutionPersistence\TestCaseManagementSettings]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\TeamSystemPlugins\Team System Client Linking Plugins\TestTools]
+@="e4fb3c8a-c89f-4ebc-8025-c478b0530e25"
+"Enabled"=dword:00000001
+
+[$RootKey$\ToolsOptionsPages\Test Tools]
+@="#600"
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+
+[$RootKey$\ToolsOptionsPages\Test Tools\Test Execution]
+@="#603"
+"Keywords"="#623"
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Page"="{48d11193-265d-1458-743e-2b88c655b377}"
+
+[$RootKey$\ToolWindows\{519e8a32-1c95-4a42-956f-2cee2f28eb0f}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Float"="200, 200, 830, 700"
+"Name"="Microsoft.VisualStudio.TestTools.TestCaseManagement.ResultToolWindowHost"
+"Orientation"="Bottom"
+"Style"="Tabbed"
+"Window"="{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+
+[$RootKey$\ToolWindows\{5da8d69b-058a-4294-a87a-f4f7ae2983b3}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"DontForceCreate"=dword:00000001
+"Name"="Microsoft.VisualStudio.TestTools.TestCaseManagement.RunDetailsToolWindowHost"
+"Orientation"="Left"
+"Style"="MDI"
+
+[$RootKey$\ToolWindows\{92547016-2bd0-4dfe-bd4f-5b52bdce0037}]
+@="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"Float"="200, 200, 830, 700"
+"Name"="Microsoft.VisualStudio.TestTools.TestCaseManagement.TestRunQueueToolWindowHost"
+"Orientation"="Bottom"
+"Style"="Tabbed"
+"Window"="{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+
+[$RootKey$\UserSettings\Test Tools_Test Execution]
+@="#603"
+"AlternateParent"="AutomationProperties"
+"Category"="{48d11193-265d-1458-743e-2b88c655b377}"
+"Description"="#605"
+"Package"="{a9405ae6-9ac6-4f0e-a03f-7afe45f6fcb7}"
+"ToolsOptionsPath"="Test Tools"

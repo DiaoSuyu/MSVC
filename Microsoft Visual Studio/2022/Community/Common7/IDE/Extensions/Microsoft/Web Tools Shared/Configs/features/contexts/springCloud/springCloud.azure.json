@@ -1,0 +1,202 @@
+{
+  "appliesTo": [
+    {
+      "when": {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectCapability",
+                        "capability": "DotNetCoreWeb"
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasTargetFramework",
+                          "tfmPrefixOrFull": ".NetStandard"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TfmVersionComparison",
+                    "tfmType": "netcore",
+                    "version": "3.1",
+                    "comparison": "GreaterThanOrEqualTo"
+                  }
+                ]
+              },
+              {
+                "kind": "IsPackageInstalledAtLeastVersion",
+                "minVersion": "2.0.0-preview.1",
+                "packageNames": [
+                  "Microsoft.Azure.SpringCloud.Client"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectCapability",
+                        "capability": "DotNetCoreWeb"
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasTargetFramework",
+                          "tfmPrefixOrFull": ".NetStandard"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TfmVersionComparison",
+                    "tfmType": "netcore",
+                    "version": "3.1",
+                    "comparison": "GreaterThanOrEqualTo"
+                  }
+                ]
+              },
+              {
+                "kind": "IsPackageInstalledAtLeastVersion",
+                "minVersion": "3.0",
+                "packageNames": [
+                  "Steeltoe.CircuitBreaker.HystrixCore",
+                  "Steeltoe.CircuitBreaker.Hystrix.MetricsStreamCore",
+                  "Steeltoe.CircuitBreaker.Hystrix.MetricsEventsCore",
+                  "Steeltoe.CloudFoundry.Connector.EFCore",
+                  "Steeltoe.CloudFoundry.ConnectorCore",
+                  "Steeltoe.Connector.ConnectorCore",
+                  "Steeltoe.Discovery.ClientCore",
+                  "Steeltoe.Extensions.Configuration.CloudFoundryCore",
+                  "Steeltoe.Extensions.Configuration.ConfigServerCore",
+                  "Steeltoe.Extensions.Configuration.PlaceholderCore",
+                  "Steeltoe.Extensions.Configuration.RandomValueBase",
+                  "Steeltoe.Extensions.Logging.DynamicLogger",
+                  "Steeltoe.Management.CloudFoundryCore",
+                  "Steeltoe.Management.ExporterCore"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "config": "springCloud.steeltoe30"
+    },
+    {
+      "when": {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectCapability",
+                        "capability": "DotNetCoreWeb"
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasTargetFramework",
+                          "tfmPrefixOrFull": ".NetStandard"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TfmVersionComparison",
+                    "tfmType": "netcore",
+                    "version": "3.1",
+                    "comparison": "GreaterThanOrEqualTo"
+                  }
+                ]
+              },
+              {
+                "kind": "IsPackageInstalledAtLeastVersion",
+                "minVersion": "1.0.0-alpha.1",
+                "packageNames": [
+                  "Microsoft.Azure.SpringCloud.Client"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "and",
+            "operands": [
+              {
+                "kind": "and",
+                "operands": [
+                  {
+                    "kind": "and",
+                    "operands": [
+                      {
+                        "kind": "HasProjectCapability",
+                        "capability": "DotNetCoreWeb"
+                      },
+                      {
+                        "kind": "not",
+                        "operand": {
+                          "kind": "HasTargetFramework",
+                          "tfmPrefixOrFull": ".NetStandard"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TfmVersionComparison",
+                    "tfmType": "netcore",
+                    "version": "3.1",
+                    "comparison": "GreaterThanOrEqualTo"
+                  }
+                ]
+              },
+              {
+                "kind": "IsPackageInstalledAtLeastVersion",
+                "minVersion": "2.4",
+                "packageNames": [
+                  "Steeltoe.CircuitBreaker.HystrixCore",
+                  "Steeltoe.CircuitBreaker.Hystrix.MetricsStreamCore",
+                  "Steeltoe.CircuitBreaker.Hystrix.MetricsEventsCore",
+                  "Steeltoe.CloudFoundry.Connector.EFCore",
+                  "Steeltoe.CloudFoundry.ConnectorCore",
+                  "Steeltoe.Connector.ConnectorCore",
+                  "Steeltoe.Discovery.ClientCore",
+                  "Steeltoe.Extensions.Configuration.CloudFoundryCore",
+                  "Steeltoe.Extensions.Configuration.ConfigServerCore",
+                  "Steeltoe.Extensions.Configuration.PlaceholderCore",
+                  "Steeltoe.Extensions.Configuration.RandomValueBase",
+                  "Steeltoe.Extensions.Logging.DynamicLogger",
+                  "Steeltoe.Management.CloudFoundryCore",
+                  "Steeltoe.Management.ExporterCore"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "config": "springCloud.steeltoe24"
+    }
+  ]
+}

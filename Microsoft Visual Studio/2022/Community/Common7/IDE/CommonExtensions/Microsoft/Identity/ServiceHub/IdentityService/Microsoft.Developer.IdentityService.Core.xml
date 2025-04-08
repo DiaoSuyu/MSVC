@@ -1,0 +1,1703 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Developer.IdentityService.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Developer.IdentityService.Core.AccountManagementParameters">
+            <summary>
+            Shared constants between env\shell\Connected and AccountManagement.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration">
+            <summary>
+             What configuration is used to configure an AAD account provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.Authority">
+            <summary>
+            Gets the Uri for the Aad Authority.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.ValidateAuthority">
+            <summary>
+            Gets a value indicating whether or not the authority should be validated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.ClientIdentifier">
+            <summary>
+            Gets the Identifier for the client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.NativeClientRedirect">
+            <summary>
+            Gets The native client redirect URI to use that goes along with the ClientIdentifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.ResourceEndpoint">
+            <summary>
+            Gets the default resource to use when retrieving tokens against the authority.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.AzureResourceManagementEndpoint">
+            <summary>
+            Gets the azure resource management endpoint to use which matches with the AAD authority.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.GraphEndpoint">
+            <summary>
+            Gets the graph endpoint to use which matches with the AAD authority.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.AzureResourceManagementAudienceEndpoints">
+            <summary>
+            Gets the list of Uri to use when requesting access tokens to the AzureRMEndpoint.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.AsmEndPoint">
+            <summary>
+            Gets the ASM Endpoint for the provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.PortalEndpoint">
+            <summary>
+            Gets the portal endpoint for the proivder.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.EnvironmentName">
+            <summary>
+            Gets the environment name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.MsaHomeTenantId">
+            <summary>
+            Gets the MSA home tenant ID.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.ConfigurationHash">
+            <summary>
+            Gets a hash of this configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.AuthenticationQueryParameters">
+            <summary>
+            Gets the query parameters which will be used during authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.VisualStudioOnlineEndpoint">
+            <summary>
+            Gets an endpoint to talk to visual studio online.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration.VisualStudioOnlineAudience">
+            <summary>
+            Gets the audience Guid for visual studio online.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.IOSAccountDiscoveryService.GetSignedWindowsAccountIDsAsync">
+            <summary>
+            Gets the OS account that is signed in.
+            </summary>
+            <returns>The ID of the signed in windows account or null if not available.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider">
+            <summary>
+            Provides a way to create and authenticate accounts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider.AccountProviderId">
+            <summary>
+            Gets the Unique guid that represents the account provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider.AuthenticateAccountWithUIAsync(System.Object,Microsoft.Developer.IdentityService.Account,System.Threading.CancellationToken)">
+            <summary>
+            This method is used to authenticate an account from an unauthenticated state.
+            This should be called on the UI thread.
+            </summary>
+            <param name="ownerWindow">The windows that should be used to parent any dialogs. Can be a IntPtr or IWin32Window.</param>
+            <param name="account">Account to authenticate.</param>
+            <param name="cancellationToken">Cancel the operation.</param>
+            <returns>The account which has been authenticated or null if authentication fails or is cancelled.</returns>
+            <exception cref="T:System.OperationCanceledException">If the user cancels the login prompt.</exception>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider.CreateAccountWithUIAsync(System.Object,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates an account on the keychain by launching a sign in window and asking for credentials.
+            If the account already exists on the keychain the account will be updated. No additional account will be created.
+            This should be called on the UI thread.
+            </summary>
+            <param name="ownerWindow">The windows that should be used to parent any dialogs. Can be a IntPtr or IWin32Window.</param>
+            <param name="userName">User name that may be used to pre fill out a sign in dialog user name field if the provider supports that functionality.</param>
+            <param name="cancellationToken">Cancel the operation.</param>
+            <returns>The created account which has been created.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider.RefreshDisplayInfoAsync(Microsoft.Developer.IdentityService.Account,System.Threading.CancellationToken)">
+            <summary>
+            Returns an account with updated display information. The account will need to be passed to
+            the store if the updates are to be persisted.
+            </summary>
+            <param name="account">Refresh the display information of the account.</param>
+            <param name="cancellationToken">Cancel the operation.</param>
+            <returns>The created account which has been created.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties">
+            <summary>
+            Definition for properties on accounts created by the Aad account provider.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.PublicInstanceCredentialString">
+            <summary>
+            The URL of the public github instance as a string.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.AccountProviderIdentifier">
+            <summary>
+            Account providerId for the Aad account provider.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.PublicInstanceCredentialUri">
+            <summary>
+            The URL of the public github instance as a Uri. Used as the default base Uri in cases where none are provided.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetGitHubProviderImage">
+            <summary>
+            Get the image for GitHub account.
+            </summary>
+            <returns>Bitmap for the GitHub accounts.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.IsGithubAccount(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Determines if the account is a GithubAccount.
+            </summary>
+            <param name="account">The account to check.</param>
+            <returns>True if it's a github account, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.IsProximaGitHubAccount(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Determines if the GitHub account is a Proxima account.
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.IsPublicGithubAccount(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Determines if the account is a an account on the public github instance (github.com).
+            If the account isn't a Github Account (i.e it's an AAD account), this method returns false.
+            </summary>
+            <param name="account">Account to check.</param>
+            <returns>True if it's an account on the public github instance. False otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.IsGitHubEnterpriseAccount(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Determines if the account is a an account on an enterprise github instance (on prem).
+            If the account isn't a Github Account (i.e it's an AAD account), or if the credential URL
+            is github.com, this method returns false.
+            </summary>
+            <param name="account">Account to check.</param>
+            <returns>True if it's a GitHub account but credential url is not github.com. False otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.IsGitHubEmuAccount(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Determines if the account is an Enterprise Managed User (EMU).
+            If the account isn't a Github Account (i.e it's an AAD account), or if the username does
+            not contain an underscore, this method returns false.
+            </summary>
+            <param name="account">Account to check.</param>
+            <returns>
+            True if it's an account on the public github instance and the username contains
+            an underscore. False otherwise.
+            </returns>
+            <remarks>
+            All GitHub EMU accounts are also public github accounts, so it might be important to check
+            if an account is an EMU account before checking if it's a public github account.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetGitHubAccountType(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets a string describing the kind of GitHub account we have been passed.
+            </summary>
+            <param name="account">Account to check.</param>
+            <returns>{"Invalid GitHub Account", "GitHub Proxima", "GitHub Enterprise", "GitHub EMU", "GitHub Public", or "Unknown"}</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetCredentialUrl(Microsoft.Developer.IdentityService.Account,System.Uri@)">
+            <summary>
+            Gets, if available, the URI used to store github tokens in the windows credential store.
+            See also <see cref="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetApiUrl(Microsoft.Developer.IdentityService.Account,System.Uri@)" />.
+            </summary>
+            <param name="account">The account to get the URI for.</param>
+            <param name="uri">Returns out the retrieved credential URI.</param>
+            <returns>True if a URI is successfully returned. False otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetApiUrl(Microsoft.Developer.IdentityService.Account,System.Uri@)">
+            <summary>
+            Gets, if available, the GitHub API URI to make REST calls for the given account.
+            </summary>
+            <param name="account">The account to get the URI for.</param>
+            <param name="uri">Returns out the retrieved API URI.</param>
+            <returns>True if a URI is successfully returned. False otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetEmailOrThrow(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets the email of the user of the account.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the username is not found in the account properties.</exception>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetUsernameOrThrow(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets the username of the user of the account.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the username is not found in the account properties.</exception>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetCredentialUrlOrThrow(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets the URI used to store GitHub tokens in the windows credential store.
+            </summary>
+            <param name="account">The account to get the URI for.</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the Credential Url is not found in the account properties.</exception>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.GetApiUrlOrThrow(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets the GitHub API URI to make REST calls for the given account.
+            </summary>
+            <param name="account">The account to get the URI for.</param>
+            <returns>True if a URI is successfully returned. False otherwise.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the Credential Url is not found in the account properties.</exception>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetScopes(Microsoft.Developer.IdentityService.Account,System.String[]@)">
+            <summary>
+            Gets, if available, the scopes stores on the account object.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="scopes">A list of scopes.</param>
+            <returns>True if the operation was successful, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetName(Microsoft.Developer.IdentityService.Account,System.String@)">
+            <summary>
+            Gets, if available, the name of the user of the account.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="name">The name of the user.</param>
+            <returns>True if the operation was successful.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetUsername(Microsoft.Developer.IdentityService.Account,System.String@)">
+            <summary>
+            Gets, if available, the username of the user of the account.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="username">The username of the user.</param>
+            <returns>True if the operation was successful.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetEmail(Microsoft.Developer.IdentityService.Account,System.String@)">
+            <summary>
+            Gets, if available, the email of the user of the account.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="email">The email of the user.</param>
+            <returns>True if the operation was successful.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetGitHubAccountId(Microsoft.Developer.IdentityService.Account,System.String@)">
+            <summary>
+            Gets, if available, the account ID of the user on GitHub.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="id">The account ID of the user.</param>
+            <returns>True if the operation was successful.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetGitHubAccountOrganizations(Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Gets, if available, the GitHub organizations of the user.
+            </summary>
+            <param name="account">The account object to check.</param>
+            <returns>Returns GitHub Organizations that user belongs to.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetCopilotChatEnabled(Microsoft.Developer.IdentityService.Account,System.Boolean@)">
+            <summary>
+            Gets, if available, if Copilot chat is enabled or not
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="isChatEnabled">True if copilot chat is enabled</param>
+            <returns>True if operation was successful</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.TryGetCopilotAccessTypeSKU(Microsoft.Developer.IdentityService.Account,System.String@)">
+            <summary>
+            Gets, if available, the Copilot access type SKU
+            </summary>
+            <param name="account">The account object to check.</param>
+            <param name="copilotAccessTypeSKU">The copilot access type SKU</param>
+            <returns>True if operation was successful</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult">
+            <summary>
+            Result of an authorization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.#ctor(System.String,System.String,Microsoft.Developer.IdentityService.AccountProvider.ErrorResult,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult" /> class.
+            </summary>
+            <param name="accessToken">Access token. Will be null if no token could be acquired.</param>
+            <param name="tokenType">Type of the token. Will be null if no token could be acquired.</param>
+            <param name="error">An error which is related to this result. Will be null if no error occurred.</param>
+            <param name="expiresOn">ExpiryDate of the access token.</param>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.#ctor(System.String,System.String,Microsoft.Developer.IdentityService.AccountProvider.ErrorResult,System.DateTime,Microsoft.Developer.IdentityService.IAuthenticationResultMetadata)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult" /> class.
+            </summary>
+            <param name="accessToken">Access token. Will be null if no token could be acquired.</param>
+            <param name="tokenType">Type of the token. Will be null if no token could be acquired.</param>
+            <param name="error">An error which is related to this result. Will be null if no error occurred.</param>
+            <param name="expiresOn">ExpiryDate of the access token.</param>
+            <param name="metadata">Metadata from authentication result.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.AccessToken">
+            <summary>
+            Gets the access token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.TokenType">
+            <summary>
+            Gets the type of the token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.Error">
+            <summary>
+            Gets an error related to this result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.ExpiresOn">
+            <summary>
+            Gets the Expiry date (UTC) of the access token.
+            May be default(DateTime) if data came from previous client that did not send the data.
+            In that case it can be parsed out of the access token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.CacheRefreshReason">
+            <summary>
+            Gets string representation of the CacheRefreshReason
+            Defaults to string.Empty if unavailable or not provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.MSALDurationInCacheInMS">
+            <summary>
+            Gets the DurationInCacheInMs
+            Defaults to -1 if unavailable or not provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.MSALDurationInHttpInMs">
+            <summary>
+            Gets the DurationInHttpInMs
+            Defaults to -1 if unavailable or not provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.MSALDurationTotalInMs">
+            <summary>
+            Gets the DurationTotalInMs
+            Defaults to -1 if unavailable or not provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult.RefreshOn">
+            <summary>
+            Gets the AuthenticationResultMetadata.RefreshOn
+            Defaults to null if unavailable or not provided.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult">
+            <summary>
+            Result of an authorization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.#ctor(Microsoft.Developer.IdentityService.Account,System.Boolean,System.String,Microsoft.Developer.IdentityService.AccountProvider.ErrorResult[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult" /> class.
+            </summary>
+            <param name="account">The resulting account of the operation. May be null.</param>
+            <param name="userCancelled">Did the user cancel the operation.</param>
+            <param name="userName">The username of the user trying the authentication if it is available.</param>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.#ctor(Microsoft.Developer.IdentityService.Account,System.Boolean,System.String,System.Collections.Immutable.ImmutableArray{Microsoft.Developer.IdentityService.AccountProvider.ErrorResult})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult" /> class.
+            </summary>
+            <param name="account">The resulting account of the operation. May be null..</param>
+            <param name="userCancelled">Did the user cancel the operation.</param>
+            <param name="userName">The username of the user trying the authentication if it is available.</param>
+            <param name="errors">Errors.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.Account">
+            <summary>
+            Gets the account if one was successfully authenticated. Will be null if no account could be created or re-authenticated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.UserCancelled">
+            <summary>
+            Gets a value indicating whether the user cancelled the account authentication operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.UserName">
+            <summary>
+            Gets The username of the user trying the authentication. This may be null or empty if the user is not known when any errors happen.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.AccountAuthenticationResult.Errors">
+            <summary>
+            Gets any exceptions thrown during the account authentication flow.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult">
+            <summary>
+            An error that has happened in the identity service.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.#ctor(System.String,System.String,System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult" /> class.
+            </summary>
+            <param name="message">Error message.</param>
+            <param name="exceptionType">Type of the error if available.</param>
+            <param name="hresult">hresult will be 0 if no error.</param>
+            <param name="exceptionString">If the error was an exception this will be the string representation of the exception. This normally includes stack information.</param>
+            <param name="data">Any additional data that may be useful on the error object.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.Message">
+            <summary>
+            Gets the error message.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.ExceptionType">
+            <summary>
+            Gets the type of the exception if available. This may be null or empty if the error was not an exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.HResult">
+            <summary>
+            Gets the HResult if available. This will be 0 if no hresult is available for the error.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.ExceptionString">
+            <summary>
+            Gets the exception string if the error was an exception. This normally includes stack information.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountProvider.ErrorResult.Data">
+            <summary>
+            Gets additional data that may be part of the error.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountProvider.IdentityErrorCodes">
+            <summary>
+            Identity Error Codes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata">
+            <summary>
+            Provides metadata for authentication processes to aid in analyzing failures.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata.CacheRefreshReason">
+            <summary>
+            Gets why authentication cannot simply use a cached token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata.DurationInCacheInMs">
+            <summary>
+            Gets how long authentication looked at cached tokens.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata.DurationInHttpInMs">
+            <summary>
+            Gets how long authentication took requesting tokens through Http.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata.DurationTotalInMs">
+            <summary>
+            Gets how long it took to get a token total.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IAuthenticationResultMetadata.RefreshOn">
+            <summary>
+            Gets the time when the token should be proactively refreshed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IAccountProviderFactory">
+            <summary>
+            Defines a contract for requesting <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider" /> objects.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IAccountProviderFactory.GetProviderAsync(System.String,System.Guid,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Requests a new <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider" />. The caller is responsible for the lifespan of this object.
+            </summary>
+            <param name="callerInformation">A unique name identifying the caller of this method. This is used to differentiate calls in telemetry.</param>
+            <param name="accountProviderIdentifier">The Account Provider Identifier to request a provider for. See AadAccountProviderAccountProperties and <see cref="F:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties.AccountProviderIdentifier" />.</param>
+            <param name="configuration">Configuration defining which cloud instance to target with the provider.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>A new instance of <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider" />. The caller is responsible for the lifespan of this object.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.StorageService.IFilteringStorageServiceClient">
+            <summary>
+            A storage client which can filter which
+            providers are used when Getting accounts out of the account store or
+            when recieving events of the store being changed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.IFilteringStorageServiceClient.EnabledProviders">
+            <summary>
+            Gets or sets a filter which affects the GetAllAccountsAsync and StoreChanged Events.
+            An empty collection means will default to the AAD providers only.
+            An Empty guid in the collection means allow ALL providers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs">
+            <summary>
+            Account store changed event arguments.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs.#ctor(Microsoft.Developer.IdentityService.Account[],Microsoft.Developer.IdentityService.Account[],Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs" /> class.
+            </summary>
+            <param name="addedAccounts">Accounts added to the store.</param>
+            <param name="removedAccounts">Removed accounts from the store.</param>
+            <param name="modifiedAccounts">Modified accounts from the store.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs.AddedAccounts">
+            <summary>
+            Gets the accounts added to storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs.RemovedAccounts">
+            <summary>
+            Gets the accounts removed from strorage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs.ModifiedAccounts">
+            <summary>
+            Gets the modified accounts.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair">
+            <summary>
+            Pair of accounts which have been modified in the account store.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair.#ctor(Microsoft.Developer.IdentityService.Account,Microsoft.Developer.IdentityService.Account)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair" /> class.
+            </summary>
+            <param name="original">Original account.</param>
+            <param name="modified">Mofified account.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair.Original">
+            <summary>
+            Gets the original account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.StorageService.AccountStoreModifiedAccountPair.Modified">
+            <summary>
+            Gets the modified account.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient">
+            <summary>
+            Storage Service Client.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.StoreChanged">
+            <summary>
+            Store changed event
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.AddOrUpdateAccountAsync(Microsoft.Developer.IdentityService.Account,System.Threading.CancellationToken)">
+            <summary>
+            Add or update an account in the account store.
+            In the update case the properties will be merged. Any properties that exist in the new account and the store will be overwritten by the
+            values in the passed in account. Any properties in the account in storage not in the passed in account will be preserved.
+            </summary>
+            <param name="account">Account object to add or update in the account store. </param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Instantce of the account as it is represented in storage. </returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.GetAllAccountsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get all accounts in the store.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>List of accounts in the store.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.RemoveAccountAsync(Microsoft.Developer.IdentityService.AccountKey,System.Threading.CancellationToken)">
+            <summary>
+            Remove an account from storage.
+            </summary>
+            <param name="account">Account to remove.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.RemoveAllAccountsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Remove all accounts from storage.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.UpdateDisplayInfoAsync(Microsoft.Developer.IdentityService.AccountKey,Microsoft.Developer.IdentityService.AccountDisplayInfo,System.Threading.CancellationToken)">
+            <summary>
+            Update the display information on an account.
+            </summary>
+            <param name="account">Account to update the properties on.</param>
+            <param name="displayInfo">Display information on the account.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>New Account object with the updated display information.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.UpdatePropertiesAsync(Microsoft.Developer.IdentityService.AccountKey,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Update the properties on an account.
+            </summary>
+            <param name="account">Account to update the properties on.</param>
+            <param name="properties">Dictionary of properties to update.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>New Account object with the updated properties.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.UpdateStateAsync(Microsoft.Developer.IdentityService.AccountKey,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Update the properties on an account.
+            </summary>
+            <param name="account">Account to update the properties on.</param>
+            <param name="stale">Is the account stale or not.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>New Account object with the updated stale property.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient.SetPersonalizationAccountAsync(Microsoft.Developer.IdentityService.AccountKey,System.Threading.CancellationToken)">
+            <summary>
+            Sets the account as the personalization account. Passing in a null account will clear the personalization account flag from ALL accounts.
+            </summary>
+            <param name="accountKey">Account that needs to be set as personalization account.</param>
+            <param name="cancellationToken">CancellationToken.</param>
+            <returns>An account with the personalization account flag set.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient2.SetAccountStoragePrefixAsync(System.String,Microsoft.Developer.IdentityService.AccountProvider.IAadConfiguration,System.Threading.CancellationToken)">
+            <summary>
+            Set the storage account prefix, this may be used by other exes which need to have their own account storage.
+            </summary>
+            <param name="prefix">Prefix for account store location.</param>
+            <param name="configuration">Configuration to use.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An instance of a task.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClientCallback">
+            <summary>
+            Interface that storage service clients need to implement.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClientCallback.AccountStoreChanged(Microsoft.Developer.IdentityService.StorageService.AccountStoreChangedEventArgs)">
+            <summary>
+            When the service has detected the store has changed it will callback to the client
+            and issue an AccountStoreChangedEventArgs which contains the changes.
+            </summary>
+            <param name="args">Store changed arguments.</param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager">
+            <summary>
+            Interface for receiving information about active VS accounts selected by customer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.GetActiveAccountAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the Active Account. If you need updates on active account changes, please use <see cref="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountChangeAsync(System.IObserver{Microsoft.Developer.IdentityService.Account},System.Threading.CancellationToken)" /> or <see cref="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountAndTokenChangeAsync(System.IObserver{System.ValueTuple{Microsoft.Developer.IdentityService.Account,System.String}},System.Threading.CancellationToken)" /> to get token as well.
+            </summary>
+            <param name="cancellationToken">Cancellation Token.</param>
+            <returns>Active account in VS. Null if there is no active GitHub accounts.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.RequestActiveAccountChangeAsync(System.Uri,System.String,System.String,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Old version that should not be used.
+            Excist only for backward compatibility with Versions Control and would be removed after update. Please don't use it.
+            Use <see cref="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.RequestActiveAccountChangeAsync(Microsoft.Developer.IdentityService.MultiAccount.AccountSelector,System.String,System.Uri,System.Threading.CancellationToken)" /> instead.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.RequestActiveAccountChangeAsync(Microsoft.Developer.IdentityService.MultiAccount.AccountSelector,System.String,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Shows a dialog to customers to confirm change of active account based on provided account id.
+            </summary>
+            <param name="selector">Selector for the account to set.</param>
+            <param name="requestReason">Localizable string surfaced to the user. This should explain to the user why an account selection is requested (ex. restore packages, get symbols, enable copilot)</param>
+            <param name="moreInfoLink">Uri that points to a link with documentation specific to the use case of this dialog</param>
+            <param name="cancellationToken">Cancellation Token.</param>
+            <returns>
+            Account that was set. Provided for verification and any subsequent actions (i.e. indicate that repo and active accounts does not match).
+            Resulting account can be different than provided AccountId, depending on user selection.
+            Null if no account selected. If user cancels previously selected account or null (if no account) would be returned.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountChangeAsync(System.IObserver{Microsoft.Developer.IdentityService.Account},System.Threading.CancellationToken)">
+            <summary>
+            Subscribes to active account changes.
+            </summary>
+            <param name="observer">Callback for responding to active account changes. It would be triggered with current value on subscribing.</param>
+            <param name="cancellationToken">Cancelation token for canceling subscription operation. Please not that canceling it after method execution won’t cancel subscription.</param>
+            <returns>IDisposable for unsubscribing.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountAndTokenChangeAsync(System.IObserver{System.ValueTuple{Microsoft.Developer.IdentityService.Account,System.String}},System.Threading.CancellationToken)">
+            <summary>
+            Subscribes to active token and account changes.
+            </summary>
+            <param name="observer">Callback for responding to active token and active account changes. It would be triggered with current value on subscribing.</param>
+            <param name="cancellationToken">Cancelation token for canceling subscription operation. Please not that canceling it after method execution won’t cancel subscription.</param>
+            <returns>IDisposable for unsubscribing.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.MultiAccount.MultiAccountManagerExtensions">
+            <summary>
+            Extensions for <see cref="T:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager" />. Need to be in the same namespace as the interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.MultiAccountManagerExtensions.SubscribeForActiveAccountChangeAsync(Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager,System.Action{Microsoft.Developer.IdentityService.Account},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountChangeAsync(System.IObserver{Microsoft.Developer.IdentityService.Account},System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.MultiAccountManagerExtensions.SubscribeForActiveAccountAndTokenChangeAsync(Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager,System.Action{System.ValueTuple{Microsoft.Developer.IdentityService.Account,System.String}},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountManager.SubscribeForActiveAccountAndTokenChangeAsync(System.IObserver{System.ValueTuple{Microsoft.Developer.IdentityService.Account,System.String}},System.Threading.CancellationToken)" />
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.IMultiAccountSelector.GetSelectedAccountUsingDialogAsync(Microsoft.Developer.IdentityService.MultiAccount.AccountSelectionDialogOptions,System.Threading.CancellationToken)">
+            <summary>
+            Surfaces a dialog for a user to verify username of account is what was expected.
+            </summary>
+            <param name="options">Options to configure dialog.</param>
+            <param name="cancellationToken">Cancellation Token.</param>
+            <returns>Selected account.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.AccountSelectionDialogOptions.#ctor(System.String,Microsoft.Developer.IdentityService.MultiAccount.AccountType,System.String,System.String,System.String,System.Uri,System.String,System.String)">
+            <summary>
+            Please use other constructor instead. This one exist just to make NGen happy and would be removed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.MultiAccount.AccountSelector">
+            <summary>
+            Account selector for disambiguation dialog. Please use create method or static properties instead of inheriting from it.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.MultiAccount.AccountSelector.AnyAccount">
+            <summary>
+            Account selector that allows any account.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.AccountSelector.Create(System.Func{Microsoft.Developer.IdentityService.Account,System.Boolean})">
+            <summary>
+            Create selector base on provided function. Please check if more specific create method is available before using this.
+            </summary>
+            <param name="isMatching"></param>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.MultiAccount.AccountSelector.CreateGitHubSelector(System.String,System.Uri)">
+            <summary>
+            Create selector for GitHub account.
+            </summary>
+            <param name="name">Name of the account. If not provided account with any name would be used.</param>
+            <param name="hostUri">Host for the account. If not provided account from any host would be used.</param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.MultiAccount.AccountType">
+            <summary>
+            Specifies types of accounts surfaced in the account picker for user selection.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IVsIdentityService">
+            <summary>
+            Defines the services available to Visual Studio for using IdentityService types.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IVsIdentityService.GetProviderAsync(System.String,System.Guid,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Gets an instance of <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider" /> for use in authenticating accounts. The caller is responsible to call <see cref="M:System.IDisposable.Dispose" /> on the returned
+            object when they are done with it.
+            </summary>
+            <param name="callerInformation">An identifying string to differentiate the caller. This is used in telemetry to determine priorities for bugfixes.</param>
+            <param name="accountProviderIdentifier">Identifies an account provider (e.g. AAD or GitHub) that should be used.</param>
+            <param name="configuration">Used to determine endpoint URLs in AAD, this typically points at Azure Public, but can be used to specify sovereign clouds and Azure Stack. Unused in Github.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An account provider</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IVsIdentityService.GetProviderAsync(System.String,Microsoft.Developer.IdentityService.Account,System.Threading.CancellationToken)">
+            <summary>
+            Gets an instance of <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IAccountProvider" /> for use in authenticating accounts. The caller is responsible to call <see cref="M:System.IDisposable.Dispose" /> on the returned
+            object when they are done with it.
+            </summary>
+            <param name="callerInformation">An identifying string to differentiate the caller. This is used in telemetry to determine priorities for bugfixes.</param>
+            <param name="account">Account to get provider for.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An account provider</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IVsIdentityService.GetStoreAsync(System.String,System.Collections.Generic.IEnumerable{System.Guid},System.Threading.CancellationToken)">
+            <summary>
+            Gets an instance of <see cref="T:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient" /> that can get account information from the persistent store. The caller is responsible to call <see cref="M:System.IDisposable.Dispose" /> on the returned
+            object when they are done with it.
+            </summary>
+            <param name="callerInformation">An identifying string to differentiate the caller. This is used in telemetry to determine priorities for bugfixes.</param>
+            <param name="enabledProviders">
+            A list of account providers to support for this account store. This should be some combination
+            of AadAccountProviderAccountProperties.AccountProviderIdentifier and
+            GitHubAccountProviderAccountProperties.AccountProviderIdentifier.
+            </param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A storage service client.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IAuthenticationContinuation">
+            <summary>
+            Defines a contract for finishing OAuth authentication when provided an AuthCode.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IAuthenticationContinuation.CreateTokenFromAuthCodeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finishes OAuth authentication using the provided authCode.
+            </summary>
+            <param name="authCode">The auth code, provided by the OAuth server, must be returned to exchange for an Access Token.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The access token.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubAccountFactory">
+            <summary>
+            Defines a contract for creating account objects from a provided GitHub Access token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubAccountFactory.CreateAccountAsync(Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Creates an account utilizing the provided access token.
+            </summary>
+            <param name="tokenResult">Access token for use requesting profile information.</param>
+            <param name="githubDomain">Specifies the GitHub or GitHub Enterprise instance to query for profile information.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A new account.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator">
+            <summary>
+            Generates the various flavors of credential key supported by GitHub sign-in.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType">
+            <summary>
+            Supported KeyTypes for GitHub credential storage
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType.UriOnly">
+            <summary>
+            A key such as 'https://github.com/' or 'https://www.some_github_enterprise.com/'
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType.GitPrefix">
+            <summary>
+            Examples include: 'git:https://github.com', 'git:https://username@github.com', and 'git:https://www.some_github_enterprise.com'.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType.GitHubForVS">
+            <summary>
+            Example: 'GitHub for Visual Studio - https://github.com/'
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.GenerateCredentialKey(System.Uri,Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType,System.String)">
+            <summary>
+            Converts host, KeyType and user information into a Credential Storage Key that can persist
+            and load credentials using the Windows Credential Manager.
+            </summary>
+            <param name="host">The endpoint associated with the credential to be stored. If left null, this implies the public GitHub endpoint.</param>
+            <param name="keyType">Specifies key format. GCM uses <see cref="F:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.KeyType.GitPrefix" /> which is the default.</param>
+            <param name="username">Optional, if specified, this </param>
+            <returns>The string to use as a key in the Windows Credential Store.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IGitHubCredentialKeyGenerator.GetHostUriFromKey(System.String)">
+            <summary>
+            Converts back from a credential key to the host Uri.
+            </summary>
+            <param name="key">A credential key string.</param>
+            <returns>The underlying host Uri.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IProtocolHandlerValidator">
+            <summary>
+            Detects whether the GitHub Protocol Handler is correctly installed and has a correct version.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.IProtocolHandlerValidator.ValidateProtocolHandlerInstallation">
+            <summary>
+            Detects whether the GitHub Protocol Handler is correctly installed and has a correct version.
+            </summary>
+            <returns>True if protocol handler is usable.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.ISingleMessageTcpListener">
+            <summary>
+            Defines a contract for listening to TCP requests. This is used during GitHub authentication when utilizing the HTTP callback strategy.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.ISingleMessageTcpListener.ListeningUri">
+            <summary>
+            Gets the URL to listen on.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.ISingleMessageTcpListener.ListenToSingleRequestAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously listens for a single connection, handles it, then completes.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>string that represents an auth code</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.BehaviorContracts.GitHub.ITcpRequestHandler.HandleTcpRequestAsync(System.Net.Sockets.TcpClient,System.Threading.CancellationToken)">
+            <summary>
+            Accepts a provided HTTP message and provides a response.
+            </summary>
+            <param name="message">Message to process.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>a string representing the response from the tcp request</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState">
+            <summary>
+            Tracks interesting state metadata to aid in firing telemetry events where we want to. Where
+            possible, this should be avoided as it increases the complexity of telemetry, but when we need
+            specific data in difficult to reach places, this can be used to track it.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState.IsProtocolHandlerInstalled">
+            <summary>
+            Gets or sets a value indicating whether the protocol handler is installed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState.IsProtocolHandlerDesired">
+            <summary>
+            Gets or sets a value indicating whether the protocol handler is desired.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState.IsProtocolHandlerStrategySelected">
+            <summary>
+            Gets or sets a value indicating whether the protocol handler strategy is selected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState.ExpectedProtocolHandlerVersion">
+            <summary>
+            Gets or sets a value indicating the minimum expected protocol handler version. Null means we haven't needed to check.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.BehaviorContracts.Telemetry.ILoggingState.ActualProtocolHandlerVersion">
+            <summary>
+            Gets or set a value indicating the actual installed protocol handler version. Null means it is not installed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubCredentialStoreServiceFactory">
+            <summary>
+            Defines a contract for requesting <see cref="T:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService" /> or <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.IGitHubTokenProvider" /> objects.
+            In production this generally will provide an abstraction around ServiceHub JSON-RPC calls and receving callbacks from it.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubDomainSelector">
+            <summary>
+            Defines a contract for selecting the GitHub or GitHub Enterprise instance used in OAuth authentication.
+            </summary>
+            <remarks>
+            In all but the trivial case (github.com), this will likely require showing UI to ask the user to provide an
+            enterprise URL.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubDomainSelector.GetLoginUriAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets an Authentication URL for a GitHub or GitHub Enterprise instance.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An Authentication URL for a GitHub or GitHub Enterprise instance.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubNetworkServices">
+            <summary>
+            Defines a contract for performing network communication with GitHub. This is used during both authentication and account creation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubNetworkServices.StartAuthenticationAsync(System.Uri,System.Uri,System.String)">
+            <summary>
+            Starts an authentication process with the provided instance of GitHub. As OAuth requires two requests to complete authentication
+            this type returns a continuation object which should be used to finish authentication once the callback has completed.
+            </summary>
+            <param name="authenticationUrl">Defines the instance of GitHub or GitHub enterprise to authenticate against.</param>
+            <param name="redirectUri">Defines how GitHub should redirect back when the AuthCode is available.</param>
+            <param name="state">This state will get passed to GitHub and returned to the Callback.</param>
+            <returns>A continuation which should be used to complete GitHub authentication.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubNetworkServices.GetProfileInformationAsync(Microsoft.Developer.IdentityService.AccountProvider.AccessTokenResult,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Requests profile information from GitHub.
+            </summary>
+            <param name="tokenResult">Authorization to call the Profile API.</param>
+            <param name="apiUrl">Rest API endpoint for GitHub or GitHub Enterprise instance to request profile information from.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A dictionary containing indexed profile information. Keys for this dictionary are generally defined in <see cref="T:Microsoft.Developer.IdentityService.AccountProvider.GithubAccountProviderAccountProperties" />.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubNetworkServices.GetUserAvatarAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Requests avatar information from GitHub.
+            </summary>
+            <param name="avatarUri">The URL of the Avatar to request.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A byte stream defining the avatar.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubOAuthBroker">
+            <summary>
+            Defines a contract to request an Access Token from GitHub.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubOAuthBroker.GetTokenAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Gets an access token from GitHub.
+            </summary>
+            <param name="authenticationUrl">The authentication URL defines which instance of GitHub or GitHub Enterprise to request a token for.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An access token, or result object containing errors from authentication.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy">
+            <summary>
+            Defines a contract to receive OAuth callbacks during authentication.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy.ListenAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts an asynchronous listening task. Successful callbacks will result in receiving
+            an AuthCode string as a result. Error cases will throw exceptions.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The asynchronous listening task.</returns>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy.RedirectUri">
+            <summary>
+            Gets the redirect URL to provide GitHub during authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy.State">
+            <summary>
+            Gets the state information to pass to GitHub and which will be returned in the callback.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategySelector">
+            <summary>
+            Defines a contract to provide a <see cref="T:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy" /> on demand during the OAuth process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategySelector.GetStrategyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the strategy to be used for OAuth callbacks during authentication. This will be called
+            during the authentication process every time, allowing for different strategies to be returned each time
+            as desired by the implementation.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An implementation of <see cref="T:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy" />.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategySelector.GetStrategyAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Gets the strategy to be used for OAuth callbacks during authentication. This will be called
+            during the authentication process every time, allowing for different strategies to be returned each time
+            as desired by the implementation.
+            </summary>
+            <param name="isEnterprise">Whether account is an enterprise account</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An implementation of <see cref="T:Microsoft.Developer.IdentityService.IGitHubOAuthCallbackStrategy" />.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IStreamFactory.ConnectAndVerifyAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a named pipe client and asynchronously connects to it. Verifies owner of the pipe as a security check. Returns the pipe if verification is passed. Throws if verification fails.
+            </summary>
+            <param name="pipeName">Name of the named pipe.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>An instance of <see cref="T:System.IO.Pipes.NamedPipeClientStream" />.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IBrowserLauncher">
+            <summary>
+            Defines a contract for launching a browser to a specific URL.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IBrowserLauncher.LaunchBrowser(System.Uri)">
+            <summary>
+            Launches a browser to the provided URL.
+            </summary>
+            <param name="uri">The initial URL to navigate to in the browser.</param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IOptions">
+            <summary>
+            Defines a contract for getting generic setting values based on string key names.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IOptions.GetValueAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Finds and returns a setting given the specified key, or throws.
+            </summary>
+            <param name="settingName">The name of the setting being requested.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A setting based on the given setting name.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IOptions.GetValueAsync(System.String,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Finds and returns a setting given the specified key, or returns the default value if not found.
+            </summary>
+            <param name="settingName">The name of the setting being requested.</param>
+            <param name="defaultValue">The default value to fall back on should settings not exist</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A setting based on the given setting name.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IOptions.GetBooleanValueAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Finds and returns a boolean setting given the specified key, or returns the default value if not found.
+            </summary>
+            <param name="settingName">The name of the setting being requested.</param>
+            <param name="defaultValue">The default value to fall back on should settings not exist</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.IStorageServiceClientFactory">
+            <summary>
+            Defines a contract for requesting a <see cref="T:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient" /> on demand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.IStorageServiceClientFactory.GetStorageClientAsync(System.Collections.Generic.IEnumerable{System.Guid},System.Threading.CancellationToken)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Developer.IdentityService.StorageService.IStorageServiceClient" />. The caller is responsible for calling <see cref="M:System.IDisposable.Dispose" /> on this object.
+            </summary>
+            <param name="accountProviderIdentifiers">The account provider identifiers of accounts that will be stored using this client.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A storage service client object.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.IExceptionParser">
+            <summary>
+            A parser for exceptions that are attached to fault events.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.IExceptionParser.Parse(Microsoft.Developer.IdentityService.Telemetry.IFaultEvent,System.Exception)">
+            <summary>
+            Parse an exception, attach relevant information to faultEvent.
+            </summary>
+            <param name="faultEvent">Telemetry Fault Event.</param>
+            <param name="e">Exception to parse.</param>
+            <returns>Fault Event with exception information.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent">
+            <summary>
+            A Telemetry Fault Event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent.Properties">
+            <summary>
+            Properties attached to the fault event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent.CorrelatedWith">
+            <summary>
+            List of <see cref="T:Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope" />s that this fault event is correlated with.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent.IsIncludedInWatsonSample">
+            <summary>
+            Whether this fault event is included in a watson sample.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent.Correlate(Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope[])">
+            <summary>
+            Correlates <see cref="T:Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope" />s to this fault event.
+            </summary>
+            <param name="correlations"></param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.IFaultEventFactory">
+            <summary>
+            A factory for creating <see cref="T:Microsoft.Developer.IdentityService.Telemetry.IFaultEvent" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.IFaultEventFactory.GetFaultEventWithCorrelations(System.String,System.String,Microsoft.VisualStudio.Telemetry.FaultSeverity,System.Exception,System.Func{Microsoft.VisualStudio.Telemetry.IFaultUtility,System.Int32},Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope[])">
+            <summary>
+            Create a fault event with correlations.
+            </summary>
+            <param name="eventName">Fault event name.</param>
+            <param name="description">Description for the fault event.</param>
+            <param name="faultSeverity">Severity of the fault event.</param>
+            <param name="exceptionObject">Exception object for the fault event.</param>
+            <param name="gatherEventDetails">A function for fathering event details.</param>
+            <param name="correlatedOperations"><see cref="T:Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope" />s to correlate to the fault event.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ISharedTelemetryPropertiesSession">
+            <summary>
+            Inherits from <see cref="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger" />, has shared properties.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ISharedTelemetryPropertiesSession.AddSharedProperty(System.String,System.Object)">
+            <summary>
+            Add a shared property to the telemetry session.
+            </summary>
+            <param name="propertyName">Name of shared property.</param>
+            <param name="value">Value of shared property.</param>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ISharedTelemetryPropertiesSession.RemoveSharedProperty(System.String)">
+            <summary>
+            Remove a shared property from the telemetry session.
+            </summary>
+            <param name="propertyName">Name of shared property.</param>
+            <returns>If the removal was successful or not.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger">
+            <summary>
+            Telemetry logger.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger.PostEvent(System.String)">
+            <summary>
+            Posts a telemetry event given a name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger.PostEvent(Microsoft.VisualStudio.Telemetry.TelemetryEvent)">
+            <summary>
+            Posts a telemetry event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger.StartOperation(System.String,System.Boolean)">
+            <summary>
+            Starts a telemetry operation and returns the disposable object used to add properties and end the operation.
+            </summary>
+            <param name="eventNameSuffix">The combination of this and an event prefix uniquely defines an event name.</param>
+            <param name="postStartEvent">Specifies whether or not to post the start event for this operation.</param>
+            <returns>
+            An instance of IDisposableTelemetryScope to specify properties, and result for this operation. The returned
+            object should be disposed to denote the end of the operation.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryLogger.LogException(System.Exception,System.String,Microsoft.Developer.IdentityService.Telemetry.IDisposableTelemetryScope[])">
+            <summary>
+            Reports an exception object to telemetry immediately.
+            </summary>
+            <param name="ex">The exception to report.</param>
+            <param name="exceptionEventName">Event name of the exception to report.</param>
+            <param name="correlatedOperations">A list of telemetry operations that should be correlated with this event.</param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryNameGenerator">
+            <summary>
+            Generates names of events and properties.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryNameGenerator.GetEventName(System.String,System.String,System.String[])">
+            <summary>
+            Creates an event name following the pattern (identity telemetry prefix)/feature/action/param1/param2/param3...
+            </summary>
+            <param name="feature">feature that telemetry is tracking</param>
+            <param name="action">action that that the feature takes that telemetry is tracking</param>
+            <param name="differentiators">Optional, additional parameters to further differentiate the telemetry event</param>
+            <returns>a string following the pattern (identity telemetry prefix)/feature/action/param1/param2/param3...</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryNameGenerator.GetExceptionEventName(System.String,System.String[])">
+            <summary>
+            Creates an event name following the pattern (identity telemetry prefix)/exception/action/param1/param2/param3...
+            </summary>
+            <param name="action">action that that the feature takes that telemetry is tracking</param>
+            <param name="differentiators">Optional, additional parameters to further differentiate the telemetry event</param>
+            <returns>a string following the pattern (identity telemetry prefix)/exception/action/param1/param2/param3...</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryNameGenerator.GetPropertyName(System.String,System.String,System.String[])">
+            <summary>
+            Creates an property name following the pattern (identity telemetry prefix).feature.action.param1.param2.param3...
+            </summary>
+            <param name="feature">feature that telemetry is tracking</param>
+            <param name="action">action that that the feature takes that telemetry is tracking</param>
+            <param name="differentiators">Optional, additional parameters to further differentiate the telemetry property</param>
+            <returns>a string following the pattern (identity telemetry prefix).feature.action.param1.param2.param3...</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryOperation">
+            <summary>
+            Describes an operation to be tracked by telemetry. Telemetry can be sent at both creation and dispose.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryOperation.SetProperty(System.String,System.Object,System.Boolean)">
+            <summary>
+            Sets a value for the operation ended event.
+            </summary>
+            <param name="propertyNameSuffix">The final portion of the property name. A standard prefix will be prepended.</param>
+            <param name="value">The value of the property</param>
+            <param name="isPii">Whether the property should be considered Personally Identifyable Information</param>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryOperation.SetResult(Microsoft.Developer.IdentityService.Telemetry.OperationResult,System.String)">
+            <summary>
+            Sets the result value for the operation.
+            </summary>
+            <param name="result">Category of the result (eg. Success, Failure, Cancel...)</param>
+            <param name="summary">An additional summary if desired to clarify the result.</param>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty">
+            <summary>
+            Represents a property belonging to a Telemetry event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.IsPii">
+            <summary>
+            Indicates whether property is PII
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.Name">
+            <summary>
+            Name of Telemetry property
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.Value">
+            <summary>
+            Value of telemetry property
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryScope">
+            <inheritdoc cref="T:Microsoft.VisualStudio.Telemetry.TelemetryScope`1" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryScope.IsEnd">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.IsEnd" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryScope.EndEvent">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.EndEvent" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryScope.Correlation">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.Correlation" />
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.ITelemetryScope.End(Microsoft.VisualStudio.Telemetry.TelemetryResult,System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.End(Microsoft.VisualStudio.Telemetry.TelemetryResult,System.String)" />
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.ExceptionRedactor">
+            <summary>
+            Remove exceptions with @ in them since they may be email addresses.
+            Try and get the error code from the front if possible.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.TelemetryProperty">
+            <inheritdoc cref="T:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryProperty.Name">
+            <inheritdoc cref="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.Name" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryProperty.IsPii">
+            <inheritdoc cref="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.IsPii" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryProperty.Value">
+            <inheritdoc cref="P:Microsoft.Developer.IdentityService.Telemetry.ITelemetryProperty.Value" />
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Telemetry.TelemetryScopeWrapper">
+            <inheritdoc cref="T:Microsoft.VisualStudio.Telemetry.TelemetryScope`1" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryScopeWrapper.IsEnd">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.IsEnd" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryScopeWrapper.EndEvent">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.EndEvent" />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Telemetry.TelemetryScopeWrapper.Correlation">
+            <inheritdoc cref="P:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.Correlation" />
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Telemetry.TelemetryScopeWrapper.End(Microsoft.VisualStudio.Telemetry.TelemetryResult,System.String)">
+            <inheritdoc cref="M:Microsoft.VisualStudio.Telemetry.TelemetryScope`1.End(Microsoft.VisualStudio.Telemetry.TelemetryResult,System.String)" />
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Account">
+            <summary>
+            Account which stores information about a specific user. This object will be serialized to disk.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.Account.#ctor(System.Guid,System.String,System.Boolean,System.Collections.ObjectModel.ReadOnlyDictionary{System.String,System.String},Microsoft.Developer.IdentityService.AccountDisplayInfo,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.Account" /> class.
+            </summary>
+            <param name="providerId">Identifier for the account provider that created this account.</param>
+            <param name="uniqueId">UniqueId for the account relative to the account provider.</param>
+            <param name="stale">Is the account stale or not.</param>
+            <param name="properties">Serialzied set of properties on the account. </param>
+            <param name="displayInfo">Display information for the account.</param>
+            <param name="isPersonalizationAccount">Is this account the personalization account.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Account.Stale">
+            <summary>
+            Gets a value indicating whether the account is stale or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Account.IsPersonalizationAccount">
+            <summary>
+            Gets a value indicating whether the account is the personalization account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Account.Properties">
+            <summary>
+            Gets the serialized set of properties that can be deserialized by the account provider.
+            to access fields of interest to that provider.
+            </summary>
+            <return>Serialized representation of the properties.</return>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Account.DisplayInfo">
+            <summary>
+            Gets the account display information.
+            </summary>
+            <returns>The account display information.</returns>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountDisplayInfo">
+            <summary>
+            The display information for this account.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountDisplayInfo.#ctor(System.String,System.String,System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountDisplayInfo" /> class.
+            </summary>
+            <param name="providerContextText">Contextual information about the account from the provider. Can be null.</param>
+            <param name="userName">UserName to display. Cannot be null. </param>
+            <param name="displayName">Display name the user has selected to display. Cannot be null or empty if one is not set. Use user Name in that case. </param>
+            <param name="providerLogo">Logo for the provider. If there is no logo this will be empty.</param>
+            /// <param name="userLogo">Logo for the user. If there is no logo this will be empty.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountDisplayInfo.UserName">
+            <summary>
+            Gets the user name to display for this account.
+            The UserName cannot be null or empty.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountDisplayInfo.DisplayName">
+            <summary>
+            Gets the users display name for this account.
+            The DisplayName cannot be null, may be empty.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountDisplayInfo.ProviderContextText">
+            <summary>
+            Gets the contextual information to display to the user based on the provider who created this account.
+            This may be the account type or provider name. This can be null or empty if the provider does not
+            provide any text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountDisplayInfo.ProviderLogo">
+            <summary>
+            Gets the providers generic logo. This can be used if no user specific log is availiable.
+            This can be null if no logo is provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountDisplayInfo.UserLogo">
+            <summary>
+            Gets the users specific logo.
+            This can be null if no logo is provided.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.AccountKey">
+            <summary>
+            Key used to compare two accounts to each other.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.AccountKey.#ctor(System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.AccountKey" /> class.
+            </summary>
+            <param name="uniqueId">Id of the account.</param>
+            <param name="providerId">Id of the provider.</param>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountKey.UniqueId">
+            <summary>
+            Gets the UniqueId of the account relative to the provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.AccountKey.ProviderId">
+            <summary>
+            Gets the Guid that is unique to a specific provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.Username">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.Password">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.AdditionalData">
+            <inheritdoc />
+            <remarks>
+            This property is reserved but not implemented.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential" /> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.Deconstruct(System.String@,System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.Credential.Deconstruct(System.String@,System.String@,System.Object@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService">
+            <summary>
+            Defines a contract for saving, searching, and retrieving GitHub Access Tokens.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.GetCredentialForUserAsync(System.Uri,System.String)">
+            <summary>
+            Gets the Token previously saved for the given user. This keys off both URI and Username.
+            </summary>
+            <param name="credentialUri">
+            The URI to search under. When given as https://github.com, this will be converted to
+            either git:https://github.com or git:username@https://github.com, depending on what is found in the store.
+            </param>
+            <param name="username">The GitHub Username used to persist the credential.</param>
+            <returns>The token requested.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.RemoveCredentialForUserAsync(System.Uri,System.String)">
+            <summary>
+            Deletes any previously saved Access Token using the provided key and user name.
+            </summary>
+            <param name="hostingProvider">Key for looking up and deleting the token from the backing store.</param>
+            <param name="username">The GitHub Username used to persist the credential.</param>
+            <returns>Asynchronous task.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.SaveCredentialWithUserAsync(System.Uri,System.String,System.String)">
+            <summary>
+            Writes the given token to the backing store preserving the username.
+            </summary>
+            <param name="credentialUri">
+            The URI to store this under. When given as https://github.com, this will be converted to
+            either git:https://github.com or git:username@https://github.com, depending on what is found in the store.
+            </param>
+            <param name="username">Username will be preserved as part of the written credential and also potentially in the key name if there are conflicts.</param>
+            <param name="token">Actual access token, will be written as part of the credential.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.SearchGitHubCredentialsAsync">
+            <summary>
+            Searches the credential store for any previously saved git credentials.
+            </summary>
+            <returns>A dictionary containing the credentials found mapped to their uris.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.SearchGitHubDevHomeCredentialsAsync">
+            <summary>
+            Searches the credential store for any previously saved Dev Home git credentials.
+            </summary>
+            <returns>A dictionary containing the credentials found mapped to their uris.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.GithubCredentialStorage.IGithubCredentialStoreService.SearchGitHubCredentialsByUserAsync">
+            <summary>
+            Searches the credential store for any previously saved git credentials. Supports multi-account scenarios
+            by specifying username in the keys.
+            </summary>
+            <returns>A dictionary containing the credentials found mapped to their uris.</returns>
+        </member>
+        <member name="M:Microsoft.Developer.IdentityService.StreamFactoryWithErrorHandling.ConnectAndVerifyAsync(System.String,System.Threading.CancellationToken)">
+             <summary>
+             Create named pipe, connect, and validate the owner/creator of server pipe
+             </summary>
+             <param name="pipeName">name of pipe.</param>
+             <param name="cancellationToken">cancellation Token.</param>
+             <returns><see cref="T:System.IO.Pipes.NamedPipeClientStream" /></returns>
+             <exception cref="T:Microsoft.Developer.IdentityService.NamedPipeOperationException">
+            
+             List of Known Exceptions in Order of Operations
+             From named pipe creation
+             * ArgumentNullException (reporting as NamePipeOperationException)
+             * ArgumentOutOfRangeException (reporting as NamePipeOperationException)
+             * ArgumentException (reporting as NamePipeOperationException)
+            
+             From namedClientPipe.GetAccessControl()
+             * UnauthorizedAccessException (reporting as NamePipeOperationException)
+             * InvalidOperationException
+             * NotSupportedException
+             * ObjectDisposedException
+            
+             From PipeSecurity.GetOwner
+             * ArgumentNullException
+             * ArgumentException
+             * IdentityNotMappedException (reporting as NamePipeOperationException)
+             * SystemException
+            
+             From WindowsIdentity.GetCurrent()
+             * SecurityException (reporting as NamePipeOperationException)
+             </exception>
+        </member>
+        <member name="T:Microsoft.Developer.IdentityService.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.AccountPropertyMissing">
+            <summary>
+              Looks up a localized string similar to Property {1} not found in the account with id {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_AccessTokenFromCredManagerFailed">
+            <summary>
+              Looks up a localized string similar to Access token retrieval from the credential manager has failed. Access token is null..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_AccessTokenNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Access Token is null or empty due to unknown error when accessing the credential manager..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_CredentialUriNotPresent">
+            <summary>
+              Looks up a localized string similar to Credential Uri is not present on the account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_GenericGitHubCredentialServiceError">
+            <summary>
+              Looks up a localized string similar to An exception occured during an RPC call. This may be due to issues activating the service or persisting the credential. .
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_GitHubCredentialServiceHubActivationError">
+            <summary>
+              Looks up a localized string similar to There was an issue communicating with the service responsible for persisting GitHub credentials..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_ParameterNull">
+            <summary>
+              Looks up a localized string similar to Parameter {0} is null..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_PipeOwnerMismatch">
+            <summary>
+              Looks up a localized string similar to Error connecting to named pipe. Pipe Not Owned by Current User..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.ErrorMsg_UsernameNotPresent">
+            <summary>
+              Looks up a localized string similar to Username not present on the account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.GitHubErrorDialog_ErrorCodeText">
+            <summary>
+              Looks up a localized string similar to Error Code.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.GitHubErrorDialog_ErrorMessageLabelText">
+            <summary>
+              Looks up a localized string similar to Error Message.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.GitHubErrorDialog_ExceptionTypeText">
+            <summary>
+              Looks up a localized string similar to Exception Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.GitHubErrorDialog_InnerExceptionTypeText">
+            <summary>
+              Looks up a localized string similar to Inner Exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Developer.IdentityService.Resources.GitHubErrorDialog_PreludeText">
+            <summary>
+              Looks up a localized string similar to We encountered an issue while adding your GitHub account..
+            </summary>
+        </member>
+        <member name="T:IAdditionalContextPropertySetter">
+            <summary>
+            Provides for setting additional context properties.
+            </summary>
+        </member>
+        <member name="M:IAdditionalContextPropertySetter.SetAdditionalContextPropertiesAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Sets additional context properties on the service.
+            </summary>
+            <param name="additionalContextProperties">Additional context property collection.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the result of the asynchronous operation.</returns>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>WIETBMU3SOLkkpFYitT3VrEKSS/uZhPbREM8B2tb8h0=</DigestValue></Reference></SignedInfo><SignatureValue>LWqFwiygNg6sLYAy+TRkLSdjO7jYifSQKdum36zzWLWlHuUlZYRCMP+wN/FHFa71Iy5g7Lp6A2g9eNPmtExq1Hto1WoMCrkSopVQSkR41qud6MdVXvD6VrmHFGDxTUcDYCusnowHShBuqPMYYWNrwhv+46raqsjsiPDYq43OHRtlQd4Lg9Y2Uq1h+PRaFSVeovrCHFqb5O5oQzukS5xj6ZaZlPA8sAYfNZ6d7XI+2NEvAFCw0Q0zvgBjAbuJrZxKLYO+oCb0wazDLJl23ZVqrJS8OUnpo3pHOoIpXPQpXanWG9mNr/GQP9SLW7jq6CoQGBVr+jBtawpihM2/GJy6+A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tCg32mOdDA6rBBnZSMwxwXegqiDEUFlvQH9Sxww07hY3w7L52tJxLg0mCZjcszQddI6W4NJYb5E9QM319kyyE0l8EvA/pgcxgljDP8E6XIlgVf6W40ms286Cr0azaA1f7vaJjjNhGsMqOSSSXTZDNnfKs5ENG0bkXeB2q5hrp0qLsm/TWO3oFjeROZVHN2tgETswHR3WKTm6QjnXgGNj+V6rSZJO/WkTqc8NesAo3Up/KjMwgc0e67x9llZLxRyyMWUBE9coT2+pUZqYAUDZ84nR1djnMY3PMDYiA84Gw5JpceeED38O0cEIvKdX8uG8oQa047+evMfDRr94MG9EWw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

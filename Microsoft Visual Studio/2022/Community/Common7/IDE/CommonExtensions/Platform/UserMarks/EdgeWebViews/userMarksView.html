@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" type="text/css" rel="stylesheet" />
+    <link href="css/userMarksRow.css" type="text/css" rel="stylesheet" />
+    <link href="css/dataGrid.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/indeterminateProgress.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/dataGrid.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/toolbar.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/chart.css" type="text/css" rel="stylesheet" />
+    <script src="scripts/diagnosticsHub.js" data-include-ui="true"></script>
+    <script src="scripts/userMarksViewModel.js"></script>
+    <title>User Marks</title>
+</head>
+<body>
+    <script type="text/javascript">
+        (function () {
+            const plugin = require("plugin-vs-v2");
+            plugin.Messaging.addEventListener("pluginready", pluginLoaded);
+
+            function pluginLoaded() {
+                // We disable zooming via the mouse scroll since it is not a standard VS interaction.
+                // Zooming also breaks the placement of floating windows such as context menus
+                plugin.HotKeys.setZoomState(false);
+                plugin.Tooltip.defaultTooltipContentToHTML = false;
+
+                const diagnosticsHub = require("diagnosticsHub");
+                diagnosticsHub.InitializeErrorReporting();
+
+                require("userMarksViewModel");
+            }
+        })();
+    </script>
+    <div id="mainToolbar" class="toolbar-container">
+        <input type="search" class="filter" data-bind="
+                    textInput: filterText,
+                    valueUpdate: 'afterkeydown',
+                    localizedPlaceholderText: 'FilterWatermark',
+                    localizedAriaLabel: 'FilterAriaLabel',
+                    event: {keydown: onFilterKeyDown},
+                    attr: { 'data-plugin-vs-tooltip': filterTooltip }" />
+        </div>
+    <div class="mainArea" aria-live="assertive">
+        <div id="UserMarksList" data-bind="
+        event: { keydown: onKeyDown },
+        dynamicContextMenu: contextMenu,
+        template: {
+           name: 'DataGridView',
+           data: marksGrid,
+           afterRender: marksGrid.onAfterDomInsert }">
+        </div>
+    </div>
+    <div id="message-overlay" data-bind="css: { hide: !currentOverlay() }, if: currentOverlay">
+        <div class="message" data-bind="template: currentOverlay">
+        </div>
+    </div>
+</body>
+</html>

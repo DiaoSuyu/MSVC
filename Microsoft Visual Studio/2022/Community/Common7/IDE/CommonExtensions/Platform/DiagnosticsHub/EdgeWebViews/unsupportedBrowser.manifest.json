@@ -1,0 +1,32 @@
+﻿{
+    "start_url": "unsupportedBrowser.html",
+    "domain": "http://microsoft.com",
+    "name": "UnsupportedBrowser",
+    "browserHostVersion": "2.0",
+    "use_css_variables": true,
+    "resource_aliases": {
+        "DiagnosticsHubSwimlaneResources": {
+            "path": "DiagnosticsHub.TypeScript.Swimlanes.ScriptResources",
+            "is_default": true
+        }
+    },
+    "vs": {
+        "theme_token_aliases": {
+            "diagnostics-information-link-foreground": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "PanelHyperlink"
+            },
+            "diagnostics-information-link-foreground-hover": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "PanelHyperlinkHover"
+            },
+            "diagnostics-information-link-foreground-pressed": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "PanelHyperlinkPressed"
+            }
+        }
+    }
+}

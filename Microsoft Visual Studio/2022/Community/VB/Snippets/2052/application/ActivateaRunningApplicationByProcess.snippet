@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>按进程 ID 激活运行的应用程序</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用运行的应用程序的进程 ID 激活该应用程序。</Description>
+      <Shortcut>appActPro</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.VisualBasic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>applicationFileName</ID>
+          <Type>String</Type>
+          <ToolTip>替换为要执行的应用程序的文件名。</ToolTip>
+          <Default>"NOTEPAD.EXE"</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim processID As Integer
+
+processID = Shell($applicationFileName$, AppWinStyle.NormalFocus)
+
+AppActivate(processID)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

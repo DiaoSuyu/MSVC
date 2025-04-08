@@ -1,0 +1,591 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the TypeScript Package with its GUID and corresponding assembly name/location
+;;
+[$RootKey$\Packages\{2ffe45c4-5c73-493c-b187-f2e955ff875e}]
+@="Microsoft.VisualStudio.LanguageServices.TypeScript.TypeScriptPackage, Microsoft.VisualStudio.LanguageServices.TypeScript, Version=17.0.0.0, Culture=neutral"
+"InprocServer32"="$WinDir$\system32\MSCOREE.DLL"
+"Assembly"="Microsoft.VisualStudio.LanguageServices.TypeScript, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"Class"="Microsoft.VisualStudio.LanguageServices.TypeScript.TypeScriptPackage"
+"CompanyName"="Microsoft Corporation"
+"ProductName"="TypeScript for Microsoft Visual Studio"
+"ProductVersion"="1.0"
+"MinEdition"="Standard"
+"ID"=dword:00000068
+"VSWinExpressId"=dword:00000001
+"VWDExpressId"=dword:00000002
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{20B576BA-0AAB-4E10-9E9A-78FCB579130F}]
+"Name"="Microsoft.VisualStudio.LanguageServices.TypeScript"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"Version"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.LanguageServices.TypeScript.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{E3A95CC7-5235-4A87-9463-4DCAC087E35B}]
+"Name"="Microsoft.CodeAnalysis.TypeScript.EditorFeatures"
+"PublicKeyToken"="b03f5f7f11d50a3a"
+"Culture"="neutral"
+"Version"="17.0.0.0"
+"CodeBase"="$PackageFolder$\Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the language service, with its unique GUID and owning package
+;;
+[$RootKey$\Services\{4a0dddb5-7a95-4fbf-97cc-616d07737a77}]
+@="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Name"="TypeScriptLanguageService"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Menu and commands
+;;
+[$RootKey$\Menus]
+"{2ffe45c4-5c73-493c-b187-f2e955ff875e}"=", Menus.ctmenu,1"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Snippets
+;;
+;; For definitive answers, ask the core team maintaining snippets.
+;; At the time of writing, documentation is available at
+;;
+;; https://microsoft.sharepoint.com/teams/DD_VSIDE/_layouts/15/WopiFrame.aspx?sourcedoc=%7B3395715B-986B-4F68-B749-89DEF41F768E%7D&file=Snippet%20Management%20Design%20and%20Improment.docx&action=default
+;;
+;; The remarks below should be interpretated as commentary on the documentation there.
+;;
+;; Also, look into the implementation:
+;;
+;; Microsoft.VisualStudio.Editor.Implementation.Snippet.VsExpansionManager
+;;
+;; We organize English language snippets in `VS/Snippets/`, but once deployed, the {JS,TS}
+;; snippets are placed in
+;;
+;;  %VSINSTALLDIR%\{JS,TS}\1033\Snippets
+;;
+;; respectively. For release, we use `file_snippets.swr` and its localized counterparts to move the snippets into the
+;; corresponding destination dirs.
+;; We also use loc/lci/* and typescript.locmanifest to describe where localized resources live.
+;; All of these files must be kept in sync with the directory structure and snippet files
+;; in order for localization to work correctly. That is, you must update all of these files
+;; each time you add a snippet.
+;;
+;;
+
+;;
+;; TypeScript
+;;
+[$RootKey$\Languages\CodeExpansions\TypeScript]
+;; The snippet guid used to call into the expansion manager.
+;; Must be kept in sync with GuidConstants.cs
+;; We have also copied the same guid into snippetindex.xml, but it doesn't seem to matter.
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+;; This doesn't appear to be used in the implementation, and modifying or excluding it has no
+;; effect on the behavior of the snippets retrieved or the snippet session. We include it defensively
+;; to be consistent with the documentation.
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+;; Resource ID of localized name of the language
+;; Used to display the locale name of the programming language in UI components
+;; e.g. in the Code Snippet Manager dialog
+"DisplayName"="#1019"
+;; This doesn't appear to be used in the implementation, and modifying or excluding it has no
+;; effect on the behavior of the snippets retrieved or the snippet session.
+;; We keep it in sync with the *.snippet files and the snippetindex.xml defensively to be consistent
+;; with the documentation.
+"LangStringID"="TypeScript"
+;; The location of the index file. This doesn't specify where to look for snippets
+;; (that distinction belongs to any values living under the `CodeExpansions\<Lang>\Paths` key).
+;; Instead, it is used for localization of the names of directories containing snippets.
+"IndexPath"="$BaseInstallDir$TS\%LCID%\Snippets\SnippetsIndex.xml"
+
+;; Any values under this regKey will be searched to find snippets.
+;; Also, the search is recursive.
+;; It is highly suggested none of the paths in these lists overlap, as some snippets may be duplicated
+;; in the search results. Concretely, consider the following directory structure:
+;;
+;; dir1
+;; |-d2
+;;   |- foo.snippet
+;;   |- bar.snippet
+;;
+;; Including "X:\path\to\dir1\;X:\path\to\dir1\dir2\" will make the enumerator return foo.snippet twice!
+[$RootKey$\Languages\CodeExpansions\TypeScript\Paths]
+"TypeScript"="$BaseInstallDir$TS\%LCID%\Snippets\General\;$BaseInstallDir$TS\%LCID%\Snippets\Angular 2\;%MyDocs%\Code Snippets\TypeScript\My Code Snippets\"
+
+;; We need to create the directories searched in case they don't exist so no IO operations fail.
+[$RootKey$\Languages\CodeExpansions\TypeScript\ForceCreateDirs]
+"TypeScript"="$BaseInstallDir$TS\%LCID%\Snippets\General\;$BaseInstallDir$TS\%LCID%\Snippets\Angular 2\;%MyDocs%\Code Snippets\TypeScript\My Code Snippets\"
+
+;;
+;; JavaScript
+;;
+[$RootKey$\Languages\CodeExpansions\JavaScript]
+;; We copied this guid from the legacy JS languge service (JSLS).
+;; The JSLS snippet service uses this guid when calling the expansion manager,
+;; so JSLS will take in whatever snippet paths we specify below.
+@="{71d61d27-9011-4b17-9469-d20f798fb5c0}"
+;; This doesn't appear to be used in the implementation, and modifying or excluding it has no
+;; effect on the behavior of the snippets retrieved or the snippet session.
+;;
+;; We rely on this behavior to make JSLS (which has a different package guid) work with
+;; the other entries we provide below.
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+;; Resource ID of localized name of the language
+;; Used to display the locale name of the programming language in UI components
+;; e.g. in the Code Snippet Manager dialog
+"DisplayName"="#1038"
+"LangStringID"="JavaScript"
+"IndexPath"="$BaseInstallDir$JS\%LCID%\Snippets\SnippetsIndex.xml"
+
+[$RootKey$\Languages\CodeExpansions\JavaScript\Paths]
+"JavaScript"="$BaseInstallDir$JS\%LCID%\Snippets\General\;$BaseInstallDir$JS\%LCID%\Snippets\ASP.NET AJAX\;$BaseInstallDir$JS\%LCID%\Snippets\Angular 1\;%MyDocs%\Code Snippets\JavaScript\My Code Snippets\"
+
+[$RootKey$\Languages\CodeExpansions\JavaScript\ForceCreateDirs]
+"JavaScript"="$BaseInstallDir$JS\%LCID%\Snippets\General\;$BaseInstallDir$JS\%LCID%\Snippets\ASP.NET AJAX\;$BaseInstallDir$JS\%LCID%\Snippets\Angular 1\;%MyDocs%\Code Snippets\JavaScript\My Code Snippets\"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Associate the TypeScript language service with file extensions ".ts, .cts, .mts, .tsx, .js, .cjs, .mjs, .jsx, ngml"
+;;
+;;
+[$RootKey$\Languages\File Extensions\.ts]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.cts]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.mts]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.tsx]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.js]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.cjs]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.mjs]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.jsx]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+[$RootKey$\Languages\File Extensions\.ngml]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the capabilities of the typescript language service.
+;;
+;; Note: This is needed to show a "TypeScript" entry under "Tools | Options | Text Editor".
+;;
+;; Note: The name of the language service ("TypeScript") ends up being set as the "ContentType"
+;;       of the created buffer. It is also used as the display name of the "Text Editor" entry.
+;;
+;; Note: If you change the "TypeScript" name below, you need to change also
+;;       1) The content type contant value at "TypeScriptLanguageService.VsPackage.StringConstants.TypeScriptContentTypeName"
+;;       2) All the entries starting with "[$RootKey$\Languages\Language Services\" in this file
+;;       3) The LangResID is a hex value that corresponds to the int key (1010) found in the VSPackage.resx for the "JavaScript/TypeScript"
+;;          entry in tools options. The "Package" guid specifies the VSPackage.resx that corresponds to this entry.
+;;
+[$RootKey$\Languages\Language Services\TypeScript]
+@="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"LangResID"=dword:000003f2
+"ShowCompletion"=dword:00000001
+"ShowSmartIndent"=dword:00000001
+"RequestStockColors"=dword:00000001
+"DefaultToInsertSpaces"=dword:00000001
+"ShowDropdownBarOption"=dword:00000001
+"ShowBraceCompletion"=dword:00000001
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; The following guids correspond to the JavaScript Editor & TypeScript Editor factories.
+;; We split these out into two separate factories so that we can provide unique file extension
+;; mappings. See the file extension mapping section further down for more details.
+
+[$RootKey$\Editors\{0f2454b1-a556-402d-a7d0-1fde7f99dee0}]
+@="TypeScriptEditor"
+"DisplayName"="TypeScriptEditor"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+;;
+;; Add ".ts", ".tsx" extensions to existing "Source Code (Text) Editor" editor
+[$RootKey$\Editors\{0f2454b1-a556-402d-a7d0-1fde7f99dee0}\Extensions]
+"ts"=dword:00000026
+"cts"=dword:00000026
+"mts"=dword:00000026
+"tsx"=dword:00000026
+;;
+[$RootKey$\Editors\{14d17961-fe51-464d-9111-c4af11d7d99a}]
+@="JavaScriptEditor"
+"DisplayName"="JavaScriptEditor"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"CommonPhysicalViewAttributes"=dword:00000002
+"DeferUntilIntellisenseIsReady"=dword:00000000
+;;
+;; Add ".js", and ".jsx" extensions to existing "Source Code (Text) Editor" editor
+[$RootKey$\Editors\{14d17961-fe51-464d-9111-c4af11d7d99a}\Extensions]
+"js"=dword:00000050
+"cjs"=dword:00000050
+"mjs"=dword:00000050
+"jsx"=dword:00000050
+;;
+;; Add extensions for files which can be edited using a TypeScript Server Plugin
+[$RootKey$\Editors\{14d17961-fe51-464d-9111-c4af11d7d99a}\Extensions]
+"ngml"=dword:00000100
+
+;;
+;; Specify that dynamic scripts with the "script" debugger content type (ex: .js/.jsx)
+;; should be opened with the TypeScript language service's JavaScriptEditor.
+;; This is used in \debugger\vsdebug\package\ScriptNode.cpp to retrieve the
+;; correct editor for the document. TypeScript dynamic scripts do not have
+;; the "script" content type so they will select the TypeScriptEditor using the
+;; logical view registration settings below.
+[$RootKey$\Debugger\DynamicScriptDocumentEditor\Script]
+"LanguageServiceId"="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+"EditorType"="{14d17961-fe51-464d-9111-c4af11d7d99a}"
+
+;;
+;; Register with the VS debugger that TypeScript language is debugged with the "script" debugger.
+;; This is used in determining whether users are setting/have set breakpoints in JavaScript files
+;; so that they can be warned when launch browser with "script" debugging is disabled.
+[$RootKey$\Debugger\JavaScript Languages\{87BDF188-E6E8-4FCF-A82A-9B8506E01847}]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Logical views registration
+;; LogicalView.Debugging: {7651A700-06E5-11D1-8EBD-00A0C90F26EA}
+;; LogicalView.Code: {7651A701-06E5-11D1-8EBD-00A0C90F26EA}
+;; LogicalView.Text: {7651A703-06E5-11D1-8EBD-00A0C90F26EA}
+;;
+[$RootKey$\Editors\{0f2454b1-a556-402d-a7d0-1fde7f99dee0}\LogicalViews]
+"{7651A700-06E5-11D1-8EBD-00A0C90F26EA}"=""
+"{7651A701-06E5-11D1-8EBD-00A0C90F26EA}"=""
+"{7651A703-06E5-11D1-8EBD-00A0C90F26EA}"=""
+
+[$RootKey$\Editors\{14d17961-fe51-464d-9111-c4af11d7d99a}\LogicalViews]
+"{7651A700-06E5-11D1-8EBD-00A0C90F26EA}"=""
+"{7651A701-06E5-11D1-8EBD-00A0C90F26EA}"=""
+"{7651A703-06E5-11D1-8EBD-00A0C90F26EA}"=""
+
+;;Register our EditorFactor to be notified when a .ts/.cts/.mts file is added to a VB project
+[$RootKey$\Projects\{F184B08F-C81C-45f6-A57F-5ABD9991F28F}\FileExtensions\.ts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+[$RootKey$\Projects\{F184B08F-C81C-45f6-A57F-5ABD9991F28F}\FileExtensions\.cts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+[$RootKey$\Projects\{F184B08F-C81C-45f6-A57F-5ABD9991F28F}\FileExtensions\.mts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+
+;;Register our EditorFactor to be notified when a *.tsx file is added to a VB project
+[$RootKey$\Projects\{F184B08F-C81C-45f6-A57F-5ABD9991F28F}\FileExtensions\.tsx]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+
+;;Register our EditorFactor to be notified when a .ts/.cts/.mts file is added to a C# project
+[$RootKey$\Projects\{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}\FileExtensions\.ts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+[$RootKey$\Projects\{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}\FileExtensions\.cts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+[$RootKey$\Projects\{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}\FileExtensions\.mts]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+
+;;Register our EditorFactor to be notified when a *.tsx file is added to a C# project
+[$RootKey$\Projects\{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}\FileExtensions\.tsx]
+"EditorFactoryNotify"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"DefaultBuildAction"="TypeScriptCompile"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define Tools|Options pages
+;;
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions]
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Formatting]
+@="#1000"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Formatting\General]
+@="#1002"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{08f3fd83-881a-4990-89c9-57ba96eafded}"
+"Keywords"="#1014"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Formatting\New Lines]
+@="#1003"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{990eb19d-a345-4a3b-a275-a63bd6032b55}"
+"Keywords"="#1011"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Formatting\Spacing]
+@="#1004"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{4395bf79-9b95-4a50-9c3f-acffad314368}"
+"Keywords"="#1015"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Project]
+@="#1016"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Project\General]
+@="#1017"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{f42fbcf3-88d4-4763-9a59-a77a8d09632c}"
+"Keywords"="#1018"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\IntelliSense]
+@="#1030"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\IntelliSense\General]
+@="#1031"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{40EC6659-2FF8-431A-A5A4-C0DDE6C18076}"
+"Keywords"="#1032"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Advanced]
+@="#1054"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Advanced\General]
+@="#1055"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{7037B0A5-110C-4753-AEF0-AEBC2F38D457}"
+"Keywords"="#1056"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Experimental]
+@="#1033"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Experimental\General]
+@="#1034"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{239DDEC2-612E-4FEC-A18E-684EDAB121A2}"
+"Keywords"="#1035"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Code Validation]
+@="#1039"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\Languages\Language Services\TypeScript\EditorToolsOptions\Code Validation\JavaScript Errors]
+@="#1040"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"Page"="{F785BDDC-7151-4D82-8335-331B4ADC0704}"
+"Keywords"="#1041"
+
+[$RootKey$\AutomationProperties\TextEditor\TypeScript Specific]
+"Description"="#1007"
+"Name"="TypeScript Specific"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"ProfileSave"=dword:00000001
+"ResourcePackage"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"VSSettingsMigration"=dword:00000001
+@="#1008"
+
+[$RootKey$\AutomationProperties\TextEditor\TypeScript]
+"Description"="#1009"
+"Name"="TypeScript"
+"Package"="{F5E7E720-1401-11D1-883B-0000F87579D2}"
+"ProfileSave"=dword:00000001
+"ResourcePackage"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"VSSettingsMigration"=dword:00000001
+@="#1010"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; File extension mappings provide a way for the user to map custom file extensions to
+;; the JavaScript and TypeScript editors. These entries can be found under:
+;; Tools | Options | Text Editor | File Extensions
+;;
+[$RootKey$\FileExtensionMapping\{7C7D0B79-2EE8-49EA-A04A-DC932FBE1A2B}]
+@="TypeScript Editor"
+"DisplayName"="#1026"
+"EditorGUID"="{0f2454b1-a556-402d-a7d0-1fde7f99dee0}"
+"LogViewID"="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+[$RootKey$\FileExtensionMapping\{01993761-bf73-410e-8d87-2eb498dc4565}]
+@="JavaScript Editor"
+"DisplayName"="#1042"
+"EditorGUID"="{14d17961-fe51-464d-9111-c4af11d7d99a}"
+"LogViewID"="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; New Project Dialog Root Node
+;;
+
+[$RootKey$\NewProjectTemplates\TemplateDirs\{2ffe45c4-5c73-493c-b187-f2e955ff875e}\/1]
+@="#1019"
+"DeveloperActivity"="TypeScript"
+"SortPriority"=dword:000000fa
+"TemplatesDir"="\.\NullPath"
+
+[$RootKey$\Projects\{0188900E-B2F5-48B2-8CD3-D907FFF86357}]
+@="TypeScriptTemplates"
+"Language(VsTemplate)"="TypeScript"
+"Package"="{2ffe45c4-5c73-493c-b187-f2e955ff875e}"
+"DisplayName"="TypeScript"
+"DisplayProjectFileExtensions"="#1"
+"ProjectTemplatesDir"="\\.\\NullPath"
+"DisplayProjectType(VsTemplate)"="TypeScript"
+
+[$RootKey$\NewProjectTemplates\TemplateDirs\{7e89d1bd-0041-4382-9816-0e78fc502bed}\/1]
+@="JavaScript"
+"DeveloperActivity"="JavaScript"
+"SortPriority"=dword:00000064
+"TemplatesDir"="\.\NullPath"
+
+[$RootKey$\Projects\{262852c6-cd72-467d-83fe-5eeb1973a190}]
+@="JavaScriptTemplates"
+"Language(VsTemplate)"="JavaScript"
+"Package"="{7e89d1bd-0041-4382-9816-0e78fc502bed}"
+"DisplayName"="JavaScript"
+"DisplayProjectFileExtensions"="#1"
+"ProjectTemplatesDir"="\\.\\NullPath"
+"DisplayProjectType(VsTemplate)"="JavaScript"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; TypeScript ProjectPropertyPage
+;;
+[$RootKey$\CLSID\{d4683cae-88c4-4b85-863d-ac8014f3ba36}]
+@="Microsoft.VisualStudio.LanguageServices.TypeScript.VsPackage.TypeScriptProjectPropertyPageComClass"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.LanguageServices.TypeScript.VsPackage.TypeScriptProjectPropertyPageComClass"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.LanguageServices.TypeScript.dll"
+"ThreadingModel"="Both"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the tmLanguage and tmTheme files location for text mate to use
+;;
+[$RootKey$\TextMate\Repositories]
+"TypeScript"="$PackageFolder$\tmLanguage"
+"TypeScript.Pug"="$PackageFolder$\tmLanguage"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the location of the language configuration file for the grammar
+;;
+[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.ts"="$PackageFolder$\language-configuration.json"
+"source.tsx"="$PackageFolder$\language-configuration.json"
+"text.pug"="$PackageFolder$\tmLanguage\pug-language-configuration.json"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Define the location of the language configuration file for the content type
+;;
+[$RootKey$\TextMate\LanguageConfiguration\ContentTypeMapping]
+"TypeScript"="$PackageFolder$\language-configuration.json"
+"TypeScript.Pug"="$PackageFolder$\tmLanguage\pug-language-configuration.json"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Debugger expression evaluator
+;;
+
+[$RootKey$\AD7Metrics\ExpressionEvaluator\{87BDF188-E6E8-4FCF-A82A-9B8506E01847}\{994B45C4-E6E9-11D2-903F-00C04FA302A1}]
+"Engine"="{F200A7E7-DEA5-11D0-B854-00A0244A1DE2}"
+"Language"="TypeScript"
+"Name"="Microsoft TypeScript"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Peek support
+;;
+
+[$RootKey$\Peek\SupportedContentTypes]
+".ts"=""
+".tsx"=""
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Commandline Diff support
+;;
+
+[$RootKey$\Diff\SupportedContentTypes]
+".ts"=""
+".tsx"=""
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Installation location
+;;
+[$RootKey$\TypeScriptConfigurationSettings]
+"InstallationFolder"="$PackageFolder$"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Feature Flags
+;;
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\TrackProjectDocuments]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LoadIndividualContexts]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LoadGlobalPlugins]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\RevertDiagnosticCancellation]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\AllowSeparateServerVersions]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\RefreshOnProjectLoadedEvent]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\SendConfigureToSyntaxOnlyServer]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\PreventTextViewSyncCancellation]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\CacheCompilerOptionsForInferredProjects]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\ProjectsUpdatedInBackgroundEventRefresh]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\ThrowOnCancellationForServerCalls]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\RequireExplicitEmptySpanRefactoringRequests]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\AllowCtrlClickCancellation]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\UseIVsHierarchyEventsForProjectSync]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\IgnoreSourceFilesFromVsProject]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\SignatureHelp]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\GoToDefinition]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\Completion]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\Hover]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\DocumentHighlights]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\Formatting]
+"Value"=dword:00000000
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\FindAllReferences]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\SemanticTokens]
+"Value"=dword:00000001
+[$RootKey$\FeatureFlags\JavaScript\LanguageService\LSP\FoldingRanges]
+"Value"=dword:00000001
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Brokered Services
+;;
+[$RootKey$\BrokeredServices\Microsoft.CodeAnalysis.Editor.TypeScript.LSP.LSPCommandSupportService]
+@="ed75a170-4915-41b0-b85a-fb073f81bc12"
+"audience"=dword:500
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; ShellFileAssociations specifies the icons to use in Solution Explorer
+;;
+[$RootKey$\ShellFileAssociations\.pug]
+"DefaultIconMoniker"="KnownMonikers.WebFile"
+[$RootKey$\ShellFileAssociations\.jade]
+"DefaultIconMoniker"="KnownMonikers.WebFile"

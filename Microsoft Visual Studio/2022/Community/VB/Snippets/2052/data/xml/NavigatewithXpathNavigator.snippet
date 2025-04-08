@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>使用 XPathNavigator 进行导航</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>使用 XPathNavigator 循环访问 XDocument 的节点。</Description>
+      <Shortcut>xmlNavDoc</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>System.XML.Linq.dll</Assembly>          
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Xml.Linq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Xml.XPath</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>xmlDoc</ID>
+          <Type>XDocument</Type>
+          <ToolTip>替换为 XDocument 实例。</ToolTip>
+          <Default>xmlDoc</Default>
+        </Object>
+      </Declarations>
+      <Code Language="VB" Kind="method body"><![CDATA[Dim nav = $xmlDoc$.CreateNavigator()
+
+        nav.MoveToChild(XPathNodeType.Element)
+
+        Dim nodeIterator = nav.SelectChildren(XPathNodeType.Element)
+        While nodeIterator.MoveNext
+            ' Interact with each child node here.
+        End While]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>枚举串行端口</Title>
+      <Author>Microsoft Corporation</Author>
+      <Description>显示如何使用 My 对象枚举串行端口。</Description>
+      <Shortcut>conPorts</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="VB" Kind="method body"><![CDATA[For Each portName In My.Computer.Ports.SerialPortNames
+    
+Next]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,9 @@
+{
+  "kind": "serviceConnector",
+  "restorable": true,
+  "model": [
+    {
+      "connectorAuthType": "UserAccount"
+    }
+  ]
+}

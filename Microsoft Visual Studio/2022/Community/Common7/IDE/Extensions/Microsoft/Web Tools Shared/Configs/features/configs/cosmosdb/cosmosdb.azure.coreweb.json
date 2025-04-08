@@ -1,0 +1,19 @@
+{
+  "components": {
+    "nuget": {
+      "modifiers": [
+        "cosmosdb.nuget.allPackages"
+      ]
+    },
+    "secretStore": {
+      "modifiers": [
+        "secretStore.localSecretsOrAcaKeyVault.connectionId"
+      ]
+    },
+    "serviceConnector": {
+      "modifiers": [
+        "cosmosdb.serviceConnector.local"
+      ]
+    }
+  }
+}

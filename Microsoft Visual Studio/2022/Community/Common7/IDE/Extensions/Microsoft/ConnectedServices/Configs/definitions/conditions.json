@@ -1,0 +1,614 @@
+{
+  "canHaveApi": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/appServiceCanHaveApi" },
+      { "$ref": "#/functionAppCanHaveApi" }
+    ]
+  },
+  "appServiceCanHaveApi": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "3.1",
+        "comparison": "GreaterThanOrEqualTo"
+      },
+      {
+        "kind": "HasProjectCapability",
+        "capability": "DotNetCoreWeb"
+      },
+      {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "IsPackageInstalledAtLeastVersion",
+            "minVersion": "5.0",
+            "packageName": "Swashbuckle.AspNetCore"
+          },
+          {
+            "kind": "IsPackageInstalledAtLeastVersion",
+            "minVersion": "9.0.0-preview.6.24272.7",
+            "packageName": "Microsoft.AspNetCore.OpenApi"
+          }
+        ]
+      }
+    ]
+  },
+  "functionAppCanHaveApi": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "not",
+        "operand": {
+          "kind": "ProjectProperty",
+          "propertyName": "AzureFunctionsVersion",
+          "expectedValue": "v1"
+        }
+      },
+      {
+        "$ref": "#/isAzureFunction"
+      },
+      {
+        "kind": "or",
+        "operands": [
+          {
+            "kind": "IsPackageInstalledAtLeastVersion",
+            "minVersion": "0.8.1-preview",
+            "packageName": "Microsoft.Azure.Functions.Worker.Extensions.OpenApi"
+          },
+          {
+            "kind": "IsPackageInstalledAtLeastVersion",
+            "minVersion": "0.5.1-preview",
+            "packageName": "Microsoft.Azure.WebJobs.Extensions.OpenApi"
+          }
+        ]
+      }
+    ]
+  },
+  "isAppServicePublish": {
+    "kind": "HasProjectCapability",
+    "capability": "AppServicePublish"
+  },
+  "isCSharpOrVB": {
+    "kind": "HasProjectCapability",
+    "capability": "CSharp|VB"
+  },
+  "isLibraryProjectOutputType": {
+    "kind": "ProjectProperty",
+    "propertyName": "OutputType",
+    "expectedValue": "library"
+  },
+  "isWinExeOutputType": {
+    "kind": "ProjectProperty",
+    "propertyName": "OutputType",
+    "expectedValue": "WinExe"
+  },
+  "isAppContainerExeOutputType": {
+    "kind": "ProjectProperty",
+    "propertyName": "OutputType",
+    "expectedValue": "AppContainerExe"
+  },
+  "isTestProject": {
+    "kind": "ProjectProperty",
+    "propertyName": "TestProject",
+    "expectedValue": "true"
+  },
+  "isDotNetCoreWeb": {
+    "kind": "HasProjectCapability",
+    "capability": "DotNetCoreWeb"
+  },
+  "isDotNetCoreWorker": {
+    "kind": "HasProjectCapability",
+    "capability": "DotNetCoreWorker"
+  },
+  "isDotNetCoreWeb_greaterThan_v21": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "2.1",
+        "comparison": "GreaterThan"
+      }
+    ]
+  },
+  "isDotNetCoreWeb_5_orGreater": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "5.0",
+        "comparison": "GreaterThanOrEqualTo"
+      }
+    ]
+  },
+  "isDotNetCoreWebv1v30": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetCoreWeb" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "3.1",
+        "comparison": "LessThan"
+      }
+    ]
+  },
+  "isNotDotNetCoreWeb": {
+    "kind": "not",
+    "operand": {
+      "$ref": "#/isDotNetCoreWeb"
+    }
+  },
+  "isWeb": {
+    "kind": "HasProjectCapability",
+    "capability": "Web"
+  },
+  "isWebSite": {
+    "kind": "HasProjectCapability",
+    "capability": "WebsiteProject"
+  },
+  "isWebAssembly": {
+    "kind": "HasProjectCapability",
+    "capability": "WebAssembly"
+  },
+  "webAssemblyNet5": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isWebAssembly" },
+      {
+        "kind": "TfmVersionComparison",
+        "tfmType": "netcore",
+        "version": "5.0",
+        "comparison": "Equals"
+      }
+    ]
+  },
+  "isNotWebProject": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isWeb"
+        }
+      },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isWebSite"
+        }
+      }
+    ]
+  },
+  "allWebProjects": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/isWeb" },
+      { "$ref": "#/isWebSite" }
+    ]
+  },
+  "isDotNetCore": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isCps" },
+      { "$ref": "#/isDotNet" }
+    ]
+  },
+  "isConsole": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isNotWebProject" },
+      { "$ref": "#/isAppServicePublish" },
+      {
+        "kind": "not",
+        "operand": {
+          "$ref": "#/isLibraryProjectOutputType"
+        }
+      }
+    ]
+  },
+  "isAzureFunction": {
+    "kind": "or",
+    "operands": [
+      {
+        "kind": "HasProjectCapability",
+        "capability": "AzureFunctions"
+      },
+      {
+        "kind": "and",
+        "operands": [
+          {
+            "kind": "HasProjectItem",
+            "projectItem": "local.settings.json"
+          },
+          {
+            "kind": "HasProjectItem",
+            "projectItem": "host.json"
+          }
+        ]
+      }
+    ]
+  },
+  "isNotAzureFunction": {
+    "kind": "not",
+    "operand": {
+      "$ref": "#/isAzureFunction"
+    }
+  },
+  "isCps": {
+    "kind": "HasProjectCapability",
+    "capability": "CPS"
+  },
+  "isDotNet": {
+    "kind": "HasProjectCapability",
+    "capability": ".NET"
+  },
+  "webAssemblyNet5Local": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/webAssemblyNet5" }
+    ]
+  },
+  "webAssemblyNet5AppService": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allRemoteEnvironments" },
+      { "$ref": "#/webAssemblyNet5" }
+    ]
+  },
+  "isLocalEnvironment": {
+    "kind": "EnvironmentId",
+    "id": "local"
+  },
+  "isNotLocalEnvironment": {
+    "kind": "not",
+    "operand": {
+      "$ref": "#/isLocalEnvironment"
+    }
+  },
+  "isAppServiceEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "PublishProvider",
+    "value": "AzureWebSite"
+  },
+  "isAzDevAppServiceEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "TargetId",
+    "value": "AzDevAppService"
+  },
+  "isAppServiceContainerEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "PublishProvider",
+    "value": "AppServiceContainer"
+  },
+  "isContainerAppEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "PublishProvider",
+    "value": "ContainerApp"
+  },
+  "isFunctionsContainerEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "PublishProvider",
+    "value": "FunctionsContainer"
+  },
+  "isGitWorkflowEnvironment": {
+    "kind": "EnvironmentProperty",
+    "property": "PublishProvider",
+    "value": "GitHubWorkflow"
+  },
+  "allRemotePublishTargets": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/allContainerAppPublishTargets" }
+    ]
+  },
+  "allAppServicePublishTargets": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/isAppServiceEnvironment" },
+      { "$ref": "#/isAppServiceContainerEnvironment" },
+      { "$ref": "#/isFunctionsContainerEnvironment" },
+      { "$ref": "#/isGitWorkflowEnvironment" },
+      { "$ref": "#/isAzDevAppServiceEnvironment" }
+    ]
+  },
+  "allContainerAppPublishTargets": {
+    "$ref": "#/isContainerAppEnvironment"
+  },
+  "remotePublishTargetsWithContainerEnvironment": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/isAppServiceContainerEnvironment" },
+      { "$ref": "#/isContainerAppEnvironment" },
+      { "$ref": "#/isFunctionsContainerEnvironment" }
+    ]
+  },
+  "allLocalEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      {
+        "kind": "or",
+        "operands": [
+          { "$ref": "#/isDotNetCore" },
+          { "$ref": "#/allWebProjects" },
+          { "$ref": "#/isAzureFunction" },
+          { "$ref": "#/isConsole" }
+        ]
+      }
+    ]
+  },
+  "localDotNetCore": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isDotNetCore" }
+    ]
+  },
+  "localDotNetCoreWeb": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isDotNetCoreWeb" }
+    ]
+  },
+  "localDotNetCoreWorker": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isDotNetCoreWorker" }
+    ]
+  },
+  "localDotNetCoreWebv1v30": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isDotNetCoreWebv1v30" }
+    ]
+  },
+  "local": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isNotDotNetCoreWeb" }
+    ]
+  },
+  "localNotAzureFunction": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isNotAzureFunction" }
+    ]
+  },
+  "localAzureFunction": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isLocalEnvironment" },
+      { "$ref": "#/isAzureFunction" }
+    ]
+  },
+  "localDotNetCoreWebWorkerOrFunction": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/localDotNetCoreWeb" },
+      { "$ref": "#/localDotNetCoreWorker" },
+      { "$ref": "#/localAzureFunction" }
+    ]
+  },
+  "allAppServiceEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      {
+        "kind": "or",
+        "operands": [
+          { "$ref": "#/allWebProjects" },
+          { "$ref": "#/isAzureFunction" },
+          { "$ref": "#/isConsole" }
+        ]
+      }
+    ]
+  },
+  "allContainerAppEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allContainerAppPublishTargets" },
+      {
+        "kind": "or",
+        "operands": [
+          { "$ref": "#/allWebProjects" },
+          { "$ref": "#/isConsole" }
+        ]
+      }
+    ]
+  },
+  "allRemoteEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allRemotePublishTargets" },
+      {
+        "kind": "or",
+        "operands": [
+          { "$ref": "#/allWebProjects" },
+          { "$ref": "#/isAzureFunction" },
+          { "$ref": "#/isConsole" }
+        ]
+      }
+    ]
+  },
+  "remoteEnvironmentsWithContainers": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/remotePublishTargetsWithContainerEnvironment" },
+      { "$ref": "#/allWebProjects" },
+      { "$ref": "#/isAzureFunction" },
+      { "$ref": "#/isConsole" }
+    ]
+  },
+  "appServiceDotNetCore": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/isDotNetCore" }
+    ]
+  },
+  "appServiceDotNetCoreWeb": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/isDotNetCoreWeb" }
+    ]
+  },
+  "containerAppDotNetCore": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allContainerAppPublishTargets" },
+      { "$ref": "#/isDotNetCore" }
+    ]
+  },
+  "appServiceDotNetCoreWebv1v30": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/isDotNetCoreWebv1v30" }
+    ]
+  },
+  "appService": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/isNotDotNetCoreWeb" }
+    ]
+  },
+  "containerApp": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allContainerAppPublishTargets" },
+      { "$ref": "#/isNotDotNetCoreWeb" }
+    ]
+  },
+  "remote": {
+    "kind": "or",
+    "operands": [
+      { "$ref": "#/appService" },
+      { "$ref": "#/containerApp" }
+    ]
+  },
+  "remoteDotNetCoreWebWithContainerEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/remoteEnvironmentsWithContainers" },
+      { "$ref": "#/isDotNetCoreWeb" }
+    ]
+  },
+  "remoteWithContainerEnvironments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/remoteEnvironmentsWithContainers" },
+      { "$ref": "#/isNotDotNetCoreWeb" }
+    ]
+  },
+  "appServiceNotAzureFunction": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allAppServicePublishTargets" },
+      { "$ref": "#/isNotAzureFunction" }
+    ]
+  },
+  "remoteAzureFunction": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/allRemotePublishTargets" },
+      { "$ref": "#/isAzureFunction" }
+    ]
+  },
+  "isDotNetFramework_GreaterThan_v4.5": {
+    "kind": "TfmVersionComparison",
+    "tfmType": "netFramework",
+    "version": "4.5",
+    "comparison": "GreaterThan"
+  },
+  "identityLocalWAP": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetFramework_GreaterThan_v4.5" },
+      { "$ref": "#/localNotAzureFunction" }
+    ]
+  },
+  "identityAppServiceWAP": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetFramework_GreaterThan_v4.5" },
+      { "$ref": "#/appServiceNotAzureFunction" }
+    ]
+  },
+  "identityOptionsLocal": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "not",
+        "operand": { "$ref": "#/webAssemblyNet5" }
+      },
+      { "$ref": "#/localNotAzureFunction" },
+      { "$ref": "#/isDotNetCoreWeb_5_orGreater" }
+    ]
+  },
+  "identityOptionsAppService": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "not",
+        "operand": { "$ref": "#/webAssemblyNet5" }
+      },
+      { "$ref": "#/appServiceNotAzureFunction" },
+      { "$ref": "#/isDotNetCoreWeb_5_orGreater" }
+    ]
+  },
+  "isWindowsDesktop": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isWinExeOutputType" },
+      { "$ref": "#/isCSharpOrVB" }
+    ]
+  },
+  "isUniversalWindows": {
+    "kind": "and",
+    "operands": [
+      {
+        "kind": "ProjectTypeGuid",
+        "guid": { "$ref": "/definitions/guids.json#/UniversalWindows" }
+      },
+      { "$ref": "#/isAppContainerExeOutputType" },
+      {
+        "kind": "not",
+        "operand": { "$ref": "#/isTestProject" }
+      }
+    ]
+  },
+  "isAndroidProject": {
+    "kind": "ProjectTypeGuid",
+    "guid": { "$ref": "/definitions/guids.json#/Android" }
+  },
+  "allOffice365Environments": {
+    "kind": "and",
+    "operands": [
+      { "$ref": "#/isDotNetFramework_GreaterThan_v4.5" },
+      {
+        "kind": "or",
+        "operands": [
+          { "$ref": "#/isWindowsDesktop" },
+          { "$ref": "#/isUniversalWindows" },
+          { "$ref": "#/isAndroidProject" }
+        ]
+      }
+    ]
+  }
+}
